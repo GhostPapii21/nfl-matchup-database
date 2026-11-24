@@ -28,26 +28,34 @@
  },
  "result": null,
  "implied_points": {
-  "ARI": 16.5,
-  "WAS": 24.0
+  "ARI": 17.25,
+  "WAS": 24.25
  },
- "generated_utc": "2026-11-24T06:17:08+00:00",
- "board_built_utc": "2026-11-24T06:21:06+00:00",
+ "generated_utc": "2026-11-24T23:24:07+00:00",
+ "board_built_utc": "2026-11-24T23:25:49+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
-  "home_spread": 7.5,
-  "total": 40.5,
+  "home_spread": 7.0,
+  "total": 41.5,
   "moneyline": {
-   "WAS": -399.0,
-   "ARI": 316.0
+   "WAS": -348.0,
+   "ARI": 280.0
   }
  },
  "books": {
   "status": "OK_DIRECT",
   "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
-  "retrieved_utc": "2026-11-24T06:11:38Z",
+  "retrieved_utc": "2026-11-24T23:18:24Z",
   "book_retrieved_utc": {
-   "fanduel": "2026-11-24T06:11:38Z"
+   "bet365": "2026-11-24T23:18:24Z",
+   "betmgm": "2026-11-24T23:18:24Z",
+   "betrivers": "2026-11-24T23:18:24Z",
+   "consensus": "2026-11-24T23:18:24Z",
+   "draftkings": "2026-11-24T23:18:24Z",
+   "fanduel": "2026-11-24T23:18:24Z",
+   "open": "2026-11-24T23:18:24Z",
+   "pinnacle": "2026-11-24T23:18:24Z",
+   "williamhill_us": "2026-11-24T23:18:24Z"
   },
   "markets": {
    "total": {
@@ -59,43 +67,159 @@
      "fanduel": {
       "line": 41.5,
       "prices": {
-       "Over": -113.0,
-       "Under": -113.0
+       "Over": -111.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.4958,
+       "Under": 0.5042
+      },
+      "hold": 0.061,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": 41.5,
+      "prices": {
+       "Over": -106.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.4977,
+       "Under": 0.5023
+      },
+      "hold": 0.0338,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": 41.5,
+      "prices": {
+       "Over": -111.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5011,
+       "Under": 0.4989
+      },
+      "hold": 0.0499,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 41.5,
+      "prices": {
+       "Over": -111.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5033,
+       "Under": 0.4967
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": 41.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5074,
+       "Under": 0.4926
+      },
+      "hold": 0.0541,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 41.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5022,
+       "Under": 0.4978
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": 41.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
       },
       "no_vig": {
        "Over": 0.5,
        "Under": 0.5
       },
-      "hold": 0.061,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": 41.5,
+      "prices": {
+       "Over": -112.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5043,
+       "Under": 0.4957
+      },
+      "hold": 0.0475,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": 47.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": 41.5,
+     "no_vig": {
+      "Over": 0.4977,
+      "Under": 0.5023
+     }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": 41.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.5022,
+      "Under": 0.4978
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -113.0,
+      "book": "betmgm",
+      "price": -110.0,
       "line": 41.5,
-      "break_even": 0.5305
+      "break_even": 0.5238
      },
      "Under": {
-      "book": "fanduel",
-      "price": -113.0,
+      "book": "draftkings",
+      "price": -108.0,
       "line": 41.5,
-      "break_even": 0.5305
+      "break_even": 0.5192
      }
     }
    },
@@ -106,45 +230,161 @@
     ],
     "books": {
      "fanduel": {
-      "line": 7.5,
+      "line": 7.0,
       "prices": {
-       "ARI": -118.0,
-       "WAS": -108.0
+       "ARI": -105.0,
+       "WAS": -115.0
       },
       "no_vig": {
-       "ARI": 0.5104,
-       "WAS": 0.4896
+       "ARI": 0.4892,
+       "WAS": 0.5108
       },
-      "hold": 0.0605,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0471,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": 7.0,
+      "prices": {
+       "ARI": -108.0,
+       "WAS": -105.0
+      },
+      "no_vig": {
+       "ARI": 0.5034,
+       "WAS": 0.4966
+      },
+      "hold": 0.0314,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": 7.0,
+      "prices": {
+       "ARI": -107.0,
+       "WAS": -110.0
+      },
+      "no_vig": {
+       "ARI": 0.4967,
+       "WAS": 0.5033
+      },
+      "hold": 0.0407,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 7.0,
+      "prices": {
+       "ARI": -110.0,
+       "WAS": -109.0
+      },
+      "no_vig": {
+       "ARI": 0.5011,
+       "WAS": 0.4989
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": 7.0,
+      "prices": {
+       "ARI": -105.0,
+       "WAS": -117.0
+      },
+      "no_vig": {
+       "ARI": 0.4872,
+       "WAS": 0.5128
+      },
+      "hold": 0.0514,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 7.0,
+      "prices": {
+       "ARI": -108.0,
+       "WAS": -110.0
+      },
+      "no_vig": {
+       "ARI": 0.4978,
+       "WAS": 0.5022
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": 7.0,
+      "prices": {
+       "ARI": -108.0,
+       "WAS": -112.0
+      },
+      "no_vig": {
+       "ARI": 0.4957,
+       "WAS": 0.5043
+      },
+      "hold": 0.0475,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": 4.5,
+      "prices": {
+       "ARI": -110.0,
+       "WAS": -110.0
+      },
+      "no_vig": {
+       "ARI": 0.5,
+       "WAS": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": 7.5,
+      "prices": {
+       "ARI": -122.0,
+       "WAS": 102.0
+      },
+      "no_vig": {
+       "ARI": 0.5261,
+       "WAS": 0.4739
+      },
+      "hold": 0.0446,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 7.5,
-     "n_books_at_line": 1,
+     "book": "pinnacle",
+     "line": 7.0,
      "no_vig": {
-      "ARI": 0.5104,
-      "WAS": 0.4896
+      "ARI": 0.5034,
+      "WAS": 0.4966
+     }
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 7.0,
+     "n_books_at_line": 5,
+     "no_vig": {
+      "ARI": 0.4942,
+      "WAS": 0.5058
      }
     },
     "best_retail_price": {
      "ARI": {
       "book": "fanduel",
-      "price": -118.0,
-      "line": 7.5,
-      "break_even": 0.5413
+      "price": -105.0,
+      "line": 7.0,
+      "break_even": 0.5122
      },
      "WAS": {
-      "book": "fanduel",
-      "price": -108.0,
+      "book": "bet365",
+      "price": 102.0,
       "line": 7.5,
-      "break_even": 0.5192
+      "break_even": 0.495
      }
     }
    },
@@ -165,21 +405,137 @@
        "WAS": 0.7595
       },
       "hold": 0.0395,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "ARI": 281.0,
+       "WAS": -341.0
+      },
+      "no_vig": {
+       "ARI": 0.2534,
+       "WAS": 0.7466
+      },
+      "hold": 0.0357,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": null,
+      "prices": {
+       "ARI": 280.0,
+       "WAS": -353.0
+      },
+      "no_vig": {
+       "ARI": 0.2525,
+       "WAS": 0.7475
+      },
+      "hold": 0.0424,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": null,
+      "prices": {
+       "ARI": 180.0,
+       "WAS": -218.0
+      },
+      "no_vig": {
+       "ARI": 0.3425,
+       "WAS": 0.6575
+      },
+      "hold": 0.0427,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "ARI": 280.0,
+       "WAS": -348.0
+      },
+      "no_vig": {
+       "ARI": 0.2531,
+       "WAS": 0.7469
+      },
+      "hold": 0.0399,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": null,
+      "prices": {
+       "ARI": 295.0,
+       "WAS": -385.0
+      },
+      "no_vig": {
+       "ARI": 0.2418,
+       "WAS": 0.7582
+      },
+      "hold": 0.047,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": null,
+      "prices": {
+       "ARI": 280.0,
+       "WAS": -350.0
+      },
+      "no_vig": {
+       "ARI": 0.2528,
+       "WAS": 0.7472
+      },
+      "hold": 0.0409,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": null,
+      "prices": {
+       "ARI": 290.0,
+       "WAS": -370.0
+      },
+      "no_vig": {
+       "ARI": 0.2457,
+       "WAS": 0.7543
+      },
+      "hold": 0.0436,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": null,
+      "prices": {
+       "ARI": 300.0,
+       "WAS": -390.0
+      },
+      "no_vig": {
+       "ARI": 0.239,
+       "WAS": 0.761
+      },
+      "hold": 0.0459,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "ARI": 0.2534,
+      "WAS": 0.7466
+     }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": null,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "ARI": 0.2405,
-      "WAS": 0.7595
+      "ARI": 0.2455,
+      "WAS": 0.7545
      }
     },
     "best_retail_price": {
@@ -190,10 +546,10 @@
       "break_even": 0.25
      },
      "WAS": {
-      "book": "fanduel",
-      "price": -375.0,
+      "book": "draftkings",
+      "price": -348.0,
       "line": null,
-      "break_even": 0.7895
+      "break_even": 0.7768
      }
     }
    }
@@ -202,9 +558,9 @@
   "props_status": "OK",
   "odds_api_status": "UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized",
   "freeze": {
-   "pulled_utc": "2026-11-24T06:11:38Z",
+   "pulled_utc": "2026-11-24T23:18:24Z",
    "files": [
-    "pregame/price_freezes/2026-11-29_WAS@ARI/freeze_20261124T061709Z.json"
+    "pregame/price_freezes/2026-11-29_WAS@ARI/freeze_20261124T232407Z.json"
    ]
   }
  },
@@ -212,26 +568,26 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/PSR/152,62/forecast/hourly",
-  "retrieved_utc": "2026-11-24T06:17:05+00:00",
+  "retrieved_utc": "2026-11-24T23:24:06+00:00",
   "kickoff_utc": "2026-11-29T21:25:00+00:00",
   "roof": "not listed (may be retractable: confirm open or closed)",
   "at_kickoff": {
    "temp_f": 76,
    "wind_mph": 5.0,
-   "wind_dir": "SSE",
+   "wind_dir": "ESE",
    "precip_chance_pct": 0,
    "summary": "Sunny"
   },
   "during_game": {
    "temp_f_min": 74,
    "wind_mph_max": 5.0,
-   "precip_chance_pct_max": 6
+   "precip_chance_pct_max": 0
   },
   "flags": []
  },
  "weather_verdict": {
   "level": "good",
-  "headline": "Clean conditions: 6% rain, wind up to 5 mph.",
+  "headline": "Clean conditions: 0% rain, wind up to 5 mph.",
   "details": []
  },
  "weather_alerts": [],
@@ -633,6 +989,82 @@
  "game_bets": {
   "picks": [
    {
+    "market": "spread",
+    "period": "Game",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "ARI",
+     "line": 1.5,
+     "american": 250,
+     "break_even": 0.2857,
+     "p_model": 0.344,
+     "p_market": 0.354,
+     "p_bet": 0.349,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.222,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 118,
+    "books": [
+     "bet365",
+     "betmgm",
+     "betrivers",
+     "consensus",
+     "draftkings",
+     "fanduel",
+     "open",
+     "williamhill_us"
+    ],
+    "main_line_home_or_over": 7.0,
+    "vs_fanduel_main": {
+     "line": 7.0,
+     "american": -105,
+     "ev_gain": 0.1858
+    },
+    "flags": []
+   },
+   {
+    "market": "total",
+    "period": "Game",
+    "kind": "total",
+    "best": {
+     "book": "open",
+     "side": "Under",
+     "line": 47.5,
+     "american": -110,
+     "break_even": 0.5238,
+     "p_model": 0.68,
+     "p_market": 0.593,
+     "p_bet": 0.637,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.217,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 126,
+    "books": [
+     "bet365",
+     "betmgm",
+     "betrivers",
+     "consensus",
+     "draftkings",
+     "fanduel",
+     "open",
+     "williamhill_us"
+    ],
+    "main_line_home_or_over": 41.5,
+    "vs_fanduel_main": {
+     "line": 41.5,
+     "american": -110,
+     "ev_gain": 0.2527
+    },
+    "flags": []
+   },
+   {
     "market": "h1_spread",
     "period": "1st half",
     "kind": "spread",
@@ -643,85 +1075,57 @@
      "american": 280,
      "break_even": 0.2632,
      "p_model": 0.308,
-     "p_market": 0.288,
-     "p_bet": 0.298,
+     "p_market": 0.283,
+     "p_bet": 0.295,
      "p_push": 0.0,
-     "ev_per_dollar": 0.1321,
+     "ev_per_dollar": 0.1224,
      "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 44,
     "books": [
      "fanduel"
     ],
-    "main_line_home_or_over": 4.5,
-    "vs_fanduel_main": {
-     "line": 4.5,
-     "american": -110,
-     "ev_gain": 0.1468
-    },
+    "main_line_home_or_over": 4.0,
+    "vs_fanduel_main": null,
     "flags": []
    },
    {
-    "market": "spread",
+    "market": "moneyline",
     "period": "Game",
-    "kind": "spread",
+    "kind": "moneyline",
     "best": {
-     "book": "fanduel",
-     "side": "ARI",
-     "line": 2.5,
-     "american": 230,
-     "break_even": 0.303,
-     "p_model": 0.348,
-     "p_market": 0.297,
-     "p_bet": 0.322,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0631,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
+     "book": "open",
+     "side": "WAS",
+     "line": null,
+     "american": -218,
+     "break_even": 0.6855,
+     "p_model": 0.752,
+     "p_market": 0.747,
+     "p_bet": 0.749,
+     "p_push": 0.032,
+     "ev_per_dollar": 0.0901,
+     "alt": false,
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
-    "n_prices": 104,
+    "n_prices": 16,
     "books": [
-     "fanduel"
+     "bet365",
+     "betmgm",
+     "betrivers",
+     "consensus",
+     "draftkings",
+     "fanduel",
+     "open",
+     "williamhill_us"
     ],
-    "main_line_home_or_over": 7.5,
+    "main_line_home_or_over": null,
     "vs_fanduel_main": {
-     "line": 7.5,
-     "american": -115,
-     "ev_gain": 0.0548
-    },
-    "flags": []
-   },
-   {
-    "market": "h2_spread",
-    "period": "2nd half",
-    "kind": "spread",
-    "best": {
-     "book": "fanduel",
-     "side": "ARI",
-     "line": 2.5,
-     "american": 122,
-     "break_even": 0.4505,
-     "p_model": 0.468,
-     "p_market": 0.468,
-     "p_bet": 0.468,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.039,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 44,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 3.5,
-    "vs_fanduel_main": {
-     "line": 3.5,
-     "american": -110,
-     "ev_gain": 0.0845
+     "line": null,
+     "american": -375,
+     "ev_gain": 0.1393
     },
     "flags": []
    },
@@ -733,15 +1137,15 @@
      "book": "fanduel",
      "side": "ARI",
      "line": null,
-     "american": 225,
-     "break_even": 0.3077,
-     "p_model": 0.347,
-     "p_market": 0.293,
-     "p_bet": 0.319,
-     "p_push": 0.044,
-     "ev_per_dollar": 0.0363,
+     "american": 220,
+     "break_even": 0.3125,
+     "p_model": 0.357,
+     "p_market": 0.319,
+     "p_bet": 0.338,
+     "p_push": 0.048,
+     "ev_per_dollar": 0.0777,
      "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 2,
@@ -751,7 +1155,38 @@
     "main_line_home_or_over": null,
     "vs_fanduel_main": {
      "line": null,
-     "american": 225,
+     "american": 220,
+     "ev_gain": 0.0
+    },
+    "flags": []
+   },
+   {
+    "market": "q2_spread",
+    "period": "2nd quarter",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "ARI",
+     "line": 2.5,
+     "american": 110,
+     "break_even": 0.4762,
+     "p_model": 0.572,
+     "p_market": 0.454,
+     "p_bet": 0.513,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0777,
+     "alt": false,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 2,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 2.5,
+    "vs_fanduel_main": {
+     "line": 2.5,
+     "american": 110,
      "ev_gain": 0.0
     },
     "flags": []
@@ -762,17 +1197,17 @@
     "kind": "total",
     "best": {
      "book": "fanduel",
-     "side": "Under",
-     "line": 22.5,
-     "american": -148,
-     "break_even": 0.5968,
-     "p_model": 0.612,
-     "p_market": 0.614,
-     "p_bet": 0.613,
+     "side": "Over",
+     "line": 25.5,
+     "american": 215,
+     "break_even": 0.3175,
+     "p_model": 0.308,
+     "p_market": 0.356,
+     "p_bet": 0.332,
      "p_push": 0.0,
-     "ev_per_dollar": 0.0276,
+     "ev_per_dollar": 0.0447,
      "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 70,
@@ -782,8 +1217,70 @@
     "main_line_home_or_over": 20.5,
     "vs_fanduel_main": {
      "line": 20.5,
-     "american": -120,
-     "ev_gain": 0.0866
+     "american": 100,
+     "ev_gain": 0.0482
+    },
+    "flags": []
+   },
+   {
+    "market": "h2_spread",
+    "period": "2nd half",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "WAS",
+     "line": -7.5,
+     "american": 200,
+     "break_even": 0.3333,
+     "p_model": 0.344,
+     "p_market": 0.348,
+     "p_bet": 0.346,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0374,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 44,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 3.5,
+    "vs_fanduel_main": {
+     "line": -3.5,
+     "american": -110,
+     "ev_gain": 0.0867
+    },
+    "flags": []
+   },
+   {
+    "market": "q2_moneyline",
+    "period": "2nd quarter",
+    "kind": "moneyline",
+    "best": {
+     "book": "fanduel",
+     "side": "ARI",
+     "line": null,
+     "american": 186,
+     "break_even": 0.3497,
+     "p_model": 0.388,
+     "p_market": 0.333,
+     "p_bet": 0.36,
+     "p_push": 0.072,
+     "ev_per_dollar": 0.027,
+     "alt": false,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 2,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": null,
+    "vs_fanduel_main": {
+     "line": null,
+     "american": 186,
+     "ev_gain": 0.0
     },
     "flags": []
    },
@@ -797,13 +1294,13 @@
      "line": 13.5,
      "american": -430,
      "break_even": 0.8113,
-     "p_model": 0.832,
-     "p_market": 0.83,
-     "p_bet": 0.831,
+     "p_model": 0.824,
+     "p_market": 0.827,
+     "p_bet": 0.826,
      "p_push": 0.0,
-     "ev_per_dollar": 0.0245,
+     "ev_per_dollar": 0.0175,
      "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 61,
@@ -814,69 +1311,7 @@
     "vs_fanduel_main": {
      "line": 20.5,
      "american": 100,
-     "ev_gain": 0.0593
-    },
-    "flags": []
-   },
-   {
-    "market": "total",
-    "period": "Game",
-    "kind": "total",
-    "best": {
-     "book": "fanduel",
-     "side": "Over",
-     "line": 30.5,
-     "american": -560,
-     "break_even": 0.8485,
-     "p_model": 0.868,
-     "p_market": 0.87,
-     "p_bet": 0.869,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0241,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 112,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 41.5,
-    "vs_fanduel_main": {
-     "line": 41.5,
-     "american": -110,
-     "ev_gain": 0.0734
-    },
-    "flags": []
-   },
-   {
-    "market": "q2_moneyline",
-    "period": "2nd quarter",
-    "kind": "moneyline",
-    "best": {
-     "book": "fanduel",
-     "side": "ARI",
-     "line": null,
-     "american": 184,
-     "break_even": 0.3521,
-     "p_model": 0.383,
-     "p_market": 0.336,
-     "p_bet": 0.359,
-     "p_push": 0.06,
-     "ev_per_dollar": 0.0183,
-     "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 2,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": null,
-    "vs_fanduel_main": {
-     "line": null,
-     "american": 184,
-     "ev_gain": 0.0
+     "ev_gain": 0.0603
     },
     "flags": []
    },
@@ -888,15 +1323,15 @@
      "book": "fanduel",
      "side": "Over",
      "line": 10.5,
-     "american": -108,
-     "break_even": 0.5192,
-     "p_model": 0.552,
-     "p_market": 0.496,
-     "p_bet": 0.524,
+     "american": -110,
+     "break_even": 0.5238,
+     "p_model": 0.564,
+     "p_market": 0.5,
+     "p_bet": 0.532,
      "p_push": 0.0,
-     "ev_per_dollar": 0.009,
+     "ev_per_dollar": 0.0159,
      "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 2,
@@ -906,46 +1341,46 @@
     "main_line_home_or_over": 10.5,
     "vs_fanduel_main": {
      "line": 10.5,
-     "american": -108,
+     "american": -110,
      "ev_gain": 0.0
     },
     "flags": []
    },
    {
-    "market": "q2_spread",
-    "period": "2nd quarter",
-    "kind": "spread",
+    "market": "q1_moneyline",
+    "period": "1st quarter",
+    "kind": "moneyline",
     "best": {
      "book": "fanduel",
      "side": "ARI",
-     "line": 3.5,
-     "american": -136,
-     "break_even": 0.5763,
-     "p_model": 0.604,
-     "p_market": 0.55,
-     "p_bet": 0.577,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0016,
+     "line": null,
+     "american": 172,
+     "break_even": 0.3676,
+     "p_model": 0.364,
+     "p_market": 0.376,
+     "p_bet": 0.37,
+     "p_push": 0.144,
+     "ev_per_dollar": 0.0056,
      "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 2,
     "books": [
      "fanduel"
     ],
-    "main_line_home_or_over": 3.5,
+    "main_line_home_or_over": null,
     "vs_fanduel_main": {
-     "line": 3.5,
-     "american": -136,
+     "line": null,
+     "american": 172,
      "ev_gain": 0.0
     },
     "flags": []
    }
   ],
   "implied_points": {
-   "home": 17.0,
-   "away": 24.5
+   "home": 17.2,
+   "away": 24.2
   },
   "neighbors": 250,
   "method": "250 most similar games 2022-2026 by implied points, blended with the market's fair price at each line"
@@ -1004,10 +1439,10 @@
     "pass_epa_per_dropback": 0.24657006738836681,
     "rush_epa_per_carry": -0.039235368138889885,
     "neutral_pass_rate": 0.5607476635514018,
-    "blitz_rate": 0.37719298245614036,
-    "play_action_rate": 0.27631578947368424,
-    "sack_rate_when_blitzing": 0.011627906976744186,
-    "dropbacks_charted": 228,
+    "blitz_rate": 0.373134328358209,
+    "play_action_rate": 0.26865671641791045,
+    "sack_rate_when_blitzing": 0.01,
+    "dropbacks_charted": 268,
     "wr_targets_pg": 16.0,
     "wr_receptions_pg": 10.25,
     "wr_rec_yards_pg": 147.375,
@@ -3012,7 +3447,7 @@
        }
       ],
       "full_name": "Stefon Diggs",
-      "snap_share": 0.627,
+      "snap_share": 0.631,
       "targets_pg": 7.1,
       "receptions_pg": 4.4,
       "yards_pg": 47.0,
@@ -3100,7 +3535,7 @@
        }
       ],
       "full_name": "Antonio Williams",
-      "snap_share": 0.711,
+      "snap_share": 0.728,
       "targets_pg": 5.6,
       "receptions_pg": 3.8,
       "yards_pg": 45.0,
@@ -3110,7 +3545,7 @@
       "tags": [
        {
         "tag": "Most on field",
-        "why": "71% of offensive snaps"
+        "why": "73% of offensive snaps"
        },
        {
         "tag": "Boom-bust",
@@ -3182,7 +3617,7 @@
        }
       ],
       "full_name": "Chig Okonkwo",
-      "snap_share": 0.692,
+      "snap_share": 0.696,
       "targets_pg": 5.9,
       "receptions_pg": 4.1,
       "yards_pg": 44.7,
@@ -3255,7 +3690,7 @@
        }
       ],
       "full_name": "Treylon Burks",
-      "snap_share": 0.585,
+      "snap_share": 0.604,
       "targets_pg": 3.9,
       "receptions_pg": 2.3,
       "yards_pg": 41.4,
@@ -3327,7 +3762,7 @@
        }
       ],
       "full_name": "Austin Ekeler",
-      "snap_share": 0.28,
+      "snap_share": 0.29,
       "targets_pg": 2.5,
       "receptions_pg": 2.0,
       "yards_pg": 12.8,
@@ -3403,7 +3838,7 @@
        }
       ],
       "full_name": "Rachaad White",
-      "snap_share": 0.545,
+      "snap_share": 0.499,
       "targets_pg": 2.5,
       "receptions_pg": 1.8,
       "yards_pg": 14.8,
@@ -3510,7 +3945,7 @@
        }
       ],
       "full_name": "Van Jefferson",
-      "snap_share": 0.275,
+      "snap_share": null,
       "targets_pg": 3.0,
       "receptions_pg": 1.7,
       "yards_pg": 19.3,
@@ -3631,7 +4066,7 @@
        }
       ],
       "full_name": "Jacory Croskey-Merritt",
-      "snap_share": 0.457,
+      "snap_share": 0.445,
       "carries_pg": 13.0,
       "yards_pg": 46.8,
       "yards_cv": 0.61,
@@ -3710,7 +4145,7 @@
        }
       ],
       "full_name": "Rachaad White",
-      "snap_share": 0.545,
+      "snap_share": 0.499,
       "carries_pg": 8.5,
       "yards_pg": 35.0,
       "yards_cv": 0.39,
@@ -3792,7 +4227,7 @@
        }
       ],
       "full_name": "Austin Ekeler",
-      "snap_share": 0.28,
+      "snap_share": 0.29,
       "carries_pg": 5.7,
       "yards_pg": 21.4,
       "yards_cv": 0.75,
@@ -3928,41 +4363,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
+     "espn": "Questionable",
      "espn_comment": "Robertson (ankle) is inactive for Monday night's contest against the Bengals.",
      "starter_slot": "NB",
      "snap_share": 0.98,
      "next_up": "Mike Sainristil",
      "impact": "high",
-     "status_level": 3
-    },
-    {
-     "player": "Athan Kaliakmanis",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "Kaliakmanis (coach's decision) is inactive but serving as the Commanders' emergency third quarterback Monday night against the Bengals.",
-     "starter_slot": null,
-     "snap_share": 0.84,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
-     "player": "Ricky Barber",
-     "position": "DT",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "inactive",
-     "starter_slot": null,
-     "snap_share": 0.2,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Laremy Tunsil",
@@ -3972,34 +4379,6 @@
      "injury": null,
      "espn": "Injured Reserve",
      "espn_comment": "Tunsil (triceps) is progressing well in his recovery but is not expected to return by the end of the 2026 regular season, Tashan Reed of The Washington Post reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Tanoa Togiai",
-     "position": "G",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "inactive",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Robert Henry Jr.",
-     "position": "RB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "inactive",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -4029,7 +4408,7 @@
      "espn": "Active",
      "espn_comment": "Luvu recorded six tackles (two solo) and a forced fumble during the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": "LILB",
-     "snap_share": 0.988,
+     "snap_share": 0.99,
      "next_up": "Jordan Magee",
      "impact": "low",
      "status_level": 1
@@ -4043,7 +4422,7 @@
      "espn": "Active",
      "espn_comment": "Cross finished Thursday's 24-21 win over the Giants with six tackles (one solo).",
      "starter_slot": "SS",
-     "snap_share": 0.973,
+     "snap_share": 0.978,
      "next_up": "Tyler Owens",
      "impact": "low",
      "status_level": 1
@@ -4057,7 +4436,7 @@
      "espn": "Active",
      "espn_comment": "Styles recorded 13 tackles (five solo) during the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": "RILB",
-     "snap_share": 0.936,
+     "snap_share": 0.931,
      "next_up": "Kain Medrano",
      "impact": "low",
      "status_level": 1
@@ -4071,7 +4450,7 @@
      "espn": "Active",
      "espn_comment": "Patrick (concussion) is active for Monday night's game against the Bengals.",
      "starter_slot": "C",
-     "snap_share": 0.897,
+     "snap_share": 0.911,
      "next_up": "Nick Allegretti",
      "impact": "low",
      "status_level": 1
@@ -4085,8 +4464,22 @@
      "espn": "Active",
      "espn_comment": "Reaves recorded nine tackles (seven solo), one pass defense and one fumble recovery during the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": "FS",
-     "snap_share": 0.841,
+     "snap_share": 0.861,
      "next_up": "Quan Martin",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Athan Kaliakmanis",
+     "position": "QB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": 0.84,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -4099,7 +4492,7 @@
      "espn": "Active",
      "espn_comment": "Williams brought in nine of 11 targets for 122 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
      "starter_slot": null,
-     "snap_share": 0.711,
+     "snap_share": 0.728,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4113,7 +4506,7 @@
      "espn": "Active",
      "espn_comment": "Okonkwo brought in four of five targets for 66 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
      "starter_slot": "TE",
-     "snap_share": 0.692,
+     "snap_share": 0.696,
      "next_up": "Ben Sinnott",
      "impact": "low",
      "status_level": 1
@@ -4127,7 +4520,7 @@
      "espn": "Active",
      "espn_comment": "Martin (shoulder) does not carry an injury designation into Monday's game against the Bengals.",
      "starter_slot": null,
-     "snap_share": 0.654,
+     "snap_share": 0.665,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4141,7 +4534,7 @@
      "espn": "Active",
      "espn_comment": "Diggs brought in four of six targets for 45 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
      "starter_slot": "WR",
-     "snap_share": 0.627,
+     "snap_share": 0.631,
      "next_up": "Antonio Williams",
      "impact": "low",
      "status_level": 1
@@ -4155,7 +4548,7 @@
      "espn": "Active",
      "espn_comment": "Burks (foot) does not carry an injury designation into Monday's game against the Bengals.",
      "starter_slot": null,
-     "snap_share": 0.585,
+     "snap_share": 0.604,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4168,9 +4561,9 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "White (heel) is active for Monday's game against the Bengals.",
-     "starter_slot": "RB",
-     "snap_share": 0.545,
-     "next_up": "Austin Ekeler",
+     "starter_slot": null,
+     "snap_share": 0.499,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -4182,9 +4575,9 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "Croskey-Merritt rushed 13 times for 54 yards and a touchdown and brought in two of three targets for 23 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
-     "starter_slot": null,
-     "snap_share": 0.457,
-     "next_up": null,
+     "starter_slot": "RB",
+     "snap_share": 0.445,
+     "next_up": "Rachaad White",
      "impact": "low",
      "status_level": 1
     },
@@ -4197,7 +4590,7 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": "RDE",
-     "snap_share": 0.431,
+     "snap_share": 0.425,
      "next_up": "Javon Kinlaw",
      "impact": "low",
      "status_level": 1
@@ -4211,7 +4604,7 @@
      "espn": "Active",
      "espn_comment": "Sinnott caught all four of his targets for 42 yards and a touchdown Thursday in a 24-21 victory against the Giants.",
      "starter_slot": null,
-     "snap_share": 0.364,
+     "snap_share": 0.362,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4225,7 +4618,21 @@
      "espn": "Active",
      "espn_comment": "Ekeler rushed nine times for 26 yards and brought in all four targets for 26 yards in the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": null,
-     "snap_share": 0.28,
+     "snap_share": 0.29,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Ricky Barber",
+     "position": "DT",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": 0.2,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4271,9 +4678,67 @@
      "next_up": null,
      "impact": "low",
      "status_level": 1
+    },
+    {
+     "player": "Tanoa Togiai",
+     "position": "G",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Robert Henry Jr.",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
     }
    ],
    "returning": [
+    {
+     "player": "Nick Allegretti",
+     "position": "C",
+     "unit": "offense",
+     "games_missed": 4,
+     "snap_pct_before": 0.76,
+     "snap_pct_last_game": 0.01,
+     "games_since_return": 2,
+     "status": "Working back in"
+    },
+    {
+     "player": "Rachaad White",
+     "position": "RB",
+     "unit": "offense",
+     "games_missed": 1,
+     "snap_pct_before": 0.45,
+     "snap_pct_last_game": 0.22,
+     "games_since_return": 6,
+     "status": "Working back in"
+    },
+    {
+     "player": "Mike Sainristil",
+     "position": "CB",
+     "unit": "defense",
+     "games_missed": 2,
+     "snap_pct_before": 0.41,
+     "snap_pct_last_game": 0.07,
+     "games_since_return": 1,
+     "status": "Working back in"
+    },
     {
      "player": "Nick Cross",
      "position": "S",
@@ -4281,7 +4746,7 @@
      "games_missed": 3,
      "snap_pct_before": 0.99,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 4,
+     "games_since_return": 5,
      "status": "Full workload again"
     },
     {
@@ -4291,7 +4756,17 @@
      "games_missed": 2,
      "snap_pct_before": 0.98,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 5,
+     "games_since_return": 6,
+     "status": "Full workload again"
+    },
+    {
+     "player": "Lucas Patrick",
+     "position": "G",
+     "unit": "offense",
+     "games_missed": 1,
+     "snap_pct_before": 0.9,
+     "snap_pct_last_game": 1.0,
+     "games_since_return": 1,
      "status": "Full workload again"
     },
     {
@@ -4301,17 +4776,7 @@
      "games_missed": 2,
      "snap_pct_before": 0.78,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 5,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Nick Allegretti",
-     "position": "C",
-     "unit": "offense",
-     "games_missed": 4,
-     "snap_pct_before": 0.76,
-     "snap_pct_last_game": 1.0,
-     "games_since_return": 1,
+     "games_since_return": 6,
      "status": "Full workload again"
     },
     {
@@ -4320,8 +4785,8 @@
      "unit": "offense",
      "games_missed": 1,
      "snap_pct_before": 0.6,
-     "snap_pct_last_game": 0.64,
-     "games_since_return": 4,
+     "snap_pct_last_game": 0.66,
+     "games_since_return": 5,
      "status": "Full workload again"
     },
     {
@@ -4330,8 +4795,8 @@
      "unit": "offense",
      "games_missed": 2,
      "snap_pct_before": 0.56,
-     "snap_pct_last_game": 0.59,
-     "games_since_return": 6,
+     "snap_pct_last_game": 0.72,
+     "games_since_return": 7,
      "status": "Full workload again"
     },
     {
@@ -4341,37 +4806,7 @@
      "games_missed": 2,
      "snap_pct_before": 0.53,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 6,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Treylon Burks",
-     "position": "WR",
-     "unit": "offense",
-     "games_missed": 1,
-     "snap_pct_before": 0.53,
-     "snap_pct_last_game": 0.61,
-     "games_since_return": 1,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Charles Omenihu",
-     "position": "DE",
-     "unit": "defense",
-     "games_missed": 2,
-     "snap_pct_before": 0.46,
-     "snap_pct_last_game": 0.58,
-     "games_since_return": 3,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Rachaad White",
-     "position": "RB",
-     "unit": "offense",
-     "games_missed": 1,
-     "snap_pct_before": 0.45,
-     "snap_pct_last_game": 0.52,
-     "games_since_return": 5,
+     "games_since_return": 7,
      "status": "Full workload again"
     }
    ],
@@ -4633,8 +5068,20 @@
    "coverage_profile": {
     "season": 2025,
     "dropbacks": 621,
-    "man_rate": 0.279,
-    "zone_rate": 0.721,
+    "man_rate": 0.108,
+    "zone_rate": 0.812,
+    "man_zone_season": 2026,
+    "coverage_this_season": {
+     "season": 2026,
+     "man_rate": 0.108,
+     "zone_rate": 0.812,
+     "two_high_rate": 0.601,
+     "one_high_rate": 0.336,
+     "source": "Sharp Football Analysis (public table)",
+     "source_updated": "November 17"
+    },
+    "man_rate_last_season": 0.279,
+    "zone_rate_last_season": 0.721,
     "shells": [
      {
       "shell": "Cover 3",
@@ -4654,15 +5101,15 @@
      }
     ],
     "pressure_rate": 0.258,
-    "five_plus_rushers_rate": 0.378,
+    "five_plus_rushers_rate": 0.374,
     "five_plus_rushers_season": 2026,
     "five_plus_rushers_rate_last_season": 0.275,
     "blitz_this_season": {
      "season": 2026,
-     "dropbacks": 230,
-     "blitz_rate": 0.378,
-     "five_plus_rushers_rate": 0.378,
-     "league_blitz_rate": 0.316,
+     "dropbacks": 270,
+     "blitz_rate": 0.374,
+     "five_plus_rushers_rate": 0.374,
+     "league_blitz_rate": 0.312,
      "blitz_rank": 7,
      "of": 32,
      "source": "FTN charting via nflverse (n_blitzers > 0; n_pass_rushers >= 5)"
@@ -4687,7 +5134,7 @@
      "sack_rate": 0.056,
      "epa_per_dropback": 0.141
     },
-    "note": "Man/zone and shells: 2025 season (latest with free man/zone data); coordinator or roster changes since then make them context, not current fact. Blitz and 5+ rusher rates: 2026."
+    "note": "Man/zone rates: 2026 (Sharp Football Analysis (public table), updated November 17). Shells and the vs-man / vs-zone splits: 2025 (latest free play-level data). Blitz and 5+ rusher rates: 2026."
    },
    "defense_injuries": [
     {
@@ -4696,13 +5143,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": "QB",
      "snap_share": 1.0,
      "next_up": "Josh Johnson",
      "impact": "high",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Zachary Carter",
@@ -4712,20 +5159,6 @@
      "injury": null,
      "espn": "Injured Reserve",
      "espn_comment": "Carter (knee) has been ruled out for Sunday's game against the Chiefs, Zach Gershman of the Cardinals' official site reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Jon Gaines II",
-     "position": "G",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -4756,6 +5189,20 @@
      "espn_comment": "Simon (calf) is questionable to return to Sunday's game against the Chiefs.",
      "starter_slot": null,
      "snap_share": 0.23,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
+    },
+    {
+     "player": "Jon Gaines II",
+     "position": "G",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 2
@@ -4837,7 +5284,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Higgins caught his lone target for four yards during the Cardinal' 34-7 loss to the Chiefs on Sunday.",
+     "espn_comment": "Higgins caught his lone target for four yards during the Cardinals' 34-7 loss to the Chiefs on Sunday.",
      "starter_slot": null,
      "snap_share": 0.506,
      "next_up": null,
@@ -5033,7 +5480,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Duvernay logged 81 kick return yards in the Cardinals' 34-7 loss to the Chiefs on Sunday.",
+     "espn_comment": "Duvernay logged 81 kickoff-return yards in the Cardinals' 34-7 loss to the Chiefs on Sunday.",
      "starter_slot": "KR",
      "snap_share": null,
      "next_up": "Max Melton",
@@ -5149,7 +5596,7 @@
      {
       "player": "Amik Robertson",
       "slot": "NB",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "linebackers": [],
@@ -5166,13 +5613,13 @@
     "team": "WAS",
     "vs": "ARI",
     "team_pass_attempts": 32.7,
-    "team_rush_attempts": 29.2,
+    "team_rush_attempts": 29.1,
     "backup_qb": null,
     "plays": 61.7,
     "pass_ratio": 0.541,
     "script_pass_multiplier": 0.981,
     "weather_attempts_multiplier": 1.0,
-    "implied_margin": 7.5,
+    "implied_margin": 7.0,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.0,
     "receivers": [
@@ -5208,7 +5655,7 @@
       },
       "player_id": "00-0031588",
       "sim": {
-       "targets_raw": 7.118,
+       "targets_raw": 7.12,
        "k": 50.0,
        "catch_rate": 0.6301,
        "ypr": 12.31,
@@ -5219,31 +5666,31 @@
       "targets_mean": 6.3,
       "receptions_mean": 4.0,
       "yards_mean": 48.7,
-      "yards_median": 42.9,
+      "yards_median": 41.9,
       "yards_p25_p75": [
        22.0,
-       68.0
+       67.0
       ],
       "yards": {
-       "20": 0.778,
-       "30": 0.657,
-       "40": 0.568,
-       "50": 0.446,
-       "60": 0.346,
-       "70": 0.257,
-       "80": 0.183,
-       "90": 0.132,
-       "100": 0.092,
-       "120": 0.04
+       "20": 0.783,
+       "30": 0.658,
+       "40": 0.563,
+       "50": 0.447,
+       "60": 0.339,
+       "70": 0.254,
+       "80": 0.181,
+       "90": 0.131,
+       "100": 0.094,
+       "120": 0.042
       },
       "receptions": {
-       "2": 0.869,
-       "3": 0.712,
-       "4": 0.53,
-       "5": 0.368,
+       "2": 0.868,
+       "3": 0.711,
+       "4": 0.529,
+       "5": 0.367,
        "6": 0.233,
-       "7": 0.137,
-       "8": 0.075
+       "7": 0.138,
+       "8": 0.076
       },
       "targets_needed": {
        "50": 7,
@@ -5253,7 +5700,7 @@
        "100": 13
       },
       "targets_needed_chance": {
-       "50": 0.43,
+       "50": 0.431,
        "60": 0.316,
        "70": 0.149,
        "80": 0.097,
@@ -5292,7 +5739,7 @@
       },
       "player_id": "00-0041040",
       "sim": {
-       "targets_raw": 6.058,
+       "targets_raw": 6.06,
        "k": 9.84,
        "catch_rate": 0.6552,
        "ypr": 13.137,
@@ -5302,32 +5749,32 @@
       },
       "targets_mean": 5.4,
       "receptions_mean": 3.5,
-      "yards_mean": 46.3,
+      "yards_mean": 46.4,
       "yards_median": 38.5,
       "yards_p25_p75": [
        19.0,
        66.0
       ],
       "yards": {
-       "20": 0.724,
+       "20": 0.728,
        "30": 0.605,
-       "40": 0.523,
-       "50": 0.408,
-       "60": 0.322,
-       "70": 0.242,
-       "80": 0.183,
+       "40": 0.524,
+       "50": 0.411,
+       "60": 0.321,
+       "70": 0.239,
+       "80": 0.181,
        "90": 0.133,
-       "100": 0.093,
-       "120": 0.046
+       "100": 0.094,
+       "120": 0.047
       },
       "receptions": {
        "2": 0.802,
        "3": 0.621,
-       "4": 0.436,
+       "4": 0.442,
        "5": 0.291,
-       "6": 0.18,
-       "7": 0.109,
-       "8": 0.065
+       "6": 0.182,
+       "7": 0.111,
+       "8": 0.064
       },
       "targets_needed": {
        "50": 6,
@@ -5337,11 +5784,11 @@
        "100": 12
       },
       "targets_needed_chance": {
-       "50": 0.422,
-       "60": 0.31,
-       "70": 0.157,
-       "80": 0.106,
-       "100": 0.046
+       "50": 0.424,
+       "60": 0.312,
+       "70": 0.156,
+       "80": 0.107,
+       "100": 0.047
       }
      },
      {
@@ -5376,7 +5823,7 @@
       },
       "player_id": "00-0037809",
       "sim": {
-       "targets_raw": 6.318,
+       "targets_raw": 6.32,
        "k": 50.0,
        "catch_rate": 0.7164,
        "ypr": 9.97,
@@ -5386,32 +5833,32 @@
       },
       "targets_mean": 5.6,
       "receptions_mean": 4.0,
-      "yards_mean": 40.0,
+      "yards_mean": 40.1,
       "yards_median": 35.4,
       "yards_p25_p75": [
        20.0,
-       56.0
+       55.0
       ],
       "yards": {
-       "20": 0.736,
-       "30": 0.578,
-       "40": 0.475,
-       "50": 0.343,
-       "60": 0.23,
-       "70": 0.155,
-       "80": 0.098,
-       "90": 0.06,
-       "100": 0.036,
+       "20": 0.742,
+       "30": 0.588,
+       "40": 0.48,
+       "50": 0.344,
+       "60": 0.228,
+       "70": 0.15,
+       "80": 0.096,
+       "90": 0.057,
+       "100": 0.035,
        "120": 0.011
       },
       "receptions": {
-       "2": 0.876,
+       "2": 0.877,
        "3": 0.724,
-       "4": 0.542,
-       "5": 0.371,
+       "4": 0.545,
+       "5": 0.374,
        "6": 0.238,
-       "7": 0.141,
-       "8": 0.078
+       "7": 0.139,
+       "8": 0.077
       },
       "targets_needed": {
        "50": 7,
@@ -5421,9 +5868,9 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.338,
-       "60": 0.152,
-       "70": 0.094,
+       "50": 0.34,
+       "60": 0.154,
+       "70": 0.096,
        "80": 0.034,
        "100": 0.011
       }
@@ -5460,7 +5907,7 @@
       },
       "player_id": "00-0037742",
       "sim": {
-       "targets_raw": 4.029,
+       "targets_raw": 4.03,
        "k": 50.0,
        "catch_rate": 0.6195,
        "ypr": 15.797,
@@ -5478,22 +5925,22 @@
       ],
       "yards": {
        "20": 0.608,
-       "30": 0.473,
-       "40": 0.397,
-       "50": 0.292,
-       "60": 0.212,
-       "70": 0.151,
-       "80": 0.105,
-       "90": 0.073,
-       "100": 0.051,
+       "30": 0.467,
+       "40": 0.394,
+       "50": 0.296,
+       "60": 0.213,
+       "70": 0.15,
+       "80": 0.108,
+       "90": 0.077,
+       "100": 0.053,
        "120": 0.024
       },
       "receptions": {
-       "2": 0.622,
+       "2": 0.621,
        "3": 0.375,
-       "4": 0.196,
-       "5": 0.092,
-       "6": 0.039,
+       "4": 0.197,
+       "5": 0.091,
+       "6": 0.038,
        "7": 0.016,
        "8": 0.007
       },
@@ -5506,7 +5953,7 @@
       },
       "targets_needed_chance": {
        "50": 0.177,
-       "60": 0.1,
+       "60": 0.099,
        "70": 0.052,
        "80": 0.026,
        "100": 0.006
@@ -5544,7 +5991,7 @@
       },
       "player_id": "00-0033699",
       "sim": {
-       "targets_raw": 2.855,
+       "targets_raw": 2.856,
        "k": 50.0,
        "catch_rate": 0.7706,
        "ypr": 8.15,
@@ -5555,30 +6002,30 @@
       "targets_mean": 2.6,
       "receptions_mean": 2.0,
       "yards_mean": 16.1,
-      "yards_median": 11.0,
+      "yards_median": 12.1,
       "yards_p25_p75": [
        3.0,
        24.0
       ],
       "yards": {
-       "20": 0.302,
-       "30": 0.167,
+       "20": 0.306,
+       "30": 0.168,
        "40": 0.109,
-       "50": 0.059,
+       "50": 0.058,
        "60": 0.033,
-       "70": 0.018,
-       "80": 0.01,
-       "90": 0.005,
-       "100": 0.003,
-       "120": 0.001
+       "70": 0.017,
+       "80": 0.009,
+       "90": 0.004,
+       "100": 0.002,
+       "120": 0.0
       },
       "receptions": {
-       "2": 0.571,
-       "3": 0.319,
+       "2": 0.569,
+       "3": 0.32,
        "4": 0.152,
-       "5": 0.061,
-       "6": 0.023,
-       "7": 0.007,
+       "5": 0.062,
+       "6": 0.024,
+       "7": 0.008,
        "8": 0.002
       },
       "targets_needed": {
@@ -5589,7 +6036,7 @@
        "100": 16
       },
       "targets_needed_chance": {
-       "50": 0.01,
+       "50": 0.011,
        "60": 0.001,
        "70": 0.0,
        "80": 0.0,
@@ -5628,7 +6075,7 @@
       },
       "player_id": "00-0037256",
       "sim": {
-       "targets_raw": 2.731,
+       "targets_raw": 2.732,
        "k": 50.0,
        "catch_rate": 0.7528,
        "ypr": 8.76,
@@ -5642,25 +6089,25 @@
       "yards_median": 10.7,
       "yards_p25_p75": [
        2.0,
-       23.0
+       24.0
       ],
       "yards": {
-       "20": 0.309,
-       "30": 0.166,
+       "20": 0.311,
+       "30": 0.17,
        "40": 0.115,
-       "50": 0.063,
+       "50": 0.064,
        "60": 0.038,
-       "70": 0.023,
-       "80": 0.013,
-       "90": 0.008,
+       "70": 0.021,
+       "80": 0.012,
+       "90": 0.007,
        "100": 0.004,
        "120": 0.001
       },
       "receptions": {
-       "2": 0.53,
-       "3": 0.271,
-       "4": 0.123,
-       "5": 0.05,
+       "2": 0.532,
+       "3": 0.273,
+       "4": 0.124,
+       "5": 0.049,
        "6": 0.018,
        "7": 0.006,
        "8": 0.002
@@ -5712,7 +6159,7 @@
       },
       "player_id": "00-0035659",
       "sim": {
-       "targets_raw": 5.204,
+       "targets_raw": 5.206,
        "k": 3.0,
        "catch_rate": 0.6747,
        "ypr": 14.307,
@@ -5722,31 +6169,31 @@
       },
       "targets_mean": 4.6,
       "receptions_mean": 3.1,
-      "yards_mean": 43.9,
+      "yards_mean": 44.0,
       "yards_median": 32.9,
       "yards_p25_p75": [
        11.0,
-       65.0
+       63.0
       ],
       "yards": {
-       "20": 0.643,
-       "30": 0.525,
-       "40": 0.468,
-       "50": 0.376,
-       "60": 0.304,
-       "70": 0.238,
+       "20": 0.642,
+       "30": 0.527,
+       "40": 0.47,
+       "50": 0.373,
+       "60": 0.299,
+       "70": 0.235,
        "80": 0.184,
-       "90": 0.145,
+       "90": 0.142,
        "100": 0.111,
-       "120": 0.062
+       "120": 0.064
       },
       "receptions": {
-       "2": 0.681,
-       "3": 0.498,
-       "4": 0.347,
-       "5": 0.237,
-       "6": 0.158,
-       "7": 0.102,
+       "2": 0.682,
+       "3": 0.497,
+       "4": 0.346,
+       "5": 0.239,
+       "6": 0.159,
+       "7": 0.103,
        "8": 0.066
       },
       "targets_needed": {
@@ -5796,7 +6243,7 @@
       },
       "player_id": "00-0036415",
       "sim": {
-       "targets_raw": 3.166,
+       "targets_raw": 3.167,
        "k": 3.0,
        "catch_rate": 0.6195,
        "ypr": 13.319,
@@ -5807,30 +6254,30 @@
       "targets_mean": 2.8,
       "receptions_mean": 1.7,
       "yards_mean": 23.0,
-      "yards_median": 13.7,
+      "yards_median": 14.8,
       "yards_p25_p75": [
        0.0,
-       35.0
+       34.0
       ],
       "yards": {
-       "20": 0.418,
-       "30": 0.29,
-       "40": 0.239,
-       "50": 0.16,
-       "60": 0.111,
-       "70": 0.074,
-       "80": 0.052,
-       "90": 0.034,
+       "20": 0.419,
+       "30": 0.291,
+       "40": 0.237,
+       "50": 0.161,
+       "60": 0.11,
+       "70": 0.073,
+       "80": 0.05,
+       "90": 0.033,
        "100": 0.023,
        "120": 0.011
       },
       "receptions": {
-       "2": 0.458,
-       "3": 0.259,
+       "2": 0.459,
+       "3": 0.26,
        "4": 0.142,
-       "5": 0.073,
+       "5": 0.074,
        "6": 0.036,
-       "7": 0.02,
+       "7": 0.019,
        "8": 0.01
       },
       "targets_needed": {
@@ -5897,23 +6344,23 @@
        25.0
       ],
       "yards": {
-       "20": 0.318,
-       "30": 0.202,
-       "40": 0.144,
-       "50": 0.084,
-       "60": 0.049,
-       "70": 0.028,
-       "80": 0.017,
-       "90": 0.009,
+       "20": 0.311,
+       "30": 0.197,
+       "40": 0.146,
+       "50": 0.089,
+       "60": 0.052,
+       "70": 0.029,
+       "80": 0.016,
+       "90": 0.008,
        "100": 0.005,
        "120": 0.001
       },
       "receptions": {
-       "2": 0.335,
+       "2": 0.334,
        "3": 0.128,
-       "4": 0.041,
+       "4": 0.042,
        "5": 0.011,
-       "6": 0.003,
+       "6": 0.002,
        "7": 0.001,
        "8": 0.0
       },
@@ -5956,32 +6403,32 @@
       },
       "player_id": "00-0040242",
       "sim": {
-       "carries_raw": 11.38,
+       "carries_raw": 11.36,
        "k": 29.82,
        "ypc": 3.878
       },
       "carries_mean": 9.7,
-      "yards_mean": 37.6,
-      "yards_median": 32.4,
+      "yards_mean": 37.5,
+      "yards_median": 32.3,
       "yards_p25_p75": [
        19.0,
        50.0
       ],
       "yards": {
-       "30": 0.547,
-       "40": 0.374,
-       "50": 0.285,
+       "30": 0.543,
+       "40": 0.372,
+       "50": 0.287,
        "60": 0.196,
-       "70": 0.131,
-       "80": 0.088,
+       "70": 0.13,
+       "80": 0.086,
        "100": 0.028,
-       "120": 0.01
+       "120": 0.011
       },
       "carries": {
-       "8": 0.667,
-       "10": 0.473,
-       "12": 0.397,
-       "15": 0.173,
+       "8": 0.669,
+       "10": 0.474,
+       "12": 0.394,
+       "15": 0.177,
        "18": 0.05,
        "20": 0.024
       }
@@ -6008,7 +6455,7 @@
       },
       "player_id": "00-0037256",
       "sim": {
-       "carries_raw": 8.406,
+       "carries_raw": 8.391,
        "k": 50.0,
        "ypc": 4.114
       },
@@ -6020,22 +6467,22 @@
        40.0
       ],
       "yards": {
-       "30": 0.409,
-       "40": 0.254,
-       "50": 0.19,
+       "30": 0.408,
+       "40": 0.25,
+       "50": 0.191,
        "60": 0.121,
-       "70": 0.076,
-       "80": 0.049,
+       "70": 0.075,
+       "80": 0.048,
        "100": 0.013,
        "120": 0.004
       },
       "carries": {
-       "8": 0.432,
-       "10": 0.237,
-       "12": 0.185,
-       "15": 0.049,
+       "8": 0.428,
+       "10": 0.233,
+       "12": 0.18,
+       "15": 0.051,
        "18": 0.007,
-       "20": 0.003
+       "20": 0.002
       }
      },
      {
@@ -6060,33 +6507,33 @@
       },
       "player_id": "00-0033699",
       "sim": {
-       "carries_raw": 6.471,
+       "carries_raw": 6.459,
        "k": 9.27,
        "ypc": 3.984
       },
       "carries_mean": 5.8,
-      "yards_mean": 23.0,
-      "yards_median": 18.2,
+      "yards_mean": 22.9,
+      "yards_median": 17.8,
       "yards_p25_p75": [
-       9.0,
-       31.0
+       8.0,
+       32.0
       ],
       "yards": {
        "30": 0.272,
-       "40": 0.16,
-       "50": 0.125,
-       "60": 0.079,
-       "70": 0.051,
+       "40": 0.165,
+       "50": 0.13,
+       "60": 0.08,
+       "70": 0.05,
        "80": 0.031,
        "100": 0.007,
        "120": 0.002
       },
       "carries": {
-       "8": 0.265,
+       "8": 0.267,
        "10": 0.136,
        "12": 0.114,
-       "15": 0.031,
-       "18": 0.004,
+       "15": 0.032,
+       "18": 0.005,
        "20": 0.002
       }
      },
@@ -6112,7 +6559,7 @@
       },
       "player_id": "00-0033955",
       "sim": {
-       "carries_raw": 5.442,
+       "carries_raw": 5.432,
        "k": 8.0,
        "ypc": 4.084
       },
@@ -6124,20 +6571,20 @@
        28.0
       ],
       "yards": {
-       "30": 0.224,
+       "30": 0.222,
        "40": 0.127,
-       "50": 0.102,
-       "60": 0.063,
-       "70": 0.039,
+       "50": 0.103,
+       "60": 0.064,
+       "70": 0.04,
        "80": 0.025,
        "100": 0.006,
        "120": 0.002
       },
       "carries": {
-       "8": 0.184,
-       "10": 0.085,
-       "12": 0.072,
-       "15": 0.019,
+       "8": 0.183,
+       "10": 0.083,
+       "12": 0.069,
+       "15": 0.018,
        "18": 0.002,
        "20": 0.001
       }
@@ -6159,7 +6606,7 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.203,
+      "p80": 0.205,
       "p100": 0.094,
       "stars": 0,
       "targets": 6.9,
@@ -6167,7 +6614,7 @@
       "ex_pg": 0.71,
       "why": [],
       "shadow": {
-       "p80": 0.2,
+       "p80": 0.201,
        "stars": 0,
        "season_share": 0.221,
        "last_game_share": 0.188,
@@ -6180,7 +6627,7 @@
        "allowed_pg": 147.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      },
      {
       "player": "Antonio Williams",
@@ -6188,15 +6635,15 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.156,
-      "p100": 0.064,
+      "p80": 0.157,
+      "p100": 0.065,
       "stars": 0,
       "targets": 5.8,
       "yds_pg": 45.0,
       "ex_pg": 0.75,
       "why": [],
       "shadow": {
-       "p80": 0.177,
+       "p80": 0.179,
        "stars": 0,
        "season_share": 0.181,
        "last_game_share": 0.344,
@@ -6209,7 +6656,7 @@
        "allowed_pg": 147.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      },
      {
       "player": "Chig Okonkwo",
@@ -6217,7 +6664,7 @@
       "pos": "TE",
       "tier": null,
       "style": "volume",
-      "p80": 0.154,
+      "p80": 0.155,
       "p100": 0.065,
       "stars": 0,
       "targets": 6.0,
@@ -6225,7 +6672,7 @@
       "ex_pg": 0.71,
       "why": [],
       "shadow": {
-       "p80": 0.151,
+       "p80": 0.152,
        "stars": 0,
        "season_share": 0.187,
        "last_game_share": 0.156,
@@ -6238,7 +6685,7 @@
        "allowed_pg": 51.4,
        "league_avg": 54.5
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      },
      {
       "player": "Terry McLaurin",
@@ -6246,15 +6693,15 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.151,
-      "p100": 0.058,
+      "p80": 0.152,
+      "p100": 0.059,
       "stars": 0,
       "targets": 4.8,
       "yds_pg": 55.3,
       "ex_pg": 1.0,
       "why": [],
       "shadow": {
-       "p80": 0.112,
+       "p80": 0.113,
        "stars": 0,
        "season_share": 0.159,
        "last_game_share": 0.029,
@@ -6267,7 +6714,7 @@
        "allowed_pg": 147.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      },
      {
       "player": "Treylon Burks",
@@ -6281,27 +6728,13 @@
       "targets": 3.8,
       "yds_pg": 41.4,
       "ex_pg": 0.71,
-      "why": [
-       "back after missing 1 game(s); full workload again (61% of snaps last game vs 53% before)"
-      ],
+      "why": [],
       "shadow": {
-       "p80": 0.08,
+       "p80": 0.081,
        "stars": 0,
        "season_share": 0.126,
        "last_game_share": 0.094,
        "candidate": "rising role"
-      },
-      "health": {
-       "returning": {
-        "games_missed": 1,
-        "games_since_return": 1,
-        "snap_pct_before": 0.53,
-        "snap_pct_last_game": 0.61,
-        "status": "Full workload again"
-       },
-       "notes": [
-        "back after missing 1 game(s); full workload again (61% of snaps last game vs 53% before)"
-       ]
       },
       "gate": {
        "label": "middle",
@@ -6310,7 +6743,7 @@
        "allowed_pg": 147.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      },
      {
       "player": "Van Jefferson",
@@ -6339,7 +6772,7 @@
        "allowed_pg": 147.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      },
      {
       "player": "Dyami Brown",
@@ -6347,7 +6780,7 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.014,
+      "p80": 0.015,
       "p100": 0.003,
       "stars": 0,
       "targets": 2.0,
@@ -6368,14 +6801,14 @@
        "allowed_pg": 147.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 38% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
+      "pressure_note": "defense sends 5+ rushers 37% of dropbacks; Jayden Daniels averages 9.0 yards an attempt vs the blitz, 6.7 without"
      }
     ],
     "rushers": [],
     "context": {
      "pass_yards_last5": 266.0,
      "pass_offense_rank": 17,
-     "implied": 24.0,
+     "implied": 24.25,
      "defense_g80_rank": 13,
      "defense_explosive_rank": 7
     },
@@ -6885,7 +7318,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.66,
          "targets": 6,
          "team_targets": 32,
          "target_share": 0.188,
@@ -7269,7 +7702,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.84,
          "targets": 11,
          "team_targets": 32,
          "target_share": 0.344,
@@ -7730,7 +8163,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.72,
          "targets": 5,
          "team_targets": 32,
          "target_share": 0.156,
@@ -8183,7 +8616,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.72,
          "targets": 3,
          "team_targets": 32,
          "target_share": 0.094,
@@ -8528,7 +8961,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.35,
          "targets": 3,
          "team_targets": 32,
          "target_share": 0.094,
@@ -8973,7 +9406,20 @@
         {
          "week": 11,
          "opp": "CIN",
-         "played": false
+         "played": true,
+         "snap_pct": 0.22,
+         "targets": 0,
+         "team_targets": 32,
+         "target_share": 0.0,
+         "receptions": 0,
+         "rec_yards": 0,
+         "rec_td": 0,
+         "air_yards": 0,
+         "carries": 0,
+         "team_carries": 22,
+         "carry_share": 0.0,
+         "rush_yards": 0,
+         "rush_td": 0
         }
        ]
       }
@@ -9804,7 +10250,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.24,
          "targets": 1,
          "team_targets": 32,
          "target_share": 0.031,
@@ -10447,7 +10893,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.41,
          "targets": 3,
          "team_targets": 32,
          "target_share": 0.094,
@@ -10692,7 +11138,20 @@
         {
          "week": 11,
          "opp": "CIN",
-         "played": false
+         "played": true,
+         "snap_pct": 0.22,
+         "targets": 0,
+         "team_targets": 32,
+         "target_share": 0.0,
+         "receptions": 0,
+         "rec_yards": 0,
+         "rec_td": 0,
+         "air_yards": 0,
+         "carries": 0,
+         "team_carries": 22,
+         "carry_share": 0.0,
+         "rush_yards": 0,
+         "rush_td": 0
         }
        ]
       }
@@ -10900,7 +11359,7 @@
          "week": 11,
          "opp": "CIN",
          "played": true,
-         "snap_pct": null,
+         "snap_pct": 0.35,
          "targets": 3,
          "team_targets": 32,
          "target_share": 0.094,
@@ -11153,7 +11612,7 @@
      "RT": "Josh Conerly Jr.",
      "QB": "Jayden Daniels",
      "TE": "Chig Okonkwo",
-     "RB": "Rachaad White",
+     "RB": "Jacory Croskey-Merritt",
      "LDE": "Charles Omenihu",
      "NT": "Tim Settle",
      "RDE": "Shy Tuttle",
@@ -11841,13 +12300,13 @@
     "third_down_rate": 0.3482142857142857,
     "red_zone_drives": 24,
     "red_zone_td_rate": 0.4166666666666667,
-    "pass_epa_per_dropback": -0.11960546664450727,
-    "rush_epa_per_carry": -0.033264540034256274,
+    "pass_epa_per_dropback": -0.11960546664450725,
+    "rush_epa_per_carry": -0.03326454003425628,
     "neutral_pass_rate": 0.49142857142857144,
-    "blitz_rate": 0.2787456445993031,
-    "play_action_rate": 0.17421602787456447,
-    "sack_rate_when_blitzing": 0.0375,
-    "dropbacks_charted": 287,
+    "blitz_rate": 0.2755417956656347,
+    "play_action_rate": 0.17027863777089783,
+    "sack_rate_when_blitzing": 0.056179775280898875,
+    "dropbacks_charted": 323,
     "wr_targets_pg": 17.375,
     "wr_receptions_pg": 8.875,
     "wr_rec_yards_pg": 108.875,
@@ -12976,7 +13435,7 @@
      "sacks": 14,
      "yards_per_attempt": 5.705882352941177,
      "avg_depth_of_target": 7.898395721925134,
-     "epa_per_dropback": -0.15486739057626706,
+     "epa_per_dropback": -0.15486739057626703,
      "pressure_rate_faced": 0.22388059701492538,
      "log": [
       {
@@ -13038,7 +13497,7 @@
      "sacks": 4,
      "yards_per_attempt": 7.08,
      "avg_depth_of_target": 6.84,
-     "epa_per_dropback": 0.15769046836737963,
+     "epa_per_dropback": 0.1576904683673797,
      "pressure_rate_faced": 0.09259259259259259,
      "log": [
       {
@@ -14145,13 +14604,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": "QB",
      "snap_share": 1.0,
      "next_up": "Josh Johnson",
      "impact": "high",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Zachary Carter",
@@ -14161,20 +14620,6 @@
      "injury": null,
      "espn": "Injured Reserve",
      "espn_comment": "Carter (knee) has been ruled out for Sunday's game against the Chiefs, Zach Gershman of the Cardinals' official site reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Jon Gaines II",
-     "position": "G",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -14205,6 +14650,20 @@
      "espn_comment": "Simon (calf) is questionable to return to Sunday's game against the Chiefs.",
      "starter_slot": null,
      "snap_share": 0.23,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
+    },
+    {
+     "player": "Jon Gaines II",
+     "position": "G",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 2
@@ -14286,7 +14745,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Higgins caught his lone target for four yards during the Cardinal' 34-7 loss to the Chiefs on Sunday.",
+     "espn_comment": "Higgins caught his lone target for four yards during the Cardinals' 34-7 loss to the Chiefs on Sunday.",
      "starter_slot": null,
      "snap_share": 0.506,
      "next_up": null,
@@ -14482,7 +14941,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Duvernay logged 81 kick return yards in the Cardinals' 34-7 loss to the Chiefs on Sunday.",
+     "espn_comment": "Duvernay logged 81 kickoff-return yards in the Cardinals' 34-7 loss to the Chiefs on Sunday.",
      "starter_slot": "KR",
      "snap_share": null,
      "next_up": "Max Melton",
@@ -14852,8 +15311,20 @@
    "coverage_profile": {
     "season": 2025,
     "dropbacks": 618,
-    "man_rate": 0.311,
-    "zone_rate": 0.689,
+    "man_rate": 0.138,
+    "zone_rate": 0.776,
+    "man_zone_season": 2026,
+    "coverage_this_season": {
+     "season": 2026,
+     "man_rate": 0.138,
+     "zone_rate": 0.776,
+     "two_high_rate": 0.607,
+     "one_high_rate": 0.334,
+     "source": "Sharp Football Analysis (public table)",
+     "source_updated": "November 17"
+    },
+    "man_rate_last_season": 0.311,
+    "zone_rate_last_season": 0.689,
     "shells": [
      {
       "shell": "Cover 1",
@@ -14881,8 +15352,8 @@
      "dropbacks": 304,
      "blitz_rate": 0.421,
      "five_plus_rushers_rate": 0.421,
-     "league_blitz_rate": 0.313,
-     "blitz_rank": 4,
+     "league_blitz_rate": 0.309,
+     "blitz_rank": 3,
      "of": 32,
      "source": "FTN charting via nflverse (n_blitzers > 0; n_pass_rushers >= 5)"
     },
@@ -14906,7 +15377,7 @@
      "sack_rate": 0.07,
      "epa_per_dropback": 0.158
     },
-    "note": "Man/zone and shells: 2025 season (latest with free man/zone data); coordinator or roster changes since then make them context, not current fact. Blitz and 5+ rusher rates: 2026."
+    "note": "Man/zone rates: 2026 (Sharp Football Analysis (public table), updated November 17). Shells and the vs-man / vs-zone splits: 2025 (latest free play-level data). Blitz and 5+ rusher rates: 2026."
    },
    "defense_injuries": [
     {
@@ -14915,41 +15386,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
+     "espn": "Questionable",
      "espn_comment": "Robertson (ankle) is inactive for Monday night's contest against the Bengals.",
      "starter_slot": "NB",
      "snap_share": 0.98,
      "next_up": "Mike Sainristil",
      "impact": "high",
-     "status_level": 3
-    },
-    {
-     "player": "Athan Kaliakmanis",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "Kaliakmanis (coach's decision) is inactive but serving as the Commanders' emergency third quarterback Monday night against the Bengals.",
-     "starter_slot": null,
-     "snap_share": 0.84,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
-     "player": "Ricky Barber",
-     "position": "DT",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "inactive",
-     "starter_slot": null,
-     "snap_share": 0.2,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Laremy Tunsil",
@@ -14959,34 +15402,6 @@
      "injury": null,
      "espn": "Injured Reserve",
      "espn_comment": "Tunsil (triceps) is progressing well in his recovery but is not expected to return by the end of the 2026 regular season, Tashan Reed of The Washington Post reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Tanoa Togiai",
-     "position": "G",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "inactive",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Robert Henry Jr.",
-     "position": "RB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "inactive",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -15016,7 +15431,7 @@
      "espn": "Active",
      "espn_comment": "Luvu recorded six tackles (two solo) and a forced fumble during the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": "LILB",
-     "snap_share": 0.988,
+     "snap_share": 0.99,
      "next_up": "Jordan Magee",
      "impact": "low",
      "status_level": 1
@@ -15030,7 +15445,7 @@
      "espn": "Active",
      "espn_comment": "Cross finished Thursday's 24-21 win over the Giants with six tackles (one solo).",
      "starter_slot": "SS",
-     "snap_share": 0.973,
+     "snap_share": 0.978,
      "next_up": "Tyler Owens",
      "impact": "low",
      "status_level": 1
@@ -15044,7 +15459,7 @@
      "espn": "Active",
      "espn_comment": "Styles recorded 13 tackles (five solo) during the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": "RILB",
-     "snap_share": 0.936,
+     "snap_share": 0.931,
      "next_up": "Kain Medrano",
      "impact": "low",
      "status_level": 1
@@ -15058,7 +15473,7 @@
      "espn": "Active",
      "espn_comment": "Patrick (concussion) is active for Monday night's game against the Bengals.",
      "starter_slot": "C",
-     "snap_share": 0.897,
+     "snap_share": 0.911,
      "next_up": "Nick Allegretti",
      "impact": "low",
      "status_level": 1
@@ -15072,8 +15487,22 @@
      "espn": "Active",
      "espn_comment": "Reaves recorded nine tackles (seven solo), one pass defense and one fumble recovery during the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": "FS",
-     "snap_share": 0.841,
+     "snap_share": 0.861,
      "next_up": "Quan Martin",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Athan Kaliakmanis",
+     "position": "QB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": 0.84,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -15086,7 +15515,7 @@
      "espn": "Active",
      "espn_comment": "Williams brought in nine of 11 targets for 122 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
      "starter_slot": null,
-     "snap_share": 0.711,
+     "snap_share": 0.728,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -15100,7 +15529,7 @@
      "espn": "Active",
      "espn_comment": "Okonkwo brought in four of five targets for 66 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
      "starter_slot": "TE",
-     "snap_share": 0.692,
+     "snap_share": 0.696,
      "next_up": "Ben Sinnott",
      "impact": "low",
      "status_level": 1
@@ -15114,7 +15543,7 @@
      "espn": "Active",
      "espn_comment": "Martin (shoulder) does not carry an injury designation into Monday's game against the Bengals.",
      "starter_slot": null,
-     "snap_share": 0.654,
+     "snap_share": 0.665,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -15128,7 +15557,7 @@
      "espn": "Active",
      "espn_comment": "Diggs brought in four of six targets for 45 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
      "starter_slot": "WR",
-     "snap_share": 0.627,
+     "snap_share": 0.631,
      "next_up": "Antonio Williams",
      "impact": "low",
      "status_level": 1
@@ -15142,7 +15571,7 @@
      "espn": "Active",
      "espn_comment": "Burks (foot) does not carry an injury designation into Monday's game against the Bengals.",
      "starter_slot": null,
-     "snap_share": 0.585,
+     "snap_share": 0.604,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -15155,9 +15584,9 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "White (heel) is active for Monday's game against the Bengals.",
-     "starter_slot": "RB",
-     "snap_share": 0.545,
-     "next_up": "Austin Ekeler",
+     "starter_slot": null,
+     "snap_share": 0.499,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -15169,9 +15598,9 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "Croskey-Merritt rushed 13 times for 54 yards and a touchdown and brought in two of three targets for 23 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
-     "starter_slot": null,
-     "snap_share": 0.457,
-     "next_up": null,
+     "starter_slot": "RB",
+     "snap_share": 0.445,
+     "next_up": "Rachaad White",
      "impact": "low",
      "status_level": 1
     },
@@ -15184,7 +15613,7 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": "RDE",
-     "snap_share": 0.431,
+     "snap_share": 0.425,
      "next_up": "Javon Kinlaw",
      "impact": "low",
      "status_level": 1
@@ -15198,7 +15627,7 @@
      "espn": "Active",
      "espn_comment": "Sinnott caught all four of his targets for 42 yards and a touchdown Thursday in a 24-21 victory against the Giants.",
      "starter_slot": null,
-     "snap_share": 0.364,
+     "snap_share": 0.362,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -15212,7 +15641,21 @@
      "espn": "Active",
      "espn_comment": "Ekeler rushed nine times for 26 yards and brought in all four targets for 26 yards in the Commanders' 24-21 win over the Giants on Thursday.",
      "starter_slot": null,
-     "snap_share": 0.28,
+     "snap_share": 0.29,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Ricky Barber",
+     "position": "DT",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": 0.2,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -15258,9 +15701,67 @@
      "next_up": null,
      "impact": "low",
      "status_level": 1
+    },
+    {
+     "player": "Tanoa Togiai",
+     "position": "G",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Robert Henry Jr.",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
     }
    ],
    "defense_returning": [
+    {
+     "player": "Nick Allegretti",
+     "position": "C",
+     "unit": "offense",
+     "games_missed": 4,
+     "snap_pct_before": 0.76,
+     "snap_pct_last_game": 0.01,
+     "games_since_return": 2,
+     "status": "Working back in"
+    },
+    {
+     "player": "Rachaad White",
+     "position": "RB",
+     "unit": "offense",
+     "games_missed": 1,
+     "snap_pct_before": 0.45,
+     "snap_pct_last_game": 0.22,
+     "games_since_return": 6,
+     "status": "Working back in"
+    },
+    {
+     "player": "Mike Sainristil",
+     "position": "CB",
+     "unit": "defense",
+     "games_missed": 2,
+     "snap_pct_before": 0.41,
+     "snap_pct_last_game": 0.07,
+     "games_since_return": 1,
+     "status": "Working back in"
+    },
     {
      "player": "Nick Cross",
      "position": "S",
@@ -15268,7 +15769,7 @@
      "games_missed": 3,
      "snap_pct_before": 0.99,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 4,
+     "games_since_return": 5,
      "status": "Full workload again"
     },
     {
@@ -15278,7 +15779,17 @@
      "games_missed": 2,
      "snap_pct_before": 0.98,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 5,
+     "games_since_return": 6,
+     "status": "Full workload again"
+    },
+    {
+     "player": "Lucas Patrick",
+     "position": "G",
+     "unit": "offense",
+     "games_missed": 1,
+     "snap_pct_before": 0.9,
+     "snap_pct_last_game": 1.0,
+     "games_since_return": 1,
      "status": "Full workload again"
     },
     {
@@ -15288,17 +15799,7 @@
      "games_missed": 2,
      "snap_pct_before": 0.78,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 5,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Nick Allegretti",
-     "position": "C",
-     "unit": "offense",
-     "games_missed": 4,
-     "snap_pct_before": 0.76,
-     "snap_pct_last_game": 1.0,
-     "games_since_return": 1,
+     "games_since_return": 6,
      "status": "Full workload again"
     },
     {
@@ -15307,8 +15808,8 @@
      "unit": "offense",
      "games_missed": 1,
      "snap_pct_before": 0.6,
-     "snap_pct_last_game": 0.64,
-     "games_since_return": 4,
+     "snap_pct_last_game": 0.66,
+     "games_since_return": 5,
      "status": "Full workload again"
     },
     {
@@ -15317,8 +15818,8 @@
      "unit": "offense",
      "games_missed": 2,
      "snap_pct_before": 0.56,
-     "snap_pct_last_game": 0.59,
-     "games_since_return": 6,
+     "snap_pct_last_game": 0.72,
+     "games_since_return": 7,
      "status": "Full workload again"
     },
     {
@@ -15328,37 +15829,7 @@
      "games_missed": 2,
      "snap_pct_before": 0.53,
      "snap_pct_last_game": 1.0,
-     "games_since_return": 6,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Treylon Burks",
-     "position": "WR",
-     "unit": "offense",
-     "games_missed": 1,
-     "snap_pct_before": 0.53,
-     "snap_pct_last_game": 0.61,
-     "games_since_return": 1,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Charles Omenihu",
-     "position": "DE",
-     "unit": "defense",
-     "games_missed": 2,
-     "snap_pct_before": 0.46,
-     "snap_pct_last_game": 0.58,
-     "games_since_return": 3,
-     "status": "Full workload again"
-    },
-    {
-     "player": "Rachaad White",
-     "position": "RB",
-     "unit": "offense",
-     "games_missed": 1,
-     "snap_pct_before": 0.45,
-     "snap_pct_last_game": 0.52,
-     "games_since_return": 5,
+     "games_since_return": 7,
      "status": "Full workload again"
     }
    ],
@@ -15374,7 +15845,7 @@
      {
       "player": "Amik Robertson",
       "slot": "NB",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "linebackers": [],
@@ -15385,7 +15856,7 @@
     "team": "ARI",
     "vs": "WAS",
     "team_pass_attempts": 36.8,
-    "team_rush_attempts": 26.0,
+    "team_rush_attempts": 26.1,
     "backup_qb": {
      "starter": "Gardner Minshew",
      "usual": "J.Brissett",
@@ -15397,7 +15868,7 @@
     "pass_ratio": 0.582,
     "script_pass_multiplier": 0.99,
     "weather_attempts_multiplier": 1.0,
-    "implied_margin": -7.5,
+    "implied_margin": -7.0,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.206,
     "receivers": [
@@ -15433,7 +15904,7 @@
       },
       "player_id": "00-0037744",
       "sim": {
-       "targets_raw": 11.497,
+       "targets_raw": 11.493,
        "k": 50.0,
        "catch_rate": 0.7666,
        "ypr": 8.955,
@@ -15441,7 +15912,7 @@
        "rain_catch": 1.0,
        "pool": "TE"
       },
-      "targets_mean": 10.1,
+      "targets_mean": 10.2,
       "receptions_mean": 7.8,
       "yards_mean": 63.3,
       "yards_median": 58.6,
@@ -15451,24 +15922,24 @@
       ],
       "yards": {
        "20": 0.928,
-       "30": 0.842,
-       "40": 0.762,
+       "30": 0.839,
+       "40": 0.763,
        "50": 0.636,
-       "60": 0.517,
-       "70": 0.397,
-       "80": 0.302,
-       "90": 0.212,
-       "100": 0.144,
-       "120": 0.062
+       "60": 0.515,
+       "70": 0.395,
+       "80": 0.298,
+       "90": 0.21,
+       "100": 0.149,
+       "120": 0.065
       },
       "receptions": {
        "2": 0.986,
-       "3": 0.956,
-       "4": 0.902,
-       "5": 0.82,
-       "6": 0.719,
-       "7": 0.601,
-       "8": 0.486
+       "3": 0.957,
+       "4": 0.9,
+       "5": 0.819,
+       "6": 0.717,
+       "7": 0.602,
+       "8": 0.487
       },
       "targets_needed": {
        "50": 9,
@@ -15478,11 +15949,11 @@
        "100": 17
       },
       "targets_needed_chance": {
-       "50": 0.613,
+       "50": 0.61,
        "60": 0.515,
-       "70": 0.343,
-       "80": 0.267,
-       "100": 0.081
+       "70": 0.345,
+       "80": 0.268,
+       "100": 0.082
       }
      },
      {
@@ -15517,7 +15988,7 @@
       },
       "player_id": "00-0038559",
       "sim": {
-       "targets_raw": 9.406,
+       "targets_raw": 9.403,
        "k": 28.2,
        "catch_rate": 0.6015,
        "ypr": 11.309,
@@ -15527,32 +15998,32 @@
       },
       "targets_mean": 8.3,
       "receptions_mean": 5.0,
-      "yards_mean": 51.5,
+      "yards_mean": 51.6,
       "yards_median": 45.6,
       "yards_p25_p75": [
        26.0,
        71.0
       ],
       "yards": {
-       "20": 0.826,
+       "20": 0.822,
        "30": 0.703,
-       "40": 0.608,
-       "50": 0.483,
-       "60": 0.373,
-       "70": 0.279,
-       "80": 0.197,
-       "90": 0.139,
-       "100": 0.097,
-       "120": 0.042
+       "40": 0.607,
+       "50": 0.487,
+       "60": 0.377,
+       "70": 0.28,
+       "80": 0.199,
+       "90": 0.142,
+       "100": 0.099,
+       "120": 0.043
       },
       "receptions": {
-       "2": 0.929,
-       "3": 0.823,
+       "2": 0.927,
+       "3": 0.82,
        "4": 0.681,
-       "5": 0.525,
-       "6": 0.379,
-       "7": 0.263,
-       "8": 0.174
+       "5": 0.528,
+       "6": 0.378,
+       "7": 0.264,
+       "8": 0.172
       },
       "targets_needed": {
        "50": 9,
@@ -15563,10 +16034,10 @@
       },
       "targets_needed_chance": {
        "50": 0.432,
-       "60": 0.338,
+       "60": 0.34,
        "70": 0.193,
        "80": 0.142,
-       "100": 0.034
+       "100": 0.035
       }
      },
      {
@@ -15601,7 +16072,7 @@
       },
       "player_id": "00-0033307",
       "sim": {
-       "targets_raw": 5.393,
+       "targets_raw": 5.391,
        "k": 18.0,
        "catch_rate": 0.6127,
        "ypr": 11.33,
@@ -15612,31 +16083,31 @@
       "targets_mean": 4.8,
       "receptions_mean": 2.9,
       "yards_mean": 30.4,
-      "yards_median": 25.3,
+      "yards_median": 24.5,
       "yards_p25_p75": [
        11.0,
        43.0
       ],
       "yards": {
-       "20": 0.586,
-       "30": 0.423,
-       "40": 0.321,
+       "20": 0.589,
+       "30": 0.422,
+       "40": 0.32,
        "50": 0.215,
-       "60": 0.138,
+       "60": 0.139,
        "70": 0.089,
-       "80": 0.053,
-       "90": 0.034,
-       "100": 0.02,
+       "80": 0.054,
+       "90": 0.032,
+       "100": 0.019,
        "120": 0.006
       },
       "receptions": {
-       "2": 0.741,
+       "2": 0.748,
        "3": 0.533,
-       "4": 0.34,
+       "4": 0.336,
        "5": 0.196,
-       "6": 0.106,
-       "7": 0.054,
-       "8": 0.027
+       "6": 0.105,
+       "7": 0.051,
+       "8": 0.025
       },
       "targets_needed": {
        "50": 8,
@@ -15646,11 +16117,11 @@
        "100": 16
       },
       "targets_needed_chance": {
-       "50": 0.157,
-       "60": 0.059,
-       "70": 0.022,
-       "80": 0.012,
-       "100": 0.002
+       "50": 0.153,
+       "60": 0.055,
+       "70": 0.019,
+       "80": 0.011,
+       "100": 0.001
       }
      },
      {
@@ -15685,7 +16156,7 @@
       },
       "player_id": "00-0037263",
       "sim": {
-       "targets_raw": 3.149,
+       "targets_raw": 3.148,
        "k": 50.0,
        "catch_rate": 0.7599,
        "ypr": 7.633,
@@ -15696,30 +16167,30 @@
       "targets_mean": 2.8,
       "receptions_mean": 2.1,
       "yards_mean": 14.8,
-      "yards_median": 10.3,
+      "yards_median": 11.3,
       "yards_p25_p75": [
        4.0,
        22.0
       ],
       "yards": {
-       "20": 0.273,
-       "30": 0.149,
+       "20": 0.272,
+       "30": 0.147,
        "40": 0.088,
-       "50": 0.044,
+       "50": 0.042,
        "60": 0.023,
-       "70": 0.011,
-       "80": 0.004,
-       "90": 0.003,
+       "70": 0.01,
+       "80": 0.005,
+       "90": 0.002,
        "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.61,
-       "3": 0.358,
+       "2": 0.607,
+       "3": 0.353,
        "4": 0.181,
-       "5": 0.084,
-       "6": 0.034,
-       "7": 0.013,
+       "5": 0.083,
+       "6": 0.035,
+       "7": 0.015,
        "8": 0.005
       },
       "targets_needed": {
@@ -15769,7 +16240,7 @@
       },
       "player_id": "00-0039041",
       "sim": {
-       "targets_raw": 2.558,
+       "targets_raw": 2.557,
        "k": 50.0,
        "catch_rate": 0.7857,
        "ypr": 10.26,
@@ -15782,29 +16253,29 @@
       "yards_mean": 16.8,
       "yards_median": 12.9,
       "yards_p25_p75": [
-       4.0,
-       26.0
+       5.0,
+       25.0
       ],
       "yards": {
-       "20": 0.345,
+       "20": 0.341,
        "30": 0.187,
-       "40": 0.109,
-       "50": 0.053,
-       "60": 0.025,
-       "70": 0.012,
-       "80": 0.005,
+       "40": 0.111,
+       "50": 0.054,
+       "60": 0.024,
+       "70": 0.011,
+       "80": 0.004,
        "90": 0.002,
        "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.525,
+       "2": 0.528,
        "3": 0.276,
-       "4": 0.123,
+       "4": 0.121,
        "5": 0.047,
-       "6": 0.017,
+       "6": 0.016,
        "7": 0.005,
-       "8": 0.002
+       "8": 0.001
       },
       "targets_needed": {
        "50": 7,
@@ -15853,7 +16324,7 @@
       },
       "player_id": "00-0038640",
       "sim": {
-       "targets_raw": 4.793,
+       "targets_raw": 4.792,
        "k": 50.0,
        "catch_rate": 0.5384,
        "ypr": 12.413,
@@ -15870,24 +16341,24 @@
        38.0
       ],
       "yards": {
-       "20": 0.497,
+       "20": 0.498,
        "30": 0.342,
-       "40": 0.257,
-       "50": 0.163,
-       "60": 0.096,
-       "70": 0.058,
+       "40": 0.256,
+       "50": 0.162,
+       "60": 0.097,
+       "70": 0.06,
        "80": 0.035,
-       "90": 0.021,
-       "100": 0.011,
-       "120": 0.003
+       "90": 0.02,
+       "100": 0.012,
+       "120": 0.004
       },
       "receptions": {
-       "2": 0.634,
-       "3": 0.384,
+       "2": 0.631,
+       "3": 0.386,
        "4": 0.206,
-       "5": 0.098,
-       "6": 0.042,
-       "7": 0.016,
+       "5": 0.096,
+       "6": 0.041,
+       "7": 0.017,
        "8": 0.006
       },
       "targets_needed": {
@@ -15898,10 +16369,10 @@
        "100": 17
       },
       "targets_needed_chance": {
-       "50": 0.053,
+       "50": 0.052,
        "60": 0.027,
-       "70": 0.006,
-       "80": 0.001,
+       "70": 0.007,
+       "80": 0.002,
        "100": 0.0
       }
      },
@@ -15937,7 +16408,7 @@
       },
       "player_id": "00-0037157",
       "sim": {
-       "targets_raw": 2.417,
+       "targets_raw": 2.416,
        "k": 50.0,
        "catch_rate": 0.7009,
        "ypr": 7.966,
@@ -15954,10 +16425,10 @@
        16.0
       ],
       "yards": {
-       "20": 0.185,
-       "30": 0.088,
-       "40": 0.049,
-       "50": 0.024,
+       "20": 0.181,
+       "30": 0.087,
+       "40": 0.053,
+       "50": 0.025,
        "60": 0.012,
        "70": 0.006,
        "80": 0.003,
@@ -15966,12 +16437,12 @@
        "120": 0.0
       },
       "receptions": {
-       "2": 0.435,
-       "3": 0.199,
-       "4": 0.076,
+       "2": 0.437,
+       "3": 0.2,
+       "4": 0.077,
        "5": 0.026,
        "6": 0.008,
-       "7": 0.002,
+       "7": 0.003,
        "8": 0.001
       },
       "targets_needed": {
@@ -16021,7 +16492,7 @@
       },
       "player_id": "00-0041070",
       "sim": {
-       "targets_raw": 3.525,
+       "targets_raw": 3.524,
        "k": 50.0,
        "catch_rate": 0.5518,
        "ypr": 12.394,
@@ -16038,24 +16509,24 @@
        29.0
       ],
       "yards": {
-       "20": 0.382,
-       "30": 0.24,
-       "40": 0.171,
-       "50": 0.095,
-       "60": 0.054,
-       "70": 0.03,
-       "80": 0.016,
+       "20": 0.38,
+       "30": 0.242,
+       "40": 0.17,
+       "50": 0.096,
+       "60": 0.056,
+       "70": 0.031,
+       "80": 0.017,
        "90": 0.009,
-       "100": 0.004,
+       "100": 0.005,
        "120": 0.001
       },
       "receptions": {
-       "2": 0.501,
-       "3": 0.255,
-       "4": 0.112,
+       "2": 0.503,
+       "3": 0.256,
+       "4": 0.111,
        "5": 0.042,
        "6": 0.015,
-       "7": 0.004,
+       "7": 0.005,
        "8": 0.001
       },
       "targets_needed": {
@@ -16105,7 +16576,7 @@
       },
       "player_id": "00-0036646",
       "sim": {
-       "targets_raw": 2.811,
+       "targets_raw": 2.81,
        "k": 3.8,
        "catch_rate": 0.5743,
        "ypr": 11.925,
@@ -16115,31 +16586,31 @@
       },
       "targets_mean": 2.5,
       "receptions_mean": 1.4,
-      "yards_mean": 15.6,
+      "yards_mean": 15.7,
       "yards_median": 9.4,
       "yards_p25_p75": [
        0.0,
-       23.0
+       24.0
       ],
       "yards": {
-       "20": 0.296,
+       "20": 0.297,
        "30": 0.186,
-       "40": 0.128,
-       "50": 0.074,
+       "40": 0.129,
+       "50": 0.075,
        "60": 0.043,
        "70": 0.025,
-       "80": 0.015,
-       "90": 0.009,
-       "100": 0.005,
+       "80": 0.014,
+       "90": 0.008,
+       "100": 0.004,
        "120": 0.001
       },
       "receptions": {
-       "2": 0.386,
-       "3": 0.196,
+       "2": 0.388,
+       "3": 0.194,
        "4": 0.092,
-       "5": 0.04,
-       "6": 0.017,
-       "7": 0.007,
+       "5": 0.042,
+       "6": 0.018,
+       "7": 0.008,
        "8": 0.003
       },
       "targets_needed": {
@@ -16150,7 +16621,7 @@
        "100": 17
       },
       "targets_needed_chance": {
-       "50": 0.017,
+       "50": 0.016,
        "60": 0.01,
        "70": 0.003,
        "80": 0.002,
@@ -16181,34 +16652,34 @@
       },
       "player_id": "00-0037263",
       "sim": {
-       "carries_raw": 14.952,
+       "carries_raw": 14.98,
        "k": 4.75,
        "ypc": 4.008
       },
       "carries_mean": 12.6,
-      "yards_mean": 50.2,
+      "yards_mean": 50.3,
       "yards_median": 41.9,
       "yards_p25_p75": [
        23.0,
-       68.0
+       69.0
       ],
       "yards": {
-       "30": 0.65,
-       "40": 0.52,
-       "50": 0.438,
-       "60": 0.343,
-       "70": 0.266,
-       "80": 0.203,
-       "100": 0.102,
-       "120": 0.055
+       "30": 0.654,
+       "40": 0.521,
+       "50": 0.442,
+       "60": 0.348,
+       "70": 0.268,
+       "80": 0.204,
+       "100": 0.101,
+       "120": 0.054
       },
       "carries": {
-       "8": 0.725,
-       "10": 0.602,
-       "12": 0.559,
-       "15": 0.369,
-       "18": 0.217,
-       "20": 0.164
+       "8": 0.727,
+       "10": 0.6,
+       "12": 0.562,
+       "15": 0.371,
+       "18": 0.216,
+       "20": 0.161
       }
      },
      {
@@ -16233,32 +16704,32 @@
       },
       "player_id": "00-0037157",
       "sim": {
-       "carries_raw": 8.005,
+       "carries_raw": 8.02,
        "k": 3.0,
        "ypc": 4.307
       },
       "carries_mean": 7.0,
       "yards_mean": 30.0,
-      "yards_median": 22.6,
+      "yards_median": 22.7,
       "yards_p25_p75": [
        10.0,
        42.0
       ],
       "yards": {
-       "30": 0.38,
+       "30": 0.383,
        "40": 0.265,
        "50": 0.225,
-       "60": 0.158,
-       "70": 0.111,
-       "80": 0.08,
+       "60": 0.161,
+       "70": 0.114,
+       "80": 0.079,
        "100": 0.029,
        "120": 0.013
       },
       "carries": {
-       "8": 0.368,
-       "10": 0.249,
+       "8": 0.374,
+       "10": 0.251,
        "12": 0.245,
-       "15": 0.122,
+       "15": 0.119,
        "18": 0.045,
        "20": 0.029
       }
@@ -16285,8 +16756,8 @@
       "pos": "TE",
       "tier": "tier B",
       "style": "volume",
-      "p80": 0.263,
-      "p100": 0.15,
+      "p80": 0.268,
+      "p100": 0.154,
       "stars": 0,
       "targets": 10.8,
       "yds_pg": 59.8,
@@ -16294,11 +16765,11 @@
       "why": [
        "tier B receiver: 9.9 targets and 60 yards a game",
        "10.8 projected targets",
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
-       "p80": 0.285,
+       "p80": 0.291,
        "stars": 0,
        "season_share": 0.286,
        "last_game_share": 0.452,
@@ -16318,19 +16789,19 @@
       "pos": "WR",
       "tier": "tier B",
       "style": "volume",
-      "p80": 0.253,
-      "p100": 0.137,
+      "p80": 0.258,
+      "p100": 0.14,
       "stars": 0,
       "targets": 9.3,
       "yds_pg": 63.8,
       "ex_pg": 1.0,
       "why": [
        "tier B receiver: 9.5 targets and 64 yards a game",
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
-       "p80": 0.254,
+       "p80": 0.26,
        "stars": 0,
        "season_share": 0.25,
        "last_game_share": 0.241,
@@ -16350,18 +16821,18 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.085,
-      "p100": 0.033,
+      "p80": 0.087,
+      "p100": 0.034,
       "stars": 0,
       "targets": 5.6,
       "yds_pg": 38.8,
       "ex_pg": 0.75,
       "why": [
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
-       "p80": 0.069,
+       "p80": 0.071,
        "stars": 0,
        "season_share": 0.146,
        "last_game_share": 0.049,
@@ -16381,18 +16852,18 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.05,
+      "p80": 0.051,
       "p100": 0.018,
       "stars": 0,
       "targets": 5.0,
       "yds_pg": 27.0,
       "ex_pg": 0.67,
       "why": [
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
-       "p80": 0.051,
+       "p80": 0.052,
        "stars": 0,
        "season_share": 0.13,
        "last_game_share": 0.136,
@@ -16412,18 +16883,18 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.019,
+      "p80": 0.02,
       "p100": 0.006,
       "stars": 0,
       "targets": 3.5,
       "yds_pg": 18.0,
       "ex_pg": 0.33,
       "why": [
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
-       "p80": 0.021,
+       "p80": 0.022,
        "stars": 0,
        "season_share": 0.096,
        "last_game_share": 0.138,
@@ -16450,7 +16921,7 @@
       "yds_pg": 20.9,
       "ex_pg": 0.14,
       "why": [
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
@@ -16475,13 +16946,13 @@
       "tier": null,
       "style": "volume",
       "p80": 0.006,
-      "p100": 0.001,
+      "p100": 0.002,
       "stars": 0,
       "targets": 2.4,
       "yds_pg": 10.0,
       "ex_pg": 0.25,
       "why": [
-       "team only expected to score 16",
+       "team only expected to score 17",
        "rain/wind in the forecast cuts his yards about 9%"
       ],
       "shadow": {
@@ -16506,7 +16977,7 @@
       "player_id": "00-0037263",
       "pos": "RB",
       "p80": 0.146,
-      "p100": 0.072,
+      "p100": 0.073,
       "stars": 0,
       "carries": 10.7,
       "yds_pg": 42.0,
@@ -16526,7 +16997,7 @@
     "context": {
      "pass_yards_last5": 202.0,
      "pass_offense_rank": 24,
-     "implied": 16.5,
+     "implied": 17.25,
      "defense_g80_rank": 12,
      "defense_explosive_rank": 21
     },
@@ -21357,7 +21828,7 @@
      "RT": "Josh Conerly Jr.",
      "QB": "Jayden Daniels",
      "TE": "Chig Okonkwo",
-     "RB": "Rachaad White",
+     "RB": "Jacory Croskey-Merritt",
      "LDE": "Charles Omenihu",
      "NT": "Tim Settle",
      "RDE": "Shy Tuttle",
@@ -21405,7 +21876,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -21449,7 +21920,7 @@
      },
      {
       "slot": "RB",
-      "player": "Rachaad White",
+      "player": "Jacory Croskey-Merritt",
       "group": "3WR 1TE"
      },
      {
@@ -21578,7 +22049,7 @@
      },
      {
       "slot": "RB",
-      "player": "Austin Ekeler"
+      "player": "Rachaad White"
      },
      {
       "slot": "LDE",
@@ -21841,7 +22312,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -22295,8 +22766,8 @@
       "away": 7.2
      }
     },
-    "home_covers_market_spread": 0.677,
-    "over_market_total": 0.709
+    "home_covers_market_spread": 0.661,
+    "over_market_total": 0.673
    },
    "independent": {
     "home_points": 19.6,
@@ -22332,8 +22803,8 @@
       "away": 6.5
      }
     },
-    "home_covers_market_spread": 0.753,
-    "over_market_total": 0.552
+    "home_covers_market_spread": 0.74,
+    "over_market_total": 0.515
    }
   },
   "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
@@ -22434,98 +22905,98 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d7aa5501bb6f323bdaa9cdfd2dbb2f828adc4497a4a53ce6a9456d671a7e9753",
-   "bytes": 524258
+   "retrieved_utc": "2026-11-24T23:23:41+00:00",
+   "sha256": "0e869d772f90585fa208e0d1f4ddda367684cb97c67f9e3142e8ab9ee475c0e6",
+   "bytes": 524360
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d8782243a144a98dccd5fa91cb379b6004a697f49966d0209da5d875a3928692",
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "b74af456d30b27138744f885d9a1d38de03664a4d5b6fae5fc55b23d6fc63488",
    "bytes": 13097328
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "8b17e639cdd2d655d7270b69fbd9dc178d89b64e4234cb38c57d1b7ee203b9fd",
-   "bytes": 822554
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "025956d0eab74359c293b4d3c51d673836ee0af45d19cbaf1779bfb596be0016",
+   "bytes": 821928
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "b7bae239f8a9aa2f4169d49a001e86b76ae22dda7b0eeaac4d033b5f6e9bb7e9",
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "46e0f80ab820779aa6c8caf364cafe5bbbbf27885378d7f28af08c004b892387",
    "bytes": 69477
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "56f5984ca8456d6640868812d43ecfc29417f965d2dcd40cacf27701c984978d",
-   "bytes": 3559081
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "9f9fb70531af4428dc183036eea463b500faaf561456312381244638e59e5c31",
+   "bytes": 3615076
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "cfbe0260477f668c30ccd10d3976a0d9b7b1cf7732e1a2684c43fbf314f86ea1",
-   "bytes": 151849
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "bytes": 152479
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "bb72c788f63b5d4882d11a5a57dc6f59b401897bc2dcc99d6ba50290ab2404b3",
-   "bytes": 314887
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
+   "sha256": "cde066b3fb7ec0a3ace879664f9c71cb3d5c584248003da2aafbea248afd21f5",
+   "bytes": 335267
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "b2f7b6dc4d56fa9ca1a3b6d65e78c4436742bb2311edb8b299fc9dc9191b864a",
    "bytes": 100331
   },
   "pfr_rec": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "c044899de693fa04d8c50cd45b83a6a277e12d11d6d26209a0501f424bcc3174",
    "bytes": 35611
   },
   "pfr_rush": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rush_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "e8230522afc9188eb7dd3ca5b935a6a48d7e776e4549cb8143a55eac3981e19c",
    "bytes": 28827
   },
   "ngs_receiving": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "40743c0acacb216274409090b461c52cfdb0bd5f451b2772bd8d3863bfb9b094",
-   "bytes": 1180846
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "1182ae58702b4a36ea11d776201983bf160ce4f73c0dc6e190e51d10bb3e1a8b",
+   "bytes": 1181382
   },
   "ngs_rushing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_rushing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "1769f3df0fcfb222684aeb0af9d24de9cb6dc7b995706adfea712b83e769b041",
-   "bytes": 406077
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "8224482c119b0613c5bd3a1cd2e282b8820714717dc80d42c3e7148de7bda809",
+   "bytes": 406226
   },
   "ngs_passing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_passing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "52f24af2e400449f88b12c48c9645baf483bf3731b3fdd013a2783af295b5574",
-   "bytes": 767210
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "688f7a6ebfcfdc418e2ba9fd6e2c49e4ff901c20c8b568cf9d94093ae3e4a377",
+   "bytes": 767423
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-24T06:16:22+00:00"
+   "retrieved_utc": "2026-11-24T23:23:45+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",

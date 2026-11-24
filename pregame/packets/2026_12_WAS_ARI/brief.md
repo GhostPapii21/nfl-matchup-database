@@ -2,23 +2,47 @@
 
 **Sunday 2026-11-29, 16:25 ET.** Site: Home; roof: not listed; surface: grass. Rest: WAS 6 days, ARI 7 days. Listed QBs: Jayden Daniels (WAS), Gardner Minshew (ARI).
 
-Market (schedule consensus, not a timestamped quote): ARI +7.5, total 40.5.
+Market (schedule consensus, not a timestamped quote): ARI +7, total 41.5.
 
-Generated 2026-11-24T06:17:08+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-24T23:24:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-24T06:17:05+00:00 UTC. At kickoff: 76 F, wind 5 mph SSE, 0% chance of precipitation, Sunny. During the game: low 74 F, wind up to 5 mph, precipitation chance up to 6%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-24T23:24:06+00:00 UTC. At kickoff: 76 F, wind 5 mph ESE, 0% chance of precipitation, Sunny. During the game: low 74 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-24T06:11:38Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: fanduel.
+Retrieved 2026-11-24T23:18:24Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | ARI +7.5 | -118 | -108 | 51.0% | 49.0% | 6.0% | 2026-11-24T06:11:38+00:00 |
-| total | fanduel | Over 41.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-24T06:11:38+00:00 |
-| moneyline | fanduel | ARI | +300 | -375 | 24.1% | 75.9% | 4.0% | 2026-11-24T06:11:38+00:00 |
+| spread | fanduel | ARI +7 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-24T23:18:24+00:00 |
+| spread | pinnacle | ARI +7 | -108 | -105 | 50.3% | 49.7% | 3.1% | 2026-11-24T23:18:24+00:00 |
+| spread | consensus | ARI +7 | -107 | -110 | 49.7% | 50.3% | 4.1% | 2026-11-24T23:18:24+00:00 |
+| spread | draftkings | ARI +7 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-24T23:18:24+00:00 |
+| spread | betrivers | ARI +7 | -105 | -117 | 48.7% | 51.3% | 5.1% | 2026-11-24T23:18:24+00:00 |
+| spread | betmgm | ARI +7 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-24T23:18:24+00:00 |
+| spread | williamhill_us | ARI +7 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-24T23:18:24+00:00 |
+| spread | open | ARI +4.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
+| spread | bet365 | ARI +7.5 | -122 | +102 | 52.6% | 47.4% | 4.5% | 2026-11-24T23:18:24+00:00 |
+| total | fanduel | Over 41.5 | -111 | -115 | 49.6% | 50.4% | 6.1% | 2026-11-24T23:18:24+00:00 |
+| total | pinnacle | Over 41.5 | -106 | -108 | 49.8% | 50.2% | 3.4% | 2026-11-24T23:18:24+00:00 |
+| total | consensus | Over 41.5 | -111 | -110 | 50.1% | 49.9% | 5.0% | 2026-11-24T23:18:24+00:00 |
+| total | draftkings | Over 41.5 | -111 | -108 | 50.3% | 49.7% | 4.5% | 2026-11-24T23:18:24+00:00 |
+| total | betrivers | Over 41.5 | -115 | -108 | 50.7% | 49.3% | 5.4% | 2026-11-24T23:18:24+00:00 |
+| total | betmgm | Over 41.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-24T23:18:24+00:00 |
+| total | bet365 | Over 41.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
+| total | williamhill_us | Over 41.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-24T23:18:24+00:00 |
+| total | open | Over 47.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
+| moneyline | fanduel | ARI | +300 | -375 | 24.1% | 75.9% | 4.0% | 2026-11-24T23:18:24+00:00 |
+| moneyline | pinnacle | ARI | +281 | -341 | 25.3% | 74.7% | 3.6% | 2026-11-24T23:18:24+00:00 |
+| moneyline | consensus | ARI | +280 | -353 | 25.2% | 74.8% | 4.2% | 2026-11-24T23:18:24+00:00 |
+| moneyline | open | ARI | +180 | -218 | 34.2% | 65.8% | 4.3% | 2026-11-24T23:18:24+00:00 |
+| moneyline | draftkings | ARI | +280 | -348 | 25.3% | 74.7% | 4.0% | 2026-11-24T23:18:24+00:00 |
+| moneyline | betrivers | ARI | +295 | -385 | 24.2% | 75.8% | 4.7% | 2026-11-24T23:18:24+00:00 |
+| moneyline | betmgm | ARI | +280 | -350 | 25.3% | 74.7% | 4.1% | 2026-11-24T23:18:24+00:00 |
+| moneyline | bet365 | ARI | +290 | -370 | 24.6% | 75.4% | 4.4% | 2026-11-24T23:18:24+00:00 |
+| moneyline | williamhill_us | ARI | +300 | -390 | 23.9% | 76.1% | 4.6% | 2026-11-24T23:18:24+00:00 |
 
 Player props: OK.
 
@@ -54,8 +78,8 @@ Player props: OK.
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | WAS 25.2 - ARI 22.6 | 47.8 | -2.6 | 41.6% | 67.7% | 70.9% | WAS 12.4 - ARI 11.1 |
-| independent | WAS 21.2 - ARI 19.6 | 40.8 | -1.6 | 44.1% | 75.3% | 55.2% | WAS 9.8 - ARI 9.6 |
+| matchup_pair | WAS 25.2 - ARI 22.6 | 47.8 | -2.6 | 41.6% | 66.1% | 67.3% | WAS 12.4 - ARI 11.1 |
+| independent | WAS 21.2 - ARI 19.6 | 40.8 | -1.6 | 44.1% | 74.0% | 51.5% | WAS 9.8 - ARI 9.6 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -339,7 +363,7 @@ Neutral-situation pass rate 53.1%; 60.1 plays per game; target share WR 63% / TE
 | defense allows | Deep middle | 15 | 5% | 47% | 12.73 | 4 |
 | defense allows | Deep right | 20 | 6% | 40% | 11.1 | 5 |
 
-### WAS lines (depth chart as of 2026-11-23T19:11:07Z)
+### WAS lines (depth chart as of 2026-11-24T18:50:30Z)
 
 Offensive line: LT Brandon Coleman, LG Chris Paul, C Lucas Patrick, RG Sam Cosmi, RT Josh Conerly Jr..  
 Defensive front: LDE Charles Omenihu, NT Tim Settle, RDE Shy Tuttle, WLB Odafe Oweh, SLB Dorance Armstrong.
@@ -348,7 +372,7 @@ Defensive front: LDE Charles Omenihu, NT Tim Settle, RDE Shy Tuttle, WLB Odafe O
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Laremy Tunsil (OT) Injured Reserve; Tanoa Togiai (G) Out; Robert Henry Jr. (RB) Out; Ricky Barber (DT) Out; Athan Kaliakmanis (QB) Out; Amik Robertson (CB) Out.
+ESPN live list (designations only): Laremy Tunsil (OT) Injured Reserve; Amik Robertson (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -379,7 +403,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 | Red-zone TD rate allowed | 66.7% | 24/32 | 58.3% |
 | Takeaways / game | 0.62 | 31/32 | 1.22 |
 
-Blitz rate 37.7% and play-action faced 27.6% on 228 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.0 per game, 37.5% completed.
+Blitz rate 37.3% and play-action faced 26.9% on 268 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.0 per game, 37.5% completed.
 
 ### ARI defense, game by game
 
@@ -548,7 +572,7 @@ Neutral-situation pass rate 49.1%; 61.6 plays per game; target share WR 50% / TE
 | defense allows | Deep middle | 8 | 3% | 50% | 10.5 | 3 |
 | defense allows | Deep right | 18 | 7% | 33% | 12.78 | 6 |
 
-### ARI lines (depth chart as of 2026-11-23T19:11:07Z)
+### ARI lines (depth chart as of 2026-11-24T18:50:30Z)
 
 Offensive line: LT Josh Fryar, LG Isaac Seumalo, C Hjalte Froholdt, RG Isaiah Adams, RT Jayden Williams.  
 Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante Stills, WLB Jack Gibbens, SLB Zaven Collins.
@@ -557,7 +581,7 @@ Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Zachary Carter (DT) Injured Reserve; Cody Simon (LB) Questionable; Jon Gaines II (G) Out; Carson Beck (QB) Out; Jeremiyah Love (RB) Injured Reserve.
+ESPN live list (designations only): Zachary Carter (DT) Injured Reserve; Cody Simon (LB) Questionable; Jeremiyah Love (RB) Injured Reserve; Jon Gaines II (G) Questionable; Carson Beck (QB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -601,20 +625,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-24T06:16:20+00:00 | d7aa5501bb6f |
-| pbp | OK | 2026-11-24T06:16:20+00:00 | d8782243a144 |
-| rosters | OK | 2026-11-24T06:16:20+00:00 | 8b17e639cdd2 |
-| injuries | OK | 2026-11-24T06:16:20+00:00 | b7bae239f8a9 |
-| depth_charts | OK | 2026-11-24T06:16:20+00:00 | 56f5984ca845 |
-| snap_counts | OK | 2026-11-24T06:16:21+00:00 | cfbe0260477f |
-| ftn | OK | 2026-11-24T06:16:21+00:00 | bb72c788f63b |
-| pfr_def | OK | 2026-11-24T06:16:21+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-24T06:16:21+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-24T06:16:21+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-24T06:16:21+00:00 | 40743c0acacb |
-| ngs_rushing | OK | 2026-11-24T06:16:21+00:00 | 1769f3df0fcf |
-| ngs_passing | OK | 2026-11-24T06:16:21+00:00 | 52f24af2e400 |
-| espn_injuries | OK | 2026-11-24T06:16:22+00:00 |  |
+| games | OK | 2026-11-24T23:23:41+00:00 | 0e869d772f90 |
+| pbp | OK | 2026-11-24T23:23:42+00:00 | b74af456d30b |
+| rosters | OK | 2026-11-24T23:23:42+00:00 | 025956d0eab7 |
+| injuries | OK | 2026-11-24T23:23:42+00:00 | 46e0f80ab820 |
+| depth_charts | OK | 2026-11-24T23:23:42+00:00 | 9f9fb70531af |
+| snap_counts | OK | 2026-11-24T23:23:43+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-24T23:23:43+00:00 | cde066b3fb7e |
+| pfr_def | OK | 2026-11-24T23:23:43+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-24T23:23:43+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-24T23:23:43+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-24T23:23:44+00:00 | 1182ae58702b |
+| ngs_rushing | OK | 2026-11-24T23:23:44+00:00 | 8224482c119b |
+| ngs_passing | OK | 2026-11-24T23:23:44+00:00 | 688f7a6ebfcf |
+| espn_injuries | OK | 2026-11-24T23:23:45+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

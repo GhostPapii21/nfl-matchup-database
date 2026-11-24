@@ -28,26 +28,34 @@
  },
  "result": null,
  "implied_points": {
-  "LAC": 18.5,
+  "LAC": 18.0,
   "NE": 17.0
  },
- "generated_utc": "2026-11-24T06:17:00+00:00",
- "board_built_utc": "2026-11-24T06:20:27+00:00",
+ "generated_utc": "2026-11-24T23:24:03+00:00",
+ "board_built_utc": "2026-11-24T23:25:33+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -1.5,
   "total": 35.5,
   "moneyline": {
-   "NE": -103.0,
-   "LAC": -115.0
+   "NE": -104.0,
+   "LAC": -113.0
   }
  },
  "books": {
   "status": "OK_DIRECT",
   "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
-  "retrieved_utc": "2026-11-24T06:11:38Z",
+  "retrieved_utc": "2026-11-24T23:18:24Z",
   "book_retrieved_utc": {
-   "fanduel": "2026-11-24T06:11:38Z"
+   "bet365": "2026-11-24T23:18:24Z",
+   "betmgm": "2026-11-24T23:18:24Z",
+   "betrivers": "2026-11-24T23:18:24Z",
+   "consensus": "2026-11-24T23:18:24Z",
+   "draftkings": "2026-11-24T23:18:24Z",
+   "fanduel": "2026-11-24T23:18:24Z",
+   "open": "2026-11-24T23:18:24Z",
+   "pinnacle": "2026-11-24T23:18:24Z",
+   "williamhill_us": "2026-11-24T23:18:24Z"
   },
   "markets": {
    "total": {
@@ -67,35 +75,151 @@
        "Under": 0.4958
       },
       "hold": 0.061,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": 35.0,
+      "prices": {
+       "Over": -112.0,
+       "Under": -104.0
+      },
+      "no_vig": {
+       "Over": 0.5089,
+       "Under": 0.4911
+      },
+      "hold": 0.0381,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": 35.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0431,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 35.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.4989,
+       "Under": 0.5011
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": 35.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": 35.5,
+      "prices": {
+       "Over": -112.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5032,
+       "Under": 0.4968
+      },
+      "hold": 0.0498,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": 36.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -118.0
+      },
+      "no_vig": {
+       "Over": 0.4862,
+       "Under": 0.5138
+      },
+      "hold": 0.0535,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": 45.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 35.0,
+      "prices": {
+       "Over": -110.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5022,
+       "Under": 0.4978
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": 35.0,
+     "no_vig": {
+      "Over": 0.5089,
+      "Under": 0.4911
+     }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
      "line": 35.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 4,
      "no_vig": {
-      "Over": 0.5042,
-      "Under": 0.4958
+      "Over": 0.5016,
+      "Under": 0.4984
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -115.0,
-      "line": 35.5,
-      "break_even": 0.5349
+      "book": "betrivers",
+      "price": -105.0,
+      "line": 36.5,
+      "break_even": 0.5122
      },
      "Under": {
-      "book": "fanduel",
-      "price": -111.0,
-      "line": 35.5,
-      "break_even": 0.5261
+      "book": "betmgm",
+      "price": -108.0,
+      "line": 35.0,
+      "break_even": 0.5192
      }
     }
    },
@@ -108,43 +232,159 @@
      "fanduel": {
       "line": -1.5,
       "prices": {
-       "LAC": -106.0,
-       "NE": -120.0
+       "LAC": -104.0,
+       "NE": -122.0
       },
       "no_vig": {
-       "LAC": 0.4854,
-       "NE": 0.5146
+       "LAC": 0.4812,
+       "NE": 0.5188
       },
-      "hold": 0.06,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0594,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": -1.0,
+      "prices": {
+       "LAC": -100.0,
+       "NE": -112.0
+      },
+      "no_vig": {
+       "LAC": 0.4862,
+       "NE": 0.5138
+      },
+      "hold": 0.0283,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -105.0,
+       "NE": -115.0
+      },
+      "no_vig": {
+       "LAC": 0.4892,
+       "NE": 0.5108
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -110.0,
+       "NE": -110.0
+      },
+      "no_vig": {
+       "LAC": 0.5,
+       "NE": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": -1.5,
+      "prices": {
+       "LAC": 102.0,
+       "NE": -122.0
+      },
+      "no_vig": {
+       "LAC": 0.4739,
+       "NE": 0.5261
+      },
+      "hold": 0.0446,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -103.0,
+       "NE": -117.0
+      },
+      "no_vig": {
+       "LAC": 0.4848,
+       "NE": 0.5152
+      },
+      "hold": 0.0466,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -104.0,
+       "NE": -117.0
+      },
+      "no_vig": {
+       "LAC": 0.486,
+       "NE": 0.514
+      },
+      "hold": 0.049,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": -1.0,
+      "prices": {
+       "LAC": -105.0,
+       "NE": -112.0
+      },
+      "no_vig": {
+       "LAC": 0.4923,
+       "NE": 0.5077
+      },
+      "hold": 0.0405,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": -0.5,
+      "prices": {
+       "LAC": -112.0,
+       "NE": -110.0
+      },
+      "no_vig": {
+       "LAC": 0.5021,
+       "NE": 0.4979
+      },
+      "hold": 0.0521,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": -1.0,
+     "no_vig": {
+      "LAC": 0.4862,
+      "NE": 0.5138
+     }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
      "line": -1.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 4,
      "no_vig": {
-      "LAC": 0.4854,
-      "NE": 0.5146
+      "LAC": 0.4815,
+      "NE": 0.5185
      }
     },
     "best_retail_price": {
      "LAC": {
-      "book": "fanduel",
-      "price": -106.0,
+      "book": "draftkings",
+      "price": 102.0,
       "line": -1.5,
-      "break_even": 0.5146
+      "break_even": 0.495
      },
      "NE": {
-      "book": "fanduel",
-      "price": -120.0,
-      "line": -1.5,
-      "break_even": 0.5455
+      "book": "betrivers",
+      "price": -110.0,
+      "line": -0.5,
+      "break_even": 0.5238
      }
     }
    },
@@ -165,21 +405,137 @@
        "NE": 0.4911
       },
       "hold": 0.0381,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "LAC": -108.0,
+       "NE": -104.0
+      },
+      "no_vig": {
+       "LAC": 0.5046,
+       "NE": 0.4954
+      },
+      "hold": 0.029,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": null,
+      "prices": {
+       "LAC": -112.0,
+       "NE": -105.0
+      },
+      "no_vig": {
+       "LAC": 0.5077,
+       "NE": 0.4923
+      },
+      "hold": 0.0405,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": null,
+      "prices": {
+       "LAC": -125.0,
+       "NE": 105.0
+      },
+      "no_vig": {
+       "LAC": 0.5325,
+       "NE": 0.4675
+      },
+      "hold": 0.0434,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "LAC": -113.0,
+       "NE": -104.0
+      },
+      "no_vig": {
+       "LAC": 0.51,
+       "NE": 0.49
+      },
+      "hold": 0.0403,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": null,
+      "prices": {
+       "LAC": -113.0,
+       "NE": -108.0
+      },
+      "no_vig": {
+       "LAC": 0.5054,
+       "NE": 0.4946
+      },
+      "hold": 0.0497,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": null,
+      "prices": {
+       "LAC": -112.0,
+       "NE": -105.0
+      },
+      "no_vig": {
+       "LAC": 0.5077,
+       "NE": 0.4923
+      },
+      "hold": 0.0405,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": null,
+      "prices": {
+       "LAC": -113.0,
+       "NE": -107.0
+      },
+      "no_vig": {
+       "LAC": 0.5065,
+       "NE": 0.4935
+      },
+      "hold": 0.0474,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": null,
+      "prices": {
+       "LAC": -117.0,
+       "NE": -102.0
+      },
+      "no_vig": {
+       "LAC": 0.5164,
+       "NE": 0.4836
+      },
+      "hold": 0.0441,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "LAC": 0.5046,
+      "NE": 0.4954
+     }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": null,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "LAC": 0.5089,
-      "NE": 0.4911
+      "LAC": 0.5091,
+      "NE": 0.4909
      }
     },
     "best_retail_price": {
@@ -190,10 +546,10 @@
       "break_even": 0.5283
      },
      "NE": {
-      "book": "fanduel",
-      "price": -104.0,
+      "book": "williamhill_us",
+      "price": -102.0,
       "line": null,
-      "break_even": 0.5098
+      "break_even": 0.505
      }
     }
    }
@@ -202,9 +558,9 @@
   "props_status": "OK",
   "odds_api_status": "UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized",
   "freeze": {
-   "pulled_utc": "2026-11-24T06:11:38Z",
+   "pulled_utc": "2026-11-24T23:18:24Z",
    "files": [
-    "pregame/price_freezes/2026-11-29_NE@LAC/freeze_20261124T061701Z.json"
+    "pregame/price_freezes/2026-11-29_NE@LAC/freeze_20261124T232403Z.json"
    ]
   }
  },
@@ -598,53 +954,22 @@
  "game_bets": {
   "picks": [
    {
-    "market": "spread",
-    "period": "Game",
-    "kind": "spread",
-    "best": {
-     "book": "fanduel",
-     "side": "LAC",
-     "line": 6.5,
-     "american": -240,
-     "break_even": 0.7059,
-     "p_model": 0.808,
-     "p_market": 0.806,
-     "p_bet": 0.807,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.1435,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 104,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": -1.5,
-    "vs_fanduel_main": {
-     "line": -1.5,
-     "american": -105,
-     "ev_gain": 0.1932
-    },
-    "flags": []
-   },
-   {
     "market": "h2_spread",
     "period": "2nd half",
     "kind": "spread",
     "best": {
      "book": "fanduel",
      "side": "LAC",
-     "line": -3.5,
-     "american": 168,
-     "break_even": 0.3731,
-     "p_model": 0.4,
-     "p_market": 0.44,
-     "p_bet": 0.42,
+     "line": -4.5,
+     "american": 210,
+     "break_even": 0.3226,
+     "p_model": 0.336,
+     "p_market": 0.401,
+     "p_bet": 0.368,
      "p_push": 0.0,
-     "ev_per_dollar": 0.1249,
+     "ev_per_dollar": 0.1401,
      "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 44,
@@ -655,8 +980,73 @@
     "vs_fanduel_main": {
      "line": -10.5,
      "american": 560,
-     "ev_gain": 0.2461
+     "ev_gain": 0.3044
     },
+    "flags": []
+   },
+   {
+    "market": "h2_total",
+    "period": "2nd half",
+    "kind": "total",
+    "best": {
+     "book": "fanduel",
+     "side": "Under",
+     "line": 15.5,
+     "american": 146,
+     "break_even": 0.4065,
+     "p_model": 0.456,
+     "p_market": 0.439,
+     "p_bet": 0.447,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.1007,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 60,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 17.5,
+    "vs_fanduel_main": {
+     "line": 17.5,
+     "american": -120,
+     "ev_gain": 0.1338
+    },
+    "flags": []
+   },
+   {
+    "market": "spread",
+    "period": "Game",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "LAC",
+     "line": 5.5,
+     "american": -225,
+     "break_even": 0.6923,
+     "p_model": 0.752,
+     "p_market": 0.742,
+     "p_bet": 0.747,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0788,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 118,
+    "books": [
+     "bet365",
+     "betmgm",
+     "betrivers",
+     "consensus",
+     "draftkings",
+     "fanduel",
+     "open",
+     "williamhill_us"
+    ],
+    "main_line_home_or_over": -1.0,
+    "vs_fanduel_main": null,
     "flags": []
    },
    {
@@ -667,15 +1057,15 @@
      "book": "fanduel",
      "side": "Over",
      "line": 10.5,
-     "american": 116,
-     "break_even": 0.463,
-     "p_model": 0.54,
-     "p_market": 0.442,
-     "p_bet": 0.491,
+     "american": 118,
+     "break_even": 0.4587,
+     "p_model": 0.552,
+     "p_market": 0.437,
+     "p_bet": 0.495,
      "p_push": 0.0,
-     "ev_per_dollar": 0.0609,
+     "ev_per_dollar": 0.0782,
      "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
     "n_prices": 2,
@@ -685,8 +1075,97 @@
     "main_line_home_or_over": 10.5,
     "vs_fanduel_main": {
      "line": 10.5,
-     "american": 116,
+     "american": 118,
      "ev_gain": 0.0
+    },
+    "flags": []
+   },
+   {
+    "market": "h1_total",
+    "period": "1st half",
+    "kind": "total",
+    "best": {
+     "book": "fanduel",
+     "side": "Over",
+     "line": 13.5,
+     "american": -220,
+     "break_even": 0.6875,
+     "p_model": 0.712,
+     "p_market": 0.734,
+     "p_bet": 0.723,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0515,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 64,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 17.5,
+    "vs_fanduel_main": {
+     "line": 17.5,
+     "american": 102,
+     "ev_gain": 0.0671
+    },
+    "flags": []
+   },
+   {
+    "market": "q1_total",
+    "period": "1st quarter",
+    "kind": "total",
+    "best": {
+     "book": "fanduel",
+     "side": "Over",
+     "line": 6.5,
+     "american": -118,
+     "break_even": 0.5413,
+     "p_model": 0.536,
+     "p_market": 0.564,
+     "p_bet": 0.55,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.016,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 2,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 7.0,
+    "vs_fanduel_main": null,
+    "flags": []
+   },
+   {
+    "market": "h1_spread",
+    "period": "1st half",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "LAC",
+     "line": 5.5,
+     "american": -310,
+     "break_even": 0.7561,
+     "p_model": 0.776,
+     "p_market": 0.751,
+     "p_bet": 0.764,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0104,
+     "alt": true,
+     "t": "2026-11-24T23:18:24+00:00",
+     "source": "direct"
+    },
+    "n_prices": 44,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": -0.5,
+    "vs_fanduel_main": {
+     "line": -0.5,
+     "american": 104,
+     "ev_gain": 0.0513
     },
     "flags": []
    },
@@ -701,215 +1180,34 @@
      "american": 400,
      "break_even": 0.2,
      "p_model": 0.208,
-     "p_market": 0.213,
-     "p_bet": 0.211,
+     "p_market": 0.349,
+     "p_bet": 0.273,
      "p_push": 0.0,
-     "ev_per_dollar": 0.0535,
+     "ev_per_dollar": 0.3638,
      "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
+     "t": "2026-11-24T23:18:24+00:00",
      "source": "direct"
     },
-    "n_prices": 110,
+    "n_prices": 124,
     "books": [
-     "fanduel"
+     "bet365",
+     "betmgm",
+     "betrivers",
+     "consensus",
+     "draftkings",
+     "fanduel",
+     "open",
+     "williamhill_us"
     ],
-    "main_line_home_or_over": 35.5,
-    "vs_fanduel_main": {
-     "line": 35.5,
-     "american": -110,
-     "ev_gain": 0.0988
-    },
-    "flags": []
-   },
-   {
-    "market": "h1_spread",
-    "period": "1st half",
-    "kind": "spread",
-    "best": {
-     "book": "fanduel",
-     "side": "LAC",
-     "line": 5.5,
-     "american": -295,
-     "break_even": 0.7468,
-     "p_model": 0.784,
-     "p_market": 0.765,
-     "p_bet": 0.775,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0373,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 44,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": -1.5,
-    "vs_fanduel_main": {
-     "line": -1.5,
-     "american": 120,
-     "ev_gain": 0.0548
-    },
-    "flags": []
-   },
-   {
-    "market": "h2_total",
-    "period": "2nd half",
-    "kind": "total",
-    "best": {
-     "book": "fanduel",
-     "side": "Over",
-     "line": 20.5,
-     "american": 172,
-     "break_even": 0.3676,
-     "p_model": 0.368,
-     "p_market": 0.392,
-     "p_bet": 0.38,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0327,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 60,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 16.5,
-    "vs_fanduel_main": {
-     "line": 16.5,
-     "american": -120,
-     "ev_gain": 0.0858
-    },
-    "flags": []
-   },
-   {
-    "market": "q3_total",
-    "period": "3rd quarter",
-    "kind": "total",
-    "best": {
-     "book": "fanduel",
-     "side": "Under",
-     "line": 6.5,
-     "american": 120,
-     "break_even": 0.4545,
-     "p_model": 0.496,
-     "p_market": 0.434,
-     "p_bet": 0.465,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0224,
-     "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 2,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 6.5,
-    "vs_fanduel_main": {
-     "line": 6.5,
-     "american": 120,
-     "ev_gain": 0.0
-    },
-    "flags": []
-   },
-   {
-    "market": "h1_total",
-    "period": "1st half",
-    "kind": "total",
-    "best": {
-     "book": "fanduel",
-     "side": "Over",
-     "line": 7.5,
-     "american": -1400,
-     "break_even": 0.9333,
-     "p_model": 0.956,
-     "p_market": 0.951,
-     "p_bet": 0.954,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0218,
-     "alt": true,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 65,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 17.5,
-    "vs_fanduel_main": {
-     "line": 17.5,
-     "american": 100,
-     "ev_gain": 0.0326
-    },
-    "flags": []
-   },
-   {
-    "market": "h2_moneyline",
-    "period": "2nd half",
-    "kind": "moneyline",
-    "best": {
-     "book": "fanduel",
-     "side": "LAC",
-     "line": null,
-     "american": -108,
-     "break_even": 0.5192,
-     "p_model": 0.544,
-     "p_market": 0.5,
-     "p_bet": 0.522,
-     "p_push": 0.052,
-     "ev_per_dollar": 0.0054,
-     "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 2,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": null,
-    "vs_fanduel_main": {
-     "line": null,
-     "american": -108,
-     "ev_gain": 0.0
-    },
-    "flags": []
-   },
-   {
-    "market": "q4_spread",
-    "period": "4th quarter",
-    "kind": "spread",
-    "best": {
-     "book": "fanduel",
-     "side": "LAC",
-     "line": -1.5,
-     "american": 134,
-     "break_even": 0.4274,
-     "p_model": 0.448,
-     "p_market": 0.408,
-     "p_bet": 0.428,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0007,
-     "alt": false,
-     "t": "2026-11-24T06:11:38+00:00",
-     "source": "direct"
-    },
-    "n_prices": 2,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": -1.5,
-    "vs_fanduel_main": {
-     "line": -1.5,
-     "american": 134,
-     "ev_gain": 0.0
-    },
-    "flags": []
+    "main_line_home_or_over": 35.0,
+    "vs_fanduel_main": null,
+    "flags": [
+     "model 21% vs market 35%: a big disagreement, check news"
+    ]
    }
   ],
   "implied_points": {
-   "home": 18.5,
+   "home": 18.0,
    "away": 17.0
   },
   "neighbors": 250,
@@ -967,12 +1265,12 @@
     "red_zone_drives": 31,
     "red_zone_td_rate": 0.5806451612903226,
     "pass_epa_per_dropback": 0.04540392116216864,
-    "rush_epa_per_carry": 0.03815034457011242,
+    "rush_epa_per_carry": 0.038150344570112425,
     "neutral_pass_rate": 0.52,
-    "blitz_rate": 0.23504273504273504,
-    "play_action_rate": 0.24358974358974358,
-    "sack_rate_when_blitzing": 0.07272727272727272,
-    "dropbacks_charted": 234,
+    "blitz_rate": 0.23346303501945526,
+    "play_action_rate": 0.2490272373540856,
+    "sack_rate_when_blitzing": 0.06666666666666667,
+    "dropbacks_charted": 257,
     "wr_targets_pg": 17.0,
     "wr_receptions_pg": 10.875,
     "wr_rec_yards_pg": 146.25,
@@ -3736,27 +4034,13 @@
    },
    "offense_injuries": [
     {
-     "player": "Carlton Davis III",
-     "position": "CB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": "LCB",
-     "snap_share": 0.843,
-     "next_up": "Charles Woods",
-     "impact": "high",
-     "status_level": 3
-    },
-    {
      "player": "A.J. Brown",
      "position": "WR",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Doubtful",
-     "espn_comment": "Brown (hamstring) wasn't on the field Monday for the Patriots' unofficial practice session, Doug Kyed of the Boston Herald reports.",
+     "espn_comment": "Brown (hamstring) wasn't spotted on the field for Tuesday's unofficial practice, Evan Lazar of the Patriots' official site reports.",
      "starter_slot": "WR",
      "snap_share": 0.713,
      "next_up": "Mack Hollins",
@@ -3774,6 +4058,20 @@
      "starter_slot": "RILB",
      "snap_share": 0.922,
      "next_up": "Erick Hunter",
+     "impact": "high",
+     "status_level": 2
+    },
+    {
+     "player": "Carlton Davis III",
+     "position": "CB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": "LCB",
+     "snap_share": 0.843,
+     "next_up": "Charles Woods",
      "impact": "high",
      "status_level": 2
     },
@@ -3820,34 +4118,6 @@
      "status_level": 3
     },
     {
-     "player": "Ben Brown",
-     "position": "C",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": 0.673,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
-     "player": "Walter Rouse",
-     "position": "OL",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": 0.56,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
      "player": "Romeo Doubs",
      "position": "WR",
      "game_status": null,
@@ -3862,18 +4132,46 @@
      "status_level": 3
     },
     {
+     "player": "Ben Brown",
+     "position": "C",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": 0.673,
+     "next_up": null,
+     "impact": "medium",
+     "status_level": 2
+    },
+    {
+     "player": "Walter Rouse",
+     "position": "OL",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": 0.56,
+     "next_up": null,
+     "impact": "medium",
+     "status_level": 2
+    },
+    {
      "player": "Brenden Schooler",
      "position": "S",
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": null,
      "snap_share": 0.09,
      "next_up": null,
      "impact": "low",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Christian Elliss",
@@ -4008,7 +4306,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Patriots head coach Mike Vrabel said Monday that DeVito is the team's starting quarterback, Mike Reiss of ESPN reports. \"We're excited about that. He had a good preseason and Tommy's improved,\" Vrabel",
+     "espn_comment": "Patriots head coach Mike Vrabel said Monday that DeVito is the team's starting quarterback, Mike Reiss of ESPN.com reports. \"We're excited about that. He had a good preseason, and Tommy's improved,\" V",
      "starter_slot": "QB",
      "snap_share": 0.403,
      "next_up": "Behren Morton",
@@ -4448,8 +4746,20 @@
    "coverage_profile": {
     "season": 2025,
     "dropbacks": 588,
-    "man_rate": 0.223,
-    "zone_rate": 0.777,
+    "man_rate": 0.134,
+    "zone_rate": 0.745,
+    "man_zone_season": 2026,
+    "coverage_this_season": {
+     "season": 2026,
+     "man_rate": 0.134,
+     "zone_rate": 0.745,
+     "two_high_rate": 0.505,
+     "one_high_rate": 0.446,
+     "source": "Sharp Football Analysis (public table)",
+     "source_updated": "November 17"
+    },
+    "man_rate_last_season": 0.223,
+    "zone_rate_last_season": 0.777,
     "shells": [
      {
       "shell": "Cover 3",
@@ -4469,15 +4779,15 @@
      }
     ],
     "pressure_rate": 0.303,
-    "five_plus_rushers_rate": 0.235,
+    "five_plus_rushers_rate": 0.233,
     "five_plus_rushers_season": 2026,
     "five_plus_rushers_rate_last_season": 0.199,
     "blitz_this_season": {
      "season": 2026,
-     "dropbacks": 234,
-     "blitz_rate": 0.235,
-     "five_plus_rushers_rate": 0.235,
-     "league_blitz_rate": 0.313,
+     "dropbacks": 257,
+     "blitz_rate": 0.233,
+     "five_plus_rushers_rate": 0.233,
+     "league_blitz_rate": 0.309,
      "blitz_rank": 27,
      "of": 32,
      "source": "FTN charting via nflverse (n_blitzers > 0; n_pass_rushers >= 5)"
@@ -4502,7 +4812,7 @@
      "sack_rate": 0.07,
      "epa_per_dropback": -0.023
     },
-    "note": "Man/zone and shells: 2025 season (latest with free man/zone data); coordinator or roster changes since then make them context, not current fact. Blitz and 5+ rusher rates: 2026."
+    "note": "Man/zone rates: 2026 (Sharp Football Analysis (public table), updated November 17). Shells and the vs-man / vs-zone splits: 2025 (latest free play-level data). Blitz and 5+ rusher rates: 2026."
    },
    "defense_injuries": [
     {
@@ -4511,27 +4821,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "Still is inactive for Sunday's Week 11 matchup against the Jets due to an ankle injury.",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": "NB",
      "snap_share": 0.98,
      "next_up": null,
      "impact": "high",
-     "status_level": 3
-    },
-    {
-     "player": "Daiyan Henley",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": "LILB",
-     "snap_share": 0.871,
-     "next_up": "Troy Dye",
-     "impact": "high",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Justin Herbert",
@@ -4544,6 +4840,20 @@
      "starter_slot": "QB",
      "snap_share": 0.974,
      "next_up": "DJ Uiagalelei",
+     "impact": "high",
+     "status_level": 2
+    },
+    {
+     "player": "Daiyan Henley",
+     "position": "LB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": "LILB",
+     "snap_share": 0.871,
+     "next_up": "Troy Dye",
      "impact": "high",
      "status_level": 2
     },
@@ -4590,32 +4900,32 @@
      "status_level": 3
     },
     {
-     "player": "Brenen Thompson",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "Thompson (hamstring) is inactive for Sunday's game against the Jets.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
      "player": "Kendall Williamson",
      "position": "S",
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
-     "status_level": 3
+     "status_level": 2
+    },
+    {
+     "player": "Brenen Thompson",
+     "position": "WR",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
     },
     {
      "player": "Elijah Molden",
@@ -4698,20 +5008,6 @@
      "starter_slot": "WR",
      "snap_share": 0.604,
      "next_up": "Quentin Johnston",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Donte Jackson",
-     "position": "CB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": "RCB",
-     "snap_share": 0.51,
-     "next_up": "Deane Leonard",
      "impact": "low",
      "status_level": 1
     },
@@ -4854,6 +5150,20 @@
      "next_up": null,
      "impact": "low",
      "status_level": 1
+    },
+    {
+     "player": "Oronde Gadsden",
+     "position": "TE",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Gadsden went without a target while taking the field for 23 of the Chargers' 60 snaps on offense in Sunday's 27-24 loss to the Jets.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
     }
    ],
    "defense_returning": [
@@ -4968,19 +5278,19 @@
      {
       "player": "Ben Brown",
       "slot": "C",
-      "status": "Out"
+      "status": "Questionable"
      },
      {
       "player": "Walter Rouse",
       "slot": "OL",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "secondary": [
      {
       "player": "Carlton Davis III",
       "slot": "LCB",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "linebackers": [
@@ -5004,14 +5314,14 @@
      {
       "player": "Tarheeb Still",
       "slot": "NB",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "linebackers": [
      {
       "player": "Daiyan Henley",
       "slot": "LILB",
-      "status": "Out"
+      "status": "Questionable"
      },
      {
       "player": "Akheem Mesidor",
@@ -5038,7 +5348,7 @@
     "pass_ratio": 0.526,
     "script_pass_multiplier": 0.986,
     "weather_attempts_multiplier": 1.0,
-    "implied_margin": -1.5,
+    "implied_margin": -1.0,
     "missing_target_share": 0.164,
     "missing_carry_share": 0.0,
     "receivers": [
@@ -5074,7 +5384,7 @@
       },
       "player_id": "00-0038621",
       "sim": {
-       "targets_raw": 6.383,
+       "targets_raw": 6.381,
        "k": 50.0,
        "catch_rate": 0.645,
        "ypr": 14.672,
@@ -5092,22 +5402,22 @@
       ],
       "yards": {
        "20": 0.77,
-       "30": 0.637,
-       "40": 0.559,
-       "50": 0.435,
+       "30": 0.635,
+       "40": 0.561,
+       "50": 0.438,
        "60": 0.34,
        "70": 0.251,
        "80": 0.189,
        "90": 0.133,
-       "100": 0.096,
+       "100": 0.097,
        "120": 0.044
       },
       "receptions": {
-       "2": 0.837,
+       "2": 0.839,
        "3": 0.659,
-       "4": 0.467,
-       "5": 0.302,
-       "6": 0.18,
+       "4": 0.468,
+       "5": 0.299,
+       "6": 0.179,
        "7": 0.1,
        "8": 0.05
       },
@@ -5119,7 +5429,7 @@
        "100": 12
       },
       "targets_needed_chance": {
-       "50": 0.464,
+       "50": 0.465,
        "60": 0.333,
        "70": 0.151,
        "80": 0.094,
@@ -5158,7 +5468,7 @@
       },
       "player_id": "00-0033090",
       "sim": {
-       "targets_raw": 4.037,
+       "targets_raw": 4.036,
        "k": 50.0,
        "catch_rate": 0.8426,
        "ypr": 12.075,
@@ -5175,25 +5485,25 @@
        48.0
       ],
       "yards": {
-       "20": 0.638,
-       "30": 0.48,
-       "40": 0.38,
-       "50": 0.244,
-       "60": 0.158,
+       "20": 0.637,
+       "30": 0.476,
+       "40": 0.374,
+       "50": 0.247,
+       "60": 0.16,
        "70": 0.1,
-       "80": 0.059,
+       "80": 0.061,
        "90": 0.035,
-       "100": 0.021,
+       "100": 0.02,
        "120": 0.007
       },
       "receptions": {
-       "2": 0.772,
+       "2": 0.769,
        "3": 0.558,
-       "4": 0.359,
-       "5": 0.199,
+       "4": 0.358,
+       "5": 0.2,
        "6": 0.104,
-       "7": 0.051,
-       "8": 0.023
+       "7": 0.052,
+       "8": 0.024
       },
       "targets_needed": {
        "50": 6,
@@ -5242,7 +5552,7 @@
       },
       "player_id": "00-0033555",
       "sim": {
-       "targets_raw": 6.644,
+       "targets_raw": 6.642,
        "k": 50.0,
        "catch_rate": 0.6536,
        "ypr": 13.267,
@@ -5252,32 +5562,32 @@
       },
       "targets_mean": 5.9,
       "receptions_mean": 3.9,
-      "yards_mean": 46.7,
-      "yards_median": 41.1,
+      "yards_mean": 46.6,
+      "yards_median": 40.1,
       "yards_p25_p75": [
        21.0,
        65.0
       ],
       "yards": {
-       "20": 0.772,
+       "20": 0.769,
        "30": 0.631,
-       "40": 0.552,
-       "50": 0.423,
-       "60": 0.322,
-       "70": 0.233,
-       "80": 0.168,
-       "90": 0.118,
-       "100": 0.083,
+       "40": 0.55,
+       "50": 0.422,
+       "60": 0.321,
+       "70": 0.231,
+       "80": 0.167,
+       "90": 0.115,
+       "100": 0.081,
        "120": 0.035
       },
       "receptions": {
-       "2": 0.858,
-       "3": 0.697,
-       "4": 0.516,
-       "5": 0.346,
-       "6": 0.216,
-       "7": 0.127,
-       "8": 0.07
+       "2": 0.861,
+       "3": 0.699,
+       "4": 0.514,
+       "5": 0.344,
+       "6": 0.218,
+       "7": 0.126,
+       "8": 0.067
       },
       "targets_needed": {
        "50": 7,
@@ -5287,11 +5597,11 @@
        "100": 13
       },
       "targets_needed_chance": {
-       "50": 0.38,
-       "60": 0.27,
+       "50": 0.382,
+       "60": 0.271,
        "70": 0.183,
-       "80": 0.074,
-       "100": 0.028
+       "80": 0.076,
+       "100": 0.025
       }
      },
      {
@@ -5326,7 +5636,7 @@
       },
       "player_id": "00-0040563",
       "sim": {
-       "targets_raw": 4.237,
+       "targets_raw": 4.236,
        "k": 7.6,
        "catch_rate": 0.6848,
        "ypr": 12.148,
@@ -5336,31 +5646,31 @@
       },
       "targets_mean": 3.8,
       "receptions_mean": 2.6,
-      "yards_mean": 28.7,
-      "yards_median": 21.9,
+      "yards_mean": 28.8,
+      "yards_median": 22.7,
       "yards_p25_p75": [
        9.0,
        42.0
       ],
       "yards": {
-       "20": 0.542,
-       "30": 0.382,
+       "20": 0.544,
+       "30": 0.385,
        "40": 0.308,
-       "50": 0.205,
+       "50": 0.206,
        "60": 0.138,
-       "70": 0.087,
-       "80": 0.057,
-       "90": 0.036,
+       "70": 0.09,
+       "80": 0.055,
+       "90": 0.035,
        "100": 0.021,
-       "120": 0.008
+       "120": 0.007
       },
       "receptions": {
-       "2": 0.664,
-       "3": 0.443,
-       "4": 0.27,
-       "5": 0.156,
+       "2": 0.665,
+       "3": 0.448,
+       "4": 0.275,
+       "5": 0.155,
        "6": 0.085,
-       "7": 0.044,
+       "7": 0.045,
        "8": 0.022
       },
       "targets_needed": {
@@ -5371,9 +5681,9 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.141,
-       "60": 0.087,
-       "70": 0.031,
+       "50": 0.14,
+       "60": 0.086,
+       "70": 0.03,
        "80": 0.017,
        "100": 0.004
       }
@@ -5410,7 +5720,7 @@
       },
       "player_id": "00-0041395",
       "sim": {
-       "targets_raw": 4.039,
+       "targets_raw": 4.038,
        "k": 50.0,
        "catch_rate": 0.7201,
        "ypr": 12.691,
@@ -5423,29 +5733,29 @@
       "yards_mean": 29.9,
       "yards_median": 25.0,
       "yards_p25_p75": [
-       10.0,
+       11.0,
        43.0
       ],
       "yards": {
-       "20": 0.586,
-       "30": 0.415,
-       "40": 0.315,
+       "20": 0.585,
+       "30": 0.412,
+       "40": 0.314,
        "50": 0.213,
-       "60": 0.135,
-       "70": 0.084,
-       "80": 0.05,
-       "90": 0.029,
-       "100": 0.018,
+       "60": 0.134,
+       "70": 0.083,
+       "80": 0.051,
+       "90": 0.031,
+       "100": 0.02,
        "120": 0.006
       },
       "receptions": {
        "2": 0.7,
-       "3": 0.463,
-       "4": 0.265,
-       "5": 0.14,
-       "6": 0.065,
+       "3": 0.461,
+       "4": 0.264,
+       "5": 0.139,
+       "6": 0.067,
        "7": 0.029,
-       "8": 0.014
+       "8": 0.013
       },
       "targets_needed": {
        "50": 7,
@@ -5456,7 +5766,7 @@
       },
       "targets_needed_chance": {
        "50": 0.099,
-       "60": 0.051,
+       "60": 0.052,
        "70": 0.025,
        "80": 0.013,
        "100": 0.001
@@ -5494,7 +5804,7 @@
       },
       "player_id": "00-0036875",
       "sim": {
-       "targets_raw": 3.487,
+       "targets_raw": 3.486,
        "k": 50.0,
        "catch_rate": 0.7914,
        "ypr": 7.955,
@@ -5505,17 +5815,17 @@
       "targets_mean": 3.1,
       "receptions_mean": 2.4,
       "yards_mean": 17.7,
-      "yards_median": 12.7,
+      "yards_median": 13.7,
       "yards_p25_p75": [
        5.0,
        25.0
       ],
       "yards": {
-       "20": 0.342,
-       "30": 0.197,
-       "40": 0.13,
-       "50": 0.068,
-       "60": 0.036,
+       "20": 0.345,
+       "30": 0.193,
+       "40": 0.125,
+       "50": 0.065,
+       "60": 0.037,
        "70": 0.02,
        "80": 0.01,
        "90": 0.005,
@@ -5523,10 +5833,10 @@
        "120": 0.001
       },
       "receptions": {
-       "2": 0.67,
-       "3": 0.426,
-       "4": 0.238,
-       "5": 0.12,
+       "2": 0.669,
+       "3": 0.425,
+       "4": 0.239,
+       "5": 0.118,
        "6": 0.055,
        "7": 0.024,
        "8": 0.01
@@ -5588,7 +5898,7 @@
       },
       "player_id": "00-0040131",
       "sim": {
-       "targets_raw": 2.044,
+       "targets_raw": 2.043,
        "k": 50.0,
        "catch_rate": 0.5805,
        "ypr": 16.509,
@@ -5602,25 +5912,25 @@
       "yards_median": 8.3,
       "yards_p25_p75": [
        0.0,
-       25.0
+       24.0
       ],
       "yards": {
-       "20": 0.312,
-       "30": 0.19,
-       "40": 0.142,
-       "50": 0.084,
-       "60": 0.052,
-       "70": 0.032,
+       "20": 0.309,
+       "30": 0.189,
+       "40": 0.143,
+       "50": 0.087,
+       "60": 0.053,
+       "70": 0.033,
        "80": 0.019,
-       "90": 0.012,
+       "90": 0.011,
        "100": 0.006,
        "120": 0.002
       },
       "receptions": {
-       "2": 0.287,
-       "3": 0.104,
-       "4": 0.029,
-       "5": 0.007,
+       "2": 0.284,
+       "3": 0.103,
+       "4": 0.031,
+       "5": 0.008,
        "6": 0.002,
        "7": 0.001,
        "8": 0.0
@@ -5664,34 +5974,34 @@
       },
       "player_id": "00-0036875",
       "sim": {
-       "carries_raw": 13.141,
+       "carries_raw": 13.166,
        "k": 8.0,
        "ypc": 3.968
       },
       "carries_mean": 11.1,
-      "yards_mean": 44.1,
+      "yards_mean": 44.2,
       "yards_median": 37.3,
       "yards_p25_p75": [
        21.0,
        60.0
       ],
       "yards": {
-       "30": 0.612,
-       "40": 0.463,
+       "30": 0.611,
+       "40": 0.464,
        "50": 0.377,
-       "60": 0.28,
-       "70": 0.205,
-       "80": 0.15,
+       "60": 0.282,
+       "70": 0.208,
+       "80": 0.153,
        "100": 0.063,
-       "120": 0.028
+       "120": 0.027
       },
       "carries": {
-       "8": 0.7,
+       "8": 0.699,
        "10": 0.551,
-       "12": 0.499,
-       "15": 0.288,
-       "18": 0.137,
-       "20": 0.09
+       "12": 0.498,
+       "15": 0.293,
+       "18": 0.141,
+       "20": 0.093
       }
      },
      {
@@ -5716,34 +6026,34 @@
       },
       "player_id": "00-0040556",
       "sim": {
-       "carries_raw": 10.042,
+       "carries_raw": 10.06,
        "k": 50.0,
        "ypc": 4.645
       },
       "carries_mean": 8.6,
       "yards_mean": 40.1,
-      "yards_median": 35.1,
+      "yards_median": 35.2,
       "yards_p25_p75": [
        22.0,
        53.0
       ],
       "yards": {
-       "30": 0.593,
-       "40": 0.415,
-       "50": 0.318,
-       "60": 0.218,
-       "70": 0.146,
-       "80": 0.098,
-       "100": 0.032,
-       "120": 0.012
+       "30": 0.596,
+       "40": 0.419,
+       "50": 0.32,
+       "60": 0.219,
+       "70": 0.147,
+       "80": 0.097,
+       "100": 0.029,
+       "120": 0.011
       },
       "carries": {
-       "8": 0.577,
-       "10": 0.368,
-       "12": 0.295,
-       "15": 0.11,
-       "18": 0.023,
-       "20": 0.009
+       "8": 0.579,
+       "10": 0.372,
+       "12": 0.297,
+       "15": 0.107,
+       "18": 0.022,
+       "20": 0.01
       }
      },
      {
@@ -5768,7 +6078,7 @@
       },
       "player_id": "00-0040734",
       "sim": {
-       "carries_raw": 7.149,
+       "carries_raw": 7.162,
        "k": 4.51,
        "ypc": 4.051
       },
@@ -5777,24 +6087,24 @@
       "yards_median": 19.5,
       "yards_p25_p75": [
        9.0,
-       36.0
+       35.0
       ],
       "yards": {
-       "30": 0.322,
-       "40": 0.206,
-       "50": 0.167,
-       "60": 0.11,
-       "70": 0.075,
-       "80": 0.048,
-       "100": 0.013,
+       "30": 0.321,
+       "40": 0.202,
+       "50": 0.165,
+       "60": 0.109,
+       "70": 0.074,
+       "80": 0.05,
+       "100": 0.015,
        "120": 0.006
       },
       "carries": {
-       "8": 0.322,
-       "10": 0.196,
-       "12": 0.182,
-       "15": 0.073,
-       "18": 0.02,
+       "8": 0.323,
+       "10": 0.197,
+       "12": 0.181,
+       "15": 0.072,
+       "18": 0.019,
        "20": 0.011
       }
      }
@@ -6020,7 +6330,7 @@
       "player": "Rhamondre Stevenson",
       "player_id": "00-0036875",
       "pos": "RB",
-      "p80": 0.164,
+      "p80": 0.165,
       "p100": 0.07,
       "stars": 0,
       "carries": 10.4,
@@ -10952,7 +11262,7 @@
     "red_zone_drives": 29,
     "red_zone_td_rate": 0.6551724137931034,
     "pass_epa_per_dropback": 0.20437908829903628,
-    "rush_epa_per_carry": -0.02536709012916736,
+    "rush_epa_per_carry": -0.025367090129167352,
     "neutral_pass_rate": 0.5409836065573771,
     "blitz_rate": 0.34397163120567376,
     "play_action_rate": 0.2375886524822695,
@@ -11541,10 +11851,10 @@
     "pass_epa_per_dropback": -0.17172266658998436,
     "rush_epa_per_carry": -0.06468940585218834,
     "neutral_pass_rate": 0.4010416666666667,
-    "blitz_rate": 0.25,
-    "play_action_rate": 0.234375,
+    "blitz_rate": 0.2465277777777778,
+    "play_action_rate": 0.23958333333333334,
     "sack_rate_when_blitzing": 0.0,
-    "dropbacks_charted": 256,
+    "dropbacks_charted": 288,
     "wr_targets_pg": 12.875,
     "wr_receptions_pg": 7.875,
     "wr_rec_yards_pg": 115.25,
@@ -12658,47 +12968,47 @@
       "epa_per_dropback": -0.214
      },
      "vs_blitz": {
-      "dropbacks": 59,
-      "attempts": 51,
-      "completion_pct": 0.725,
-      "yards_per_attempt": 9.88,
+      "dropbacks": 65,
+      "attempts": 55,
+      "completion_pct": 0.709,
+      "yards_per_attempt": 9.73,
       "td": 3,
       "int": 0,
-      "sack_rate": 0.136,
-      "epa_per_dropback": 0.108
+      "sack_rate": 0.154,
+      "epa_per_dropback": 0.075
      },
      "no_blitz": {
-      "dropbacks": 165,
-      "attempts": 146,
-      "completion_pct": 0.596,
-      "yards_per_attempt": 5.58,
-      "td": 1,
+      "dropbacks": 186,
+      "attempts": 163,
+      "completion_pct": 0.613,
+      "yards_per_attempt": 5.61,
+      "td": 3,
       "int": 8,
-      "sack_rate": 0.115,
-      "epa_per_dropback": -0.38
+      "sack_rate": 0.124,
+      "epa_per_dropback": -0.315
      },
-     "blitzed_rate": 0.263,
+     "blitzed_rate": 0.259,
      "play_action": {
-      "dropbacks": 50,
-      "attempts": 41,
-      "completion_pct": 0.61,
-      "yards_per_attempt": 7.49,
+      "dropbacks": 58,
+      "attempts": 47,
+      "completion_pct": 0.596,
+      "yards_per_attempt": 6.96,
       "td": 1,
       "int": 3,
-      "sack_rate": 0.18,
-      "epa_per_dropback": -0.296
+      "sack_rate": 0.19,
+      "epa_per_dropback": -0.303
      },
      "out_of_pocket": {
-      "dropbacks": 56,
-      "attempts": 48,
-      "completion_pct": 0.583,
-      "yards_per_attempt": 10.15,
+      "dropbacks": 63,
+      "attempts": 54,
+      "completion_pct": 0.537,
+      "yards_per_attempt": 9.17,
       "td": 1,
       "int": 1,
       "sack_rate": 0.143,
-      "epa_per_dropback": 0.144
+      "epa_per_dropback": 0.079
      },
-     "charted_dropbacks": 224,
+     "charted_dropbacks": 251,
      "pressured": {
       "times_pressured": 65,
       "pressure_rate": 0.259,
@@ -13847,27 +14157,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "Still is inactive for Sunday's Week 11 matchup against the Jets due to an ankle injury.",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": "NB",
      "snap_share": 0.98,
      "next_up": null,
      "impact": "high",
-     "status_level": 3
-    },
-    {
-     "player": "Daiyan Henley",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": "LILB",
-     "snap_share": 0.871,
-     "next_up": "Troy Dye",
-     "impact": "high",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Justin Herbert",
@@ -13880,6 +14176,20 @@
      "starter_slot": "QB",
      "snap_share": 0.974,
      "next_up": "DJ Uiagalelei",
+     "impact": "high",
+     "status_level": 2
+    },
+    {
+     "player": "Daiyan Henley",
+     "position": "LB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": "LILB",
+     "snap_share": 0.871,
+     "next_up": "Troy Dye",
      "impact": "high",
      "status_level": 2
     },
@@ -13926,32 +14236,32 @@
      "status_level": 3
     },
     {
-     "player": "Brenen Thompson",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "Thompson (hamstring) is inactive for Sunday's game against the Jets.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
      "player": "Kendall Williamson",
      "position": "S",
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
-     "status_level": 3
+     "status_level": 2
+    },
+    {
+     "player": "Brenen Thompson",
+     "position": "WR",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
     },
     {
      "player": "Elijah Molden",
@@ -14034,20 +14344,6 @@
      "starter_slot": "WR",
      "snap_share": 0.604,
      "next_up": "Quentin Johnston",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Donte Jackson",
-     "position": "CB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": "RCB",
-     "snap_share": 0.51,
-     "next_up": "Deane Leonard",
      "impact": "low",
      "status_level": 1
     },
@@ -14186,6 +14482,20 @@
      "espn": "Active",
      "espn_comment": "Dicker made his lone field-goal attempt and all three PATs in Sunday's 27-24 loss to the Jets.",
      "starter_slot": "PK",
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Oronde Gadsden",
+     "position": "TE",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Gadsden went without a target while taking the field for 23 of the Chargers' 60 snaps on offense in Sunday's 27-24 loss to the Jets.",
+     "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -14561,8 +14871,20 @@
    "coverage_profile": {
     "season": 2025,
     "dropbacks": 587,
-    "man_rate": 0.307,
-    "zone_rate": 0.693,
+    "man_rate": 0.276,
+    "zone_rate": 0.666,
+    "man_zone_season": 2026,
+    "coverage_this_season": {
+     "season": 2026,
+     "man_rate": 0.276,
+     "zone_rate": 0.666,
+     "two_high_rate": 0.476,
+     "one_high_rate": 0.485,
+     "source": "Sharp Football Analysis (public table)",
+     "source_updated": "November 17"
+    },
+    "man_rate_last_season": 0.307,
+    "zone_rate_last_season": 0.693,
     "shells": [
      {
       "shell": "Cover 3",
@@ -14615,23 +14937,9 @@
      "sack_rate": 0.059,
      "epa_per_dropback": -0.06
     },
-    "note": "Man/zone and shells: 2025 season (latest with free man/zone data); coordinator or roster changes since then make them context, not current fact. Blitz and 5+ rusher rates: 2026."
+    "note": "Man/zone rates: 2026 (Sharp Football Analysis (public table), updated November 17). Shells and the vs-man / vs-zone splits: 2025 (latest free play-level data). Blitz and 5+ rusher rates: 2026."
    },
    "defense_injuries": [
-    {
-     "player": "Carlton Davis III",
-     "position": "CB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": "LCB",
-     "snap_share": 0.843,
-     "next_up": "Charles Woods",
-     "impact": "high",
-     "status_level": 3
-    },
     {
      "player": "A.J. Brown",
      "position": "WR",
@@ -14639,7 +14947,7 @@
      "practice": null,
      "injury": null,
      "espn": "Doubtful",
-     "espn_comment": "Brown (hamstring) wasn't on the field Monday for the Patriots' unofficial practice session, Doug Kyed of the Boston Herald reports.",
+     "espn_comment": "Brown (hamstring) wasn't spotted on the field for Tuesday's unofficial practice, Evan Lazar of the Patriots' official site reports.",
      "starter_slot": "WR",
      "snap_share": 0.713,
      "next_up": "Mack Hollins",
@@ -14657,6 +14965,20 @@
      "starter_slot": "RILB",
      "snap_share": 0.922,
      "next_up": "Erick Hunter",
+     "impact": "high",
+     "status_level": 2
+    },
+    {
+     "player": "Carlton Davis III",
+     "position": "CB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": "LCB",
+     "snap_share": 0.843,
+     "next_up": "Charles Woods",
      "impact": "high",
      "status_level": 2
     },
@@ -14703,34 +15025,6 @@
      "status_level": 3
     },
     {
-     "player": "Ben Brown",
-     "position": "C",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": 0.673,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
-     "player": "Walter Rouse",
-     "position": "OL",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": 0.56,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
      "player": "Romeo Doubs",
      "position": "WR",
      "game_status": null,
@@ -14745,18 +15039,46 @@
      "status_level": 3
     },
     {
+     "player": "Ben Brown",
+     "position": "C",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": 0.673,
+     "next_up": null,
+     "impact": "medium",
+     "status_level": 2
+    },
+    {
+     "player": "Walter Rouse",
+     "position": "OL",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": 0.56,
+     "next_up": null,
+     "impact": "medium",
+     "status_level": 2
+    },
+    {
      "player": "Brenden Schooler",
      "position": "S",
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": null,
      "snap_share": 0.09,
      "next_up": null,
      "impact": "low",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Christian Elliss",
@@ -14891,7 +15213,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Patriots head coach Mike Vrabel said Monday that DeVito is the team's starting quarterback, Mike Reiss of ESPN reports. \"We're excited about that. He had a good preseason and Tommy's improved,\" Vrabel",
+     "espn_comment": "Patriots head coach Mike Vrabel said Monday that DeVito is the team's starting quarterback, Mike Reiss of ESPN.com reports. \"We're excited about that. He had a good preseason, and Tommy's improved,\" V",
      "starter_slot": "QB",
      "snap_share": 0.403,
      "next_up": "Behren Morton",
@@ -15077,14 +15399,14 @@
      {
       "player": "Tarheeb Still",
       "slot": "NB",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "linebackers": [
      {
       "player": "Daiyan Henley",
       "slot": "LILB",
-      "status": "Out"
+      "status": "Questionable"
      },
      {
       "player": "Akheem Mesidor",
@@ -15104,19 +15426,19 @@
      {
       "player": "Ben Brown",
       "slot": "C",
-      "status": "Out"
+      "status": "Questionable"
      },
      {
       "player": "Walter Rouse",
       "slot": "OL",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "secondary": [
      {
       "player": "Carlton Davis III",
       "slot": "LCB",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "linebackers": [
@@ -15139,13 +15461,13 @@
     "team": "LAC",
     "vs": "NE",
     "team_pass_attempts": 27.5,
-    "team_rush_attempts": 33.4,
+    "team_rush_attempts": 33.3,
     "backup_qb": null,
     "plays": 61.1,
     "pass_ratio": 0.457,
     "script_pass_multiplier": 0.985,
     "weather_attempts_multiplier": 1.0,
-    "implied_margin": 1.5,
+    "implied_margin": 1.0,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.0,
     "receivers": [
@@ -15181,7 +15503,7 @@
       },
       "player_id": "00-0040727",
       "sim": {
-       "targets_raw": 5.308,
+       "targets_raw": 5.309,
        "k": 50.0,
        "catch_rate": 0.7287,
        "ypr": 13.694,
@@ -15191,32 +15513,32 @@
       },
       "targets_mean": 4.7,
       "receptions_mean": 3.4,
-      "yards_mean": 46.6,
-      "yards_median": 39.0,
+      "yards_mean": 46.7,
+      "yards_median": 40.1,
       "yards_p25_p75": [
        20.0,
        66.0
       ],
       "yards": {
-       "20": 0.745,
-       "30": 0.619,
-       "40": 0.54,
-       "50": 0.416,
+       "20": 0.746,
+       "30": 0.622,
+       "40": 0.543,
+       "50": 0.418,
        "60": 0.32,
-       "70": 0.239,
-       "80": 0.178,
+       "70": 0.241,
+       "80": 0.177,
        "90": 0.129,
-       "100": 0.091,
+       "100": 0.09,
        "120": 0.042
       },
       "receptions": {
-       "2": 0.818,
-       "3": 0.625,
+       "2": 0.821,
+       "3": 0.624,
        "4": 0.429,
-       "5": 0.263,
-       "6": 0.148,
+       "5": 0.266,
+       "6": 0.151,
        "7": 0.08,
-       "8": 0.04
+       "8": 0.041
       },
       "targets_needed": {
        "50": 6,
@@ -15226,11 +15548,11 @@
        "100": 11
       },
       "targets_needed_chance": {
-       "50": 0.331,
-       "60": 0.216,
+       "50": 0.332,
+       "60": 0.215,
        "70": 0.131,
        "80": 0.076,
-       "100": 0.023
+       "100": 0.024
       }
      },
      {
@@ -15265,7 +15587,7 @@
       },
       "player_id": "00-0040189",
       "sim": {
-       "targets_raw": 3.492,
+       "targets_raw": 3.493,
        "k": 5.47,
        "catch_rate": 0.6391,
        "ypr": 9.208,
@@ -15284,23 +15606,23 @@
       "yards": {
        "20": 0.357,
        "30": 0.211,
-       "40": 0.141,
-       "50": 0.078,
-       "60": 0.043,
+       "40": 0.144,
+       "50": 0.079,
+       "60": 0.045,
        "70": 0.023,
        "80": 0.012,
        "90": 0.006,
-       "100": 0.004,
-       "120": 0.001
+       "100": 0.003,
+       "120": 0.0
       },
       "receptions": {
-       "2": 0.537,
+       "2": 0.534,
        "3": 0.318,
        "4": 0.172,
        "5": 0.085,
        "6": 0.042,
-       "7": 0.02,
-       "8": 0.009
+       "7": 0.021,
+       "8": 0.01
       },
       "targets_needed": {
        "50": 9,
@@ -15349,7 +15671,7 @@
       },
       "player_id": "00-0038454",
       "sim": {
-       "targets_raw": 2.734,
+       "targets_raw": 2.735,
        "k": 21.04,
        "catch_rate": 0.8036,
        "ypr": 7.136,
@@ -15366,24 +15688,24 @@
        20.0
       ],
       "yards": {
-       "20": 0.265,
+       "20": 0.259,
        "30": 0.129,
-       "40": 0.082,
-       "50": 0.043,
-       "60": 0.02,
-       "70": 0.01,
-       "80": 0.005,
-       "90": 0.002,
+       "40": 0.084,
+       "50": 0.042,
+       "60": 0.021,
+       "70": 0.012,
+       "80": 0.006,
+       "90": 0.003,
        "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.56,
-       "3": 0.314,
+       "2": 0.557,
+       "3": 0.317,
        "4": 0.156,
-       "5": 0.067,
-       "6": 0.027,
-       "7": 0.01,
+       "5": 0.066,
+       "6": 0.028,
+       "7": 0.011,
        "8": 0.004
       },
       "targets_needed": {
@@ -15433,7 +15755,7 @@
       },
       "player_id": "00-0038544",
       "sim": {
-       "targets_raw": 3.002,
+       "targets_raw": 3.003,
        "k": 50.0,
        "catch_rate": 0.6476,
        "ypr": 16.611,
@@ -15443,7 +15765,7 @@
       },
       "targets_mean": 2.7,
       "receptions_mean": 1.7,
-      "yards_mean": 28.7,
+      "yards_mean": 28.9,
       "yards_median": 21.1,
       "yards_p25_p75": [
        5.0,
@@ -15451,23 +15773,23 @@
       ],
       "yards": {
        "20": 0.509,
-       "30": 0.383,
-       "40": 0.309,
+       "30": 0.386,
+       "40": 0.312,
        "50": 0.219,
-       "60": 0.157,
-       "70": 0.105,
+       "60": 0.156,
+       "70": 0.106,
        "80": 0.073,
        "90": 0.048,
        "100": 0.032,
        "120": 0.013
       },
       "receptions": {
-       "2": 0.501,
-       "3": 0.25,
-       "4": 0.108,
-       "5": 0.04,
-       "6": 0.013,
-       "7": 0.004,
+       "2": 0.503,
+       "3": 0.251,
+       "4": 0.107,
+       "5": 0.042,
+       "6": 0.015,
+       "7": 0.005,
        "8": 0.001
       },
       "targets_needed": {
@@ -15478,8 +15800,8 @@
        "100": 10
       },
       "targets_needed_chance": {
-       "50": 0.152,
-       "60": 0.07,
+       "50": 0.153,
+       "60": 0.071,
        "70": 0.032,
        "80": 0.013,
        "100": 0.002
@@ -15517,7 +15839,7 @@
       },
       "player_id": "00-0039915",
       "sim": {
-       "targets_raw": 4.317,
+       "targets_raw": 4.319,
        "k": 4.96,
        "catch_rate": 0.6827,
        "ypr": 14.507,
@@ -15534,25 +15856,25 @@
        55.0
       ],
       "yards": {
-       "20": 0.603,
+       "20": 0.606,
        "30": 0.474,
        "40": 0.417,
-       "50": 0.317,
-       "60": 0.238,
-       "70": 0.183,
-       "80": 0.135,
+       "50": 0.314,
+       "60": 0.234,
+       "70": 0.179,
+       "80": 0.131,
        "90": 0.096,
-       "100": 0.069,
-       "120": 0.034
+       "100": 0.068,
+       "120": 0.036
       },
       "receptions": {
-       "2": 0.647,
+       "2": 0.651,
        "3": 0.438,
        "4": 0.278,
        "5": 0.164,
        "6": 0.095,
        "7": 0.054,
-       "8": 0.031
+       "8": 0.03
       },
       "targets_needed": {
        "50": 6,
@@ -15564,7 +15886,7 @@
       "targets_needed_chance": {
        "50": 0.23,
        "60": 0.156,
-       "70": 0.101,
+       "70": 0.102,
        "80": 0.067,
        "100": 0.028
       }
@@ -15601,7 +15923,7 @@
       },
       "player_id": "00-0038046",
       "sim": {
-       "targets_raw": 3.4,
+       "targets_raw": 3.401,
        "k": 50.0,
        "catch_rate": 0.6453,
        "ypr": 10.013,
@@ -15610,32 +15932,32 @@
        "pool": "TE"
       },
       "targets_mean": 3.0,
-      "receptions_mean": 1.9,
-      "yards_mean": 19.3,
+      "receptions_mean": 2.0,
+      "yards_mean": 19.4,
       "yards_median": 14.8,
       "yards_p25_p75": [
        5.0,
        29.0
       ],
       "yards": {
-       "20": 0.389,
+       "20": 0.392,
        "30": 0.233,
-       "40": 0.152,
+       "40": 0.154,
        "50": 0.082,
-       "60": 0.042,
-       "70": 0.022,
+       "60": 0.043,
+       "70": 0.023,
        "80": 0.01,
        "90": 0.005,
        "100": 0.002,
-       "120": 0.001
+       "120": 0.0
       },
       "receptions": {
        "2": 0.558,
-       "3": 0.308,
+       "3": 0.314,
        "4": 0.144,
-       "5": 0.061,
-       "6": 0.024,
-       "7": 0.008,
+       "5": 0.062,
+       "6": 0.025,
+       "7": 0.009,
        "8": 0.003
       },
       "targets_needed": {
@@ -15696,29 +16018,29 @@
       "targets_mean": 2.4,
       "receptions_mean": 1.9,
       "yards_mean": 14.3,
-      "yards_median": 9.4,
+      "yards_median": 10.4,
       "yards_p25_p75": [
        2.0,
        21.0
       ],
       "yards": {
-       "20": 0.26,
-       "30": 0.14,
-       "40": 0.086,
-       "50": 0.045,
-       "60": 0.026,
+       "20": 0.258,
+       "30": 0.144,
+       "40": 0.085,
+       "50": 0.044,
+       "60": 0.025,
        "70": 0.013,
-       "80": 0.007,
+       "80": 0.006,
        "90": 0.003,
-       "100": 0.002,
+       "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.537,
-       "3": 0.288,
-       "4": 0.132,
+       "2": 0.541,
+       "3": 0.285,
+       "4": 0.131,
        "5": 0.054,
-       "6": 0.019,
+       "6": 0.02,
        "7": 0.006,
        "8": 0.002
       },
@@ -15787,8 +16109,8 @@
       ],
       "yards": {
        "20": 0.199,
-       "30": 0.091,
-       "40": 0.056,
+       "30": 0.089,
+       "40": 0.053,
        "50": 0.026,
        "60": 0.013,
        "70": 0.005,
@@ -15798,10 +16120,10 @@
        "120": 0.0
       },
       "receptions": {
-       "2": 0.46,
-       "3": 0.224,
-       "4": 0.092,
-       "5": 0.031,
+       "2": 0.463,
+       "3": 0.222,
+       "4": 0.091,
+       "5": 0.03,
        "6": 0.009,
        "7": 0.003,
        "8": 0.001
@@ -15853,7 +16175,7 @@
       },
       "player_id": "00-0040184",
       "sim": {
-       "targets_raw": 5.418,
+       "targets_raw": 5.419,
        "k": 8.0,
        "catch_rate": 0.6346,
        "ypr": 13.912,
@@ -15863,32 +16185,32 @@
       },
       "targets_mean": 4.8,
       "receptions_mean": 3.1,
-      "yards_mean": 42.3,
+      "yards_mean": 42.2,
       "yards_median": 34.2,
       "yards_p25_p75": [
        14.0,
-       61.0
+       62.0
       ],
       "yards": {
-       "20": 0.675,
-       "30": 0.545,
-       "40": 0.474,
-       "50": 0.368,
-       "60": 0.28,
-       "70": 0.21,
-       "80": 0.157,
-       "90": 0.117,
-       "100": 0.084,
-       "120": 0.042
+       "20": 0.672,
+       "30": 0.543,
+       "40": 0.473,
+       "50": 0.37,
+       "60": 0.283,
+       "70": 0.209,
+       "80": 0.155,
+       "90": 0.114,
+       "100": 0.081,
+       "120": 0.04
       },
       "receptions": {
-       "2": 0.735,
+       "2": 0.734,
        "3": 0.536,
-       "4": 0.357,
-       "5": 0.223,
-       "6": 0.133,
-       "7": 0.078,
-       "8": 0.043
+       "4": 0.358,
+       "5": 0.221,
+       "6": 0.13,
+       "7": 0.075,
+       "8": 0.042
       },
       "targets_needed": {
        "50": 6,
@@ -15898,11 +16220,11 @@
        "100": 12
       },
       "targets_needed_chance": {
-       "50": 0.348,
-       "60": 0.248,
+       "50": 0.349,
+       "60": 0.249,
        "70": 0.171,
        "80": 0.076,
-       "100": 0.033
+       "100": 0.032
       }
      }
     ],
@@ -15929,34 +16251,34 @@
       },
       "player_id": "00-0040666",
       "sim": {
-       "carries_raw": 17.254,
+       "carries_raw": 17.222,
        "k": 17.92,
        "ypc": 4.202
       },
       "carries_mean": 14.4,
-      "yards_mean": 60.4,
-      "yards_median": 54.1,
+      "yards_mean": 60.3,
+      "yards_median": 53.8,
       "yards_p25_p75": [
        35.0,
-       80.0
+       79.0
       ],
       "yards": {
-       "30": 0.807,
-       "40": 0.679,
-       "50": 0.565,
-       "60": 0.455,
-       "70": 0.352,
+       "30": 0.808,
+       "40": 0.678,
+       "50": 0.566,
+       "60": 0.451,
+       "70": 0.351,
        "80": 0.269,
-       "100": 0.13,
-       "120": 0.065
+       "100": 0.132,
+       "120": 0.064
       },
       "carries": {
-       "8": 0.882,
-       "10": 0.774,
-       "12": 0.695,
-       "15": 0.473,
-       "18": 0.271,
-       "20": 0.187
+       "8": 0.883,
+       "10": 0.771,
+       "12": 0.696,
+       "15": 0.468,
+       "18": 0.272,
+       "20": 0.19
       }
      },
      {
@@ -15981,33 +16303,33 @@
       },
       "player_id": "00-0039391",
       "sim": {
-       "carries_raw": 6.688,
+       "carries_raw": 6.676,
        "k": 17.72,
        "ypc": 4.357
       },
       "carries_mean": 5.9,
-      "yards_mean": 26.0,
+      "yards_mean": 25.9,
       "yards_median": 21.1,
       "yards_p25_p75": [
        11.0,
        35.0
       ],
       "yards": {
-       "30": 0.331,
-       "40": 0.198,
-       "50": 0.154,
-       "60": 0.097,
-       "70": 0.062,
+       "30": 0.335,
+       "40": 0.196,
+       "50": 0.152,
+       "60": 0.095,
+       "70": 0.061,
        "80": 0.039,
-       "100": 0.01,
+       "100": 0.009,
        "120": 0.003
       },
       "carries": {
-       "8": 0.272,
-       "10": 0.128,
-       "12": 0.103,
-       "15": 0.026,
-       "18": 0.003,
+       "8": 0.271,
+       "10": 0.127,
+       "12": 0.101,
+       "15": 0.025,
+       "18": 0.004,
        "20": 0.002
       }
      },
@@ -16033,32 +16355,32 @@
       },
       "player_id": "00-0038454",
       "sim": {
-       "carries_raw": 6.507,
+       "carries_raw": 6.495,
        "k": 12.94,
        "ypc": 4.087
       },
       "carries_mean": 5.8,
-      "yards_mean": 23.7,
-      "yards_median": 19.0,
+      "yards_mean": 23.6,
+      "yards_median": 18.9,
       "yards_p25_p75": [
        9.0,
        32.0
       ],
       "yards": {
-       "30": 0.285,
-       "40": 0.165,
-       "50": 0.132,
-       "60": 0.08,
-       "70": 0.05,
-       "80": 0.03,
+       "30": 0.286,
+       "40": 0.166,
+       "50": 0.129,
+       "60": 0.079,
+       "70": 0.048,
+       "80": 0.031,
        "100": 0.007,
        "120": 0.002
       },
       "carries": {
-       "8": 0.263,
-       "10": 0.129,
-       "12": 0.105,
-       "15": 0.029,
+       "8": 0.262,
+       "10": 0.132,
+       "12": 0.107,
+       "15": 0.026,
        "18": 0.004,
        "20": 0.001
       }
@@ -16080,8 +16402,8 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.129,
-      "p100": 0.05,
+      "p80": 0.127,
+      "p100": 0.049,
       "stars": 0,
       "targets": 5.1,
       "yds_pg": 43.3,
@@ -16091,7 +16413,7 @@
        "NE has allowed 9 receivers 80+ in 10 games"
       ],
       "shadow": {
-       "p80": 0.115,
+       "p80": 0.113,
        "stars": 0,
        "season_share": 0.182,
        "last_game_share": 0.095,
@@ -16104,7 +16426,7 @@
        "allowed_pg": 186.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.9 yards an attempt vs the blitz, 5.6 without"
+      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.7 yards an attempt vs the blitz, 5.6 without"
      },
      {
       "player": "Ladd McConkey",
@@ -16112,8 +16434,8 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.105,
-      "p100": 0.038,
+      "p80": 0.103,
+      "p100": 0.037,
       "stars": 0,
       "targets": 4.5,
       "yds_pg": 41.2,
@@ -16124,7 +16446,7 @@
        "back after missing 3 game(s); full workload again (78% of snaps last game vs 53% before)"
       ],
       "shadow": {
-       "p80": 0.128,
+       "p80": 0.126,
        "stars": 0,
        "season_share": 0.147,
        "last_game_share": 0.381,
@@ -16149,7 +16471,7 @@
        "allowed_pg": 186.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.9 yards an attempt vs the blitz, 5.6 without"
+      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.7 yards an attempt vs the blitz, 5.6 without"
      },
      {
       "player": "Quentin Johnston",
@@ -16157,8 +16479,8 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.053,
-      "p100": 0.016,
+      "p80": 0.052,
+      "p100": 0.015,
       "stars": 0,
       "targets": 3.0,
       "yds_pg": 35.9,
@@ -16168,7 +16490,7 @@
        "NE has allowed 9 receivers 80+ in 10 games"
       ],
       "shadow": {
-       "p80": 0.052,
+       "p80": 0.051,
        "stars": 0,
        "season_share": 0.112,
        "last_game_share": 0.095,
@@ -16181,7 +16503,7 @@
        "allowed_pg": 186.4,
        "league_avg": 148.4
       },
-      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.9 yards an attempt vs the blitz, 5.6 without"
+      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.7 yards an attempt vs the blitz, 5.6 without"
      },
      {
       "player": "Charlie Kolar",
@@ -16189,7 +16511,7 @@
       "pos": "TE",
       "tier": null,
       "style": "volume",
-      "p80": 0.029,
+      "p80": 0.028,
       "p100": 0.008,
       "stars": 0,
       "targets": 3.3,
@@ -16213,7 +16535,7 @@
        "allowed_pg": 49.4,
        "league_avg": 54.5
       },
-      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.9 yards an attempt vs the blitz, 5.6 without"
+      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.7 yards an attempt vs the blitz, 5.6 without"
      },
      {
       "player": "Oronde Gadsden II",
@@ -16221,7 +16543,7 @@
       "pos": "TE",
       "tier": null,
       "style": "volume",
-      "p80": 0.027,
+      "p80": 0.026,
       "p100": 0.008,
       "stars": 0,
       "targets": 3.5,
@@ -16245,7 +16567,7 @@
        "allowed_pg": 49.4,
        "league_avg": 54.5
       },
-      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.9 yards an attempt vs the blitz, 5.6 without"
+      "pressure_note": "defense sends 5+ rushers 34% of dropbacks; Justin Herbert averages 9.7 yards an attempt vs the blitz, 5.6 without"
      }
     ],
     "rushers": [
@@ -16253,8 +16575,8 @@
       "player": "Omarion Hampton",
       "player_id": "00-0040666",
       "pos": "RB",
-      "p80": 0.277,
-      "p100": 0.128,
+      "p80": 0.276,
+      "p100": 0.127,
       "stars": 0,
       "carries": 13.6,
       "yds_pg": 53.2,
@@ -16273,7 +16595,7 @@
     "context": {
      "pass_yards_last5": 188.0,
      "pass_offense_rank": 28,
-     "implied": 18.5,
+     "implied": 18.0,
      "defense_g80_rank": 2,
      "defense_explosive_rank": 2
     },
@@ -21361,7 +21683,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -21793,7 +22115,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -22003,7 +22325,7 @@
      },
      {
       "slot": "LCB",
-      "player": "Jalyn Armour-Davis"
+      "player": "Rodney Shelley"
      },
      {
       "slot": "SS",
@@ -22375,98 +22697,98 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d7aa5501bb6f323bdaa9cdfd2dbb2f828adc4497a4a53ce6a9456d671a7e9753",
-   "bytes": 524258
+   "retrieved_utc": "2026-11-24T23:23:41+00:00",
+   "sha256": "0e869d772f90585fa208e0d1f4ddda367684cb97c67f9e3142e8ab9ee475c0e6",
+   "bytes": 524360
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d8782243a144a98dccd5fa91cb379b6004a697f49966d0209da5d875a3928692",
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "b74af456d30b27138744f885d9a1d38de03664a4d5b6fae5fc55b23d6fc63488",
    "bytes": 13097328
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "8b17e639cdd2d655d7270b69fbd9dc178d89b64e4234cb38c57d1b7ee203b9fd",
-   "bytes": 822554
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "025956d0eab74359c293b4d3c51d673836ee0af45d19cbaf1779bfb596be0016",
+   "bytes": 821928
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "b7bae239f8a9aa2f4169d49a001e86b76ae22dda7b0eeaac4d033b5f6e9bb7e9",
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "46e0f80ab820779aa6c8caf364cafe5bbbbf27885378d7f28af08c004b892387",
    "bytes": 69477
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "56f5984ca8456d6640868812d43ecfc29417f965d2dcd40cacf27701c984978d",
-   "bytes": 3559081
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "9f9fb70531af4428dc183036eea463b500faaf561456312381244638e59e5c31",
+   "bytes": 3615076
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "cfbe0260477f668c30ccd10d3976a0d9b7b1cf7732e1a2684c43fbf314f86ea1",
-   "bytes": 151849
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "bytes": 152479
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "bb72c788f63b5d4882d11a5a57dc6f59b401897bc2dcc99d6ba50290ab2404b3",
-   "bytes": 314887
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
+   "sha256": "cde066b3fb7ec0a3ace879664f9c71cb3d5c584248003da2aafbea248afd21f5",
+   "bytes": 335267
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "b2f7b6dc4d56fa9ca1a3b6d65e78c4436742bb2311edb8b299fc9dc9191b864a",
    "bytes": 100331
   },
   "pfr_rec": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "c044899de693fa04d8c50cd45b83a6a277e12d11d6d26209a0501f424bcc3174",
    "bytes": 35611
   },
   "pfr_rush": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rush_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "e8230522afc9188eb7dd3ca5b935a6a48d7e776e4549cb8143a55eac3981e19c",
    "bytes": 28827
   },
   "ngs_receiving": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "40743c0acacb216274409090b461c52cfdb0bd5f451b2772bd8d3863bfb9b094",
-   "bytes": 1180846
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "1182ae58702b4a36ea11d776201983bf160ce4f73c0dc6e190e51d10bb3e1a8b",
+   "bytes": 1181382
   },
   "ngs_rushing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_rushing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "1769f3df0fcfb222684aeb0af9d24de9cb6dc7b995706adfea712b83e769b041",
-   "bytes": 406077
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "8224482c119b0613c5bd3a1cd2e282b8820714717dc80d42c3e7148de7bda809",
+   "bytes": 406226
   },
   "ngs_passing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_passing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "52f24af2e400449f88b12c48c9645baf483bf3731b3fdd013a2783af295b5574",
-   "bytes": 767210
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "688f7a6ebfcfdc418e2ba9fd6e2c49e4ff901c20c8b568cf9d94093ae3e4a377",
+   "bytes": 767423
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-24T06:16:22+00:00"
+   "retrieved_utc": "2026-11-24T23:23:45+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",

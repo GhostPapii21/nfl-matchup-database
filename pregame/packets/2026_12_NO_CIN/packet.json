@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-24T06:16:44+00:00",
+ "generated_utc": "2026-11-24T23:23:56+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -34,8 +34,8 @@
   "home_spread": -10.0,
   "total": 50.5,
   "moneyline": {
-   "NO": 412.0,
-   "CIN": -545.0
+   "NO": 449.0,
+   "CIN": -610.0
   }
  },
  "data_freshness": {
@@ -55,9 +55,17 @@
  "books": {
   "status": "OK_DIRECT",
   "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
-  "retrieved_utc": "2026-11-24T06:11:38Z",
+  "retrieved_utc": "2026-11-24T23:18:24Z",
   "book_retrieved_utc": {
-   "fanduel": "2026-11-24T06:11:38Z"
+   "bet365": "2026-11-24T23:18:24Z",
+   "betmgm": "2026-11-24T23:18:24Z",
+   "betrivers": "2026-11-24T23:18:24Z",
+   "consensus": "2026-11-24T23:18:24Z",
+   "draftkings": "2026-11-24T23:18:24Z",
+   "fanduel": "2026-11-24T23:18:24Z",
+   "open": "2026-11-24T23:18:24Z",
+   "pinnacle": "2026-11-24T23:18:24Z",
+   "williamhill_us": "2026-11-24T23:18:24Z"
   },
   "markets": {
    "moneyline": {
@@ -70,42 +78,158 @@
       "line": null,
       "prices": {
        "CIN": -590.0,
+       "NO": 440.0
+      },
+      "no_vig": {
+       "CIN": 0.822,
+       "NO": 0.178
+      },
+      "hold": 0.0403,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "CIN": -550.0,
+       "NO": 421.0
+      },
+      "no_vig": {
+       "CIN": 0.8151,
+       "NO": 0.1849
+      },
+      "hold": 0.0381,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": null,
+      "prices": {
+       "CIN": -600.0,
+       "NO": 449.0
+      },
+      "no_vig": {
+       "CIN": 0.8247,
+       "NO": 0.1753
+      },
+      "hold": 0.0393,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": null,
+      "prices": {
+       "CIN": -285.0,
+       "NO": 230.0
+      },
+      "no_vig": {
+       "CIN": 0.7095,
+       "NO": 0.2905
+      },
+      "hold": 0.0433,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "CIN": -610.0,
+       "NO": 449.0
+      },
+      "no_vig": {
+       "CIN": 0.8251,
+       "NO": 0.1749
+      },
+      "hold": 0.0413,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": null,
+      "prices": {
+       "CIN": -560.0,
        "NO": 430.0
       },
       "no_vig": {
-       "CIN": 0.8192,
-       "NO": 0.1808
+       "CIN": 0.8181,
+       "NO": 0.1819
       },
-      "hold": 0.0438,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0372,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": null,
+      "prices": {
+       "CIN": -600.0,
+       "NO": 450.0
+      },
+      "no_vig": {
+       "CIN": 0.825,
+       "NO": 0.175
+      },
+      "hold": 0.039,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": null,
+      "prices": {
+       "CIN": -600.0,
+       "NO": 450.0
+      },
+      "no_vig": {
+       "CIN": 0.825,
+       "NO": 0.175
+      },
+      "hold": 0.039,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": null,
+      "prices": {
+       "CIN": -590.0,
+       "NO": 425.0
+      },
+      "no_vig": {
+       "CIN": 0.8178,
+       "NO": 0.1822
+      },
+      "hold": 0.0455,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "CIN": 0.8151,
+      "NO": 0.1849
+     }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": null,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "CIN": 0.8192,
-      "NO": 0.1808
+      "CIN": 0.8222,
+      "NO": 0.1778
      }
     },
     "best_retail_price": {
      "CIN": {
-      "book": "fanduel",
-      "price": -590.0,
+      "book": "betrivers",
+      "price": -560.0,
       "line": null,
-      "break_even": 0.8551
+      "break_even": 0.8485
      },
      "NO": {
-      "book": "fanduel",
-      "price": 430.0,
+      "book": "betmgm",
+      "price": 450.0,
       "line": null,
-      "break_even": 0.1887
+      "break_even": 0.1818
      }
     }
    },
@@ -126,35 +250,151 @@
        "Under": 0.5
       },
       "hold": 0.061,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": 50.5,
+      "prices": {
+       "Over": -108.0,
+       "Under": -106.0
+      },
+      "no_vig": {
+       "Over": 0.5023,
+       "Under": 0.4977
+      },
+      "hold": 0.0338,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": 50.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.4989,
+       "Under": 0.5011
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 50.5,
+      "prices": {
+       "Over": -107.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.4945,
+       "Under": 0.5055
+      },
+      "hold": 0.0452,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": 50.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.4968,
+       "Under": 0.5032
+      },
+      "hold": 0.0498,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 50.5,
+      "prices": {
+       "Over": -108.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.4978,
+       "Under": 0.5022
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": 50.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": 50.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.4989,
+       "Under": 0.5011
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": 48.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": 50.5,
+     "no_vig": {
+      "Over": 0.5023,
+      "Under": 0.4977
+     }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": 50.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.498,
+      "Under": 0.502
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -113.0,
+      "book": "draftkings",
+      "price": -107.0,
       "line": 50.5,
-      "break_even": 0.5305
+      "break_even": 0.5169
      },
      "Under": {
-      "book": "fanduel",
-      "price": -113.0,
+      "book": "betmgm",
+      "price": -110.0,
       "line": 50.5,
-      "break_even": 0.5305
+      "break_even": 0.5238
      }
     }
    },
@@ -165,45 +405,161 @@
     ],
     "books": {
      "fanduel": {
-      "line": -9.5,
+      "line": -10.5,
       "prices": {
-       "CIN": -122.0,
-       "NO": -104.0
+       "CIN": -106.0,
+       "NO": -120.0
       },
       "no_vig": {
-       "CIN": 0.5188,
-       "NO": 0.4812
+       "CIN": 0.4854,
+       "NO": 0.5146
       },
-      "hold": 0.0594,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.06,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": -10.0,
+      "prices": {
+       "CIN": -102.0,
+       "NO": -110.0
+      },
+      "no_vig": {
+       "CIN": 0.4908,
+       "NO": 0.5092
+      },
+      "hold": 0.0288,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": -9.5,
+      "prices": {
+       "CIN": -120.0,
+       "NO": 100.0
+      },
+      "no_vig": {
+       "CIN": 0.5217,
+       "NO": 0.4783
+      },
+      "hold": 0.0455,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": -6.5,
+      "prices": {
+       "CIN": -110.0,
+       "NO": -110.0
+      },
+      "no_vig": {
+       "CIN": 0.5,
+       "NO": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": -10.0,
+      "prices": {
+       "CIN": -108.0,
+       "NO": -110.0
+      },
+      "no_vig": {
+       "CIN": 0.4978,
+       "NO": 0.5022
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": -10.0,
+      "prices": {
+       "CIN": -107.0,
+       "NO": -112.0
+      },
+      "no_vig": {
+       "CIN": 0.4945,
+       "NO": 0.5055
+      },
+      "hold": 0.0452,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": -10.0,
+      "prices": {
+       "CIN": -109.0,
+       "NO": -112.0
+      },
+      "no_vig": {
+       "CIN": 0.4968,
+       "NO": 0.5032
+      },
+      "hold": 0.0498,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": -10.0,
+      "prices": {
+       "CIN": -108.0,
+       "NO": -110.0
+      },
+      "no_vig": {
+       "CIN": 0.4978,
+       "NO": 0.5022
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-24T23:18:24+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": -10.0,
+      "prices": {
+       "CIN": -110.0,
+       "NO": -109.0
+      },
+      "no_vig": {
+       "CIN": 0.5011,
+       "NO": 0.4989
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-24T23:18:24+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": -9.5,
-     "n_books_at_line": 1,
+     "book": "pinnacle",
+     "line": -10.0,
      "no_vig": {
-      "CIN": 0.5188,
-      "NO": 0.4812
+      "CIN": 0.4908,
+      "NO": 0.5092
+     }
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": -10.0,
+     "n_books_at_line": 4,
+     "no_vig": {
+      "CIN": 0.4975,
+      "NO": 0.5025
      }
     },
     "best_retail_price": {
      "CIN": {
       "book": "fanduel",
-      "price": -122.0,
-      "line": -9.5,
-      "break_even": 0.5495
+      "price": -106.0,
+      "line": -10.5,
+      "break_even": 0.5146
      },
      "NO": {
-      "book": "fanduel",
-      "price": -104.0,
+      "book": "bet365",
+      "price": 100.0,
       "line": -9.5,
-      "break_even": 0.5098
+      "break_even": 0.5
      }
     }
    }
@@ -212,9 +568,9 @@
   "props_status": "OK",
   "odds_api_status": "UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized",
   "freeze": {
-   "pulled_utc": "2026-11-24T06:11:38Z",
+   "pulled_utc": "2026-11-24T23:18:24Z",
    "files": [
-    "pregame/price_freezes/2026-11-29_NO@CIN/freeze_20261124T061646Z.json"
+    "pregame/price_freezes/2026-11-29_NO@CIN/freeze_20261124T232356Z.json"
    ]
   }
  },
@@ -222,20 +578,20 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/ILN/35,38/forecast/hourly",
-  "retrieved_utc": "2026-11-24T06:16:42+00:00",
+  "retrieved_utc": "2026-11-24T23:23:55+00:00",
   "kickoff_utc": "2026-11-29T18:00:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
    "temp_f": 53,
    "wind_mph": 10.0,
-   "wind_dir": "SW",
-   "precip_chance_pct": 13,
-   "summary": "Sunny"
+   "wind_dir": "S",
+   "precip_chance_pct": 45,
+   "summary": "Chance Light Rain"
   },
   "during_game": {
    "temp_f_min": 53,
-   "wind_mph_max": 12.0,
-   "precip_chance_pct_max": 13
+   "wind_mph_max": 10.0,
+   "precip_chance_pct_max": 45
   },
   "flags": []
  },
@@ -304,12 +660,12 @@
      "red_zone_drives": 31,
      "red_zone_td_rate": 0.5161290322580645,
      "pass_epa_per_dropback": 0.06765406293394284,
-     "rush_epa_per_carry": -0.021222471533002007,
+     "rush_epa_per_carry": -0.021222471533001996,
      "neutral_pass_rate": 0.5469387755102041,
-     "blitz_rate": 0.39215686274509803,
-     "play_action_rate": 0.19607843137254902,
-     "sack_rate_when_blitzing": 0.03,
-     "dropbacks_charted": 255,
+     "blitz_rate": 0.3971631205673759,
+     "play_action_rate": 0.19858156028368795,
+     "sack_rate_when_blitzing": 0.026785714285714284,
+     "dropbacks_charted": 282,
      "wr_targets_pg": 15.625,
      "wr_receptions_pg": 9.5,
      "wr_rec_yards_pg": 141.0,
@@ -1085,10 +1441,10 @@
      "pass_epa_per_dropback": -0.021955058872326943,
      "rush_epa_per_carry": -0.16109330021004278,
      "neutral_pass_rate": 0.5317073170731708,
-     "blitz_rate": 0.28975265017667845,
-     "play_action_rate": 0.15901060070671377,
+     "blitz_rate": 0.2754491017964072,
+     "play_action_rate": 0.17065868263473055,
      "sack_rate_when_blitzing": 0.0,
-     "dropbacks_charted": 283,
+     "dropbacks_charted": 334,
      "wr_targets_pg": 21.0,
      "wr_receptions_pg": 13.5,
      "wr_rec_yards_pg": 147.25,
@@ -2521,7 +2877,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -2767,46 +3123,6 @@
       "team": "NO"
      },
      {
-      "player": "Pete Werner",
-      "position": "LB",
-      "status": "Out",
-      "date": "2026-11-22T16:45Z",
-      "comment": "Werner (hamstring) is inactive for Sunday's game against Chicago.",
-      "team": "NO"
-     },
-     {
-      "player": "Taliese Fuaga",
-      "position": "OT",
-      "status": "Out",
-      "date": "2026-11-23T15:43Z",
-      "comment": "out",
-      "team": "NO"
-     },
-     {
-      "player": "Asim Richards",
-      "position": "OT",
-      "status": "Out",
-      "date": "2026-11-23T15:44Z",
-      "comment": "out",
-      "team": "NO"
-     },
-     {
-      "player": "Erik McCoy",
-      "position": "C",
-      "status": "Out",
-      "date": "2026-11-23T15:44Z",
-      "comment": "out",
-      "team": "NO"
-     },
-     {
-      "player": "Martin Emerson Jr.",
-      "position": "CB",
-      "status": "Out",
-      "date": "2026-11-23T15:44Z",
-      "comment": "out",
-      "team": "NO"
-     },
-     {
       "player": "Juwan Johnson",
       "position": "TE",
       "status": "Questionable",
@@ -2815,11 +3131,43 @@
       "team": "NO"
      },
      {
-      "player": "Kelvin Banks Jr.",
+      "player": "Asim Richards",
       "position": "OT",
-      "status": "Active",
-      "date": "2026-11-14T01:57Z",
-      "comment": "Banks (ankle) does not have an injury designation for Sunday's game against the Panthers, Ross Jackson of WWL-TV reports.",
+      "status": "Doubtful",
+      "date": "2026-11-24T12:39Z",
+      "comment": "doubtful",
+      "team": "NO"
+     },
+     {
+      "player": "Pete Werner",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NO"
+     },
+     {
+      "player": "Erik McCoy",
+      "position": "C",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NO"
+     },
+     {
+      "player": "Martin Emerson Jr.",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NO"
+     },
+     {
+      "player": "Taliese Fuaga",
+      "position": "OT",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
       "team": "NO"
      },
      {
@@ -2947,7 +3295,7 @@
       "position": "WR",
       "status": "Active",
       "date": "2026-11-24T03:20Z",
-      "comment": "Lance failed to catch his only target and added 47 yards as a kick returner during Sunday's 21-13 loss to the Bears.",
+      "comment": "Lance failed to catch his only target and added 47 yards on kickoff returns during Sunday's 21-13 loss to the Bears.",
       "team": "NO"
      },
      {
@@ -2956,6 +3304,14 @@
       "status": "Active",
       "date": "2026-11-24T05:11Z",
       "comment": "Elliss recorded five tackles (two solo) in Sunday's 21-13 loss to the Bears.",
+      "team": "NO"
+     },
+     {
+      "player": "Oscar Delp",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-24T17:02Z",
+      "comment": "Delp hauled in his lone target for a six-yard reception in Sunday's 21-13 loss to the Bears.",
       "team": "NO"
      }
     ],
@@ -5097,24 +5453,24 @@
     },
     "offense_snap_share": {
      "Orlando Brown Jr.": 1.0,
-     "Ted Karras": 0.991,
-     "Dylan Fairchild": 0.99,
-     "Joe Burrow": 0.984,
-     "Amarius Mims": 0.977,
+     "Ted Karras": 0.992,
+     "Dylan Fairchild": 0.991,
+     "Joe Burrow": 0.986,
+     "Amarius Mims": 0.98,
      "Dalton Risner": 0.917,
-     "Ja'Marr Chase": 0.807,
-     "Tee Higgins": 0.801,
-     "Chase Brown": 0.699,
-     "Dohnte Meyers": 0.507,
-     "Drew Sample": 0.506,
-     "Mike Gesicki": 0.503,
-     "Samaje Perine": 0.353,
+     "Ja'Marr Chase": 0.828,
+     "Tee Higgins": 0.823,
+     "Chase Brown": 0.685,
+     "Jalen Rivers": 0.527,
+     "Drew Sample": 0.503,
+     "Mike Gesicki": 0.499,
+     "Dohnte Meyers": 0.489,
+     "Samaje Perine": 0.371,
      "Tanner Hudson": 0.31,
      "Erick All": 0.292,
-     "Jalen Rivers": 0.29,
-     "Mitchell Tinsley": 0.27,
-     "Colbie Young": 0.226,
-     "Jack Endries": 0.208,
+     "Colbie Young": 0.252,
+     "Mitchell Tinsley": 0.23,
+     "Jack Endries": 0.218,
      "Cam Grandy": 0.067,
      "Joe Flacco": 0.055,
      "Tahj Brooks": 0.055
@@ -5276,7 +5632,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -5522,38 +5878,6 @@
       "team": "CIN"
      },
      {
-      "player": "Dalton Risner",
-      "position": "G",
-      "status": "Out",
-      "date": "2026-11-23T23:47Z",
-      "comment": "inactive",
-      "team": "CIN"
-     },
-     {
-      "player": "Landon Robinson",
-      "position": "DT",
-      "status": "Out",
-      "date": "2026-11-23T23:47Z",
-      "comment": "inactive",
-      "team": "CIN"
-     },
-     {
-      "player": "Cam Grandy",
-      "position": "TE",
-      "status": "Out",
-      "date": "2026-11-23T23:47Z",
-      "comment": "inactive",
-      "team": "CIN"
-     },
-     {
-      "player": "Myles Hinton",
-      "position": "OT",
-      "status": "Out",
-      "date": "2026-11-23T23:47Z",
-      "comment": "inactive",
-      "team": "CIN"
-     },
-     {
       "player": "Jalen Davis",
       "position": "CB",
       "status": "Injured Reserve",
@@ -5564,9 +5888,17 @@
      {
       "player": "Kyle Dugger",
       "position": "S",
-      "status": "Out",
+      "status": "Questionable",
       "date": "2026-11-24T00:07Z",
       "comment": "Dugger (quadriceps) is inactive for Monday's game against the Commanders.",
+      "team": "CIN"
+     },
+     {
+      "player": "Dalton Risner",
+      "position": "G",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
       "team": "CIN"
      },
      {
@@ -5646,7 +5978,7 @@
       "position": "LB",
       "status": "Active",
       "date": "2026-11-24T00:12Z",
-      "comment": "Bozeman (forearm) is active for Monday night's game against the Commanders.",
+      "comment": "The Bengals reinstated Bozeman (forearm) from injured reserve and list him as active  for Monday's game against the Commanders.",
       "team": "CIN"
      },
      {
@@ -5654,7 +5986,7 @@
       "position": "OT",
       "status": "Active",
       "date": "2026-11-24T00:13Z",
-      "comment": "Parker (undisclosed) is active for Monday night's game against the Commanders.",
+      "comment": "The Bengals reinstated Parker from injured reserve and list him as active for Monday's game against the Commanders.",
       "team": "CIN"
      },
      {
@@ -5703,6 +6035,30 @@
       "status": "Active",
       "date": "2026-11-24T05:00Z",
       "comment": "Gesicki brought in five of six targets for 77 yards in the Bengals' 22-20 loss to the Commanders on Monday night.",
+      "team": "CIN"
+     },
+     {
+      "player": "Myles Hinton",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-24T12:38Z",
+      "comment": "",
+      "team": "CIN"
+     },
+     {
+      "player": "Cam Grandy",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-24T12:38Z",
+      "comment": "",
+      "team": "CIN"
+     },
+     {
+      "player": "Landon Robinson",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-24T12:38Z",
+      "comment": "",
       "team": "CIN"
      }
     ],
@@ -6075,28 +6431,28 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.13,
-    "wind_mph": 12.0,
+    "rain_chance": 0.45,
+    "wind_mph": 10.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
      "dry": {
-      "attempts": 36.6,
-      "completion_pct": 0.646,
-      "completions": 23.6,
-      "yards": 211.5
+      "attempts": 36.9,
+      "completion_pct": 0.651,
+      "completions": 24.0,
+      "yards": 216.6
      },
      "rain": {
-      "attempts": 35.0,
-      "completion_pct": 0.607,
-      "completions": 21.2,
-      "yards": 180.0
+      "attempts": 35.3,
+      "completion_pct": 0.611,
+      "completions": 21.6,
+      "yards": 185.1
      },
      "forecast": {
-      "attempts": 36.4,
-      "completion_pct": 0.641,
-      "completions": 23.3,
-      "yards": 207.4
+      "attempts": 36.2,
+      "completion_pct": 0.633,
+      "completions": 22.9,
+      "yards": 202.4
      }
     },
     "receivers": [
@@ -6106,25 +6462,25 @@
       "games": 8,
       "target_share": 0.2791519434628975,
       "dry": {
-       "targets": 9.8,
-       "catch_rate": 0.629,
+       "targets": 9.9,
+       "catch_rate": 0.633,
        "receptions": 6.2,
-       "yards_per_target": 7.4,
-       "yards": 72.4
+       "yards_per_target": 7.57,
+       "yards": 74.8
       },
       "rain": {
        "targets": 9.4,
-       "catch_rate": 0.588,
-       "receptions": 5.5,
-       "yards_per_target": 6.54,
-       "yards": 61.2
+       "catch_rate": 0.592,
+       "receptions": 5.6,
+       "yards_per_target": 6.71,
+       "yards": 63.4
       },
       "forecast": {
        "targets": 9.7,
-       "catch_rate": 0.624,
-       "receptions": 6.1,
-       "yards_per_target": 7.28,
-       "yards": 70.9
+       "catch_rate": 0.614,
+       "receptions": 5.9,
+       "yards_per_target": 7.18,
+       "yards": 69.6
       }
      },
      {
@@ -6134,24 +6490,24 @@
       "target_share": 0.15901060070671377,
       "dry": {
        "targets": 5.6,
-       "catch_rate": 0.707,
-       "receptions": 3.9,
-       "yards_per_target": 6.99,
-       "yards": 39.0
+       "catch_rate": 0.711,
+       "receptions": 4.0,
+       "yards_per_target": 7.16,
+       "yards": 40.2
       },
       "rain": {
-       "targets": 5.3,
-       "catch_rate": 0.66,
-       "receptions": 3.5,
-       "yards_per_target": 6.18,
-       "yards": 33.0
+       "targets": 5.4,
+       "catch_rate": 0.665,
+       "receptions": 3.6,
+       "yards_per_target": 6.35,
+       "yards": 34.1
       },
       "forecast": {
        "targets": 5.5,
-       "catch_rate": 0.701,
-       "receptions": 3.9,
-       "yards_per_target": 6.89,
-       "yards": 38.2
+       "catch_rate": 0.69,
+       "receptions": 3.8,
+       "yards_per_target": 6.79,
+       "yards": 37.5
       }
      },
      {
@@ -6160,25 +6516,25 @@
       "games": 8,
       "target_share": 0.11307420494699646,
       "dry": {
-       "targets": 3.9,
-       "catch_rate": 0.709,
-       "receptions": 2.8,
-       "yards_per_target": 6.0,
-       "yards": 23.5
+       "targets": 4.0,
+       "catch_rate": 0.719,
+       "receptions": 2.9,
+       "yards_per_target": 6.16,
+       "yards": 24.6
       },
       "rain": {
-       "targets": 3.7,
-       "catch_rate": 0.659,
-       "receptions": 2.5,
-       "yards_per_target": 5.29,
-       "yards": 19.8
+       "targets": 3.8,
+       "catch_rate": 0.669,
+       "receptions": 2.6,
+       "yards_per_target": 5.45,
+       "yards": 20.8
       },
       "forecast": {
        "targets": 3.9,
-       "catch_rate": 0.702,
+       "catch_rate": 0.697,
        "receptions": 2.7,
-       "yards_per_target": 5.91,
-       "yards": 23.0
+       "yards_per_target": 5.84,
+       "yards": 22.9
       }
      },
      {
@@ -6191,21 +6547,21 @@
        "catch_rate": 0.774,
        "receptions": 3.0,
        "yards_per_target": 4.97,
-       "yards": 19.3
+       "yards": 19.2
       },
       "rain": {
        "targets": 3.7,
        "catch_rate": 0.744,
        "receptions": 2.8,
        "yards_per_target": 4.33,
-       "yards": 16.1
+       "yards": 16.0
       },
       "forecast": {
-       "targets": 3.9,
-       "catch_rate": 0.77,
-       "receptions": 3.0,
-       "yards_per_target": 4.88,
-       "yards": 18.9
+       "targets": 3.8,
+       "catch_rate": 0.761,
+       "receptions": 2.9,
+       "yards_per_target": 4.68,
+       "yards": 17.8
       }
      },
      {
@@ -6214,25 +6570,25 @@
       "games": 3,
       "target_share": 0.0706713780918728,
       "dry": {
-       "targets": 6.6,
-       "catch_rate": 0.795,
+       "targets": 6.7,
+       "catch_rate": 0.8,
        "receptions": 5.3,
-       "yards_per_target": 5.67,
-       "yards": 37.5
+       "yards_per_target": 5.8,
+       "yards": 38.7
       },
       "rain": {
-       "targets": 6.3,
-       "catch_rate": 0.743,
-       "receptions": 4.7,
-       "yards_per_target": 5.01,
-       "yards": 31.7
+       "targets": 6.4,
+       "catch_rate": 0.748,
+       "receptions": 4.8,
+       "yards_per_target": 5.14,
+       "yards": 32.8
       },
       "forecast": {
-       "targets": 6.6,
-       "catch_rate": 0.788,
-       "receptions": 5.2,
-       "yards_per_target": 5.58,
-       "yards": 36.7
+       "targets": 6.5,
+       "catch_rate": 0.777,
+       "receptions": 5.1,
+       "yards_per_target": 5.5,
+       "yards": 36.0
       }
      },
      {
@@ -6242,24 +6598,24 @@
       "target_share": 0.06713780918727916,
       "dry": {
        "targets": 2.7,
-       "catch_rate": 0.261,
+       "catch_rate": 0.263,
        "receptions": 0.7,
-       "yards_per_target": 1.44,
-       "yards": 3.9
+       "yards_per_target": 1.47,
+       "yards": 4.0
       },
       "rain": {
        "targets": 2.6,
-       "catch_rate": 0.244,
+       "catch_rate": 0.246,
        "receptions": 0.6,
-       "yards_per_target": 1.27,
-       "yards": 3.3
+       "yards_per_target": 1.31,
+       "yards": 3.4
       },
       "forecast": {
        "targets": 2.7,
-       "catch_rate": 0.259,
+       "catch_rate": 0.255,
        "receptions": 0.7,
-       "yards_per_target": 1.42,
-       "yards": 3.8
+       "yards_per_target": 1.4,
+       "yards": 3.7
       }
      },
      {
@@ -6268,24 +6624,24 @@
       "games": 7,
       "target_share": 0.05653710247349823,
       "dry": {
-       "targets": 2.2,
-       "catch_rate": 0.616,
+       "targets": 2.3,
+       "catch_rate": 0.625,
        "receptions": 1.4,
-       "yards_per_target": 5.0,
-       "yards": 11.2
+       "yards_per_target": 5.12,
+       "yards": 11.7
       },
       "rain": {
-       "targets": 2.1,
-       "catch_rate": 0.573,
-       "receptions": 1.2,
-       "yards_per_target": 4.41,
-       "yards": 9.4
+       "targets": 2.2,
+       "catch_rate": 0.582,
+       "receptions": 1.3,
+       "yards_per_target": 4.53,
+       "yards": 9.9
       },
       "forecast": {
        "targets": 2.2,
-       "catch_rate": 0.611,
+       "catch_rate": 0.606,
        "receptions": 1.4,
-       "yards_per_target": 4.92,
+       "yards_per_target": 4.86,
        "yards": 10.9
       }
      },
@@ -6295,11 +6651,11 @@
       "games": 4,
       "target_share": 0.045936395759717315,
       "dry": {
-       "targets": 3.3,
+       "targets": 3.2,
        "catch_rate": 0.692,
-       "receptions": 2.3,
+       "receptions": 2.2,
        "yards_per_target": 2.85,
-       "yards": 9.3
+       "yards": 9.2
       },
       "rain": {
        "targets": 3.1,
@@ -6310,10 +6666,10 @@
       },
       "forecast": {
        "targets": 3.2,
-       "catch_rate": 0.689,
+       "catch_rate": 0.68,
        "receptions": 2.2,
-       "yards_per_target": 2.8,
-       "yards": 9.1
+       "yards_per_target": 2.68,
+       "yards": 8.5
       }
      },
      {
@@ -6336,11 +6692,11 @@
        "yards": 9.2
       },
       "forecast": {
-       "targets": 2.7,
-       "catch_rate": 0.622,
-       "receptions": 1.7,
-       "yards_per_target": 4.06,
-       "yards": 10.8
+       "targets": 2.6,
+       "catch_rate": 0.614,
+       "receptions": 1.6,
+       "yards_per_target": 3.88,
+       "yards": 10.2
       }
      }
     ],
@@ -6349,16 +6705,16 @@
      "attempts_in_window": 294,
      "small_sample": false,
      "dry": {
-      "completion_pct": 0.649,
-      "yards_per_attempt": 5.8
+      "completion_pct": 0.653,
+      "yards_per_attempt": 5.89
      },
      "rain": {
-      "completion_pct": 0.609,
-      "yards_per_attempt": 5.09
+      "completion_pct": 0.614,
+      "yards_per_attempt": 5.19
      },
      "forecast": {
-      "completion_pct": 0.643,
-      "yards_per_attempt": 5.7
+      "completion_pct": 0.635,
+      "yards_per_attempt": 5.58
      }
     }
    }
@@ -6786,28 +7142,28 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.13,
-    "wind_mph": 12.0,
+    "rain_chance": 0.45,
+    "wind_mph": 10.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
      "dry": {
-      "attempts": 38.7,
-      "completion_pct": 0.754,
-      "completions": 29.2,
-      "yards": 321.5
+      "attempts": 39.0,
+      "completion_pct": 0.76,
+      "completions": 29.6,
+      "yards": 329.2
      },
      "rain": {
-      "attempts": 37.0,
-      "completion_pct": 0.708,
-      "completions": 26.2,
-      "yards": 273.5
+      "attempts": 37.3,
+      "completion_pct": 0.714,
+      "completions": 26.6,
+      "yards": 281.3
      },
      "forecast": {
-      "attempts": 38.5,
-      "completion_pct": 0.748,
-      "completions": 28.8,
-      "yards": 315.2
+      "attempts": 38.2,
+      "completion_pct": 0.739,
+      "completions": 28.3,
+      "yards": 307.7
      }
     },
     "receivers": [
@@ -6817,25 +7173,25 @@
       "games": 8,
       "target_share": 0.27124183006535946,
       "dry": {
-       "targets": 10.3,
-       "catch_rate": 0.718,
-       "receptions": 7.4,
-       "yards_per_target": 9.68,
-       "yards": 99.5
+       "targets": 10.4,
+       "catch_rate": 0.723,
+       "receptions": 7.5,
+       "yards_per_target": 9.9,
+       "yards": 102.8
       },
       "rain": {
-       "targets": 9.8,
-       "catch_rate": 0.671,
-       "receptions": 6.6,
-       "yards_per_target": 8.55,
-       "yards": 84.2
+       "targets": 9.9,
+       "catch_rate": 0.676,
+       "receptions": 6.7,
+       "yards_per_target": 8.78,
+       "yards": 87.2
       },
       "forecast": {
        "targets": 10.2,
-       "catch_rate": 0.712,
-       "receptions": 7.3,
-       "yards_per_target": 9.53,
-       "yards": 97.5
+       "catch_rate": 0.702,
+       "receptions": 7.1,
+       "yards_per_target": 9.4,
+       "yards": 95.6
       }
      },
      {
@@ -6844,25 +7200,25 @@
       "games": 8,
       "target_share": 0.19607843137254902,
       "dry": {
-       "targets": 7.4,
-       "catch_rate": 0.778,
-       "receptions": 5.8,
-       "yards_per_target": 11.61,
-       "yards": 86.3
+       "targets": 7.5,
+       "catch_rate": 0.783,
+       "receptions": 5.9,
+       "yards_per_target": 11.88,
+       "yards": 89.1
       },
       "rain": {
-       "targets": 7.1,
-       "catch_rate": 0.727,
-       "receptions": 5.2,
-       "yards_per_target": 10.26,
-       "yards": 73.0
+       "targets": 7.2,
+       "catch_rate": 0.732,
+       "receptions": 5.3,
+       "yards_per_target": 10.54,
+       "yards": 75.6
       },
       "forecast": {
        "targets": 7.4,
-       "catch_rate": 0.772,
-       "receptions": 5.7,
-       "yards_per_target": 11.44,
-       "yards": 84.6
+       "catch_rate": 0.76,
+       "receptions": 5.6,
+       "yards_per_target": 11.28,
+       "yards": 82.9
       }
      },
      {
@@ -6875,21 +7231,21 @@
        "catch_rate": 0.863,
        "receptions": 5.5,
        "yards_per_target": 4.94,
-       "yards": 31.6
+       "yards": 31.5
       },
       "rain": {
        "targets": 6.1,
        "catch_rate": 0.829,
        "receptions": 5.1,
        "yards_per_target": 4.3,
-       "yards": 26.3
+       "yards": 26.2
       },
       "forecast": {
        "targets": 6.3,
-       "catch_rate": 0.858,
-       "receptions": 5.5,
-       "yards_per_target": 4.86,
-       "yards": 30.8
+       "catch_rate": 0.848,
+       "receptions": 5.3,
+       "yards_per_target": 4.65,
+       "yards": 29.1
       }
      },
      {
@@ -6899,24 +7255,24 @@
       "target_share": 0.0915032679738562,
       "dry": {
        "targets": 3.5,
-       "catch_rate": 0.71,
+       "catch_rate": 0.714,
        "receptions": 2.5,
-       "yards_per_target": 7.89,
-       "yards": 27.4
+       "yards_per_target": 8.07,
+       "yards": 28.2
       },
       "rain": {
        "targets": 3.3,
-       "catch_rate": 0.663,
+       "catch_rate": 0.668,
        "receptions": 2.2,
-       "yards_per_target": 6.97,
-       "yards": 23.1
+       "yards_per_target": 7.16,
+       "yards": 24.0
       },
       "forecast": {
-       "targets": 3.5,
-       "catch_rate": 0.704,
+       "targets": 3.4,
+       "catch_rate": 0.693,
        "receptions": 2.4,
-       "yards_per_target": 7.77,
-       "yards": 26.8
+       "yards_per_target": 7.66,
+       "yards": 26.3
       }
      },
      {
@@ -6925,25 +7281,25 @@
       "games": 8,
       "target_share": 0.08823529411764706,
       "dry": {
-       "targets": 3.3,
-       "catch_rate": 0.73,
-       "receptions": 2.4,
-       "yards_per_target": 9.39,
-       "yards": 31.0
+       "targets": 3.4,
+       "catch_rate": 0.741,
+       "receptions": 2.5,
+       "yards_per_target": 9.63,
+       "yards": 32.5
       },
       "rain": {
        "targets": 3.2,
-       "catch_rate": 0.679,
-       "receptions": 2.1,
-       "yards_per_target": 8.28,
-       "yards": 26.1
+       "catch_rate": 0.69,
+       "receptions": 2.2,
+       "yards_per_target": 8.52,
+       "yards": 27.5
       },
       "forecast": {
        "targets": 3.3,
-       "catch_rate": 0.724,
+       "catch_rate": 0.718,
        "receptions": 2.4,
-       "yards_per_target": 9.25,
-       "yards": 30.3
+       "yards_per_target": 9.13,
+       "yards": 30.2
       }
      },
      {
@@ -6967,10 +7323,10 @@
       },
       "forecast": {
        "targets": 2.5,
-       "catch_rate": 0.796,
-       "receptions": 2.0,
-       "yards_per_target": 7.87,
-       "yards": 19.6
+       "catch_rate": 0.786,
+       "receptions": 1.9,
+       "yards_per_target": 7.53,
+       "yards": 18.5
       }
      },
      {
@@ -6980,23 +7336,23 @@
       "target_share": 0.029411764705882353,
       "dry": {
        "targets": 1.8,
-       "catch_rate": 0.876,
-       "receptions": 1.5,
-       "yards_per_target": 5.74,
-       "yards": 10.1
+       "catch_rate": 0.889,
+       "receptions": 1.6,
+       "yards_per_target": 5.89,
+       "yards": 10.6
       },
       "rain": {
        "targets": 1.7,
-       "catch_rate": 0.815,
+       "catch_rate": 0.828,
        "receptions": 1.4,
-       "yards_per_target": 5.06,
-       "yards": 8.5
+       "yards_per_target": 5.21,
+       "yards": 9.0
       },
       "forecast": {
-       "targets": 1.7,
-       "catch_rate": 0.868,
+       "targets": 1.8,
+       "catch_rate": 0.861,
        "receptions": 1.5,
-       "yards_per_target": 5.65,
+       "yards_per_target": 5.58,
        "yards": 9.9
       }
      },
@@ -7007,24 +7363,24 @@
       "target_share": 0.029411764705882353,
       "dry": {
        "targets": 3.0,
-       "catch_rate": 0.552,
-       "receptions": 1.6,
-       "yards_per_target": 6.51,
-       "yards": 19.4
+       "catch_rate": 0.556,
+       "receptions": 1.7,
+       "yards_per_target": 6.67,
+       "yards": 20.0
       },
       "rain": {
-       "targets": 2.8,
-       "catch_rate": 0.516,
+       "targets": 2.9,
+       "catch_rate": 0.519,
        "receptions": 1.5,
-       "yards_per_target": 5.76,
-       "yards": 16.4
+       "yards_per_target": 5.91,
+       "yards": 17.0
       },
       "forecast": {
-       "targets": 3.0,
-       "catch_rate": 0.547,
+       "targets": 2.9,
+       "catch_rate": 0.539,
        "receptions": 1.6,
-       "yards_per_target": 6.42,
-       "yards": 19.0
+       "yards_per_target": 6.33,
+       "yards": 18.6
       }
      },
      {
@@ -7034,23 +7390,23 @@
       "target_share": 0.029411764705882353,
       "dry": {
        "targets": 2.2,
-       "catch_rate": 0.767,
-       "receptions": 1.7,
-       "yards_per_target": 4.55,
-       "yards": 10.0
+       "catch_rate": 0.778,
+       "receptions": 1.8,
+       "yards_per_target": 4.67,
+       "yards": 10.5
       },
       "rain": {
-       "targets": 2.1,
-       "catch_rate": 0.713,
-       "receptions": 1.5,
-       "yards_per_target": 4.01,
-       "yards": 8.4
+       "targets": 2.2,
+       "catch_rate": 0.724,
+       "receptions": 1.6,
+       "yards_per_target": 4.13,
+       "yards": 8.9
       },
       "forecast": {
        "targets": 2.2,
-       "catch_rate": 0.76,
+       "catch_rate": 0.754,
        "receptions": 1.7,
-       "yards_per_target": 4.48,
+       "yards_per_target": 4.42,
        "yards": 9.8
       }
      }
@@ -7060,16 +7416,16 @@
      "attempts_in_window": 312,
      "small_sample": false,
      "dry": {
-      "completion_pct": 0.754,
-      "yards_per_attempt": 8.3
+      "completion_pct": 0.76,
+      "yards_per_attempt": 8.44
      },
      "rain": {
-      "completion_pct": 0.708,
-      "yards_per_attempt": 7.29
+      "completion_pct": 0.714,
+      "yards_per_attempt": 7.43
      },
      "forecast": {
-      "completion_pct": 0.748,
-      "yards_per_attempt": 8.17
+      "completion_pct": 0.739,
+      "yards_per_attempt": 7.99
      }
     }
    }
@@ -7163,98 +7519,98 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d7aa5501bb6f323bdaa9cdfd2dbb2f828adc4497a4a53ce6a9456d671a7e9753",
-   "bytes": 524258
+   "retrieved_utc": "2026-11-24T23:23:41+00:00",
+   "sha256": "0e869d772f90585fa208e0d1f4ddda367684cb97c67f9e3142e8ab9ee475c0e6",
+   "bytes": 524360
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d8782243a144a98dccd5fa91cb379b6004a697f49966d0209da5d875a3928692",
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "b74af456d30b27138744f885d9a1d38de03664a4d5b6fae5fc55b23d6fc63488",
    "bytes": 13097328
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "8b17e639cdd2d655d7270b69fbd9dc178d89b64e4234cb38c57d1b7ee203b9fd",
-   "bytes": 822554
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "025956d0eab74359c293b4d3c51d673836ee0af45d19cbaf1779bfb596be0016",
+   "bytes": 821928
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "b7bae239f8a9aa2f4169d49a001e86b76ae22dda7b0eeaac4d033b5f6e9bb7e9",
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "46e0f80ab820779aa6c8caf364cafe5bbbbf27885378d7f28af08c004b892387",
    "bytes": 69477
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "56f5984ca8456d6640868812d43ecfc29417f965d2dcd40cacf27701c984978d",
-   "bytes": 3559081
+   "retrieved_utc": "2026-11-24T23:23:42+00:00",
+   "sha256": "9f9fb70531af4428dc183036eea463b500faaf561456312381244638e59e5c31",
+   "bytes": 3615076
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "cfbe0260477f668c30ccd10d3976a0d9b7b1cf7732e1a2684c43fbf314f86ea1",
-   "bytes": 151849
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "bytes": 152479
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "bb72c788f63b5d4882d11a5a57dc6f59b401897bc2dcc99d6ba50290ab2404b3",
-   "bytes": 314887
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
+   "sha256": "cde066b3fb7ec0a3ace879664f9c71cb3d5c584248003da2aafbea248afd21f5",
+   "bytes": 335267
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "b2f7b6dc4d56fa9ca1a3b6d65e78c4436742bb2311edb8b299fc9dc9191b864a",
    "bytes": 100331
   },
   "pfr_rec": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "c044899de693fa04d8c50cd45b83a6a277e12d11d6d26209a0501f424bcc3174",
    "bytes": 35611
   },
   "pfr_rush": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rush_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-24T23:23:43+00:00",
    "sha256": "e8230522afc9188eb7dd3ca5b935a6a48d7e776e4549cb8143a55eac3981e19c",
    "bytes": 28827
   },
   "ngs_receiving": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "40743c0acacb216274409090b461c52cfdb0bd5f451b2772bd8d3863bfb9b094",
-   "bytes": 1180846
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "1182ae58702b4a36ea11d776201983bf160ce4f73c0dc6e190e51d10bb3e1a8b",
+   "bytes": 1181382
   },
   "ngs_rushing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_rushing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "1769f3df0fcfb222684aeb0af9d24de9cb6dc7b995706adfea712b83e769b041",
-   "bytes": 406077
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "8224482c119b0613c5bd3a1cd2e282b8820714717dc80d42c3e7148de7bda809",
+   "bytes": 406226
   },
   "ngs_passing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_passing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "52f24af2e400449f88b12c48c9645baf483bf3731b3fdd013a2783af295b5574",
-   "bytes": 767210
+   "retrieved_utc": "2026-11-24T23:23:44+00:00",
+   "sha256": "688f7a6ebfcfdc418e2ba9fd6e2c49e4ff901c20c8b568cf9d94093ae3e4a377",
+   "bytes": 767423
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-24T06:16:22+00:00"
+   "retrieved_utc": "2026-11-24T23:23:45+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
@@ -7359,7 +7715,7 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-24T06:16:22+00:00",
+  "checked_utc": "2026-11-24T23:23:45+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
