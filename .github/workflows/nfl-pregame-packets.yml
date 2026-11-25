@@ -75,6 +75,7 @@ jobs:
           python -m pip install --disable-pip-version-check pillow
           python -m pregame.coverage_rates || true     # this season's man/zone (Sharp public table, at most daily); fail-soft
           python -m dashboard.build
+          python -m dashboard.research_layer || true    # today's read: reads, adjusted projections, defense roles, QB targets, zones (fail-soft)
       - name: Commit refreshed packets
         run: |
           git config user.name "github-actions[bot]"
