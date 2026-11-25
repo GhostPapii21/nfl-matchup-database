@@ -417,10 +417,10 @@ const BOARD = /*__BOARD_DATA__*/null;
   "use strict";
   const games = (BOARD && BOARD.games) || [];
   const state = { gi: 0, dir: 0, tab: "overview", view: "home" };
-  const TABS = [["overview", "Overview"], ["players", "Player cards"], ["opportunity", "Opportunity"], ["field", "Field view"], ["matchup", "What the defense allows"],
+  const TABS = [["overview", "Overview"], ["read", "Today's read"], ["players", "Player cards"], ["opportunity", "Opportunity"], ["field", "Field view"], ["matchup", "What the defense allows"],
                 ["defenders", "Defenders"], ["qb", "Quarterback"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
                 ["grok", "Copy for Grok"]];
-  const FEATURE = new Set(["players", "opportunity", "field"]);
+  const FEATURE = new Set(["read", "players", "opportunity", "field"]);
 
   // ---------------------------------------------------------------- helpers
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1821,13 +1821,75 @@ Definitions (use these exact meanings):
   }
 
   // ---------------------------------------------------------------- page
+
+  // ---- Today's read: the session's research layers (dashboard/research_layer.py). Research only.
+  function renderRead(g) {
+    const R = g.research;
+    if (!R) return `<div class="card"><p class="empty">No research read for this game yet. The full read (injury rule, recent roles, Sharp coverage, defense leaks by role, QB under blitz and pressure, zones) is built game by game.</p></div>`;
+    const sgn = (x, d = 1) => isNum(x) ? (x > 0 ? "+" : "") + x.toFixed(d) : "–";
+    const rk = (r) => isNum(r) ? `<span class="rank ${r <= 10 ? "bad" : r >= 23 ? "good" : "mid"}">${r} of 32</span>` : "";
+    let h = "";
+    const rd = R.reads;
+    if (rd) {
+      h += `<div class="card edge-card"><span class="ribbon">Today's read</span><p>${esc(rd.headline)}</p><ul class="list">` +
+        rd.picks.map((p) => `<li><span class="dot ${p.lean ? "warn" : "good"}"></span><div><b>${esc(p.play)}</b>` +
+          (isNum(p.model) ? ` <span class="pill good">model ${pct(p.model)}</span>` : "") + (isNum(p.market) ? ` <span class="pill info">market ${pct(p.market)}</span>` : "") +
+          (p.lean ? ` <span class="pill warn">lean</span>` : "") + (p.why ? `<div class="note">${esc(p.why)}</div>` : "") + `</div></li>`).join("") + `</ul>` +
+        (rd.avoid && rd.avoid.length ? `<div class="note"><b>Leave alone:</b> ${rd.avoid.map(esc).join(" · ")}</div>` : "") +
+        `<div class="note">Model = our adjusted projection; market = the books' no-vig chance. Gaps of 15+ points are where the books have usually been right. Research only.</div></div>`;
+    }
+    h += `<div class="section-title">Where each defense leaks</div><div class="grid two">`;
+    for (const [dfn, w] of Object.entries(R.roles || {})) {
+      const roles = ["WR1", "WR2", "WR3+", "TE", "RB rec", "RB rush"];
+      h += `<div class="card"><h4>${esc(dfn)} defense by role</h4><div class="sub">Yards a game vs those players' usual (rank 1 = gives up the most)</div><div class="tablewrap"><table><tr><th>Role</th><th>Season</th><th>Last 5</th></tr>` +
+        roles.map((r) => { const a = (w.season || {})[r] || {}, b = (w.last5 || {})[r] || {}; return `<tr><td>${esc(r === "WR3+" ? "WR3 / slot" : r)}</td><td>${sgn(a.yds_vs_usual)} ${rk(a.rank)}</td><td>${sgn(b.yds_vs_usual)} ${rk(b.rank)}</td></tr>`; }).join("") +
+        `</table></div>`;
+      const z = (R.zones || {})[dfn];
+      if (z) h += `<div class="note"><b>Softest zones:</b> ${z.leaks.map((x) => `${esc(x.zone)} ${sgn(x.ypt_vs_lg)} yds/tgt (${pct(x.catch)} caught vs ${pct(x.lg_catch)})`).join("; ")}</div>` +
+        `<div class="note"><b>Tightest zones:</b> ${z.tight.map((x) => `${esc(x.zone)} ${sgn(x.ypt_vs_lg)} (${esc(x.around || "")})`).join("; ")}</div>`;
+      h += `</div>`;
+    }
+    h += `</div><div class="section-title">Who the QB looks for under blitz and pressure</div><div class="grid two">`;
+    for (const [off, t] of Object.entries(R.targets || {})) {
+      const cols = [["all", "All"], ["blitzed", "Blitzed"], ["pressured", "Hit / flushed"]];
+      const names = [...new Set(cols.flatMap(([k]) => ((t[k] || {}).rows || []).map((r) => r.player)))].slice(0, 7);
+      const cell = (k, nm) => { const r = ((t[k] || {}).rows || []).find((x) => x.player === nm); return r ? `${pct(r.share)} · ${pct(r.catch)} · ${r.ypt}` : "–"; };
+      h += `<div class="card"><h4>${esc(off)} targets</h4><div class="sub">share of targets · catch rate · yards per target</div><div class="tablewrap"><table><tr><th>Player</th>${cols.map(([k, l]) => `<th>${l} (${(t[k] || {}).targets || 0})</th>`).join("")}</tr>` +
+        names.map((nm) => `<tr><td>${esc(nm)}</td>${cols.map(([k]) => `<td>${cell(k, nm)}</td>`).join("")}</tr>`).join("") + `</table></div></div>`;
+    }
+    h += `</div>`;
+    const A = R.adjusted;
+    if (A && A.teams) {
+      h += `<div class="section-title">Adjusted projections</div><div class="note">Board → adjusted. Out/IR removed; Questionable play limited (backs 69%, TEs 89%, WRs 91% of usual snaps); half season share, half last two games; Sharp man coverage and blitz effects.</div><div class="grid two">`;
+      for (const t of Object.values(A.teams)) {
+        const line = (L) => Object.entries(L || {}).map(([k, v]) => `${k.replace("receiving_", "").replace("rushing_", "rush ")} ${v.line}: over ${pct(v.p_over_adj)}`).join("<br>");
+        h += `<div class="card"><h4>${esc(t.offense)} vs ${esc(t.defense)}</h4>` + (t.out_of_rotation && t.out_of_rotation.length ? `<div class="note">Out of the rotation: ${t.out_of_rotation.map(esc).join(", ")}</div>` : "") +
+          `<div class="tablewrap"><table><tr><th>Player</th><th>Targets</th><th>Catches</th><th>Yards</th><th class="tl">Lines</th></tr>` +
+          t.receivers.slice().sort((a, b) => b.yards[1] - a.yards[1]).map((r) => `<tr><td>${esc(r.player)} <span class="note">${esc(r.pos)}</span>${r.tag ? ` <span class="pill warn">Q</span>` : ""}</td><td>${n(r.targets[0], 1)} → <b>${n(r.targets[1], 1)}</b></td><td>${n(r.receptions[0], 1)} → <b>${n(r.receptions[1], 1)}</b></td><td>${n(r.yards[0], 0)} → <b>${n(r.yards[1], 0)}</b></td><td class="tl">${line(r.lines)}</td></tr>`).join("") +
+          t.rushers.slice().sort((a, b) => b.yards[1] - a.yards[1]).map((r) => `<tr><td>${esc(r.player)} <span class="note">rush</span>${r.tag ? ` <span class="pill warn">Q</span>` : ""}</td><td>${n(r.carries[0], 1)} → <b>${n(r.carries[1], 1)}</b> car</td><td></td><td>${n(r.yards[0], 0)} → <b>${n(r.yards[1], 0)}</b></td><td class="tl">${line(r.lines)}</td></tr>`).join("") +
+          `</table></div></div>`;
+      }
+      h += `</div>`;
+    }
+    const P = R.profile || {};
+    h += `<div class="section-title">Scheme (Sharp, Weeks 1-10)</div><div class="grid two">`;
+    for (const [k, p] of Object.entries(P)) {
+      const rows = [["aDOT", "aDOT", 1, false], ["deep_rate", "Deep throw rate", 0, true], ["pass_rate", "Pass rate", 0, true], ["pressure", "Pressure", 0, true], ["blitz", "Blitz", 0, true], ["man", "Man coverage", 0, true]];
+      const v = (o, key, d, isP) => o && isNum(o[key]) ? (isP ? pct(o[key]) : o[key].toFixed(d)) : "–";
+      const [off, dfn] = k.split("_vs_");
+      h += `<div class="card"><h4>${esc(off)} offense vs ${esc(dfn)} defense</h4><div class="tablewrap"><table><tr><th></th><th>${esc(off)} season</th><th>last 5</th><th>${esc(dfn)} D season</th><th>last 5</th><th>League</th></tr>` +
+        rows.map(([key, lab, d, isP]) => `<tr><td>${lab}</td><td>${v(p.off_season, key, d, isP)}</td><td>${v(p.off_last5, key, d, isP)}</td><td>${v(p.def_season, key, d, isP)}</td><td>${v(p.def_last5, key, d, isP)}</td><td>${v(p.league, key, d, isP)}</td></tr>`).join("") + `</table></div>` +
+        (p.shell ? `<div class="note">${esc(dfn)} shell: man ${p.shell.man}% · zone ${p.shell.zone}% · one-high ${p.shell.one_high}% · two-high ${p.shell.two_high}%</div>` : "") + `</div>`;
+    }
+    return h + `</div>`;
+  }
   function renderSheet() {
     const g = G();
     if (!g) { document.getElementById("sheet").innerHTML = `<div class="card"><p class="empty">No games on the board yet. Packets are built Tuesday morning for the week.</p></div>`; return; }
     const ks = sideKeys(g);
     const dirNeeded = ["matchup", "defenders", "qb", "players", "opportunity", "field"].includes(state.tab);
     const dirBtns = ks.map((k, i) => { const s = g.sides[k]; return `<button aria-pressed="${i === state.dir}" data-dir="${i}">${esc(s.offense)} offense vs ${esc(s.defense)} defense</button>`; }).join("");
-    const body = { overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, opportunity: renderOpportunity, field: renderField, injuries: renderInjuries,
+    const body = { read: renderRead, overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, opportunity: renderOpportunity, field: renderField, injuries: renderInjuries,
                    h2h: renderH2H, odds: renderOdds, weather: renderWeather, grok: renderGrok }[state.tab](g);
     const sh = document.getElementById("sheet"); sh.style.setProperty("--ta", teamColor(g, g.game.away)); sh.style.setProperty("--tb", teamColor(g, g.game.home));
     document.getElementById("sheet").innerHTML = renderHeader(g) +

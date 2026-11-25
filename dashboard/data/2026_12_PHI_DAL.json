@@ -28902,5 +28902,1213 @@
   }
  },
  "data_gaps": {},
- "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE"
+ "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
+ "research": {
+  "reads": {
+   "headline": "Dallas is the leakiest defense of the three: backs (rushing +42, receiving +31 over usual last 5), slot (+34) and WR1s. Philadelphia starts a backup QB (Milton or McKee). Philadelphia shuts down WR1s, TEs and backs catching passes; leaks to the slot and WR2s.",
+   "picks": [
+    {
+     "play": "Saquon Barkley over 64.5 rushing yards",
+     "lean": true,
+     "why": "Dallas gashed by backs in both windows; he is the clear lead back (13, 13, 17 carries)"
+    },
+    {
+     "play": "Makai Lemon over 3.5 catches",
+     "model": 0.63,
+     "market": null,
+     "why": "Philadelphia's target leader into Dallas's WR1 leak"
+    },
+    {
+     "play": "Darius Cooper over 2.5 catches",
+     "model": 0.67,
+     "market": null,
+     "why": "Slot into Dallas's slot leak"
+    },
+    {
+     "play": "George Pickens over 70.5 receiving yards",
+     "model": 0.59,
+     "market": 0.5,
+     "why": "WR2 into Philadelphia's WR2 leak; Ferguson Doubtful moves work to him"
+    },
+    {
+     "play": "CeeDee Lamb under 89.5 receiving yards",
+     "lean": true,
+     "why": "Philadelphia erased WR1s over the last 5"
+    },
+    {
+     "play": "Ryan Flournoy over 31.5 receiving yards",
+     "lean": true,
+     "why": "Slot into Philadelphia's slot leak"
+    }
+   ],
+   "avoid": [
+    "Spann-Ford catches (Philadelphia shuts down TEs)",
+    "Javonte Williams receiving overs (Philadelphia shuts down backs catching passes)",
+    "Lemon/Cooper yardage overs (20-30 pts over the books)"
+   ]
+  },
+  "adjusted": {
+   "game_id": "2026_12_PHI_DAL",
+   "board_built_utc": "2026-11-25T03:47:01+00:00",
+   "teams": {
+    "PHI": {
+     "offense": "PHI",
+     "defense": "DAL",
+     "recent_weeks": [
+      9,
+      11
+     ],
+     "defense_man_vs_league": 0.078,
+     "defense_blitz_vs_league": -0.096,
+     "out_of_rotation": [
+      "Dameon Pierce",
+      "Zach Ertz",
+      "Dameon Pierce",
+      "Tank Bigsby"
+     ],
+     "receivers": [
+      {
+       "player": "Makai Lemon",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.2,
+       "share_adj": 0.221,
+       "targets": [
+        5.9,
+        6.5
+       ],
+       "receptions": [
+        3.9,
+        4.3
+       ],
+       "yards": [
+        39.8,
+        48.4
+       ],
+       "yards_median_adj": 42.0,
+       "lines": {
+        "receiving_yards": {
+         "line": 29.5,
+         "p_over_adj": 0.675,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 3.5,
+         "p_over_adj": 0.585,
+         "market_over": 0.417
+        }
+       },
+       "ngs": {
+        "separation": 2.9196090195454762,
+        "air_yard_share": 15.702160852083317,
+        "yac_over_exp": -0.5257251310968338
+       }
+      },
+      {
+       "player": "Dallas Goedert",
+       "pos": "TE",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.131,
+       "share_adj": 0.14,
+       "targets": [
+        3.9,
+        4.1
+       ],
+       "receptions": [
+        2.8,
+        3.0
+       ],
+       "yards": [
+        25.2,
+        29.9
+       ],
+       "yards_median_adj": 25.3,
+       "lines": {
+        "receiving_yards": {
+         "line": 30.5,
+         "p_over_adj": 0.409,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 3.5,
+         "p_over_adj": 0.355,
+         "market_over": 0.475
+        }
+       },
+       "ngs": {
+        "separation": 3.11828928457441,
+        "air_yard_share": 12.093621446944441,
+        "yac_over_exp": -0.04673943870275732
+       }
+      },
+      {
+       "player": "DeVonta Smith",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.322,
+       "share_adj": 0.28,
+       "targets": [
+        9.5,
+        8.3
+       ],
+       "receptions": [
+        5.7,
+        4.9
+       ],
+       "yards": [
+        62.8,
+        61.2
+       ],
+       "yards_median_adj": 53.9,
+       "lines": {
+        "receiving_yards": {
+         "line": 63.5,
+         "p_over_adj": 0.437,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 5.5,
+         "p_over_adj": 0.371,
+         "market_over": 0.488
+        }
+       },
+       "ngs": {
+        "separation": 2.3487919197647162,
+        "air_yard_share": 23.73501471830921,
+        "yac_over_exp": 0.0641717463704703
+       }
+      },
+      {
+       "player": "Darius Cooper",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.159,
+       "share_adj": 0.209,
+       "targets": [
+        4.7,
+        6.2
+       ],
+       "receptions": [
+        2.6,
+        3.4
+       ],
+       "yards": [
+        34.6,
+        50.3
+       ],
+       "yards_median_adj": 43.0,
+       "lines": {
+        "receiving_yards": {
+         "line": 27.5,
+         "p_over_adj": 0.682,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 2.5,
+         "p_over_adj": 0.634,
+         "market_over": 0.441
+        }
+       },
+       "ngs": {
+        "separation": 2.7403381771190607,
+        "air_yard_share": 19.72207003500822,
+        "yac_over_exp": 2.184472108433768
+       }
+      },
+      {
+       "player": "Elijah Mitchell",
+       "pos": "RB",
+       "status": null,
+       "tag": null,
+       "share_board": 0.119,
+       "share_adj": 0.103,
+       "targets": [
+        3.5,
+        3.1
+       ],
+       "receptions": [
+        2.7,
+        2.4
+       ],
+       "yards": [
+        18.9,
+        18.5
+       ],
+       "yards_median_adj": 13.6,
+       "lines": {}
+      },
+      {
+       "player": "Marquise Brown",
+       "pos": "WR",
+       "status": null,
+       "tag": null,
+       "share_board": 0.07,
+       "share_adj": 0.046,
+       "targets": [
+        2.1,
+        1.4
+       ],
+       "receptions": [
+        1.4,
+        0.9
+       ],
+       "yards": [
+        16.5,
+        12.2
+       ],
+       "yards_median_adj": 4.3,
+       "lines": {}
+      }
+     ],
+     "rushers": [
+      {
+       "player": "Saquon Barkley",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.493,
+       "share_adj": 0.66,
+       "carries": [
+        10.9,
+        14.3
+       ],
+       "yards": [
+        50.0,
+        65.2
+       ],
+       "yards_median_adj": 56.7,
+       "lines": {
+        "rushing_yards": {
+         "line": 64.5,
+         "p_over_adj": 0.444,
+         "market_over": 0.5
+        }
+       }
+      },
+      {
+       "player": "Elijah Mitchell",
+       "status": null,
+       "tag": null,
+       "share_board": 0.223,
+       "share_adj": 0.154,
+       "carries": [
+        5.3,
+        3.8
+       ],
+       "yards": [
+        22.8,
+        16.5
+       ],
+       "yards_median_adj": 11.0,
+       "lines": {}
+      },
+      {
+       "player": "Will Shipley",
+       "status": "Questionable",
+       "tag": "Questionable: 69% of usual snaps",
+       "share_board": 0.199,
+       "share_adj": 0.101,
+       "carries": [
+        4.7,
+        2.7
+       ],
+       "yards": [
+        20.1,
+        11.5
+       ],
+       "yards_median_adj": 7.9,
+       "lines": {}
+      }
+     ]
+    },
+    "DAL": {
+     "offense": "DAL",
+     "defense": "PHI",
+     "recent_weeks": [
+      10,
+      11
+     ],
+     "defense_man_vs_league": 0.015,
+     "defense_blitz_vs_league": -0.04,
+     "out_of_rotation": [],
+     "receivers": [
+      {
+       "player": "CeeDee Lamb",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.355,
+       "share_adj": 0.344,
+       "targets": [
+        12.1,
+        11.6
+       ],
+       "receptions": [
+        7.4,
+        7.1
+       ],
+       "yards": [
+        91.0,
+        87.5
+       ],
+       "yards_median_adj": 78.3,
+       "lines": {
+        "receiving_yards": {
+         "line": 89.5,
+         "p_over_adj": 0.435,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 7.5,
+         "p_over_adj": 0.407,
+         "market_over": 0.463
+        }
+       },
+       "ngs": {
+        "separation": 2.7879747234071233,
+        "air_yard_share": 39.55001484119917,
+        "yac_over_exp": 0.6862435851873099
+       }
+      },
+      {
+       "player": "George Pickens",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.261,
+       "share_adj": 0.315,
+       "targets": [
+        8.8,
+        10.6
+       ],
+       "receptions": [
+        5.4,
+        6.5
+       ],
+       "yards": [
+        79.1,
+        96.2
+       ],
+       "yards_median_adj": 80.7,
+       "lines": {
+        "receiving_yards": {
+         "line": 70.5,
+         "p_over_adj": 0.586,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 5.5,
+         "p_over_adj": 0.517,
+         "market_over": 0.433
+        }
+       },
+       "ngs": {
+        "separation": 2.3116155130496416,
+        "air_yard_share": 30.487384980706437,
+        "yac_over_exp": 0.4234860793696842
+       }
+      },
+      {
+       "player": "Ryan Flournoy",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.111,
+       "share_adj": 0.109,
+       "targets": [
+        3.8,
+        3.7
+       ],
+       "receptions": [
+        2.6,
+        2.6
+       ],
+       "yards": [
+        36.0,
+        35.3
+       ],
+       "yards_median_adj": 28.0,
+       "lines": {
+        "receiving_yards": {
+         "line": 31.5,
+         "p_over_adj": 0.45,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 2.5,
+         "p_over_adj": 0.462,
+         "market_over": 0.592
+        }
+       },
+       "ngs": {
+        "separation": 2.958011211123875,
+        "air_yard_share": 13.063223508459481,
+        "yac_over_exp": 1.3397030005005157
+       }
+      },
+      {
+       "player": "Brevyn Spann-Ford",
+       "pos": "TE",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.082,
+       "share_adj": 0.075,
+       "targets": [
+        2.8,
+        2.6
+       ],
+       "receptions": [
+        2.0,
+        1.8
+       ],
+       "yards": [
+        19.2,
+        17.5
+       ],
+       "yards_median_adj": 13.2,
+       "lines": {
+        "receiving_yards": {
+         "line": 14.5,
+         "p_over_adj": 0.467,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 1.5,
+         "p_over_adj": 0.53,
+         "market_over": 0.589
+        }
+       }
+      },
+      {
+       "player": "Javonte Williams",
+       "pos": "RB",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.076,
+       "share_adj": 0.065,
+       "targets": [
+        2.6,
+        2.3
+       ],
+       "receptions": [
+        2.0,
+        1.7
+       ],
+       "yards": [
+        11.4,
+        9.8
+       ],
+       "yards_median_adj": 6.2,
+       "lines": {
+        "receiving_yards": {
+         "line": 7.5,
+         "p_over_adj": 0.464,
+         "market_over": 0.5
+        },
+        "receptions": {
+         "line": 1.5,
+         "p_over_adj": 0.496,
+         "market_over": 0.572
+        }
+       }
+      },
+      {
+       "player": "Jonathan Mingo",
+       "pos": "WR",
+       "status": "Questionable",
+       "tag": "Questionable: 91% of usual snaps",
+       "share_board": 0.069,
+       "share_adj": 0.033,
+       "targets": [
+        2.4,
+        1.2
+       ],
+       "receptions": [
+        1.3,
+        0.6
+       ],
+       "yards": [
+        17.1,
+        8.2
+       ],
+       "yards_median_adj": 0.0,
+       "lines": {}
+      },
+      {
+       "player": "KaVontae Turpin",
+       "pos": "WR",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.065,
+       "share_adj": 0.059,
+       "targets": [
+        2.3,
+        2.1
+       ],
+       "receptions": [
+        1.3,
+        1.2
+       ],
+       "yards": [
+        16.1,
+        15.0
+       ],
+       "yards_median_adj": 9.1,
+       "lines": {
+        "receiving_yards": {
+         "line": 4.5,
+         "p_over_adj": 0.613,
+         "market_over": 0.505
+        },
+        "receptions": {
+         "line": 0.5,
+         "p_over_adj": 0.675,
+         "market_over": 0.587
+        }
+       }
+      }
+     ],
+     "rushers": [
+      {
+       "player": "Javonte Williams",
+       "status": "Active",
+       "tag": null,
+       "share_board": 0.708,
+       "share_adj": 0.839,
+       "carries": [
+        17.1,
+        20.1
+       ],
+       "yards": [
+        68.1,
+        79.7
+       ],
+       "yards_median_adj": 73.5,
+       "lines": {
+        "rushing_yards": {
+         "line": 75.5,
+         "p_over_adj": 0.487,
+         "market_over": 0.5
+        }
+       }
+      },
+      {
+       "player": "Tyler Goodson",
+       "status": null,
+       "tag": null,
+       "share_board": 0.258,
+       "share_adj": 0.127,
+       "carries": [
+        6.6,
+        3.6
+       ],
+       "yards": [
+        27.1,
+        14.7
+       ],
+       "yards_median_adj": 10.0,
+       "lines": {}
+      }
+     ]
+    }
+   }
+  },
+  "roles": {
+   "DAL": {
+    "season": {
+     "WR1": {
+      "yds_vs_usual": 15.4,
+      "rec_vs_usual": 0.6,
+      "rank": 3
+     },
+     "WR2": {
+      "yds_vs_usual": -7.8,
+      "rec_vs_usual": -1.0,
+      "rank": 24
+     },
+     "WR3+": {
+      "yds_vs_usual": 15.9,
+      "rec_vs_usual": 1.1,
+      "rank": 5
+     },
+     "TE": {
+      "yds_vs_usual": -0.8,
+      "rec_vs_usual": 0.0,
+      "rank": 16
+     },
+     "RB rec": {
+      "yds_vs_usual": 10.9,
+      "rec_vs_usual": 0.2,
+      "rank": 4
+     },
+     "RB rush": {
+      "yds_vs_usual": 29.0,
+      "rec_vs_usual": 0.1,
+      "rank": 2
+     }
+    },
+    "last5": {
+     "WR1": {
+      "yds_vs_usual": 18.7,
+      "rec_vs_usual": 0.5,
+      "rank": 6
+     },
+     "WR2": {
+      "yds_vs_usual": -8.5,
+      "rec_vs_usual": -1.6,
+      "rank": 21
+     },
+     "WR3+": {
+      "yds_vs_usual": 33.6,
+      "rec_vs_usual": 2.8,
+      "rank": 3
+     },
+     "TE": {
+      "yds_vs_usual": 3.4,
+      "rec_vs_usual": -0.2,
+      "rank": 15
+     },
+     "RB rec": {
+      "yds_vs_usual": 30.8,
+      "rec_vs_usual": 0.9,
+      "rank": 1
+     },
+     "RB rush": {
+      "yds_vs_usual": 42.1,
+      "rec_vs_usual": 0.6,
+      "rank": 3
+     }
+    }
+   },
+   "PHI": {
+    "season": {
+     "WR1": {
+      "yds_vs_usual": -5.9,
+      "rec_vs_usual": -0.8,
+      "rank": 25
+     },
+     "WR2": {
+      "yds_vs_usual": -4.0,
+      "rec_vs_usual": -0.2,
+      "rank": 19
+     },
+     "WR3+": {
+      "yds_vs_usual": 13.9,
+      "rec_vs_usual": 0.4,
+      "rank": 6
+     },
+     "TE": {
+      "yds_vs_usual": -9.6,
+      "rec_vs_usual": -0.8,
+      "rank": 26
+     },
+     "RB rec": {
+      "yds_vs_usual": -12.2,
+      "rec_vs_usual": -0.3,
+      "rank": 27
+     },
+     "RB rush": {
+      "yds_vs_usual": 7.1,
+      "rec_vs_usual": 0.4,
+      "rank": 12
+     }
+    },
+    "last5": {
+     "WR1": {
+      "yds_vs_usual": -21.5,
+      "rec_vs_usual": -1.8,
+      "rank": 30
+     },
+     "WR2": {
+      "yds_vs_usual": 9.7,
+      "rec_vs_usual": 0.9,
+      "rank": 8
+     },
+     "WR3+": {
+      "yds_vs_usual": 26.7,
+      "rec_vs_usual": 0.9,
+      "rank": 5
+     },
+     "TE": {
+      "yds_vs_usual": -19.3,
+      "rec_vs_usual": -1.4,
+      "rank": 32
+     },
+     "RB rec": {
+      "yds_vs_usual": -24.8,
+      "rec_vs_usual": -1.3,
+      "rank": 31
+     },
+     "RB rush": {
+      "yds_vs_usual": 14.8,
+      "rec_vs_usual": 0.8,
+      "rank": 11
+     }
+    }
+   }
+  },
+  "targets": {
+   "PHI": {
+    "all": {
+     "targets": 306,
+     "rows": [
+      {
+       "player": "M.Lemon",
+       "share": 0.186,
+       "catch": 0.667,
+       "ypt": 5.5
+      },
+      {
+       "player": "D.Smith",
+       "share": 0.173,
+       "catch": 0.585,
+       "ypt": 6.6
+      },
+      {
+       "player": "D.Goedert",
+       "share": 0.137,
+       "catch": 0.762,
+       "ypt": 8.2
+      },
+      {
+       "player": "D.Cooper",
+       "share": 0.121,
+       "catch": 0.459,
+       "ypt": 7.0
+      },
+      {
+       "player": "D.Wicks",
+       "share": 0.105,
+       "catch": 0.594,
+       "ypt": 8.9
+      },
+      {
+       "player": "E.Mitchell",
+       "share": 0.046,
+       "catch": 0.714,
+       "ypt": 3.3
+      }
+     ]
+    },
+    "blitzed": {
+     "targets": 99,
+     "rows": [
+      {
+       "player": "M.Lemon",
+       "share": 0.212,
+       "catch": 0.667,
+       "ypt": 6.2
+      },
+      {
+       "player": "D.Smith",
+       "share": 0.152,
+       "catch": 0.667,
+       "ypt": 8.0
+      },
+      {
+       "player": "D.Wicks",
+       "share": 0.131,
+       "catch": 0.538,
+       "ypt": 6.5
+      },
+      {
+       "player": "D.Cooper",
+       "share": 0.111,
+       "catch": 0.545,
+       "ypt": 4.5
+      },
+      {
+       "player": "D.Goedert",
+       "share": 0.111,
+       "catch": 0.818,
+       "ypt": 9.1
+      },
+      {
+       "player": "S.Barkley",
+       "share": 0.061,
+       "catch": 0.5,
+       "ypt": 7.8
+      }
+     ]
+    },
+    "pressured": {
+     "targets": 48,
+     "rows": [
+      {
+       "player": "M.Lemon",
+       "share": 0.188,
+       "catch": 0.333,
+       "ypt": 3.0
+      },
+      {
+       "player": "D.Smith",
+       "share": 0.125,
+       "catch": 0.333,
+       "ypt": 5.0
+      },
+      {
+       "player": "D.Wicks",
+       "share": 0.125,
+       "catch": 0.5,
+       "ypt": 4.8
+      },
+      {
+       "player": "D.Cooper",
+       "share": 0.104,
+       "catch": 0.0,
+       "ypt": 0.0
+      },
+      {
+       "player": "D.Pierce",
+       "share": 0.083,
+       "catch": 0.5,
+       "ypt": 3.0
+      },
+      {
+       "player": "W.Shipley",
+       "share": 0.083,
+       "catch": 0.5,
+       "ypt": 3.8
+      }
+     ]
+    }
+   },
+   "DAL": {
+    "all": {
+     "targets": 415,
+     "rows": [
+      {
+       "player": "C.Lamb",
+       "share": 0.325,
+       "catch": 0.652,
+       "ypt": 8.2
+      },
+      {
+       "player": "G.Pickens",
+       "share": 0.222,
+       "catch": 0.62,
+       "ypt": 8.5
+      },
+      {
+       "player": "R.Flournoy",
+       "share": 0.135,
+       "catch": 0.696,
+       "ypt": 8.5
+      },
+      {
+       "player": "J.Williams",
+       "share": 0.08,
+       "catch": 0.848,
+       "ypt": 4.7
+      },
+      {
+       "player": "J.Ferguson",
+       "share": 0.065,
+       "catch": 0.704,
+       "ypt": 5.0
+      },
+      {
+       "player": "B.Spann-Ford",
+       "share": 0.063,
+       "catch": 0.692,
+       "ypt": 6.2
+      }
+     ]
+    },
+    "blitzed": {
+     "targets": 121,
+     "rows": [
+      {
+       "player": "C.Lamb",
+       "share": 0.298,
+       "catch": 0.583,
+       "ypt": 6.4
+      },
+      {
+       "player": "G.Pickens",
+       "share": 0.264,
+       "catch": 0.625,
+       "ypt": 8.8
+      },
+      {
+       "player": "R.Flournoy",
+       "share": 0.182,
+       "catch": 0.682,
+       "ypt": 7.3
+      },
+      {
+       "player": "J.Ferguson",
+       "share": 0.074,
+       "catch": 0.778,
+       "ypt": 3.3
+      },
+      {
+       "player": "J.Williams",
+       "share": 0.058,
+       "catch": 0.714,
+       "ypt": 3.4
+      },
+      {
+       "player": "B.Spann-Ford",
+       "share": 0.05,
+       "catch": 0.667,
+       "ypt": 9.5
+      }
+     ]
+    },
+    "pressured": {
+     "targets": 94,
+     "rows": [
+      {
+       "player": "G.Pickens",
+       "share": 0.234,
+       "catch": 0.318,
+       "ypt": 3.1
+      },
+      {
+       "player": "C.Lamb",
+       "share": 0.213,
+       "catch": 0.35,
+       "ypt": 4.5
+      },
+      {
+       "player": "R.Flournoy",
+       "share": 0.202,
+       "catch": 0.526,
+       "ypt": 5.4
+      },
+      {
+       "player": "B.Spann-Ford",
+       "share": 0.117,
+       "catch": 0.636,
+       "ypt": 5.8
+      },
+      {
+       "player": "J.Ferguson",
+       "share": 0.064,
+       "catch": 0.5,
+       "ypt": 2.5
+      },
+      {
+       "player": "J.Williams",
+       "share": 0.053,
+       "catch": 0.6,
+       "ypt": 1.4
+      }
+     ]
+    }
+   }
+  },
+  "zones": {
+   "DAL": {
+    "leaks": [
+     {
+      "zone": "intermediate 10-19 middle",
+      "targets": 20,
+      "catch": 0.75,
+      "lg_catch": 0.636,
+      "ypt_vs_lg": 2.3,
+      "around": "M.Hooker 5/84y, C.Downs 3/59y"
+     },
+     {
+      "zone": "behind/at line left",
+      "targets": 30,
+      "catch": 0.9,
+      "lg_catch": 0.824,
+      "ypt_vs_lg": 2.0,
+      "around": "S.James 4/34y, M.Hooker 4/31y"
+     },
+     {
+      "zone": "short 1-9 right",
+      "targets": 69,
+      "catch": 0.812,
+      "lg_catch": 0.736,
+      "ypt_vs_lg": 1.8,
+      "around": "S.James 8/61y, D.Bland 6/27y"
+     }
+    ],
+    "tight": [
+     {
+      "zone": "deep 20+ middle",
+      "targets": 8,
+      "catch": 0.25,
+      "lg_catch": 0.438,
+      "ypt_vs_lg": -9.1,
+      "around": "R.Steward 1/27y, D.Bland 1/22y"
+     },
+     {
+      "zone": "deep 20+ left",
+      "targets": 18,
+      "catch": 0.333,
+      "lg_catch": 0.359,
+      "ypt_vs_lg": -2.1,
+      "around": "D.Bland 2/73y, A.Clark 2/31y"
+     },
+     {
+      "zone": "deep 20+ right",
+      "targets": 24,
+      "catch": 0.375,
+      "lg_catch": 0.357,
+      "ypt_vs_lg": -1.9,
+      "around": "D.Bland 4/48y, A.Speed 3/0y"
+     }
+    ]
+   },
+   "PHI": {
+    "leaks": [
+     {
+      "zone": "intermediate 10-19 right",
+      "targets": 23,
+      "catch": 0.739,
+      "lg_catch": 0.554,
+      "ypt_vs_lg": 4.5,
+      "around": "T.Woolen 8/126y, A.Mukuba 3/62y"
+     },
+     {
+      "zone": "behind/at line right",
+      "targets": 19,
+      "catch": 0.737,
+      "lg_catch": 0.822,
+      "ypt_vs_lg": 2.9,
+      "around": "C.DeJean 4/20y, T.Woolen 4/18y"
+     },
+     {
+      "zone": "intermediate 10-19 left",
+      "targets": 26,
+      "catch": 0.615,
+      "lg_catch": 0.522,
+      "ypt_vs_lg": 2.1,
+      "around": "Q.Mitchell 7/53y, A.Mukuba 3/61y"
+     }
+    ],
+    "tight": [
+     {
+      "zone": "short 1-9 right",
+      "targets": 65,
+      "catch": 0.585,
+      "lg_catch": 0.736,
+      "ypt_vs_lg": -2.2,
+      "around": "T.Woolen 10/56y, J.Campbell 5/26y"
+     },
+     {
+      "zone": "deep 20+ left",
+      "targets": 13,
+      "catch": 0.385,
+      "lg_catch": 0.359,
+      "ypt_vs_lg": -1.2,
+      "around": "Q.Mitchell 3/0y, J.Campbell 1/33y"
+     },
+     {
+      "zone": "deep 20+ right",
+      "targets": 26,
+      "catch": 0.385,
+      "lg_catch": 0.357,
+      "ypt_vs_lg": -1.0,
+      "around": "T.Woolen 3/60y, Q.Mitchell 2/53y"
+     }
+    ]
+   }
+  },
+  "profile": {
+   "PHI_vs_DAL": {
+    "off_season": {
+     "aDOT": 7.079,
+     "deep_rate": 0.099,
+     "pressure": 0.337,
+     "blitz": 0.323,
+     "man": 0.234,
+     "pass_rate": 0.556
+    },
+    "off_last5": {
+     "aDOT": 6.497,
+     "deep_rate": 0.086,
+     "pressure": 0.339,
+     "blitz": 0.307,
+     "man": 0.247,
+     "pass_rate": 0.594
+    },
+    "def_season": {
+     "aDOT": 8.564,
+     "deep_rate": 0.147,
+     "pressure": 0.302,
+     "blitz": 0.202,
+     "man": 0.301,
+     "pass_rate": 0.507
+    },
+    "def_last5": {
+     "aDOT": 7.834,
+     "deep_rate": 0.127,
+     "pressure": 0.332,
+     "blitz": 0.171,
+     "man": 0.337,
+     "pass_rate": 0.555
+    },
+    "league": {
+     "aDOT": 7.553,
+     "deep_rate": 0.112,
+     "pressure": 0.292,
+     "blitz": 0.298,
+     "man": 0.223,
+     "pass_rate": 0.535
+    },
+    "shell": {
+     "man": 23.4,
+     "zone": 68.5,
+     "one_high": 57.8,
+     "two_high": 37.9
+    }
+   },
+   "DAL_vs_PHI": {
+    "off_season": {
+     "aDOT": 8.527,
+     "deep_rate": 0.111,
+     "pressure": 0.265,
+     "blitz": 0.291,
+     "man": 0.178,
+     "pass_rate": 0.59
+    },
+    "off_last5": {
+     "aDOT": 9.456,
+     "deep_rate": 0.128,
+     "pressure": 0.268,
+     "blitz": 0.282,
+     "man": 0.195,
+     "pass_rate": 0.556
+    },
+    "def_season": {
+     "aDOT": 8.38,
+     "deep_rate": 0.127,
+     "pressure": 0.251,
+     "blitz": 0.257,
+     "man": 0.238,
+     "pass_rate": 0.512
+    },
+    "def_last5": {
+     "aDOT": 9.149,
+     "deep_rate": 0.149,
+     "pressure": 0.235,
+     "blitz": 0.311,
+     "man": 0.321,
+     "pass_rate": 0.495
+    },
+    "league": {
+     "aDOT": 7.553,
+     "deep_rate": 0.112,
+     "pressure": 0.292,
+     "blitz": 0.298,
+     "man": 0.223,
+     "pass_rate": 0.535
+    },
+    "shell": {
+     "man": 18.2,
+     "zone": 73.1,
+     "one_high": 52.1,
+     "two_high": 41.6
+    }
+   }
+  }
+ }
 }
