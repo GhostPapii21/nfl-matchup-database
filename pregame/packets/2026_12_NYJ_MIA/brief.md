@@ -4,46 +4,70 @@
 
 Market (schedule consensus, not a timestamped quote): MIA +3.5, total 40.5.
 
-Generated 2026-11-24T23:24:00+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-25T03:46:03+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-24T23:23:59+00:00 UTC. At kickoff: 76 F, wind 9 mph E, 45% chance of precipitation, Chance Rain Showers. During the game: low 76 F, wind up to 9 mph, precipitation chance up to 45%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-25T03:46:02+00:00 UTC. At kickoff: 76 F, wind 9 mph E, 45% chance of precipitation, Chance Rain Showers. During the game: low 76 F, wind up to 9 mph, precipitation chance up to 45%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-24T23:18:24Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
+Retrieved 2026-11-25T03:40:22Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | MIA +3.5 | -106 | -120 | 48.5% | 51.5% | 6.0% | 2026-11-24T23:18:24+00:00 |
-| spread | pinnacle | MIA +3.5 | -105 | -107 | 49.8% | 50.2% | 2.9% | 2026-11-24T23:18:24+00:00 |
-| spread | consensus | MIA +3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-24T23:18:24+00:00 |
-| spread | draftkings | MIA +3.5 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-24T23:18:24+00:00 |
-| spread | bet365 | MIA +3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-24T23:18:24+00:00 |
-| spread | williamhill_us | MIA +3.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| spread | open | MIA -1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| spread | betrivers | MIA +4 | -114 | -108 | 50.6% | 49.4% | 5.2% | 2026-11-24T23:18:24+00:00 |
-| spread | betmgm | MIA +4 | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| total | fanduel | Over 40.5 | -111 | -115 | 49.6% | 50.4% | 6.1% | 2026-11-24T23:18:24+00:00 |
-| total | pinnacle | Over 41 | -105 | -109 | 49.5% | 50.4% | 3.4% | 2026-11-24T23:18:24+00:00 |
-| total | open | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| total | draftkings | Over 40.5 | -115 | -104 | 51.2% | 48.8% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| total | betrivers | Over 40.5 | -112 | -110 | 50.2% | 49.8% | 5.2% | 2026-11-24T23:18:24+00:00 |
-| total | bet365 | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| total | consensus | Over 41 | -111 | -110 | 50.1% | 49.9% | 5.0% | 2026-11-24T23:18:24+00:00 |
-| total | betmgm | Over 41 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| total | williamhill_us | Over 41 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| moneyline | fanduel | MIA | +176 | -210 | 34.8% | 65.1% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | pinnacle | MIA | +169 | -194 | 36.0% | 64.0% | 3.2% | 2026-11-24T23:18:24+00:00 |
-| moneyline | consensus | MIA | +165 | -200 | 36.1% | 63.9% | 4.4% | 2026-11-24T23:18:24+00:00 |
-| moneyline | draftkings | MIA | +167 | -199 | 36.0% | 64.0% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | betrivers | MIA | +175 | -220 | 34.6% | 65.4% | 5.1% | 2026-11-24T23:18:24+00:00 |
-| moneyline | betmgm | MIA | +165 | -200 | 36.1% | 63.9% | 4.4% | 2026-11-24T23:18:24+00:00 |
-| moneyline | bet365 | MIA | +165 | -200 | 36.1% | 63.9% | 4.4% | 2026-11-24T23:18:24+00:00 |
-| moneyline | williamhill_us | MIA | +173 | -209 | 35.1% | 64.9% | 4.3% | 2026-11-24T23:18:24+00:00 |
+| spread | fanduel | MIA +3.5 | -106 | -120 | 48.5% | 51.5% | 6.0% | 2026-11-25T03:40:22+00:00 |
+| spread | pinnacle | MIA +3.5 | -107 | -105 | 50.2% | 49.8% | 2.9% | 2026-11-25T03:40:22+00:00 |
+| spread | consensus | MIA +3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | draftkings | MIA +3.5 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | betmgm | MIA +3.5 | -105 | -112 | 49.2% | 50.8% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| spread | bet365 | MIA +3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | williamhill_us | MIA +3.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| spread | open | MIA -1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| spread | betrivers | MIA +4 | -114 | -108 | 50.6% | 49.4% | 5.2% | 2026-11-25T03:40:22+00:00 |
+| total | fanduel | Over 40.5 | -111 | -115 | 49.6% | 50.4% | 6.1% | 2026-11-25T03:40:22+00:00 |
+| total | pinnacle | Over 40.5 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-25T03:40:22+00:00 |
+| total | consensus | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | open | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | draftkings | Over 40.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| total | betrivers | Over 40.5 | -112 | -110 | 50.2% | 49.8% | 5.2% | 2026-11-25T03:40:22+00:00 |
+| total | betmgm | Over 40.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| total | bet365 | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | williamhill_us | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| moneyline | fanduel | MIA | +176 | -210 | 34.8% | 65.1% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | pinnacle | MIA | +167 | -191 | 36.3% | 63.7% | 3.1% | 2026-11-25T03:40:22+00:00 |
+| moneyline | consensus | MIA | +165 | -200 | 36.1% | 63.9% | 4.4% | 2026-11-25T03:40:22+00:00 |
+| moneyline | draftkings | MIA | +164 | -195 | 36.4% | 63.6% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betrivers | MIA | +175 | -220 | 34.6% | 65.4% | 5.1% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betmgm | MIA | +165 | -200 | 36.1% | 63.9% | 4.4% | 2026-11-25T03:40:22+00:00 |
+| moneyline | bet365 | MIA | +165 | -200 | 36.1% | 63.9% | 4.4% | 2026-11-25T03:40:22+00:00 |
+| moneyline | williamhill_us | MIA | +173 | -209 | 35.1% | 64.9% | 4.3% | 2026-11-25T03:40:22+00:00 |
 
-Player props: OK.
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Braelon Allen | rushing yards | draftkings | 40.5 | -110 / -114 | 49.6% | n/a | 86.6 | 83.4 | 8 | 46.1 |
+| Breece Hall | rushing yards | draftkings | 56.5 | -113 / -111 | 50.2% | n/a | 71.4 | 66.5 | 3 | 14.9 |
+| Ollie Gordon | rushing yards | draftkings | 73.5 | -112 / -112 | 50.0% | n/a | 86.0 | 83.4 | 8 | 12.5 |
+| Mason Taylor | receiving yards | draftkings | 18.5 | -109 / -115 | 49.4% | n/a | 27.6 | 24.9 | 7 | 9.1 |
+| Greg Dulcich | receiving yards | draftkings | 26.5 | -115 / -109 | 50.6% | n/a | 35.0 | 41.9 | 7 | 8.5 |
+| Caleb Douglas | receptions | draftkings | 4.5 | +120 / -154 | 42.9% | n/a | 3.0 | 2.7 | 5 | -1.5 |
+| Garrett Wilson | receiving yards | draftkings | 60.5 | -114 / -110 | 50.4% | n/a | 59.2 | 41.7 | 7 | -1.3 |
+| Garrett Wilson | receptions | draftkings | 5.5 | -132 / +104 | 53.7% | n/a | 4.3 | 3.7 | 7 | -1.2 |
+| Mason Taylor | receptions | draftkings | 2.5 | +101 / -129 | 46.9% | n/a | 3.2 | 3.2 | 7 | 0.7 |
+| Kenyon Sadiq | receptions | draftkings | 2.5 | +107 / -136 | 45.6% | n/a | 1.9 | 1.1 | 8 | -0.6 |
+| Malik Washington | receiving yards | draftkings | 35.5 | -112 / -112 | 50.0% | n/a | 35.9 | 37.4 | 8 | 0.4 |
+| Greg Dulcich | receptions | draftkings | 2.5 | -143 / +112 | 55.5% | n/a | 2.9 | 4.1 | 7 | 0.4 |
+| Kenyon Sadiq | receiving yards | draftkings | 18.5 | -108 / -116 | 49.2% | n/a | 18.3 | 9.3 | 8 | -0.2 |
+| Caleb Douglas | receiving yards | draftkings | 49.5 | -112 / -112 | 50.0% | n/a | 49.6 | 63.0 | 5 | 0.1 |
+| Malik Washington | receptions | draftkings | 3.5 | -139 / +109 | 54.9% | n/a | 3.4 | 3.6 | 8 | -0.1 |
+| Ollie Gordon | receptions | draftkings | 2.5 | -102 / -125 | 47.6% | n/a | n/a | n/a | n/a | n/a |
+| Ollie Gordon | receiving yards | draftkings | 11.5 | -118 / -107 | 51.1% | n/a | n/a | n/a | n/a | n/a |
+| Breece Hall | receptions | draftkings | 2.5 | -176 / +137 | 60.2% | n/a | n/a | n/a | n/a | n/a |
+| Breece Hall | receiving yards | draftkings | 18.5 | -117 / -107 | 51.0% | n/a | n/a | n/a | n/a | n/a |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -626,7 +650,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -634,20 +658,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-24T23:23:41+00:00 | 0e869d772f90 |
-| pbp | OK | 2026-11-24T23:23:42+00:00 | b74af456d30b |
-| rosters | OK | 2026-11-24T23:23:42+00:00 | 025956d0eab7 |
-| injuries | OK | 2026-11-24T23:23:42+00:00 | 46e0f80ab820 |
-| depth_charts | OK | 2026-11-24T23:23:42+00:00 | 9f9fb70531af |
-| snap_counts | OK | 2026-11-24T23:23:43+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-24T23:23:43+00:00 | cde066b3fb7e |
-| pfr_def | OK | 2026-11-24T23:23:43+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-24T23:23:43+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-24T23:23:43+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-24T23:23:44+00:00 | 1182ae58702b |
-| ngs_rushing | OK | 2026-11-24T23:23:44+00:00 | 8224482c119b |
-| ngs_passing | OK | 2026-11-24T23:23:44+00:00 | 688f7a6ebfcf |
-| espn_injuries | OK | 2026-11-24T23:23:45+00:00 |  |
+| games | OK | 2026-11-25T03:45:38+00:00 | 4ea672f40856 |
+| pbp | OK | 2026-11-25T03:45:38+00:00 | b74af456d30b |
+| rosters | OK | 2026-11-25T03:45:39+00:00 | 025956d0eab7 |
+| injuries | OK | 2026-11-25T03:45:39+00:00 | 46e0f80ab820 |
+| depth_charts | OK | 2026-11-25T03:45:39+00:00 | 9f9fb70531af |
+| snap_counts | OK | 2026-11-25T03:45:39+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-25T03:45:40+00:00 | c1fb485fa868 |
+| pfr_def | OK | 2026-11-25T03:45:40+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-25T03:45:40+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-25T03:45:40+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-25T03:45:41+00:00 | 1182ae58702b |
+| ngs_rushing | OK | 2026-11-25T03:45:41+00:00 | 8224482c119b |
+| ngs_passing | OK | 2026-11-25T03:45:41+00:00 | 688f7a6ebfcf |
+| espn_injuries | OK | 2026-11-25T03:45:42+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

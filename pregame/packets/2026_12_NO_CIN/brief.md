@@ -4,45 +4,45 @@
 
 Market (schedule consensus, not a timestamped quote): CIN -10, total 50.5.
 
-Generated 2026-11-24T23:23:56+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-25T03:45:59+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-24T23:23:55+00:00 UTC. At kickoff: 53 F, wind 10 mph S, 45% chance of precipitation, Chance Light Rain. During the game: low 53 F, wind up to 10 mph, precipitation chance up to 45%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-25T03:45:57+00:00 UTC. At kickoff: 53 F, wind 10 mph S, 45% chance of precipitation, Chance Light Rain. During the game: low 53 F, wind up to 10 mph, precipitation chance up to 45%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-24T23:18:24Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
+Retrieved 2026-11-25T03:40:22Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | CIN -10.5 | -106 | -120 | 48.5% | 51.5% | 6.0% | 2026-11-24T23:18:24+00:00 |
-| spread | pinnacle | CIN -10 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-24T23:18:24+00:00 |
-| spread | bet365 | CIN -9.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| spread | open | CIN -6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| spread | consensus | CIN -10 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| spread | draftkings | CIN -10 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| spread | betrivers | CIN -10 | -109 | -112 | 49.7% | 50.3% | 5.0% | 2026-11-24T23:18:24+00:00 |
-| spread | betmgm | CIN -10 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| spread | williamhill_us | CIN -10 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| total | fanduel | Over 50.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-24T23:18:24+00:00 |
-| total | pinnacle | Over 50.5 | -108 | -106 | 50.2% | 49.8% | 3.4% | 2026-11-24T23:18:24+00:00 |
-| total | consensus | Over 50.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| total | draftkings | Over 50.5 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| total | betrivers | Over 50.5 | -109 | -112 | 49.7% | 50.3% | 5.0% | 2026-11-24T23:18:24+00:00 |
-| total | betmgm | Over 50.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| total | bet365 | Over 50.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| total | williamhill_us | Over 50.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| total | open | Over 48.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| moneyline | fanduel | CIN | -590 | +440 | 82.2% | 17.8% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | pinnacle | CIN | -550 | +421 | 81.5% | 18.5% | 3.8% | 2026-11-24T23:18:24+00:00 |
-| moneyline | consensus | CIN | -600 | +449 | 82.5% | 17.5% | 3.9% | 2026-11-24T23:18:24+00:00 |
-| moneyline | open | CIN | -285 | +230 | 71.0% | 29.0% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| moneyline | draftkings | CIN | -610 | +449 | 82.5% | 17.5% | 4.1% | 2026-11-24T23:18:24+00:00 |
-| moneyline | betrivers | CIN | -560 | +430 | 81.8% | 18.2% | 3.7% | 2026-11-24T23:18:24+00:00 |
-| moneyline | betmgm | CIN | -600 | +450 | 82.5% | 17.5% | 3.9% | 2026-11-24T23:18:24+00:00 |
-| moneyline | bet365 | CIN | -600 | +450 | 82.5% | 17.5% | 3.9% | 2026-11-24T23:18:24+00:00 |
-| moneyline | williamhill_us | CIN | -590 | +425 | 81.8% | 18.2% | 4.5% | 2026-11-24T23:18:24+00:00 |
+| spread | fanduel | CIN -10.5 | -106 | -120 | 48.5% | 51.5% | 6.0% | 2026-11-25T03:40:22+00:00 |
+| spread | pinnacle | CIN -9.5 | -111 | -103 | 50.9% | 49.1% | 3.4% | 2026-11-25T03:40:22+00:00 |
+| spread | bet365 | CIN -9.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| spread | open | CIN -6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| spread | consensus | CIN -10 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| spread | draftkings | CIN -10 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| spread | betrivers | CIN -10 | -109 | -112 | 49.7% | 50.3% | 5.0% | 2026-11-25T03:40:22+00:00 |
+| spread | betmgm | CIN -10 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| spread | williamhill_us | CIN -10 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| total | fanduel | Over 50.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-25T03:40:22+00:00 |
+| total | pinnacle | Over 50 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-25T03:40:22+00:00 |
+| total | consensus | Over 50.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| total | draftkings | Over 50.5 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| total | betrivers | Over 50.5 | -109 | -112 | 49.7% | 50.3% | 5.0% | 2026-11-25T03:40:22+00:00 |
+| total | betmgm | Over 50.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| total | bet365 | Over 50.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| total | williamhill_us | Over 50.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| total | open | Over 48.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| moneyline | fanduel | CIN | -590 | +440 | 82.2% | 17.8% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | pinnacle | CIN | -544 | +417 | 81.4% | 18.6% | 3.8% | 2026-11-25T03:40:22+00:00 |
+| moneyline | consensus | CIN | -595 | +443 | 82.3% | 17.7% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | open | CIN | -285 | +230 | 71.0% | 29.0% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| moneyline | draftkings | CIN | -600 | +447 | 82.4% | 17.6% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betrivers | CIN | -560 | +430 | 81.8% | 18.2% | 3.7% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betmgm | CIN | -550 | +425 | 81.6% | 18.4% | 3.7% | 2026-11-25T03:40:22+00:00 |
+| moneyline | bet365 | CIN | -600 | +450 | 82.5% | 17.5% | 3.9% | 2026-11-25T03:40:22+00:00 |
+| moneyline | williamhill_us | CIN | -590 | +425 | 81.8% | 18.2% | 4.5% | 2026-11-25T03:40:22+00:00 |
 
 Player props: OK.
 
@@ -376,7 +376,7 @@ Defensive front: LDE Colby Wooden, NT Nathan Shepherd, RDE Vernon Broughton, WLB
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Christen Miller (DT) Injured Reserve; Juwan Johnson (TE) Questionable; Asim Richards (OT) Doubtful; Pete Werner (LB) Questionable; Erik McCoy (C) Questionable; Martin Emerson Jr. (CB) Questionable; Taliese Fuaga (OT) Questionable.
+ESPN live list (designations only): Juwan Johnson (TE) Questionable; Asim Richards (OT) Doubtful; Pete Werner (LB) Questionable; Erik McCoy (C) Questionable; Martin Emerson Jr. (CB) Questionable; Taliese Fuaga (OT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -632,20 +632,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-24T23:23:41+00:00 | 0e869d772f90 |
-| pbp | OK | 2026-11-24T23:23:42+00:00 | b74af456d30b |
-| rosters | OK | 2026-11-24T23:23:42+00:00 | 025956d0eab7 |
-| injuries | OK | 2026-11-24T23:23:42+00:00 | 46e0f80ab820 |
-| depth_charts | OK | 2026-11-24T23:23:42+00:00 | 9f9fb70531af |
-| snap_counts | OK | 2026-11-24T23:23:43+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-24T23:23:43+00:00 | cde066b3fb7e |
-| pfr_def | OK | 2026-11-24T23:23:43+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-24T23:23:43+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-24T23:23:43+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-24T23:23:44+00:00 | 1182ae58702b |
-| ngs_rushing | OK | 2026-11-24T23:23:44+00:00 | 8224482c119b |
-| ngs_passing | OK | 2026-11-24T23:23:44+00:00 | 688f7a6ebfcf |
-| espn_injuries | OK | 2026-11-24T23:23:45+00:00 |  |
+| games | OK | 2026-11-25T03:45:38+00:00 | 4ea672f40856 |
+| pbp | OK | 2026-11-25T03:45:38+00:00 | b74af456d30b |
+| rosters | OK | 2026-11-25T03:45:39+00:00 | 025956d0eab7 |
+| injuries | OK | 2026-11-25T03:45:39+00:00 | 46e0f80ab820 |
+| depth_charts | OK | 2026-11-25T03:45:39+00:00 | 9f9fb70531af |
+| snap_counts | OK | 2026-11-25T03:45:39+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-25T03:45:40+00:00 | c1fb485fa868 |
+| pfr_def | OK | 2026-11-25T03:45:40+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-25T03:45:40+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-25T03:45:40+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-25T03:45:41+00:00 | 1182ae58702b |
+| ngs_rushing | OK | 2026-11-25T03:45:41+00:00 | 8224482c119b |
+| ngs_passing | OK | 2026-11-25T03:45:41+00:00 | 688f7a6ebfcf |
+| espn_injuries | OK | 2026-11-25T03:45:42+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

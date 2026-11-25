@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LAC -1.5, total 35.5.
 
-Generated 2026-11-24T23:24:03+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-25T03:46:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,37 +12,37 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-24T23:18:24Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
+Retrieved 2026-11-25T03:40:22Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | LAC -1.5 | -104 | -122 | 48.1% | 51.9% | 5.9% | 2026-11-24T23:18:24+00:00 |
-| spread | pinnacle | LAC -1 | -100 | -112 | 48.6% | 51.4% | 2.8% | 2026-11-24T23:18:24+00:00 |
-| spread | consensus | LAC -1.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-24T23:18:24+00:00 |
-| spread | open | LAC -1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| spread | draftkings | LAC -1.5 | +102 | -122 | 47.4% | 52.6% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| spread | bet365 | LAC -1.5 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-24T23:18:24+00:00 |
-| spread | williamhill_us | LAC -1.5 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-24T23:18:24+00:00 |
-| spread | betmgm | LAC -1 | -105 | -112 | 49.2% | 50.8% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| spread | betrivers | LAC -0.5 | -112 | -110 | 50.2% | 49.8% | 5.2% | 2026-11-24T23:18:24+00:00 |
-| total | fanduel | Over 35.5 | -115 | -111 | 50.4% | 49.6% | 6.1% | 2026-11-24T23:18:24+00:00 |
-| total | pinnacle | Over 35 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-24T23:18:24+00:00 |
-| total | consensus | Over 35.5 | -109 | -109 | 50.0% | 50.0% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| total | draftkings | Over 35.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-24T23:18:24+00:00 |
-| total | bet365 | Over 35.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| total | williamhill_us | Over 35.5 | -112 | -109 | 50.3% | 49.7% | 5.0% | 2026-11-24T23:18:24+00:00 |
-| total | betrivers | Over 36.5 | -105 | -118 | 48.6% | 51.4% | 5.3% | 2026-11-24T23:18:24+00:00 |
-| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-24T23:18:24+00:00 |
-| total | betmgm | Over 35 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| moneyline | fanduel | LAC | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-24T23:18:24+00:00 |
-| moneyline | pinnacle | LAC | -108 | -104 | 50.5% | 49.5% | 2.9% | 2026-11-24T23:18:24+00:00 |
-| moneyline | consensus | LAC | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | open | LAC | -125 | +105 | 53.2% | 46.8% | 4.3% | 2026-11-24T23:18:24+00:00 |
-| moneyline | draftkings | LAC | -113 | -104 | 51.0% | 49.0% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | betrivers | LAC | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | betmgm | LAC | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-24T23:18:24+00:00 |
-| moneyline | bet365 | LAC | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-24T23:18:24+00:00 |
-| moneyline | williamhill_us | LAC | -117 | -102 | 51.6% | 48.4% | 4.4% | 2026-11-24T23:18:24+00:00 |
+| spread | fanduel | LAC -1.5 | -104 | -122 | 48.1% | 51.9% | 5.9% | 2026-11-25T03:40:22+00:00 |
+| spread | pinnacle | LAC -1 | -100 | -112 | 48.6% | 51.4% | 2.8% | 2026-11-25T03:40:22+00:00 |
+| spread | consensus | LAC -1.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | open | LAC -1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| spread | draftkings | LAC -1.5 | +102 | -122 | 47.4% | 52.6% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| spread | bet365 | LAC -1.5 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | williamhill_us | LAC -1.5 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-25T03:40:22+00:00 |
+| spread | betmgm | LAC -1 | -105 | -112 | 49.2% | 50.8% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| spread | betrivers | LAC -0.5 | -110 | -112 | 49.8% | 50.2% | 5.2% | 2026-11-25T03:40:22+00:00 |
+| total | fanduel | Over 35.5 | -115 | -111 | 50.4% | 49.6% | 6.1% | 2026-11-25T03:40:22+00:00 |
+| total | pinnacle | Over 35 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-25T03:40:22+00:00 |
+| total | consensus | Over 35.5 | -109 | -109 | 50.0% | 50.0% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| total | draftkings | Over 35.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| total | betrivers | Over 35.5 | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-25T03:40:22+00:00 |
+| total | bet365 | Over 35.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | williamhill_us | Over 35.5 | -112 | -109 | 50.3% | 49.7% | 5.0% | 2026-11-25T03:40:22+00:00 |
+| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | betmgm | Over 35 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| moneyline | fanduel | LAC | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-25T03:40:22+00:00 |
+| moneyline | pinnacle | LAC | -107 | -105 | 50.2% | 49.8% | 2.9% | 2026-11-25T03:40:22+00:00 |
+| moneyline | consensus | LAC | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | open | LAC | -125 | +105 | 53.2% | 46.8% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| moneyline | draftkings | LAC | -113 | -104 | 51.0% | 49.0% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betrivers | LAC | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betmgm | LAC | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | bet365 | LAC | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| moneyline | williamhill_us | LAC | -117 | -102 | 51.6% | 48.4% | 4.4% | 2026-11-25T03:40:22+00:00 |
 
 Player props: OK.
 
@@ -589,20 +589,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-24T23:23:41+00:00 | 0e869d772f90 |
-| pbp | OK | 2026-11-24T23:23:42+00:00 | b74af456d30b |
-| rosters | OK | 2026-11-24T23:23:42+00:00 | 025956d0eab7 |
-| injuries | OK | 2026-11-24T23:23:42+00:00 | 46e0f80ab820 |
-| depth_charts | OK | 2026-11-24T23:23:42+00:00 | 9f9fb70531af |
-| snap_counts | OK | 2026-11-24T23:23:43+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-24T23:23:43+00:00 | cde066b3fb7e |
-| pfr_def | OK | 2026-11-24T23:23:43+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-24T23:23:43+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-24T23:23:43+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-24T23:23:44+00:00 | 1182ae58702b |
-| ngs_rushing | OK | 2026-11-24T23:23:44+00:00 | 8224482c119b |
-| ngs_passing | OK | 2026-11-24T23:23:44+00:00 | 688f7a6ebfcf |
-| espn_injuries | OK | 2026-11-24T23:23:45+00:00 |  |
+| games | OK | 2026-11-25T03:45:38+00:00 | 4ea672f40856 |
+| pbp | OK | 2026-11-25T03:45:38+00:00 | b74af456d30b |
+| rosters | OK | 2026-11-25T03:45:39+00:00 | 025956d0eab7 |
+| injuries | OK | 2026-11-25T03:45:39+00:00 | 46e0f80ab820 |
+| depth_charts | OK | 2026-11-25T03:45:39+00:00 | 9f9fb70531af |
+| snap_counts | OK | 2026-11-25T03:45:39+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-25T03:45:40+00:00 | c1fb485fa868 |
+| pfr_def | OK | 2026-11-25T03:45:40+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-25T03:45:40+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-25T03:45:40+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-25T03:45:41+00:00 | 1182ae58702b |
+| ngs_rushing | OK | 2026-11-25T03:45:41+00:00 | 8224482c119b |
+| ngs_passing | OK | 2026-11-25T03:45:41+00:00 | 688f7a6ebfcf |
+| espn_injuries | OK | 2026-11-25T03:45:42+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
