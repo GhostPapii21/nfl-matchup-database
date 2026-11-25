@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-29, 13:00 ET.** Site: Home; roof: dome; surface: sportturf. Rest: ATL 14 days, MIN 7 days. Listed QBs: Michael Penix Jr. (ATL), Kirk Cousins (MIN).
 
-Market (schedule consensus, not a timestamped quote): MIN -7, total 42.5.
+Market (schedule consensus, not a timestamped quote): MIN -7, total 41.5.
 
-Generated 2026-11-24T06:16:36+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-25T03:45:54+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,18 +12,80 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-24T06:11:38Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: fanduel.
+Retrieved 2026-11-25T03:40:22Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | MIN -6.5 | -115 | -111 | 50.4% | 49.6% | 6.1% | 2026-11-24T06:11:38+00:00 |
-| spread | pinnacle | MIN -7 | -101 | -111 | 48.9% | 51.1% | 2.9% | 2026-11-24T06:11:38+00:00 |
-| total | fanduel | Over 42.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-24T06:11:38+00:00 |
-| total | pinnacle | Over 42 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-24T06:11:38+00:00 |
-| moneyline | fanduel | MIN | -300 | +245 | 72.1% | 27.9% | 4.0% | 2026-11-24T06:11:38+00:00 |
-| moneyline | pinnacle | MIN | -317 | +264 | 73.5% | 26.6% | 3.5% | 2026-11-24T06:11:38+00:00 |
+| spread | fanduel | MIN -7 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | pinnacle | MIN -7 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-25T03:40:22+00:00 |
+| spread | consensus | MIN -7 | -103 | -115 | 48.7% | 51.3% | 4.2% | 2026-11-25T03:40:22+00:00 |
+| spread | draftkings | MIN -7 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| spread | betrivers | MIN -7 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | betmgm | MIN -7 | -102 | -115 | 48.6% | 51.4% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| spread | williamhill_us | MIN -7 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| spread | bet365 | MIN -6.5 | -119 | -101 | 51.9% | 48.0% | 4.6% | 2026-11-25T03:40:22+00:00 |
+| spread | open | MIN -4.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | fanduel | Over 41.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-25T03:40:22+00:00 |
+| total | pinnacle | Over 41.5 | -107 | -107 | 50.0% | 50.0% | 3.4% | 2026-11-25T03:40:22+00:00 |
+| total | consensus | Over 41.5 | -111 | -108 | 50.3% | 49.7% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| total | draftkings | Over 41.5 | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| total | betmgm | Over 41.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| total | bet365 | Over 41.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| total | williamhill_us | Over 41.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T03:40:22+00:00 |
+| total | betrivers | Over 42.5 | -109 | -112 | 49.7% | 50.3% | 5.0% | 2026-11-25T03:40:22+00:00 |
+| total | open | Over 43.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
+| moneyline | fanduel | MIN | -330 | +265 | 73.7% | 26.3% | 4.1% | 2026-11-25T03:40:22+00:00 |
+| moneyline | pinnacle | MIN | -319 | +265 | 73.5% | 26.5% | 3.5% | 2026-11-25T03:40:22+00:00 |
+| moneyline | consensus | MIN | -329 | +262 | 73.5% | 26.5% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| moneyline | open | MIN | -218 | +180 | 65.8% | 34.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| moneyline | draftkings | MIN | -328 | +265 | 73.7% | 26.3% | 4.0% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betrivers | MIN | -315 | +250 | 72.7% | 27.4% | 4.5% | 2026-11-25T03:40:22+00:00 |
+| moneyline | betmgm | MIN | -325 | +260 | 73.4% | 26.7% | 4.2% | 2026-11-25T03:40:22+00:00 |
+| moneyline | bet365 | MIN | -340 | +270 | 74.1% | 25.9% | 4.3% | 2026-11-25T03:40:22+00:00 |
+| moneyline | williamhill_us | MIN | -325 | +260 | 73.4% | 26.7% | 4.2% | 2026-11-25T03:40:22+00:00 |
 
-Player props: OK.
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Justin Jefferson | receiving yards | fanduel | 85.5 | -114 / -114 | 50.0% | n/a | 63.7 | 60.9 | 7 | -21.8 |
+| Justin Jefferson | receiving yards | draftkings | 85.5 | -112 / -112 | 50.0% | n/a | 63.7 | 60.9 | 7 | -21.8 |
+| Aaron Jones | rushing yards | fanduel | 37.5 | -114 / -114 | 50.0% | n/a | 53.3 | 44.2 | 8 | 15.8 |
+| Aaron Jones | rushing yards | draftkings | 37.5 | -110 / -114 | 49.6% | n/a | 53.3 | 44.2 | 8 | 15.8 |
+| Jahan Dotson | receiving yards | fanduel | 29.5 | -114 / -114 | 50.0% | n/a | 44.1 | 48.1 | 8 | 14.6 |
+| Jordan Mason | rushing yards | fanduel | 57.5 | -114 / -114 | 50.0% | n/a | 49.7 | 43.6 | 5 | -7.8 |
+| Drake London | receiving yards | fanduel | 67.5 | -114 / -114 | 50.0% | n/a | 74.7 | 73.1 | 8 | 7.2 |
+| Jordan Mason | rushing yards | draftkings | 56.5 | -112 / -112 | 50.0% | n/a | 49.7 | 43.6 | 5 | -6.8 |
+| Tai Felton | receiving yards | fanduel | 20.5 | -114 / -114 | 50.0% | n/a | 23.1 | 21.5 | 6 | 2.6 |
+| Tai Felton | receiving yards | draftkings | 20.5 | -109 / -115 | 49.4% | n/a | 23.1 | 21.5 | 6 | 2.6 |
+| Kyle Pitts | receiving yards | fanduel | 25.5 | -114 / -114 | 50.0% | n/a | 27.5 | 27.8 | 8 | 2.0 |
+| T.J. Hockenson | receiving yards | fanduel | 44.5 | -114 / -114 | 50.0% | n/a | 43.5 | 33.4 | 7 | -1.0 |
+| Justin Jefferson | receptions | fanduel | 6.5 | -136 / +102 | 53.8% | n/a | 5.7 | 5.3 | 7 | -0.8 |
+| Justin Jefferson | receptions | draftkings | 6.5 | -125 / -102 | 52.4% | n/a | 5.7 | 5.3 | 7 | -0.8 |
+| Drake London | receptions | fanduel | 5.5 | +118 / -160 | 42.7% | n/a | 4.9 | 5.1 | 8 | -0.6 |
+| Kyle Pitts | receptions | fanduel | 3.5 | +134 / -180 | 39.9% | n/a | 3.0 | 3.0 | 8 | -0.5 |
+| Jahan Dotson | receptions | fanduel | 1.5 | -166 / +124 | 58.3% | n/a | 1.9 | 1.9 | 8 | 0.4 |
+| T.J. Hockenson | receptions | fanduel | 4.5 | -125 / -106 | 51.9% | n/a | 4.8 | 4.0 | 7 | 0.3 |
+| T.J. Hockenson | receptions | draftkings | 4.5 | -125 / -102 | 52.4% | n/a | 4.8 | 4.0 | 7 | 0.3 |
+| Aaron Jones | receptions | fanduel | 1.5 | -108 / -122 | 48.6% | n/a | n/a | n/a | n/a | n/a |
+| Aaron Jones | receptions | draftkings | 1.5 | -106 / -120 | 48.5% | n/a | n/a | n/a | n/a | n/a |
+| Jauan Jennings | receptions | fanduel | 2.5 | -120 / -110 | 51.0% | n/a | n/a | n/a | n/a | n/a |
+| Jauan Jennings | receptions | draftkings | 2.5 | -114 / -112 | 50.2% | n/a | n/a | n/a | n/a | n/a |
+| Bijan Robinson | receptions | fanduel | 2.5 | -166 / +124 | 58.3% | n/a | n/a | n/a | n/a | n/a |
+| Tai Felton | receptions | fanduel | 2.5 | +112 / -148 | 44.1% | n/a | 2.5 | 1.6 | 6 | 0.0 |
+| Tai Felton | receptions | draftkings | 2.5 | +119 / -152 | 43.1% | n/a | 2.5 | 1.6 | 6 | 0.0 |
+| Jauan Jennings | receiving yards | fanduel | 30.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Jauan Jennings | receiving yards | draftkings | 30.5 | -109 / -115 | 49.4% | n/a | n/a | n/a | n/a | n/a |
+| T.J. Hockenson | receiving yards | draftkings | 43.5 | -114 / -110 | 50.4% | n/a | 43.5 | 33.4 | 7 | 0.0 |
+| Aaron Jones | receiving yards | fanduel | 7.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Aaron Jones | receiving yards | draftkings | 7.5 | -118 / -106 | 51.3% | n/a | n/a | n/a | n/a | n/a |
+| Bijan Robinson | receiving yards | fanduel | 19.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Bijan Robinson | rushing yards | fanduel | 75.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Kirk Cousins | rushing yards | fanduel | 0.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Khalil Herbert | rushing yards | fanduel | 8.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Michael Penix Jr. | rushing yards | fanduel | 8.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -61,7 +123,7 @@ Player props: OK.
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
 | matchup_pair | ATL 19.6 - MIN 21.8 | 41.4 | +2.2 | 56.4% | 32.9% | 51.5% | ATL 10.4 - MIN 10.5 |
-| independent | ATL 20.7 - MIN 19.8 | 40.5 | -0.9 | 44.3% | 27.4% | 44.0% | ATL 11.1 - MIN 9.8 |
+| independent | ATL 20.7 - MIN 19.8 | 40.5 | -0.9 | 44.3% | 27.4% | 46.2% | ATL 11.1 - MIN 9.8 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -297,7 +359,7 @@ Neutral-situation pass rate 46.2%; 58.0 plays per game; target share WR 58% / TE
 | defense allows | Deep middle | 8 | 3% | 75% | 21.12 | 5 |
 | defense allows | Deep right | 17 | 6% | 41% | 12.71 | 5 |
 
-### ATL lines (depth chart as of 2026-11-23T19:11:07Z)
+### ATL lines (depth chart as of 2026-11-24T18:50:30Z)
 
 Offensive line: LT Jake Matthews, LG Matthew Bergeron, C Corey Levin, RG Chris Lindstrom, RT Jawaan Taylor.  
 Defensive front: LDE Maason Smith, NT Gervon Dexter Sr., RDE Brandon Dorlus, WLB Cameron Thomas, SLB James Pearce Jr..
@@ -306,14 +368,14 @@ Defensive front: LDE Maason Smith, NT Gervon Dexter Sr., RDE Brandon Dorlus, WLB
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Zachariah Branch (WR) Out; Divine Deablo (LB) Out.
+ESPN live list (designations only): Divine Deablo (LB) Questionable; Zachariah Branch (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### ATL roster moves (last 4 weeks)
 
-Arrived: none.  
+Arrived: Terell Smith (DB) from PIT.  
 Left for another team: Jessie Bates (DB) to JAX; Ryan Neuzil (OL) to BAL; Colby Sorsdal (OL) to NO.
 
 ## MIN (last 8 games: weeks 3, 4, 5, 7, 8, 9, 10, 11)
@@ -342,7 +404,7 @@ Left for another team: Jessie Bates (DB) to JAX; Ryan Neuzil (OL) to BAL; Colby 
 | Red-zone TD rate allowed | 50.0% | 4/32 | 58.3% |
 | Takeaways / game | 1.38 | 8/32 | 1.22 |
 
-Blitz rate 69.7% and play-action faced 21.7% on 221 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.4 per game, 26.3% completed.
+Blitz rate 70.3% and play-action faced 21.3% on 249 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.4 per game, 26.3% completed.
 
 ### MIN defense, game by game
 
@@ -512,7 +574,7 @@ Neutral-situation pass rate 53.3%; 58.1 plays per game; target share WR 60% / TE
 | defense allows | Deep middle | 12 | 6% | 42% | 13.83 | 5 |
 | defense allows | Deep right | 10 | 5% | 30% | 7.4 | 2 |
 
-### MIN lines (depth chart as of 2026-11-23T19:11:07Z)
+### MIN lines (depth chart as of 2026-11-24T18:50:30Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -521,7 +583,7 @@ Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WL
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Bo Richter (LB) Injured Reserve; Isaiah Rodgers (CB) Out; Jay Ward (S) Out; Kyler Murray (QB) Out; Jordan Addison (WR) Out.
+ESPN live list (designations only): Bo Richter (LB) Injured Reserve; Jordan Addison (WR) Doubtful; Isaiah Rodgers (CB) Questionable; Jay Ward (S) Questionable; Kyler Murray (QB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -557,7 +619,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -565,20 +627,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-24T06:16:20+00:00 | d7aa5501bb6f |
-| pbp | OK | 2026-11-24T06:16:20+00:00 | d8782243a144 |
-| rosters | OK | 2026-11-24T06:16:20+00:00 | 8b17e639cdd2 |
-| injuries | OK | 2026-11-24T06:16:20+00:00 | b7bae239f8a9 |
-| depth_charts | OK | 2026-11-24T06:16:20+00:00 | 56f5984ca845 |
-| snap_counts | OK | 2026-11-24T06:16:21+00:00 | cfbe0260477f |
-| ftn | OK | 2026-11-24T06:16:21+00:00 | bb72c788f63b |
-| pfr_def | OK | 2026-11-24T06:16:21+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-24T06:16:21+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-24T06:16:21+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-24T06:16:21+00:00 | 40743c0acacb |
-| ngs_rushing | OK | 2026-11-24T06:16:21+00:00 | 1769f3df0fcf |
-| ngs_passing | OK | 2026-11-24T06:16:21+00:00 | 52f24af2e400 |
-| espn_injuries | OK | 2026-11-24T06:16:22+00:00 |  |
+| games | OK | 2026-11-25T03:45:38+00:00 | 4ea672f40856 |
+| pbp | OK | 2026-11-25T03:45:38+00:00 | b74af456d30b |
+| rosters | OK | 2026-11-25T03:45:39+00:00 | 025956d0eab7 |
+| injuries | OK | 2026-11-25T03:45:39+00:00 | 46e0f80ab820 |
+| depth_charts | OK | 2026-11-25T03:45:39+00:00 | 9f9fb70531af |
+| snap_counts | OK | 2026-11-25T03:45:39+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-25T03:45:40+00:00 | c1fb485fa868 |
+| pfr_def | OK | 2026-11-25T03:45:40+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-25T03:45:40+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-25T03:45:40+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-25T03:45:41+00:00 | 1182ae58702b |
+| ngs_rushing | OK | 2026-11-25T03:45:41+00:00 | 8224482c119b |
+| ngs_passing | OK | 2026-11-25T03:45:41+00:00 | 688f7a6ebfcf |
+| espn_injuries | OK | 2026-11-25T03:45:42+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

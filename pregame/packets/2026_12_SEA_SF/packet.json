@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-24T06:17:04+00:00",
+ "generated_utc": "2026-11-25T03:46:09+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -31,10 +31,10 @@
  },
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
-  "home_spread": -3.0,
-  "total": 46.5,
+  "home_spread": -3.5,
+  "total": 45.5,
   "moneyline": {
-   "SEA": 150.0,
+   "SEA": 151.0,
    "SF": -179.0
   }
  },
@@ -55,10 +55,17 @@
  "books": {
   "status": "OK_DIRECT",
   "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
-  "retrieved_utc": "2026-11-24T06:11:38Z",
+  "retrieved_utc": "2026-11-25T03:40:22Z",
   "book_retrieved_utc": {
-   "fanduel": "2026-11-24T06:11:38Z",
-   "pinnacle": "2026-11-24T06:11:38Z"
+   "bet365": "2026-11-25T03:40:22Z",
+   "betmgm": "2026-11-25T03:40:22Z",
+   "betrivers": "2026-11-25T03:40:22Z",
+   "consensus": "2026-11-25T03:40:22Z",
+   "draftkings": "2026-11-25T03:40:22Z",
+   "fanduel": "2026-11-25T03:40:22Z",
+   "open": "2026-11-25T03:40:22Z",
+   "pinnacle": "2026-11-25T03:40:22Z",
+   "williamhill_us": "2026-11-25T03:40:22Z"
   },
   "markets": {
    "total": {
@@ -68,63 +75,161 @@
     ],
     "books": {
      "fanduel": {
+      "line": 44.5,
+      "prices": {
+       "Over": -120.0,
+       "Under": -106.0
+      },
+      "no_vig": {
+       "Over": 0.5146,
+       "Under": 0.4854
+      },
+      "hold": 0.06,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": 45.0,
+      "prices": {
+       "Over": -111.0,
+       "Under": -103.0
+      },
+      "no_vig": {
+       "Over": 0.509,
+       "Under": 0.491
+      },
+      "hold": 0.0335,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": 45.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -113.0
+      },
+      "no_vig": {
+       "Over": 0.4912,
+       "Under": 0.5088
+      },
+      "hold": 0.0427,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 45.5,
+      "prices": {
+       "Over": -107.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.4945,
+       "Under": 0.5055
+      },
+      "hold": 0.0452,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": 45.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.4892,
+       "Under": 0.5108
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "open": {
       "line": 46.5,
       "prices": {
-       "Over": -113.0,
-       "Under": -113.0
+       "Over": -110.0,
+       "Under": -110.0
       },
       "no_vig": {
        "Over": 0.5,
        "Under": 0.5
       },
-      "hold": 0.061,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0476,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      },
-     "pinnacle": {
-      "line": 46.0,
+     "betmgm": {
+      "line": 45.0,
       "prices": {
-       "Over": -111.0,
-       "Under": -106.0
+       "Over": -110.0,
+       "Under": -108.0
       },
       "no_vig": {
-       "Over": 0.5055,
-       "Under": 0.4945
+       "Over": 0.5022,
+       "Under": 0.4978
       },
-      "hold": 0.0406,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.043,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": 45.0,
+      "prices": {
+       "Over": -108.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.4957,
+       "Under": 0.5043
+      },
+      "hold": 0.0475,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": 46.0,
+      "prices": {
+       "Over": -109.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.4968,
+       "Under": 0.5032
+      },
+      "hold": 0.0498,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
     "reference": {
      "book": "pinnacle",
-     "line": 46.0,
+     "line": 45.0,
      "no_vig": {
-      "Over": 0.5055,
-      "Under": 0.4945
+      "Over": 0.509,
+      "Under": 0.491
      }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 46.5,
-     "n_books_at_line": 1,
+     "line": 45.0,
+     "n_books_at_line": 2,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.499,
+      "Under": 0.501
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -113.0,
-      "line": 46.5,
-      "break_even": 0.5305
+      "book": "bet365",
+      "price": -105.0,
+      "line": 45.5,
+      "break_even": 0.5122
      },
      "Under": {
       "book": "fanduel",
-      "price": -113.0,
-      "line": 46.5,
-      "break_even": 0.5305
+      "price": -106.0,
+      "line": 44.5,
+      "break_even": 0.5146
      }
     }
    },
@@ -137,29 +242,127 @@
      "fanduel": {
       "line": null,
       "prices": {
-       "SF": -172.0,
-       "SEA": 144.0
+       "SF": -162.0,
+       "SEA": 136.0
       },
       "no_vig": {
-       "SF": 0.6068,
-       "SEA": 0.3932
+       "SF": 0.5934,
+       "SEA": 0.4066
       },
-      "hold": 0.0422,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.042,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      },
      "pinnacle": {
       "line": null,
       "prices": {
-       "SF": -176.0,
-       "SEA": 154.0
+       "SF": -170.0,
+       "SEA": 150.0
       },
       "no_vig": {
-       "SF": 0.6183,
-       "SEA": 0.3817
+       "SF": 0.6115,
+       "SEA": 0.3885
       },
-      "hold": 0.0314,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0296,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": null,
+      "prices": {
+       "SF": -177.0,
+       "SEA": 146.0
+      },
+      "no_vig": {
+       "SF": 0.6112,
+       "SEA": 0.3888
+      },
+      "hold": 0.0455,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": null,
+      "prices": {
+       "SF": -110.0,
+       "SEA": -110.0
+      },
+      "no_vig": {
+       "SF": 0.5,
+       "SEA": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "SF": -179.0,
+       "SEA": 151.0
+      },
+      "no_vig": {
+       "SF": 0.6169,
+       "SEA": 0.3831
+      },
+      "hold": 0.04,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": null,
+      "prices": {
+       "SF": -159.0,
+       "SEA": 130.0
+      },
+      "no_vig": {
+       "SF": 0.5854,
+       "SEA": 0.4146
+      },
+      "hold": 0.0487,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": null,
+      "prices": {
+       "SF": -185.0,
+       "SEA": 150.0
+      },
+      "no_vig": {
+       "SF": 0.6187,
+       "SEA": 0.3813
+      },
+      "hold": 0.0491,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": null,
+      "prices": {
+       "SF": -180.0,
+       "SEA": 150.0
+      },
+      "no_vig": {
+       "SF": 0.6164,
+       "SEA": 0.3836
+      },
+      "hold": 0.0429,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": null,
+      "prices": {
+       "SF": -176.0,
+       "SEA": 148.0
+      },
+      "no_vig": {
+       "SF": 0.6126,
+       "SEA": 0.3874
+      },
+      "hold": 0.0409,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -167,31 +370,31 @@
      "book": "pinnacle",
      "line": null,
      "no_vig": {
-      "SF": 0.6183,
-      "SEA": 0.3817
+      "SF": 0.6115,
+      "SEA": 0.3885
      }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": null,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "SF": 0.6068,
-      "SEA": 0.3932
+      "SF": 0.6072,
+      "SEA": 0.3928
      }
     },
     "best_retail_price": {
      "SF": {
-      "book": "fanduel",
-      "price": -172.0,
+      "book": "betrivers",
+      "price": -159.0,
       "line": null,
-      "break_even": 0.6324
+      "break_even": 0.6139
      },
      "SEA": {
-      "book": "fanduel",
-      "price": 144.0,
+      "book": "draftkings",
+      "price": 151.0,
       "line": null,
-      "break_even": 0.4098
+      "break_even": 0.3984
      }
     }
    },
@@ -204,29 +407,127 @@
      "fanduel": {
       "line": -3.0,
       "prices": {
-       "SF": -115.0,
-       "SEA": -105.0
+       "SF": -110.0,
+       "SEA": -110.0
       },
       "no_vig": {
-       "SF": 0.5108,
-       "SEA": 0.4892
+       "SF": 0.5,
+       "SEA": 0.5
       },
-      "hold": 0.0471,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0476,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      },
      "pinnacle": {
       "line": -3.0,
       "prices": {
-       "SF": -117.0,
-       "SEA": 104.0
+       "SF": -112.0,
+       "SEA": -100.0
       },
       "no_vig": {
-       "SF": 0.5238,
-       "SEA": 0.4762
+       "SF": 0.5138,
+       "SEA": 0.4862
       },
-      "hold": 0.0294,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0283,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": -3.0,
+      "prices": {
+       "SF": -108.0,
+       "SEA": -113.0
+      },
+      "no_vig": {
+       "SF": 0.4946,
+       "SEA": 0.5054
+      },
+      "hold": 0.0497,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": -3.0,
+      "prices": {
+       "SF": -118.0,
+       "SEA": -102.0
+      },
+      "no_vig": {
+       "SF": 0.5174,
+       "SEA": 0.4826
+      },
+      "hold": 0.0462,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": -3.0,
+      "prices": {
+       "SF": -114.0,
+       "SEA": -105.0
+      },
+      "no_vig": {
+       "SF": 0.5098,
+       "SEA": 0.4902
+      },
+      "hold": 0.0449,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": -3.5,
+      "prices": {
+       "SF": -105.0,
+       "SEA": -114.0
+      },
+      "no_vig": {
+       "SF": 0.4902,
+       "SEA": 0.5098
+      },
+      "hold": 0.0449,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": -3.5,
+      "prices": {
+       "SF": -101.0,
+       "SEA": -118.0
+      },
+      "no_vig": {
+       "SF": 0.4814,
+       "SEA": 0.5186
+      },
+      "hold": 0.0438,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": -3.5,
+      "prices": {
+       "SF": -101.0,
+       "SEA": -119.0
+      },
+      "no_vig": {
+       "SF": 0.4805,
+       "SEA": 0.5195
+      },
+      "hold": 0.0459,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": -1.5,
+      "prices": {
+       "SF": 105.0,
+       "SEA": -125.0
+      },
+      "no_vig": {
+       "SF": 0.4675,
+       "SEA": 0.5325
+      },
+      "hold": 0.0434,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -234,31 +535,31 @@
      "book": "pinnacle",
      "line": -3.0,
      "no_vig": {
-      "SF": 0.5238,
-      "SEA": 0.4762
+      "SF": 0.5138,
+      "SEA": 0.4862
      }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
      "line": -3.0,
-     "n_books_at_line": 1,
+     "n_books_at_line": 4,
      "no_vig": {
-      "SF": 0.5108,
-      "SEA": 0.4892
+      "SF": 0.5054,
+      "SEA": 0.4946
      }
     },
     "best_retail_price": {
      "SF": {
-      "book": "fanduel",
-      "price": -115.0,
-      "line": -3.0,
-      "break_even": 0.5349
+      "book": "draftkings",
+      "price": -101.0,
+      "line": -3.5,
+      "break_even": 0.5025
      },
      "SEA": {
-      "book": "fanduel",
-      "price": -105.0,
+      "book": "betmgm",
+      "price": -102.0,
       "line": -3.0,
-      "break_even": 0.5122
+      "break_even": 0.505
      }
     }
    },
@@ -271,15 +572,43 @@
      "fanduel": {
       "line": 4.5,
       "prices": {
-       "Over": -108.0,
-       "Under": -122.0
+       "Over": 116.0,
+       "Under": -154.0
       },
       "no_vig": {
-       "Over": 0.4858,
-       "Under": 0.5142
+       "Over": 0.433,
+       "Under": 0.567
       },
-      "hold": 0.0688,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0693,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 4.5,
+      "prices": {
+       "Over": 111.0,
+       "Under": -142.0
+      },
+      "no_vig": {
+       "Over": 0.4468,
+       "Under": 0.5532
+      },
+      "hold": 0.0607,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 4.5,
+      "prices": {
+       "Over": 100.0,
+       "Under": -135.0
+      },
+      "no_vig": {
+       "Over": 0.4653,
+       "Under": 0.5347
+      },
+      "hold": 0.0745,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -290,24 +619,24 @@
     "books_agree_on_line": true,
     "consensus": {
      "line": 4.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 3,
      "no_vig": {
-      "Over": 0.4858,
-      "Under": 0.5142
+      "Over": 0.4484,
+      "Under": 0.5516
      }
     },
     "best_retail_price": {
      "Over": {
       "book": "fanduel",
-      "price": -108.0,
+      "price": 116.0,
       "line": 4.5,
-      "break_even": 0.5192
+      "break_even": 0.463
      },
      "Under": {
-      "book": "fanduel",
-      "price": -122.0,
+      "book": "betmgm",
+      "price": -135.0,
       "line": 4.5,
-      "break_even": 0.5495
+      "break_even": 0.5745
      }
     }
    },
@@ -320,6 +649,34 @@
      "fanduel": {
       "line": 2.5,
       "prices": {
+       "Over": 118.0,
+       "Under": -160.0
+      },
+      "no_vig": {
+       "Over": 0.4271,
+       "Under": 0.5729
+      },
+      "hold": 0.0741,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 2.5,
+      "prices": {
+       "Over": 122.0,
+       "Under": -156.0
+      },
+      "no_vig": {
+       "Over": 0.425,
+       "Under": 0.575
+      },
+      "hold": 0.0598,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 2.5,
+      "prices": {
        "Over": 120.0,
        "Under": -160.0
       },
@@ -328,7 +685,7 @@
        "Under": 0.5752
       },
       "hold": 0.0699,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -339,122 +696,24 @@
     "books_agree_on_line": true,
     "consensus": {
      "line": 2.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 3,
      "no_vig": {
-      "Over": 0.4248,
-      "Under": 0.5752
+      "Over": 0.4256,
+      "Under": 0.5744
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": 120.0,
+      "book": "draftkings",
+      "price": 122.0,
       "line": 2.5,
-      "break_even": 0.4545
+      "break_even": 0.4505
      },
      "Under": {
-      "book": "fanduel",
-      "price": -160.0,
+      "book": "draftkings",
+      "price": -156.0,
       "line": 2.5,
-      "break_even": 0.6154
-     }
-    }
-   },
-   "receptions|Rashid Shaheed": {
-    "sides": [
-     "Over",
-     "Under"
-    ],
-    "books": {
-     "fanduel": {
-      "line": 1.5,
-      "prices": {
-       "Over": -188.0,
-       "Under": 140.0
-      },
-      "no_vig": {
-       "Over": 0.6104,
-       "Under": 0.3896
-      },
-      "hold": 0.0694,
-      "last_update": "2026-11-24T06:11:38+00:00",
-      "source": "direct"
-     }
-    },
-    "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 1.5,
-     "n_books_at_line": 1,
-     "no_vig": {
-      "Over": 0.6104,
-      "Under": 0.3896
-     }
-    },
-    "best_retail_price": {
-     "Over": {
-      "book": "fanduel",
-      "price": -188.0,
-      "line": 1.5,
-      "break_even": 0.6528
-     },
-     "Under": {
-      "book": "fanduel",
-      "price": 140.0,
-      "line": 1.5,
-      "break_even": 0.4167
-     }
-    }
-   },
-   "receptions|Christian McCaffrey": {
-    "sides": [
-     "Over",
-     "Under"
-    ],
-    "books": {
-     "fanduel": {
-      "line": 3.5,
-      "prices": {
-       "Over": -122.0,
-       "Under": -110.0
-      },
-      "no_vig": {
-       "Over": 0.512,
-       "Under": 0.488
-      },
-      "hold": 0.0734,
-      "last_update": "2026-11-24T06:11:38+00:00",
-      "source": "direct"
-     }
-    },
-    "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 3.5,
-     "n_books_at_line": 1,
-     "no_vig": {
-      "Over": 0.512,
-      "Under": 0.488
-     }
-    },
-    "best_retail_price": {
-     "Over": {
-      "book": "fanduel",
-      "price": -122.0,
-      "line": 3.5,
-      "break_even": 0.5495
-     },
-     "Under": {
-      "book": "fanduel",
-      "price": -110.0,
-      "line": 3.5,
-      "break_even": 0.5238
+      "break_even": 0.6094
      }
     }
    },
@@ -475,7 +734,7 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -516,15 +775,43 @@
      "fanduel": {
       "line": 4.5,
       "prices": {
-       "Over": 112.0,
-       "Under": -148.0
+       "Over": -104.0,
+       "Under": -128.0
       },
       "no_vig": {
-       "Over": 0.4415,
-       "Under": 0.5585
+       "Over": 0.4759,
+       "Under": 0.5241
       },
-      "hold": 0.0685,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0712,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 4.5,
+      "prices": {
+       "Over": 108.0,
+       "Under": -138.0
+      },
+      "no_vig": {
+       "Over": 0.4533,
+       "Under": 0.5467
+      },
+      "hold": 0.0606,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 4.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -535,24 +822,101 @@
     "books_agree_on_line": true,
     "consensus": {
      "line": 4.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 3,
      "no_vig": {
-      "Over": 0.4415,
-      "Under": 0.5585
+      "Over": 0.4764,
+      "Under": 0.5236
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": 112.0,
+      "book": "draftkings",
+      "price": 108.0,
       "line": 4.5,
-      "break_even": 0.4717
+      "break_even": 0.4808
      },
      "Under": {
-      "book": "fanduel",
-      "price": -148.0,
+      "book": "betmgm",
+      "price": -115.0,
       "line": 4.5,
-      "break_even": 0.5968
+      "break_even": 0.5349
+     }
+    }
+   },
+   "receptions|Tory Horton": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 0.5,
+      "prices": {
+       "Over": -178.0,
+       "Under": 128.0
+      },
+      "no_vig": {
+       "Over": 0.5935,
+       "Under": 0.4065
+      },
+      "hold": 0.0789,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 0.5,
+      "prices": {
+       "Over": -178.0,
+       "Under": 139.0
+      },
+      "no_vig": {
+       "Over": 0.6048,
+       "Under": 0.3952
+      },
+      "hold": 0.0587,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 0.5,
+      "prices": {
+       "Over": -175.0,
+       "Under": 130.0
+      },
+      "no_vig": {
+       "Over": 0.5941,
+       "Under": 0.4059
+      },
+      "hold": 0.0711,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 0.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.5975,
+      "Under": 0.4025
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "betmgm",
+      "price": -175.0,
+      "line": 0.5,
+      "break_even": 0.6364
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": 139.0,
+      "line": 0.5,
+      "break_even": 0.4184
      }
     }
    },
@@ -563,7 +927,7 @@
     ],
     "books": {
      "fanduel": {
-      "line": 48.5,
+      "line": 46.5,
       "prices": {
        "Over": -114.0,
        "Under": -114.0
@@ -573,7 +937,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 47.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.4958,
+       "Under": 0.5042
+      },
+      "hold": 0.0565,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 48.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -581,7 +973,7 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
      "line": 48.5,
      "n_books_at_line": 1,
@@ -592,15 +984,15 @@
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 48.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 47.5,
+      "break_even": 0.5238
      },
      "Under": {
       "book": "fanduel",
       "price": -114.0,
-      "line": 48.5,
+      "line": 46.5,
       "break_even": 0.5327
      }
     }
@@ -612,7 +1004,7 @@
     ],
     "books": {
      "fanduel": {
-      "line": 28.5,
+      "line": 29.5,
       "prices": {
        "Over": -114.0,
        "Under": -114.0
@@ -622,7 +1014,112 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 29.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 28.5,
+      "prices": {
+       "Over": -111.0,
+       "Under": -113.0
+      },
+      "no_vig": {
+       "Over": 0.4979,
+       "Under": 0.5021
+      },
+      "hold": 0.0566,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 29.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -111.0,
+      "line": 28.5,
+      "break_even": 0.5261
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -113.0,
+      "line": 28.5,
+      "break_even": 0.5305
+     }
+    }
+   },
+   "receptions|Jadarian Price": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 1.5,
+      "prices": {
+       "Over": -158.0,
+       "Under": 118.0
+      },
+      "no_vig": {
+       "Over": 0.5717,
+       "Under": 0.4283
+      },
+      "hold": 0.0711,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 1.5,
+      "prices": {
+       "Over": -145.0,
+       "Under": 114.0
+      },
+      "no_vig": {
+       "Over": 0.5588,
+       "Under": 0.4412
+      },
+      "hold": 0.0591,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 1.5,
+      "prices": {
+       "Over": -145.0,
+       "Under": 105.0
+      },
+      "no_vig": {
+       "Over": 0.5482,
+       "Under": 0.4518
+      },
+      "hold": 0.0796,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -632,7 +1129,378 @@
     },
     "books_agree_on_line": true,
     "consensus": {
-     "line": 28.5,
+     "line": 1.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.5596,
+      "Under": 0.4404
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -145.0,
+      "line": 1.5,
+      "break_even": 0.5918
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": 118.0,
+      "line": 1.5,
+      "break_even": 0.4587
+     }
+    }
+   },
+   "receptions|Rashid Shaheed": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 1.5,
+      "prices": {
+       "Over": -188.0,
+       "Under": 140.0
+      },
+      "no_vig": {
+       "Over": 0.6104,
+       "Under": 0.3896
+      },
+      "hold": 0.0694,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 1.5,
+      "prices": {
+       "Over": -182.0,
+       "Under": 142.0
+      },
+      "no_vig": {
+       "Over": 0.6097,
+       "Under": 0.3903
+      },
+      "hold": 0.0586,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 2.5,
+      "prices": {
+       "Over": 145.0,
+       "Under": -200.0
+      },
+      "no_vig": {
+       "Over": 0.3797,
+       "Under": 0.6203
+      },
+      "hold": 0.0748,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 1.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.61,
+      "Under": 0.39
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "betmgm",
+      "price": 145.0,
+      "line": 2.5,
+      "break_even": 0.4082
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": 142.0,
+      "line": 1.5,
+      "break_even": 0.4132
+     }
+    }
+   },
+   "receptions|Kyle Juszczyk": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 0.5,
+      "prices": {
+       "Over": -130.0,
+       "Under": -102.0
+      },
+      "no_vig": {
+       "Over": 0.5282,
+       "Under": 0.4718
+      },
+      "hold": 0.0702,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 0.5,
+      "prices": {
+       "Over": -133.0,
+       "Under": 105.0
+      },
+      "no_vig": {
+       "Over": 0.5392,
+       "Under": 0.4608
+      },
+      "hold": 0.0586,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 0.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.5337,
+      "Under": 0.4663
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -130.0,
+      "line": 0.5,
+      "break_even": 0.5652
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": 105.0,
+      "line": 0.5,
+      "break_even": 0.4878
+     }
+    }
+   },
+   "receiving_yards|Tory Horton": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 4.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 4.5,
+      "prices": {
+       "Over": -112.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0566,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 5.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 4.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -112.0,
+      "line": 4.5,
+      "break_even": 0.5283
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -112.0,
+      "line": 4.5,
+      "break_even": 0.5283
+     }
+    }
+   },
+   "receiving_yards|Jadarian Price": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 9.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 9.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5063,
+       "Under": 0.4937
+      },
+      "hold": 0.0564,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 10.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 9.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.5031,
+      "Under": 0.4969
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -114.0,
+      "line": 9.5,
+      "break_even": 0.5327
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -109.0,
+      "line": 9.5,
+      "break_even": 0.5215
+     }
+    }
+   },
+   "receiving_yards|Kyle Juszczyk": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 2.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 1.5,
+      "prices": {
+       "Over": -112.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0566,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 3.5,
+      "prices": {
+       "Over": -111.0,
+       "Under": -120.0
+      },
+      "no_vig": {
+       "Over": 0.491,
+       "Under": 0.509
+      },
+      "hold": 0.0715,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 1.5,
      "n_books_at_line": 1,
      "no_vig": {
       "Over": 0.5,
@@ -641,16 +1509,786 @@
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 28.5,
-      "break_even": 0.5327
+      "book": "betmgm",
+      "price": -111.0,
+      "line": 3.5,
+      "break_even": 0.5261
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -112.0,
+      "line": 1.5,
+      "break_even": 0.5283
+     }
+    }
+   },
+   "receiving_yards|Keenan Allen": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 27.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 27.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 25.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.4958,
+       "Under": 0.5042
+      },
+      "hold": 0.0565,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 27.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 25.5,
+      "break_even": 0.5238
      },
      "Under": {
       "book": "fanduel",
       "price": -114.0,
-      "line": 28.5,
+      "line": 27.5,
       "break_even": 0.5327
+     }
+    }
+   },
+   "receiving_yards|Deebo Samuel": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 21.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 22.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.4948,
+       "Under": 0.5052
+      },
+      "hold": 0.0587,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 23.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 21.5,
+     "n_books_at_line": 1,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 22.5,
+      "break_even": 0.5238
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -114.0,
+      "line": 21.5,
+      "break_even": 0.5327
+     }
+    }
+   },
+   "receptions|Deebo Samuel": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 2.5,
+      "prices": {
+       "Over": -118.0,
+       "Under": -112.0
+      },
+      "no_vig": {
+       "Over": 0.5061,
+       "Under": 0.4939
+      },
+      "hold": 0.0696,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 2.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -111.0
+      },
+      "no_vig": {
+       "Over": 0.5042,
+       "Under": 0.4958
+      },
+      "hold": 0.061,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 2.5,
+      "prices": {
+       "Over": -135.0,
+       "Under": 100.0
+      },
+      "no_vig": {
+       "Over": 0.5347,
+       "Under": 0.4653
+      },
+      "hold": 0.0745,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 2.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.515,
+      "Under": 0.485
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -115.0,
+      "line": 2.5,
+      "break_even": 0.5349
+     },
+     "Under": {
+      "book": "betmgm",
+      "price": 100.0,
+      "line": 2.5,
+      "break_even": 0.5
+     }
+    }
+   },
+   "receptions|AJ Barner": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 3.5,
+      "prices": {
+       "Over": 144.0,
+       "Under": -194.0
+      },
+      "no_vig": {
+       "Over": 0.3831,
+       "Under": 0.6169
+      },
+      "hold": 0.0697,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 2.5,
+      "prices": {
+       "Over": -160.0,
+       "Under": 125.0
+      },
+      "no_vig": {
+       "Over": 0.5806,
+       "Under": 0.4194
+      },
+      "hold": 0.0598,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 2.5,
+      "prices": {
+       "Over": -165.0,
+       "Under": 125.0
+      },
+      "no_vig": {
+       "Over": 0.5835,
+       "Under": 0.4165
+      },
+      "hold": 0.0671,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 2.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.582,
+      "Under": 0.418
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": 144.0,
+      "line": 3.5,
+      "break_even": 0.4098
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": 125.0,
+      "line": 2.5,
+      "break_even": 0.4444
+     }
+    }
+   },
+   "receptions|Keenan Allen": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 2.5,
+      "prices": {
+       "Over": -158.0,
+       "Under": 118.0
+      },
+      "no_vig": {
+       "Over": 0.5717,
+       "Under": 0.4283
+      },
+      "hold": 0.0711,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 2.5,
+      "prices": {
+       "Over": -167.0,
+       "Under": 131.0
+      },
+      "no_vig": {
+       "Over": 0.591,
+       "Under": 0.409
+      },
+      "hold": 0.0584,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 2.5,
+      "prices": {
+       "Over": -165.0,
+       "Under": 125.0
+      },
+      "no_vig": {
+       "Over": 0.5835,
+       "Under": 0.4165
+      },
+      "hold": 0.0671,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 2.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.5821,
+      "Under": 0.4179
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -158.0,
+      "line": 2.5,
+      "break_even": 0.6124
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": 131.0,
+      "line": 2.5,
+      "break_even": 0.4329
+     }
+    }
+   },
+   "receiving_yards|Jordan Watkins": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 6.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 6.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5063,
+       "Under": 0.4937
+      },
+      "hold": 0.0564,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 6.5,
+      "prices": {
+       "Over": -120.0,
+       "Under": -111.0
+      },
+      "no_vig": {
+       "Over": 0.509,
+       "Under": 0.491
+      },
+      "hold": 0.0715,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 6.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.5051,
+      "Under": 0.4949
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -114.0,
+      "line": 6.5,
+      "break_even": 0.5327
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -109.0,
+      "line": 6.5,
+      "break_even": 0.5215
+     }
+    }
+   },
+   "receptions|Jordan Watkins": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 0.5,
+      "prices": {
+       "Over": -148.0,
+       "Under": 112.0
+      },
+      "no_vig": {
+       "Over": 0.5585,
+       "Under": 0.4415
+      },
+      "hold": 0.0685,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 0.5,
+      "prices": {
+       "Over": -163.0,
+       "Under": 127.0
+      },
+      "no_vig": {
+       "Over": 0.5845,
+       "Under": 0.4155
+      },
+      "hold": 0.0603,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 0.5,
+      "prices": {
+       "Over": -155.0,
+       "Under": 115.0
+      },
+      "no_vig": {
+       "Over": 0.5665,
+       "Under": 0.4335
+      },
+      "hold": 0.073,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 0.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.5698,
+      "Under": 0.4302
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -148.0,
+      "line": 0.5,
+      "break_even": 0.5968
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": 127.0,
+      "line": 0.5,
+      "break_even": 0.4405
+     }
+    }
+   },
+   "receiving_yards|Zach Charbonnet": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 7.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 7.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -119.0
+      },
+      "no_vig": {
+       "Over": 0.4852,
+       "Under": 0.5148
+      },
+      "hold": 0.0556,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 8.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 7.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.4926,
+      "Under": 0.5074
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -105.0,
+      "line": 7.5,
+      "break_even": 0.5122
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -114.0,
+      "line": 7.5,
+      "break_even": 0.5327
+     }
+    }
+   },
+   "receptions|Christian McCaffrey": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 3.5,
+      "prices": {
+       "Over": -118.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.504,
+       "Under": 0.496
+      },
+      "hold": 0.074,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 3.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -116.0
+      },
+      "no_vig": {
+       "Over": 0.4938,
+       "Under": 0.5062
+      },
+      "hold": 0.0608,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 3.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 3.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.4993,
+      "Under": 0.5007
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 3.5,
+      "break_even": 0.5238
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -114.0,
+      "line": 3.5,
+      "break_even": 0.5327
+     }
+    }
+   },
+   "receptions|Zach Charbonnet": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 1.5,
+      "prices": {
+       "Over": -112.0,
+       "Under": -118.0
+      },
+      "no_vig": {
+       "Over": 0.4939,
+       "Under": 0.5061
+      },
+      "hold": 0.0696,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 1.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -121.0
+      },
+      "no_vig": {
+       "Over": 0.4833,
+       "Under": 0.5167
+      },
+      "hold": 0.0597,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 1.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -125.0
+      },
+      "no_vig": {
+       "Over": 0.4797,
+       "Under": 0.5203
+      },
+      "hold": 0.0678,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 1.5,
+     "n_books_at_line": 3,
+     "no_vig": {
+      "Over": 0.4856,
+      "Under": 0.5144
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -105.0,
+      "line": 1.5,
+      "break_even": 0.5122
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -118.0,
+      "line": 1.5,
+      "break_even": 0.5413
      }
     }
    },
@@ -671,7 +2309,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 19.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.4937,
+       "Under": 0.5063
+      },
+      "hold": 0.0564,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 21.5,
+      "prices": {
+       "Over": -120.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5101,
+       "Under": 0.4899
+      },
+      "hold": 0.0693,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -679,27 +2345,27 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 20.5,
+     "line": 19.5,
      "n_books_at_line": 1,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.4937,
+      "Under": 0.5063
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 20.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -109.0,
+      "line": 19.5,
+      "break_even": 0.5215
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 20.5,
-      "break_even": 0.5327
+      "book": "betmgm",
+      "price": -110.0,
+      "line": 21.5,
+      "break_even": 0.5238
      }
     }
    },
@@ -720,7 +2386,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 22.5,
+      "prices": {
+       "Over": -108.0,
+       "Under": -116.0
+      },
+      "no_vig": {
+       "Over": 0.4916,
+       "Under": 0.5084
+      },
+      "hold": 0.0563,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 24.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -728,9 +2422,9 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 23.5,
+     "line": 24.5,
      "n_books_at_line": 1,
      "no_vig": {
       "Over": 0.5,
@@ -739,10 +2433,10 @@
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 23.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -108.0,
+      "line": 22.5,
+      "break_even": 0.5192
      },
      "Under": {
       "book": "fanduel",
@@ -759,7 +2453,7 @@
     ],
     "books": {
      "fanduel": {
-      "line": 57.5,
+      "line": 59.5,
       "prices": {
        "Over": -114.0,
        "Under": -114.0
@@ -769,7 +2463,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 61.5,
+      "prices": {
+       "Over": -113.0,
+       "Under": -111.0
+      },
+      "no_vig": {
+       "Over": 0.5021,
+       "Under": 0.4979
+      },
+      "hold": 0.0566,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 61.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -777,48 +2499,76 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 57.5,
-     "n_books_at_line": 1,
+     "line": 61.5,
+     "n_books_at_line": 2,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.501,
+      "Under": 0.499
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 57.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -113.0,
+      "line": 61.5,
+      "break_even": 0.5305
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 57.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -111.0,
+      "line": 61.5,
+      "break_even": 0.5261
      }
     }
    },
-   "receiving_yards|Keenan Allen": {
+   "receptions|Jaxon Smith-Njigba": {
     "sides": [
      "Over",
      "Under"
     ],
     "books": {
      "fanduel": {
-      "line": 24.5,
+      "line": 7.5,
       "prices": {
-       "Over": -114.0,
-       "Under": -114.0
+       "Over": 100.0,
+       "Under": -136.0
       },
       "no_vig": {
-       "Over": 0.5,
-       "Under": 0.5
+       "Over": 0.4646,
+       "Under": 0.5354
       },
-      "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0763,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 7.5,
+      "prices": {
+       "Over": -106.0,
+       "Under": -121.0
+      },
+      "no_vig": {
+       "Over": 0.4845,
+       "Under": 0.5155
+      },
+      "hold": 0.0621,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 7.5,
+      "prices": {
+       "Over": -120.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5101,
+       "Under": 0.4899
+      },
+      "hold": 0.0693,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -828,25 +2578,25 @@
     },
     "books_agree_on_line": true,
     "consensus": {
-     "line": 24.5,
-     "n_books_at_line": 1,
+     "line": 7.5,
+     "n_books_at_line": 3,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.4864,
+      "Under": 0.5136
      }
     },
     "best_retail_price": {
      "Over": {
       "book": "fanduel",
-      "price": -114.0,
-      "line": 24.5,
-      "break_even": 0.5327
+      "price": 100.0,
+      "line": 7.5,
+      "break_even": 0.5
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 24.5,
-      "break_even": 0.5327
+      "book": "betmgm",
+      "price": -110.0,
+      "line": 7.5,
+      "break_even": 0.5238
      }
     }
    },
@@ -867,56 +2617,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
-     }
-    },
-    "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 17.5,
-     "n_books_at_line": 1,
-     "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
-     }
-    },
-    "best_retail_price": {
-     "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 17.5,
-      "break_even": 0.5327
      },
-     "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 17.5,
-      "break_even": 0.5327
-     }
-    }
-   },
-   "receiving_yards|Deebo Samuel": {
-    "sides": [
-     "Over",
-     "Under"
-    ],
-    "books": {
-     "fanduel": {
-      "line": 23.5,
+     "draftkings": {
+      "line": 16.5,
       "prices": {
-       "Over": -114.0,
-       "Under": -114.0
+       "Over": -116.0,
+       "Under": -109.0
       },
       "no_vig": {
-       "Over": 0.5,
-       "Under": 0.5
+       "Over": 0.5073,
+       "Under": 0.4927
       },
-      "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0586,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 19.5,
+      "prices": {
+       "Over": -120.0,
+       "Under": -111.0
+      },
+      "no_vig": {
+       "Over": 0.509,
+       "Under": 0.491
+      },
+      "hold": 0.0715,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -924,27 +2653,27 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 23.5,
+     "line": 16.5,
      "n_books_at_line": 1,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.5073,
+      "Under": 0.4927
      }
     },
     "best_retail_price": {
      "Over": {
       "book": "fanduel",
       "price": -114.0,
-      "line": 23.5,
+      "line": 17.5,
       "break_even": 0.5327
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 23.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -109.0,
+      "line": 16.5,
+      "break_even": 0.5215
      }
     }
    },
@@ -965,7 +2694,7 @@
        "Under": 0.5379
       },
       "hold": 0.0713,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -997,153 +2726,6 @@
      }
     }
    },
-   "receptions|Deebo Samuel": {
-    "sides": [
-     "Over",
-     "Under"
-    ],
-    "books": {
-     "fanduel": {
-      "line": 2.5,
-      "prices": {
-       "Over": -138.0,
-       "Under": 104.0
-      },
-      "no_vig": {
-       "Over": 0.5419,
-       "Under": 0.4581
-      },
-      "hold": 0.07,
-      "last_update": "2026-11-24T06:11:38+00:00",
-      "source": "direct"
-     }
-    },
-    "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 2.5,
-     "n_books_at_line": 1,
-     "no_vig": {
-      "Over": 0.5419,
-      "Under": 0.4581
-     }
-    },
-    "best_retail_price": {
-     "Over": {
-      "book": "fanduel",
-      "price": -138.0,
-      "line": 2.5,
-      "break_even": 0.5798
-     },
-     "Under": {
-      "book": "fanduel",
-      "price": 104.0,
-      "line": 2.5,
-      "break_even": 0.4902
-     }
-    }
-   },
-   "receptions|AJ Barner": {
-    "sides": [
-     "Over",
-     "Under"
-    ],
-    "books": {
-     "fanduel": {
-      "line": 3.5,
-      "prices": {
-       "Over": 144.0,
-       "Under": -194.0
-      },
-      "no_vig": {
-       "Over": 0.3831,
-       "Under": 0.6169
-      },
-      "hold": 0.0697,
-      "last_update": "2026-11-24T06:11:38+00:00",
-      "source": "direct"
-     }
-    },
-    "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 3.5,
-     "n_books_at_line": 1,
-     "no_vig": {
-      "Over": 0.3831,
-      "Under": 0.6169
-     }
-    },
-    "best_retail_price": {
-     "Over": {
-      "book": "fanduel",
-      "price": 144.0,
-      "line": 3.5,
-      "break_even": 0.4098
-     },
-     "Under": {
-      "book": "fanduel",
-      "price": -194.0,
-      "line": 3.5,
-      "break_even": 0.6599
-     }
-    }
-   },
-   "receptions|Keenan Allen": {
-    "sides": [
-     "Over",
-     "Under"
-    ],
-    "books": {
-     "fanduel": {
-      "line": 2.5,
-      "prices": {
-       "Over": -172.0,
-       "Under": 128.0
-      },
-      "no_vig": {
-       "Over": 0.5905,
-       "Under": 0.4095
-      },
-      "hold": 0.0709,
-      "last_update": "2026-11-24T06:11:38+00:00",
-      "source": "direct"
-     }
-    },
-    "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
-    },
-    "books_agree_on_line": true,
-    "consensus": {
-     "line": 2.5,
-     "n_books_at_line": 1,
-     "no_vig": {
-      "Over": 0.5905,
-      "Under": 0.4095
-     }
-    },
-    "best_retail_price": {
-     "Over": {
-      "book": "fanduel",
-      "price": -172.0,
-      "line": 2.5,
-      "break_even": 0.6324
-     },
-     "Under": {
-      "book": "fanduel",
-      "price": 128.0,
-      "line": 2.5,
-      "break_even": 0.4386
-     }
-    }
-   },
    "rushing_yards|Brock Purdy": {
     "sides": [
      "Over",
@@ -1161,7 +2743,7 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -1210,7 +2792,21 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 8.5,
+      "prices": {
+       "Over": -113.0,
+       "Under": -111.0
+      },
+      "no_vig": {
+       "Over": 0.5021,
+       "Under": 0.4979
+      },
+      "hold": 0.0566,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -1221,24 +2817,24 @@
     "books_agree_on_line": true,
     "consensus": {
      "line": 8.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 2,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.501,
+      "Under": 0.499
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
+      "book": "draftkings",
+      "price": -113.0,
       "line": 8.5,
-      "break_even": 0.5327
+      "break_even": 0.5305
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
+      "book": "draftkings",
+      "price": -111.0,
       "line": 8.5,
-      "break_even": 0.5327
+      "break_even": 0.5261
      }
     }
    },
@@ -1249,7 +2845,7 @@
     ],
     "books": {
      "fanduel": {
-      "line": 58.5,
+      "line": 55.5,
       "prices": {
        "Over": -114.0,
        "Under": -114.0
@@ -1259,7 +2855,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 55.5,
+      "prices": {
+       "Over": -111.0,
+       "Under": -113.0
+      },
+      "no_vig": {
+       "Over": 0.4979,
+       "Under": 0.5021
+      },
+      "hold": 0.0566,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 56.5,
+      "prices": {
+       "Over": -120.0,
+       "Under": -111.0
+      },
+      "no_vig": {
+       "Over": 0.509,
+       "Under": 0.491
+      },
+      "hold": 0.0715,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -1267,27 +2891,27 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 58.5,
-     "n_books_at_line": 1,
+     "line": 55.5,
+     "n_books_at_line": 2,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.499,
+      "Under": 0.501
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 58.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -111.0,
+      "line": 55.5,
+      "break_even": 0.5261
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 58.5,
-      "break_even": 0.5327
+      "book": "betmgm",
+      "price": -111.0,
+      "line": 56.5,
+      "break_even": 0.5261
      }
     }
    },
@@ -1298,7 +2922,7 @@
     ],
     "books": {
      "fanduel": {
-      "line": 26.5,
+      "line": 25.5,
       "prices": {
        "Over": -114.0,
        "Under": -114.0
@@ -1308,7 +2932,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 25.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 26.5,
+      "prices": {
+       "Over": -116.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5073,
+       "Under": 0.4927
+      },
+      "hold": 0.0586,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -1316,10 +2968,10 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 26.5,
-     "n_books_at_line": 1,
+     "line": 25.5,
+     "n_books_at_line": 2,
      "no_vig": {
       "Over": 0.5,
       "Under": 0.5
@@ -1329,14 +2981,14 @@
      "Over": {
       "book": "fanduel",
       "price": -114.0,
-      "line": 26.5,
+      "line": 25.5,
       "break_even": 0.5327
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
+      "book": "draftkings",
+      "price": -109.0,
       "line": 26.5,
-      "break_even": 0.5327
+      "break_even": 0.5215
      }
     }
    },
@@ -1357,7 +3009,35 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 53.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5052,
+       "Under": 0.4948
+      },
+      "hold": 0.0587,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 53.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -1365,13 +3045,13 @@
      "book": null,
      "note": "Pinnacle did not list this market"
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
-     "line": 54.5,
-     "n_books_at_line": 1,
+     "line": 53.5,
+     "n_books_at_line": 2,
      "no_vig": {
-      "Over": 0.5,
-      "Under": 0.5
+      "Over": 0.5026,
+      "Under": 0.4974
      }
     },
     "best_retail_price": {
@@ -1382,10 +3062,10 @@
       "break_even": 0.5327
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 54.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 53.5,
+      "break_even": 0.5238
      }
     }
    },
@@ -1396,7 +3076,7 @@
     ],
     "books": {
      "fanduel": {
-      "line": 22.5,
+      "line": 19.5,
       "prices": {
        "Over": -114.0,
        "Under": -114.0
@@ -1406,7 +3086,84 @@
        "Under": 0.5
       },
       "hold": 0.0654,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 19.5,
+      "prices": {
+       "Over": -111.0,
+       "Under": -120.0
+      },
+      "no_vig": {
+       "Over": 0.491,
+       "Under": 0.509
+      },
+      "hold": 0.0715,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 20.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.4958,
+       "Under": 0.5042
+      },
+      "hold": 0.0565,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 19.5,
+     "n_books_at_line": 2,
+     "no_vig": {
+      "Over": 0.4955,
+      "Under": 0.5045
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 20.5,
+      "break_even": 0.5238
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -114.0,
+      "line": 19.5,
+      "break_even": 0.5327
+     }
+    }
+   },
+   "rushing_yards|Sam Darnold": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 5.5,
+      "prices": {
+       "Over": -108.0,
+       "Under": -120.0
+      },
+      "no_vig": {
+       "Over": 0.4877,
+       "Under": 0.5123
+      },
+      "hold": 0.0647,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
@@ -1416,7 +3173,84 @@
     },
     "books_agree_on_line": true,
     "consensus": {
-     "line": 22.5,
+     "line": 5.5,
+     "n_books_at_line": 1,
+     "no_vig": {
+      "Over": 0.4877,
+      "Under": 0.5123
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -108.0,
+      "line": 5.5,
+      "break_even": 0.5192
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -120.0,
+      "line": 5.5,
+      "break_even": 0.5455
+     }
+    }
+   },
+   "receiving_yards|Jaxon Smith-Njigba": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "draftkings": {
+      "line": 95.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5042,
+       "Under": 0.4958
+      },
+      "hold": 0.0565,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "fanduel": {
+      "line": 97.5,
+      "prices": {
+       "Over": -114.0,
+       "Under": -114.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0654,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 99.5,
+      "prices": {
+       "Over": -115.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0698,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": false,
+    "consensus": {
+     "line": 97.5,
      "n_books_at_line": 1,
      "no_vig": {
       "Over": 0.5,
@@ -1425,16 +3259,16 @@
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
+      "book": "draftkings",
       "price": -114.0,
-      "line": 22.5,
+      "line": 95.5,
       "break_even": 0.5327
      },
      "Under": {
-      "book": "fanduel",
-      "price": -114.0,
-      "line": 22.5,
-      "break_even": 0.5327
+      "book": "draftkings",
+      "price": -110.0,
+      "line": 95.5,
+      "break_even": 0.5238
      }
     }
    }
@@ -1446,10 +3280,58 @@
    "note": "baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.",
    "rows": [
     {
+     "player": "Jaxon Smith-Njigba",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 95.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -110.0
+     },
+     "no_vig_over": 0.5042,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 119.5,
+     "baseline_median": 124.9,
+     "baseline_games": 8,
+     "baseline_minus_line": 24.0
+    },
+    {
+     "player": "Jaxon Smith-Njigba",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 97.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 119.5,
+     "baseline_median": 124.9,
+     "baseline_games": 8,
+     "baseline_minus_line": 22.0
+    },
+    {
+     "player": "Jaxon Smith-Njigba",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 99.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 119.5,
+     "baseline_median": 124.9,
+     "baseline_games": 8,
+     "baseline_minus_line": 20.0
+    },
+    {
      "player": "Mike Evans",
      "stat": "receiving_yards",
      "book": "fanduel",
-     "line": 57.5,
+     "line": 59.5,
      "prices": {
       "Over": -114.0,
       "Under": -114.0
@@ -1459,13 +3341,45 @@
      "baseline_weighted_mean": 77.2,
      "baseline_median": 79.9,
      "baseline_games": 5,
-     "baseline_minus_line": 19.7
+     "baseline_minus_line": 17.7
+    },
+    {
+     "player": "Mike Evans",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 61.5,
+     "prices": {
+      "Over": -113.0,
+      "Under": -111.0
+     },
+     "no_vig_over": 0.5021,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 77.2,
+     "baseline_median": 79.9,
+     "baseline_games": 5,
+     "baseline_minus_line": 15.7
+    },
+    {
+     "player": "Mike Evans",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 61.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 77.2,
+     "baseline_median": 79.9,
+     "baseline_games": 5,
+     "baseline_minus_line": 15.7
     },
     {
      "player": "Kaelon Black",
      "stat": "rushing_yards",
      "book": "fanduel",
-     "line": 22.5,
+     "line": 19.5,
      "prices": {
       "Over": -114.0,
       "Under": -114.0
@@ -1475,16 +3389,96 @@
      "baseline_weighted_mean": 31.4,
      "baseline_median": 22.1,
      "baseline_games": 8,
-     "baseline_minus_line": 8.9
+     "baseline_minus_line": 11.9
+    },
+    {
+     "player": "Kaelon Black",
+     "stat": "rushing_yards",
+     "book": "betmgm",
+     "line": 19.5,
+     "prices": {
+      "Over": -111.0,
+      "Under": -120.0
+     },
+     "no_vig_over": 0.491,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 31.4,
+     "baseline_median": 22.1,
+     "baseline_games": 8,
+     "baseline_minus_line": 11.9
+    },
+    {
+     "player": "Kaelon Black",
+     "stat": "rushing_yards",
+     "book": "draftkings",
+     "line": 20.5,
+     "prices": {
+      "Over": -110.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.4958,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 31.4,
+     "baseline_median": 22.1,
+     "baseline_games": 8,
+     "baseline_minus_line": 10.9
     },
     {
      "player": "George Kittle",
      "stat": "receiving_yards",
      "book": "fanduel",
-     "line": 48.5,
+     "line": 46.5,
      "prices": {
       "Over": -114.0,
       "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 55.6,
+     "baseline_median": 63.2,
+     "baseline_games": 8,
+     "baseline_minus_line": 9.1
+    },
+    {
+     "player": "George Kittle",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 47.5,
+     "prices": {
+      "Over": -110.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.4958,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 55.6,
+     "baseline_median": 63.2,
+     "baseline_games": 8,
+     "baseline_minus_line": 8.1
+    },
+    {
+     "player": "Cooper Kupp",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 19.5,
+     "prices": {
+      "Over": -109.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.4937,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 27.3,
+     "baseline_median": 26.4,
+     "baseline_games": 8,
+     "baseline_minus_line": 7.8
+    },
+    {
+     "player": "George Kittle",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 48.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
      },
      "no_vig_over": 0.5,
      "sharp_no_vig_over": null,
@@ -1508,6 +3502,86 @@
      "baseline_median": 26.4,
      "baseline_games": 8,
      "baseline_minus_line": 6.8
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "rushing_yards",
+     "book": "fanduel",
+     "line": 55.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 61.7,
+     "baseline_median": 65.5,
+     "baseline_games": 3,
+     "baseline_minus_line": 6.2
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "rushing_yards",
+     "book": "draftkings",
+     "line": 55.5,
+     "prices": {
+      "Over": -111.0,
+      "Under": -113.0
+     },
+     "no_vig_over": 0.4979,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 61.7,
+     "baseline_median": 65.5,
+     "baseline_games": 3,
+     "baseline_minus_line": 6.2
+    },
+    {
+     "player": "Cooper Kupp",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 21.5,
+     "prices": {
+      "Over": -120.0,
+      "Under": -110.0
+     },
+     "no_vig_over": 0.5101,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 27.3,
+     "baseline_median": 26.4,
+     "baseline_games": 8,
+     "baseline_minus_line": 5.8
+    },
+    {
+     "player": "Rashid Shaheed",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 16.5,
+     "prices": {
+      "Over": -116.0,
+      "Under": -109.0
+     },
+     "no_vig_over": 0.5073,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 21.8,
+     "baseline_median": 17.3,
+     "baseline_games": 6,
+     "baseline_minus_line": 5.3
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "rushing_yards",
+     "book": "betmgm",
+     "line": 56.5,
+     "prices": {
+      "Over": -120.0,
+      "Under": -111.0
+     },
+     "no_vig_over": 0.509,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 61.7,
+     "baseline_median": 65.5,
+     "baseline_games": 3,
+     "baseline_minus_line": 5.2
     },
     {
      "player": "Rashid Shaheed",
@@ -1542,36 +3616,84 @@
      "baseline_minus_line": -3.6
     },
     {
-     "player": "Zach Charbonnet",
-     "stat": "rushing_yards",
-     "book": "fanduel",
-     "line": 58.5,
+     "player": "AJ Barner",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 22.5,
      "prices": {
-      "Over": -114.0,
-      "Under": -114.0
+      "Over": -108.0,
+      "Under": -116.0
      },
-     "no_vig_over": 0.5,
+     "no_vig_over": 0.4916,
      "sharp_no_vig_over": null,
-     "baseline_weighted_mean": 61.7,
-     "baseline_median": 65.5,
-     "baseline_games": 3,
+     "baseline_weighted_mean": 25.7,
+     "baseline_median": 20.9,
+     "baseline_games": 8,
      "baseline_minus_line": 3.2
     },
     {
      "player": "Jadarian Price",
      "stat": "rushing_yards",
-     "book": "fanduel",
+     "book": "draftkings",
      "line": 26.5,
      "prices": {
-      "Over": -114.0,
-      "Under": -114.0
+      "Over": -116.0,
+      "Under": -109.0
      },
-     "no_vig_over": 0.5,
+     "no_vig_over": 0.5073,
      "sharp_no_vig_over": null,
      "baseline_weighted_mean": 23.5,
      "baseline_median": 22.5,
      "baseline_games": 4,
      "baseline_minus_line": -3.0
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "rushing_yards",
+     "book": "draftkings",
+     "line": 53.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -110.0
+     },
+     "no_vig_over": 0.5052,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 50.9,
+     "baseline_median": 54.7,
+     "baseline_games": 8,
+     "baseline_minus_line": -2.6
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "rushing_yards",
+     "book": "betmgm",
+     "line": 53.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 50.9,
+     "baseline_median": 54.7,
+     "baseline_games": 8,
+     "baseline_minus_line": -2.6
+    },
+    {
+     "player": "Rashid Shaheed",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 19.5,
+     "prices": {
+      "Over": -120.0,
+      "Under": -111.0
+     },
+     "no_vig_over": 0.509,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 21.8,
+     "baseline_median": 17.3,
+     "baseline_games": 6,
+     "baseline_minus_line": 2.3
     },
     {
      "player": "AJ Barner",
@@ -1590,6 +3712,102 @@
      "baseline_minus_line": 2.2
     },
     {
+     "player": "Jadarian Price",
+     "stat": "rushing_yards",
+     "book": "fanduel",
+     "line": 25.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 23.5,
+     "baseline_median": 22.5,
+     "baseline_games": 4,
+     "baseline_minus_line": -2.0
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "rushing_yards",
+     "book": "betmgm",
+     "line": 25.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 23.5,
+     "baseline_median": 22.5,
+     "baseline_games": 4,
+     "baseline_minus_line": -2.0
+    },
+    {
+     "player": "AJ Barner",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 24.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 25.7,
+     "baseline_median": 20.9,
+     "baseline_games": 8,
+     "baseline_minus_line": 1.2
+    },
+    {
+     "player": "Jaxon Smith-Njigba",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 7.5,
+     "prices": {
+      "Over": 100.0,
+      "Under": -136.0
+     },
+     "no_vig_over": 0.4646,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 8.5,
+     "baseline_median": 8.3,
+     "baseline_games": 8,
+     "baseline_minus_line": 1.0
+    },
+    {
+     "player": "Jaxon Smith-Njigba",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 7.5,
+     "prices": {
+      "Over": -106.0,
+      "Under": -121.0
+     },
+     "no_vig_over": 0.4845,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 8.5,
+     "baseline_median": 8.3,
+     "baseline_games": 8,
+     "baseline_minus_line": 1.0
+    },
+    {
+     "player": "Jaxon Smith-Njigba",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 7.5,
+     "prices": {
+      "Over": -120.0,
+      "Under": -110.0
+     },
+     "no_vig_over": 0.5101,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 8.5,
+     "baseline_median": 8.3,
+     "baseline_games": 8,
+     "baseline_minus_line": 1.0
+    },
+    {
      "player": "Rashid Shaheed",
      "stat": "receptions",
      "book": "fanduel",
@@ -1606,15 +3824,95 @@
      "baseline_minus_line": 0.9
     },
     {
+     "player": "Rashid Shaheed",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 1.5,
+     "prices": {
+      "Over": -182.0,
+      "Under": 142.0
+     },
+     "no_vig_over": 0.6097,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 2.4,
+     "baseline_median": 2.2,
+     "baseline_games": 6,
+     "baseline_minus_line": 0.9
+    },
+    {
+     "player": "AJ Barner",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 2.5,
+     "prices": {
+      "Over": -160.0,
+      "Under": 125.0
+     },
+     "no_vig_over": 0.5806,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 3.2,
+     "baseline_median": 3.4,
+     "baseline_games": 8,
+     "baseline_minus_line": 0.7
+    },
+    {
+     "player": "AJ Barner",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 2.5,
+     "prices": {
+      "Over": -165.0,
+      "Under": 125.0
+     },
+     "no_vig_over": 0.5835,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 3.2,
+     "baseline_median": 3.4,
+     "baseline_games": 8,
+     "baseline_minus_line": 0.7
+    },
+    {
      "player": "George Kittle",
      "stat": "receptions",
      "book": "fanduel",
      "line": 4.5,
      "prices": {
-      "Over": -108.0,
-      "Under": -122.0
+      "Over": 116.0,
+      "Under": -154.0
      },
-     "no_vig_over": 0.4858,
+     "no_vig_over": 0.433,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 5.1,
+     "baseline_median": 5.0,
+     "baseline_games": 8,
+     "baseline_minus_line": 0.6
+    },
+    {
+     "player": "George Kittle",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 4.5,
+     "prices": {
+      "Over": 111.0,
+      "Under": -142.0
+     },
+     "no_vig_over": 0.4468,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 5.1,
+     "baseline_median": 5.0,
+     "baseline_games": 8,
+     "baseline_minus_line": 0.6
+    },
+    {
+     "player": "George Kittle",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 4.5,
+     "prices": {
+      "Over": 100.0,
+      "Under": -135.0
+     },
+     "no_vig_over": 0.4653,
      "sharp_no_vig_over": null,
      "baseline_weighted_mean": 5.1,
      "baseline_median": 5.0,
@@ -1638,9 +3936,57 @@
      "baseline_minus_line": -0.3
     },
     {
+     "player": "Rashid Shaheed",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 2.5,
+     "prices": {
+      "Over": 145.0,
+      "Under": -200.0
+     },
+     "no_vig_over": 0.3797,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 2.4,
+     "baseline_median": 2.2,
+     "baseline_games": 6,
+     "baseline_minus_line": -0.1
+    },
+    {
      "player": "Cooper Kupp",
      "stat": "receptions",
      "book": "fanduel",
+     "line": 2.5,
+     "prices": {
+      "Over": 118.0,
+      "Under": -160.0
+     },
+     "no_vig_over": 0.4271,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 2.5,
+     "baseline_median": 2.2,
+     "baseline_games": 8,
+     "baseline_minus_line": 0.0
+    },
+    {
+     "player": "Cooper Kupp",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 2.5,
+     "prices": {
+      "Over": 122.0,
+      "Under": -156.0
+     },
+     "no_vig_over": 0.425,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 2.5,
+     "baseline_median": 2.2,
+     "baseline_games": 8,
+     "baseline_minus_line": 0.0
+    },
+    {
+     "player": "Cooper Kupp",
+     "stat": "receptions",
+     "book": "betmgm",
      "line": 2.5,
      "prices": {
       "Over": 120.0,
@@ -1652,22 +3998,6 @@
      "baseline_median": 2.2,
      "baseline_games": 8,
      "baseline_minus_line": 0.0
-    },
-    {
-     "player": "Christian McCaffrey",
-     "stat": "receptions",
-     "book": "fanduel",
-     "line": 3.5,
-     "prices": {
-      "Over": -122.0,
-      "Under": -110.0
-     },
-     "no_vig_over": 0.512,
-     "sharp_no_vig_over": null,
-     "baseline_weighted_mean": null,
-     "baseline_median": null,
-     "baseline_games": null,
-     "baseline_minus_line": null
     },
     {
      "player": "Jaxon Smith",
@@ -1691,10 +4021,10 @@
      "book": "fanduel",
      "line": 4.5,
      "prices": {
-      "Over": 112.0,
-      "Under": -148.0
+      "Over": -104.0,
+      "Under": -128.0
      },
-     "no_vig_over": 0.4415,
+     "no_vig_over": 0.4759,
      "sharp_no_vig_over": null,
      "baseline_weighted_mean": 4.5,
      "baseline_median": 4.5,
@@ -1702,10 +4032,362 @@
      "baseline_minus_line": 0.0
     },
     {
+     "player": "Mike Evans",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 4.5,
+     "prices": {
+      "Over": 108.0,
+      "Under": -138.0
+     },
+     "no_vig_over": 0.4533,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 4.5,
+     "baseline_median": 4.5,
+     "baseline_games": 5,
+     "baseline_minus_line": 0.0
+    },
+    {
+     "player": "Mike Evans",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 4.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": 4.5,
+     "baseline_median": 4.5,
+     "baseline_games": 5,
+     "baseline_minus_line": 0.0
+    },
+    {
+     "player": "Tory Horton",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 0.5,
+     "prices": {
+      "Over": -178.0,
+      "Under": 128.0
+     },
+     "no_vig_over": 0.5935,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Tory Horton",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 0.5,
+     "prices": {
+      "Over": -178.0,
+      "Under": 139.0
+     },
+     "no_vig_over": 0.6048,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Tory Horton",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 0.5,
+     "prices": {
+      "Over": -175.0,
+      "Under": 130.0
+     },
+     "no_vig_over": 0.5941,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
      "player": "Christian McCaffrey",
      "stat": "receiving_yards",
      "book": "fanduel",
+     "line": 29.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 29.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "receiving_yards",
+     "book": "draftkings",
      "line": 28.5,
+     "prices": {
+      "Over": -111.0,
+      "Under": -113.0
+     },
+     "no_vig_over": 0.4979,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 1.5,
+     "prices": {
+      "Over": -158.0,
+      "Under": 118.0
+     },
+     "no_vig_over": 0.5717,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 1.5,
+     "prices": {
+      "Over": -145.0,
+      "Under": 114.0
+     },
+     "no_vig_over": 0.5588,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 1.5,
+     "prices": {
+      "Over": -145.0,
+      "Under": 105.0
+     },
+     "no_vig_over": 0.5482,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Kyle Juszczyk",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 0.5,
+     "prices": {
+      "Over": -130.0,
+      "Under": -102.0
+     },
+     "no_vig_over": 0.5282,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Kyle Juszczyk",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 0.5,
+     "prices": {
+      "Over": -133.0,
+      "Under": 105.0
+     },
+     "no_vig_over": 0.5392,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Tory Horton",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 4.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Tory Horton",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 4.5,
+     "prices": {
+      "Over": -112.0,
+      "Under": -112.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Tory Horton",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 5.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 9.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 9.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -109.0
+     },
+     "no_vig_over": 0.5063,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jadarian Price",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 10.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Kyle Juszczyk",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 2.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Kyle Juszczyk",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 1.5,
+     "prices": {
+      "Over": -112.0,
+      "Under": -112.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Kyle Juszczyk",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 3.5,
+     "prices": {
+      "Over": -111.0,
+      "Under": -120.0
+     },
+     "no_vig_over": 0.491,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Keenan Allen",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 27.5,
      "prices": {
       "Over": -114.0,
       "Under": -114.0
@@ -1720,8 +4402,40 @@
     {
      "player": "Keenan Allen",
      "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 27.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Keenan Allen",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 25.5,
+     "prices": {
+      "Over": -110.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.4958,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Deebo Samuel",
+     "stat": "receiving_yards",
      "book": "fanduel",
-     "line": 24.5,
+     "line": 21.5,
      "prices": {
       "Over": -114.0,
       "Under": -114.0
@@ -1736,13 +4450,365 @@
     {
      "player": "Deebo Samuel",
      "stat": "receiving_yards",
-     "book": "fanduel",
+     "book": "draftkings",
+     "line": 22.5,
+     "prices": {
+      "Over": -110.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.4948,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Deebo Samuel",
+     "stat": "receiving_yards",
+     "book": "betmgm",
      "line": 23.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Deebo Samuel",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 2.5,
+     "prices": {
+      "Over": -118.0,
+      "Under": -112.0
+     },
+     "no_vig_over": 0.5061,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Deebo Samuel",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 2.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -111.0
+     },
+     "no_vig_over": 0.5042,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Deebo Samuel",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 2.5,
+     "prices": {
+      "Over": -135.0,
+      "Under": 100.0
+     },
+     "no_vig_over": 0.5347,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Keenan Allen",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 2.5,
+     "prices": {
+      "Over": -158.0,
+      "Under": 118.0
+     },
+     "no_vig_over": 0.5717,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Keenan Allen",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 2.5,
+     "prices": {
+      "Over": -167.0,
+      "Under": 131.0
+     },
+     "no_vig_over": 0.591,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Keenan Allen",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 2.5,
+     "prices": {
+      "Over": -165.0,
+      "Under": 125.0
+     },
+     "no_vig_over": 0.5835,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jordan Watkins",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 6.5,
      "prices": {
       "Over": -114.0,
       "Under": -114.0
      },
      "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jordan Watkins",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 6.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -109.0
+     },
+     "no_vig_over": 0.5063,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jordan Watkins",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 6.5,
+     "prices": {
+      "Over": -120.0,
+      "Under": -111.0
+     },
+     "no_vig_over": 0.509,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jordan Watkins",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 0.5,
+     "prices": {
+      "Over": -148.0,
+      "Under": 112.0
+     },
+     "no_vig_over": 0.5585,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jordan Watkins",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 0.5,
+     "prices": {
+      "Over": -163.0,
+      "Under": 127.0
+     },
+     "no_vig_over": 0.5845,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Jordan Watkins",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 0.5,
+     "prices": {
+      "Over": -155.0,
+      "Under": 115.0
+     },
+     "no_vig_over": 0.5665,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "receiving_yards",
+     "book": "fanduel",
+     "line": 7.5,
+     "prices": {
+      "Over": -114.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "receiving_yards",
+     "book": "draftkings",
+     "line": 7.5,
+     "prices": {
+      "Over": -105.0,
+      "Under": -119.0
+     },
+     "no_vig_over": 0.4852,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "receiving_yards",
+     "book": "betmgm",
+     "line": 8.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 3.5,
+     "prices": {
+      "Over": -118.0,
+      "Under": -114.0
+     },
+     "no_vig_over": 0.504,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 3.5,
+     "prices": {
+      "Over": -110.0,
+      "Under": -116.0
+     },
+     "no_vig_over": 0.4938,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Christian McCaffrey",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 3.5,
+     "prices": {
+      "Over": -115.0,
+      "Under": -115.0
+     },
+     "no_vig_over": 0.5,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "receptions",
+     "book": "fanduel",
+     "line": 1.5,
+     "prices": {
+      "Over": -112.0,
+      "Under": -118.0
+     },
+     "no_vig_over": 0.4939,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "receptions",
+     "book": "draftkings",
+     "line": 1.5,
+     "prices": {
+      "Over": -105.0,
+      "Under": -121.0
+     },
+     "no_vig_over": 0.4833,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Zach Charbonnet",
+     "stat": "receptions",
+     "book": "betmgm",
+     "line": 1.5,
+     "prices": {
+      "Over": -105.0,
+      "Under": -125.0
+     },
+     "no_vig_over": 0.4797,
      "sharp_no_vig_over": null,
      "baseline_weighted_mean": null,
      "baseline_median": null,
@@ -1759,38 +4825,6 @@
       "Under": -136.0
      },
      "no_vig_over": 0.4621,
-     "sharp_no_vig_over": null,
-     "baseline_weighted_mean": null,
-     "baseline_median": null,
-     "baseline_games": null,
-     "baseline_minus_line": null
-    },
-    {
-     "player": "Deebo Samuel",
-     "stat": "receptions",
-     "book": "fanduel",
-     "line": 2.5,
-     "prices": {
-      "Over": -138.0,
-      "Under": 104.0
-     },
-     "no_vig_over": 0.5419,
-     "sharp_no_vig_over": null,
-     "baseline_weighted_mean": null,
-     "baseline_median": null,
-     "baseline_games": null,
-     "baseline_minus_line": null
-    },
-    {
-     "player": "Keenan Allen",
-     "stat": "receptions",
-     "book": "fanduel",
-     "line": 2.5,
-     "prices": {
-      "Over": -172.0,
-      "Under": 128.0
-     },
-     "no_vig_over": 0.5905,
      "sharp_no_vig_over": null,
      "baseline_weighted_mean": null,
      "baseline_median": null,
@@ -1828,13 +4862,45 @@
      "baseline_median": null,
      "baseline_games": null,
      "baseline_minus_line": null
+    },
+    {
+     "player": "Deebo Samuel",
+     "stat": "rushing_yards",
+     "book": "draftkings",
+     "line": 8.5,
+     "prices": {
+      "Over": -113.0,
+      "Under": -111.0
+     },
+     "no_vig_over": 0.5021,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
+    },
+    {
+     "player": "Sam Darnold",
+     "stat": "rushing_yards",
+     "book": "fanduel",
+     "line": 5.5,
+     "prices": {
+      "Over": -108.0,
+      "Under": -120.0
+     },
+     "no_vig_over": 0.4877,
+     "sharp_no_vig_over": null,
+     "baseline_weighted_mean": null,
+     "baseline_median": null,
+     "baseline_games": null,
+     "baseline_minus_line": null
     }
    ]
   },
   "freeze": {
-   "pulled_utc": "2026-11-24T06:11:38Z",
+   "pulled_utc": "2026-11-25T03:40:22Z",
    "files": [
-    "pregame/price_freezes/2026-11-29_SEA@SF/freeze_20261124T061705Z.json"
+    "pregame/price_freezes/2026-11-29_SEA@SF/freeze_20261125T034610Z.json"
    ]
   }
  },
@@ -1842,22 +4908,23 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/MTR/97,86/forecast/hourly",
-  "retrieved_utc": "2026-11-24T06:17:01+00:00",
+  "retrieved_utc": "2026-11-25T03:46:08+00:00",
   "kickoff_utc": "2026-11-29T21:25:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
-   "temp_f": 62,
-   "wind_mph": 14.0,
-   "wind_dir": "SW",
-   "precip_chance_pct": 82,
-   "summary": "Light Rain"
+   "temp_f": 63,
+   "wind_mph": 15.0,
+   "wind_dir": "S",
+   "precip_chance_pct": 65,
+   "summary": "Light Rain Likely"
   },
   "during_game": {
-   "temp_f_min": 61,
-   "wind_mph_max": 14.0,
-   "precip_chance_pct_max": 82
+   "temp_f_min": 62,
+   "wind_mph_max": 15.0,
+   "precip_chance_pct_max": 75
   },
   "flags": [
+   "WIND_15_PLUS",
    "PRECIP_50_PLUS"
   ]
  },
@@ -4084,7 +7151,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -4318,7 +7385,7 @@
      },
      {
       "slot": "KR",
-      "player": "George Holani"
+      "player": "Tory Horton"
      }
     ]
    },
@@ -4343,30 +7410,6 @@
       "team": "SEA"
      },
      {
-      "player": "Leonard Williams",
-      "position": "DT",
-      "status": "Out",
-      "date": "2026-11-17T12:23Z",
-      "comment": "out",
-      "team": "SEA"
-     },
-     {
-      "player": "Quenton Nelson",
-      "position": "G",
-      "status": "Out",
-      "date": "2026-11-17T12:23Z",
-      "comment": "out",
-      "team": "SEA"
-     },
-     {
-      "player": "Charles Cross",
-      "position": "OT",
-      "status": "Out",
-      "date": "2026-11-17T12:23Z",
-      "comment": "out",
-      "team": "SEA"
-     },
-     {
       "player": "George Holani",
       "position": "RB",
       "status": "Injured Reserve",
@@ -4375,16 +7418,48 @@
       "team": "SEA"
      },
      {
+      "player": "Leonard Williams",
+      "position": "DT",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "SEA"
+     },
+     {
+      "player": "Quenton Nelson",
+      "position": "G",
+      "status": "Doubtful",
+      "date": "2026-11-24T12:39Z",
+      "comment": "doubtful",
+      "team": "SEA"
+     },
+     {
+      "player": "Charles Cross",
+      "position": "OT",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "SEA"
+     },
+     {
       "player": "Sam Darnold",
       "position": "QB",
-      "status": "Out",
-      "date": "2026-11-23T23:33Z",
-      "comment": "Darnold (quadriceps/ribs) was suited up for Monday's unofficial practice, Bob Condotta of The Seattle Times reports.",
+      "status": "Questionable",
+      "date": "2026-11-24T15:31Z",
+      "comment": "Head coach Mike Macdonald said Monday that Darnold (quadriceps/rib) made a \"good bit of progress\" over the Seahawks' Week 11 bye and will start Sunday at San Francisco if he fares well during Wednesda",
       "team": "SEA"
      },
      {
       "player": "Patrick O'Connell",
       "position": "LB",
+      "status": "Active",
+      "date": "2026-11-13T22:43Z",
+      "comment": "",
+      "team": "SEA"
+     },
+     {
+      "player": "Anthony Bradford",
+      "position": "G",
       "status": "Active",
       "date": "2026-11-13T22:43Z",
       "comment": "",
@@ -4473,14 +7548,6 @@
      {
       "player": "Deven Eastern",
       "position": "DT",
-      "status": "Active",
-      "date": "2026-11-16T19:39Z",
-      "comment": "",
-      "team": "SEA"
-     },
-     {
-      "player": "Avery Smith",
-      "position": "CB",
       "status": "Active",
       "date": "2026-11-16T19:39Z",
       "comment": "",
@@ -4630,10 +7697,10 @@
      "pass_epa_per_dropback": 0.015143850854057072,
      "rush_epa_per_carry": -0.09199795966683955,
      "neutral_pass_rate": 0.5240963855421686,
-     "blitz_rate": 0.2895622895622896,
-     "play_action_rate": 0.20202020202020202,
-     "sack_rate_when_blitzing": 0.06976744186046512,
-     "dropbacks_charted": 297,
+     "blitz_rate": 0.2903225806451613,
+     "play_action_rate": 0.20527859237536658,
+     "sack_rate_when_blitzing": 0.0707070707070707,
+     "dropbacks_charted": 341,
      "wr_targets_pg": 22.5,
      "wr_receptions_pg": 13.75,
      "wr_rec_yards_pg": 152.875,
@@ -5409,10 +8476,10 @@
      "pass_epa_per_dropback": 0.29299670942052664,
      "rush_epa_per_carry": 0.06437300484910478,
      "neutral_pass_rate": 0.54,
-     "blitz_rate": 0.2851063829787234,
-     "play_action_rate": 0.20851063829787234,
-     "sack_rate_when_blitzing": 0.029850746268656716,
-     "dropbacks_charted": 235,
+     "blitz_rate": 0.33460076045627374,
+     "play_action_rate": 0.20532319391634982,
+     "sack_rate_when_blitzing": 0.022727272727272728,
+     "dropbacks_charted": 263,
      "wr_targets_pg": 13.25,
      "wr_receptions_pg": 9.0,
      "wr_rec_yards_pg": 143.0,
@@ -6853,7 +9920,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -7104,22 +10171,6 @@
       "team": "SF"
      },
      {
-      "player": "Khalid Kareem",
-      "position": "DE",
-      "status": "Out",
-      "date": "2026-11-23T00:18Z",
-      "comment": "Kareem (ankle) is inactive for Sunday night's game against the Vikings.",
-      "team": "SF"
-     },
-     {
-      "player": "Dre Greenlaw",
-      "position": "LB",
-      "status": "Out",
-      "date": "2026-11-23T00:25Z",
-      "comment": "Greenlaw (neck) is inactive for Sunday night's contest against the Vikings in Mexico City, Brooke Evans of the 49ers' official website reports.",
-      "team": "SF"
-     },
-     {
       "player": "Deommodore Lenoir",
       "position": "CB",
       "status": "Questionable",
@@ -7132,15 +10183,23 @@
       "position": "OT",
       "status": "Out",
       "date": "2026-11-24T00:48Z",
-      "comment": "McKivitz fractured and dislocated his ankle during the 49ers' blowout win over the Vikings on Sunday Night Football, Ian Rapoport of NFL Network reports.",
+      "comment": "San Francisco head coach Kyle Shanahan said after Sunday's 35-10 win over the Vikings that McKivitz is believed to have sustained a fractured and dislocated left ankle during the contest, Nick Wagoner",
       "team": "SF"
      },
      {
-      "player": "C.J. West",
-      "position": "DT",
-      "status": "Active",
-      "date": "2026-11-22T00:22Z",
-      "comment": "The 49ers activated West (knee) from injured reserve Saturday.",
+      "player": "Khalid Kareem",
+      "position": "DE",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "SF"
+     },
+     {
+      "player": "Dre Greenlaw",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
       "team": "SF"
      },
      {
@@ -7293,6 +10352,14 @@
       "status": "Active",
       "date": "2026-11-24T04:53Z",
       "comment": "Warner recorded eight tackles (four solo) and a pass breakup in Sunday night's 35-10 win over the Vikings.",
+      "team": "SF"
+     },
+     {
+      "player": "Ji'Ayir Brown",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-25T02:17Z",
+      "comment": "Brown recorded four tackles (three solo) and a pick-six during the 49ers' 35-10 win over the Vikings on Sunday in Mexico City.",
       "team": "SF"
      }
     ],
@@ -7682,28 +10749,28 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.82,
-    "wind_mph": 14.0,
+    "rain_chance": 0.65,
+    "wind_mph": 15.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
      "dry": {
-      "attempts": 31.1,
-      "completion_pct": 0.624,
-      "completions": 19.4,
-      "yards": 225.6
+      "attempts": 31.0,
+      "completion_pct": 0.622,
+      "completions": 19.2,
+      "yards": 222.8
      },
      "rain": {
-      "attempts": 29.7,
-      "completion_pct": 0.585,
-      "completions": 17.4,
-      "yards": 191.1
+      "attempts": 29.6,
+      "completion_pct": 0.583,
+      "completions": 17.3,
+      "yards": 188.3
      },
      "forecast": {
-      "attempts": 30.0,
-      "completion_pct": 0.592,
-      "completions": 17.8,
-      "yards": 197.3
+      "attempts": 30.1,
+      "completion_pct": 0.597,
+      "completions": 17.9,
+      "yards": 200.4
      }
     },
     "receivers": [
@@ -7713,25 +10780,25 @@
       "games": 8,
       "target_share": 0.35655737704918034,
       "dry": {
-       "targets": 10.7,
-       "catch_rate": 0.704,
+       "targets": 10.6,
+       "catch_rate": 0.701,
        "receptions": 7.5,
-       "yards_per_target": 10.2,
-       "yards": 109.0
+       "yards_per_target": 10.07,
+       "yards": 107.3
       },
       "rain": {
        "targets": 10.2,
-       "catch_rate": 0.657,
+       "catch_rate": 0.655,
        "receptions": 6.7,
-       "yards_per_target": 8.99,
-       "yards": 91.9
+       "yards_per_target": 8.86,
+       "yards": 90.2
       },
       "forecast": {
        "targets": 10.3,
-       "catch_rate": 0.665,
+       "catch_rate": 0.671,
        "receptions": 6.9,
-       "yards_per_target": 9.21,
-       "yards": 94.9
+       "yards_per_target": 9.29,
+       "yards": 96.0
       }
      },
      {
@@ -7741,23 +10808,23 @@
       "target_share": 0.1557377049180328,
       "dry": {
        "targets": 4.5,
-       "catch_rate": 0.588,
-       "receptions": 2.7,
-       "yards_per_target": 5.2,
-       "yards": 23.6
+       "catch_rate": 0.584,
+       "receptions": 2.6,
+       "yards_per_target": 5.13,
+       "yards": 23.0
       },
       "rain": {
        "targets": 4.3,
-       "catch_rate": 0.546,
-       "receptions": 2.4,
-       "yards_per_target": 4.57,
-       "yards": 19.8
+       "catch_rate": 0.542,
+       "receptions": 2.3,
+       "yards_per_target": 4.5,
+       "yards": 19.3
       },
       "forecast": {
-       "targets": 4.4,
-       "catch_rate": 0.554,
+       "targets": 4.3,
+       "catch_rate": 0.557,
        "receptions": 2.4,
-       "yards_per_target": 4.68,
+       "yards_per_target": 4.72,
        "yards": 20.5
       }
      },
@@ -7768,24 +10835,24 @@
       "target_share": 0.12295081967213115,
       "dry": {
        "targets": 3.7,
-       "catch_rate": 0.625,
+       "catch_rate": 0.623,
        "receptions": 2.3,
-       "yards_per_target": 6.9,
-       "yards": 25.4
+       "yards_per_target": 6.82,
+       "yards": 25.0
       },
       "rain": {
        "targets": 3.5,
-       "catch_rate": 0.584,
-       "receptions": 2.1,
-       "yards_per_target": 6.08,
-       "yards": 21.4
+       "catch_rate": 0.582,
+       "receptions": 2.0,
+       "yards_per_target": 6.0,
+       "yards": 21.0
       },
       "forecast": {
        "targets": 3.6,
-       "catch_rate": 0.591,
+       "catch_rate": 0.596,
        "receptions": 2.1,
-       "yards_per_target": 6.23,
-       "yards": 22.1
+       "yards_per_target": 6.29,
+       "yards": 22.4
       }
      },
      {
@@ -7795,24 +10862,24 @@
       "target_share": 0.0942622950819672,
       "dry": {
        "targets": 3.8,
-       "catch_rate": 0.558,
+       "catch_rate": 0.556,
        "receptions": 2.1,
-       "yards_per_target": 5.48,
-       "yards": 20.6
+       "yards_per_target": 5.41,
+       "yards": 20.3
       },
       "rain": {
        "targets": 3.6,
-       "catch_rate": 0.521,
+       "catch_rate": 0.519,
        "receptions": 1.9,
-       "yards_per_target": 4.83,
-       "yards": 17.4
+       "yards_per_target": 4.76,
+       "yards": 17.1
       },
       "forecast": {
        "targets": 3.6,
-       "catch_rate": 0.528,
+       "catch_rate": 0.532,
        "receptions": 1.9,
-       "yards_per_target": 4.94,
-       "yards": 18.0
+       "yards_per_target": 4.99,
+       "yards": 18.2
       }
      },
      {
@@ -7822,24 +10889,24 @@
       "target_share": 0.0778688524590164,
       "dry": {
        "targets": 3.1,
-       "catch_rate": 0.52,
+       "catch_rate": 0.518,
        "receptions": 1.6,
-       "yards_per_target": 5.77,
-       "yards": 18.0
+       "yards_per_target": 5.7,
+       "yards": 17.7
       },
       "rain": {
        "targets": 3.0,
-       "catch_rate": 0.485,
+       "catch_rate": 0.484,
        "receptions": 1.4,
-       "yards_per_target": 5.09,
-       "yards": 15.1
+       "yards_per_target": 5.02,
+       "yards": 14.9
       },
       "forecast": {
        "targets": 3.0,
-       "catch_rate": 0.491,
+       "catch_rate": 0.496,
        "receptions": 1.5,
-       "yards_per_target": 5.21,
-       "yards": 15.6
+       "yards_per_target": 5.26,
+       "yards": 15.8
       }
      },
      {
@@ -7863,10 +10930,10 @@
       },
       "forecast": {
        "targets": 2.5,
-       "catch_rate": 0.819,
+       "catch_rate": 0.825,
        "receptions": 2.1,
-       "yards_per_target": 5.91,
-       "yards": 14.9
+       "yards_per_target": 6.06,
+       "yards": 15.4
       }
      },
      {
@@ -7890,10 +10957,10 @@
       },
       "forecast": {
        "targets": 2.9,
-       "catch_rate": 0.645,
+       "catch_rate": 0.65,
        "receptions": 1.9,
-       "yards_per_target": 5.74,
-       "yards": 16.6
+       "yards_per_target": 5.88,
+       "yards": 17.2
       }
      },
      {
@@ -7917,10 +10984,10 @@
       },
       "forecast": {
        "targets": 1.9,
-       "catch_rate": 0.726,
+       "catch_rate": 0.731,
        "receptions": 1.4,
-       "yards_per_target": 7.26,
-       "yards": 14.0
+       "yards_per_target": 7.44,
+       "yards": 14.5
       }
      }
     ],
@@ -7929,16 +10996,16 @@
      "attempts_in_window": 207,
      "small_sample": false,
      "dry": {
-      "completion_pct": 0.6,
-      "yards_per_attempt": 6.84
+      "completion_pct": 0.598,
+      "yards_per_attempt": 6.78
      },
      "rain": {
-      "completion_pct": 0.564,
-      "yards_per_attempt": 5.99
+      "completion_pct": 0.561,
+      "yards_per_attempt": 5.93
      },
      "forecast": {
-      "completion_pct": 0.57,
-      "yards_per_attempt": 6.14
+      "completion_pct": 0.574,
+      "yards_per_attempt": 6.23
      }
     }
    }
@@ -8262,28 +11329,28 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.82,
-    "wind_mph": 14.0,
+    "rain_chance": 0.65,
+    "wind_mph": 15.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
      "dry": {
-      "attempts": 28.6,
-      "completion_pct": 0.686,
-      "completions": 19.6,
-      "yards": 254.5
+      "attempts": 28.5,
+      "completion_pct": 0.683,
+      "completions": 19.5,
+      "yards": 251.3
      },
      "rain": {
-      "attempts": 27.4,
-      "completion_pct": 0.644,
-      "completions": 17.6,
-      "yards": 215.6
+      "attempts": 27.3,
+      "completion_pct": 0.641,
+      "completions": 17.5,
+      "yards": 212.4
      },
      "forecast": {
-      "attempts": 27.6,
-      "completion_pct": 0.651,
-      "completions": 18.0,
-      "yards": 222.6
+      "attempts": 27.7,
+      "completion_pct": 0.656,
+      "completions": 18.2,
+      "yards": 226.1
      }
     },
     "receivers": [
@@ -8293,25 +11360,25 @@
       "games": 8,
       "target_share": 0.24669603524229075,
       "dry": {
-       "targets": 6.7,
-       "catch_rate": 0.711,
+       "targets": 6.6,
+       "catch_rate": 0.706,
        "receptions": 4.7,
-       "yards_per_target": 8.47,
-       "yards": 56.5
+       "yards_per_target": 8.36,
+       "yards": 55.1
       },
       "rain": {
-       "targets": 6.4,
-       "catch_rate": 0.661,
-       "receptions": 4.2,
-       "yards_per_target": 7.44,
-       "yards": 47.5
+       "targets": 6.3,
+       "catch_rate": 0.656,
+       "receptions": 4.1,
+       "yards_per_target": 7.33,
+       "yards": 46.2
       },
       "forecast": {
        "targets": 6.4,
-       "catch_rate": 0.67,
+       "catch_rate": 0.673,
        "receptions": 4.3,
-       "yards_per_target": 7.63,
-       "yards": 49.1
+       "yards_per_target": 7.69,
+       "yards": 49.3
       }
      },
      {
@@ -8334,11 +11401,11 @@
        "yards": 39.8
       },
       "forecast": {
-       "targets": 4.8,
-       "catch_rate": 0.799,
+       "targets": 4.9,
+       "catch_rate": 0.804,
        "receptions": 3.9,
-       "yards_per_target": 8.51,
-       "yards": 41.2
+       "yards_per_target": 8.72,
+       "yards": 42.5
       }
      },
      {
@@ -8347,25 +11414,25 @@
       "games": 5,
       "target_share": 0.15859030837004406,
       "dry": {
-       "targets": 7.1,
-       "catch_rate": 0.658,
-       "receptions": 4.7,
-       "yards_per_target": 11.29,
-       "yards": 79.9
+       "targets": 7.0,
+       "catch_rate": 0.656,
+       "receptions": 4.6,
+       "yards_per_target": 11.15,
+       "yards": 78.6
       },
       "rain": {
-       "targets": 6.8,
-       "catch_rate": 0.615,
-       "receptions": 4.2,
-       "yards_per_target": 9.95,
-       "yards": 67.3
+       "targets": 6.7,
+       "catch_rate": 0.613,
+       "receptions": 4.1,
+       "yards_per_target": 9.81,
+       "yards": 66.1
       },
       "forecast": {
        "targets": 6.8,
-       "catch_rate": 0.623,
-       "receptions": 4.2,
-       "yards_per_target": 10.19,
-       "yards": 69.5
+       "catch_rate": 0.628,
+       "receptions": 4.3,
+       "yards_per_target": 10.28,
+       "yards": 70.4
       }
      },
      {
@@ -8375,24 +11442,24 @@
       "target_share": 0.07488986784140969,
       "dry": {
        "targets": 2.8,
-       "catch_rate": 0.755,
+       "catch_rate": 0.753,
        "receptions": 2.1,
-       "yards_per_target": 16.39,
-       "yards": 45.6
+       "yards_per_target": 16.19,
+       "yards": 44.9
       },
       "rain": {
        "targets": 2.7,
-       "catch_rate": 0.705,
+       "catch_rate": 0.703,
        "receptions": 1.9,
-       "yards_per_target": 14.44,
-       "yards": 38.5
+       "yards_per_target": 14.24,
+       "yards": 37.8
       },
       "forecast": {
        "targets": 2.7,
-       "catch_rate": 0.714,
+       "catch_rate": 0.72,
        "receptions": 1.9,
-       "yards_per_target": 14.79,
-       "yards": 39.7
+       "yards_per_target": 14.92,
+       "yards": 40.2
       }
      },
      {
@@ -8402,24 +11469,24 @@
       "target_share": 0.07048458149779736,
       "dry": {
        "targets": 3.9,
-       "catch_rate": 0.802,
-       "receptions": 3.2,
-       "yards_per_target": 5.84,
-       "yards": 23.0
+       "catch_rate": 0.8,
+       "receptions": 3.1,
+       "yards_per_target": 5.77,
+       "yards": 22.6
       },
       "rain": {
-       "targets": 3.8,
-       "catch_rate": 0.749,
+       "targets": 3.7,
+       "catch_rate": 0.747,
        "receptions": 2.8,
-       "yards_per_target": 5.15,
-       "yards": 19.4
+       "yards_per_target": 5.08,
+       "yards": 19.0
       },
       "forecast": {
        "targets": 3.8,
-       "catch_rate": 0.759,
+       "catch_rate": 0.765,
        "receptions": 2.9,
-       "yards_per_target": 5.27,
-       "yards": 20.0
+       "yards_per_target": 5.32,
+       "yards": 20.2
       }
      },
      {
@@ -8443,10 +11510,10 @@
       },
       "forecast": {
        "targets": 2.1,
-       "catch_rate": 0.704,
+       "catch_rate": 0.709,
        "receptions": 1.5,
-       "yards_per_target": 5.04,
-       "yards": 10.7
+       "yards_per_target": 5.16,
+       "yards": 11.1
       }
      },
      {
@@ -8456,24 +11523,24 @@
       "target_share": 0.048458149779735685,
       "dry": {
        "targets": 2.2,
-       "catch_rate": 0.449,
+       "catch_rate": 0.447,
        "receptions": 1.0,
-       "yards_per_target": 4.51,
-       "yards": 9.8
+       "yards_per_target": 4.46,
+       "yards": 9.6
       },
       "rain": {
        "targets": 2.1,
-       "catch_rate": 0.419,
+       "catch_rate": 0.418,
        "receptions": 0.9,
-       "yards_per_target": 3.97,
-       "yards": 8.2
+       "yards_per_target": 3.92,
+       "yards": 8.1
       },
       "forecast": {
        "targets": 2.1,
-       "catch_rate": 0.424,
+       "catch_rate": 0.428,
        "receptions": 0.9,
-       "yards_per_target": 4.07,
-       "yards": 8.5
+       "yards_per_target": 4.11,
+       "yards": 8.6
       }
      },
      {
@@ -8483,24 +11550,24 @@
       "target_share": 0.04405286343612335,
       "dry": {
        "targets": 2.0,
-       "catch_rate": 0.494,
+       "catch_rate": 0.492,
        "receptions": 1.0,
-       "yards_per_target": 5.53,
-       "yards": 10.9
+       "yards_per_target": 5.47,
+       "yards": 10.7
       },
       "rain": {
        "targets": 1.9,
-       "catch_rate": 0.461,
+       "catch_rate": 0.459,
        "receptions": 0.9,
-       "yards_per_target": 4.88,
-       "yards": 9.2
+       "yards_per_target": 4.81,
+       "yards": 9.0
       },
       "forecast": {
        "targets": 1.9,
-       "catch_rate": 0.467,
+       "catch_rate": 0.471,
        "receptions": 0.9,
-       "yards_per_target": 4.99,
-       "yards": 9.5
+       "yards_per_target": 5.04,
+       "yards": 9.6
       }
      }
     ],
@@ -8509,16 +11576,16 @@
      "attempts_in_window": 232,
      "small_sample": false,
      "dry": {
-      "completion_pct": 0.684,
-      "yards_per_attempt": 8.88
+      "completion_pct": 0.682,
+      "yards_per_attempt": 8.8
      },
      "rain": {
-      "completion_pct": 0.642,
-      "yards_per_attempt": 7.78
+      "completion_pct": 0.64,
+      "yards_per_attempt": 7.7
      },
      "forecast": {
-      "completion_pct": 0.65,
-      "yards_per_attempt": 7.98
+      "completion_pct": 0.655,
+      "yards_per_attempt": 8.09
      }
     }
    }
@@ -8565,8 +11632,8 @@
       "away": 6.8
      }
     },
-    "home_covers_market_spread": 0.41,
-    "over_market_total": 0.507
+    "home_covers_market_spread": 0.381,
+    "over_market_total": 0.543
    },
    "independent": {
     "home_points": 27.9,
@@ -8602,8 +11669,8 @@
       "away": 6.6
      }
     },
-    "home_covers_market_spread": 0.492,
-    "over_market_total": 0.704
+    "home_covers_market_spread": 0.472,
+    "over_market_total": 0.732
    }
   },
   "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
@@ -8612,98 +11679,98 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d7aa5501bb6f323bdaa9cdfd2dbb2f828adc4497a4a53ce6a9456d671a7e9753",
-   "bytes": 524258
+   "retrieved_utc": "2026-11-25T03:45:38+00:00",
+   "sha256": "4ea672f408565ec634ed67be1df0381d4c25630ab0849413d6160e7ef726f3cb",
+   "bytes": 524352
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d8782243a144a98dccd5fa91cb379b6004a697f49966d0209da5d875a3928692",
+   "retrieved_utc": "2026-11-25T03:45:38+00:00",
+   "sha256": "b74af456d30b27138744f885d9a1d38de03664a4d5b6fae5fc55b23d6fc63488",
    "bytes": 13097328
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "8b17e639cdd2d655d7270b69fbd9dc178d89b64e4234cb38c57d1b7ee203b9fd",
-   "bytes": 822554
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "025956d0eab74359c293b4d3c51d673836ee0af45d19cbaf1779bfb596be0016",
+   "bytes": 821928
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "b7bae239f8a9aa2f4169d49a001e86b76ae22dda7b0eeaac4d033b5f6e9bb7e9",
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "46e0f80ab820779aa6c8caf364cafe5bbbbf27885378d7f28af08c004b892387",
    "bytes": 69477
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "56f5984ca8456d6640868812d43ecfc29417f965d2dcd40cacf27701c984978d",
-   "bytes": 3559081
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "9f9fb70531af4428dc183036eea463b500faaf561456312381244638e59e5c31",
+   "bytes": 3615076
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "cfbe0260477f668c30ccd10d3976a0d9b7b1cf7732e1a2684c43fbf314f86ea1",
-   "bytes": 151849
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "bytes": 152479
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "bb72c788f63b5d4882d11a5a57dc6f59b401897bc2dcc99d6ba50290ab2404b3",
-   "bytes": 314887
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
+   "sha256": "c1fb485fa868aeccdc9d85f9fd09915219e5e271478c268c11c57db5aca14e02",
+   "bytes": 335267
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
    "sha256": "b2f7b6dc4d56fa9ca1a3b6d65e78c4436742bb2311edb8b299fc9dc9191b864a",
    "bytes": 100331
   },
   "pfr_rec": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
    "sha256": "c044899de693fa04d8c50cd45b83a6a277e12d11d6d26209a0501f424bcc3174",
    "bytes": 35611
   },
   "pfr_rush": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rush_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
    "sha256": "e8230522afc9188eb7dd3ca5b935a6a48d7e776e4549cb8143a55eac3981e19c",
    "bytes": 28827
   },
   "ngs_receiving": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "40743c0acacb216274409090b461c52cfdb0bd5f451b2772bd8d3863bfb9b094",
-   "bytes": 1180846
+   "retrieved_utc": "2026-11-25T03:45:41+00:00",
+   "sha256": "1182ae58702b4a36ea11d776201983bf160ce4f73c0dc6e190e51d10bb3e1a8b",
+   "bytes": 1181382
   },
   "ngs_rushing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_rushing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "1769f3df0fcfb222684aeb0af9d24de9cb6dc7b995706adfea712b83e769b041",
-   "bytes": 406077
+   "retrieved_utc": "2026-11-25T03:45:41+00:00",
+   "sha256": "8224482c119b0613c5bd3a1cd2e282b8820714717dc80d42c3e7148de7bda809",
+   "bytes": 406226
   },
   "ngs_passing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_passing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "52f24af2e400449f88b12c48c9645baf483bf3731b3fdd013a2783af295b5574",
-   "bytes": 767210
+   "retrieved_utc": "2026-11-25T03:45:41+00:00",
+   "sha256": "688f7a6ebfcfdc418e2ba9fd6e2c49e4ff901c20c8b568cf9d94093ae3e4a377",
+   "bytes": 767423
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-24T06:16:22+00:00"
+   "retrieved_utc": "2026-11-25T03:45:42+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
@@ -8808,7 +11875,7 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-24T06:16:22+00:00",
+  "checked_utc": "2026-11-25T03:45:42+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",

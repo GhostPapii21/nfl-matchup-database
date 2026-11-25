@@ -1,0 +1,134 @@
+{
+ "actual_sources": {
+  "games": {
+   "retrieved_utc": "2026-11-24T22:18:05+00:00",
+   "sha256": "bffefffe40c863d78020d56886c7ae3c2f8a9fa2b40e6e0c11c9f42cbac116fa",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet"
+  },
+  "pbp": {
+   "retrieved_utc": "2026-11-24T22:18:06+00:00",
+   "sha256": "b74af456d30b27138744f885d9a1d38de03664a4d5b6fae5fc55b23d6fc63488",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet"
+  },
+  "rosters": {
+   "retrieved_utc": "2026-11-24T22:18:06+00:00",
+   "sha256": "025956d0eab74359c293b4d3c51d673836ee0af45d19cbaf1779bfb596be0016",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet"
+  },
+  "snap_counts": {
+   "retrieved_utc": "2026-11-24T22:18:06+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet"
+  }
+ },
+ "counts": {
+  "flagged_prop": {
+   "actual_known": 162,
+   "closing_known": 162,
+   "edges": 0,
+   "rows": 162
+  },
+  "player_projection": {
+   "actual_known": 39,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 41
+  },
+  "team_market": {
+   "actual_known": 6,
+   "closing_known": 4,
+   "edges": 0,
+   "rows": 6
+  },
+  "team_projection": {
+   "actual_known": 8,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 8
+  }
+ },
+ "final_score": {
+  "BAL": 33,
+  "CAR": 35,
+  "pulled_utc": "2026-11-24T22:18:05+00:00",
+  "source": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet sha256=bffefffe40c863d78020d56886c7ae3c2f8a9fa2b40e6e0c11c9f42cbac116fa"
+ },
+ "freeze_ref": "working tree",
+ "game_id": "2026_11_BAL_CAR",
+ "graded_utc": "2026-11-24T22:18:06+00:00",
+ "holdout_by_market_type": {
+  "moneyline": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "receiving_yards": {
+   "beat_close": 1,
+   "did_not_beat": 7,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 8,
+   "positive": false
+  },
+  "receptions": {
+   "beat_close": 1,
+   "did_not_beat": 8,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 9,
+   "positive": false
+  },
+  "rushing_yards": {
+   "beat_close": 2,
+   "did_not_beat": 1,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 3,
+   "positive": false
+  },
+  "spread": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "total": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  }
+ },
+ "kickoff_utc": "2026-11-22T18:00:00+00:00",
+ "packet_source": "git:398ba4842af49f4bf833ed3c7449802cf81e1775:pregame/packets/2026_11_BAL_CAR/packet.json",
+ "projection_ready": false,
+ "research_artifacts": {
+  "research_team_probability": {
+   "loss": 0,
+   "push": 0,
+   "rows": 1,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_projection": {
+   "loss": 0,
+   "push": 0,
+   "rows": 4,
+   "unknown": 0,
+   "win": 0
+  }
+ },
+ "schema": "grading.summary.v1",
+ "validation": "research only, not validated"
+}

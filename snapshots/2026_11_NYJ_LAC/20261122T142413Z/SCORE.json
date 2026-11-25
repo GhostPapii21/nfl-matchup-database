@@ -1,0 +1,142 @@
+{
+ "schema": "snapshot-score/1",
+ "game_id": "2026_11_NYJ_LAC",
+ "locked_utc": "2026-11-22T14:24:13+00:00",
+ "scored_utc": "2026-11-24T22:17:42+00:00",
+ "final": {
+  "home_score": 24,
+  "away_score": 27,
+  "source": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261122",
+  "espn_event": "401873074",
+  "kickoff_espn_utc": "2026-11-22T21:05+00:00",
+  "status": "STATUS_FINAL",
+  "quarters": {
+   "q1": [
+    3,
+    3
+   ],
+   "q2": [
+    7,
+    14
+   ],
+   "q3": [
+    0,
+    3
+   ],
+   "q4": [
+    14,
+    7
+   ]
+  },
+  "retrieved_utc": "2026-11-24T22:17:42+00:00"
+ },
+ "model": {
+  "p_home_win_ex_tie": 0.2758756157263304,
+  "mean_margin": -7.95876,
+  "mean_total": 40.95938
+ },
+ "metrics": {
+  "win_logloss": 0.3227920998696364,
+  "win_brier": 0.07610735535238192,
+  "margin_crps": 3.8412576274,
+  "total_crps": 6.182849286000001,
+  "margin_pit": 0.6533,
+  "total_pit": 0.805375,
+  "margin_abs_err": 4.95876,
+  "total_abs_err": 10.040619999999997,
+  "brier_model_mean_lines": 0.14261094811746064,
+  "brier_book_mean_lines": 0.29494874499999996
+ },
+ "vs_market": [
+  {
+   "market": "spread",
+   "book": "fanduel",
+   "side": "LAC",
+   "line": -3.0,
+   "p_model_cover": 0.20521,
+   "p_model_push": 0.0244,
+   "p_book_novig": 0.513,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.042111144100000004,
+   "brier_book": 0.263169
+  },
+  {
+   "market": "spread",
+   "book": "williamhill_us",
+   "side": "LAC",
+   "line": -3.0,
+   "p_model_cover": 0.20521,
+   "p_model_push": 0.0244,
+   "p_book_novig": 0.5043,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.042111144100000004,
+   "brier_book": 0.25431848999999995
+  },
+  {
+   "market": "total",
+   "book": "fanduel",
+   "side": "Over",
+   "line": 42.5,
+   "p_model": 0.44357,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.3096143449,
+   "brier_book": 0.25
+  },
+  {
+   "market": "total",
+   "book": "pinnacle",
+   "side": "Over",
+   "line": 42.0,
+   "p_model": 0.44357,
+   "p_model_push": 0.02122,
+   "p_book_novig": 0.5022,
+   "reference_only": true,
+   "result": 1.0,
+   "brier_model": 0.3096143449,
+   "brier_book": 0.24780484000000003
+  },
+  {
+   "market": "total",
+   "book": "williamhill_us",
+   "side": "Over",
+   "line": 42.0,
+   "p_model": 0.44357,
+   "p_model_push": 0.02122,
+   "p_book_novig": 0.4935,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.3096143449,
+   "brier_book": 0.25654224999999997
+  },
+  {
+   "market": "moneyline",
+   "book": "fanduel",
+   "side": "LAC",
+   "p_model_win": 0.27387,
+   "p_model_win_ex_tie": 0.2758756157263304,
+   "p_book_novig": 0.6183,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.07610735535238192,
+   "brier_book": 0.38229488999999994
+  },
+  {
+   "market": "moneyline",
+   "book": "williamhill_us",
+   "side": "LAC",
+   "p_model_win": 0.27387,
+   "p_model_win_ex_tie": 0.2758756157263304,
+   "p_book_novig": 0.6028,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.07610735535238192,
+   "brier_book": 0.36336784
+  }
+ ],
+ "note": "One game. Aggregate across future games under the NFL-44 protocol before any calibration claim."
+}

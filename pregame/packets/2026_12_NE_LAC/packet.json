@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-24T06:17:00+00:00",
+ "generated_utc": "2026-11-25T03:46:07+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -34,8 +34,8 @@
   "home_spread": -1.5,
   "total": 35.5,
   "moneyline": {
-   "NE": -103.0,
-   "LAC": -115.0
+   "NE": -104.0,
+   "LAC": -113.0
   }
  },
  "data_freshness": {
@@ -55,9 +55,17 @@
  "books": {
   "status": "OK_DIRECT",
   "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
-  "retrieved_utc": "2026-11-24T06:11:38Z",
+  "retrieved_utc": "2026-11-25T03:40:22Z",
   "book_retrieved_utc": {
-   "fanduel": "2026-11-24T06:11:38Z"
+   "bet365": "2026-11-25T03:40:22Z",
+   "betmgm": "2026-11-25T03:40:22Z",
+   "betrivers": "2026-11-25T03:40:22Z",
+   "consensus": "2026-11-25T03:40:22Z",
+   "draftkings": "2026-11-25T03:40:22Z",
+   "fanduel": "2026-11-25T03:40:22Z",
+   "open": "2026-11-25T03:40:22Z",
+   "pinnacle": "2026-11-25T03:40:22Z",
+   "williamhill_us": "2026-11-25T03:40:22Z"
   },
   "markets": {
    "total": {
@@ -77,35 +85,151 @@
        "Under": 0.4958
       },
       "hold": 0.061,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": 35.0,
+      "prices": {
+       "Over": -112.0,
+       "Under": -104.0
+      },
+      "no_vig": {
+       "Over": 0.5089,
+       "Under": 0.4911
+      },
+      "hold": 0.0381,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": 35.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0431,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": 35.5,
+      "prices": {
+       "Over": -109.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.4989,
+       "Under": 0.5011
+      },
+      "hold": 0.0453,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": 35.5,
+      "prices": {
+       "Over": -113.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5054,
+       "Under": 0.4946
+      },
+      "hold": 0.0497,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": 35.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": 35.5,
+      "prices": {
+       "Over": -112.0,
+       "Under": -109.0
+      },
+      "no_vig": {
+       "Over": 0.5032,
+       "Under": 0.4968
+      },
+      "hold": 0.0498,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": 45.5,
+      "prices": {
+       "Over": -110.0,
+       "Under": -110.0
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": 35.0,
+      "prices": {
+       "Over": -110.0,
+       "Under": -108.0
+      },
+      "no_vig": {
+       "Over": 0.5022,
+       "Under": 0.4978
+      },
+      "hold": 0.043,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": 35.0,
+     "no_vig": {
+      "Over": 0.5089,
+      "Under": 0.4911
+     }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
      "line": 35.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 5,
      "no_vig": {
-      "Over": 0.5042,
-      "Under": 0.4958
+      "Over": 0.5023,
+      "Under": 0.4977
      }
     },
     "best_retail_price": {
      "Over": {
-      "book": "fanduel",
-      "price": -115.0,
+      "book": "draftkings",
+      "price": -109.0,
       "line": 35.5,
-      "break_even": 0.5349
+      "break_even": 0.5215
      },
      "Under": {
-      "book": "fanduel",
-      "price": -111.0,
+      "book": "betrivers",
+      "price": -108.0,
       "line": 35.5,
-      "break_even": 0.5261
+      "break_even": 0.5192
      }
     }
    },
@@ -118,43 +242,159 @@
      "fanduel": {
       "line": -1.5,
       "prices": {
-       "LAC": -106.0,
-       "NE": -120.0
+       "LAC": -104.0,
+       "NE": -122.0
       },
       "no_vig": {
-       "LAC": 0.4854,
-       "NE": 0.5146
+       "LAC": 0.4812,
+       "NE": 0.5188
       },
-      "hold": 0.06,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "hold": 0.0594,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": -1.0,
+      "prices": {
+       "LAC": -100.0,
+       "NE": -112.0
+      },
+      "no_vig": {
+       "LAC": 0.4862,
+       "NE": 0.5138
+      },
+      "hold": 0.0283,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -105.0,
+       "NE": -115.0
+      },
+      "no_vig": {
+       "LAC": 0.4892,
+       "NE": 0.5108
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -110.0,
+       "NE": -110.0
+      },
+      "no_vig": {
+       "LAC": 0.5,
+       "NE": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": -1.5,
+      "prices": {
+       "LAC": 102.0,
+       "NE": -122.0
+      },
+      "no_vig": {
+       "LAC": 0.4739,
+       "NE": 0.5261
+      },
+      "hold": 0.0446,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -103.0,
+       "NE": -117.0
+      },
+      "no_vig": {
+       "LAC": 0.4848,
+       "NE": 0.5152
+      },
+      "hold": 0.0466,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": -1.5,
+      "prices": {
+       "LAC": -104.0,
+       "NE": -117.0
+      },
+      "no_vig": {
+       "LAC": 0.486,
+       "NE": 0.514
+      },
+      "hold": 0.049,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": -1.0,
+      "prices": {
+       "LAC": -105.0,
+       "NE": -112.0
+      },
+      "no_vig": {
+       "LAC": 0.4923,
+       "NE": 0.5077
+      },
+      "hold": 0.0405,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": -0.5,
+      "prices": {
+       "LAC": -110.0,
+       "NE": -112.0
+      },
+      "no_vig": {
+       "LAC": 0.4979,
+       "NE": 0.5021
+      },
+      "hold": 0.0521,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": -1.0,
+     "no_vig": {
+      "LAC": 0.4862,
+      "NE": 0.5138
+     }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "consensus": {
      "line": -1.5,
-     "n_books_at_line": 1,
+     "n_books_at_line": 4,
      "no_vig": {
-      "LAC": 0.4854,
-      "NE": 0.5146
+      "LAC": 0.4815,
+      "NE": 0.5185
      }
     },
     "best_retail_price": {
      "LAC": {
-      "book": "fanduel",
-      "price": -106.0,
+      "book": "draftkings",
+      "price": 102.0,
       "line": -1.5,
-      "break_even": 0.5146
+      "break_even": 0.495
      },
      "NE": {
-      "book": "fanduel",
-      "price": -120.0,
-      "line": -1.5,
-      "break_even": 0.5455
+      "book": "betmgm",
+      "price": -112.0,
+      "line": -1.0,
+      "break_even": 0.5283
      }
     }
    },
@@ -175,21 +415,137 @@
        "NE": 0.4911
       },
       "hold": 0.0381,
-      "last_update": "2026-11-24T06:11:38+00:00",
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "LAC": -107.0,
+       "NE": -105.0
+      },
+      "no_vig": {
+       "LAC": 0.5023,
+       "NE": 0.4977
+      },
+      "hold": 0.0291,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "consensus": {
+      "line": null,
+      "prices": {
+       "LAC": -112.0,
+       "NE": -105.0
+      },
+      "no_vig": {
+       "LAC": 0.5077,
+       "NE": 0.4923
+      },
+      "hold": 0.0405,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "open": {
+      "line": null,
+      "prices": {
+       "LAC": -125.0,
+       "NE": 105.0
+      },
+      "no_vig": {
+       "LAC": 0.5325,
+       "NE": 0.4675
+      },
+      "hold": 0.0434,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "LAC": -113.0,
+       "NE": -104.0
+      },
+      "no_vig": {
+       "LAC": 0.51,
+       "NE": 0.49
+      },
+      "hold": 0.0403,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betrivers": {
+      "line": null,
+      "prices": {
+       "LAC": -113.0,
+       "NE": -108.0
+      },
+      "no_vig": {
+       "LAC": 0.5054,
+       "NE": 0.4946
+      },
+      "hold": 0.0497,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "betmgm": {
+      "line": null,
+      "prices": {
+       "LAC": -112.0,
+       "NE": -105.0
+      },
+      "no_vig": {
+       "LAC": 0.5077,
+       "NE": 0.4923
+      },
+      "hold": 0.0405,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "bet365": {
+      "line": null,
+      "prices": {
+       "LAC": -113.0,
+       "NE": -107.0
+      },
+      "no_vig": {
+       "LAC": 0.5065,
+       "NE": 0.4935
+      },
+      "hold": 0.0474,
+      "last_update": "2026-11-25T03:40:22+00:00",
+      "source": "direct"
+     },
+     "williamhill_us": {
+      "line": null,
+      "prices": {
+       "LAC": -117.0,
+       "NE": -102.0
+      },
+      "no_vig": {
+       "LAC": 0.5164,
+       "NE": 0.4836
+      },
+      "hold": 0.0441,
+      "last_update": "2026-11-25T03:40:22+00:00",
       "source": "direct"
      }
     },
     "reference": {
-     "book": null,
-     "note": "Pinnacle did not list this market"
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "LAC": 0.5023,
+      "NE": 0.4977
+     }
     },
     "books_agree_on_line": true,
     "consensus": {
      "line": null,
-     "n_books_at_line": 1,
+     "n_books_at_line": 6,
      "no_vig": {
-      "LAC": 0.5089,
-      "NE": 0.4911
+      "LAC": 0.5091,
+      "NE": 0.4909
      }
     },
     "best_retail_price": {
@@ -200,10 +556,10 @@
       "break_even": 0.5283
      },
      "NE": {
-      "book": "fanduel",
-      "price": -104.0,
+      "book": "williamhill_us",
+      "price": -102.0,
       "line": null,
-      "break_even": 0.5098
+      "break_even": 0.505
      }
     }
    }
@@ -212,9 +568,9 @@
   "props_status": "OK",
   "odds_api_status": "UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized",
   "freeze": {
-   "pulled_utc": "2026-11-24T06:11:38Z",
+   "pulled_utc": "2026-11-25T03:40:22Z",
    "files": [
-    "pregame/price_freezes/2026-11-29_NE@LAC/freeze_20261124T061701Z.json"
+    "pregame/price_freezes/2026-11-29_NE@LAC/freeze_20261125T034608Z.json"
    ]
   }
  },
@@ -287,7 +643,7 @@
      "red_zone_drives": 29,
      "red_zone_td_rate": 0.6551724137931034,
      "pass_epa_per_dropback": 0.20437908829903628,
-     "rush_epa_per_carry": -0.02536709012916736,
+     "rush_epa_per_carry": -0.025367090129167352,
      "neutral_pass_rate": 0.5409836065573771,
      "blitz_rate": 0.34397163120567376,
      "play_action_rate": 0.2375886524822695,
@@ -2585,7 +2941,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -2836,38 +3192,6 @@
       "team": "NE"
      },
      {
-      "player": "Walter Rouse",
-      "position": "OL",
-      "status": "Out",
-      "date": "2026-11-17T12:22Z",
-      "comment": "out",
-      "team": "NE"
-     },
-     {
-      "player": "Ben Brown",
-      "position": "C",
-      "status": "Out",
-      "date": "2026-11-17T12:22Z",
-      "comment": "out",
-      "team": "NE"
-     },
-     {
-      "player": "Carlton Davis III",
-      "position": "CB",
-      "status": "Out",
-      "date": "2026-11-17T12:22Z",
-      "comment": "out",
-      "team": "NE"
-     },
-     {
-      "player": "Brenden Schooler",
-      "position": "S",
-      "status": "Out",
-      "date": "2026-11-17T12:23Z",
-      "comment": "out",
-      "team": "NE"
-     },
-     {
       "player": "Romeo Doubs",
       "position": "WR",
       "status": "Injured Reserve",
@@ -2884,19 +3208,51 @@
       "team": "NE"
      },
      {
-      "player": "A.J. Brown",
-      "position": "WR",
-      "status": "Doubtful",
-      "date": "2026-11-23T21:34Z",
-      "comment": "Brown (hamstring) wasn't on the field Monday for the Patriots' unofficial practice session, Doug Kyed of the Boston Herald reports.",
-      "team": "NE"
-     },
-     {
       "player": "Alijah Vera-Tucker",
       "position": "G",
       "status": "Injured Reserve",
       "date": "2026-11-24T01:00Z",
       "comment": "The Patriots designated Vera-Tucker (hamstring) for return from injured reserve Monday.",
+      "team": "NE"
+     },
+     {
+      "player": "Walter Rouse",
+      "position": "OL",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NE"
+     },
+     {
+      "player": "Brenden Schooler",
+      "position": "S",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NE"
+     },
+     {
+      "player": "Carlton Davis III",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NE"
+     },
+     {
+      "player": "Ben Brown",
+      "position": "C",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "NE"
+     },
+     {
+      "player": "A.J. Brown",
+      "position": "WR",
+      "status": "Doubtful",
+      "date": "2026-11-24T19:46Z",
+      "comment": "Brown (hamstring) wasn't spotted on the field for Tuesday's unofficial practice, Evan Lazar of the Patriots' official site reports.",
       "team": "NE"
      },
      {
@@ -3016,7 +3372,7 @@
       "position": "QB",
       "status": "Active",
       "date": "2026-11-24T01:15Z",
-      "comment": "Patriots head coach Mike Vrabel said Monday that DeVito is the team's starting quarterback, Mike Reiss of ESPN reports. \"We're excited about that. He had a good preseason and Tommy's improved,\" Vrabel",
+      "comment": "Patriots head coach Mike Vrabel said Monday that DeVito is the team's starting quarterback, Mike Reiss of ESPN.com reports. \"We're excited about that. He had a good preseason, and Tommy's improved,\" V",
       "team": "NE"
      }
     ],
@@ -3106,12 +3462,12 @@
      "red_zone_drives": 31,
      "red_zone_td_rate": 0.5806451612903226,
      "pass_epa_per_dropback": 0.04540392116216864,
-     "rush_epa_per_carry": 0.03815034457011242,
+     "rush_epa_per_carry": 0.038150344570112425,
      "neutral_pass_rate": 0.52,
-     "blitz_rate": 0.23504273504273504,
-     "play_action_rate": 0.24358974358974358,
-     "sack_rate_when_blitzing": 0.07272727272727272,
-     "dropbacks_charted": 234,
+     "blitz_rate": 0.23346303501945526,
+     "play_action_rate": 0.2490272373540856,
+     "sack_rate_when_blitzing": 0.06666666666666667,
+     "dropbacks_charted": 257,
      "wr_targets_pg": 17.0,
      "wr_receptions_pg": 10.875,
      "wr_rec_yards_pg": 146.25,
@@ -3887,10 +4243,10 @@
      "pass_epa_per_dropback": -0.17172266658998436,
      "rush_epa_per_carry": -0.06468940585218834,
      "neutral_pass_rate": 0.4010416666666667,
-     "blitz_rate": 0.25,
-     "play_action_rate": 0.234375,
+     "blitz_rate": 0.2465277777777778,
+     "play_action_rate": 0.23958333333333334,
      "sack_rate_when_blitzing": 0.0,
-     "dropbacks_charted": 256,
+     "dropbacks_charted": 288,
      "wr_targets_pg": 12.875,
      "wr_receptions_pg": 7.875,
      "wr_rec_yards_pg": 115.25,
@@ -5406,7 +5762,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-23T19:11:07Z",
+    "as_of": "2026-11-24T18:50:30Z",
     "starters": [
      {
       "slot": "WR",
@@ -5616,7 +5972,7 @@
      },
      {
       "slot": "LCB",
-      "player": "Jalyn Armour-Davis"
+      "player": "Rodney Shelley"
      },
      {
       "slot": "SS",
@@ -5653,22 +6009,6 @@
       "team": "LAC"
      },
      {
-      "player": "Brenen Thompson",
-      "position": "WR",
-      "status": "Out",
-      "date": "2026-11-22T19:48Z",
-      "comment": "Thompson (hamstring) is inactive for Sunday's game against the Jets.",
-      "team": "LAC"
-     },
-     {
-      "player": "Tarheeb Still",
-      "position": "CB",
-      "status": "Out",
-      "date": "2026-11-22T19:51Z",
-      "comment": "Still is inactive for Sunday's Week 11 matchup against the Jets due to an ankle injury.",
-      "team": "LAC"
-     },
-     {
       "player": "Keaton Mitchell",
       "position": "RB",
       "status": "Questionable",
@@ -5695,25 +6035,33 @@
      {
       "player": "Kendall Williamson",
       "position": "S",
-      "status": "Out",
-      "date": "2026-11-23T15:37Z",
-      "comment": "out",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "LAC"
+     },
+     {
+      "player": "Tarheeb Still",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "LAC"
+     },
+     {
+      "player": "Brenen Thompson",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
       "team": "LAC"
      },
      {
       "player": "Daiyan Henley",
       "position": "LB",
-      "status": "Out",
-      "date": "2026-11-23T15:37Z",
-      "comment": "out",
-      "team": "LAC"
-     },
-     {
-      "player": "Donte Jackson",
-      "position": "CB",
-      "status": "Active",
-      "date": "2026-11-20T22:05Z",
-      "comment": "",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
       "team": "LAC"
      },
      {
@@ -5842,6 +6190,14 @@
       "status": "Active",
       "date": "2026-11-24T03:53Z",
       "comment": "Molden recorded eight tackles (four solo) in Sunday's 27-24 loss to the Jets.",
+      "team": "LAC"
+     },
+     {
+      "player": "Oronde Gadsden",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-24T15:18Z",
+      "comment": "Gadsden went without a target while taking the field for 23 of the Chargers' 60 snaps on offense in Sunday's 27-24 loss to the Jets.",
       "team": "LAC"
      }
     ],
@@ -6879,98 +7235,98 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d7aa5501bb6f323bdaa9cdfd2dbb2f828adc4497a4a53ce6a9456d671a7e9753",
-   "bytes": 524258
+   "retrieved_utc": "2026-11-25T03:45:38+00:00",
+   "sha256": "4ea672f408565ec634ed67be1df0381d4c25630ab0849413d6160e7ef726f3cb",
+   "bytes": 524352
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "d8782243a144a98dccd5fa91cb379b6004a697f49966d0209da5d875a3928692",
+   "retrieved_utc": "2026-11-25T03:45:38+00:00",
+   "sha256": "b74af456d30b27138744f885d9a1d38de03664a4d5b6fae5fc55b23d6fc63488",
    "bytes": 13097328
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "8b17e639cdd2d655d7270b69fbd9dc178d89b64e4234cb38c57d1b7ee203b9fd",
-   "bytes": 822554
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "025956d0eab74359c293b4d3c51d673836ee0af45d19cbaf1779bfb596be0016",
+   "bytes": 821928
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "b7bae239f8a9aa2f4169d49a001e86b76ae22dda7b0eeaac4d033b5f6e9bb7e9",
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "46e0f80ab820779aa6c8caf364cafe5bbbbf27885378d7f28af08c004b892387",
    "bytes": 69477
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:20+00:00",
-   "sha256": "56f5984ca8456d6640868812d43ecfc29417f965d2dcd40cacf27701c984978d",
-   "bytes": 3559081
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "9f9fb70531af4428dc183036eea463b500faaf561456312381244638e59e5c31",
+   "bytes": 3615076
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "cfbe0260477f668c30ccd10d3976a0d9b7b1cf7732e1a2684c43fbf314f86ea1",
-   "bytes": 151849
+   "retrieved_utc": "2026-11-25T03:45:39+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "bytes": 152479
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "bb72c788f63b5d4882d11a5a57dc6f59b401897bc2dcc99d6ba50290ab2404b3",
-   "bytes": 314887
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
+   "sha256": "c1fb485fa868aeccdc9d85f9fd09915219e5e271478c268c11c57db5aca14e02",
+   "bytes": 335267
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
    "sha256": "b2f7b6dc4d56fa9ca1a3b6d65e78c4436742bb2311edb8b299fc9dc9191b864a",
    "bytes": 100331
   },
   "pfr_rec": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
    "sha256": "c044899de693fa04d8c50cd45b83a6a277e12d11d6d26209a0501f424bcc3174",
    "bytes": 35611
   },
   "pfr_rush": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rush_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
+   "retrieved_utc": "2026-11-25T03:45:40+00:00",
    "sha256": "e8230522afc9188eb7dd3ca5b935a6a48d7e776e4549cb8143a55eac3981e19c",
    "bytes": 28827
   },
   "ngs_receiving": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "40743c0acacb216274409090b461c52cfdb0bd5f451b2772bd8d3863bfb9b094",
-   "bytes": 1180846
+   "retrieved_utc": "2026-11-25T03:45:41+00:00",
+   "sha256": "1182ae58702b4a36ea11d776201983bf160ce4f73c0dc6e190e51d10bb3e1a8b",
+   "bytes": 1181382
   },
   "ngs_rushing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_rushing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "1769f3df0fcfb222684aeb0af9d24de9cb6dc7b995706adfea712b83e769b041",
-   "bytes": 406077
+   "retrieved_utc": "2026-11-25T03:45:41+00:00",
+   "sha256": "8224482c119b0613c5bd3a1cd2e282b8820714717dc80d42c3e7148de7bda809",
+   "bytes": 406226
   },
   "ngs_passing": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_passing.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-24T06:16:21+00:00",
-   "sha256": "52f24af2e400449f88b12c48c9645baf483bf3731b3fdd013a2783af295b5574",
-   "bytes": 767210
+   "retrieved_utc": "2026-11-25T03:45:41+00:00",
+   "sha256": "688f7a6ebfcfdc418e2ba9fd6e2c49e4ff901c20c8b568cf9d94093ae3e4a377",
+   "bytes": 767423
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-24T06:16:22+00:00"
+   "retrieved_utc": "2026-11-25T03:45:42+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
@@ -7075,7 +7431,7 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-24T06:16:22+00:00",
+  "checked_utc": "2026-11-25T03:45:42+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
