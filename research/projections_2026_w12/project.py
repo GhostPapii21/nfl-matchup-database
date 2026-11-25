@@ -53,7 +53,9 @@ def recent(team, ids_pos):
     q = p[p.week.isin(wks)]
     tg = q[(q.pass_attempt == 1) & (q.sack != 1) & q.receiver_player_id.notna()]
     ca = q[(q.rush_attempt == 1) & (q.qb_scramble != 1) & q.rusher_player_id.isin([i for i, pp in ids_pos.items() if pp == "RB"])]
-    return wks, (tg.receiver_player_id.value_counts() / len(tg)).to_dict(), (ca.rusher_player_id.value_counts() / max(len(ca), 1)).to_dict()
+    q3 = p[p.week.isin(sorted(p.week.unique())[-3:])]
+    touched = set(q3.receiver_player_id.dropna()) | set(q3.rusher_player_id.dropna())   # anyone with a touch in the last 3 games
+    return wks, (tg.receiver_player_id.value_counts() / len(tg)).to_dict(), (ca.rusher_player_id.value_counts() / max(len(ca), 1)).to_dict(), touched
 
 
 def status_map(gid):
@@ -85,7 +87,10 @@ def main(gid):
         rec = [e for e in op["receivers"] if not e.get("status") and e.get("sim")]
         rus = [e for e in op["rushers"] if not e.get("status") and e.get("sim")]
         ids = {e["player_id"]: e["pos"] for e in rec + rus}
-        wks, rt, rc = recent(off, ids)
+        wks, rt, rc, touched = recent(off, ids)
+        benched = [e["player"] for e in rec + rus if e["player_id"] not in touched]
+        rec = [e for e in rec if e["player_id"] in touched]
+        rus = [e for e in rus if e["player_id"] in touched]
         dd = sd.get(CODE.get(dfn, dfn), {})
         d_man, d_bl = dd.get("man", lg["man"]) - lg["man"], dd.get("blitz", lg["blitz"]) - lg["blitz"]
 
@@ -104,7 +109,7 @@ def main(gid):
                     for m in mates:
                         new[m["player_id"]] += freed * new[m["player_id"]] / tot
                     tags[e["player_id"]] = f"Questionable: {f:.0%} of usual snaps"
-            k = sum(old.values()) / (sum(new.values()) or 1)          # keep the board's total for the group
+            k = min(1.0, sum(old.values())) / (sum(new.values()) or 1)   # the board's total for the group, never above 100%
             return {i: v * k for i, v in new.items()}, tags
         grp = lambda e: "RB" if e["pos"] == "RB" else ("TE" if e["pos"] == "TE" else "WR")
         new_t, tag_t = adjust(rec, "target_share_used", rt, grp)
@@ -118,7 +123,7 @@ def main(gid):
             for e in rbte:
                 new_t[e["player_id"]] += -dlt * new_t[e["player_id"]] / tot
         team = {"offense": off, "defense": dfn, "recent_weeks": [int(w) for w in wks], "defense_man_vs_league": round(d_man, 3),
-                "defense_blitz_vs_league": round(d_bl, 3), "receivers": [], "rushers": []}
+                "defense_blitz_vs_league": round(d_bl, 3), "out_of_rotation": benched, "receivers": [], "rushers": []}
         for e in rec:
             sm, i = e["sim"], e["player_id"]
             ratio = new_t[i] / max(e["inputs"]["target_share_used"], 1e-6)
@@ -162,7 +167,8 @@ def main(gid):
 
 def show(o):
     for t in o["teams"].values():
-        print(f"\n=== {t['offense']} offense vs {t['defense']} (recent weeks {t['recent_weeks']}; their man {t['defense_man_vs_league']:+.1%}, blitz {t['defense_blitz_vs_league']:+.1%} vs league)")
+        print(f"\n(out of the rotation, no touch in 3 games: {', '.join(t.get('out_of_rotation') or []) or 'none'})")
+        print(f"=== {t['offense']} offense vs {t['defense']} (recent weeks {t['recent_weeks']}; their man {t['defense_man_vs_league']:+.1%}, blitz {t['defense_blitz_vs_league']:+.1%} vs league)")
         for r in sorted(t["receivers"], key=lambda r: -r["yards"][1]):
             ln = "; ".join(f"{k.split('_')[-1]} {v['line']:g}: over {v['p_over_adj']:.0%}" for k, v in r["lines"].items())
             ng = f" | NGS sep {r['ngs']['separation']:.1f}, air share {r['ngs']['air_yard_share']:.0f}%" if r.get("ngs") else ""
