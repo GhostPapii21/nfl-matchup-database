@@ -1,6 +1,6 @@
 # Game-day brief: CHI at DET (2026-11-26 13:00 ET)
 
-Made 2026-11-25T03:41:15+00:00 from the board built 2026-11-24T23:24:23+00:00. Projected score: DET 26.75, CHI 28.75. Spread (home) 2.5, total 55.5. Research only.
+Made 2026-11-25T03:50:20+00:00 from the board built 2026-11-25T03:46:51+00:00. Projected score: DET 27.25, CHI 28.25. Spread (home) 1.5, total 55.5. Research only.
 
 ## 1. Weather now
 Indoors.
@@ -19,28 +19,28 @@ Ranks: 32 = allows the most (blitz: 1 = blitzes most; separation: 1 = takes away
 ## 4. Strongest reads (our chance, with the model's slate-wide lean removed, blended with the market's fair chance)
 | Player | Pick | Blend | Model | Market | Flags |
 |---|---|---|---|---|---|
-| Amon-Ra St. Brown (DET) | Under 7.5 catches | **67%** | 78% | 54% |  |
-| Sam LaPorta (DET) | Under 4.5 catches | **62%** | 68% | 56% |  |
-| Luther Burden III (CHI) | Over 4.5 catches | **58%** | 60% | 56% |  |
-| D'Andre Swift (CHI) | Under 51.5 rushing yards | **60%** | 70% | 50% |  |
+| Amon-Ra St. Brown (DET) | Under 7.5 catches | **66%** | 76% | 53% |  |
+| Luther Burden III (CHI) | Over 4.5 catches | **59%** | 62% | 57% |  |
+| Sam LaPorta (DET) | Under 4.5 catches | **61%** | 66% | 56% |  |
+| D'Andre Swift (CHI) | Under 48.5 rushing yards | **59%** | 68% | 50% |  |
 | Kyle Monangai (CHI) | Under 34.5 rushing yards | **57%** | 64% | 50% |  |
-| Amon-Ra St. Brown (DET) | Under 87.5 receiving yards | **57%** | 64% | 50% |  |
-| Kalif Raymond (CHI) | Over 23.5 receiving yards | **54%** | 58% | 50% |  |
-| Colston Loveland (CHI) | Under 5.5 catches | **57%** | 59% | 55% |  |
+| Isaac TeSlaa (DET) | Over 1.5 catches | **54%** | 62% | 46% |  |
+| Amon-Ra St. Brown (DET) | Under 86.5 receiving yards | **57%** | 64% | 50% |  |
 | Rome Odunze (CHI) | Over 47.5 receiving yards | **54%** | 57% | 50% |  |
-| Isaac TeSlaa (DET) | Over 1.5 catches | **53%** | 61% | 45% |  |
-| Luther Burden III (CHI) | Over 60.5 receiving yards | **52%** | 55% | 50% |  |
-| Kalif Raymond (CHI) | Over 2.5 catches | **52%** | 56% | 47% |  |
-| Jahmyr Gibbs (DET) | Under 4.5 catches | **55%** | 58% | 51% |  |
+| Kalif Raymond (CHI) | Over 23.5 receiving yards | **54%** | 58% | 50% |  |
+| Colston Loveland (CHI) | Under 5.5 catches | **56%** | 57% | 55% |  |
+| Kalif Raymond (CHI) | Over 2.5 catches | **52%** | 58% | 47% |  |
+| Luther Burden III (CHI) | Over 60.5 receiving yards | **52%** | 54% | 50% |  |
+| Jahmyr Gibbs (DET) | Under 4.5 catches | **54%** | 57% | 51% |  |
 | Jahmyr Gibbs (DET) | Under 91.5 rushing yards | **54%** | 58% | 50% |  |
-| D'Andre Swift (CHI) | Under 2.5 catches | **54%** | 54% | 55% |  |
-| Rome Odunze (CHI) | Over 3.5 catches | **50%** | 57% | 43% |  |
+| Rome Odunze (CHI) | Over 3.5 catches | **51%** | 58% | 43% |  |
+| D'Andre Swift (CHI) | Under 2.5 catches | **54%** | 53% | 55% |  |
 QB rushing has no model: a single long scramble beats an under, so treat QB rushing unders as risky.
 
 ## 5. Six picks (one per player, at most three per team)
-1. **Amon-Ra St. Brown Under 7.5 catches**: 67% (model 78%, market 54%)
-2. **Sam LaPorta Under 4.5 catches**: 62% (model 68%, market 56%)
-3. **Luther Burden III Over 4.5 catches**: 58% (model 60%, market 56%)
-4. **D'Andre Swift Under 51.5 rushing yards**: 60% (model 70%, market 50%)
+1. **Amon-Ra St. Brown Under 7.5 catches**: 66% (model 76%, market 53%)
+2. **Luther Burden III Over 4.5 catches**: 59% (model 62%, market 57%)
+3. **Sam LaPorta Under 4.5 catches**: 61% (model 66%, market 56%)
+4. **D'Andre Swift Under 48.5 rushing yards**: 59% (model 68%, market 50%)
 
-All 4 hit together about 14.6% of the time if they were independent. Smaller entries fit the model better.
+All 4 hit together about 14.0% of the time if they were independent. Smaller entries fit the model better.
