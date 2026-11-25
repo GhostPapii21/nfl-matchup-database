@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-29, 16:05 ET.** Site: Home; roof: dome; surface: matrixturf. Rest: NE 14 days, LAC 7 days. Listed QBs: Drake Maye (NE), Justin Herbert (LAC).
 
-Market (schedule consensus, not a timestamped quote): LAC -1.5, total 35.5.
+Market (schedule consensus, not a timestamped quote): LAC +1.5, total 35.5.
 
-Generated 2026-11-25T03:46:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-25T23:32:03+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,37 +12,37 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-25T03:40:22Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
+Retrieved 2026-11-25T23:26:26Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | LAC -1.5 | -104 | -122 | 48.1% | 51.9% | 5.9% | 2026-11-25T03:40:22+00:00 |
-| spread | pinnacle | LAC -1 | -100 | -112 | 48.6% | 51.4% | 2.8% | 2026-11-25T03:40:22+00:00 |
-| spread | consensus | LAC -1.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
-| spread | open | LAC -1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| spread | draftkings | LAC -1.5 | +102 | -122 | 47.4% | 52.6% | 4.5% | 2026-11-25T03:40:22+00:00 |
-| spread | bet365 | LAC -1.5 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-25T03:40:22+00:00 |
-| spread | williamhill_us | LAC -1.5 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-25T03:40:22+00:00 |
-| spread | betmgm | LAC -1 | -105 | -112 | 49.2% | 50.8% | 4.0% | 2026-11-25T03:40:22+00:00 |
-| spread | betrivers | LAC -0.5 | -110 | -112 | 49.8% | 50.2% | 5.2% | 2026-11-25T03:40:22+00:00 |
-| total | fanduel | Over 35.5 | -115 | -111 | 50.4% | 49.6% | 6.1% | 2026-11-25T03:40:22+00:00 |
-| total | pinnacle | Over 35 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-25T03:40:22+00:00 |
-| total | consensus | Over 35.5 | -109 | -109 | 50.0% | 50.0% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| total | draftkings | Over 35.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T03:40:22+00:00 |
-| total | betrivers | Over 35.5 | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-25T03:40:22+00:00 |
-| total | bet365 | Over 35.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| total | williamhill_us | Over 35.5 | -112 | -109 | 50.3% | 49.7% | 5.0% | 2026-11-25T03:40:22+00:00 |
-| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| total | betmgm | Over 35 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| moneyline | fanduel | LAC | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-25T03:40:22+00:00 |
-| moneyline | pinnacle | LAC | -107 | -105 | 50.2% | 49.8% | 2.9% | 2026-11-25T03:40:22+00:00 |
-| moneyline | consensus | LAC | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | open | LAC | -125 | +105 | 53.2% | 46.8% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| moneyline | draftkings | LAC | -113 | -104 | 51.0% | 49.0% | 4.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | betrivers | LAC | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | betmgm | LAC | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | bet365 | LAC | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-25T03:40:22+00:00 |
-| moneyline | williamhill_us | LAC | -117 | -102 | 51.6% | 48.4% | 4.4% | 2026-11-25T03:40:22+00:00 |
+| spread | fanduel | LAC +1.5 | -118 | -108 | 51.0% | 49.0% | 6.0% | 2026-11-25T23:26:26+00:00 |
+| spread | pinnacle | LAC +1 | -108 | -105 | 50.3% | 49.7% | 3.1% | 2026-11-25T23:26:26+00:00 |
+| spread | consensus | LAC +1.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | draftkings | LAC +1.5 | -123 | +102 | 52.7% | 47.3% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | bet365 | LAC +1.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-25T23:26:26+00:00 |
+| spread | open | LAC -1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| spread | betmgm | LAC +1 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | williamhill_us | LAC +1 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | betrivers | LAC -0.5 | -109 | -113 | 49.6% | 50.4% | 5.2% | 2026-11-25T23:26:26+00:00 |
+| total | fanduel | Over 35.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-25T23:26:26+00:00 |
+| total | pinnacle | Over 35 | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-25T23:26:26+00:00 |
+| total | consensus | Over 35.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T23:26:26+00:00 |
+| total | draftkings | Over 35.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T23:26:26+00:00 |
+| total | betmgm | Over 35.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| total | bet365 | Over 35.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| total | williamhill_us | Over 35.5 | -112 | -109 | 50.3% | 49.7% | 5.0% | 2026-11-25T23:26:26+00:00 |
+| total | betrivers | Over 36.5 | -107 | -115 | 49.1% | 50.8% | 5.2% | 2026-11-25T23:26:26+00:00 |
+| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| moneyline | fanduel | LAC | -102 | -116 | 48.5% | 51.5% | 4.2% | 2026-11-25T23:26:26+00:00 |
+| moneyline | pinnacle | LAC | +100 | -113 | 48.5% | 51.5% | 3.0% | 2026-11-25T23:26:26+00:00 |
+| moneyline | consensus | LAC | -107 | -111 | 49.6% | 50.4% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| moneyline | open | LAC | -125 | +105 | 53.2% | 46.8% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| moneyline | draftkings | LAC | -106 | -112 | 49.3% | 50.7% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| moneyline | betrivers | LAC | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-25T23:26:26+00:00 |
+| moneyline | betmgm | LAC | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| moneyline | bet365 | LAC | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| moneyline | williamhill_us | LAC | -105 | -113 | 49.1% | 50.9% | 4.3% | 2026-11-25T23:26:26+00:00 |
 
 Player props: OK.
 
@@ -74,8 +74,8 @@ Player props: OK.
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | NE 24.4 - LAC 20.3 | 44.7 | -4 | 36.3% | 36.1% | 81.2% | NE 13.4 - LAC 10.2 |
-| independent | NE 26.4 - LAC 19.9 | 46.3 | -6.6 | 29.3% | 26.9% | 78.7% | NE 14.9 - LAC 9.9 |
+| matchup_pair | NE 24.4 - LAC 20.3 | 44.7 | -4 | 36.3% | 38.3% | 81.2% | NE 13.4 - LAC 10.2 |
+| independent | NE 26.4 - LAC 19.9 | 46.3 | -6.6 | 29.3% | 33.0% | 78.7% | NE 14.9 - LAC 9.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -322,7 +322,7 @@ Neutral-situation pass rate 53.4%; 60.1 plays per game; target share WR 60% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 16.5 | 4 |
 | defense allows | Deep right | 17 | 7% | 65% | 17.06 | 7 |
 
-### NE lines (depth chart as of 2026-11-24T18:50:30Z)
+### NE lines (depth chart as of 2026-11-25T17:56:34Z)
 
 Offensive line: LT Will Campbell, LG Greg Van Roten, C Jared Wilson, RG Matt Pryor, RT Morgan Moses.  
 Defensive front: LDE Christian Barmore, NT Cory Durden, RDE Milton Williams, WLB Elijah Ponder, SLB Dre'Mont Jones.
@@ -331,7 +331,7 @@ Defensive front: LDE Christian Barmore, NT Cory Durden, RDE Milton Williams, WLB
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Robert Spillane (LB) Questionable; Dre'Mont Jones (DE) Questionable; Romeo Doubs (WR) Injured Reserve; Drake Maye (QB) Out; Alijah Vera-Tucker (G) Injured Reserve; Walter Rouse (OL) Questionable; Brenden Schooler (S) Questionable; Carlton Davis III (CB) Questionable; Ben Brown (C) Questionable; A.J. Brown (WR) Doubtful.
+ESPN live list (designations only): Robert Spillane (LB) Questionable; Dre'Mont Jones (DE) Questionable; Drake Maye (QB) Out; Alijah Vera-Tucker (G) Injured Reserve; Walter Rouse (OL) Questionable; Brenden Schooler (S) Questionable; Carlton Davis III (CB) Questionable; Ben Brown (C) Questionable; Romeo Doubs (WR) Injured Reserve; A.J. Brown (WR) Doubtful.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -413,14 +413,14 @@ Blitz rate 23.3% and play-action faced 24.9% on 257 charted dropbacks (FTN). Dee
 |---|---|---|---|---|---|---|---|---|
 | Tarheeb Still | 7 | 35 | 22 | 250 | 7.1 | 3 | 1 | 4 |
 | Daiyan Henley | 7 | 28 | 23 | 202 | 7.2 | 0 | 1 | 2 |
-| Cam Hart | 7 | 23 | 11 | 169 | 7.3 | 0 | 1 | 2 |
+| Cam Hart | 8 | 26 | 14 | 209 | 8.0 | 0 | 1 | 2 |
 | Genesis Smith | 7 | 21 | 11 | 157 | 7.5 | 2 | 2 | 2 |
-| Tony Jefferson | 7 | 15 | 11 | 125 | 8.3 | 0 | 0 | 4 |
-| Elijah Molden | 6 | 13 | 11 | 192 | 14.8 | 1 | 0 | 1 |
-| Del'Shawn Phillips | 7 | 13 | 11 | 80 | 6.2 | 1 | 1 | 3 |
+| Tony Jefferson | 8 | 18 | 13 | 152 | 8.4 | 0 | 0 | 5 |
+| Elijah Molden | 7 | 16 | 13 | 221 | 13.8 | 1 | 0 | 1 |
+| Del'Shawn Phillips | 8 | 16 | 13 | 99 | 6.2 | 1 | 1 | 3 |
+| Donte Jackson | 5 | 12 | 8 | 155 | 12.9 | 4 | 0 | 2 |
 | Isas Waxter | 3 | 10 | 5 | 9 | 0.9 | 0 | 0 | 0 |
-| Rodney Shelley | 4 | 9 | 6 | 113 | 12.6 | 1 | 0 | 2 |
-| Donte Jackson | 4 | 8 | 4 | 119 | 14.9 | 1 | 0 | 2 |
+| Deane Leonard | 4 | 9 | 6 | 74 | 8.2 | 0 | 0 | 0 |
 
 ### LAC pass rushers
 
@@ -428,11 +428,11 @@ Blitz rate 23.3% and play-action faced 24.9% on 257 charted dropbacks (FTN). Dee
 |---|---|---|---|---|---|
 | Tuli Tuipulotu | 7 | 12 | 3.0 | 2 | 10 |
 | Akheem Mesidor | 6 | 8 | 2.0 | 1 | 1 |
-| Khalil Mack | 4 | 7 | 2.0 | 3 | 5 |
+| Khalil Mack | 5 | 7 | 2.0 | 3 | 5 |
 | Teair Tart | 6 | 4 | 0.0 | 0 | 0 |
+| Troy Dye | 6 | 4 | 2.0 | 2 | 6 |
 | Daiyan Henley | 7 | 4 | 0.0 | 3 | 19 |
 | Dalvin Tomlinson | 3 | 3 | 2.0 | 0 | 0 |
-| Troy Dye | 5 | 2 | 1.0 | 1 | 5 |
 | Justin Eboigbe | 2 | 2 | 0.5 | 0 | 0 |
 
 ### LAC offense: what it produces (rank 1 = best offense)
@@ -515,11 +515,11 @@ Neutral-situation pass rate 40.1%; 61.8 plays per game; target share WR 47% / TE
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
 | offense | Shotgun | 307 | 62% | 69% | 4.85 | -0.126 |
-| offense | Under center | 164 | 33% | 33% | 4.59 | -0.057 |
-| offense | No huddle | 23 | 5% | 91% | 2.65 | -0.641 |
-| defense vs | Shotgun | 268 | 57% | 73% | 6.53 | 0.074 |
-| defense vs | Under center | 183 | 39% | 30% | 4.45 | -0.058 |
-| defense vs | No huddle | 20 | 4% | 40% | 9.05 | 0.526 |
+| offense | Under center | 163 | 33% | 32% | 4.63 | -0.054 |
+| offense | No huddle | 24 | 5% | 92% | 2.46 | -0.643 |
+| defense vs | Shotgun | 269 | 57% | 72% | 6.51 | 0.074 |
+| defense vs | Under center | 181 | 38% | 30% | 4.48 | -0.052 |
+| defense vs | No huddle | 21 | 4% | 38% | 8.62 | 0.438 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -536,7 +536,7 @@ Neutral-situation pass rate 40.1%; 61.8 plays per game; target share WR 47% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 15.7 | 4 |
 | defense allows | Deep right | 20 | 8% | 60% | 16.9 | 9 |
 
-### LAC lines (depth chart as of 2026-11-24T18:50:30Z)
+### LAC lines (depth chart as of 2026-11-25T17:56:34Z)
 
 Offensive line: LT Joe Alt, LG Logan Taylor, C Jake Slaughter, RG Kayode Awosika, RT Travis Burke.  
 Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tuli Tuipulotu, SLB Khalil Mack.
@@ -545,7 +545,7 @@ Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tu
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Rodney Shelley (CB) Injured Reserve; Keaton Mitchell (RB) Questionable; Akheem Mesidor (LB) Questionable; Justin Herbert (QB) Questionable; Kendall Williamson (S) Questionable; Tarheeb Still (CB) Questionable; Brenen Thompson (WR) Questionable; Daiyan Henley (LB) Questionable.
+ESPN live list (designations only): Rodney Shelley (CB) Injured Reserve; Keaton Mitchell (RB) Questionable; Akheem Mesidor (LB) Questionable; Kendall Williamson (S) Questionable; Tarheeb Still (CB) Questionable; Brenen Thompson (WR) Questionable; Daiyan Henley (LB) Questionable; Justin Herbert (QB) Questionable; David Njoku (TE) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -589,20 +589,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-25T03:45:38+00:00 | 4ea672f40856 |
-| pbp | OK | 2026-11-25T03:45:38+00:00 | b74af456d30b |
-| rosters | OK | 2026-11-25T03:45:39+00:00 | 025956d0eab7 |
-| injuries | OK | 2026-11-25T03:45:39+00:00 | 46e0f80ab820 |
-| depth_charts | OK | 2026-11-25T03:45:39+00:00 | 9f9fb70531af |
-| snap_counts | OK | 2026-11-25T03:45:39+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-25T03:45:40+00:00 | c1fb485fa868 |
-| pfr_def | OK | 2026-11-25T03:45:40+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-25T03:45:40+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-25T03:45:40+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-25T03:45:41+00:00 | 1182ae58702b |
-| ngs_rushing | OK | 2026-11-25T03:45:41+00:00 | 8224482c119b |
-| ngs_passing | OK | 2026-11-25T03:45:41+00:00 | 688f7a6ebfcf |
-| espn_injuries | OK | 2026-11-25T03:45:42+00:00 |  |
+| games | OK | 2026-11-25T23:31:38+00:00 | 77fb5209595d |
+| pbp | OK | 2026-11-25T23:31:38+00:00 | bf67de3a1b7c |
+| rosters | OK | 2026-11-25T23:31:38+00:00 | ed880688b34e |
+| injuries | OK | 2026-11-25T23:31:39+00:00 | 817556322552 |
+| depth_charts | OK | 2026-11-25T23:31:39+00:00 | fbee5945e1b2 |
+| snap_counts | OK | 2026-11-25T23:31:39+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-25T23:31:39+00:00 | f7a34d74de28 |
+| pfr_def | OK | 2026-11-25T23:31:40+00:00 | c4251b1fd2fa |
+| pfr_rec | OK | 2026-11-25T23:31:40+00:00 | 8f0fd28d26e7 |
+| pfr_rush | OK | 2026-11-25T23:31:40+00:00 | b0d1aa83f4d1 |
+| ngs_receiving | OK | 2026-11-25T23:31:40+00:00 | ed8f3bae7a35 |
+| ngs_rushing | OK | 2026-11-25T23:31:41+00:00 | f4a7e49167df |
+| ngs_passing | OK | 2026-11-25T23:31:41+00:00 | 8fb034918611 |
+| espn_injuries | OK | 2026-11-25T23:31:42+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

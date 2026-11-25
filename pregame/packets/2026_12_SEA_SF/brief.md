@@ -2,92 +2,92 @@
 
 **Sunday 2026-11-29, 16:25 ET.** Site: Home; roof: outdoors; surface: grass. Rest: SEA 14 days, SF 7 days. Listed QBs: Sam Darnold (SEA), Brock Purdy (SF).
 
-Market (schedule consensus, not a timestamped quote): SF -3.5, total 45.5.
+Market (schedule consensus, not a timestamped quote): SF -2.5, total 44.5.
 
-Generated 2026-11-25T03:46:09+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-25T23:32:05+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-25T03:46:08+00:00 UTC. At kickoff: 63 F, wind 15 mph S, 65% chance of precipitation, Light Rain Likely. During the game: low 62 F, wind up to 15 mph, precipitation chance up to 75%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-25T23:32:04+00:00 UTC. At kickoff: 63 F, wind 12 mph S, 67% chance of precipitation, Light Rain Likely. During the game: low 62 F, wind up to 12 mph, precipitation chance up to 84%. Roof: outdoors. Flags: PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-25T03:40:22Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betrivers, consensus, draftkings, fanduel, open, williamhill_us.
+Retrieved 2026-11-25T23:26:26Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, consensus, draftkings, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | SF -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| spread | pinnacle | SF -3 | -112 | -100 | 51.4% | 48.6% | 2.8% | 2026-11-25T03:40:22+00:00 |
-| spread | betrivers | SF -3 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-25T03:40:22+00:00 |
-| spread | betmgm | SF -3 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-25T03:40:22+00:00 |
-| spread | williamhill_us | SF -3 | -114 | -105 | 51.0% | 49.0% | 4.5% | 2026-11-25T03:40:22+00:00 |
-| spread | consensus | SF -3.5 | -105 | -114 | 49.0% | 51.0% | 4.5% | 2026-11-25T03:40:22+00:00 |
-| spread | draftkings | SF -3.5 | -101 | -118 | 48.1% | 51.9% | 4.4% | 2026-11-25T03:40:22+00:00 |
-| spread | bet365 | SF -3.5 | -101 | -119 | 48.0% | 51.9% | 4.6% | 2026-11-25T03:40:22+00:00 |
-| spread | open | SF -1.5 | +105 | -125 | 46.8% | 53.2% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| total | fanduel | Over 44.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-25T03:40:22+00:00 |
-| total | pinnacle | Over 45 | -111 | -103 | 50.9% | 49.1% | 3.4% | 2026-11-25T03:40:22+00:00 |
-| total | consensus | Over 45.5 | -105 | -113 | 49.1% | 50.9% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| total | draftkings | Over 45.5 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-25T03:40:22+00:00 |
-| total | bet365 | Over 45.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T03:40:22+00:00 |
-| total | open | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| total | betmgm | Over 45 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| total | williamhill_us | Over 45 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| total | betrivers | Over 46 | -109 | -112 | 49.7% | 50.3% | 5.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | fanduel | SF | -162 | +136 | 59.3% | 40.7% | 4.2% | 2026-11-25T03:40:22+00:00 |
-| moneyline | pinnacle | SF | -170 | +150 | 61.2% | 38.9% | 3.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | consensus | SF | -177 | +146 | 61.1% | 38.9% | 4.5% | 2026-11-25T03:40:22+00:00 |
-| moneyline | open | SF | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T03:40:22+00:00 |
-| moneyline | draftkings | SF | -179 | +151 | 61.7% | 38.3% | 4.0% | 2026-11-25T03:40:22+00:00 |
-| moneyline | betrivers | SF | -159 | +130 | 58.5% | 41.5% | 4.9% | 2026-11-25T03:40:22+00:00 |
-| moneyline | betmgm | SF | -185 | +150 | 61.9% | 38.1% | 4.9% | 2026-11-25T03:40:22+00:00 |
-| moneyline | bet365 | SF | -180 | +150 | 61.6% | 38.4% | 4.3% | 2026-11-25T03:40:22+00:00 |
-| moneyline | williamhill_us | SF | -176 | +148 | 61.3% | 38.7% | 4.1% | 2026-11-25T03:40:22+00:00 |
+| spread | fanduel | SF -2.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-25T23:26:26+00:00 |
+| spread | pinnacle | SF -2.5 | -111 | -101 | 51.1% | 48.9% | 2.9% | 2026-11-25T23:26:26+00:00 |
+| spread | consensus | SF -2.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | draftkings | SF -2.5 | -121 | +100 | 52.3% | 47.7% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| spread | betrivers | SF -2.5 | -121 | -103 | 51.9% | 48.1% | 5.5% | 2026-11-25T23:26:26+00:00 |
+| spread | betmgm | SF -2.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | bet365 | SF -2.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
+| spread | williamhill_us | SF -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-25T23:26:26+00:00 |
+| spread | open | SF -1.5 | +105 | -125 | 46.8% | 53.2% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| total | fanduel | Over 44.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-25T23:26:26+00:00 |
+| total | pinnacle | Over 44.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-25T23:26:26+00:00 |
+| total | consensus | Over 44.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T23:26:26+00:00 |
+| total | draftkings | Over 44.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-25T23:26:26+00:00 |
+| total | betrivers | Over 44.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| total | betmgm | Over 44.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T23:26:26+00:00 |
+| total | bet365 | Over 44.5 | -111 | -109 | 50.2% | 49.8% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| total | williamhill_us | Over 44.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| total | open | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| moneyline | fanduel | SF | -144 | +122 | 56.7% | 43.3% | 4.1% | 2026-11-25T23:26:26+00:00 |
+| moneyline | pinnacle | SF | -140 | +124 | 56.6% | 43.4% | 3.0% | 2026-11-25T23:26:26+00:00 |
+| moneyline | consensus | SF | -145 | +122 | 56.8% | 43.2% | 4.2% | 2026-11-25T23:26:26+00:00 |
+| moneyline | open | SF | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| moneyline | draftkings | SF | -147 | +124 | 57.1% | 42.9% | 4.2% | 2026-11-25T23:26:26+00:00 |
+| moneyline | betrivers | SF | -150 | +123 | 57.2% | 42.8% | 4.8% | 2026-11-25T23:26:26+00:00 |
+| moneyline | betmgm | SF | -145 | +120 | 56.6% | 43.4% | 4.6% | 2026-11-25T23:26:26+00:00 |
+| moneyline | bet365 | SF | -146 | +123 | 57.0% | 43.0% | 4.2% | 2026-11-25T23:26:26+00:00 |
+| moneyline | williamhill_us | SF | -143 | +121 | 56.5% | 43.5% | 4.1% | 2026-11-25T23:26:26+00:00 |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Jaxon Smith-Njigba | receiving yards | draftkings | 95.5 | -114 / -110 | 50.4% | n/a | 119.5 | 124.9 | 8 | 24.0 |
-| Jaxon Smith-Njigba | receiving yards | fanduel | 97.5 | -114 / -114 | 50.0% | n/a | 119.5 | 124.9 | 8 | 22.0 |
-| Jaxon Smith-Njigba | receiving yards | betmgm | 99.5 | -115 / -115 | 50.0% | n/a | 119.5 | 124.9 | 8 | 20.0 |
-| Mike Evans | receiving yards | fanduel | 59.5 | -114 / -114 | 50.0% | n/a | 77.2 | 79.9 | 5 | 17.7 |
-| Mike Evans | receiving yards | draftkings | 61.5 | -113 / -111 | 50.2% | n/a | 77.2 | 79.9 | 5 | 15.7 |
+| Jaxon Smith-Njigba | receiving yards | draftkings | 94.5 | -111 / -113 | 49.8% | n/a | 119.5 | 124.9 | 8 | 25.0 |
+| Jaxon Smith-Njigba | receiving yards | betonlineag | 94.5 | -125 / -103 | 52.3% | n/a | 119.5 | 124.9 | 8 | 25.0 |
+| Jaxon Smith-Njigba | receiving yards | fanduel | 97.5 | -114 / -114 | 50.0% | 50.2% | 119.5 | 124.9 | 8 | 22.0 |
+| Jaxon Smith-Njigba | receiving yards | betrivers | 98.5 | -117 / -114 | 50.3% | n/a | 119.5 | 124.9 | 8 | 21.0 |
+| Jaxon Smith-Njigba | receiving yards | betmgm | 100.5 | -115 / -115 | 50.0% | n/a | 119.5 | 124.9 | 8 | 19.0 |
+| Mike Evans | receiving yards | betrivers | 58.5 | -114 / -117 | 49.7% | n/a | 77.2 | 79.9 | 5 | 18.7 |
+| Mike Evans | receiving yards | fanduel | 59.5 | -114 / -114 | 50.0% | 50.2% | 77.2 | 79.9 | 5 | 17.7 |
+| Mike Evans | receiving yards | draftkings | 59.5 | -112 / -112 | 50.0% | 50.2% | 77.2 | 79.9 | 5 | 17.7 |
+| Mike Evans | receiving yards | betonlineag | 59.5 | -115 / -112 | 50.3% | 50.2% | 77.2 | 79.9 | 5 | 17.7 |
 | Mike Evans | receiving yards | betmgm | 61.5 | -115 / -115 | 50.0% | n/a | 77.2 | 79.9 | 5 | 15.7 |
+| Kaelon Black | rushing yards | draftkings | 18.5 | -114 / -110 | 50.4% | n/a | 31.4 | 22.1 | 8 | 12.9 |
+| Kaelon Black | rushing yards | betrivers | 18.5 | -110 / -120 | 49.0% | n/a | 31.4 | 22.1 | 8 | 12.9 |
+| Kaelon Black | rushing yards | bovada | 18.5 | -115 / -115 | 50.0% | n/a | 31.4 | 22.1 | 8 | 12.9 |
+| Christian McCaffrey | rushing yards | bovada | 63.5 | +150 / -200 | 37.5% | n/a | 50.9 | 54.7 | 8 | -12.6 |
+| Jadarian Price | rushing yards | bovada | 35.5 | +185 / -250 | 32.9% | n/a | 23.5 | 22.5 | 4 | -12.0 |
 | Kaelon Black | rushing yards | fanduel | 19.5 | -114 / -114 | 50.0% | n/a | 31.4 | 22.1 | 8 | 11.9 |
-| Kaelon Black | rushing yards | betmgm | 19.5 | -111 / -120 | 49.1% | n/a | 31.4 | 22.1 | 8 | 11.9 |
-| Kaelon Black | rushing yards | draftkings | 20.5 | -110 / -114 | 49.6% | n/a | 31.4 | 22.1 | 8 | 10.9 |
-| George Kittle | receiving yards | fanduel | 46.5 | -114 / -114 | 50.0% | n/a | 55.6 | 63.2 | 8 | 9.1 |
-| George Kittle | receiving yards | draftkings | 47.5 | -110 / -114 | 49.6% | n/a | 55.6 | 63.2 | 8 | 8.1 |
-| Cooper Kupp | receiving yards | draftkings | 19.5 | -109 / -115 | 49.4% | n/a | 27.3 | 26.4 | 8 | 7.8 |
-| George Kittle | receiving yards | betmgm | 48.5 | -115 / -115 | 50.0% | n/a | 55.6 | 63.2 | 8 | 7.1 |
+| Kaelon Black | rushing yards | betonlineag | 19.5 | -110 / -118 | 49.2% | n/a | 31.4 | 22.1 | 8 | 11.9 |
+| Kaelon Black | rushing yards | betmgm | 19.5 | -115 / -115 | 50.0% | n/a | 31.4 | 22.1 | 8 | 11.9 |
+| George Kittle | receiving yards | draftkings | 45.5 | -115 / -109 | 50.6% | n/a | 55.6 | 63.2 | 8 | 10.1 |
+| George Kittle | receiving yards | betrivers | 45.5 | -117 / -114 | 50.3% | n/a | 55.6 | 63.2 | 8 | 10.1 |
+| George Kittle | receiving yards | fanduel | 46.5 | -114 / -114 | 50.0% | 50.0% | 55.6 | 63.2 | 8 | 9.1 |
+| George Kittle | receiving yards | betonlineag | 46.5 | -114 / -114 | 50.0% | 50.0% | 55.6 | 63.2 | 8 | 9.1 |
+| George Kittle | receiving yards | betmgm | 46.5 | -120 / -111 | 50.9% | 50.0% | 55.6 | 63.2 | 8 | 9.1 |
+| Cooper Kupp | receiving yards | draftkings | 19.5 | -115 / -109 | 50.6% | n/a | 27.3 | 26.4 | 8 | 7.8 |
+| Cooper Kupp | receiving yards | bovada | 19.5 | -120 / -110 | 51.0% | n/a | 27.3 | 26.4 | 8 | 7.8 |
+| Mike Evans | receiving yards | bovada | 69.5 | +135 / -180 | 39.8% | n/a | 77.2 | 79.9 | 5 | 7.7 |
 | Cooper Kupp | receiving yards | fanduel | 20.5 | -114 / -114 | 50.0% | n/a | 27.3 | 26.4 | 8 | 6.8 |
-| Zach Charbonnet | rushing yards | fanduel | 55.5 | -114 / -114 | 50.0% | n/a | 61.7 | 65.5 | 3 | 6.2 |
-| Zach Charbonnet | rushing yards | draftkings | 55.5 | -111 / -113 | 49.8% | n/a | 61.7 | 65.5 | 3 | 6.2 |
-| Cooper Kupp | receiving yards | betmgm | 21.5 | -120 / -110 | 51.0% | n/a | 27.3 | 26.4 | 8 | 5.8 |
-| Rashid Shaheed | receiving yards | draftkings | 16.5 | -116 / -109 | 50.7% | n/a | 21.8 | 17.3 | 6 | 5.3 |
-| Zach Charbonnet | rushing yards | betmgm | 56.5 | -120 / -111 | 50.9% | n/a | 61.7 | 65.5 | 3 | 5.2 |
+| Cooper Kupp | receiving yards | betonlineag | 20.5 | -114 / -114 | 50.0% | n/a | 27.3 | 26.4 | 8 | 6.8 |
+| Zach Charbonnet | rushing yards | bovada | 68.5 | +150 / -200 | 37.5% | n/a | 61.7 | 65.5 | 3 | -6.8 |
+| Zach Charbonnet | rushing yards | fanduel | 55.5 | -114 / -114 | 50.0% | 50.0% | 61.7 | 65.5 | 3 | 6.2 |
+| Zach Charbonnet | rushing yards | betonlineag | 55.5 | -114 / -114 | 50.0% | 50.0% | 61.7 | 65.5 | 3 | 6.2 |
+| Cooper Kupp | receiving yards | betrivers | 21.5 | -118 / -113 | 50.5% | n/a | 27.3 | 26.4 | 8 | 5.8 |
+| Rashid Shaheed | receiving yards | draftkings | 16.5 | -117 / -108 | 50.9% | n/a | 21.8 | 17.3 | 6 | 5.3 |
+| Rashid Shaheed | receiving yards | bovada | 16.5 | -120 / -110 | 51.0% | n/a | 21.8 | 17.3 | 6 | 5.3 |
+| Zach Charbonnet | rushing yards | betrivers | 56.5 | -118 / -113 | 50.5% | n/a | 61.7 | 65.5 | 3 | 5.2 |
+| Zach Charbonnet | rushing yards | betmgm | 56.5 | -115 / -115 | 50.0% | n/a | 61.7 | 65.5 | 3 | 5.2 |
+| Jaxon Smith-Njigba | receiving yards | bovada | 114.5 | +170 / -230 | 34.7% | n/a | 119.5 | 124.9 | 8 | 5.0 |
+| Cooper Kupp | receiving yards | betmgm | 22.5 | -111 / -120 | 49.1% | n/a | 27.3 | 26.4 | 8 | 4.8 |
 | Rashid Shaheed | receiving yards | fanduel | 17.5 | -114 / -114 | 50.0% | n/a | 21.8 | 17.3 | 6 | 4.3 |
-| Christian McCaffrey | rushing yards | fanduel | 54.5 | -114 / -114 | 50.0% | n/a | 50.9 | 54.7 | 8 | -3.6 |
-| AJ Barner | receiving yards | draftkings | 22.5 | -108 / -116 | 49.2% | n/a | 25.7 | 20.9 | 8 | 3.2 |
-| Jadarian Price | rushing yards | draftkings | 26.5 | -116 / -109 | 50.7% | n/a | 23.5 | 22.5 | 4 | -3.0 |
-| Christian McCaffrey | rushing yards | draftkings | 53.5 | -115 / -110 | 50.5% | n/a | 50.9 | 54.7 | 8 | -2.6 |
-| Christian McCaffrey | rushing yards | betmgm | 53.5 | -115 / -115 | 50.0% | n/a | 50.9 | 54.7 | 8 | -2.6 |
-| Rashid Shaheed | receiving yards | betmgm | 19.5 | -120 / -111 | 50.9% | n/a | 21.8 | 17.3 | 6 | 2.3 |
-| AJ Barner | receiving yards | fanduel | 23.5 | -114 / -114 | 50.0% | n/a | 25.7 | 20.9 | 8 | 2.2 |
-| Jadarian Price | rushing yards | fanduel | 25.5 | -114 / -114 | 50.0% | n/a | 23.5 | 22.5 | 4 | -2.0 |
-| Jadarian Price | rushing yards | betmgm | 25.5 | -115 / -115 | 50.0% | n/a | 23.5 | 22.5 | 4 | -2.0 |
-| AJ Barner | receiving yards | betmgm | 24.5 | -115 / -115 | 50.0% | n/a | 25.7 | 20.9 | 8 | 1.2 |
-| Jaxon Smith-Njigba | receptions | fanduel | 7.5 | +100 / -136 | 46.5% | n/a | 8.5 | 8.3 | 8 | 1.0 |
-| Jaxon Smith-Njigba | receptions | draftkings | 7.5 | -106 / -121 | 48.4% | n/a | 8.5 | 8.3 | 8 | 1.0 |
-| Jaxon Smith-Njigba | receptions | betmgm | 7.5 | -120 / -110 | 51.0% | n/a | 8.5 | 8.3 | 8 | 1.0 |
-| Rashid Shaheed | receptions | fanduel | 1.5 | -188 / +140 | 61.0% | n/a | 2.4 | 2.2 | 6 | 0.9 |
-| Rashid Shaheed | receptions | draftkings | 1.5 | -182 / +142 | 61.0% | n/a | 2.4 | 2.2 | 6 | 0.9 |
-| AJ Barner | receptions | draftkings | 2.5 | -160 / +125 | 58.1% | n/a | 3.2 | 3.4 | 8 | 0.7 |
-| AJ Barner | receptions | betmgm | 2.5 | -165 / +125 | 58.4% | n/a | 3.2 | 3.4 | 8 | 0.7 |
-| George Kittle | receptions | fanduel | 4.5 | +116 / -154 | 43.3% | n/a | 5.1 | 5.0 | 8 | 0.6 |
-| George Kittle | receptions | draftkings | 4.5 | +111 / -142 | 44.7% | n/a | 5.1 | 5.0 | 8 | 0.6 |
-| George Kittle | receptions | betmgm | 4.5 | +100 / -135 | 46.5% | n/a | 5.1 | 5.0 | 8 | 0.6 |
+| Rashid Shaheed | receiving yards | betonlineag | 17.5 | -111 / -116 | 49.5% | n/a | 21.8 | 17.3 | 6 | 4.3 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -123,8 +123,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | SEA 23.8 - SF 22.7 | 46.5 | -1.1 | 51.3% | 38.1% | 54.3% | SEA 11.3 - SF 11.5 |
-| independent | SEA 26.0 - SF 27.9 | 53.9 | +1.9 | 55.6% | 47.2% | 73.2% | SEA 12.4 - SF 14.4 |
+| matchup_pair | SEA 23.8 - SF 22.7 | 46.5 | -1.1 | 51.3% | 45.2% | 56.2% | SEA 11.3 - SF 11.5 |
+| independent | SEA 26.0 - SF 27.9 | 53.9 | +1.9 | 55.6% | 51.2% | 75.1% | SEA 12.4 - SF 14.4 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -165,51 +165,51 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 65% chance of rain at kickoff, wind up to 15 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 67% chance of rain at kickoff, wind up to 12 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### SEA passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 31.0 | 29.6 | 30.1 |
-| Team completion rate | 62.2% | 58.3% | 59.7% |
-| Team completions | 19.2 | 17.3 | 17.9 |
-| Team pass yards | 222.8 | 188.3 | 200.4 |
-| S.Darnold completion rate (207 attempts) | 59.8% | 56.1% | 57.4% |
-| S.Darnold yards per attempt | 6.78 | 5.93 | 6.23 |
+| Team pass attempts | 31.4 | 30.0 | 30.4 |
+| Team completion rate | 62.8% | 59.0% | 60.2% |
+| Team completions | 19.7 | 17.7 | 18.3 |
+| Team pass yards | 231.2 | 196.7 | 208.1 |
+| S.Darnold completion rate (207 attempts) | 60.5% | 56.8% | 58.0% |
+| S.Darnold yards per attempt | 6.96 | 6.11 | 6.39 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| J.Smith-Njigba | WR | 8 | 36% | 10.6 / 7.5 / 107.3 | 10.2 / 6.7 / 90.2 | 10.3 / 6.9 / 96.0 |
-| A.Barner | TE | 8 | 16% | 4.5 / 2.6 / 23.0 | 4.3 / 2.3 / 19.3 | 4.3 / 2.4 / 20.5 |
-| C.Kupp | WR | 8 | 12% | 3.7 / 2.3 / 25.0 | 3.5 / 2.0 / 21.0 | 3.6 / 2.1 / 22.4 |
-| R.Shaheed | WR | 6 | 9% | 3.8 / 2.1 / 20.3 | 3.6 / 1.9 / 17.1 | 3.6 / 1.9 / 18.2 |
-| T.Horton | WR | 6 | 8% | 3.1 / 1.6 / 17.7 | 3.0 / 1.4 / 14.9 | 3.0 / 1.5 / 15.8 |
-| G.Holani | RB | 5 | 5% | 2.6 / 2.2 / 17.3 | 2.5 / 2.0 / 14.4 | 2.5 / 2.1 / 15.4 |
-| J.Price | RB | 4 | 5% | 3.0 / 2.0 / 19.3 | 2.9 / 1.8 / 16.1 | 2.9 / 1.9 / 17.2 |
-| E.Wilson | RB | 4 | 3% | 2.0 / 1.5 / 16.3 | 1.9 / 1.4 / 13.6 | 1.9 / 1.4 / 14.5 |
+| J.Smith-Njigba | WR | 8 | 36% | 10.8 / 7.6 / 112.6 | 10.3 / 6.8 / 95.2 | 10.5 / 7.1 / 100.8 |
+| A.Barner | TE | 8 | 16% | 4.6 / 2.8 / 24.8 | 4.4 / 2.5 / 20.9 | 4.5 / 2.6 / 22.1 |
+| C.Kupp | WR | 8 | 12% | 3.7 / 2.3 / 26.3 | 3.6 / 2.1 / 22.2 | 3.6 / 2.2 / 23.5 |
+| R.Shaheed | WR | 6 | 9% | 3.8 / 2.1 / 21.3 | 3.6 / 1.9 / 18.0 | 3.7 / 2.0 / 19.1 |
+| T.Horton | WR | 6 | 8% | 3.1 / 1.6 / 18.6 | 3.0 / 1.5 / 15.7 | 3.0 / 1.5 / 16.6 |
+| G.Holani | RB | 5 | 5% | 2.6 / 2.2 / 17.2 | 2.5 / 2.0 / 14.3 | 2.5 / 2.1 / 15.3 |
+| J.Price | RB | 4 | 5% | 3.0 / 2.0 / 19.3 | 2.9 / 1.8 / 16.1 | 2.9 / 1.9 / 17.1 |
+| E.Wilson | RB | 4 | 3% | 2.0 / 1.5 / 16.3 | 1.9 / 1.4 / 13.6 | 1.9 / 1.4 / 14.4 |
 
 ### SF passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 28.5 | 27.3 | 27.7 |
-| Team completion rate | 68.3% | 64.1% | 65.6% |
-| Team completions | 19.5 | 17.5 | 18.2 |
-| Team pass yards | 251.3 | 212.4 | 226.1 |
-| B.Purdy completion rate (232 attempts) | 68.2% | 64.0% | 65.5% |
-| B.Purdy yards per attempt | 8.8 | 7.7 | 8.09 |
+| Team pass attempts | 28.9 | 27.6 | 28.0 |
+| Team completion rate | 69.1% | 64.8% | 66.2% |
+| Team completions | 19.9 | 17.9 | 18.6 |
+| Team pass yards | 260.8 | 221.9 | 234.8 |
+| B.Purdy completion rate (232 attempts) | 68.9% | 64.7% | 66.1% |
+| B.Purdy yards per attempt | 9.04 | 7.93 | 8.29 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| G.Kittle | TE | 8 | 25% | 6.6 / 4.7 / 55.1 | 6.3 / 4.1 / 46.2 | 6.4 / 4.3 / 49.3 |
-| C.McCaffrey | RB | 8 | 18% | 5.0 / 4.1 / 47.8 | 4.8 / 3.8 / 39.8 | 4.9 / 3.9 / 42.5 |
-| M.Evans | WR | 5 | 16% | 7.0 / 4.6 / 78.6 | 6.7 / 4.1 / 66.1 | 6.8 / 4.3 / 70.4 |
-| J.Watkins | WR | 6 | 7% | 2.8 / 2.1 / 44.9 | 2.7 / 1.9 / 37.8 | 2.7 / 1.9 / 40.2 |
-| D.Samuel | WR | 4 | 7% | 3.9 / 3.1 / 22.6 | 3.7 / 2.8 / 19.0 | 3.8 / 2.9 / 20.2 |
-| K.Juszczyk | RB | 5 | 5% | 2.2 / 1.6 / 12.4 | 2.1 / 1.5 / 10.4 | 2.1 / 1.5 / 11.1 |
-| J.Cowing | WR | 5 | 5% | 2.2 / 1.0 / 9.6 | 2.1 / 0.9 / 8.1 | 2.1 / 0.9 / 8.6 |
-| B.Cooks | WR | 5 | 4% | 2.0 / 1.0 / 10.7 | 1.9 / 0.9 / 9.0 | 1.9 / 0.9 / 9.6 |
+| G.Kittle | TE | 8 | 25% | 6.8 / 4.9 / 59.4 | 6.5 / 4.4 / 50.1 | 6.6 / 4.6 / 53.1 |
+| C.McCaffrey | RB | 8 | 18% | 5.0 / 4.1 / 47.7 | 4.8 / 3.8 / 39.7 | 4.9 / 3.9 / 42.3 |
+| M.Evans | WR | 5 | 16% | 7.1 / 4.7 / 82.5 | 6.8 / 4.2 / 69.8 | 6.9 / 4.4 / 73.9 |
+| J.Watkins | WR | 6 | 7% | 2.8 / 2.1 / 47.1 | 2.7 / 1.9 / 39.9 | 2.7 / 2.0 / 42.2 |
+| D.Samuel | WR | 4 | 7% | 4.0 / 3.2 / 23.7 | 3.8 / 2.9 / 20.1 | 3.9 / 3.0 / 21.3 |
+| K.Juszczyk | RB | 5 | 5% | 2.2 / 1.6 / 12.4 | 2.1 / 1.5 / 10.3 | 2.1 / 1.5 / 11.0 |
+| J.Cowing | WR | 5 | 5% | 2.2 / 1.0 / 10.1 | 2.1 / 0.9 / 8.5 | 2.1 / 0.9 / 9.0 |
+| B.Cooks | WR | 5 | 4% | 2.0 / 1.0 / 11.2 | 1.9 / 0.9 / 9.5 | 1.9 / 0.9 / 10.1 |
 
 ## SEA (last 8 games: weeks 3, 4, 5, 6, 7, 8, 9, 10)
 
@@ -406,7 +406,7 @@ Neutral-situation pass rate 46.9%; 61.9 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 10 | 4% | 60% | 12.9 | 4 |
 | defense allows | Deep right | 21 | 9% | 24% | 6.38 | 3 |
 
-### SEA lines (depth chart as of 2026-11-24T18:50:30Z)
+### SEA lines (depth chart as of 2026-11-25T17:56:34Z)
 
 Offensive line: LT Charles Cross, LG Quenton Nelson, C Jalen Sundell, RG Grey Zabel, RT Abraham Lucas.  
 Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB DeMarcus Lawrence, SLB Uchenna Nwosu.
@@ -415,14 +415,14 @@ Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Abraham Lucas (OT) Questionable; Jarran Reed (DT) Questionable; George Holani (RB) Injured Reserve; Leonard Williams (DT) Questionable; Quenton Nelson (G) Doubtful; Charles Cross (OT) Questionable; Sam Darnold (QB) Questionable.
+ESPN live list (designations only): Jarran Reed (DT) Questionable; George Holani (RB) Injured Reserve; Leonard Williams (DT) Questionable; Charles Cross (OT) Questionable; Sam Darnold (QB) Questionable; Abraham Lucas (OT) Out; Quenton Nelson (G) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### SEA roster moves (last 4 weeks)
 
-Arrived: none.  
+Arrived: Chase Lundt (OL) from BUF; Jacob De Jesus (WR) from KC.  
 Left for another team: Josiah Deguara (TE) to LAC; Josh Ross (LB) to MIN; AJ Finley (DB) to PIT; Jimmy Ciarlo (LB) to TEN; Robert Henry Jr. (RB) to WAS.
 
 ## SF (last 8 games: weeks 3, 4, 5, 6, 7, 9, 10, 11)
@@ -495,29 +495,29 @@ Blitz rate 29.0% and play-action faced 20.5% on 341 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Deommodore Lenoir | 7 | 42 | 27 | 294 | 7.0 | 5 | 0 | 1 |
-| Renardo Green | 7 | 42 | 28 | 302 | 7.2 | 2 | 3 | 1 |
-| Fred Warner | 7 | 30 | 23 | 197 | 6.6 | 0 | 0 | 7 |
+| Renardo Green | 8 | 50 | 34 | 342 | 6.8 | 2 | 3 | 1 |
+| Deommodore Lenoir | 8 | 48 | 29 | 330 | 6.9 | 5 | 0 | 1 |
+| Fred Warner | 8 | 33 | 24 | 205 | 6.2 | 0 | 0 | 7 |
+| Upton Stout | 7 | 29 | 23 | 260 | 9.0 | 2 | 0 | 4 |
 | Dre Greenlaw | 6 | 28 | 19 | 103 | 3.7 | 0 | 0 | 7 |
-| Upton Stout | 6 | 26 | 20 | 210 | 8.1 | 2 | 0 | 4 |
-| Ji'Ayir Brown | 7 | 23 | 15 | 150 | 6.5 | 1 | 0 | 2 |
-| Malik Mustapha | 6 | 22 | 7 | 130 | 5.9 | 1 | 2 | 2 |
-| Jaden Dugger | 6 | 21 | 18 | 121 | 5.8 | 1 | 1 | 5 |
+| Malik Mustapha | 7 | 27 | 10 | 161 | 6.0 | 1 | 2 | 3 |
+| Ji'Ayir Brown | 8 | 25 | 17 | 166 | 6.6 | 1 | 1 | 2 |
+| Jaden Dugger | 7 | 24 | 21 | 129 | 5.4 | 1 | 1 | 6 |
 | Jack Jones | 4 | 17 | 11 | 115 | 6.8 | 2 | 0 | 1 |
-| Marques Sigle | 4 | 8 | 3 | 35 | 4.4 | 0 | 0 | 0 |
+| Ephesians Prysock | 4 | 10 | 7 | 49 | 4.9 | 1 | 0 | 1 |
 
 ### SF pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Keion White | 7 | 15 | 2.5 | 7 | 0 |
-| Osa Odighizuwa | 7 | 10 | 2.0 | 4 | 0 |
+| Keion White | 8 | 17 | 2.5 | 9 | 0 |
+| Osa Odighizuwa | 8 | 11 | 2.5 | 4 | 0 |
 | Sebastian Valdez | 4 | 7 | 1.0 | 3 | 0 |
-| Romello Height | 4 | 4 | 0.5 | 0 | 0 |
-| Mykel Williams | 2 | 4 | 1.5 | 0 | 0 |
-| Fred Warner | 7 | 4 | 0.0 | 0 | 30 |
-| Ogbonnia Okoronkwo | 2 | 3 | 1.0 | 1 | 0 |
-| DeForest Buckner | 2 | 3 | 0.0 | 1 | 0 |
+| Romello Height | 5 | 5 | 0.5 | 1 | 4 |
+| Mykel Williams | 3 | 5 | 1.5 | 0 | 0 |
+| Fred Warner | 8 | 4 | 0.0 | 0 | 34 |
+| DeForest Buckner | 3 | 4 | 0.5 | 1 | 0 |
+| Dre Greenlaw | 6 | 3 | 0.5 | 2 | 17 |
 
 ### SF offense: what it produces (rank 1 = best offense)
 
@@ -562,7 +562,7 @@ Neutral-situation pass rate 54.0%; 58.4 plays per game; target share WR 47% / TE
 
 | Player | Pos | G | Tgt | Rec | Yds | TD | Tgt share | Air share | aDOT | RZ tgt | 20+ | Yards by game |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| G.Kittle | TE | 8 | 56 | 41 | 499 | 6 | 25% | 22% | 7.6 | 11 | 7 | 82 70 24 69 88 58 74 34 |
+| G.Kittle | TE | 8 | 56 | 41 | 499 | 6 | 25% | 22% | 7.5 | 11 | 7 | 82 70 24 69 88 58 74 34 |
 | C.McCaffrey | RB | 8 | 40 | 33 | 381 | 3 | 18% | 7% | 3.5 | 6 | 3 | 41 18 15 53 61 19 161 13 |
 | M.Evans | WR | 5 | 36 | 24 | 426 | 4 | 16% | 29% | 15.6 | 5 | 10 | 34 76 113 94 109 |
 | J.Watkins | WR | 6 | 17 | 13 | 292 | 1 | 7% | 14% | 16.5 | 0 | 8 | 60 22 56 86 49 19 |
@@ -620,7 +620,7 @@ Neutral-situation pass rate 54.0%; 58.4 plays per game; target share WR 47% / TE
 | defense allows | Deep middle | 13 | 4% | 54% | 10.85 | 3 |
 | defense allows | Deep right | 28 | 9% | 32% | 8.57 | 7 |
 
-### SF lines (depth chart as of 2026-11-24T18:50:30Z)
+### SF lines (depth chart as of 2026-11-25T17:56:34Z)
 
 Offensive line: LT Trent Williams, LG Connor Colby, C Jake Brendel, RG Dominick Puni, RT Vederian Lowe.  
 Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE Nick Bosa, WLB Dre Greenlaw, SLB Jaden Dugger.
@@ -629,7 +629,7 @@ Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Nate Hobbs (CB) Injured Reserve; Deommodore Lenoir (CB) Questionable; Colton McKivitz (OT) Out; Khalid Kareem (DE) Questionable; Dre Greenlaw (LB) Questionable.
+ESPN live list (designations only): Deommodore Lenoir (CB) Questionable; Khalid Kareem (DE) Questionable; Dre Greenlaw (LB) Questionable; Colton McKivitz (OT) Injured Reserve; Brock Purdy (QB) Questionable; Mike Evans (WR) Questionable; De'Zhaun Stribling (WR) Injured Reserve; Sam Okuayinonu (DT) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -673,20 +673,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-25T03:45:38+00:00 | 4ea672f40856 |
-| pbp | OK | 2026-11-25T03:45:38+00:00 | b74af456d30b |
-| rosters | OK | 2026-11-25T03:45:39+00:00 | 025956d0eab7 |
-| injuries | OK | 2026-11-25T03:45:39+00:00 | 46e0f80ab820 |
-| depth_charts | OK | 2026-11-25T03:45:39+00:00 | 9f9fb70531af |
-| snap_counts | OK | 2026-11-25T03:45:39+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-25T03:45:40+00:00 | c1fb485fa868 |
-| pfr_def | OK | 2026-11-25T03:45:40+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-25T03:45:40+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-25T03:45:40+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-25T03:45:41+00:00 | 1182ae58702b |
-| ngs_rushing | OK | 2026-11-25T03:45:41+00:00 | 8224482c119b |
-| ngs_passing | OK | 2026-11-25T03:45:41+00:00 | 688f7a6ebfcf |
-| espn_injuries | OK | 2026-11-25T03:45:42+00:00 |  |
+| games | OK | 2026-11-25T23:31:38+00:00 | 77fb5209595d |
+| pbp | OK | 2026-11-25T23:31:38+00:00 | bf67de3a1b7c |
+| rosters | OK | 2026-11-25T23:31:38+00:00 | ed880688b34e |
+| injuries | OK | 2026-11-25T23:31:39+00:00 | 817556322552 |
+| depth_charts | OK | 2026-11-25T23:31:39+00:00 | fbee5945e1b2 |
+| snap_counts | OK | 2026-11-25T23:31:39+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-25T23:31:39+00:00 | f7a34d74de28 |
+| pfr_def | OK | 2026-11-25T23:31:40+00:00 | c4251b1fd2fa |
+| pfr_rec | OK | 2026-11-25T23:31:40+00:00 | 8f0fd28d26e7 |
+| pfr_rush | OK | 2026-11-25T23:31:40+00:00 | b0d1aa83f4d1 |
+| ngs_receiving | OK | 2026-11-25T23:31:40+00:00 | ed8f3bae7a35 |
+| ngs_rushing | OK | 2026-11-25T23:31:41+00:00 | f4a7e49167df |
+| ngs_passing | OK | 2026-11-25T23:31:41+00:00 | 8fb034918611 |
+| espn_injuries | OK | 2026-11-25T23:31:42+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
