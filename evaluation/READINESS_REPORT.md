@@ -1,6 +1,6 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-25T21:09:59+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-25T23:45:24+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## NFL-49: FAIL
 
