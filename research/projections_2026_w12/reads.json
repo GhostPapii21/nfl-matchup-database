@@ -2,40 +2,140 @@
  "note": "Hand-written reads from the Nov 25, 2026 session (owner + Claude). Model = our adjusted projection; market = the books' no-vig chance. Research only, not betting advice.",
  "games": {
   "2026_12_GB_LA": {
-   "headline": "Rams' 4-man rush (Young, Fiske, Donald, Garrett: 42% sack-or-hit last game) vs a Green Bay line with 3 Questionable starters; Rams force short throws (6.2 aDOT allowed) and lock up WR1s; Green Bay leaks to WR1s (+21 yds over usual, 2nd).",
+   "headline": "Rams force short throws and their 4-man rush is heating up (42% sack-or-hit last game), but Love has still produced with 2-3 line starters out (288, 372 yds in Weeks 8-9). Since Week 6 every TE1 caught 5+ against the Rams. Without Nacua the Rams lean on the backs, and Corum has out-gained Kyren 3 straight. Green Bay leaks to WR1s (+21 yds over usual). Injuries: Parsons Questionable (off PUP); Donald and Garrett no designation.",
    "picks": [
-    {"play": "Tutu Atwell over 1.5 catches", "model": 0.66, "market": 0.57, "why": "Green Bay's WR1 leak with Nacua/Adams out; deep-left leak in his zones"},
-    {"play": "Blake Corum over 1.5 catches", "model": 0.63, "market": 0.56, "why": "Rams backs get targets; Rams' run game split two ways"},
-    {"play": "Christian Watson over 73.5 receiving yards", "lean": true, "why": "Love goes to Watson more when blitzed (26% share, 71% catch, 12.3 yds/target); he is the WR2 into the Rams' WR2 leak; out-gained Golden in 6 of 10"},
-    {"play": "Matthew Golden under 75.5 receiving yards", "lean": true, "why": "Rams lock up WR1s (-12 yds vs usual); pressure turns his targets into 18-yard heaves (56% catch)"},
-    {"play": "Savion Williams over 18.5 receiving yards", "lean": true, "why": "WR3 into the Rams' slot leak; over in 4 of last 5; short catches plus jet sweeps"},
-    {"play": "MarShawn Lloyd over 8.5 receiving yards / 1.5 catches", "lean": true, "why": "Rams leak to backs catching passes (+9 yds last 5); Jacobs limited; 3-for-3, 26 yds when Jacobs missed"},
-    {"play": "Check lines: Love passing yards under, Rams sacks over", "lean": true, "why": "Green Bay allowed 8 sacks and 12 hits last game; 3 linemen Questionable"}
+    {
+     "play": "Tutu Atwell over 1.5 catches",
+     "model": 0.66,
+     "market": 0.57,
+     "why": "Green Bay's WR1 and deep-left leaks with Nacua/Adams out"
+    },
+    {
+     "play": "Blake Corum over 1.5 catches",
+     "model": 0.63,
+     "market": 0.56,
+     "why": "Rams backs get targets"
+    },
+    {
+     "play": "Tucker Kraft over 3.5 catches",
+     "lean": true,
+     "why": "TE1s vs the Rams since Week 6: 7, 6, 5, 6, 5 catches; Love's TE share jumps to 24% when hit or flushed; risk: 1 catch in each of his last 2"
+    },
+    {
+     "play": "Blake Corum over 57.5 rushing yards",
+     "lean": true,
+     "why": "Last 4: 93, 73, 58, 100; the Rams lean on the run without Nacua"
+    },
+    {
+     "play": "Christian Watson over 73.5 receiving yards",
+     "lean": true,
+     "why": "Love goes to Watson more when blitzed (26% share, 71% catch); WR2 into the Rams' WR2 leak; out-gained Golden in 6 of 10"
+    },
+    {
+     "play": "Savion Williams over 18.5 receiving yards",
+     "lean": true,
+     "why": "WR3 into the Rams' slot leak; over in 4 of last 5"
+    },
+    {
+     "play": "MarShawn Lloyd over 8.5 receiving yards / 1.5 catches",
+     "lean": true,
+     "why": "Rams leak to backs catching passes; Jacobs limited"
+    },
+    {
+     "play": "Matthew Golden under 75.5 receiving yards",
+     "lean": true,
+     "why": "Rams lock up WR1s; pressure turns his targets into 18-yard heaves"
+    },
+    {
+     "play": "Kyren Williams under 54.5 rushing yards",
+     "lean": true,
+     "why": "Last 4: 99, 56, 45, 23 while Corum's share grows"
+    }
    ],
-   "avoid": ["Kaleb Johnson / Kyren / Corum rushing unders (model missed the role; 3-way split)", "Kraft either way (pressure says up, Rams TE defense and his last 2 games say down)", "Mumpfield under (Green Bay leaks to WR1s)"]
+   "avoid": [
+    "Love passing yards under (he has produced with a thin line)",
+    "Mumpfield under (93 and 81 yds as the top option; Green Bay leaks to WR1s)",
+    "Kaleb Johnson rushing (role depends on Jacobs)"
+   ]
   },
   "2026_12_CHI_DET": {
    "headline": "Both run defenses are walls (DET -38 yds vs usual last 5, CHI -31). Chicago leaks to WR2s (+22, 1st) and backs catching passes; Detroit has erased WR1s over the last 5.",
    "picks": [
-    {"play": "D'Andre Swift under 48.5 rushing yards", "model": 0.65, "market": 0.50, "why": "Detroit's run wall; Roschon Johnson Questionable (small play: 15-pt gap)"},
-    {"play": "Jameson Williams over 56.5 receiving yards", "lean": true, "why": "Detroit's WR2 into Chicago's WR2 leak; his zones grade +2.1 yds/target, best on the slate"},
-    {"play": "Jahmyr Gibbs over 35.5 receiving yards / under 91.5 rushing", "lean": true, "why": "Chicago: run wall, but leaky to backs catching passes"},
-    {"play": "Colston Loveland under 5.5 catches", "lean": true, "why": "TE leak was season-only; model 76% under"},
-    {"play": "Kalif Raymond over 23.5 receiving yards", "model": 0.56, "market": 0.50, "why": ""}
+    {
+     "play": "D'Andre Swift under 48.5 rushing yards",
+     "model": 0.65,
+     "market": 0.5,
+     "why": "Detroit's run wall; Roschon Johnson Questionable (small play: 15-pt gap)"
+    },
+    {
+     "play": "Jameson Williams over 56.5 receiving yards",
+     "lean": true,
+     "why": "Detroit's WR2 into Chicago's WR2 leak; his zones grade +2.1 yds/target, best on the slate"
+    },
+    {
+     "play": "Jahmyr Gibbs over 35.5 receiving yards / under 91.5 rushing",
+     "lean": true,
+     "why": "Chicago: run wall, but leaky to backs catching passes"
+    },
+    {
+     "play": "Colston Loveland under 5.5 catches",
+     "lean": true,
+     "why": "TE leak was season-only; model 76% under"
+    },
+    {
+     "play": "Kalif Raymond over 23.5 receiving yards",
+     "model": 0.56,
+     "market": 0.5,
+     "why": ""
+    }
    ],
-   "avoid": ["St. Brown under (36-pt gap: 5 and 6 targets last 2 games, books expect a rebound)", "Luther Burden overs (Detroit erased WR1s last 5)"]
+   "avoid": [
+    "St. Brown under (36-pt gap: 5 and 6 targets last 2 games, books expect a rebound)",
+    "Luther Burden overs (Detroit erased WR1s last 5)"
+   ]
   },
   "2026_12_PHI_DAL": {
    "headline": "Dallas is the leakiest defense of the three: backs (rushing +42, receiving +31 over usual last 5), slot (+34) and WR1s. Philadelphia starts a backup QB (Milton or McKee). Philadelphia shuts down WR1s, TEs and backs catching passes; leaks to the slot and WR2s.",
    "picks": [
-    {"play": "Saquon Barkley over 64.5 rushing yards", "lean": true, "why": "Dallas gashed by backs in both windows; he is the clear lead back (13, 13, 17 carries)"},
-    {"play": "Makai Lemon over 3.5 catches", "model": 0.63, "market": null, "why": "Philadelphia's target leader into Dallas's WR1 leak"},
-    {"play": "Darius Cooper over 2.5 catches", "model": 0.67, "market": null, "why": "Slot into Dallas's slot leak"},
-    {"play": "George Pickens over 70.5 receiving yards", "model": 0.59, "market": 0.50, "why": "WR2 into Philadelphia's WR2 leak; Ferguson Doubtful moves work to him"},
-    {"play": "CeeDee Lamb under 89.5 receiving yards", "lean": true, "why": "Philadelphia erased WR1s over the last 5"},
-    {"play": "Ryan Flournoy over 31.5 receiving yards", "lean": true, "why": "Slot into Philadelphia's slot leak"}
+    {
+     "play": "Saquon Barkley over 64.5 rushing yards",
+     "lean": true,
+     "why": "Dallas gashed by backs in both windows; he is the clear lead back (13, 13, 17 carries)"
+    },
+    {
+     "play": "Makai Lemon over 3.5 catches",
+     "model": 0.63,
+     "market": null,
+     "why": "Philadelphia's target leader into Dallas's WR1 leak"
+    },
+    {
+     "play": "Darius Cooper over 2.5 catches",
+     "model": 0.67,
+     "market": null,
+     "why": "Slot into Dallas's slot leak"
+    },
+    {
+     "play": "George Pickens over 70.5 receiving yards",
+     "model": 0.59,
+     "market": 0.5,
+     "why": "WR2 into Philadelphia's WR2 leak; Ferguson Doubtful moves work to him"
+    },
+    {
+     "play": "CeeDee Lamb under 89.5 receiving yards",
+     "lean": true,
+     "why": "Philadelphia erased WR1s over the last 5"
+    },
+    {
+     "play": "Ryan Flournoy over 31.5 receiving yards",
+     "lean": true,
+     "why": "Slot into Philadelphia's slot leak"
+    }
    ],
-   "avoid": ["Spann-Ford catches (Philadelphia shuts down TEs)", "Javonte Williams receiving overs (Philadelphia shuts down backs catching passes)", "Lemon/Cooper yardage overs (20-30 pts over the books)"]
+   "avoid": [
+    "Spann-Ford catches (Philadelphia shuts down TEs)",
+    "Javonte Williams receiving overs (Philadelphia shuts down backs catching passes)",
+    "Lemon/Cooper yardage overs (20-30 pts over the books)"
+   ]
   }
  }
 }
