@@ -37,6 +37,7 @@ UNDER_PENALTY = 0.03    # owner's preference (as in dashboard/bestbet.py): an un
 WR1_SHARE = 0.22
 MIN_PICK = 0.56
 BLITZ_GAME = 0.35       # a game counts as "blitz-heavy" at 35%+ of dropbacks (Sharp advanced box scores)
+SHARP_CODE = {"LA": "LAR"}    # nflverse team code -> Sharp's
 SHARP_PKG = ROOT / "data_packages" / "sharp_advanced_2026_w1_10" / "team_games.jsonl"
 WET = ("rain", "shower", "drizzle", "snow", "sleet", "storm", "thunder")
 
@@ -163,6 +164,7 @@ def blitz_by_game(defense: str, season: int, before_week: int | None = None, pat
     view, so the defense's games are the rows where it is the opponent). Also its man rate and pressure by game."""
     if season != 2026 or not path.exists():
         return None
+    defense = SHARP_CODE.get(defense, defense)
     g = []
     for line in path.read_text().splitlines():
         r = json.loads(line)

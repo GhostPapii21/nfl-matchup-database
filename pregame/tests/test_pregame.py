@@ -94,9 +94,10 @@ def test_slate_selection():
         dict(game_id="z", season=2026, game_type="REG", week=9, gameday="2026-11-09", weekday="Monday", gametime="20:15", home_score=21.0),
     ])
     pick = lambda **k: list(B.pick_games(g, season=2026, **k).game_id)
-    assert pick(today=date(2026, 11, 11)) == ["a", "c"]                      # this week only, Thu/Sun/Mon only
+    assert pick(today=date(2026, 11, 11)) == ["a", "b", "c"]                 # this week only, every game day (Saturday too)
+    assert pick(today=date(2026, 11, 11), weekdays=("Thursday", "Sunday", "Monday")) == ["a", "c"]
     assert pick(today=date(2026, 11, 11), weekdays="all") == ["a", "b", "c"]
-    assert pick(today=date(2026, 11, 13)) == ["c"]                           # Thursday game already played/past
+    assert pick(today=date(2026, 11, 13)) == ["b", "c"]                      # Thursday game already played/past
     assert pick(today=date(2026, 11, 17)) == ["d"]                           # rolls to the next week
     assert pick(today=date(2026, 11, 11), game="z") == ["z"]
     assert PK.slot_name("Sunday", "20:20") == "Sunday Night Football" and PK.slot_name("Monday", "20:15") == "Monday Night Football"

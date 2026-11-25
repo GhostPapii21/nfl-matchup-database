@@ -95,3 +95,5 @@ def test_blitz_by_game_counts_heavy_games_from_the_defense_side(tmp_path):
     assert blitz_by_game("WAS", 2026, before_week=3, path=p)["games"] == 2
     assert blitz_by_game("WAS", 2025, path=p) is None and blitz_by_game("KC", 2026, path=p) is None
     assert "2 of 3 games 35%+" in _bg(bg)
+    p.write_text(json.dumps({"week": 1, "team": "GB", "opponent": "LAR", "metrics": {"db": 40, "blitz": 16, "prsr": 9, "man": 9, "cov": 30}}))
+    assert blitz_by_game("LA", 2026, path=p)["games"] == 1                  # board says LA, Sharp says LAR
