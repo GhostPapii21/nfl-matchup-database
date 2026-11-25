@@ -1,4 +1,5 @@
 """Game-day brief: weather flag, availability, de-biased reads and the six-pick rules."""
+import json
 from dashboard import brief as B
 
 
@@ -79,3 +80,18 @@ def test_sharp_coverage_parser_and_board_hookup():
     from dashboard import extras as X
     sc = X.this_season_coverage(2026, "WAS")
     assert sc is None or (0 <= sc["man_rate"] <= 1 and sc["season"] == 2026)
+
+
+def test_blitz_by_game_counts_heavy_games_from_the_defense_side(tmp_path):
+    from dashboard.brief import blitz_by_game, _bg
+    rows = [{"week": 1, "team": "CIN", "opponent": "WAS", "metrics": {"db": 40, "blitz": 18, "prsr": 10, "man": 5, "cov": 30}},
+            {"week": 2, "team": "DAL", "opponent": "WAS", "metrics": {"db": 40, "blitz": 10, "prsr": 8, "man": 3, "cov": 30}},
+            {"week": 3, "team": "NYG", "opponent": "WAS", "metrics": {"db": 40, "blitz": 20, "prsr": 12, "man": 6, "cov": 30}},
+            {"week": 1, "team": "WAS", "opponent": "CIN", "metrics": {"db": 40, "blitz": 40, "prsr": 0, "man": 0, "cov": 30}}]
+    p = tmp_path / "team_games.jsonl"
+    p.write_text("\n".join(json.dumps(r) for r in rows))
+    bg = blitz_by_game("WAS", 2026, path=p)
+    assert bg["games"] == 3 and bg["heavy_games"] == 2 and bg["by_week"] == [0.45, 0.25, 0.5]
+    assert blitz_by_game("WAS", 2026, before_week=3, path=p)["games"] == 2
+    assert blitz_by_game("WAS", 2025, path=p) is None and blitz_by_game("KC", 2026, path=p) is None
+    assert "2 of 3 games 35%+" in _bg(bg)

@@ -1,0 +1,1030 @@
+{
+ "2_feature_eliminator_simulation_2026": {
+  "full simulation (as the board runs it)": {
+   "n": 6495,
+   "brier": 0.13421,
+   "logloss": 0.41913,
+   "calibration_gap": 0.0125,
+   "yards_mae": 22.1,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 549,
+    "roi": 0.008
+   },
+   "fanduel_rungs_brier": 0.166
+  },
+  "without the defense adjustment": {
+   "n": 6495,
+   "brier": 0.13429,
+   "logloss": 0.41947,
+   "calibration_gap": 0.0116,
+   "yards_mae": 22.14,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 573,
+    "roi": -0.021
+   },
+   "fanduel_rungs_brier": 0.1667
+  },
+  "without the game-script adjustment": {
+   "n": 6495,
+   "brier": 0.13449,
+   "logloss": 0.4196,
+   "calibration_gap": 0.0142,
+   "yards_mae": 22.19,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 588,
+    "roi": -0.003
+   },
+   "fanduel_rungs_brier": 0.1662
+  },
+  "without the volume correction": {
+   "n": 6495,
+   "brier": 0.13708,
+   "logloss": 0.42538,
+   "calibration_gap": 0.0395,
+   "yards_mae": 23.15,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 1245,
+    "roi": -0.068
+   },
+   "fanduel_rungs_brier": 0.1668
+  },
+  "without shrinking to league rates": {
+   "n": 6495,
+   "brier": 0.13576,
+   "logloss": 0.426,
+   "calibration_gap": 0.0206,
+   "yards_mae": 22.37,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 674,
+    "roi": -0.059
+   },
+   "fanduel_rungs_brier": 0.1688
+  },
+  "without role uncertainty": {
+   "n": 6495,
+   "brier": 0.1344,
+   "logloss": 0.42097,
+   "calibration_gap": 0.013,
+   "yards_mae": 22.1,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 597,
+    "roi": -0.0
+   },
+   "fanduel_rungs_brier": 0.1658
+  },
+  "without the output calibration layer": {
+   "n": 6495,
+   "brier": 0.13461,
+   "logloss": 0.42192,
+   "calibration_gap": 0.0208,
+   "yards_mae": 22.1,
+   "fanduel_overs_model_edge_5plus": {
+    "bets": 485,
+    "roi": 0.025
+   },
+   "fanduel_rungs_brier": 0.1659
+  }
+ },
+ "1_edge_auditor": {
+  "rungs_matched": 4396,
+  "rungs_total": 5138,
+  "player_games": 427,
+  "unmatched_note": "rungs for players the simulation does not project (under 8 earlier targets / 15 carries, or not active)",
+  "brier": {
+   "model": 0.166,
+   "market_devig": 0.1603,
+   "blend": 0.1607
+  },
+  "top20": [
+   {
+    "game_id": "2026_09_NYG_PHI",
+    "week": 9,
+    "player": "Devin Singletary",
+    "team": "NYG",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 29.5,
+    "price": -670,
+    "p_model": 0.225,
+    "p_market": 0.817,
+    "edge": -0.592,
+    "actual": 31.0,
+    "win": 1,
+    "profit": 0.149,
+    "trail_mean": 20.0,
+    "games_prior": 4,
+    "sim_mean": 20.481,
+    "exp_volume": 5.072,
+    "share": 0.165,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 4.346
+   },
+   {
+    "game_id": "2026_08_MIN_DET",
+    "week": 8,
+    "player": "Aaron Jones",
+    "team": "MIN",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 39.5,
+    "price": 205,
+    "p_model": 0.774,
+    "p_market": 0.308,
+    "edge": 0.466,
+    "actual": 22.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 72.667,
+    "games_prior": 6,
+    "sim_mean": 72.748,
+    "exp_volume": 21.397,
+    "share": 0.634,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 4.113
+   },
+   {
+    "game_id": "2026_08_LAC_LA",
+    "week": 8,
+    "player": "Ladd McConkey",
+    "team": "LAC",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 24.5,
+    "price": -450,
+    "p_model": 0.34,
+    "p_market": 0.769,
+    "edge": -0.429,
+    "actual": 86.0,
+    "win": 1,
+    "profit": 0.222,
+    "trail_mean": 40.0,
+    "games_prior": 5,
+    "sim_mean": 21.784,
+    "exp_volume": 3.049,
+    "share": 0.103,
+    "catch_rate": 0.606,
+    "ypr": 13.543,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_08_CAR_GB",
+    "week": 8,
+    "player": "Brycen Tremayne",
+    "team": "CAR",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 14.5,
+    "price": 390,
+    "p_model": 0.54,
+    "p_market": 0.192,
+    "edge": 0.348,
+    "actual": 11.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 19.167,
+    "games_prior": 3,
+    "sim_mean": 25.017,
+    "exp_volume": 3.494,
+    "share": 0.091,
+    "catch_rate": 0.631,
+    "ypr": 13.042,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_09_ARI_SEA",
+    "week": 9,
+    "player": "Tyler Allgeier",
+    "team": "ARI",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 29.5,
+    "price": -400,
+    "p_model": 0.42,
+    "p_market": 0.752,
+    "edge": -0.332,
+    "actual": 46.0,
+    "win": 1,
+    "profit": 0.25,
+    "trail_mean": 40.375,
+    "games_prior": 8,
+    "sim_mean": 32.578,
+    "exp_volume": 9.882,
+    "share": 0.398,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 3.878
+   },
+   {
+    "game_id": "2026_08_TEN_CIN",
+    "week": 8,
+    "player": "Ja'Marr Chase",
+    "team": "CIN",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 69.5,
+    "price": -194,
+    "p_model": 0.314,
+    "p_market": 0.62,
+    "edge": -0.306,
+    "actual": 141.0,
+    "win": 1,
+    "profit": 0.515,
+    "trail_mean": 58.5,
+    "games_prior": 6,
+    "sim_mean": 55.337,
+    "exp_volume": 7.344,
+    "share": 0.198,
+    "catch_rate": 0.728,
+    "ypr": 11.656,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_08_ATL_TB",
+    "week": 8,
+    "player": "Tez Johnson",
+    "team": "TB",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 19.5,
+    "price": -240,
+    "p_model": 0.362,
+    "p_market": 0.663,
+    "edge": -0.301,
+    "actual": 0.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 25.429,
+    "games_prior": 7,
+    "sim_mean": 18.497,
+    "exp_volume": 2.275,
+    "share": 0.077,
+    "catch_rate": 0.627,
+    "ypr": 14.381,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_08_ATL_TB",
+    "week": 8,
+    "player": "Bijan Robinson",
+    "team": "ATL",
+    "pos": "RB",
+    "market": "rec",
+    "rung": 24.5,
+    "price": -210,
+    "p_model": 0.34,
+    "p_market": 0.636,
+    "edge": -0.297,
+    "actual": 0.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 29.0,
+    "games_prior": 7,
+    "sim_mean": 22.297,
+    "exp_volume": 4.378,
+    "share": 0.157,
+    "catch_rate": 0.804,
+    "ypr": 7.185,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_09_NYG_PHI",
+    "week": 9,
+    "player": "Saquon Barkley",
+    "team": "PHI",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 39.5,
+    "price": -245,
+    "p_model": 0.371,
+    "p_market": 0.667,
+    "edge": -0.296,
+    "actual": 22.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 45.667,
+    "games_prior": 6,
+    "sim_mean": 38.062,
+    "exp_volume": 9.09,
+    "share": 0.356,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 4.754
+   },
+   {
+    "game_id": "2026_09_LA_WAS",
+    "week": 9,
+    "player": "Antonio Williams",
+    "team": "WAS",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 39.5,
+    "price": -194,
+    "p_model": 0.331,
+    "p_market": 0.62,
+    "edge": -0.289,
+    "actual": 25.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 37.0,
+    "games_prior": 7,
+    "sim_mean": 33.685,
+    "exp_volume": 5.125,
+    "share": 0.158,
+    "catch_rate": 0.626,
+    "ypr": 12.054,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_09_CLE_NO",
+    "week": 9,
+    "player": "Alvin Kamara",
+    "team": "NO",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 29.5,
+    "price": -174,
+    "p_model": 0.31,
+    "p_market": 0.597,
+    "edge": -0.287,
+    "actual": 32.0,
+    "win": 1,
+    "profit": 0.575,
+    "trail_mean": 20.833,
+    "games_prior": 6,
+    "sim_mean": 24.55,
+    "exp_volume": 6.986,
+    "share": 0.27,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 4.065
+   },
+   {
+    "game_id": "2026_08_NE_MIA",
+    "week": 8,
+    "player": "Efton Chism III",
+    "team": "NE",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 14.5,
+    "price": -310,
+    "p_model": 0.426,
+    "p_market": 0.71,
+    "edge": -0.284,
+    "actual": 37.0,
+    "win": 1,
+    "profit": 0.323,
+    "trail_mean": 19.0,
+    "games_prior": 6,
+    "sim_mean": 18.4,
+    "exp_volume": 2.554,
+    "share": 0.086,
+    "catch_rate": 0.683,
+    "ypr": 12.154,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_08_CHI_SEA",
+    "week": 8,
+    "player": "Tory Horton",
+    "team": "SEA",
+    "pos": "WR",
+    "market": "rec",
+    "rung": 14.5,
+    "price": -230,
+    "p_model": 0.374,
+    "p_market": 0.655,
+    "edge": -0.281,
+    "actual": 26.0,
+    "win": 1,
+    "profit": 0.435,
+    "trail_mean": 11.167,
+    "games_prior": 4,
+    "sim_mean": 15.215,
+    "exp_volume": 2.055,
+    "share": 0.072,
+    "catch_rate": 0.588,
+    "ypr": 14.382,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_08_ATL_TB",
+    "week": 8,
+    "player": "Cade Otton",
+    "team": "TB",
+    "pos": "TE",
+    "market": "rec",
+    "rung": 29.5,
+    "price": -154,
+    "p_model": 0.29,
+    "p_market": 0.57,
+    "edge": -0.28,
+    "actual": 0.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 26.571,
+    "games_prior": 7,
+    "sim_mean": 22.53,
+    "exp_volume": 3.778,
+    "share": 0.127,
+    "catch_rate": 0.707,
+    "ypr": 9.595,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_09_ARI_SEA",
+    "week": 9,
+    "player": "Jadarian Price",
+    "team": "SEA",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 49.5,
+    "price": -166,
+    "p_model": 0.306,
+    "p_market": 0.586,
+    "edge": -0.28,
+    "actual": 24.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 37.0,
+    "games_prior": 4,
+    "sim_mean": 40.922,
+    "exp_volume": 12.036,
+    "share": 0.4,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 3.993
+   },
+   {
+    "game_id": "2026_08_NE_MIA",
+    "week": 8,
+    "player": "Rhamondre Stevenson",
+    "team": "NE",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 49.5,
+    "price": -178,
+    "p_model": 0.325,
+    "p_market": 0.601,
+    "edge": -0.276,
+    "actual": 82.0,
+    "win": 1,
+    "profit": 0.562,
+    "trail_mean": 40.714,
+    "games_prior": 7,
+    "sim_mean": 42.583,
+    "exp_volume": 12.762,
+    "share": 0.433,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 3.936
+   },
+   {
+    "game_id": "2026_09_HOU_LAC",
+    "week": 9,
+    "player": "Woody Marks",
+    "team": "HOU",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 49.5,
+    "price": -220,
+    "p_model": 0.372,
+    "p_market": 0.646,
+    "edge": -0.274,
+    "actual": 70.0,
+    "win": 1,
+    "profit": 0.455,
+    "trail_mean": 38.714,
+    "games_prior": 7,
+    "sim_mean": 45.685,
+    "exp_volume": 13.976,
+    "share": 0.554,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 3.853
+   },
+   {
+    "game_id": "2026_09_TB_CHI",
+    "week": 9,
+    "player": "Cade Otton",
+    "team": "TB",
+    "pos": "TE",
+    "market": "rec",
+    "rung": 19.5,
+    "price": -245,
+    "p_model": 0.401,
+    "p_market": 0.667,
+    "edge": -0.266,
+    "actual": 25.0,
+    "win": 1,
+    "profit": 0.408,
+    "trail_mean": 23.25,
+    "games_prior": 7,
+    "sim_mean": 19.165,
+    "exp_volume": 2.984,
+    "share": 0.127,
+    "catch_rate": 0.676,
+    "ypr": 10.727,
+    "ypc": NaN
+   },
+   {
+    "game_id": "2026_09_DEN_CAR",
+    "week": 9,
+    "player": "Jonah Coleman",
+    "team": "DEN",
+    "pos": "RB",
+    "market": "rush",
+    "rung": 49.5,
+    "price": -166,
+    "p_model": 0.323,
+    "p_market": 0.586,
+    "edge": -0.264,
+    "actual": 57.0,
+    "win": 1,
+    "profit": 0.602,
+    "trail_mean": 33.5,
+    "games_prior": 3,
+    "sim_mean": 42.419,
+    "exp_volume": 10.939,
+    "share": 0.405,
+    "catch_rate": NaN,
+    "ypr": NaN,
+    "ypc": 4.581
+   },
+   {
+    "game_id": "2026_09_CIN_ATL",
+    "week": 9,
+    "player": "Drew Sample",
+    "team": "CIN",
+    "pos": "TE",
+    "market": "rec",
+    "rung": 9.5,
+    "price": 220,
+    "p_model": 0.556,
+    "p_market": 0.294,
+    "edge": 0.262,
+    "actual": 0.0,
+    "win": 0,
+    "profit": -1.0,
+    "trail_mean": 6.857,
+    "games_prior": 4,
+    "sim_mean": 15.222,
+    "exp_volume": 2.372,
+    "share": 0.062,
+    "catch_rate": 0.773,
+    "ypr": 9.052,
+    "ypc": NaN
+   }
+  ],
+  "by_edge": [
+   {
+    "edge_band": "(-1.0, -0.15]",
+    "rungs": 438,
+    "player_games": 99,
+    "model": 0.391,
+    "market": 0.594,
+    "hit": 0.555,
+    "over_roi": -0.151,
+    "roi_95": [
+     -0.298,
+     0.0
+    ]
+   },
+   {
+    "edge_band": "(-0.15, -0.1]",
+    "rungs": 504,
+    "player_games": 162,
+    "model": 0.404,
+    "market": 0.527,
+    "hit": 0.506,
+    "over_roi": -0.189,
+    "roi_95": [
+     -0.312,
+     -0.071
+    ]
+   },
+   {
+    "edge_band": "(-0.1, -0.05]",
+    "rungs": 972,
+    "player_games": 255,
+    "model": 0.323,
+    "market": 0.395,
+    "hit": 0.36,
+    "over_roi": -0.234,
+    "roi_95": [
+     -0.379,
+     -0.072
+    ]
+   },
+   {
+    "edge_band": "(-0.05, 0.0]",
+    "rungs": 1210,
+    "player_games": 297,
+    "model": 0.308,
+    "market": 0.333,
+    "hit": 0.324,
+    "over_roi": -0.203,
+    "roi_95": [
+     -0.363,
+     -0.026
+    ]
+   },
+   {
+    "edge_band": "(0.0, 0.05]",
+    "rungs": 723,
+    "player_games": 183,
+    "model": 0.373,
+    "market": 0.351,
+    "hit": 0.347,
+    "over_roi": -0.161,
+    "roi_95": [
+     -0.356,
+     0.044
+    ]
+   },
+   {
+    "edge_band": "(0.05, 0.1]",
+    "rungs": 320,
+    "player_games": 92,
+    "model": 0.444,
+    "market": 0.373,
+    "hit": 0.384,
+    "over_roi": 0.019,
+    "roi_95": [
+     -0.301,
+     0.416
+    ]
+   },
+   {
+    "edge_band": "(0.1, 0.15]",
+    "rungs": 145,
+    "player_games": 47,
+    "model": 0.488,
+    "market": 0.366,
+    "hit": 0.434,
+    "over_roi": 0.097,
+    "roi_95": [
+     -0.294,
+     0.533
+    ]
+   },
+   {
+    "edge_band": "(0.15, 1.0]",
+    "rungs": 84,
+    "player_games": 21,
+    "model": 0.553,
+    "market": 0.339,
+    "hit": 0.321,
+    "over_roi": -0.184,
+    "roi_95": [
+     -0.583,
+     0.332
+    ]
+   }
+  ],
+  "checks": {
+   "few_earlier_games(<=4)": 60,
+   "extreme_prices(<= -500 or >= +500)": 1623,
+   "edges_over_15pts": 522,
+   "edges_over_15pts_on_rungs_below_half_or_above_double_trailing_mean": 104,
+   "model_minus_market_mean": -0.04
+  }
+ },
+ "2b_feature_eliminator_star_model": {
+  "2024": {
+   "fit_on": "2022-2023",
+   "rows": 1913,
+   "results": {
+    "all inputs": {
+     "logloss": 0.28239,
+     "brier": 0.08625,
+     "stars": 180,
+     "stars_hit": 0.367
+    },
+    "volume (targets)": {
+     "logloss": 0.28761,
+     "brier": 0.08716,
+     "stars": 154,
+     "stars_hit": 0.377
+    },
+    "his production (yards a game)": {
+     "logloss": 0.28476,
+     "brier": 0.08723,
+     "stars": 173,
+     "stars_hit": 0.37
+    },
+    "game environment (team total, team pass volume)": {
+     "logloss": 0.28228,
+     "brier": 0.08638,
+     "stars": 142,
+     "stars_hit": 0.38
+    },
+    "defense (big plays allowed, 80+ games allowed)": {
+     "logloss": 0.28211,
+     "brier": 0.08596,
+     "stars": 176,
+     "stars_hit": 0.398
+    }
+   }
+  },
+  "2025": {
+   "fit_on": "2022-2024",
+   "rows": 1874,
+   "results": {
+    "all inputs": {
+     "logloss": 0.2628,
+     "brier": 0.07615,
+     "stars": 173,
+     "stars_hit": 0.364
+    },
+    "volume (targets)": {
+     "logloss": 0.26569,
+     "brier": 0.07646,
+     "stars": 130,
+     "stars_hit": 0.385
+    },
+    "his production (yards a game)": {
+     "logloss": 0.26494,
+     "brier": 0.07698,
+     "stars": 179,
+     "stars_hit": 0.363
+    },
+    "game environment (team total, team pass volume)": {
+     "logloss": 0.26407,
+     "brier": 0.07645,
+     "stars": 148,
+     "stars_hit": 0.378
+    },
+    "defense (big plays allowed, 80+ games allowed)": {
+     "logloss": 0.26296,
+     "brier": 0.07611,
+     "stars": 167,
+     "stars_hit": 0.359
+    }
+   }
+  },
+  "2026": {
+   "fit_on": "2022-2025",
+   "rows": 370,
+   "results": {
+    "all inputs": {
+     "logloss": 0.30053,
+     "brier": 0.08904,
+     "stars": 41,
+     "stars_hit": 0.439
+    },
+    "volume (targets)": {
+     "logloss": 0.29835,
+     "brier": 0.08991,
+     "stars": 40,
+     "stars_hit": 0.4
+    },
+    "his production (yards a game)": {
+     "logloss": 0.30837,
+     "brier": 0.08994,
+     "stars": 40,
+     "stars_hit": 0.425
+    },
+    "game environment (team total, team pass volume)": {
+     "logloss": 0.29971,
+     "brier": 0.08932,
+     "stars": 39,
+     "stars_hit": 0.41
+    },
+    "defense (big plays allowed, 80+ games allowed)": {
+     "logloss": 0.29934,
+     "brier": 0.08857,
+     "stars": 40,
+     "stars_hit": 0.425
+    }
+   }
+  }
+ },
+ "3_confidence_checker_2026": {
+  "predictions": 6495,
+  "bands": [
+   {
+    "band": "50-60%",
+    "n": 846,
+    "said": 0.549,
+    "happened": 0.535,
+    "flag": "ok"
+   },
+   {
+    "band": "60-70%",
+    "n": 895,
+    "said": 0.65,
+    "happened": 0.659,
+    "flag": "ok"
+   },
+   {
+    "band": "70-80%",
+    "n": 989,
+    "said": 0.754,
+    "happened": 0.772,
+    "flag": "ok"
+   },
+   {
+    "band": "80-90%",
+    "n": 1316,
+    "said": 0.853,
+    "happened": 0.843,
+    "flag": "ok"
+   },
+   {
+    "band": "90%+",
+    "n": 2449,
+    "said": 0.959,
+    "happened": 0.951,
+    "flag": "overconfident"
+   }
+  ],
+  "brier": {
+   "model": 0.13421,
+   "own_history_baseline": 0.14262,
+   "league_base_rate_baseline": 0.17074
+  },
+  "by_market": [
+   {
+    "market": "carries 12+",
+    "n": 305,
+    "model": 0.1686,
+    "own_history": 0.1764,
+    "said": 0.427,
+    "happened": 0.413
+   },
+   {
+    "market": "carries 15+",
+    "n": 305,
+    "model": 0.1622,
+    "own_history": 0.1673,
+    "said": 0.275,
+    "happened": 0.318
+   },
+   {
+    "market": "receiving_yards 40+",
+    "n": 1055,
+    "model": 0.1712,
+    "own_history": 0.1824,
+    "said": 0.325,
+    "happened": 0.327
+   },
+   {
+    "market": "receiving_yards 60+",
+    "n": 1055,
+    "model": 0.1221,
+    "own_history": 0.1283,
+    "said": 0.178,
+    "happened": 0.183
+   },
+   {
+    "market": "receiving_yards 80+",
+    "n": 1055,
+    "model": 0.0789,
+    "own_history": 0.086,
+    "said": 0.097,
+    "happened": 0.1
+   },
+   {
+    "market": "receptions 4+",
+    "n": 1055,
+    "model": 0.1738,
+    "own_history": 0.1823,
+    "said": 0.316,
+    "happened": 0.331
+   },
+   {
+    "market": "receptions 6+",
+    "n": 1055,
+    "model": 0.0894,
+    "own_history": 0.0972,
+    "said": 0.134,
+    "happened": 0.132
+   },
+   {
+    "market": "rushing_yards 50+",
+    "n": 305,
+    "model": 0.1856,
+    "own_history": 0.2009,
+    "said": 0.367,
+    "happened": 0.387
+   },
+   {
+    "market": "rushing_yards 70+",
+    "n": 305,
+    "model": 0.1441,
+    "own_history": 0.1535,
+    "said": 0.221,
+    "happened": 0.236
+   }
+  ]
+ },
+ "5_change_tester_rising_role": {
+  "2024": {
+   "fit_on": "2022-2023",
+   "rows": 1913,
+   "logloss_change": 0.00069,
+   "ci95": [
+    -0.0012,
+    0.00262
+   ],
+   "brier": [
+    0.08625,
+    0.08665
+   ],
+   "subgroups": {
+    "WR": {
+     "n": 1257,
+     "logloss_change": 0.00138
+    },
+    "TE": {
+     "n": 656,
+     "logloss_change": -0.00062
+    },
+    "starred (30%+)": {
+     "n": 180,
+     "logloss_change": -0.00085
+    },
+    "role up last game": {
+     "n": 481,
+     "logloss_change": -7e-05
+    },
+    "role down last game": {
+     "n": 806,
+     "logloss_change": 0.00205
+    }
+   }
+  },
+  "2025": {
+   "fit_on": "2022-2024",
+   "rows": 1874,
+   "logloss_change": -0.001,
+   "ci95": [
+    -0.00217,
+    0.00012
+   ],
+   "brier": [
+    0.07615,
+    0.07602
+   ],
+   "subgroups": {
+    "WR": {
+     "n": 1224,
+     "logloss_change": -0.00127
+    },
+    "TE": {
+     "n": 650,
+     "logloss_change": -0.0005
+    },
+    "starred (30%+)": {
+     "n": 173,
+     "logloss_change": 0.00138
+    },
+    "role up last game": {
+     "n": 484,
+     "logloss_change": -0.00085
+    },
+    "role down last game": {
+     "n": 776,
+     "logloss_change": -0.00168
+    }
+   }
+  },
+  "2026": {
+   "fit_on": "2022-2025",
+   "rows": 370,
+   "logloss_change": 0.00083,
+   "ci95": [
+    -0.00235,
+    0.00425
+   ],
+   "brier": [
+    0.08904,
+    0.08921
+   ],
+   "subgroups": {
+    "WR": {
+     "n": 250,
+     "logloss_change": 0.00111
+    },
+    "TE": {
+     "n": 120,
+     "logloss_change": 0.00024
+    },
+    "starred (30%+)": {
+     "n": 41,
+     "logloss_change": 0.00115
+    },
+    "role up last game": {
+     "n": 84,
+     "logloss_change": 0.00022
+    },
+    "role down last game": {
+     "n": 124,
+     "logloss_change": 0.0033
+    }
+   }
+  }
+ }
+}
