@@ -73,7 +73,12 @@ def collect(team: str, season: int, page, log) -> tuple[list[dict], list[str]]:
             pass
     page.on("response", on_response)
     url = f"https://nextgenstats.nfl.com/charts/list/type/{SLUG[team]}/{season}/week"
-    page.goto(url, wait_until="networkidle", timeout=90000)
+    # The site keeps analytics connections open, so it never goes network-idle: wait for the chart images instead.
+    page.goto(url, wait_until="domcontentloaded", timeout=90000)
+    try:
+        page.wait_for_selector('img[src*="static-charts"]', timeout=45000)
+    except Exception:  # noqa: BLE001
+        log.append({"team": team, "page": url, "warning": "no chart image within 45s", "title": page.title(), "imgs": page.locator("img").count()})
     last = -1
     for _ in range(40):                                   # the list grows as it scrolls
         page.mouse.wheel(0, 20000)
