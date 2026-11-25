@@ -1,6 +1,6 @@
 {
  "schema": "readiness-report/1",
- "evaluated_utc": "2026-11-24T22:17:43+00:00",
+ "evaluated_utc": "2026-11-25T21:09:59+00:00",
  "report_only": true,
  "projection_ready_flag": false,
  "projection_ready_may_flip": false,
@@ -98,29 +98,30 @@
  },
  "holdout_first_week": 10,
  "spots_excluded": {
-  "push_or_unknown": 33,
-  "no_real_price": 18,
+  "push_or_unknown": 873,
+  "no_real_price": 20,
   "price_after_kickoff": 0,
   "seen_week": 0
  },
  "markets": [
   {
    "market": "ALL",
-   "spots": 51,
-   "wins": 30,
-   "hit_rate": 0.5882,
-   "mean_break_even": 0.5355,
-   "edge_points": 5.27,
+   "spots": 1067,
+   "wins": 517,
+   "hit_rate": 0.4845,
+   "mean_break_even": 0.5433,
+   "edge_points": -5.88,
    "ci95_points": [
-    -8.52,
-    18.96
+    -8.79,
+    -2.88
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
     "spots>=30": true,
-    "edge>=+3pts": true,
+    "edge>=+3pts": false,
     "ci_lower>0": false,
     "weeks>=4": false
    },
@@ -172,20 +173,21 @@
   },
   {
    "market": "prop:receiving_yards",
-   "spots": 16,
-   "wins": 8,
-   "hit_rate": 0.5,
-   "mean_break_even": 0.5294,
-   "edge_points": -2.94,
+   "spots": 443,
+   "wins": 226,
+   "hit_rate": 0.5102,
+   "mean_break_even": 0.5384,
+   "edge_points": -2.82,
    "ci95_points": [
-    -27.97,
-    22.07
+    -7.45,
+    1.76
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
-    "spots>=30": false,
+    "spots>=30": true,
     "edge>=+3pts": false,
     "ci_lower>0": false,
     "weeks>=4": false
@@ -194,43 +196,45 @@
   },
   {
    "market": "prop:receptions",
-   "spots": 16,
-   "wins": 13,
-   "hit_rate": 0.8125,
-   "mean_break_even": 0.5455,
-   "edge_points": 26.7,
+   "spots": 334,
+   "wins": 169,
+   "hit_rate": 0.506,
+   "mean_break_even": 0.5434,
+   "edge_points": -3.74,
    "ci95_points": [
-    5.72,
-    45.08
+    -8.96,
+    1.45
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
-    "spots>=30": false,
-    "edge>=+3pts": true,
-    "ci_lower>0": true,
+    "spots>=30": true,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
     "weeks>=4": false
    },
    "live": false
   },
   {
    "market": "prop:rushing_yards",
-   "spots": 6,
-   "wins": 4,
-   "hit_rate": 0.6667,
-   "mean_break_even": 0.5297,
-   "edge_points": 13.69,
+   "spots": 219,
+   "wins": 84,
+   "hit_rate": 0.3836,
+   "mean_break_even": 0.5388,
+   "edge_points": -15.52,
    "ci95_points": [
-    -19.68,
-    46.91
+    -21.88,
+    -9.13
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
-    "spots>=30": false,
-    "edge>=+3pts": true,
+    "spots>=30": true,
+    "edge>=+3pts": false,
     "ci_lower>0": false,
     "weeks>=4": false
    },
@@ -238,17 +242,18 @@
   },
   {
    "market": "team:moneyline",
-   "spots": 2,
-   "wins": 0,
-   "hit_rate": 0.0,
-   "mean_break_even": 0.5495,
-   "edge_points": -54.95,
+   "spots": 22,
+   "wins": 13,
+   "hit_rate": 0.5909,
+   "mean_break_even": 0.7236,
+   "edge_points": -13.27,
    "ci95_points": [
-    -54.95,
-    -54.95
+    -31.27,
+    4.17
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
     "spots>=30": false,
@@ -260,17 +265,18 @@
   },
   {
    "market": "team:spread",
-   "spots": 2,
-   "wins": 1,
-   "hit_rate": 0.5,
-   "mean_break_even": 0.518,
-   "edge_points": -1.8,
+   "spots": 20,
+   "wins": 11,
+   "hit_rate": 0.55,
+   "mean_break_even": 0.5251,
+   "edge_points": 2.49,
    "ci95_points": [
-    -52.38,
-    48.78
+    -17.93,
+    22.89
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
     "spots>=30": false,
@@ -282,22 +288,23 @@
   },
   {
    "market": "team:total",
-   "spots": 2,
-   "wins": 2,
-   "hit_rate": 1.0,
-   "mean_break_even": 0.5349,
-   "edge_points": 46.51,
+   "spots": 22,
+   "wins": 12,
+   "hit_rate": 0.5455,
+   "mean_break_even": 0.5255,
+   "edge_points": 2.0,
    "ci95_points": [
-    46.51,
-    46.51
+    -20.38,
+    20.44
    ],
    "weeks": [
-    10
+    10,
+    11
    ],
    "checks": {
     "spots>=30": false,
-    "edge>=+3pts": true,
-    "ci_lower>0": true,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
     "weeks>=4": false
    },
    "live": false

@@ -1,6 +1,6 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-24T22:17:43+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-25T21:09:59+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## NFL-49: FAIL
 
@@ -24,16 +24,16 @@ Evaluated 2026-11-24T22:17:43+00:00 UTC by `python -m evaluation.readiness`. pro
 
 ## Market readiness (Rico's rule: 30+ real-price graded spots on unseen games, >= +3 pts over break-even, CI > 0, >= 4 weeks)
 
-Unseen = week >= 10. Excluded rows: {'push_or_unknown': 33, 'no_real_price': 18, 'price_after_kickoff': 0, 'seen_week': 0}.
+Unseen = week >= 10. Excluded rows: {'push_or_unknown': 873, 'no_real_price': 20, 'price_after_kickoff': 0, 'seen_week': 0}.
 
 | Market | Spots | Hit | Mean BE | Edge (pts) | 95% CI (pts) | Weeks | Live |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ALL | 51 | 0.5882 | 0.5355 | 5.27 | [-8.52, 18.96] | 10 | no |
+| ALL | 1067 | 0.4845 | 0.5433 | -5.88 | [-8.79, -2.88] | 10,11 | no |
 | prop:carries | 3 | 0.0 | 0.5384 | -53.84 | [-54.55, -53.27] | 10 | no |
 | prop:passing_yards | 4 | 0.5 | 0.5289 | -2.89 | [-52.94, 47.17] | 10 | no |
-| prop:receiving_yards | 16 | 0.5 | 0.5294 | -2.94 | [-27.97, 22.07] | 10 | no |
-| prop:receptions | 16 | 0.8125 | 0.5455 | 26.7 | [5.72, 45.08] | 10 | no |
-| prop:rushing_yards | 6 | 0.6667 | 0.5297 | 13.69 | [-19.68, 46.91] | 10 | no |
-| team:moneyline | 2 | 0.0 | 0.5495 | -54.95 | [-54.95, -54.95] | 10 | no |
-| team:spread | 2 | 0.5 | 0.518 | -1.8 | [-52.38, 48.78] | 10 | no |
-| team:total | 2 | 1.0 | 0.5349 | 46.51 | [46.51, 46.51] | 10 | no |
+| prop:receiving_yards | 443 | 0.5102 | 0.5384 | -2.82 | [-7.45, 1.76] | 10,11 | no |
+| prop:receptions | 334 | 0.506 | 0.5434 | -3.74 | [-8.96, 1.45] | 10,11 | no |
+| prop:rushing_yards | 219 | 0.3836 | 0.5388 | -15.52 | [-21.88, -9.13] | 10,11 | no |
+| team:moneyline | 22 | 0.5909 | 0.7236 | -13.27 | [-31.27, 4.17] | 10,11 | no |
+| team:spread | 20 | 0.55 | 0.5251 | 2.49 | [-17.93, 22.89] | 10,11 | no |
+| team:total | 22 | 0.5455 | 0.5255 | 2.0 | [-20.38, 20.44] | 10,11 | no |
