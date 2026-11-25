@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build pregame research packets for upcoming NFL games.
 
-    python3 -m pregame.build_packets                      # next slate: Thursday, Sunday and Monday games not yet played
+    python3 -m pregame.build_packets                      # next slate: every game not yet played this week (Wed-Mon)
     python3 -m pregame.build_packets --week 10            # every unplayed game of week 10
     python3 -m pregame.build_packets --game 2026_10_LAC_BAL
     python3 -m pregame.build_packets --weekdays all       # include Saturday / Friday / holiday games
@@ -25,7 +25,8 @@ if str(ROOT) not in sys.path:
 from pregame import connectors as C, metrics as M, odds as O, packet as PK, render as R, sources as S, weather as W  # noqa: E402
 
 OUT = ROOT / "pregame" / "packets"
-DEFAULT_DAYS = ("Thursday", "Sunday", "Monday")
+# Every game day: holiday Wednesday / Friday and late-season Saturday games were silently skipped (Nov 25, 2026: GB@LAR).
+DEFAULT_DAYS = ("Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday")
 
 
 def season_for(day: date) -> int:

@@ -1,4 +1,4 @@
-name: NFL pregame packets (Thursday, Sunday, Monday)
+name: NFL pregame packets (every game day)
 
 # Rebuilds pregame/packets/ for the upcoming Thursday, Sunday and Monday games from public data
 # (nflverse; ESPN injuries when reachable) and commits them, so a connected ChatGPT or Grok reads fresh files.
@@ -12,12 +12,13 @@ on:
         description: "Week number (blank = next slate)"
         required: false
       weekdays:
-        description: "Thursday,Sunday,Monday or all"
+        description: "all, or a comma list such as Thursday,Sunday,Monday"
         required: false
-        default: "Thursday,Sunday,Monday"
+        default: "all"
   schedule:
     # Times are UTC. Eastern is UTC-5 in winter and UTC-4 before November, so each run lands at or before the ET time shown.
     - cron: "0 14 * * 2"    # Tue  9:00 ET  first packets for the new week (last week's games are in the data)
+    - cron: "0 15 * * 3"    # Wed 10:00 ET  Wednesday (holiday) game: injury updates
     - cron: "0 14 * * 4"    # Thu  9:00 ET  Thursday game: overnight injury updates
     - cron: "30 22 * * 4"   # Thu  5:30 ET  Thursday game: final refresh before kickoff
     - cron: "0 15 * * 6"    # Sat 10:00 ET  Sunday and Monday games: Friday's final injury reports

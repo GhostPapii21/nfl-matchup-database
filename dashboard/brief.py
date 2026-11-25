@@ -14,7 +14,9 @@ Sections:
      separation it allows vs receivers' norms (Next Gen Stats, this season), coverage defenders who allow the most.
   4. Reads: every player prop with book lines; our chance at the books' main line, blended with the market's fair
      chance on the logit scale (the blend tested better than either alone). Flags: WR1 yards vs a blitz-heavy defense,
-     QB rushing (no model: one long run beats an under), weather-hit receiver yards.
+     QB rushing (no model: one long run beats an under), weather-hit receiver yards. Blitz test (2026 Weeks 3-10,
+     research/blitz_targets_2026-11-24): a blitz-heavy defense shortens throws (aDOT -0.2 yd and deep targets -1 point
+     per 10 points of blitz) but barely moves targets to TEs and backs (+0.3 point), so the flag fades WR1 yards only.
   5. Six picks: the strongest blended chances, at most one pick per player and three per team, never a player ruled
      out or a flagged WR1-yards over. A ranking aid, not a bet; every pick shows its numbers.
 Research only.
@@ -34,6 +36,9 @@ BLITZ_HEAVY = 0.40
 UNDER_PENALTY = 0.03    # owner's preference (as in dashboard/bestbet.py): an under must be clearly better to be picked
 WR1_SHARE = 0.22
 MIN_PICK = 0.56
+BLITZ_GAME = 0.35       # a game counts as "blitz-heavy" at 35%+ of dropbacks (Sharp advanced box scores)
+SHARP_CODE = {"LA": "LAR"}    # nflverse team code -> Sharp's
+SHARP_PKG = ROOT / "data_packages" / "sharp_advanced_2026_w1_10" / "team_games.jsonl"
 WET = ("rain", "shower", "drizzle", "snow", "sleet", "storm", "thunder")
 
 
@@ -154,7 +159,31 @@ def separation_allowed(data, season: int) -> dict:
     return {k: {"vs_norm_yards": round(float(v.sep), 2), "rank": int(v["rank"]), "of": int(len(t))} for k, v in t.iterrows()}
 
 
-def defense_card(side: dict, sep: dict) -> dict:
+def blitz_by_game(defense: str, season: int, before_week: int | None = None, path: Path = SHARP_PKG) -> dict | None:
+    """How steady a defense's blitz is, game by game, from the Sharp advanced box scores (rows are from the offense's
+    view, so the defense's games are the rows where it is the opponent). Also its man rate and pressure by game."""
+    if season != 2026 or not path.exists():
+        return None
+    defense = SHARP_CODE.get(defense, defense)
+    g = []
+    for line in path.read_text().splitlines():
+        r = json.loads(line)
+        m = r.get("metrics") or {}
+        if r.get("opponent") != defense or not m.get("db") or (before_week is not None and r["week"] >= before_week):
+            continue
+        g.append({"week": r["week"], "blitz": m.get("blitz", 0) / m["db"], "pressure": m.get("prsr", 0) / m["db"],
+                  "man": (m.get("man", 0) / m["cov"]) if m.get("cov") else None})
+    if not g:
+        return None
+    g.sort(key=lambda x: x["week"])
+    men = [x["man"] for x in g if x["man"] is not None]
+    return {"games": len(g), "heavy_games": sum(x["blitz"] >= BLITZ_GAME for x in g), "by_week": [round(x["blitz"], 2) for x in g],
+            "low": round(min(x["blitz"] for x in g), 3), "high": round(max(x["blitz"] for x in g), 3),
+            "man_rate": round(sum(men) / len(men), 3) if men else None, "pressure_rate": round(sum(x["pressure"] for x in g) / len(g), 3),
+            "weeks": f"{g[0]['week']}-{g[-1]['week']}", "source": "Sharp Football Analysis advanced box scores"}
+
+
+def defense_card(side: dict, sep: dict, season: int | None = None, week: int | None = None) -> dict:
     da, dr, cp = side.get("defense_allowed") or {}, side.get("defense_rank") or {}, side.get("coverage_profile") or {}
     bt = cp.get("blitz_this_season") or {}
     rk = lambda k: (dr.get(k) or {}).get("rank")
@@ -164,10 +193,18 @@ def defense_card(side: dict, sep: dict) -> dict:
             "coverage_season": cp.get("man_zone_season") or cp.get("season"),
             "blitz_rate": bt.get("blitz_rate") or cp.get("five_plus_rushers_rate"), "blitz_rank": bt.get("blitz_rank"),
             "blitz_season": bt.get("season") or cp.get("five_plus_rushers_season") or cp.get("season"),
+            "blitz_games": _safe(blitz_by_game, side["defense"], season, week) if season else None,
             "pressure_rank": rk("pressure_rate"), "pass_yards_rank": rk("pass_yards_pg"), "wr_rank": rk("wr_rec_yards_pg"),
             "te_rank": rk("te_rec_yards_pg"), "rb_rush_rank": rk("rb_rush_yards_pg"), "separation": sep.get(side["defense"]),
             "most_yards_allowed": [{"player": c["player"], "pos": c.get("position"), "yards": c.get("yards"), "targets": c.get("targets"),
                                     "grade": c.get("grade")} for c in cov]}
+
+
+def _safe(f, *a):
+    try:
+        return f(*a)
+    except Exception:  # noqa: BLE001
+        return None
 
 
 # ------------------------------------------------------------------------------------------------ 4. reads
@@ -206,7 +243,7 @@ def reads(board: dict, weather_flag: str | None) -> list:
         side, p = ("Over", pb) if pb >= 0.5 else ("Under", 1 - pb)
         flags = []
         if mk == "receiving_yards" and e.get("pos") == "WR" and share >= WR1_SHARE and blitz >= BLITZ_HEAVY:
-            flags.append(f"WR1 vs a blitz-heavy defense ({blitz:.0%}): quick throws go to TEs and backs; fade his yards over")
+            flags.append(f"WR1 vs a blitz-heavy defense ({blitz:.0%}): throws come out shorter and fewer go deep; fade his yards over, not his catches")
         if mk == "receiving_yards" and weather_flag:
             flags.append("weather worse than the board: shade yards down")
         out.append({"team": off, "player": e["player"], "pos": e.get("pos"), "market": mk, "line": L["fair_line"], "side": side,
@@ -253,7 +290,11 @@ def build(gid: str, *, offline=False, fetch=None, data=None, inactive=None, now=
     return {"game_id": gid, "made_utc": (now or datetime.now(timezone.utc)).isoformat(timespec="seconds"),
             "board_built_utc": board.get("board_built_utc"), "game": board.get("game"), "implied_points": board.get("implied_points"),
             "market": board.get("market"), "weather": wx, "inactives_used": inactive or {}, "availability": av,
-            "defenses": [defense_card(s, sep) for s in board["sides"].values()], "reads": rs, "picks": six_picks(rs, av)}
+            "defenses": [defense_card(s, sep, season, int(board["game"].get("week") or 0) or None) for s in board["sides"].values()], "reads": rs, "picks": six_picks(rs, av)}
+
+
+def _bg(bg):
+    return f"; {bg['heavy_games']} of {bg['games']} games 35%+ ({bg['low']:.0%}-{bg['high']:.0%})" if bg else ""
 
 
 def to_md(b: dict) -> str:
@@ -282,7 +323,7 @@ def to_md(b: dict) -> str:
           "|---|---|---|---|---|---|---|---|"]
     for d in b["defenses"]:
         s = d.get("separation") or {}
-        L.append(f"| {d['defense']} | {pct(d.get('man_rate'))} / {pct(d.get('zone_rate'))} / {pct(d.get('two_high_rate'))} ({d.get('coverage_season') or ''}) | {pct(d['blitz_rate'])}{' (rank ' + str(d['blitz_rank']) + ')' if d.get('blitz_rank') else ''} {d.get('blitz_season') or ''} | "
+        L.append(f"| {d['defense']} | {pct(d.get('man_rate'))} / {pct(d.get('zone_rate'))} / {pct(d.get('two_high_rate'))} ({d.get('coverage_season') or ''}) | {pct(d['blitz_rate'])}{' (rank ' + str(d['blitz_rank']) + ')' if d.get('blitz_rank') else ''} {d.get('blitz_season') or ''}{_bg(d.get('blitz_games'))} | "
                  f"{d.get('pressure_rank') or '–'} | {d.get('pass_yards_rank') or '–'} | {d.get('wr_rank') or '–'} / {d.get('te_rank') or '–'} / {d.get('rb_rush_rank') or '–'} | "
                  f"{('%+.2f yds (rank %s of %s)' % (s['vs_norm_yards'], s['rank'], s['of'])) if s else '–'} | "
                  + "; ".join(f"{c['player']} {c['yards']} yds" for c in d["most_yards_allowed"]) + " |")
