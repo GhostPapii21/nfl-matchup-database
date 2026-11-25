@@ -1,0 +1,47 @@
+name: NGS route and carry charts (private artifact)
+
+# Downloads Next Gen Stats route and carry chart images for chosen teams so they can be matched to play-by-play
+# (pregame/ngs_charts/fetch.py). The images are NFL's: they are kept only as a short-lived workflow artifact and are
+# never committed. Run by hand.
+on:
+  workflow_dispatch:
+    inputs:
+      teams:
+        description: "Comma list of team codes"
+        required: true
+        default: "GB,LA,CHI,DET,PHI,DAL,KC,BUF,DEN,PIT"
+      season:
+        description: "Season"
+        required: true
+        default: "2026"
+      weeks:
+        description: "Weeks, e.g. 6-11"
+        required: true
+        default: "6-11"
+
+permissions:
+  contents: read
+
+jobs:
+  charts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install headless browser
+        run: |
+          python -m pip install --disable-pip-version-check pytest playwright==1.48.0
+          python -m playwright install --with-deps chromium
+      - name: Check the parser
+        run: python -m pytest -q -p no:cacheprovider pregame/ngs_charts/tests
+      - name: Fetch charts
+        run: python -m pregame.ngs_charts.fetch --teams "${{ inputs.teams }}" --season "${{ inputs.season }}" --weeks "${{ inputs.weeks }}" --out ngs_charts_out | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ngs-charts-${{ inputs.season }}-w${{ inputs.weeks }}
+          path: ngs_charts_out
+          retention-days: 7
