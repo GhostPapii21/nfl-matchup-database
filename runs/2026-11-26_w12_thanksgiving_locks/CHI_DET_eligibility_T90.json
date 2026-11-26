@@ -1,0 +1,28 @@
+{
+  "schema": "pristine-lock-eligibility/1",
+  "checked_utc": "2026-11-26T16:56:16.130334+00:00",
+  "checked_et": "2026-11-26T11:56:16.130334-05:00",
+  "branch": "cursor/w12-thanksgiving-locks-9aff",
+  "code_commit": "d3010e05f2a0ddaa602ec1f29841ac42e8aad2f5",
+  "game_id": "2026_12_CHI_DET",
+  "kickoff_utc": "2026-11-26T18:00:00+00:00",
+  "window": "T-90 open (inactives due ~16:30Z; kickoff 18:00Z)",
+  "decision": "NO_LOCK",
+  "reason": "protocol gates refuse after T-90 refresh; do not invent a lock",
+  "refusal_reasons": [
+    "G4: ftn_charting GAP: missing completed 2026_12_GB_LA (publisher max week 11; asset 2026-11-26T00:02:05Z)",
+    "G4: pfr_defense GAP: missing completed 2026_12_GB_LA (publisher max week 11; asset 2026-11-26T12:02:42Z)",
+    "G4: official_inactives MISSING/INCOMPLETE: DET OK; CHI MISSING (no Bears club inactives article yet)",
+    "G5: phases 7/8/9 GAP; phase 15 MISSING"
+  ],
+  "artifacts": {
+    "freeze": "pregame/price_freezes/2026-11-26_CHI@DET/freeze_20261126T165552Z.json",
+    "inactives": "phase15/inactives/2026_12_CHI_DET/inactives_20261126T165057Z.json",
+    "sim100k_log": "/tmp/sim100k_t90.log"
+  },
+  "notes": [
+    "Sportsbooks+direct_books refreshed; required books present; freeze stamped 2026-11-26T16:50:58Z.",
+    "Polling CHI inactives every 90s until 17:55Z; FTN/PFR GAP alone still blocks even if CHI posts.",
+    "No LOCK accepted. GB@LAR final \u2014 no retroactive lock."
+  ]
+}
