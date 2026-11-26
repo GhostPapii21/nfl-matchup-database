@@ -1,0 +1,6900 @@
+{
+ "schema": "pregame-packet/1",
+ "generated_utc": "2026-11-26T19:39:46+00:00",
+ "projection_ready": false,
+ "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
+ "game": {
+  "game_id": "2026_13_JAX_CHI",
+  "season": 2026,
+  "week": 13,
+  "away": "JAX",
+  "home": "CHI",
+  "date": "2026-12-06",
+  "weekday": "Sunday",
+  "kickoff_et": "13:00",
+  "slot": "Sunday early window",
+  "site": "Home",
+  "stadium_id": "CHI98",
+  "roof": "outdoors",
+  "surface": "grass",
+  "away_rest_days": 7,
+  "home_rest_days": 10,
+  "division_game": false,
+  "listed_qbs": {
+   "JAX": "Trevor Lawrence",
+   "CHI": "Caleb Williams"
+  },
+  "coaches": {
+   "JAX": "Liam Coen",
+   "CHI": "Ben Johnson"
+  }
+ },
+ "market": {
+  "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
+  "home_spread": null,
+  "total": null,
+  "moneyline": {
+   "JAX": null,
+   "CHI": null
+  }
+ },
+ "data_freshness": {
+  "JAX": {
+   "games_played": 10,
+   "games_with_plays": 10,
+   "missing_play_by_play": [],
+   "status": "OK"
+  },
+  "CHI": {
+   "games_played": 10,
+   "games_with_plays": 10,
+   "missing_play_by_play": [],
+   "status": "OK"
+  }
+ },
+ "books": {
+  "status": "OK_DIRECT",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "retrieved_utc": "2026-11-26T14:01:05Z",
+  "book_retrieved_utc": {
+   "fanduel": "2026-11-26T14:01:05Z"
+  },
+  "markets": {
+   "spread": {
+    "sides": [
+     "CHI",
+     "JAX"
+    ],
+    "books": {
+     "fanduel": {
+      "line": -2.5,
+      "prices": {
+       "CHI": -115.0,
+       "JAX": -105.0
+      },
+      "no_vig": {
+       "CHI": 0.5108,
+       "JAX": 0.4892
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-26T14:01:05+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": -2.5,
+     "n_books_at_line": 1,
+     "no_vig": {
+      "CHI": 0.5108,
+      "JAX": 0.4892
+     }
+    },
+    "best_retail_price": {
+     "CHI": {
+      "book": "fanduel",
+      "price": -115.0,
+      "line": -2.5,
+      "break_even": 0.5349
+     },
+     "JAX": {
+      "book": "fanduel",
+      "price": -105.0,
+      "line": -2.5,
+      "break_even": 0.5122
+     }
+    }
+   },
+   "moneyline": {
+    "sides": [
+     "CHI",
+     "JAX"
+    ],
+    "books": {
+     "fanduel": {
+      "line": null,
+      "prices": {
+       "CHI": -144.0,
+       "JAX": 122.0
+      },
+      "no_vig": {
+       "CHI": 0.5671,
+       "JAX": 0.4329
+      },
+      "hold": 0.0406,
+      "last_update": "2026-11-26T14:01:05+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": null,
+     "n_books_at_line": 1,
+     "no_vig": {
+      "CHI": 0.5671,
+      "JAX": 0.4329
+     }
+    },
+    "best_retail_price": {
+     "CHI": {
+      "book": "fanduel",
+      "price": -144.0,
+      "line": null,
+      "break_even": 0.5902
+     },
+     "JAX": {
+      "book": "fanduel",
+      "price": 122.0,
+      "line": null,
+      "break_even": 0.4505
+     }
+    }
+   },
+   "total": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "fanduel": {
+      "line": 50.5,
+      "prices": {
+       "Over": -105.0,
+       "Under": -115.0
+      },
+      "no_vig": {
+       "Over": 0.4892,
+       "Under": 0.5108
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-26T14:01:05+00:00",
+      "source": "direct"
+     }
+    },
+    "reference": {
+     "book": null,
+     "note": "Pinnacle did not list this market"
+    },
+    "books_agree_on_line": true,
+    "consensus": {
+     "line": 50.5,
+     "n_books_at_line": 1,
+     "no_vig": {
+      "Over": 0.4892,
+      "Under": 0.5108
+     }
+    },
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -105.0,
+      "line": 50.5,
+      "break_even": 0.5122
+     },
+     "Under": {
+      "book": "fanduel",
+      "price": -115.0,
+      "line": 50.5,
+      "break_even": 0.5349
+     }
+    }
+   }
+  },
+  "dropped": [],
+  "props_status": "OK",
+  "odds_api_status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+  "freeze": {
+   "pulled_utc": "2026-11-26T14:01:05Z",
+   "files": [
+    "pregame/price_freezes/2026-12-06_JAX@CHI/freeze_20261126T193947Z.json"
+   ]
+  }
+ },
+ "weather": {
+  "status": "KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers about 6.5 days",
+  "kickoff_utc": "2026-12-06T18:00:00+00:00"
+ },
+ "teams": {
+  "JAX": {
+   "window": {
+    "games": 8,
+    "weeks": [
+     3,
+     4,
+     5,
+     6,
+     8,
+     9,
+     10,
+     11
+    ],
+    "requested": 8
+   },
+   "defense": {
+    "allowed": {
+     "games": 8,
+     "weeks": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11
+     ],
+     "points_pg": 17.125,
+     "plays_pg": 60.0,
+     "pass_yards_pg": 227.25,
+     "pass_att_pg": 35.75,
+     "completions_pg": 22.5,
+     "yards_per_pass_attempt": 6.356643356643357,
+     "completion_rate": 0.6293706293706294,
+     "pass_td": 9,
+     "interceptions": 10,
+     "fumbles_lost": 3,
+     "takeaways_pg": 1.625,
+     "sacks": 13,
+     "sack_rate": 0.04113924050632911,
+     "qb_hits": 42,
+     "pressure_rate": 0.13924050632911392,
+     "avg_depth_of_target": 7.7622377622377625,
+     "deep_attempts_pg": 3.625,
+     "deep_completion_rate": 0.27586206896551724,
+     "rush_att_pg": 20.5,
+     "rush_yards_pg": 72.375,
+     "yards_per_carry": 3.5304878048780486,
+     "rush_td": 5,
+     "rb_carries_pg": 17.875,
+     "rb_rush_yards_pg": 67.0,
+     "rb_yards_per_carry": 3.7482517482517483,
+     "qb_rush_yards_pg": 17.625,
+     "scrambles_pg": 2.125,
+     "explosive_pass": 16,
+     "explosive_rush": 7,
+     "explosive_pass_pg": 2.0,
+     "explosive_rush_pg": 0.875,
+     "explosive_total_pg": 2.875,
+     "third_down_rate": 0.33,
+     "red_zone_drives": 20,
+     "red_zone_td_rate": 0.5,
+     "pass_epa_per_dropback": -0.09370356639293229,
+     "rush_epa_per_carry": -0.1599152485866585,
+     "neutral_pass_rate": 0.5952380952380952,
+     "blitz_rate": 0.30063291139240506,
+     "play_action_rate": 0.20569620253164558,
+     "sack_rate_when_blitzing": 0.0,
+     "dropbacks_charted": 316,
+     "wr_targets_pg": 20.5,
+     "wr_receptions_pg": 13.0,
+     "wr_rec_yards_pg": 163.0,
+     "wr_rec_td": 4,
+     "wr_yards_per_target": 7.951219512195122,
+     "wr_explosive": 14,
+     "wr_target_share": 0.6007326007326007,
+     "te_targets_pg": 6.875,
+     "te_receptions_pg": 4.25,
+     "te_rec_yards_pg": 32.375,
+     "te_rec_td": 4,
+     "te_yards_per_target": 4.709090909090909,
+     "te_explosive": 1,
+     "te_target_share": 0.20146520146520147,
+     "rb_targets_pg": 6.75,
+     "rb_receptions_pg": 5.25,
+     "rb_rec_yards_pg": 31.875,
+     "rb_rec_td": 1,
+     "rb_yards_per_target": 4.722222222222222,
+     "rb_explosive": 1,
+     "rb_target_share": 0.1978021978021978
+    },
+    "rank": {
+     "points_pg": {
+      "rank": 3,
+      "of": 32,
+      "league_avg": 23.04296875
+     },
+     "pass_yards_pg": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 235.5703125
+     },
+     "rush_yards_pg": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 99.51171875
+     },
+     "yards_per_carry": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 4.066786978574186
+     },
+     "rb_rush_yards_pg": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 92.51953125
+     },
+     "explosive_pass_pg": {
+      "rank": 2,
+      "of": 32,
+      "league_avg": 2.98046875
+     },
+     "explosive_rush_pg": {
+      "rank": 8,
+      "of": 32,
+      "league_avg": 1.2109375
+     },
+     "explosive_total_pg": {
+      "rank": 2,
+      "of": 32,
+      "league_avg": 4.19140625
+     },
+     "wr_rec_yards_pg": {
+      "rank": 24,
+      "of": 32,
+      "league_avg": 147.83984375
+     },
+     "te_rec_yards_pg": {
+      "rank": 1,
+      "of": 32,
+      "league_avg": 54.65234375
+     },
+     "rb_rec_yards_pg": {
+      "rank": 14,
+      "of": 32,
+      "league_avg": 33.01171875
+     },
+     "wr_receptions_pg": {
+      "rank": 27,
+      "of": 32,
+      "league_avg": 11.3984375
+     },
+     "te_receptions_pg": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 5.34375
+     },
+     "rb_receptions_pg": {
+      "rank": 24,
+      "of": 32,
+      "league_avg": 4.44140625
+     },
+     "sack_rate": {
+      "rank": 30,
+      "of": 32,
+      "league_avg": 0.06617038514275576
+     },
+     "pressure_rate": {
+      "rank": 23,
+      "of": 32,
+      "league_avg": 0.15654791870267085
+     },
+     "third_down_rate": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 0.3915645689531899
+     },
+     "red_zone_td_rate": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 0.5799256552247983
+     },
+     "pass_epa_per_dropback": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 0.0337200927475269
+     },
+     "rush_epa_per_carry": {
+      "rank": 2,
+      "of": 32,
+      "league_avg": -0.03859206302681188
+     },
+     "takeaways_pg": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 1.2265625
+     },
+     "yards_per_pass_attempt": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 7.144231173231802
+     }
+    },
+    "by_game": [
+     {
+      "week": 3,
+      "opp": "vs NE",
+      "points": 6,
+      "pass_yards": 245,
+      "rush_yards": 64,
+      "carries": 23,
+      "rb_rush_yards": 63,
+      "sacks": 3,
+      "explosive_pass": 5,
+      "explosive_rush": 0,
+      "wr_targets": 23,
+      "wr_receptions": 12,
+      "wr_rec_yards": 209,
+      "wr_rec_td": 0,
+      "te_targets": 2,
+      "te_receptions": 1,
+      "te_rec_yards": 5,
+      "te_rec_td": 0,
+      "rb_targets": 5,
+      "rb_receptions": 5,
+      "rb_rec_yards": 31,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 4,
+      "opp": "@ CIN",
+      "points": 17,
+      "pass_yards": 428,
+      "rush_yards": 18,
+      "carries": 13,
+      "rb_rush_yards": 17,
+      "sacks": 2,
+      "explosive_pass": 3,
+      "explosive_rush": 0,
+      "wr_targets": 35,
+      "wr_receptions": 24,
+      "wr_rec_yards": 315,
+      "wr_rec_td": 0,
+      "te_targets": 6,
+      "te_receptions": 4,
+      "te_rec_yards": 42,
+      "te_rec_td": 1,
+      "rb_targets": 12,
+      "rb_receptions": 11,
+      "rb_rec_yards": 71,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 5,
+      "opp": "vs PHI",
+      "points": 17,
+      "pass_yards": 220,
+      "rush_yards": 20,
+      "carries": 17,
+      "rb_rush_yards": 20,
+      "sacks": 1,
+      "explosive_pass": 1,
+      "explosive_rush": 0,
+      "wr_targets": 18,
+      "wr_receptions": 12,
+      "wr_rec_yards": 177,
+      "wr_rec_td": 1,
+      "te_targets": 12,
+      "te_receptions": 6,
+      "te_rec_yards": 38,
+      "te_rec_td": 0,
+      "rb_targets": 7,
+      "rb_receptions": 3,
+      "rb_rec_yards": 5,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 6,
+      "opp": "vs HOU",
+      "points": 34,
+      "pass_yards": 312,
+      "rush_yards": 109,
+      "carries": 24,
+      "rb_rush_yards": 99,
+      "sacks": 0,
+      "explosive_pass": 4,
+      "explosive_rush": 1,
+      "wr_targets": 19,
+      "wr_receptions": 14,
+      "wr_rec_yards": 241,
+      "wr_rec_td": 1,
+      "te_targets": 9,
+      "te_receptions": 7,
+      "te_rec_yards": 39,
+      "te_rec_td": 2,
+      "rb_targets": 4,
+      "rb_receptions": 3,
+      "rb_rec_yards": 32,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 8,
+      "opp": "vs IND",
+      "points": 7,
+      "pass_yards": 152,
+      "rush_yards": 98,
+      "carries": 21,
+      "rb_rush_yards": 95,
+      "sacks": 4,
+      "explosive_pass": 0,
+      "explosive_rush": 2,
+      "wr_targets": 15,
+      "wr_receptions": 13,
+      "wr_rec_yards": 110,
+      "wr_rec_td": 1,
+      "te_targets": 10,
+      "te_receptions": 4,
+      "te_rec_yards": 18,
+      "te_rec_td": 0,
+      "rb_targets": 5,
+      "rb_receptions": 4,
+      "rb_rec_yards": 24,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 9,
+      "opp": "@ BAL",
+      "points": 10,
+      "pass_yards": 57,
+      "rush_yards": 163,
+      "carries": 33,
+      "rb_rush_yards": 142,
+      "sacks": 1,
+      "explosive_pass": 0,
+      "explosive_rush": 1,
+      "wr_targets": 9,
+      "wr_receptions": 5,
+      "wr_rec_yards": 26,
+      "wr_rec_td": 0,
+      "te_targets": 4,
+      "te_receptions": 3,
+      "te_rec_yards": 24,
+      "te_rec_td": 0,
+      "rb_targets": 3,
+      "rb_receptions": 3,
+      "rb_rec_yards": 7,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 10,
+      "opp": "@ TEN",
+      "points": 23,
+      "pass_yards": 231,
+      "rush_yards": 66,
+      "carries": 14,
+      "rb_rush_yards": 61,
+      "sacks": 1,
+      "explosive_pass": 2,
+      "explosive_rush": 2,
+      "wr_targets": 20,
+      "wr_receptions": 13,
+      "wr_rec_yards": 136,
+      "wr_rec_td": 0,
+      "te_targets": 7,
+      "te_receptions": 6,
+      "te_rec_yards": 29,
+      "te_rec_td": 1,
+      "rb_targets": 10,
+      "rb_receptions": 9,
+      "rb_rec_yards": 66,
+      "rb_rec_td": 1
+     },
+     {
+      "week": 11,
+      "opp": "@ NYG",
+      "points": 23,
+      "pass_yards": 173,
+      "rush_yards": 41,
+      "carries": 19,
+      "rb_rush_yards": 39,
+      "sacks": 1,
+      "explosive_pass": 1,
+      "explosive_rush": 1,
+      "wr_targets": 25,
+      "wr_receptions": 11,
+      "wr_rec_yards": 90,
+      "wr_rec_td": 1,
+      "te_targets": 5,
+      "te_receptions": 3,
+      "te_rec_yards": 64,
+      "te_rec_td": 0,
+      "rb_targets": 8,
+      "rb_receptions": 4,
+      "rb_rec_yards": 19,
+      "rb_rec_td": 0
+     }
+    ],
+    "top_lines_allowed": [
+     {
+      "week": 3,
+      "opp": "NE",
+      "top_receiver": {
+       "player": "M.Hollins",
+       "pos": "WR",
+       "targets": 9,
+       "receptions": 6,
+       "yards": 87,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "T.Henderson",
+       "pos": "RB",
+       "carries": 8,
+       "yards": 23,
+       "td": 0
+      }
+     },
+     {
+      "week": 4,
+      "opp": "CIN",
+      "top_receiver": {
+       "player": "T.Higgins",
+       "pos": "WR",
+       "targets": 16,
+       "receptions": 11,
+       "yards": 157,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "C.Brown",
+       "pos": "RB",
+       "carries": 9,
+       "yards": 10,
+       "td": 0
+      }
+     },
+     {
+      "week": 5,
+      "opp": "PHI",
+      "top_receiver": {
+       "player": "D.Cooper",
+       "pos": "WR",
+       "targets": 3,
+       "receptions": 2,
+       "yards": 71,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "D.Pierce",
+       "pos": "RB",
+       "carries": 11,
+       "yards": 14,
+       "td": 0
+      }
+     },
+     {
+      "week": 6,
+      "opp": "HOU",
+      "top_receiver": {
+       "player": "J.Noel",
+       "pos": "WR",
+       "targets": 4,
+       "receptions": 4,
+       "yards": 107,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "W.Marks",
+       "pos": "RB",
+       "carries": 15,
+       "yards": 56,
+       "td": 0
+      }
+     },
+     {
+      "week": 8,
+      "opp": "IND",
+      "top_receiver": {
+       "player": "K.Allen",
+       "pos": "WR",
+       "targets": 7,
+       "receptions": 7,
+       "yards": 67,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "D.Giddens",
+       "pos": "RB",
+       "carries": 6,
+       "yards": 43,
+       "td": 0
+      }
+     },
+     {
+      "week": 9,
+      "opp": "BAL",
+      "top_receiver": {
+       "player": "M.Andrews",
+       "pos": "TE",
+       "targets": 2,
+       "receptions": 2,
+       "yards": 19,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "J.Hill",
+       "pos": "RB",
+       "carries": 9,
+       "yards": 85,
+       "td": 1
+      }
+     },
+     {
+      "week": 10,
+      "opp": "TEN",
+      "top_receiver": {
+       "player": "E.Ayomanor",
+       "pos": "WR",
+       "targets": 10,
+       "receptions": 5,
+       "yards": 79,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "T.Pollard",
+       "pos": "RB",
+       "carries": 9,
+       "yards": 33,
+       "td": 0
+      }
+     },
+     {
+      "week": 11,
+      "opp": "NYG",
+      "top_receiver": {
+       "player": "M.Nabers",
+       "pos": "WR",
+       "targets": 12,
+       "receptions": 7,
+       "yards": 55,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "C.Skattebo",
+       "pos": "RB",
+       "carries": 14,
+       "yards": 34,
+       "td": 0
+      }
+     }
+    ],
+    "run_defense_by_direction": [
+     {
+      "direction": "middle",
+      "carries": 41,
+      "yards": 115,
+      "ypc": 2.8,
+      "explosive": 1
+     },
+     {
+      "direction": "right end",
+      "carries": 25,
+      "yards": 90,
+      "ypc": 3.6,
+      "explosive": 1
+     },
+     {
+      "direction": "left end",
+      "carries": 22,
+      "yards": 68,
+      "ypc": 3.09,
+      "explosive": 0
+     },
+     {
+      "direction": "left tackle",
+      "carries": 21,
+      "yards": 96,
+      "ypc": 4.57,
+      "explosive": 1
+     },
+     {
+      "direction": "left guard",
+      "carries": 20,
+      "yards": 34,
+      "ypc": 1.7,
+      "explosive": 0
+     },
+     {
+      "direction": "right tackle",
+      "carries": 19,
+      "yards": 146,
+      "ypc": 7.68,
+      "explosive": 2
+     },
+     {
+      "direction": "right guard",
+      "carries": 12,
+      "yards": 30,
+      "ypc": 2.5,
+      "explosive": 0
+     }
+    ],
+    "defenders": {
+     "status": "OK",
+     "weeks": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11
+     ],
+     "coverage": [
+      {
+       "player": "Jarrian Jones",
+       "games": 7,
+       "targets": 46,
+       "completions": 26,
+       "yards": 330,
+       "yards_per_target": 7.173913043478261,
+       "td_allowed": 0,
+       "interceptions": 1,
+       "missed_tackles": 4
+      },
+      {
+       "player": "Foyesade Oluokun",
+       "games": 8,
+       "targets": 40,
+       "completions": 33,
+       "yards": 256,
+       "yards_per_target": 6.4,
+       "td_allowed": 2,
+       "interceptions": 1,
+       "missed_tackles": 6
+      },
+      {
+       "player": "Travis Hunter",
+       "games": 8,
+       "targets": 38,
+       "completions": 25,
+       "yards": 345,
+       "yards_per_target": 9.078947368421053,
+       "td_allowed": 0,
+       "interceptions": 3,
+       "missed_tackles": 4
+      },
+      {
+       "player": "Ventrell Miller",
+       "games": 8,
+       "targets": 31,
+       "completions": 19,
+       "yards": 137,
+       "yards_per_target": 4.419354838709677,
+       "td_allowed": 0,
+       "interceptions": 0,
+       "missed_tackles": 6
+      },
+      {
+       "player": "Antonio Johnson",
+       "games": 7,
+       "targets": 27,
+       "completions": 14,
+       "yards": 145,
+       "yards_per_target": 5.37037037037037,
+       "td_allowed": 1,
+       "interceptions": 0,
+       "missed_tackles": 1
+      },
+      {
+       "player": "Jourdan Lewis",
+       "games": 8,
+       "targets": 26,
+       "completions": 12,
+       "yards": 81,
+       "yards_per_target": 3.1153846153846154,
+       "td_allowed": 1,
+       "interceptions": 2,
+       "missed_tackles": 1
+      },
+      {
+       "player": "Montaric Brown",
+       "games": 6,
+       "targets": 23,
+       "completions": 14,
+       "yards": 165,
+       "yards_per_target": 7.173913043478261,
+       "td_allowed": 1,
+       "interceptions": 1,
+       "missed_tackles": 1
+      },
+      {
+       "player": "Rayuan Lane",
+       "games": 6,
+       "targets": 18,
+       "completions": 11,
+       "yards": 138,
+       "yards_per_target": 7.666666666666667,
+       "td_allowed": 1,
+       "interceptions": 1,
+       "missed_tackles": 2
+      },
+      {
+       "player": "Branson Combs",
+       "games": 3,
+       "targets": 7,
+       "completions": 5,
+       "yards": 64,
+       "yards_per_target": 9.142857142857142,
+       "td_allowed": 0,
+       "interceptions": 1,
+       "missed_tackles": 1
+      },
+      {
+       "player": "Eric Murray",
+       "games": 3,
+       "targets": 7,
+       "completions": 5,
+       "yards": 56,
+       "yards_per_target": 8.0,
+       "td_allowed": 2,
+       "interceptions": 0,
+       "missed_tackles": 0
+      }
+     ],
+     "pass_rush": [
+      {
+       "player": "Josh Hines-Allen",
+       "games": 8,
+       "pressures": 15,
+       "sacks": 1.5,
+       "hurries": 6,
+       "blitzes": 5
+      },
+      {
+       "player": "Travon Walker",
+       "games": 7,
+       "pressures": 14,
+       "sacks": 1.5,
+       "hurries": 7,
+       "blitzes": 4
+      },
+      {
+       "player": "Foyesade Oluokun",
+       "games": 8,
+       "pressures": 9,
+       "sacks": 2.0,
+       "hurries": 2,
+       "blitzes": 28
+      },
+      {
+       "player": "Arik Armstead",
+       "games": 4,
+       "pressures": 6,
+       "sacks": 1.5,
+       "hurries": 3,
+       "blitzes": 0
+      },
+      {
+       "player": "Ruke Orhorhoro",
+       "games": 3,
+       "pressures": 4,
+       "sacks": 1.0,
+       "hurries": 2,
+       "blitzes": 0
+      },
+      {
+       "player": "Antonio Johnson",
+       "games": 7,
+       "pressures": 3,
+       "sacks": 1.5,
+       "hurries": 1,
+       "blitzes": 25
+      },
+      {
+       "player": "Ventrell Miller",
+       "games": 8,
+       "pressures": 3,
+       "sacks": 0.0,
+       "hurries": 1,
+       "blitzes": 19
+      },
+      {
+       "player": "Rayuan Lane",
+       "games": 6,
+       "pressures": 3,
+       "sacks": 0.0,
+       "hurries": 2,
+       "blitzes": 10
+      }
+     ]
+    }
+   },
+   "offense": {
+    "produced": {
+     "games": 8,
+     "weeks": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11
+     ],
+     "points_pg": 30.0,
+     "plays_pg": 61.5,
+     "pass_yards_pg": 269.875,
+     "pass_att_pg": 31.875,
+     "completions_pg": 20.25,
+     "yards_per_pass_attempt": 8.466666666666667,
+     "completion_rate": 0.6352941176470588,
+     "pass_td": 18,
+     "interceptions": 6,
+     "fumbles_lost": 2,
+     "takeaways_pg": 1.0,
+     "sacks": 14,
+     "sack_rate": 0.05,
+     "qb_hits": 39,
+     "pressure_rate": 0.14642857142857144,
+     "avg_depth_of_target": 8.780392156862746,
+     "deep_attempts_pg": 3.875,
+     "deep_completion_rate": 0.45161290322580644,
+     "rush_att_pg": 26.5,
+     "rush_yards_pg": 105.75,
+     "yards_per_carry": 3.990566037735849,
+     "rush_td": 8,
+     "rb_carries_pg": 24.75,
+     "rb_rush_yards_pg": 97.75,
+     "rb_yards_per_carry": 3.9494949494949494,
+     "qb_rush_yards_pg": 13.625,
+     "scrambles_pg": 1.375,
+     "explosive_pass": 31,
+     "explosive_rush": 10,
+     "explosive_pass_pg": 3.875,
+     "explosive_rush_pg": 1.25,
+     "explosive_total_pg": 5.125,
+     "third_down_rate": 0.4519230769230769,
+     "red_zone_drives": 29,
+     "red_zone_td_rate": 0.5517241379310345,
+     "pass_epa_per_dropback": 0.20506259750815023,
+     "rush_epa_per_carry": 0.006157824070617289,
+     "neutral_pass_rate": 0.5324074074074074,
+     "blitz_rate": 0.30714285714285716,
+     "play_action_rate": 0.2392857142857143,
+     "sack_rate_when_blitzing": 0.023255813953488372,
+     "dropbacks_charted": 280,
+     "wr_targets_pg": 20.25,
+     "wr_receptions_pg": 11.5,
+     "wr_rec_yards_pg": 172.0,
+     "wr_rec_td": 12,
+     "wr_yards_per_target": 8.493827160493828,
+     "wr_explosive": 21,
+     "wr_target_share": 0.6428571428571429,
+     "te_targets_pg": 6.875,
+     "te_receptions_pg": 5.5,
+     "te_rec_yards_pg": 64.875,
+     "te_rec_td": 3,
+     "te_yards_per_target": 9.436363636363636,
+     "te_explosive": 7,
+     "te_target_share": 0.21825396825396826,
+     "rb_targets_pg": 4.375,
+     "rb_receptions_pg": 3.25,
+     "rb_rec_yards_pg": 33.0,
+     "rb_rec_td": 3,
+     "rb_yards_per_target": 7.542857142857143,
+     "rb_explosive": 3,
+     "rb_target_share": 0.1388888888888889
+    },
+    "rank": {
+     "points_pg": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 23.15234375
+     },
+     "pass_yards_pg": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 234.1796875
+     },
+     "rush_yards_pg": {
+      "rank": 13,
+      "of": 32,
+      "league_avg": 100.5546875
+     },
+     "yards_per_carry": {
+      "rank": 18,
+      "of": 32,
+      "league_avg": 4.097323819143435
+     },
+     "rb_rush_yards_pg": {
+      "rank": 13,
+      "of": 32,
+      "league_avg": 93.421875
+     },
+     "explosive_pass_pg": {
+      "rank": 3,
+      "of": 32,
+      "league_avg": 2.9609375
+     },
+     "explosive_rush_pg": {
+      "rank": 14,
+      "of": 32,
+      "league_avg": 1.23046875
+     },
+     "explosive_total_pg": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 4.19140625
+     },
+     "wr_rec_yards_pg": {
+      "rank": 6,
+      "of": 32,
+      "league_avg": 147.53125
+     },
+     "te_rec_yards_pg": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 53.375
+     },
+     "rb_rec_yards_pg": {
+      "rank": 14,
+      "of": 32,
+      "league_avg": 33.20703125
+     },
+     "wr_receptions_pg": {
+      "rank": 12,
+      "of": 32,
+      "league_avg": 11.328125
+     },
+     "te_receptions_pg": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 5.21484375
+     },
+     "rb_receptions_pg": {
+      "rank": 28,
+      "of": 32,
+      "league_avg": 4.43359375
+     },
+     "sack_rate": {
+      "rank": 9,
+      "of": 32,
+      "league_avg": 0.06505456807823706
+     },
+     "pressure_rate": {
+      "rank": 12,
+      "of": 32,
+      "league_avg": 0.1543868543390244
+     },
+     "third_down_rate": {
+      "rank": 3,
+      "of": 32,
+      "league_avg": 0.39412042630412414
+     },
+     "red_zone_td_rate": {
+      "rank": 22,
+      "of": 32,
+      "league_avg": 0.5892762335016901
+     },
+     "pass_epa_per_dropback": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 0.03207076671834993
+     },
+     "rush_epa_per_carry": {
+      "rank": 10,
+      "of": 32,
+      "league_avg": -0.03562404824061199
+     },
+     "takeaways_pg": {
+      "rank": 8,
+      "of": 32,
+      "league_avg": 1.22265625
+     },
+     "yards_per_pass_attempt": {
+      "rank": 3,
+      "of": 32,
+      "league_avg": 7.121203428655613
+     }
+    },
+    "by_game": [
+     {
+      "week": 3,
+      "opp": "vs NE",
+      "points": 35,
+      "pass_yards": 182,
+      "rush_yards": 129,
+      "carries": 28,
+      "rb_rush_yards": 112,
+      "sacks": 1,
+      "explosive_pass": 1,
+      "explosive_rush": 1,
+      "wr_targets": 16,
+      "wr_receptions": 12,
+      "wr_rec_yards": 124,
+      "wr_rec_td": 3,
+      "te_targets": 6,
+      "te_receptions": 3,
+      "te_rec_yards": 32,
+      "te_rec_td": 0,
+      "rb_targets": 5,
+      "rb_receptions": 4,
+      "rb_rec_yards": 26,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 4,
+      "opp": "@ CIN",
+      "points": 22,
+      "pass_yards": 227,
+      "rush_yards": 113,
+      "carries": 25,
+      "rb_rush_yards": 108,
+      "sacks": 4,
+      "explosive_pass": 3,
+      "explosive_rush": 3,
+      "wr_targets": 11,
+      "wr_receptions": 8,
+      "wr_rec_yards": 99,
+      "wr_rec_td": 1,
+      "te_targets": 10,
+      "te_receptions": 8,
+      "te_rec_yards": 110,
+      "te_rec_td": 0,
+      "rb_targets": 2,
+      "rb_receptions": 2,
+      "rb_rec_yards": 18,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 5,
+      "opp": "vs PHI",
+      "points": 19,
+      "pass_yards": 331,
+      "rush_yards": 77,
+      "carries": 24,
+      "rb_rush_yards": 77,
+      "sacks": 2,
+      "explosive_pass": 4,
+      "explosive_rush": 1,
+      "wr_targets": 22,
+      "wr_receptions": 12,
+      "wr_rec_yards": 213,
+      "wr_rec_td": 2,
+      "te_targets": 10,
+      "te_receptions": 9,
+      "te_rec_yards": 88,
+      "te_rec_td": 0,
+      "rb_targets": 6,
+      "rb_receptions": 3,
+      "rb_rec_yards": 30,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 6,
+      "opp": "vs HOU",
+      "points": 31,
+      "pass_yards": 306,
+      "rush_yards": 95,
+      "carries": 24,
+      "rb_rush_yards": 95,
+      "sacks": 0,
+      "explosive_pass": 6,
+      "explosive_rush": 0,
+      "wr_targets": 27,
+      "wr_receptions": 13,
+      "wr_rec_yards": 206,
+      "wr_rec_td": 1,
+      "te_targets": 9,
+      "te_receptions": 7,
+      "te_rec_yards": 52,
+      "te_rec_td": 1,
+      "rb_targets": 5,
+      "rb_receptions": 4,
+      "rb_rec_yards": 48,
+      "rb_rec_td": 2
+     },
+     {
+      "week": 8,
+      "opp": "vs IND",
+      "points": 42,
+      "pass_yards": 218,
+      "rush_yards": 175,
+      "carries": 31,
+      "rb_rush_yards": 158,
+      "sacks": 3,
+      "explosive_pass": 4,
+      "explosive_rush": 2,
+      "wr_targets": 9,
+      "wr_receptions": 4,
+      "wr_rec_yards": 52,
+      "wr_rec_td": 1,
+      "te_targets": 4,
+      "te_receptions": 4,
+      "te_rec_yards": 94,
+      "te_rec_td": 1,
+      "rb_targets": 4,
+      "rb_receptions": 3,
+      "rb_rec_yards": 72,
+      "rb_rec_td": 1
+     },
+     {
+      "week": 9,
+      "opp": "@ BAL",
+      "points": 33,
+      "pass_yards": 242,
+      "rush_yards": 78,
+      "carries": 29,
+      "rb_rush_yards": 78,
+      "sacks": 0,
+      "explosive_pass": 2,
+      "explosive_rush": 0,
+      "wr_targets": 15,
+      "wr_receptions": 8,
+      "wr_rec_yards": 131,
+      "wr_rec_td": 1,
+      "te_targets": 7,
+      "te_receptions": 6,
+      "te_rec_yards": 98,
+      "te_rec_td": 0,
+      "rb_targets": 4,
+      "rb_receptions": 2,
+      "rb_rec_yards": 13,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 10,
+      "opp": "@ TEN",
+      "points": 40,
+      "pass_yards": 352,
+      "rush_yards": 101,
+      "carries": 34,
+      "rb_rush_yards": 93,
+      "sacks": 1,
+      "explosive_pass": 6,
+      "explosive_rush": 2,
+      "wr_targets": 24,
+      "wr_receptions": 18,
+      "wr_rec_yards": 298,
+      "wr_rec_td": 2,
+      "te_targets": 6,
+      "te_receptions": 4,
+      "te_rec_yards": 29,
+      "te_rec_td": 1,
+      "rb_targets": 4,
+      "rb_receptions": 3,
+      "rb_rec_yards": 25,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 11,
+      "opp": "@ NYG",
+      "points": 18,
+      "pass_yards": 301,
+      "rush_yards": 78,
+      "carries": 17,
+      "rb_rush_yards": 61,
+      "sacks": 3,
+      "explosive_pass": 5,
+      "explosive_rush": 1,
+      "wr_targets": 38,
+      "wr_receptions": 17,
+      "wr_rec_yards": 253,
+      "wr_rec_td": 1,
+      "te_targets": 3,
+      "te_receptions": 3,
+      "te_rec_yards": 16,
+      "te_rec_td": 0,
+      "rb_targets": 5,
+      "rb_receptions": 5,
+      "rb_rec_yards": 32,
+      "rb_rec_td": 0
+     }
+    ],
+    "run_game_by_direction": [
+     {
+      "direction": "middle",
+      "carries": 44,
+      "yards": 192,
+      "ypc": 4.36,
+      "explosive": 2
+     },
+     {
+      "direction": "right tackle",
+      "carries": 33,
+      "yards": 147,
+      "ypc": 4.45,
+      "explosive": 1
+     },
+     {
+      "direction": "left guard",
+      "carries": 33,
+      "yards": 160,
+      "ypc": 4.85,
+      "explosive": 2
+     },
+     {
+      "direction": "right guard",
+      "carries": 32,
+      "yards": 88,
+      "ypc": 2.75,
+      "explosive": 0
+     },
+     {
+      "direction": "left end",
+      "carries": 26,
+      "yards": 101,
+      "ypc": 3.88,
+      "explosive": 2
+     },
+     {
+      "direction": "left tackle",
+      "carries": 23,
+      "yards": 87,
+      "ypc": 3.78,
+      "explosive": 0
+     },
+     {
+      "direction": "right end",
+      "carries": 20,
+      "yards": 64,
+      "ypc": 3.2,
+      "explosive": 1
+     }
+    ],
+    "players": {
+     "receivers": [
+      {
+       "player": "P.Washington",
+       "player_id": "00-0038606",
+       "pos": "WR",
+       "games": 8,
+       "targets": 63,
+       "receptions": 32,
+       "yards": 567,
+       "td": 5,
+       "target_share": 0.25,
+       "air_yards_share": 0.36146209386281586,
+       "avg_depth_of_target": 12.714285714285714,
+       "yards_per_target": 9.0,
+       "explosive": 10,
+       "red_zone_targets": 15,
+       "log": [
+        {
+         "week": 3,
+         "targets": 5,
+         "receptions": 3,
+         "yards": 40
+        },
+        {
+         "week": 4,
+         "targets": 3,
+         "receptions": 1,
+         "yards": 7
+        },
+        {
+         "week": 5,
+         "targets": 9,
+         "receptions": 6,
+         "yards": 124
+        },
+        {
+         "week": 6,
+         "targets": 11,
+         "receptions": 4,
+         "yards": 64
+        },
+        {
+         "week": 8,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 16
+        },
+        {
+         "week": 9,
+         "targets": 7,
+         "receptions": 2,
+         "yards": 61
+        },
+        {
+         "week": 10,
+         "targets": 9,
+         "receptions": 7,
+         "yards": 152
+        },
+        {
+         "week": 11,
+         "targets": 17,
+         "receptions": 8,
+         "yards": 103
+        }
+       ]
+      },
+      {
+       "player": "J.Meyers",
+       "player_id": "00-0034960",
+       "pos": "WR",
+       "games": 8,
+       "targets": 50,
+       "receptions": 30,
+       "yards": 425,
+       "td": 1,
+       "target_share": 0.1984126984126984,
+       "air_yards_share": 0.25,
+       "avg_depth_of_target": 11.08,
+       "yards_per_target": 8.5,
+       "explosive": 6,
+       "red_zone_targets": 13,
+       "log": [
+        {
+         "week": 3,
+         "targets": 8,
+         "receptions": 7,
+         "yards": 64
+        },
+        {
+         "week": 4,
+         "targets": 4,
+         "receptions": 3,
+         "yards": 33
+        },
+        {
+         "week": 5,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 37
+        },
+        {
+         "week": 6,
+         "targets": 10,
+         "receptions": 5,
+         "yards": 83
+        },
+        {
+         "week": 8,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 24
+        },
+        {
+         "week": 9,
+         "targets": 6,
+         "receptions": 4,
+         "yards": 65
+        },
+        {
+         "week": 10,
+         "targets": 6,
+         "receptions": 3,
+         "yards": 34
+        },
+        {
+         "week": 11,
+         "targets": 10,
+         "receptions": 4,
+         "yards": 85
+        }
+       ]
+      },
+      {
+       "player": "B.Strange",
+       "player_id": "00-0038935",
+       "pos": "TE",
+       "games": 8,
+       "targets": 38,
+       "receptions": 31,
+       "yards": 341,
+       "td": 1,
+       "target_share": 0.15079365079365079,
+       "air_yards_share": 0.13041516245487364,
+       "avg_depth_of_target": 7.605263157894737,
+       "yards_per_target": 8.973684210526315,
+       "explosive": 5,
+       "red_zone_targets": 3,
+       "log": [
+        {
+         "week": 3,
+         "targets": 5,
+         "receptions": 3,
+         "yards": 32
+        },
+        {
+         "week": 4,
+         "targets": 8,
+         "receptions": 7,
+         "yards": 95
+        },
+        {
+         "week": 5,
+         "targets": 8,
+         "receptions": 7,
+         "yards": 68
+        },
+        {
+         "week": 6,
+         "targets": 7,
+         "receptions": 5,
+         "yards": 44
+        },
+        {
+         "week": 8,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 55
+        },
+        {
+         "week": 9,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 22
+        },
+        {
+         "week": 10,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 9
+        },
+        {
+         "week": 11,
+         "targets": 3,
+         "receptions": 3,
+         "yards": 16
+        }
+       ]
+      },
+      {
+       "player": "J.Cameron",
+       "player_id": "00-0041100",
+       "pos": "WR",
+       "games": 7,
+       "targets": 22,
+       "receptions": 13,
+       "yards": 214,
+       "td": 2,
+       "target_share": 0.0873015873015873,
+       "air_yards_share": 0.10108303249097472,
+       "avg_depth_of_target": 10.181818181818182,
+       "yards_per_target": 9.727272727272727,
+       "explosive": 4,
+       "red_zone_targets": 3,
+       "log": [
+        {
+         "week": 3,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 12
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 42
+        },
+        {
+         "week": 5,
+         "targets": 6,
+         "receptions": 3,
+         "yards": 43
+        },
+        {
+         "week": 8,
+         "targets": 1,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 9,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 6
+        },
+        {
+         "week": 10,
+         "targets": 3,
+         "receptions": 3,
+         "yards": 67
+        },
+        {
+         "week": 11,
+         "targets": 7,
+         "receptions": 3,
+         "yards": 44
+        }
+       ]
+      },
+      {
+       "player": "B.Tuten",
+       "player_id": "00-0040719",
+       "pos": "RB",
+       "games": 7,
+       "targets": 20,
+       "receptions": 18,
+       "yards": 207,
+       "td": 3,
+       "target_share": 0.07936507936507936,
+       "air_yards_share": -0.02211191335740072,
+       "avg_depth_of_target": -2.45,
+       "yards_per_target": 10.35,
+       "explosive": 3,
+       "red_zone_targets": 3,
+       "log": [
+        {
+         "week": 3,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 17
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 18
+        },
+        {
+         "week": 5,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 24
+        },
+        {
+         "week": 6,
+         "targets": 4,
+         "receptions": 4,
+         "yards": 48
+        },
+        {
+         "week": 8,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 55
+        },
+        {
+         "week": 10,
+         "targets": 4,
+         "receptions": 3,
+         "yards": 25
+        },
+        {
+         "week": 11,
+         "targets": 3,
+         "receptions": 3,
+         "yards": 20
+        }
+       ]
+      },
+      {
+       "player": "Bri.Thomas",
+       "player_id": "00-0039893",
+       "pos": "WR",
+       "games": 7,
+       "targets": 17,
+       "receptions": 8,
+       "yards": 84,
+       "td": 3,
+       "target_share": 0.06746031746031746,
+       "air_yards_share": 0.09882671480144405,
+       "avg_depth_of_target": 12.882352941176471,
+       "yards_per_target": 4.9411764705882355,
+       "explosive": 0,
+       "red_zone_targets": 6,
+       "log": [
+        {
+         "week": 3,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 8
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 17
+        },
+        {
+         "week": 5,
+         "targets": 3,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 6,
+         "targets": 2,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 8,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 12
+        },
+        {
+         "week": 10,
+         "targets": 4,
+         "receptions": 3,
+         "yards": 29
+        },
+        {
+         "week": 11,
+         "targets": 3,
+         "receptions": 1,
+         "yards": 18
+        }
+       ]
+      },
+      {
+       "player": "N.Boerkircher",
+       "player_id": "00-0041503",
+       "pos": "TE",
+       "games": 7,
+       "targets": 13,
+       "receptions": 9,
+       "yards": 147,
+       "td": 2,
+       "target_share": 0.051587301587301584,
+       "air_yards_share": 0.05415162454873646,
+       "avg_depth_of_target": 9.23076923076923,
+       "yards_per_target": 11.307692307692308,
+       "explosive": 2,
+       "red_zone_targets": 4,
+       "log": [
+        {
+         "week": 3,
+         "targets": 1,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 15
+        },
+        {
+         "week": 5,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 20
+        },
+        {
+         "week": 6,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 8
+        },
+        {
+         "week": 8,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 31
+        },
+        {
+         "week": 9,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 61
+        },
+        {
+         "week": 10,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 12
+        }
+       ]
+      },
+      {
+       "player": "T.Hunter",
+       "player_id": "00-0040718",
+       "pos": "WR",
+       "games": 6,
+       "targets": 10,
+       "receptions": 9,
+       "yards": 86,
+       "td": 1,
+       "target_share": 0.03968253968253968,
+       "air_yards_share": 0.01128158844765343,
+       "avg_depth_of_target": 2.5,
+       "yards_per_target": 8.6,
+       "explosive": 1,
+       "red_zone_targets": 2,
+       "log": [
+        {
+         "week": 5,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 9
+        },
+        {
+         "week": 6,
+         "targets": 4,
+         "receptions": 4,
+         "yards": 59
+        },
+        {
+         "week": 8,
+         "targets": 1,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 9,
+         "targets": 1,
+         "receptions": 1,
+         "yards": -1
+        },
+        {
+         "week": 10,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 16
+        },
+        {
+         "week": 11,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 3
+        }
+       ]
+      },
+      {
+       "player": "L.Allen",
+       "player_id": "00-0040238",
+       "pos": "RB",
+       "games": 5,
+       "targets": 8,
+       "receptions": 3,
+       "yards": 8,
+       "td": 0,
+       "target_share": 0.031746031746031744,
+       "air_yards_share": 0.006768953068592058,
+       "avg_depth_of_target": 1.875,
+       "yards_per_target": 1.0,
+       "explosive": 0,
+       "red_zone_targets": 0,
+       "log": [
+        {
+         "week": 3,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 9
+        },
+        {
+         "week": 5,
+         "targets": 2,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 8,
+         "targets": 1,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 9,
+         "targets": 2,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 11,
+         "targets": 1,
+         "receptions": 1,
+         "yards": -1
+        }
+       ]
+      }
+     ],
+     "rushers": [
+      {
+       "player": "B.Tuten",
+       "player_id": "00-0040719",
+       "pos": "RB",
+       "games": 8,
+       "carries": 130,
+       "yards": 511,
+       "rush_attempts_official": 130,
+       "rushing_yards_official": 511,
+       "kneels_included": true,
+       "td": 4,
+       "carry_share": 0.6132075471698113,
+       "yards_per_carry": 3.9307692307692306,
+       "explosive": 4,
+       "red_zone_carries": 29,
+       "log": [
+        {
+         "week": 3,
+         "carries": 15,
+         "yards": 73,
+         "official_attempts": 15,
+         "official_yards": 73
+        },
+        {
+         "week": 4,
+         "carries": 17,
+         "yards": 73,
+         "official_attempts": 17,
+         "official_yards": 73
+        },
+        {
+         "week": 5,
+         "carries": 22,
+         "yards": 72,
+         "official_attempts": 22,
+         "official_yards": 72
+        },
+        {
+         "week": 6,
+         "carries": 12,
+         "yards": 39,
+         "official_attempts": 12,
+         "official_yards": 39
+        },
+        {
+         "week": 8,
+         "carries": 16,
+         "yards": 104,
+         "official_attempts": 16,
+         "official_yards": 104
+        },
+        {
+         "week": 9,
+         "carries": 12,
+         "yards": 29,
+         "official_attempts": 12,
+         "official_yards": 29
+        },
+        {
+         "week": 10,
+         "carries": 26,
+         "yards": 88,
+         "official_attempts": 26,
+         "official_yards": 88
+        },
+        {
+         "week": 11,
+         "carries": 10,
+         "yards": 33,
+         "official_attempts": 10,
+         "official_yards": 33
+        }
+       ]
+      },
+      {
+       "player": "C.Rodriguez",
+       "player_id": "00-0038611",
+       "pos": "RB",
+       "games": 8,
+       "carries": 51,
+       "yards": 225,
+       "rush_attempts_official": 51,
+       "rushing_yards_official": 225,
+       "kneels_included": true,
+       "td": 4,
+       "carry_share": 0.24056603773584906,
+       "yards_per_carry": 4.411764705882353,
+       "explosive": 3,
+       "red_zone_carries": 11,
+       "log": [
+        {
+         "week": 3,
+         "carries": 8,
+         "yards": 37,
+         "official_attempts": 8,
+         "official_yards": 37
+        },
+        {
+         "week": 4,
+         "carries": 6,
+         "yards": 35,
+         "official_attempts": 6,
+         "official_yards": 35
+        },
+        {
+         "week": 5,
+         "carries": 2,
+         "yards": 5,
+         "official_attempts": 2,
+         "official_yards": 5
+        },
+        {
+         "week": 6,
+         "carries": 11,
+         "yards": 55,
+         "official_attempts": 11,
+         "official_yards": 55
+        },
+        {
+         "week": 8,
+         "carries": 6,
+         "yards": 41,
+         "official_attempts": 6,
+         "official_yards": 41
+        },
+        {
+         "week": 9,
+         "carries": 10,
+         "yards": 19,
+         "official_attempts": 10,
+         "official_yards": 19
+        },
+        {
+         "week": 10,
+         "carries": 4,
+         "yards": 5,
+         "official_attempts": 4,
+         "official_yards": 5
+        },
+        {
+         "week": 11,
+         "carries": 4,
+         "yards": 28,
+         "official_attempts": 4,
+         "official_yards": 28
+        }
+       ]
+      },
+      {
+       "player": "A.Abdullah",
+       "player_id": "00-0032104",
+       "pos": "RB",
+       "games": 3,
+       "carries": 16,
+       "yards": 45,
+       "rush_attempts_official": 16,
+       "rushing_yards_official": 45,
+       "kneels_included": true,
+       "td": 0,
+       "carry_share": 0.07547169811320754,
+       "yards_per_carry": 2.8125,
+       "explosive": 0,
+       "red_zone_carries": 4,
+       "log": [
+        {
+         "week": 3,
+         "carries": 3,
+         "yards": 2,
+         "official_attempts": 3,
+         "official_yards": 2
+        },
+        {
+         "week": 8,
+         "carries": 6,
+         "yards": 13,
+         "official_attempts": 6,
+         "official_yards": 13
+        },
+        {
+         "week": 9,
+         "carries": 7,
+         "yards": 30,
+         "official_attempts": 7,
+         "official_yards": 30
+        }
+       ]
+      },
+      {
+       "player": "T.Lawrence",
+       "player_id": "00-0036971",
+       "pos": "QB",
+       "games": 7,
+       "carries": 8,
+       "yards": 34,
+       "rush_attempts_official": 23,
+       "rushing_yards_official": 105,
+       "kneels_included": true,
+       "td": 0,
+       "carry_share": 0.03773584905660377,
+       "yards_per_carry": 4.25,
+       "explosive": 1,
+       "red_zone_carries": 2,
+       "log": [
+        {
+         "week": 3,
+         "carries": 2,
+         "yards": 17,
+         "official_attempts": 4,
+         "official_yards": 25
+        },
+        {
+         "week": 4,
+         "carries": 1,
+         "yards": 2,
+         "official_attempts": 3,
+         "official_yards": 0
+        },
+        {
+         "week": 5,
+         "carries": 0,
+         "yards": 0,
+         "official_attempts": 3,
+         "official_yards": 25
+        },
+        {
+         "week": 6,
+         "carries": 0,
+         "yards": 0,
+         "official_attempts": 3,
+         "official_yards": 11
+        },
+        {
+         "week": 8,
+         "carries": 1,
+         "yards": 2,
+         "official_attempts": 3,
+         "official_yards": 10
+        },
+        {
+         "week": 10,
+         "carries": 2,
+         "yards": 5,
+         "official_attempts": 4,
+         "official_yards": 27
+        },
+        {
+         "week": 11,
+         "carries": 2,
+         "yards": 8,
+         "official_attempts": 3,
+         "official_yards": 7
+        }
+       ]
+      },
+      {
+       "player": "T.Hunter",
+       "player_id": "00-0040718",
+       "pos": "WR",
+       "games": 3,
+       "carries": 3,
+       "yards": 17,
+       "rush_attempts_official": 3,
+       "rushing_yards_official": 17,
+       "kneels_included": true,
+       "td": 0,
+       "carry_share": 0.014150943396226415,
+       "yards_per_carry": 5.666666666666667,
+       "explosive": 0,
+       "red_zone_carries": 0,
+       "log": [
+        {
+         "week": 8,
+         "carries": 1,
+         "yards": 5,
+         "official_attempts": 1,
+         "official_yards": 5
+        },
+        {
+         "week": 10,
+         "carries": 1,
+         "yards": 3,
+         "official_attempts": 1,
+         "official_yards": 3
+        },
+        {
+         "week": 11,
+         "carries": 1,
+         "yards": 9,
+         "official_attempts": 1,
+         "official_yards": 9
+        }
+       ]
+      }
+     ],
+     "quarterbacks": [
+      {
+       "player": "T.Lawrence",
+       "player_id": "00-0036971",
+       "games": 8,
+       "attempts": 252,
+       "completions": 161,
+       "yards": 2151,
+       "td": 18,
+       "int": 6,
+       "sacks": 14,
+       "yards_per_attempt": 8.535714285714286,
+       "avg_depth_of_target": 8.738095238095237,
+       "epa_per_dropback": 0.2061041775512666,
+       "pressure_rate_faced": 0.15413533834586465,
+       "log": [
+        {
+         "week": 3,
+         "att": 28,
+         "cmp": 19,
+         "yards": 182,
+         "td": 3,
+         "int": 1,
+         "sacks": 1
+        },
+        {
+         "week": 4,
+         "att": 23,
+         "cmp": 18,
+         "yards": 227,
+         "td": 1,
+         "int": 0,
+         "sacks": 4
+        },
+        {
+         "week": 5,
+         "att": 39,
+         "cmp": 24,
+         "yards": 331,
+         "td": 2,
+         "int": 1,
+         "sacks": 2
+        },
+        {
+         "week": 6,
+         "att": 41,
+         "cmp": 24,
+         "yards": 306,
+         "td": 4,
+         "int": 1,
+         "sacks": 0
+        },
+        {
+         "week": 8,
+         "att": 14,
+         "cmp": 10,
+         "yards": 210,
+         "td": 3,
+         "int": 0,
+         "sacks": 3
+        },
+        {
+         "week": 9,
+         "att": 26,
+         "cmp": 16,
+         "yards": 242,
+         "td": 1,
+         "int": 0,
+         "sacks": 0
+        },
+        {
+         "week": 10,
+         "att": 34,
+         "cmp": 25,
+         "yards": 352,
+         "td": 3,
+         "int": 1,
+         "sacks": 1
+        },
+        {
+         "week": 11,
+         "att": 47,
+         "cmp": 25,
+         "yards": 301,
+         "td": 1,
+         "int": 2,
+         "sacks": 3
+        }
+       ]
+      },
+      {
+       "player": "Q.Ewers",
+       "player_id": "00-0040234",
+       "games": 1,
+       "attempts": 3,
+       "completions": 1,
+       "yards": 8,
+       "td": 0,
+       "int": 0,
+       "sacks": 0,
+       "yards_per_attempt": 2.6666666666666665,
+       "avg_depth_of_target": 12.333333333333334,
+       "epa_per_dropback": -0.3873129540585086,
+       "pressure_rate_faced": 0.0,
+       "log": [
+        {
+         "week": 8,
+         "att": 3,
+         "cmp": 1,
+         "yards": 8,
+         "td": 0,
+         "int": 0,
+         "sacks": 0
+        }
+       ]
+      }
+     ]
+    },
+    "offense_snap_share": {
+     "Emmanuel Pregnon": 1.0,
+     "Cole Van Lanen": 0.97,
+     "Trevor Lawrence": 0.97,
+     "Ezra Cleveland": 0.909,
+     "Robert Hainsey": 0.901,
+     "Anton Harrison": 0.86,
+     "Brenton Strange": 0.765,
+     "Parker Washington": 0.762,
+     "Jakobi Meyers": 0.761,
+     "Walker Little": 0.731,
+     "Bhayshul Tuten": 0.54,
+     "Nate Boerkircher": 0.458,
+     "Brian Thomas Jr.": 0.445,
+     "Jonah Monheim": 0.43,
+     "Josh Cameron": 0.405,
+     "Chris Rodriguez Jr.": 0.259,
+     "Wyatt Milum": 0.21,
+     "Daniel Faalele": 0.19,
+     "Tanner Koziol": 0.145,
+     "LeQuint Allen Jr.": 0.144,
+     "Quintin Morris": 0.126,
+     "Quinn Ewers": 0.12
+    }
+   },
+   "formation_zone_splits": {
+    "offense_by_formation": [
+     {
+      "formation": "Shotgun",
+      "plays": 256,
+      "share": 0.52,
+      "pass_rate": 0.797,
+      "yards_per_play": 6.08,
+      "epa_per_play": 0.092
+     },
+     {
+      "formation": "Under center",
+      "plays": 222,
+      "share": 0.451,
+      "pass_rate": 0.284,
+      "yards_per_play": 5.71,
+      "epa_per_play": 0.148
+     },
+     {
+      "formation": "No huddle",
+      "plays": 14,
+      "share": 0.028,
+      "pass_rate": 0.929,
+      "yards_per_play": 9.79,
+      "epa_per_play": 0.153
+     }
+    ],
+    "offense_pass_zones": [
+     {
+      "zone": "Short left",
+      "attempts": 94,
+      "share": 0.369,
+      "completion_rate": 0.617,
+      "yards_per_attempt": 6.16,
+      "explosive": 4
+     },
+     {
+      "zone": "Short middle",
+      "attempts": 53,
+      "share": 0.208,
+      "completion_rate": 0.679,
+      "yards_per_attempt": 9.19,
+      "explosive": 4
+     },
+     {
+      "zone": "Short right",
+      "attempts": 64,
+      "share": 0.251,
+      "completion_rate": 0.719,
+      "yards_per_attempt": 7.44,
+      "explosive": 4
+     },
+     {
+      "zone": "Deep left",
+      "attempts": 21,
+      "share": 0.082,
+      "completion_rate": 0.571,
+      "yards_per_attempt": 15.67,
+      "explosive": 10
+     },
+     {
+      "zone": "Deep middle",
+      "attempts": 9,
+      "share": 0.035,
+      "completion_rate": 0.444,
+      "yards_per_attempt": 9.89,
+      "explosive": 3
+     },
+     {
+      "zone": "Deep right",
+      "attempts": 14,
+      "share": 0.055,
+      "completion_rate": 0.429,
+      "yards_per_attempt": 14.21,
+      "explosive": 6
+     }
+    ],
+    "defense_vs_formation": [
+     {
+      "formation": "Shotgun",
+      "plays": 305,
+      "share": 0.635,
+      "pass_rate": 0.767,
+      "yards_per_play": 5.56,
+      "epa_per_play": -0.143
+     },
+     {
+      "formation": "Under center",
+      "plays": 123,
+      "share": 0.256,
+      "pass_rate": 0.309,
+      "yards_per_play": 3.4,
+      "epa_per_play": -0.145
+     },
+     {
+      "formation": "No huddle",
+      "plays": 52,
+      "share": 0.108,
+      "pass_rate": 0.846,
+      "yards_per_play": 6.54,
+      "epa_per_play": 0.11
+     }
+    ],
+    "defense_pass_zones_allowed": [
+     {
+      "zone": "Short left",
+      "attempts": 89,
+      "share": 0.311,
+      "completion_rate": 0.674,
+      "yards_per_attempt": 4.85,
+      "explosive": 2
+     },
+     {
+      "zone": "Short middle",
+      "attempts": 50,
+      "share": 0.175,
+      "completion_rate": 0.64,
+      "yards_per_attempt": 6.94,
+      "explosive": 2
+     },
+     {
+      "zone": "Short right",
+      "attempts": 98,
+      "share": 0.343,
+      "completion_rate": 0.714,
+      "yards_per_attempt": 5.23,
+      "explosive": 1
+     },
+     {
+      "zone": "Deep left",
+      "attempts": 18,
+      "share": 0.063,
+      "completion_rate": 0.333,
+      "yards_per_attempt": 9.17,
+      "explosive": 3
+     },
+     {
+      "zone": "Deep middle",
+      "attempts": 8,
+      "share": 0.028,
+      "completion_rate": 0.375,
+      "yards_per_attempt": 11.0,
+      "explosive": 2
+     },
+     {
+      "zone": "Deep right",
+      "attempts": 23,
+      "share": 0.08,
+      "completion_rate": 0.391,
+      "yards_per_attempt": 11.87,
+      "explosive": 6
+     }
+    ]
+   },
+   "depth_chart": {
+    "status": "OK",
+    "as_of": "2026-11-26T17:41:02Z",
+    "starters": [
+     {
+      "slot": "WR",
+      "player": "Parker Washington",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "LT",
+      "player": "Walker Little",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "LG",
+      "player": "Emmanuel Pregnon",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "C",
+      "player": "Robert Hainsey",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "RG",
+      "player": "Ezra Cleveland",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "RT",
+      "player": "Cole Van Lanen",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "QB",
+      "player": "Trevor Lawrence",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "TE",
+      "player": "Brenton Strange",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "RB",
+      "player": "Bhayshul Tuten",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "LDE",
+      "player": "Travon Walker",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "LDT",
+      "player": "Arik Armstead",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "RDT",
+      "player": "Jordan Davis",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "RDE",
+      "player": "Josh Hines-Allen",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "WLB",
+      "player": "Foyesade Oluokun",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "MLB",
+      "player": "Ventrell Miller",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "SLB",
+      "player": "Dennis Gardeck",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "LCB",
+      "player": "Travis Hunter",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "SS",
+      "player": "Jessie Bates III",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "FS",
+      "player": "Antonio Johnson",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "RCB",
+      "player": "Montaric Brown",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "NB",
+      "player": "Jarrian Jones",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "PK",
+      "player": "Cam Little",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "P",
+      "player": "Logan Cooke",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "H",
+      "player": "Logan Cooke",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "PR",
+      "player": "Ameer Abdullah",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "KR",
+      "player": "Ameer Abdullah",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "LS",
+      "player": "Ross Matiscik",
+      "group": "Special Teams"
+     }
+    ],
+    "second_string": [
+     {
+      "slot": "WR",
+      "player": "Jakobi Meyers"
+     },
+     {
+      "slot": "LT",
+      "player": "Wyatt Milum"
+     },
+     {
+      "slot": "LG",
+      "player": "Daniel Faalele"
+     },
+     {
+      "slot": "C",
+      "player": "Jonah Monheim"
+     },
+     {
+      "slot": "RG",
+      "player": "Wyatt Milum"
+     },
+     {
+      "slot": "RT",
+      "player": "Walker Little"
+     },
+     {
+      "slot": "QB",
+      "player": "Quinn Ewers"
+     },
+     {
+      "slot": "TE",
+      "player": "Nate Boerkircher"
+     },
+     {
+      "slot": "RB",
+      "player": "Chris Rodriguez Jr."
+     },
+     {
+      "slot": "LDE",
+      "player": "Danny Striggow"
+     },
+     {
+      "slot": "LDT",
+      "player": "Ruke Orhorhoro"
+     },
+     {
+      "slot": "RDT",
+      "player": "Davon Godchaux"
+     },
+     {
+      "slot": "RDE",
+      "player": "Bryan Thomas Jr."
+     },
+     {
+      "slot": "WLB",
+      "player": "Jahlani Tavai"
+     },
+     {
+      "slot": "MLB",
+      "player": "Branson Combs"
+     },
+     {
+      "slot": "SLB",
+      "player": "Jalen McLeod"
+     },
+     {
+      "slot": "LCB",
+      "player": "Jaylon Jones"
+     },
+     {
+      "slot": "SS",
+      "player": "Kaevon Merriweather"
+     },
+     {
+      "slot": "FS",
+      "player": "Rayuan Lane III"
+     },
+     {
+      "slot": "RCB",
+      "player": "Jarrian Jones"
+     },
+     {
+      "slot": "NB",
+      "player": "Jourdan Lewis"
+     },
+     {
+      "slot": "PR",
+      "player": "Parker Washington"
+     },
+     {
+      "slot": "KR",
+      "player": "Josh Cameron"
+     }
+    ]
+   },
+   "injuries": {
+    "official_report": [],
+    "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
+    "espn_live": [
+     {
+      "player": "Danny Striggow",
+      "position": "DE",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "JAX"
+     },
+     {
+      "player": "Matt Dickerson",
+      "position": "DE",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "JAX"
+     },
+     {
+      "player": "Robert Hainsey",
+      "position": "C",
+      "status": "Questionable",
+      "date": "2026-11-24T12:39Z",
+      "comment": "questionable",
+      "team": "JAX"
+     },
+     {
+      "player": "Jakobi Meyers",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-25T21:19Z",
+      "comment": "Meyers was a limited participant in Wednesday's practice due to an ankle injury.",
+      "team": "JAX"
+     },
+     {
+      "player": "Cole Van Lanen",
+      "position": "OT",
+      "status": "Questionable",
+      "date": "2026-11-25T21:19Z",
+      "comment": "questionable",
+      "team": "JAX"
+     },
+     {
+      "player": "Jonah Monheim",
+      "position": "C",
+      "status": "Questionable",
+      "date": "2026-11-25T21:19Z",
+      "comment": "questionable",
+      "team": "JAX"
+     },
+     {
+      "player": "Dennis Gardeck",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-25T21:19Z",
+      "comment": "questionable",
+      "team": "JAX"
+     },
+     {
+      "player": "Bhayshul Tuten",
+      "position": "RB",
+      "status": "Questionable",
+      "date": "2026-11-25T21:25Z",
+      "comment": "Tuten (ankle/foot) didn't practice Wednesday, Adam Schefter of ESPN reports.",
+      "team": "JAX"
+     },
+     {
+      "player": "Patrick Mekari",
+      "position": "G",
+      "status": "Injured Reserve",
+      "date": "2026-11-26T02:46Z",
+      "comment": "The Jaguars designated Mekari (back) to return from injured reserve Wednesday.",
+      "team": "JAX"
+     },
+     {
+      "player": "Trevor Lawrence",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-23T02:38Z",
+      "comment": "Lawrence completed 25 of 47 passes for 301 yards with one touchdown and two interceptions and rushed three times for seven yards in the Jaguars' 23-18 loss to the Giants on Sunday. He also fumbled twi",
+      "team": "JAX"
+     },
+     {
+      "player": "Brian Thomas Jr.",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-23T02:40Z",
+      "comment": "Thomas caught one pass for an 18-yard touchdown on three targets in Sunday's 23-18 loss to the Giants.",
+      "team": "JAX"
+     },
+     {
+      "player": "Chris Rodriguez Jr.",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-23T03:11Z",
+      "comment": "Rodriguez rushed four times for 28 yards in Sunday's 23-18 loss to the Giants. He added one catch for 13 yards on one target.",
+      "team": "JAX"
+     },
+     {
+      "player": "Brenton Strange",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-23T03:18Z",
+      "comment": "Strange caught all three of his targets for 16 yards during Sunday's 23-18 loss to the Giants.",
+      "team": "JAX"
+     },
+     {
+      "player": "Cam Little",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-23T15:03Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "CJ Williams",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-23T15:34Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Jalen Huskey",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-23T15:34Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Albert Regis",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-23T15:34Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Nate Boerkircher",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-23T17:49Z",
+      "comment": "Boerkircher didn't draw a target while playing 22 of the Jaguars' 72 snaps on offense in Sunday's 23-18 loss to the Giants.",
+      "team": "JAX"
+     },
+     {
+      "player": "Tanner Koziol",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-23T17:54Z",
+      "comment": "Koziol went without a target while playing four of the Jaguars' 72 snaps on offense in Sunday's 23-18 loss to the Giants.",
+      "team": "JAX"
+     },
+     {
+      "player": "Quintin Morris",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-23T17:57Z",
+      "comment": "Morris went without a target while logging 11 of the Jaguars' 72 snaps on offense in Sunday's 23-18 loss to the Giants.",
+      "team": "JAX"
+     },
+     {
+      "player": "Travis Hunter",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-24T01:49Z",
+      "comment": "Hunter caught his lone target for three yards, added a nine-yard carry and logged six tackles (four solo) during the Jaguars' 23-18 loss to the Giants on Sunday.",
+      "team": "JAX"
+     },
+     {
+      "player": "Josh Cameron",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-24T02:20Z",
+      "comment": "Cameron caught three of seven targets for 44 yards during Sunday's 23-18 loss against the Giants. He also returned two kickoffs for a total of 40 yards.",
+      "team": "JAX"
+     },
+     {
+      "player": "LeQuint Allen Jr.",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-24T03:24Z",
+      "comment": "Allen caught one pass for minus-1 yard in the Jaguars' 23-18 loss to the Giants on Sunday.",
+      "team": "JAX"
+     },
+     {
+      "player": "Foyesade Oluokun",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-24T03:59Z",
+      "comment": "Oluokun compiled nine tackles (seven solo) during Jacksonville's loss to the Giants on Sunday.",
+      "team": "JAX"
+     },
+     {
+      "player": "Jarrian Jones",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-26T01:13Z",
+      "comment": "Jones (chest) was a full participant in Wednesday's practice.",
+      "team": "JAX"
+     }
+    ],
+    "espn_live_status": "OK",
+    "espn_live_note": "ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.",
+    "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
+   },
+   "roster_moves": {
+    "window_weeks": 4,
+    "arrivals_from_other_teams": [],
+    "departures_to_other_teams": [
+     {
+      "player": "Joey Aguilar",
+      "position": "QB",
+      "to": "ARI"
+     }
+    ],
+    "note": "From weekly roster snapshots: covers trades, waiver claims and signings of players who were on another roster. It does not say which kind of move it was."
+   }
+  },
+  "CHI": {
+   "window": {
+    "games": 8,
+    "weeks": [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     11
+    ],
+    "requested": 8
+   },
+   "defense": {
+    "allowed": {
+     "games": 8,
+     "weeks": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11
+     ],
+     "points_pg": 18.875,
+     "plays_pg": 53.125,
+     "pass_yards_pg": 229.75,
+     "pass_att_pg": 30.375,
+     "completions_pg": 19.0,
+     "yards_per_pass_attempt": 7.563786008230453,
+     "completion_rate": 0.6255144032921811,
+     "pass_td": 11,
+     "interceptions": 7,
+     "fumbles_lost": 3,
+     "takeaways_pg": 1.25,
+     "sacks": 27,
+     "sack_rate": 0.09540636042402827,
+     "qb_hits": 49,
+     "pressure_rate": 0.18021201413427562,
+     "avg_depth_of_target": 8.349794238683128,
+     "deep_attempts_pg": 3.5,
+     "deep_completion_rate": 0.4642857142857143,
+     "rush_att_pg": 17.75,
+     "rush_yards_pg": 73.375,
+     "yards_per_carry": 4.133802816901408,
+     "rush_td": 5,
+     "rb_carries_pg": 16.625,
+     "rb_rush_yards_pg": 70.875,
+     "rb_yards_per_carry": 4.2631578947368425,
+     "qb_rush_yards_pg": 14.0,
+     "scrambles_pg": 1.625,
+     "explosive_pass": 20,
+     "explosive_rush": 8,
+     "explosive_pass_pg": 2.5,
+     "explosive_rush_pg": 1.0,
+     "explosive_total_pg": 3.5,
+     "third_down_rate": 0.2558139534883721,
+     "red_zone_drives": 22,
+     "red_zone_td_rate": 0.5,
+     "pass_epa_per_dropback": -0.09716268495493627,
+     "rush_epa_per_carry": -0.037714889019130324,
+     "neutral_pass_rate": 0.5471698113207547,
+     "blitz_rate": 0.3321554770318021,
+     "play_action_rate": 0.2226148409893993,
+     "sack_rate_when_blitzing": 0.02127659574468085,
+     "dropbacks_charted": 283,
+     "wr_targets_pg": 17.125,
+     "wr_receptions_pg": 10.25,
+     "wr_rec_yards_pg": 152.75,
+     "wr_rec_td": 6,
+     "wr_yards_per_target": 8.91970802919708,
+     "wr_explosive": 15,
+     "wr_target_share": 0.5780590717299579,
+     "te_targets_pg": 6.5,
+     "te_receptions_pg": 4.125,
+     "te_rec_yards_pg": 44.25,
+     "te_rec_td": 3,
+     "te_yards_per_target": 6.8076923076923075,
+     "te_explosive": 3,
+     "te_target_share": 0.21940928270042195,
+     "rb_targets_pg": 6.0,
+     "rb_receptions_pg": 4.625,
+     "rb_rec_yards_pg": 32.75,
+     "rb_rec_td": 2,
+     "rb_yards_per_target": 5.458333333333333,
+     "rb_explosive": 2,
+     "rb_target_share": 0.20253164556962025
+    },
+    "rank": {
+     "points_pg": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 23.04296875
+     },
+     "pass_yards_pg": {
+      "rank": 15,
+      "of": 32,
+      "league_avg": 235.5703125
+     },
+     "rush_yards_pg": {
+      "rank": 6,
+      "of": 32,
+      "league_avg": 99.51171875
+     },
+     "yards_per_carry": {
+      "rank": 18,
+      "of": 32,
+      "league_avg": 4.066786978574186
+     },
+     "rb_rush_yards_pg": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 92.51953125
+     },
+     "explosive_pass_pg": {
+      "rank": 6,
+      "of": 32,
+      "league_avg": 2.98046875
+     },
+     "explosive_rush_pg": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 1.2109375
+     },
+     "explosive_total_pg": {
+      "rank": 6,
+      "of": 32,
+      "league_avg": 4.19140625
+     },
+     "wr_rec_yards_pg": {
+      "rank": 21,
+      "of": 32,
+      "league_avg": 147.83984375
+     },
+     "te_rec_yards_pg": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 54.65234375
+     },
+     "rb_rec_yards_pg": {
+      "rank": 16,
+      "of": 32,
+      "league_avg": 33.01171875
+     },
+     "wr_receptions_pg": {
+      "rank": 9,
+      "of": 32,
+      "league_avg": 11.3984375
+     },
+     "te_receptions_pg": {
+      "rank": 3,
+      "of": 32,
+      "league_avg": 5.34375
+     },
+     "rb_receptions_pg": {
+      "rank": 19,
+      "of": 32,
+      "league_avg": 4.44140625
+     },
+     "sack_rate": {
+      "rank": 2,
+      "of": 32,
+      "league_avg": 0.06617038514275576
+     },
+     "pressure_rate": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 0.15654791870267085
+     },
+     "third_down_rate": {
+      "rank": 2,
+      "of": 32,
+      "league_avg": 0.3915645689531899
+     },
+     "red_zone_td_rate": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 0.5799256552247983
+     },
+     "pass_epa_per_dropback": {
+      "rank": 3,
+      "of": 32,
+      "league_avg": 0.0337200927475269
+     },
+     "rush_epa_per_carry": {
+      "rank": 16,
+      "of": 32,
+      "league_avg": -0.03859206302681188
+     },
+     "takeaways_pg": {
+      "rank": 12,
+      "of": 32,
+      "league_avg": 1.2265625
+     },
+     "yards_per_pass_attempt": {
+      "rank": 22,
+      "of": 32,
+      "league_avg": 7.144231173231802
+     }
+    },
+    "by_game": [
+     {
+      "week": 3,
+      "opp": "vs PHI",
+      "points": 7,
+      "pass_yards": 153,
+      "rush_yards": 83,
+      "carries": 16,
+      "rb_rush_yards": 82,
+      "sacks": 2,
+      "explosive_pass": 1,
+      "explosive_rush": 2,
+      "wr_targets": 17,
+      "wr_receptions": 11,
+      "wr_rec_yards": 126,
+      "wr_rec_td": 0,
+      "te_targets": 3,
+      "te_receptions": 2,
+      "te_rec_yards": 13,
+      "te_rec_td": 0,
+      "rb_targets": 5,
+      "rb_receptions": 3,
+      "rb_rec_yards": 14,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 4,
+      "opp": "vs NYJ",
+      "points": 12,
+      "pass_yards": 119,
+      "rush_yards": 59,
+      "carries": 14,
+      "rb_rush_yards": 59,
+      "sacks": 3,
+      "explosive_pass": 1,
+      "explosive_rush": 0,
+      "wr_targets": 8,
+      "wr_receptions": 5,
+      "wr_rec_yards": 100,
+      "wr_rec_td": 1,
+      "te_targets": 5,
+      "te_receptions": 1,
+      "te_rec_yards": 11,
+      "te_rec_td": 0,
+      "rb_targets": 2,
+      "rb_receptions": 2,
+      "rb_rec_yards": 8,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 5,
+      "opp": "@ GB",
+      "points": 31,
+      "pass_yards": 367,
+      "rush_yards": 66,
+      "carries": 23,
+      "rb_rush_yards": 64,
+      "sacks": 2,
+      "explosive_pass": 6,
+      "explosive_rush": 1,
+      "wr_targets": 20,
+      "wr_receptions": 16,
+      "wr_rec_yards": 286,
+      "wr_rec_td": 2,
+      "te_targets": 5,
+      "te_receptions": 5,
+      "te_rec_yards": 64,
+      "te_rec_td": 0,
+      "rb_targets": 6,
+      "rb_receptions": 4,
+      "rb_rec_yards": 17,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 6,
+      "opp": "@ ATL",
+      "points": 23,
+      "pass_yards": 225,
+      "rush_yards": 62,
+      "carries": 11,
+      "rb_rush_yards": 62,
+      "sacks": 5,
+      "explosive_pass": 4,
+      "explosive_rush": 1,
+      "wr_targets": 21,
+      "wr_receptions": 9,
+      "wr_rec_yards": 158,
+      "wr_rec_td": 1,
+      "te_targets": 8,
+      "te_receptions": 6,
+      "te_rec_yards": 66,
+      "te_rec_td": 2,
+      "rb_targets": 4,
+      "rb_receptions": 4,
+      "rb_rec_yards": 1,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 7,
+      "opp": "vs NE",
+      "points": 24,
+      "pass_yards": 321,
+      "rush_yards": 44,
+      "carries": 14,
+      "rb_rush_yards": 44,
+      "sacks": 2,
+      "explosive_pass": 2,
+      "explosive_rush": 1,
+      "wr_targets": 12,
+      "wr_receptions": 7,
+      "wr_rec_yards": 87,
+      "wr_rec_td": 0,
+      "te_targets": 11,
+      "te_receptions": 10,
+      "te_rec_yards": 127,
+      "te_rec_td": 1,
+      "rb_targets": 7,
+      "rb_receptions": 7,
+      "rb_rec_yards": 107,
+      "rb_rec_td": 1
+     },
+     {
+      "week": 8,
+      "opp": "@ SEA",
+      "points": 17,
+      "pass_yards": 188,
+      "rush_yards": 61,
+      "carries": 17,
+      "rb_rush_yards": 61,
+      "sacks": 3,
+      "explosive_pass": 2,
+      "explosive_rush": 0,
+      "wr_targets": 20,
+      "wr_receptions": 10,
+      "wr_rec_yards": 151,
+      "wr_rec_td": 2,
+      "te_targets": 5,
+      "te_receptions": 2,
+      "te_rec_yards": 23,
+      "te_rec_td": 0,
+      "rb_targets": 9,
+      "rb_receptions": 5,
+      "rb_rec_yards": 14,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 9,
+      "opp": "vs TB",
+      "points": 24,
+      "pass_yards": 243,
+      "rush_yards": 126,
+      "carries": 28,
+      "rb_rush_yards": 113,
+      "sacks": 4,
+      "explosive_pass": 3,
+      "explosive_rush": 1,
+      "wr_targets": 14,
+      "wr_receptions": 7,
+      "wr_rec_yards": 130,
+      "wr_rec_td": 0,
+      "te_targets": 8,
+      "te_receptions": 4,
+      "te_rec_yards": 25,
+      "te_rec_td": 0,
+      "rb_targets": 8,
+      "rb_receptions": 7,
+      "rb_rec_yards": 88,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 11,
+      "opp": "vs NO",
+      "points": 13,
+      "pass_yards": 222,
+      "rush_yards": 86,
+      "carries": 19,
+      "rb_rush_yards": 82,
+      "sacks": 6,
+      "explosive_pass": 1,
+      "explosive_rush": 2,
+      "wr_targets": 25,
+      "wr_receptions": 17,
+      "wr_rec_yards": 184,
+      "wr_rec_td": 0,
+      "te_targets": 7,
+      "te_receptions": 3,
+      "te_rec_yards": 25,
+      "te_rec_td": 0,
+      "rb_targets": 7,
+      "rb_receptions": 5,
+      "rb_rec_yards": 13,
+      "rb_rec_td": 1
+     }
+    ],
+    "top_lines_allowed": [
+     {
+      "week": 3,
+      "opp": "PHI",
+      "top_receiver": {
+       "player": "D.Smith",
+       "pos": "WR",
+       "targets": 8,
+       "receptions": 6,
+       "yards": 65,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "S.Barkley",
+       "pos": "RB",
+       "carries": 15,
+       "yards": 82,
+       "td": 0
+      }
+     },
+     {
+      "week": 4,
+      "opp": "NYJ",
+      "top_receiver": {
+       "player": "I.Williams",
+       "pos": "WR",
+       "targets": 3,
+       "receptions": 2,
+       "yards": 73,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "B.Allen",
+       "pos": "RB",
+       "carries": 14,
+       "yards": 59,
+       "td": 0
+      }
+     },
+     {
+      "week": 5,
+      "opp": "GB",
+      "top_receiver": {
+       "player": "C.Watson",
+       "pos": "WR",
+       "targets": 8,
+       "receptions": 6,
+       "yards": 143,
+       "td": 2
+      },
+      "top_rusher": {
+       "player": "M.Lloyd",
+       "pos": "RB",
+       "carries": 10,
+       "yards": 31,
+       "td": 2
+      }
+     },
+     {
+      "week": 6,
+      "opp": "ATL",
+      "top_receiver": {
+       "player": "J.Dotson",
+       "pos": "WR",
+       "targets": 5,
+       "receptions": 3,
+       "yards": 87,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "Bi.Robinson",
+       "pos": "RB",
+       "carries": 9,
+       "yards": 61,
+       "td": 0
+      }
+     },
+     {
+      "week": 7,
+      "opp": "NE",
+      "top_receiver": {
+       "player": "R.Stevenson",
+       "pos": "RB",
+       "targets": 5,
+       "receptions": 5,
+       "yards": 93,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "R.Stevenson",
+       "pos": "RB",
+       "carries": 6,
+       "yards": 22,
+       "td": 0
+      }
+     },
+     {
+      "week": 8,
+      "opp": "SEA",
+      "top_receiver": {
+       "player": "J.Smith-Njigba",
+       "pos": "WR",
+       "targets": 11,
+       "receptions": 6,
+       "yards": 118,
+       "td": 1
+      },
+      "top_rusher": {
+       "player": "J.Price",
+       "pos": "RB",
+       "carries": 10,
+       "yards": 29,
+       "td": 0
+      }
+     },
+     {
+      "week": 9,
+      "opp": "TB",
+      "top_receiver": {
+       "player": "T.Johnson",
+       "pos": "WR",
+       "targets": 5,
+       "receptions": 2,
+       "yards": 76,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "B.Irving",
+       "pos": "RB",
+       "carries": 20,
+       "yards": 97,
+       "td": 2
+      }
+     },
+     {
+      "week": 11,
+      "opp": "NO",
+      "top_receiver": {
+       "player": "C.Olave",
+       "pos": "WR",
+       "targets": 15,
+       "receptions": 9,
+       "yards": 102,
+       "td": 0
+      },
+      "top_rusher": {
+       "player": "T.Etienne",
+       "pos": "RB",
+       "carries": 14,
+       "yards": 76,
+       "td": 0
+      }
+     }
+    ],
+    "run_defense_by_direction": [
+     {
+      "direction": "left guard",
+      "carries": 28,
+      "yards": 102,
+      "ypc": 3.64,
+      "explosive": 0
+     },
+     {
+      "direction": "left tackle",
+      "carries": 26,
+      "yards": 128,
+      "ypc": 4.92,
+      "explosive": 2
+     },
+     {
+      "direction": "left end",
+      "carries": 22,
+      "yards": 102,
+      "ypc": 4.64,
+      "explosive": 1
+     },
+     {
+      "direction": "right tackle",
+      "carries": 20,
+      "yards": 69,
+      "ypc": 3.45,
+      "explosive": 0
+     },
+     {
+      "direction": "right guard",
+      "carries": 19,
+      "yards": 70,
+      "ypc": 3.68,
+      "explosive": 1
+     },
+     {
+      "direction": "middle",
+      "carries": 16,
+      "yards": 73,
+      "ypc": 4.56,
+      "explosive": 0
+     },
+     {
+      "direction": "right end",
+      "carries": 11,
+      "yards": 43,
+      "ypc": 3.91,
+      "explosive": 1
+     }
+    ],
+    "defenders": {
+     "status": "OK",
+     "weeks": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11
+     ],
+     "coverage": [
+      {
+       "player": "Jaylon Johnson",
+       "games": 8,
+       "targets": 39,
+       "completions": 26,
+       "yards": 381,
+       "yards_per_target": 9.76923076923077,
+       "td_allowed": 1,
+       "interceptions": 1,
+       "missed_tackles": 8
+      },
+      {
+       "player": "Devin Bush Jr.",
+       "games": 8,
+       "targets": 35,
+       "completions": 22,
+       "yards": 200,
+       "yards_per_target": 5.714285714285714,
+       "td_allowed": 2,
+       "interceptions": 0,
+       "missed_tackles": 1
+      },
+      {
+       "player": "Tyrique Stevenson",
+       "games": 6,
+       "targets": 34,
+       "completions": 19,
+       "yards": 276,
+       "yards_per_target": 8.117647058823529,
+       "td_allowed": 2,
+       "interceptions": 0,
+       "missed_tackles": 3
+      },
+      {
+       "player": "Dillon Thieneman",
+       "games": 8,
+       "targets": 20,
+       "completions": 10,
+       "yards": 121,
+       "yards_per_target": 6.05,
+       "td_allowed": 1,
+       "interceptions": 2,
+       "missed_tackles": 5
+      },
+      {
+       "player": "Malik Muhammad",
+       "games": 5,
+       "targets": 19,
+       "completions": 12,
+       "yards": 197,
+       "yards_per_target": 10.368421052631579,
+       "td_allowed": 1,
+       "interceptions": 0,
+       "missed_tackles": 2
+      },
+      {
+       "player": "T.J. Edwards",
+       "games": 6,
+       "targets": 18,
+       "completions": 11,
+       "yards": 94,
+       "yards_per_target": 5.222222222222222,
+       "td_allowed": 0,
+       "interceptions": 1,
+       "missed_tackles": 2
+      },
+      {
+       "player": "Cameron Lewis",
+       "games": 7,
+       "targets": 16,
+       "completions": 12,
+       "yards": 152,
+       "yards_per_target": 9.5,
+       "td_allowed": 2,
+       "interceptions": 1,
+       "missed_tackles": 3
+      },
+      {
+       "player": "Kyler Gordon",
+       "games": 4,
+       "targets": 14,
+       "completions": 8,
+       "yards": 124,
+       "yards_per_target": 8.857142857142858,
+       "td_allowed": 0,
+       "interceptions": 0,
+       "missed_tackles": 0
+      },
+      {
+       "player": "D'Marco Jackson",
+       "games": 4,
+       "targets": 9,
+       "completions": 4,
+       "yards": 36,
+       "yards_per_target": 4.0,
+       "td_allowed": 0,
+       "interceptions": 1,
+       "missed_tackles": 1
+      },
+      {
+       "player": "Clark Phillips",
+       "games": 3,
+       "targets": 8,
+       "completions": 3,
+       "yards": 13,
+       "yards_per_target": 1.625,
+       "td_allowed": 0,
+       "interceptions": 0,
+       "missed_tackles": 0
+      }
+     ],
+     "pass_rush": [
+      {
+       "player": "Montez Sweat",
+       "games": 6,
+       "pressures": 12,
+       "sacks": 3.0,
+       "hurries": 2,
+       "blitzes": 0
+      },
+      {
+       "player": "Austin Booker",
+       "games": 6,
+       "pressures": 11,
+       "sacks": 4.0,
+       "hurries": 3,
+       "blitzes": 1
+      },
+      {
+       "player": "Grady Jarrett",
+       "games": 7,
+       "pressures": 6,
+       "sacks": 0.5,
+       "hurries": 2,
+       "blitzes": 0
+      },
+      {
+       "player": "Jeffery Simmons",
+       "games": 3,
+       "pressures": 5,
+       "sacks": 5.0,
+       "hurries": 0,
+       "blitzes": 0
+      },
+      {
+       "player": "Daniel Hardy",
+       "games": 3,
+       "pressures": 5,
+       "sacks": 2.0,
+       "hurries": 0,
+       "blitzes": 0
+      },
+      {
+       "player": "Kyler Gordon",
+       "games": 4,
+       "pressures": 5,
+       "sacks": 4.0,
+       "hurries": 0,
+       "blitzes": 14
+      },
+      {
+       "player": "Dayo Odeyingbo",
+       "games": 2,
+       "pressures": 4,
+       "sacks": 2.0,
+       "hurries": 2,
+       "blitzes": 0
+      },
+      {
+       "player": "Devin Bush Jr.",
+       "games": 8,
+       "pressures": 3,
+       "sacks": 2.0,
+       "hurries": 1,
+       "blitzes": 30
+      }
+     ]
+    }
+   },
+   "offense": {
+    "produced": {
+     "games": 8,
+     "weeks": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11
+     ],
+     "points_pg": 25.0,
+     "plays_pg": 67.625,
+     "pass_yards_pg": 253.75,
+     "pass_att_pg": 33.875,
+     "completions_pg": 23.125,
+     "yards_per_pass_attempt": 7.490774907749078,
+     "completion_rate": 0.6826568265682657,
+     "pass_td": 10,
+     "interceptions": 9,
+     "fumbles_lost": 7,
+     "takeaways_pg": 2.0,
+     "sacks": 16,
+     "sack_rate": 0.052980132450331126,
+     "qb_hits": 37,
+     "pressure_rate": 0.12251655629139073,
+     "avg_depth_of_target": 7.756457564575646,
+     "deep_attempts_pg": 3.25,
+     "deep_completion_rate": 0.38461538461538464,
+     "rush_att_pg": 29.875,
+     "rush_yards_pg": 116.5,
+     "yards_per_carry": 3.899581589958159,
+     "rush_td": 11,
+     "rb_carries_pg": 27.75,
+     "rb_rush_yards_pg": 101.75,
+     "rb_yards_per_carry": 3.6666666666666665,
+     "qb_rush_yards_pg": 11.375,
+     "scrambles_pg": 1.875,
+     "explosive_pass": 30,
+     "explosive_rush": 6,
+     "explosive_pass_pg": 3.75,
+     "explosive_rush_pg": 0.75,
+     "explosive_total_pg": 4.5,
+     "third_down_rate": 0.43636363636363634,
+     "red_zone_drives": 33,
+     "red_zone_td_rate": 0.5757575757575758,
+     "pass_epa_per_dropback": 0.03310468465469663,
+     "rush_epa_per_carry": -0.044355362890853095,
+     "neutral_pass_rate": 0.5521739130434783,
+     "blitz_rate": 0.3841059602649007,
+     "play_action_rate": 0.3509933774834437,
+     "sack_rate_when_blitzing": 0.017241379310344827,
+     "dropbacks_charted": 302,
+     "wr_targets_pg": 18.75,
+     "wr_receptions_pg": 12.875,
+     "wr_rec_yards_pg": 167.375,
+     "wr_rec_td": 6,
+     "wr_yards_per_target": 8.926666666666666,
+     "wr_explosive": 28,
+     "wr_target_share": 0.5813953488372093,
+     "te_targets_pg": 8.75,
+     "te_receptions_pg": 6.5,
+     "te_rec_yards_pg": 63.375,
+     "te_rec_td": 3,
+     "te_yards_per_target": 7.242857142857143,
+     "te_explosive": 2,
+     "te_target_share": 0.2713178294573643,
+     "rb_targets_pg": 4.75,
+     "rb_receptions_pg": 3.75,
+     "rb_rec_yards_pg": 23.0,
+     "rb_rec_td": 1,
+     "rb_yards_per_target": 4.842105263157895,
+     "rb_explosive": 0,
+     "rb_target_share": 0.14728682170542637
+    },
+    "rank": {
+     "points_pg": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 23.15234375
+     },
+     "pass_yards_pg": {
+      "rank": 12,
+      "of": 32,
+      "league_avg": 234.1796875
+     },
+     "rush_yards_pg": {
+      "rank": 7,
+      "of": 32,
+      "league_avg": 100.5546875
+     },
+     "yards_per_carry": {
+      "rank": 20,
+      "of": 32,
+      "league_avg": 4.097323819143435
+     },
+     "rb_rush_yards_pg": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 93.421875
+     },
+     "explosive_pass_pg": {
+      "rank": 6,
+      "of": 32,
+      "league_avg": 2.9609375
+     },
+     "explosive_rush_pg": {
+      "rank": 27,
+      "of": 32,
+      "league_avg": 1.23046875
+     },
+     "explosive_total_pg": {
+      "rank": 14,
+      "of": 32,
+      "league_avg": 4.19140625
+     },
+     "wr_rec_yards_pg": {
+      "rank": 8,
+      "of": 32,
+      "league_avg": 147.53125
+     },
+     "te_rec_yards_pg": {
+      "rank": 9,
+      "of": 32,
+      "league_avg": 53.375
+     },
+     "rb_rec_yards_pg": {
+      "rank": 25,
+      "of": 32,
+      "league_avg": 33.20703125
+     },
+     "wr_receptions_pg": {
+      "rank": 8,
+      "of": 32,
+      "league_avg": 11.328125
+     },
+     "te_receptions_pg": {
+      "rank": 4,
+      "of": 32,
+      "league_avg": 5.21484375
+     },
+     "rb_receptions_pg": {
+      "rank": 21,
+      "of": 32,
+      "league_avg": 4.43359375
+     },
+     "sack_rate": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 0.06505456807823706
+     },
+     "pressure_rate": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 0.1543868543390244
+     },
+     "third_down_rate": {
+      "rank": 5,
+      "of": 32,
+      "league_avg": 0.39412042630412414
+     },
+     "red_zone_td_rate": {
+      "rank": 16,
+      "of": 32,
+      "league_avg": 0.5892762335016901
+     },
+     "pass_epa_per_dropback": {
+      "rank": 15,
+      "of": 32,
+      "league_avg": 0.03207076671834993
+     },
+     "rush_epa_per_carry": {
+      "rank": 16,
+      "of": 32,
+      "league_avg": -0.03562404824061199
+     },
+     "takeaways_pg": {
+      "rank": 32,
+      "of": 32,
+      "league_avg": 1.22265625
+     },
+     "yards_per_pass_attempt": {
+      "rank": 11,
+      "of": 32,
+      "league_avg": 7.121203428655613
+     }
+    },
+    "by_game": [
+     {
+      "week": 3,
+      "opp": "vs PHI",
+      "points": 27,
+      "pass_yards": 247,
+      "rush_yards": 123,
+      "carries": 32,
+      "rb_rush_yards": 115,
+      "sacks": 0,
+      "explosive_pass": 3,
+      "explosive_rush": 1,
+      "wr_targets": 25,
+      "wr_receptions": 17,
+      "wr_rec_yards": 196,
+      "wr_rec_td": 2,
+      "te_targets": 6,
+      "te_receptions": 5,
+      "te_rec_yards": 47,
+      "te_rec_td": 0,
+      "rb_targets": 3,
+      "rb_receptions": 2,
+      "rb_rec_yards": 4,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 4,
+      "opp": "vs NYJ",
+      "points": 23,
+      "pass_yards": 268,
+      "rush_yards": 231,
+      "carries": 50,
+      "rb_rush_yards": 220,
+      "sacks": 1,
+      "explosive_pass": 5,
+      "explosive_rush": 2,
+      "wr_targets": 15,
+      "wr_receptions": 12,
+      "wr_rec_yards": 163,
+      "wr_rec_td": 0,
+      "te_targets": 12,
+      "te_receptions": 9,
+      "te_rec_yards": 78,
+      "te_rec_td": 0,
+      "rb_targets": 4,
+      "rb_receptions": 4,
+      "rb_rec_yards": 27,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 5,
+      "opp": "@ GB",
+      "points": 7,
+      "pass_yards": 195,
+      "rush_yards": 67,
+      "carries": 21,
+      "rb_rush_yards": 49,
+      "sacks": 4,
+      "explosive_pass": 2,
+      "explosive_rush": 0,
+      "wr_targets": 21,
+      "wr_receptions": 11,
+      "wr_rec_yards": 104,
+      "wr_rec_td": 0,
+      "te_targets": 7,
+      "te_receptions": 3,
+      "te_rec_yards": 27,
+      "te_rec_td": 0,
+      "rb_targets": 12,
+      "rb_receptions": 9,
+      "rb_rec_yards": 64,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 6,
+      "opp": "@ ATL",
+      "points": 31,
+      "pass_yards": 305,
+      "rush_yards": 97,
+      "carries": 31,
+      "rb_rush_yards": 95,
+      "sacks": 4,
+      "explosive_pass": 3,
+      "explosive_rush": 0,
+      "wr_targets": 17,
+      "wr_receptions": 16,
+      "wr_rec_yards": 189,
+      "wr_rec_td": 0,
+      "te_targets": 9,
+      "te_receptions": 8,
+      "te_rec_yards": 68,
+      "te_rec_td": 1,
+      "rb_targets": 7,
+      "rb_receptions": 6,
+      "rb_rec_yards": 48,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 7,
+      "opp": "vs NE",
+      "points": 30,
+      "pass_yards": 308,
+      "rush_yards": 98,
+      "carries": 26,
+      "rb_rush_yards": 91,
+      "sacks": 3,
+      "explosive_pass": 8,
+      "explosive_rush": 0,
+      "wr_targets": 11,
+      "wr_receptions": 8,
+      "wr_rec_yards": 199,
+      "wr_rec_td": 1,
+      "te_targets": 15,
+      "te_receptions": 10,
+      "te_rec_yards": 97,
+      "te_rec_td": 1,
+      "rb_targets": 4,
+      "rb_receptions": 4,
+      "rb_rec_yards": 12,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 8,
+      "opp": "@ SEA",
+      "points": 34,
+      "pass_yards": 247,
+      "rush_yards": 125,
+      "carries": 33,
+      "rb_rush_yards": 86,
+      "sacks": 1,
+      "explosive_pass": 4,
+      "explosive_rush": 1,
+      "wr_targets": 21,
+      "wr_receptions": 14,
+      "wr_rec_yards": 161,
+      "wr_rec_td": 1,
+      "te_targets": 9,
+      "te_receptions": 7,
+      "te_rec_yards": 65,
+      "te_rec_td": 0,
+      "rb_targets": 4,
+      "rb_receptions": 3,
+      "rb_rec_yards": 21,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 9,
+      "opp": "vs TB",
+      "points": 27,
+      "pass_yards": 279,
+      "rush_yards": 56,
+      "carries": 17,
+      "rb_rush_yards": 56,
+      "sacks": 1,
+      "explosive_pass": 4,
+      "explosive_rush": 0,
+      "wr_targets": 26,
+      "wr_receptions": 16,
+      "wr_rec_yards": 202,
+      "wr_rec_td": 2,
+      "te_targets": 8,
+      "te_receptions": 6,
+      "te_rec_yards": 77,
+      "te_rec_td": 0,
+      "rb_targets": 1,
+      "rb_receptions": 0,
+      "rb_rec_yards": 0,
+      "rb_rec_td": 0
+     },
+     {
+      "week": 11,
+      "opp": "vs NO",
+      "points": 21,
+      "pass_yards": 181,
+      "rush_yards": 135,
+      "carries": 29,
+      "rb_rush_yards": 102,
+      "sacks": 2,
+      "explosive_pass": 1,
+      "explosive_rush": 2,
+      "wr_targets": 14,
+      "wr_receptions": 9,
+      "wr_rec_yards": 125,
+      "wr_rec_td": 0,
+      "te_targets": 4,
+      "te_receptions": 4,
+      "te_rec_yards": 48,
+      "te_rec_td": 1,
+      "rb_targets": 3,
+      "rb_receptions": 2,
+      "rb_rec_yards": 8,
+      "rb_rec_td": 1
+     }
+    ],
+    "run_game_by_direction": [
+     {
+      "direction": "right guard",
+      "carries": 50,
+      "yards": 169,
+      "ypc": 3.38,
+      "explosive": 1
+     },
+     {
+      "direction": "right tackle",
+      "carries": 44,
+      "yards": 176,
+      "ypc": 4.0,
+      "explosive": 1
+     },
+     {
+      "direction": "left guard",
+      "carries": 39,
+      "yards": 119,
+      "ypc": 3.05,
+      "explosive": 0
+     },
+     {
+      "direction": "right end",
+      "carries": 34,
+      "yards": 199,
+      "ypc": 5.85,
+      "explosive": 2
+     },
+     {
+      "direction": "left end",
+      "carries": 29,
+      "yards": 143,
+      "ypc": 4.93,
+      "explosive": 1
+     },
+     {
+      "direction": "left tackle",
+      "carries": 22,
+      "yards": 91,
+      "ypc": 4.14,
+      "explosive": 1
+     },
+     {
+      "direction": "middle",
+      "carries": 20,
+      "yards": 35,
+      "ypc": 1.75,
+      "explosive": 0
+     }
+    ],
+    "players": {
+     "receivers": [
+      {
+       "player": "L.Burden",
+       "player_id": "00-0040735",
+       "pos": "WR",
+       "games": 8,
+       "targets": 57,
+       "receptions": 43,
+       "yards": 559,
+       "td": 4,
+       "target_share": 0.22093023255813954,
+       "air_yards_share": 0.19789579158316634,
+       "avg_depth_of_target": 6.9298245614035086,
+       "yards_per_target": 9.807017543859649,
+       "explosive": 13,
+       "red_zone_targets": 9,
+       "log": [
+        {
+         "week": 3,
+         "targets": 11,
+         "receptions": 7,
+         "yards": 61
+        },
+        {
+         "week": 4,
+         "targets": 6,
+         "receptions": 4,
+         "yards": 63
+        },
+        {
+         "week": 5,
+         "targets": 6,
+         "receptions": 4,
+         "yards": 47
+        },
+        {
+         "week": 6,
+         "targets": 8,
+         "receptions": 8,
+         "yards": 95
+        },
+        {
+         "week": 7,
+         "targets": 4,
+         "receptions": 4,
+         "yards": 130
+        },
+        {
+         "week": 8,
+         "targets": 9,
+         "receptions": 7,
+         "yards": 56
+        },
+        {
+         "week": 9,
+         "targets": 10,
+         "receptions": 7,
+         "yards": 97
+        },
+        {
+         "week": 11,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 10
+        }
+       ]
+      },
+      {
+       "player": "C.Loveland",
+       "player_id": "00-0040126",
+       "pos": "TE",
+       "games": 8,
+       "targets": 55,
+       "receptions": 39,
+       "yards": 389,
+       "td": 3,
+       "target_share": 0.2131782945736434,
+       "air_yards_share": 0.17885771543086174,
+       "avg_depth_of_target": 6.490909090909091,
+       "yards_per_target": 7.072727272727272,
+       "explosive": 2,
+       "red_zone_targets": 10,
+       "log": [
+        {
+         "week": 3,
+         "targets": 4,
+         "receptions": 4,
+         "yards": 31
+        },
+        {
+         "week": 4,
+         "targets": 9,
+         "receptions": 6,
+         "yards": 57
+        },
+        {
+         "week": 5,
+         "targets": 5,
+         "receptions": 2,
+         "yards": 19
+        },
+        {
+         "week": 6,
+         "targets": 7,
+         "receptions": 6,
+         "yards": 65
+        },
+        {
+         "week": 7,
+         "targets": 12,
+         "receptions": 7,
+         "yards": 69
+        },
+        {
+         "week": 8,
+         "targets": 9,
+         "receptions": 7,
+         "yards": 65
+        },
+        {
+         "week": 9,
+         "targets": 6,
+         "receptions": 4,
+         "yards": 54
+        },
+        {
+         "week": 11,
+         "targets": 3,
+         "receptions": 3,
+         "yards": 29
+        }
+       ]
+      },
+      {
+       "player": "R.Odunze",
+       "player_id": "00-0039919",
+       "pos": "WR",
+       "games": 8,
+       "targets": 48,
+       "receptions": 31,
+       "yards": 478,
+       "td": 1,
+       "target_share": 0.18604651162790697,
+       "air_yards_share": 0.3281563126252505,
+       "avg_depth_of_target": 13.645833333333334,
+       "yards_per_target": 9.958333333333334,
+       "explosive": 13,
+       "red_zone_targets": 9,
+       "log": [
+        {
+         "week": 3,
+         "targets": 6,
+         "receptions": 3,
+         "yards": 44
+        },
+        {
+         "week": 4,
+         "targets": 7,
+         "receptions": 6,
+         "yards": 94
+        },
+        {
+         "week": 5,
+         "targets": 9,
+         "receptions": 3,
+         "yards": 40
+        },
+        {
+         "week": 6,
+         "targets": 4,
+         "receptions": 3,
+         "yards": 39
+        },
+        {
+         "week": 7,
+         "targets": 5,
+         "receptions": 4,
+         "yards": 69
+        },
+        {
+         "week": 8,
+         "targets": 6,
+         "receptions": 4,
+         "yards": 87
+        },
+        {
+         "week": 9,
+         "targets": 7,
+         "receptions": 4,
+         "yards": 60
+        },
+        {
+         "week": 11,
+         "targets": 4,
+         "receptions": 4,
+         "yards": 45
+        }
+       ]
+      },
+      {
+       "player": "K.Raymond",
+       "player_id": "00-0032464",
+       "pos": "WR",
+       "games": 8,
+       "targets": 31,
+       "receptions": 20,
+       "yards": 180,
+       "td": 1,
+       "target_share": 0.12015503875968993,
+       "air_yards_share": 0.13827655310621242,
+       "avg_depth_of_target": 8.903225806451612,
+       "yards_per_target": 5.806451612903226,
+       "explosive": 1,
+       "red_zone_targets": 4,
+       "log": [
+        {
+         "week": 3,
+         "targets": 7,
+         "receptions": 6,
+         "yards": 90
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 6
+        },
+        {
+         "week": 5,
+         "targets": 4,
+         "receptions": 3,
+         "yards": 6
+        },
+        {
+         "week": 6,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 18
+        },
+        {
+         "week": 7,
+         "targets": 2,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 8,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 14
+        },
+        {
+         "week": 9,
+         "targets": 7,
+         "receptions": 4,
+         "yards": 32
+        },
+        {
+         "week": 11,
+         "targets": 4,
+         "receptions": 1,
+         "yards": 14
+        }
+       ]
+      },
+      {
+       "player": "D.Swift",
+       "player_id": "00-0036275",
+       "pos": "RB",
+       "games": 8,
+       "targets": 25,
+       "receptions": 20,
+       "yards": 106,
+       "td": 1,
+       "target_share": 0.09689922480620156,
+       "air_yards_share": -0.01002004008016032,
+       "avg_depth_of_target": -0.8,
+       "yards_per_target": 4.24,
+       "explosive": 0,
+       "red_zone_targets": 2,
+       "log": [
+        {
+         "week": 3,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 4
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 16
+        },
+        {
+         "week": 5,
+         "targets": 5,
+         "receptions": 4,
+         "yards": 30
+        },
+        {
+         "week": 6,
+         "targets": 5,
+         "receptions": 4,
+         "yards": 26
+        },
+        {
+         "week": 7,
+         "targets": 4,
+         "receptions": 4,
+         "yards": 12
+        },
+        {
+         "week": 8,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 10
+        },
+        {
+         "week": 9,
+         "targets": 1,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 11,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 8
+        }
+       ]
+      },
+      {
+       "player": "Z.Thomas",
+       "player_id": "00-0041051",
+       "pos": "WR",
+       "games": 6,
+       "targets": 13,
+       "receptions": 9,
+       "yards": 110,
+       "td": 0,
+       "target_share": 0.050387596899224806,
+       "air_yards_share": 0.10871743486973948,
+       "avg_depth_of_target": 16.692307692307693,
+       "yards_per_target": 8.461538461538462,
+       "explosive": 1,
+       "red_zone_targets": 0,
+       "log": [
+        {
+         "week": 3,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 1
+        },
+        {
+         "week": 5,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 11
+        },
+        {
+         "week": 6,
+         "targets": 3,
+         "receptions": 3,
+         "yards": 25
+        },
+        {
+         "week": 8,
+         "targets": 3,
+         "receptions": 1,
+         "yards": 4
+        },
+        {
+         "week": 9,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 13
+        },
+        {
+         "week": 11,
+         "targets": 3,
+         "receptions": 2,
+         "yards": 56
+        }
+       ]
+      },
+      {
+       "player": "R.Johnson",
+       "player_id": "00-0039021",
+       "pos": "RB",
+       "games": 4,
+       "targets": 11,
+       "receptions": 9,
+       "yards": 86,
+       "td": 0,
+       "target_share": 0.04263565891472868,
+       "air_yards_share": 0.012525050100200401,
+       "avg_depth_of_target": 2.272727272727273,
+       "yards_per_target": 7.818181818181818,
+       "explosive": 0,
+       "red_zone_targets": 2,
+       "log": [
+        {
+         "week": 4,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 7
+        },
+        {
+         "week": 5,
+         "targets": 7,
+         "receptions": 5,
+         "yards": 34
+        },
+        {
+         "week": 6,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 34
+        },
+        {
+         "week": 8,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 11
+        }
+       ]
+      },
+      {
+       "player": "C.Kmet",
+       "player_id": "00-0036290",
+       "pos": "TE",
+       "games": 5,
+       "targets": 10,
+       "receptions": 8,
+       "yards": 52,
+       "td": 0,
+       "target_share": 0.03875968992248062,
+       "air_yards_share": 0.01753507014028056,
+       "avg_depth_of_target": 3.5,
+       "yards_per_target": 5.2,
+       "explosive": 0,
+       "red_zone_targets": 1,
+       "log": [
+        {
+         "week": 3,
+         "targets": 1,
+         "receptions": 0,
+         "yards": 0
+        },
+        {
+         "week": 4,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 13
+        },
+        {
+         "week": 5,
+         "targets": 2,
+         "receptions": 1,
+         "yards": 8
+        },
+        {
+         "week": 6,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 3
+        },
+        {
+         "week": 7,
+         "targets": 3,
+         "receptions": 3,
+         "yards": 28
+        }
+       ]
+      },
+      {
+       "player": "S.Roush",
+       "player_id": "00-0041558",
+       "pos": "TE",
+       "games": 4,
+       "targets": 5,
+       "receptions": 5,
+       "yards": 66,
+       "td": 0,
+       "target_share": 0.01937984496124031,
+       "air_yards_share": 0.012525050100200401,
+       "avg_depth_of_target": 5.0,
+       "yards_per_target": 13.2,
+       "explosive": 0,
+       "red_zone_targets": 0,
+       "log": [
+        {
+         "week": 3,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 16
+        },
+        {
+         "week": 4,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 8
+        },
+        {
+         "week": 9,
+         "targets": 2,
+         "receptions": 2,
+         "yards": 23
+        },
+        {
+         "week": 11,
+         "targets": 1,
+         "receptions": 1,
+         "yards": 19
+        }
+       ]
+      }
+     ],
+     "rushers": [
+      {
+       "player": "D.Swift",
+       "player_id": "00-0036275",
+       "pos": "RB",
+       "games": 8,
+       "carries": 134,
+       "yards": 458,
+       "rush_attempts_official": 134,
+       "rushing_yards_official": 458,
+       "kneels_included": true,
+       "td": 7,
+       "carry_share": 0.5606694560669456,
+       "yards_per_carry": 3.417910447761194,
+       "explosive": 1,
+       "red_zone_carries": 32,
+       "log": [
+        {
+         "week": 3,
+         "carries": 20,
+         "yards": 84,
+         "official_attempts": 20,
+         "official_yards": 84
+        },
+        {
+         "week": 4,
+         "carries": 15,
+         "yards": 58,
+         "official_attempts": 15,
+         "official_yards": 58
+        },
+        {
+         "week": 5,
+         "carries": 9,
+         "yards": 43,
+         "official_attempts": 9,
+         "official_yards": 43
+        },
+        {
+         "week": 6,
+         "carries": 16,
+         "yards": 44,
+         "official_attempts": 16,
+         "official_yards": 44
+        },
+        {
+         "week": 7,
+         "carries": 22,
+         "yards": 78,
+         "official_attempts": 22,
+         "official_yards": 78
+        },
+        {
+         "week": 8,
+         "carries": 27,
+         "yards": 69,
+         "official_attempts": 27,
+         "official_yards": 69
+        },
+        {
+         "week": 9,
+         "carries": 12,
+         "yards": 31,
+         "official_attempts": 12,
+         "official_yards": 31
+        },
+        {
+         "week": 11,
+         "carries": 13,
+         "yards": 51,
+         "official_attempts": 13,
+         "official_yards": 51
+        }
+       ]
+      },
+      {
+       "player": "K.Monangai",
+       "player_id": "00-0040236",
+       "pos": "RB",
+       "games": 3,
+       "carries": 48,
+       "yards": 195,
+       "rush_attempts_official": 48,
+       "rushing_yards_official": 195,
+       "kneels_included": true,
+       "td": 2,
+       "carry_share": 0.200836820083682,
+       "yards_per_carry": 4.0625,
+       "explosive": 2,
+       "red_zone_carries": 12,
+       "log": [
+        {
+         "week": 3,
+         "carries": 10,
+         "yards": 31,
+         "official_attempts": 10,
+         "official_yards": 31
+        },
+        {
+         "week": 4,
+         "carries": 30,
+         "yards": 146,
+         "official_attempts": 30,
+         "official_yards": 146
+        },
+        {
+         "week": 11,
+         "carries": 8,
+         "yards": 18,
+         "official_attempts": 8,
+         "official_yards": 18
+        }
+       ]
+      },
+      {
+       "player": "R.Johnson",
+       "player_id": "00-0039021",
+       "pos": "RB",
+       "games": 5,
+       "carries": 29,
+       "yards": 103,
+       "rush_attempts_official": 29,
+       "rushing_yards_official": 103,
+       "kneels_included": true,
+       "td": 1,
+       "carry_share": 0.12133891213389121,
+       "yards_per_carry": 3.5517241379310347,
+       "explosive": 0,
+       "red_zone_carries": 11,
+       "log": [
+        {
+         "week": 4,
+         "carries": 4,
+         "yards": 16,
+         "official_attempts": 4,
+         "official_yards": 16
+        },
+        {
+         "week": 5,
+         "carries": 5,
+         "yards": 6,
+         "official_attempts": 5,
+         "official_yards": 6
+        },
+        {
+         "week": 6,
+         "carries": 13,
+         "yards": 51,
+         "official_attempts": 13,
+         "official_yards": 51
+        },
+        {
+         "week": 7,
+         "carries": 2,
+         "yards": 13,
+         "official_attempts": 2,
+         "official_yards": 13
+        },
+        {
+         "week": 8,
+         "carries": 5,
+         "yards": 17,
+         "official_attempts": 5,
+         "official_yards": 17
+        }
+       ]
+      },
+      {
+       "player": "S.Ahmed",
+       "player_id": "00-0036020",
+       "pos": "RB",
+       "games": 2,
+       "carries": 11,
+       "yards": 58,
+       "rush_attempts_official": 11,
+       "rushing_yards_official": 58,
+       "kneels_included": true,
+       "td": 0,
+       "carry_share": 0.04602510460251046,
+       "yards_per_carry": 5.2727272727272725,
+       "explosive": 1,
+       "red_zone_carries": 1,
+       "log": [
+        {
+         "week": 9,
+         "carries": 5,
+         "yards": 25,
+         "official_attempts": 5,
+         "official_yards": 25
+        },
+        {
+         "week": 11,
+         "carries": 6,
+         "yards": 33,
+         "official_attempts": 6,
+         "official_yards": 33
+        }
+       ]
+      },
+      {
+       "player": "L.Burden",
+       "player_id": "00-0040735",
+       "pos": "WR",
+       "games": 5,
+       "carries": 8,
+       "yards": 30,
+       "rush_attempts_official": 8,
+       "rushing_yards_official": 30,
+       "kneels_included": true,
+       "td": 0,
+       "carry_share": 0.03347280334728033,
+       "yards_per_carry": 3.75,
+       "explosive": 0,
+       "red_zone_carries": 3,
+       "log": [
+        {
+         "week": 3,
+         "carries": 1,
+         "yards": 7,
+         "official_attempts": 1,
+         "official_yards": 7
+        },
+        {
+         "week": 4,
+         "carries": 1,
+         "yards": 11,
+         "official_attempts": 1,
+         "official_yards": 11
+        },
+        {
+         "week": 5,
+         "carries": 4,
+         "yards": 2,
+         "official_attempts": 4,
+         "official_yards": 2
+        },
+        {
+         "week": 7,
+         "carries": 1,
+         "yards": 7,
+         "official_attempts": 1,
+         "official_yards": 7
+        },
+        {
+         "week": 11,
+         "carries": 1,
+         "yards": 3,
+         "official_attempts": 1,
+         "official_yards": 3
+        }
+       ]
+      }
+     ],
+     "quarterbacks": [
+      {
+       "player": "C.Williams",
+       "player_id": "00-0039918",
+       "games": 5,
+       "attempts": 163,
+       "completions": 113,
+       "yards": 1320,
+       "td": 8,
+       "int": 5,
+       "sacks": 11,
+       "yards_per_attempt": 8.098159509202453,
+       "avg_depth_of_target": 8.269938650306749,
+       "epa_per_dropback": 0.06826020333075342,
+       "pressure_rate_faced": 0.13218390804597702,
+       "log": [
+        {
+         "week": 6,
+         "att": 36,
+         "cmp": 30,
+         "yards": 305,
+         "td": 1,
+         "int": 0,
+         "sacks": 4
+        },
+        {
+         "week": 7,
+         "att": 33,
+         "cmp": 22,
+         "yards": 308,
+         "td": 2,
+         "int": 0,
+         "sacks": 3
+        },
+        {
+         "week": 8,
+         "att": 34,
+         "cmp": 24,
+         "yards": 247,
+         "td": 1,
+         "int": 0,
+         "sacks": 1
+        },
+        {
+         "week": 9,
+         "att": 37,
+         "cmp": 22,
+         "yards": 279,
+         "td": 2,
+         "int": 4,
+         "sacks": 1
+        },
+        {
+         "week": 11,
+         "att": 23,
+         "cmp": 15,
+         "yards": 181,
+         "td": 2,
+         "int": 1,
+         "sacks": 2
+        }
+       ]
+      },
+      {
+       "player": "T.Bagent",
+       "player_id": "00-0038416",
+       "games": 2,
+       "attempts": 55,
+       "completions": 37,
+       "yards": 355,
+       "td": 0,
+       "int": 3,
+       "sacks": 3,
+       "yards_per_attempt": 6.454545454545454,
+       "avg_depth_of_target": 6.581818181818182,
+       "epa_per_dropback": -0.0249979110655985,
+       "pressure_rate_faced": 0.10344827586206896,
+       "log": [
+        {
+         "week": 4,
+         "att": 34,
+         "cmp": 25,
+         "yards": 268,
+         "td": 0,
+         "int": 1,
+         "sacks": 1
+        },
+        {
+         "week": 5,
+         "att": 21,
+         "cmp": 12,
+         "yards": 87,
+         "td": 0,
+         "int": 2,
+         "sacks": 2
+        }
+       ]
+      }
+     ]
+    },
+    "offense_snap_share": {
+     "Caleb Williams": 1.0,
+     "Darnell Wright": 1.0,
+     "Joe Thuney": 1.0,
+     "Garrett Bradbury": 0.986,
+     "Jonah Jackson": 0.956,
+     "Rome Odunze": 0.911,
+     "Theo Benedet": 0.877,
+     "Colston Loveland": 0.87,
+     "Tyson Bagent": 0.835,
+     "Kalif Raymond": 0.649,
+     "D'Andre Swift": 0.626,
+     "Cole Kmet": 0.608,
+     "Luther Burden III": 0.583,
+     "Braxton Jones": 0.46,
+     "Case Keenum": 0.447,
+     "Kyle Monangai": 0.41,
+     "Sam Roush": 0.32,
+     "Roschon Johnson": 0.248,
+     "Salvon Ahmed": 0.22,
+     "Ozzy Trapilo": 0.173,
+     "Zavion Thomas": 0.144,
+     "Stephen Carlson": 0.14
+    }
+   },
+   "formation_zone_splits": {
+    "offense_by_formation": [
+     {
+      "formation": "Shotgun",
+      "plays": 277,
+      "share": 0.512,
+      "pass_rate": 0.715,
+      "yards_per_play": 5.72,
+      "epa_per_play": -0.037
+     },
+     {
+      "formation": "Under center",
+      "plays": 234,
+      "share": 0.433,
+      "pass_rate": 0.38,
+      "yards_per_play": 5.35,
+      "epa_per_play": 0.028
+     },
+     {
+      "formation": "No huddle",
+      "plays": 30,
+      "share": 0.055,
+      "pass_rate": 0.5,
+      "yards_per_play": 2.9,
+      "epa_per_play": 0.108
+     }
+    ],
+    "offense_pass_zones": [
+     {
+      "zone": "Short left",
+      "attempts": 61,
+      "share": 0.225,
+      "completion_rate": 0.738,
+      "yards_per_attempt": 5.34,
+      "explosive": 1
+     },
+     {
+      "zone": "Short middle",
+      "attempts": 61,
+      "share": 0.225,
+      "completion_rate": 0.754,
+      "yards_per_attempt": 8.72,
+      "explosive": 5
+     },
+     {
+      "zone": "Short right",
+      "attempts": 94,
+      "share": 0.347,
+      "completion_rate": 0.745,
+      "yards_per_attempt": 6.17,
+      "explosive": 5
+     },
+     {
+      "zone": "Deep left",
+      "attempts": 16,
+      "share": 0.059,
+      "completion_rate": 0.625,
+      "yards_per_attempt": 17.06,
+      "explosive": 7
+     },
+     {
+      "zone": "Deep middle",
+      "attempts": 15,
+      "share": 0.055,
+      "completion_rate": 0.467,
+      "yards_per_attempt": 11.07,
+      "explosive": 6
+     },
+     {
+      "zone": "Deep right",
+      "attempts": 24,
+      "share": 0.089,
+      "completion_rate": 0.292,
+      "yards_per_attempt": 6.38,
+      "explosive": 6
+     }
+    ],
+    "defense_vs_formation": [
+     {
+      "formation": "Shotgun",
+      "plays": 245,
+      "share": 0.576,
+      "pass_rate": 0.804,
+      "yards_per_play": 5.37,
+      "epa_per_play": -0.155
+     },
+     {
+      "formation": "Under center",
+      "plays": 138,
+      "share": 0.325,
+      "pass_rate": 0.362,
+      "yards_per_play": 5.89,
+      "epa_per_play": 0.032
+     },
+     {
+      "formation": "No huddle",
+      "plays": 42,
+      "share": 0.099,
+      "pass_rate": 0.857,
+      "yards_per_play": 6.05,
+      "epa_per_play": 0.017
+     }
+    ],
+    "defense_pass_zones_allowed": [
+     {
+      "zone": "Short left",
+      "attempts": 79,
+      "share": 0.325,
+      "completion_rate": 0.582,
+      "yards_per_attempt": 4.29,
+      "explosive": 0
+     },
+     {
+      "zone": "Short middle",
+      "attempts": 37,
+      "share": 0.152,
+      "completion_rate": 0.73,
+      "yards_per_attempt": 5.54,
+      "explosive": 0
+     },
+     {
+      "zone": "Short right",
+      "attempts": 83,
+      "share": 0.342,
+      "completion_rate": 0.687,
+      "yards_per_attempt": 6.58,
+      "explosive": 5
+     },
+     {
+      "zone": "Deep left",
+      "attempts": 21,
+      "share": 0.086,
+      "completion_rate": 0.429,
+      "yards_per_attempt": 13.43,
+      "explosive": 6
+     },
+     {
+      "zone": "Deep middle",
+      "attempts": 8,
+      "share": 0.033,
+      "completion_rate": 0.875,
+      "yards_per_attempt": 35.88,
+      "explosive": 5
+     },
+     {
+      "zone": "Deep right",
+      "attempts": 15,
+      "share": 0.062,
+      "completion_rate": 0.4,
+      "yards_per_attempt": 11.93,
+      "explosive": 4
+     }
+    ]
+   },
+   "depth_chart": {
+    "status": "OK",
+    "as_of": "2026-11-26T17:41:02Z",
+    "starters": [
+     {
+      "slot": "WR",
+      "player": "Luther Burden III",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "LT",
+      "player": "Theo Benedet",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "LG",
+      "player": "Joe Thuney",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "C",
+      "player": "Garrett Bradbury",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "RG",
+      "player": "Jonah Jackson",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "RT",
+      "player": "Darnell Wright",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "QB",
+      "player": "Caleb Williams",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "TE",
+      "player": "Colston Loveland",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "RB",
+      "player": "D'Andre Swift",
+      "group": "3WR 1TE"
+     },
+     {
+      "slot": "LDE",
+      "player": "Montez Sweat",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "LDT",
+      "player": "Grady Jarrett",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "RDT",
+      "player": "Jeffery Simmons",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "RDE",
+      "player": "James Lynch",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "WLB",
+      "player": "Devin Bush",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "MLB",
+      "player": "T.J. Edwards",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "SLB",
+      "player": "Noah Sewell",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "LCB",
+      "player": "Jaylon Johnson",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "SS",
+      "player": "Dillon Thieneman",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "FS",
+      "player": "Cam Lewis",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "RCB",
+      "player": "Tyrique Stevenson",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "NB",
+      "player": "Kyler Gordon",
+      "group": "Base 4-3 D"
+     },
+     {
+      "slot": "PK",
+      "player": "Cairo Santos",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "P",
+      "player": "Tory Taylor",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "H",
+      "player": "Tory Taylor",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "PR",
+      "player": "Kalif Raymond",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "KR",
+      "player": "Zavion Thomas",
+      "group": "Special Teams"
+     },
+     {
+      "slot": "LS",
+      "player": "Scott Daly",
+      "group": "Special Teams"
+     }
+    ],
+    "second_string": [
+     {
+      "slot": "WR",
+      "player": "Rome Odunze"
+     },
+     {
+      "slot": "LT",
+      "player": "Ozzy Trapilo"
+     },
+     {
+      "slot": "LG",
+      "player": "Jordan McFadden"
+     },
+     {
+      "slot": "C",
+      "player": "Logan Jones"
+     },
+     {
+      "slot": "RG",
+      "player": "Luke Newman"
+     },
+     {
+      "slot": "RT",
+      "player": "Theo Benedet"
+     },
+     {
+      "slot": "QB",
+      "player": "Tyson Bagent"
+     },
+     {
+      "slot": "TE",
+      "player": "Sam Roush"
+     },
+     {
+      "slot": "RB",
+      "player": "Kyle Monangai"
+     },
+     {
+      "slot": "LDE",
+      "player": "Austin Booker"
+     },
+     {
+      "slot": "LDT",
+      "player": "Neville Gallimore"
+     },
+     {
+      "slot": "RDT",
+      "player": "Shemar Turner"
+     },
+     {
+      "slot": "RDE",
+      "player": "Dayo Odeyingbo"
+     },
+     {
+      "slot": "WLB",
+      "player": "Jack Sanborn"
+     },
+     {
+      "slot": "MLB",
+      "player": "Keyshaun Elliott"
+     },
+     {
+      "slot": "SLB",
+      "player": "D'Marco Jackson"
+     },
+     {
+      "slot": "LCB",
+      "player": "Clark Phillips III"
+     },
+     {
+      "slot": "SS",
+      "player": "Elijah Hicks"
+     },
+     {
+      "slot": "FS",
+      "player": "Skyler Thomas"
+     },
+     {
+      "slot": "RCB",
+      "player": "Malik Muhammad"
+     },
+     {
+      "slot": "NB",
+      "player": "Josh Blackwell"
+     },
+     {
+      "slot": "PR",
+      "player": "Zavion Thomas"
+     },
+     {
+      "slot": "KR",
+      "player": "Josh Blackwell"
+     }
+    ]
+   },
+   "injuries": {
+    "official_report": [],
+    "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
+    "espn_live": [
+     {
+      "player": "Roschon Johnson",
+      "position": "RB",
+      "status": "Out",
+      "date": "2026-11-25T20:15Z",
+      "comment": "Johnson (ankle) has been ruled out  for Thursday's game against the Lions.",
+      "team": "CHI"
+     },
+     {
+      "player": "Kyler Gordon",
+      "position": "CB",
+      "status": "Out",
+      "date": "2026-11-25T23:53Z",
+      "comment": "Gordon (shoulder) has been ruled out for Thursday's game against the Lions.",
+      "team": "CHI"
+     },
+     {
+      "player": "Isaac Yiadom",
+      "position": "CB",
+      "status": "Out",
+      "date": "2026-11-26T16:36Z",
+      "comment": "inactive",
+      "team": "CHI"
+     },
+     {
+      "player": "Jayden Loving",
+      "position": "DT",
+      "status": "Out",
+      "date": "2026-11-26T16:36Z",
+      "comment": "inactive",
+      "team": "CHI"
+     },
+     {
+      "player": "Jordan McFadden",
+      "position": "G",
+      "status": "Out",
+      "date": "2026-11-26T16:36Z",
+      "comment": "inactive",
+      "team": "CHI"
+     },
+     {
+      "player": "Elijah Hicks",
+      "position": "S",
+      "status": "Out",
+      "date": "2026-11-26T16:36Z",
+      "comment": "inactive",
+      "team": "CHI"
+     },
+     {
+      "player": "Case Keenum",
+      "position": "QB",
+      "status": "Out",
+      "date": "2026-11-26T16:53Z",
+      "comment": "Keenum (coach's decision) is inactive and tabbed as the Bears' emergency third quarterback Thursday in Detroit.",
+      "team": "CHI"
+     },
+     {
+      "player": "Colston Loveland",
+      "position": "TE",
+      "status": "Out",
+      "date": "2026-11-26T18:45Z",
+      "comment": "Loveland (knee) has been ruled out from returning to Thursday's game in Detroit.",
+      "team": "CHI"
+     },
+     {
+      "player": "Kyle Monangai",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-22T22:15Z",
+      "comment": "Monangai carried the ball eight times for 18 yards and failed to catch his only target in Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Caleb Williams",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-22T22:20Z",
+      "comment": "Williams completed 15 of 23 passes for 181 yards and two touchdowns with one interception in Sunday's 21-13 win over the Saints. He added 11 rushing yards on four carries.",
+      "team": "CHI"
+     },
+     {
+      "player": "Luther Burden III",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-22T22:24Z",
+      "comment": "Burden caught two of three targets for 10 yards and added three yards on his only carry in Sunday's 21-13 win over New Orleans.",
+      "team": "CHI"
+     },
+     {
+      "player": "Rome Odunze",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-22T22:35Z",
+      "comment": "Odunze caught all four of his targets for 45 yards in Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Keyshaun Elliott",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-23T15:21Z",
+      "comment": "",
+      "team": "CHI"
+     },
+     {
+      "player": "Stephen Carlson",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-23T16:56Z",
+      "comment": "Carlson played 15 of his 19 snaps on special teams in Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Cairo Santos",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-24T00:29Z",
+      "comment": "Santos made both of his field-goal attempts and went 1-for-2 on extra-point tries during the Bears' 21-13 win over the Saints on Sunday.",
+      "team": "CHI"
+     },
+     {
+      "player": "Kalif Raymond",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-24T01:24Z",
+      "comment": "Raymond caught one of four passes for 14 yards during Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Zavion Thomas",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-24T01:35Z",
+      "comment": "Thomas brought in two of three targets for 56 yards and added a 30-yard carry during the Bears' 21-13 win over the Saints on Sunday.",
+      "team": "CHI"
+     },
+     {
+      "player": "Sam Roush",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-24T01:39Z",
+      "comment": "Roush brought in his lone target for 19 yards during Chicago's 21-13 win over New Orleans on Sunday.",
+      "team": "CHI"
+     },
+     {
+      "player": "Jeffery Simmons",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-24T04:08Z",
+      "comment": "Simmons recorded four tackles (three solo), including 3.0 sacks, in Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Dillon Thieneman",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-24T04:14Z",
+      "comment": "Thieneman recorded seven tackles (three solo) and an interception in Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Cam Lewis",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-24T04:19Z",
+      "comment": "Lewis recorded seven tackles (five solo), including 1.0 sacks, in Sunday's 21-13 win over the Saints.",
+      "team": "CHI"
+     },
+     {
+      "player": "Theo Benedet",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-24T22:16Z",
+      "comment": "",
+      "team": "CHI"
+     },
+     {
+      "player": "Salvon Ahmed",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-25T20:32Z",
+      "comment": "Ahmed was elevated from the practice squad to the Bears' active roster Wednesday, Brad Biggs of the Chicago Tribune reports.",
+      "team": "CHI"
+     },
+     {
+      "player": "Tyrique Stevenson Sr.",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-26T17:01Z",
+      "comment": "Stevenson (groin) is active to face Detroit on Thursday.",
+      "team": "CHI"
+     },
+     {
+      "player": "D'Marco Jackson",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-26T17:04Z",
+      "comment": "Jackson (elbow) is active for Thursday's Thanksgiving Day matchup versus the Lions.",
+      "team": "CHI"
+     }
+    ],
+    "espn_live_status": "OK",
+    "espn_live_note": "ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.",
+    "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
+   },
+   "roster_moves": {
+    "window_weeks": 4,
+    "arrivals_from_other_teams": [
+     {
+      "player": "Isaac Yiadom",
+      "position": "DB",
+      "from": "WAS",
+      "status": "INA"
+     }
+    ],
+    "departures_to_other_teams": [],
+    "note": "From weekly roster snapshots: covers trades, waiver claims and signings of players who were on another roster. It does not say which kind of move it was."
+   }
+  }
+ },
+ "matchup": {
+  "JAX_offense_vs_CHI_defense": {
+   "edges": [
+    {
+     "area": "explosive passes (20+)",
+     "is_rate": false,
+     "offense_value": 3.875,
+     "offense_rank": 3,
+     "defense_value": 2.5,
+     "defense_rank": 6,
+     "league_avg": 2.98046875,
+     "why": "JAX offence ranks 3 of 32, CHI defence ranks 6 of 32 (1 = best at its own job)",
+     "edge": "JAX OFFENCE STRENGTH"
+    },
+    {
+     "area": "passing yards",
+     "is_rate": false,
+     "offense_value": 269.875,
+     "offense_rank": 5,
+     "defense_value": 229.75,
+     "defense_rank": 15,
+     "league_avg": 235.5703125,
+     "why": "JAX offence ranks 5 of 32, CHI defence ranks 15 of 32 (1 = best at its own job)",
+     "edge": "JAX OFFENCE STRENGTH"
+    },
+    {
+     "area": "points",
+     "is_rate": false,
+     "offense_value": 30.0,
+     "offense_rank": 4,
+     "defense_value": 18.875,
+     "defense_rank": 7,
+     "league_avg": 23.04296875,
+     "why": "JAX offence ranks 4 of 32, CHI defence ranks 7 of 32 (1 = best at its own job)",
+     "edge": "JAX OFFENCE STRENGTH"
+    },
+    {
+     "area": "third-down conversions",
+     "is_rate": true,
+     "offense_value": 0.4519230769230769,
+     "offense_rank": 3,
+     "defense_value": 0.2558139534883721,
+     "defense_rank": 2,
+     "league_avg": 0.3915645689531899,
+     "why": "JAX offence ranks 3 of 32, CHI defence ranks 2 of 32 (1 = best at its own job)",
+     "edge": "CHI DEFENCE STRENGTH"
+    },
+    {
+     "area": "red-zone touchdowns",
+     "is_rate": true,
+     "offense_value": 0.5517241379310345,
+     "offense_rank": 22,
+     "defense_value": 0.5,
+     "defense_rank": 4,
+     "league_avg": 0.5799256552247983,
+     "why": "JAX offence ranks 22 of 32, CHI defence ranks 4 of 32 (1 = best at its own job)",
+     "edge": "CHI DEFENCE STRENGTH"
+    },
+    {
+     "area": "sacks (pass protection vs pass rush)",
+     "is_rate": true,
+     "offense_value": 0.05,
+     "offense_rank": 9,
+     "defense_value": 0.09540636042402827,
+     "defense_rank": 2,
+     "league_avg": 0.06617038514275576,
+     "why": "JAX offence ranks 9 of 32, CHI defence ranks 2 of 32 (1 = best at its own job)",
+     "edge": "CHI DEFENCE STRENGTH"
+    },
+    {
+     "area": "pressure (sacks + hits)",
+     "is_rate": true,
+     "offense_value": 0.14642857142857144,
+     "offense_rank": 12,
+     "defense_value": 0.18021201413427562,
+     "defense_rank": 5,
+     "league_avg": 0.15654791870267085,
+     "why": "JAX offence ranks 12 of 32, CHI defence ranks 5 of 32 (1 = best at its own job)",
+     "edge": "CHI DEFENCE STRENGTH"
+    }
+   ],
+   "player_baselines": {
+    "status": "BASELINE_RESEARCH_ONLY",
+    "method": "The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.",
+    "players": [
+     {
+      "player": "P.Washington",
+      "pos": "WR",
+      "target_share": 0.25,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 77.7,
+       "opponent_factor": 1.017,
+       "p5": 10.3,
+       "p10": 13.5,
+       "p15": 17.5,
+       "p20": 26.0,
+       "p25": 34.6,
+       "p50": 63.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 4.1,
+       "opponent_factor": 0.95,
+       "p5": 0.9,
+       "p10": 0.9,
+       "p15": 1.0,
+       "p20": 1.3,
+       "p25": 1.7,
+       "p50": 3.3,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 8.5,
+       "opponent_factor": 1.0,
+       "p5": 2.4,
+       "p10": 2.7,
+       "p15": 3.1,
+       "p20": 3.8,
+       "p25": 4.5,
+       "p50": 8.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "J.Meyers",
+      "pos": "WR",
+      "target_share": 0.1984126984126984,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 55.1,
+       "opponent_factor": 1.017,
+       "p5": 27.6,
+       "p10": 30.8,
+       "p15": 33.6,
+       "p20": 34.0,
+       "p25": 34.3,
+       "p50": 51.3,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 3.5,
+       "opponent_factor": 0.95,
+       "p5": 1.9,
+       "p10": 1.9,
+       "p15": 1.9,
+       "p20": 2.3,
+       "p25": 2.6,
+       "p50": 3.3,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 6.4,
+       "opponent_factor": 1.0,
+       "p5": 3.0,
+       "p10": 3.0,
+       "p15": 3.0,
+       "p20": 3.4,
+       "p25": 3.8,
+       "p50": 6.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "B.Strange",
+      "pos": "TE",
+      "target_share": 0.15079365079365079,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 35.0,
+       "opponent_factor": 0.905,
+       "p5": 10.4,
+       "p10": 12.6,
+       "p15": 14.7,
+       "p20": 16.6,
+       "p25": 18.5,
+       "p50": 34.4,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 3.2,
+       "opponent_factor": 0.886,
+       "p5": 1.8,
+       "p10": 1.8,
+       "p15": 1.8,
+       "p20": 1.8,
+       "p25": 1.8,
+       "p50": 2.7,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 4.4,
+       "opponent_factor": 1.0,
+       "p5": 2.0,
+       "p10": 2.0,
+       "p15": 2.0,
+       "p20": 2.4,
+       "p25": 2.8,
+       "p50": 4.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "J.Cameron",
+      "pos": "WR",
+      "target_share": 0.0873015873015873,
+      "receiving_yards": {
+       "games": 7,
+       "weighted_mean": 32.8,
+       "opponent_factor": 1.017,
+       "p5": 1.8,
+       "p10": 3.7,
+       "p15": 5.5,
+       "p20": 7.3,
+       "p25": 9.1,
+       "p50": 42.7,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 7,
+       "weighted_mean": 1.9,
+       "opponent_factor": 0.95,
+       "p5": 0.3,
+       "p10": 0.6,
+       "p15": 0.9,
+       "p20": 0.9,
+       "p25": 0.9,
+       "p50": 1.9,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 7,
+       "weighted_mean": 3.3,
+       "opponent_factor": 1.0,
+       "p5": 1.0,
+       "p10": 1.0,
+       "p15": 1.0,
+       "p20": 1.2,
+       "p25": 1.5,
+       "p50": 2.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "B.Tuten",
+      "pos": "RB",
+      "carry_share": 0.6132075471698113,
+      "rushing_yards": {
+       "games": 8,
+       "weighted_mean": 55.0,
+       "opponent_factor": 0.883,
+       "p5": 26.8,
+       "p10": 28.1,
+       "p15": 29.4,
+       "p20": 31.3,
+       "p25": 33.1,
+       "p50": 64.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "carries": {
+       "games": 8,
+       "weighted_mean": 16.2,
+       "opponent_factor": 1.0,
+       "p5": 10.7,
+       "p10": 11.4,
+       "p15": 12.0,
+       "p20": 12.0,
+       "p25": 12.0,
+       "p50": 15.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "C.Rodriguez",
+      "pos": "RB",
+      "carry_share": 0.24056603773584906,
+      "rushing_yards": {
+       "games": 8,
+       "weighted_mean": 23.9,
+       "opponent_factor": 0.883,
+       "p5": 4.4,
+       "p10": 4.4,
+       "p15": 5.0,
+       "p20": 9.4,
+       "p25": 13.7,
+       "p50": 27.8,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "carries": {
+       "games": 8,
+       "weighted_mean": 6.3,
+       "opponent_factor": 1.0,
+       "p5": 2.7,
+       "p10": 3.4,
+       "p15": 4.0,
+       "p20": 4.0,
+       "p25": 4.0,
+       "p50": 6.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "A.Abdullah",
+      "pos": "RB",
+      "carry_share": 0.07547169811320754,
+      "rushing_yards": {
+       "games": 3,
+       "weighted_mean": 16.0,
+       "opponent_factor": 0.883,
+       "p5": 2.7,
+       "p10": 3.7,
+       "p15": 4.7,
+       "p20": 5.7,
+       "p25": 6.6,
+       "p50": 11.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "carries": {
+       "games": 3,
+       "weighted_mean": 5.8,
+       "opponent_factor": 1.0,
+       "p5": 3.3,
+       "p10": 3.6,
+       "p15": 3.9,
+       "p20": 4.2,
+       "p25": 4.5,
+       "p50": 6.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "T.Lawrence",
+      "pos": "QB",
+      "passing_yards": {
+       "games": 8,
+       "weighted_mean": 272.0,
+       "opponent_factor": 0.988,
+       "p5": 189.4,
+       "p10": 199.1,
+       "p15": 208.2,
+       "p20": 214.1,
+       "p25": 220.0,
+       "p50": 268.1,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "pass_attempts": {
+       "games": 8,
+       "weighted_mean": 32.2,
+       "opponent_factor": 1.0,
+       "p5": 17.1,
+       "p10": 20.3,
+       "p15": 23.1,
+       "p20": 24.2,
+       "p25": 25.2,
+       "p50": 31.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     }
+    ]
+   },
+   "rain_adjusted": {
+    "status": "NOT_APPLICABLE: KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers a"
+   }
+  },
+  "CHI_offense_vs_JAX_defense": {
+   "edges": [
+    {
+     "area": "wide receiver yards",
+     "is_rate": false,
+     "offense_value": 167.375,
+     "offense_rank": 8,
+     "defense_value": 163.0,
+     "defense_rank": 24,
+     "league_avg": 147.83984375,
+     "why": "CHI offence ranks 8 of 32, JAX defence ranks 24 of 32 (1 = best at its own job)",
+     "edge": "CHI OFFENCE ADVANTAGE"
+    },
+    {
+     "area": "tight end yards",
+     "is_rate": false,
+     "offense_value": 63.375,
+     "offense_rank": 9,
+     "defense_value": 32.375,
+     "defense_rank": 1,
+     "league_avg": 54.65234375,
+     "why": "CHI offence ranks 9 of 32, JAX defence ranks 1 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE STRENGTH"
+    },
+    {
+     "area": "running back rushing yards",
+     "is_rate": false,
+     "offense_value": 101.75,
+     "offense_rank": 11,
+     "defense_value": 67.0,
+     "defense_rank": 5,
+     "league_avg": 92.51953125,
+     "why": "CHI offence ranks 11 of 32, JAX defence ranks 5 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE STRENGTH"
+    },
+    {
+     "area": "explosive passes (20+)",
+     "is_rate": false,
+     "offense_value": 3.75,
+     "offense_rank": 6,
+     "defense_value": 2.0,
+     "defense_rank": 2,
+     "league_avg": 2.98046875,
+     "why": "CHI offence ranks 6 of 32, JAX defence ranks 2 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE STRENGTH"
+    },
+    {
+     "area": "explosive runs (15+)",
+     "is_rate": false,
+     "offense_value": 0.75,
+     "offense_rank": 27,
+     "defense_value": 0.875,
+     "defense_rank": 8,
+     "league_avg": 1.2109375,
+     "why": "CHI offence ranks 27 of 32, JAX defence ranks 8 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE ADVANTAGE"
+    },
+    {
+     "area": "points",
+     "is_rate": false,
+     "offense_value": 25.0,
+     "offense_rank": 11,
+     "defense_value": 17.125,
+     "defense_rank": 3,
+     "league_avg": 23.04296875,
+     "why": "CHI offence ranks 11 of 32, JAX defence ranks 3 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE STRENGTH"
+    },
+    {
+     "area": "third-down conversions",
+     "is_rate": true,
+     "offense_value": 0.43636363636363634,
+     "offense_rank": 5,
+     "defense_value": 0.33,
+     "defense_rank": 4,
+     "league_avg": 0.3915645689531899,
+     "why": "CHI offence ranks 5 of 32, JAX defence ranks 4 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE STRENGTH"
+    },
+    {
+     "area": "red-zone touchdowns",
+     "is_rate": true,
+     "offense_value": 0.5757575757575758,
+     "offense_rank": 16,
+     "defense_value": 0.5,
+     "defense_rank": 4,
+     "league_avg": 0.5799256552247983,
+     "why": "CHI offence ranks 16 of 32, JAX defence ranks 4 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE STRENGTH"
+    },
+    {
+     "area": "sacks (pass protection vs pass rush)",
+     "is_rate": true,
+     "offense_value": 0.052980132450331126,
+     "offense_rank": 11,
+     "defense_value": 0.04113924050632911,
+     "defense_rank": 30,
+     "league_avg": 0.06617038514275576,
+     "why": "CHI offence ranks 11 of 32, JAX defence ranks 30 of 32 (1 = best at its own job)",
+     "edge": "JAX DEFENCE WEAK SPOT"
+    },
+    {
+     "area": "pressure (sacks + hits)",
+     "is_rate": true,
+     "offense_value": 0.12251655629139073,
+     "offense_rank": 5,
+     "defense_value": 0.13924050632911392,
+     "defense_rank": 23,
+     "league_avg": 0.15654791870267085,
+     "why": "CHI offence ranks 5 of 32, JAX defence ranks 23 of 32 (1 = best at its own job)",
+     "edge": "CHI OFFENCE ADVANTAGE"
+    }
+   ],
+   "player_baselines": {
+    "status": "BASELINE_RESEARCH_ONLY",
+    "method": "The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.",
+    "players": [
+     {
+      "player": "L.Burden",
+      "pos": "WR",
+      "target_share": 0.22093023255813954,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 72.7,
+       "opponent_factor": 1.051,
+       "p5": 24.1,
+       "p10": 37.7,
+       "p15": 49.9,
+       "p20": 53.2,
+       "p25": 56.5,
+       "p50": 65.2,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 5.7,
+       "opponent_factor": 1.07,
+       "p5": 2.9,
+       "p10": 3.6,
+       "p15": 4.3,
+       "p20": 4.3,
+       "p25": 4.3,
+       "p50": 5.9,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 6.9,
+       "opponent_factor": 1.0,
+       "p5": 3.4,
+       "p10": 3.7,
+       "p15": 4.1,
+       "p20": 4.8,
+       "p25": 5.5,
+       "p50": 7.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "C.Loveland",
+      "pos": "TE",
+      "target_share": 0.2131782945736434,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 41.9,
+       "opponent_factor": 0.85,
+       "p5": 19.1,
+       "p10": 22.1,
+       "p15": 24.7,
+       "p20": 25.3,
+       "p25": 25.9,
+       "p50": 47.2,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 4.4,
+       "opponent_factor": 0.898,
+       "p5": 2.1,
+       "p10": 2.4,
+       "p15": 2.7,
+       "p20": 3.1,
+       "p25": 3.4,
+       "p50": 4.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 6.8,
+       "opponent_factor": 1.0,
+       "p5": 3.4,
+       "p10": 3.7,
+       "p15": 4.0,
+       "p20": 4.4,
+       "p25": 4.8,
+       "p50": 6.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "R.Odunze",
+      "pos": "WR",
+      "target_share": 0.18604651162790697,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 62.9,
+       "opponent_factor": 1.051,
+       "p5": 41.4,
+       "p10": 41.7,
+       "p15": 42.3,
+       "p20": 43.7,
+       "p25": 45.2,
+       "p50": 55.2,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 4.2,
+       "opponent_factor": 1.07,
+       "p5": 3.2,
+       "p10": 3.2,
+       "p15": 3.2,
+       "p20": 3.2,
+       "p25": 3.2,
+       "p50": 4.3,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 5.9,
+       "opponent_factor": 1.0,
+       "p5": 4.0,
+       "p10": 4.0,
+       "p15": 4.0,
+       "p20": 4.4,
+       "p25": 4.8,
+       "p50": 6.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "K.Raymond",
+      "pos": "WR",
+      "target_share": 0.12015503875968993,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 21.2,
+       "opponent_factor": 1.051,
+       "p5": 2.2,
+       "p10": 4.4,
+       "p15": 6.3,
+       "p20": 6.3,
+       "p25": 6.3,
+       "p50": 14.7,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 2.5,
+       "opponent_factor": 1.07,
+       "p5": 0.4,
+       "p10": 0.7,
+       "p15": 1.1,
+       "p20": 1.5,
+       "p25": 1.9,
+       "p50": 2.1,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 3.9,
+       "opponent_factor": 1.0,
+       "p5": 2.0,
+       "p10": 2.0,
+       "p15": 2.0,
+       "p20": 2.0,
+       "p25": 2.0,
+       "p50": 3.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "D.Swift",
+      "pos": "RB",
+      "target_share": 0.09689922480620156,
+      "receiving_yards": {
+       "games": 8,
+       "weighted_mean": 12.3,
+       "opponent_factor": 0.983,
+       "p5": 1.4,
+       "p10": 2.8,
+       "p15": 4.1,
+       "p20": 5.5,
+       "p25": 6.9,
+       "p50": 10.8,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "receptions": {
+       "games": 8,
+       "weighted_mean": 2.6,
+       "opponent_factor": 1.091,
+       "p5": 0.8,
+       "p10": 1.5,
+       "p15": 2.2,
+       "p20": 2.2,
+       "p25": 2.2,
+       "p50": 2.2,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "targets": {
+       "games": 8,
+       "weighted_mean": 3.0,
+       "opponent_factor": 1.0,
+       "p5": 1.4,
+       "p10": 1.7,
+       "p15": 2.0,
+       "p20": 2.0,
+       "p25": 2.0,
+       "p50": 3.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "D.Swift",
+      "pos": "RB",
+      "carry_share": 0.5606694560669456,
+      "rushing_yards": {
+       "games": 8,
+       "weighted_mean": 48.1,
+       "opponent_factor": 0.862,
+       "p5": 30.3,
+       "p10": 34.0,
+       "p15": 37.1,
+       "p20": 37.4,
+       "p25": 37.7,
+       "p50": 47.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "carries": {
+       "games": 8,
+       "weighted_mean": 16.7,
+       "opponent_factor": 1.0,
+       "p5": 10.1,
+       "p10": 11.1,
+       "p15": 12.1,
+       "p20": 12.4,
+       "p25": 12.8,
+       "p50": 15.5,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "K.Monangai",
+      "pos": "RB",
+      "carry_share": 0.200836820083682,
+      "rushing_yards": {
+       "games": 3,
+       "weighted_mean": 54.8,
+       "opponent_factor": 0.862,
+       "p5": 16.6,
+       "p10": 17.8,
+       "p15": 18.9,
+       "p20": 20.0,
+       "p25": 21.1,
+       "p50": 26.7,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "carries": {
+       "games": 3,
+       "weighted_mean": 15.8,
+       "opponent_factor": 1.0,
+       "p5": 8.2,
+       "p10": 8.4,
+       "p15": 8.6,
+       "p20": 8.8,
+       "p25": 9.0,
+       "p50": 10.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "R.Johnson",
+      "pos": "RB",
+      "carry_share": 0.12133891213389121,
+      "rushing_yards": {
+       "games": 5,
+       "weighted_mean": 18.0,
+       "opponent_factor": 0.862,
+       "p5": 6.4,
+       "p10": 7.6,
+       "p15": 8.8,
+       "p20": 10.0,
+       "p25": 11.2,
+       "p50": 13.8,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "carries": {
+       "games": 5,
+       "weighted_mean": 5.8,
+       "opponent_factor": 1.0,
+       "p5": 2.4,
+       "p10": 2.8,
+       "p15": 3.2,
+       "p20": 3.6,
+       "p25": 4.0,
+       "p50": 5.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     },
+     {
+      "player": "C.Williams",
+      "pos": "QB",
+      "passing_yards": {
+       "games": 5,
+       "weighted_mean": 250.3,
+       "opponent_factor": 0.982,
+       "p5": 190.8,
+       "p10": 203.7,
+       "p15": 216.7,
+       "p20": 229.7,
+       "p25": 242.6,
+       "p50": 274.1,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      },
+      "pass_attempts": {
+       "games": 5,
+       "weighted_mean": 31.9,
+       "opponent_factor": 1.0,
+       "p5": 25.0,
+       "p10": 27.0,
+       "p15": 29.0,
+       "p20": 31.0,
+       "p25": 33.0,
+       "p50": 34.0,
+       "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
+      }
+     }
+    ]
+   },
+   "rain_adjusted": {
+    "status": "NOT_APPLICABLE: KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers a"
+   }
+  }
+ },
+ "team_projection": {
+  "status": "RESEARCH_ONLY_NOT_VALIDATED",
+  "engine": "core/period_engine_v0",
+  "trials": 20000,
+  "history_games": 436,
+  "includes_prior_season": true,
+  "samplers": {
+   "matchup_pair": {
+    "home_points": 22.1,
+    "away_points": 25.3,
+    "home_margin": -3.2,
+    "total": 47.4,
+    "home_win": 0.491,
+    "away_win": 0.507,
+    "total_p10_p50_p90": [
+     34.0,
+     45.0,
+     65.0
+    ],
+    "first_half": {
+     "home": 10.5,
+     "away": 13.0
+    },
+    "by_quarter": {
+     "q1": {
+      "home": 5.0,
+      "away": 4.2
+     },
+     "q2": {
+      "home": 5.5,
+      "away": 8.8
+     },
+     "q3": {
+      "home": 4.5,
+      "away": 5.3
+     },
+     "q4": {
+      "home": 6.9,
+      "away": 6.8
+     }
+    }
+   },
+   "independent": {
+    "home_points": 26.0,
+    "away_points": 27.9,
+    "home_margin": -2.0,
+    "total": 53.9,
+    "home_win": 0.419,
+    "away_win": 0.58,
+    "total_p10_p50_p90": [
+     36.0,
+     54.0,
+     72.0
+    ],
+    "first_half": {
+     "home": 12.8,
+     "away": 14.9
+    },
+    "by_quarter": {
+     "q1": {
+      "home": 6.7,
+      "away": 5.5
+     },
+     "q2": {
+      "home": 6.2,
+      "away": 9.4
+     },
+     "q3": {
+      "home": 5.7,
+      "away": 6.2
+     },
+     "q4": {
+      "home": 7.3,
+      "away": 6.8
+     }
+    }
+   }
+  },
+  "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
+ },
+ "sources": {
+  "games": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:34+00:00",
+   "sha256": "b22bfaa75225e3fefc6b47f8d0a40fe995ec3cadf31225ba9f74be746fed0be8",
+   "bytes": 524532
+  },
+  "pbp": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:34+00:00",
+   "sha256": "1dcada615d889a1b15302ca5effd32baea4767ea7a320c33e60be11c504fe62c",
+   "bytes": 13169177
+  },
+  "rosters": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:34+00:00",
+   "sha256": "73ab519d2b6d661ab30a2662e42317d120d487122c1b87a5364116d15dc41941",
+   "bytes": 823249
+  },
+  "injuries": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:34+00:00",
+   "sha256": "b40c5c0410746e0eb05732f8868d137f981e258e51964f26d49fdd4ad458fe36",
+   "bytes": 73019
+  },
+  "depth_charts": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "d4af2fc566a29d74b9e7bc6600356b6c71f4ad729a66b95bdeb97462bf47f980",
+   "bytes": 3675604
+  },
+  "snap_counts": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "923df2bfeef16ec76ea80f219f416c0970b22dea995d5bf30e23c09336adc2ab",
+   "bytes": 153170
+  },
+  "ftn": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "ee09d5f28f5fe1637267cf5588ab9135d3706af834b83d2814ba0ba97ee1cac0",
+   "bytes": 337131
+  },
+  "pfr_def": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "f1217d79cc1e73112e97a2e053cd86492ea5c21a17478ef160b27116842f1e76",
+   "bytes": 105966
+  },
+  "pfr_rec": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "14b79cccde48a93006c1ac5680856aabc338d833538eba106bc6a03ebc830812",
+   "bytes": 37378
+  },
+  "pfr_rush": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rush_2026.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "45b28d9bfb260948e9b7d746017e910703d9ef48f58b07c2e2c02c8e34f0c312",
+   "bytes": 30001
+  },
+  "ngs_receiving": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:35+00:00",
+   "sha256": "2b336f985ad8ef81e219f61d058ddc21ad10d75e64256df9e39fdc0784a9b6e6",
+   "bytes": 1181386
+  },
+  "ngs_rushing": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_rushing.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:36+00:00",
+   "sha256": "9cde647ab3c82f2436c7d60e046354b8717827bc3e6377e6818f5958b38ac9d0",
+   "bytes": 406006
+  },
+  "ngs_passing": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_passing.parquet",
+   "status": "OK",
+   "retrieved_utc": "2026-11-26T19:39:36+00:00",
+   "sha256": "02d9d8211a1521182484bf7feac867e3cade477c3e91acfc7498b760322ba2e6",
+   "bytes": 767603
+  },
+  "espn_injuries": {
+   "status": "OK",
+   "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+   "retrieved_utc": "2026-11-26T19:39:36+00:00"
+  },
+  "nfl_savant": {
+   "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
+   "url": "https://nflsavant.com/"
+  },
+  "book_odds": {
+   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
+   "retrieved_utc": null
+  }
+ },
+ "phase_ledger": [
+  {
+   "phase": 1,
+   "name": "Slate, schedule, venue",
+   "status": "AUTO",
+   "detail": "Schedule, kickoff, site, roof, surface, rest days, listed QBs."
+  },
+  {
+   "phase": 2,
+   "name": "Player identity and position",
+   "status": "AUTO",
+   "detail": "Positions from weekly rosters (GSIS IDs). Name-only joins are used for snap counts and PFR defenders."
+  },
+  {
+   "phase": 3,
+   "name": "Verified player game history",
+   "status": "AUTO",
+   "detail": "Per-game logs for QBs, receivers and rushers over the window, from play-by-play."
+  },
+  {
+   "phase": 4,
+   "name": "Role, snaps, routes, opportunity",
+   "status": "PARTIAL",
+   "detail": "Target share, air-yards share, carry share, red-zone looks, snap share. Routes run and route participation are NOT available."
+  },
+  {
+   "phase": 5,
+   "name": "Team offense/defense baselines",
+   "status": "AUTO",
+   "detail": "Allowed and produced tables with league ranks and game-by-game trends."
+  },
+  {
+   "phase": 6,
+   "name": "Opponent context and game script",
+   "status": "PARTIAL",
+   "detail": "Market spread/total, neutral pass rate, pace. The script call itself is the analyst's."
+  },
+  {
+   "phase": 7,
+   "name": "Coverage structure and shell",
+   "status": "PARTIAL",
+   "detail": "Blitz and play-action rates from FTN charting. Man/zone and shell are NOT in any free source here."
+  },
+  {
+   "phase": 8,
+   "name": "Defender assignment and explosive allowance",
+   "status": "PARTIAL",
+   "detail": "Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known."
+  },
+  {
+   "phase": 9,
+   "name": "QB pressure, blitz, scramble",
+   "status": "PARTIAL",
+   "detail": "Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles."
+  },
+  {
+   "phase": 10,
+   "name": "Offensive line, pass rush, coaching",
+   "status": "PARTIAL",
+   "detail": "Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades."
+  },
+  {
+   "phase": 11,
+   "name": "Injury and depth chart",
+   "status": "PARTIAL",
+   "detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."
+  },
+  {
+   "phase": 12,
+   "name": "Weather, roof, travel",
+   "status": "PARTIAL",
+   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers about 6.5 days."
+  },
+  {
+   "phase": 13,
+   "name": "Timestamped book prices",
+   "status": "PARTIAL",
+   "detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line."
+  },
+  {
+   "phase": 14,
+   "name": "Projection and simulation",
+   "status": "PARTIAL_RESEARCH_ONLY",
+   "detail": "Period-engine team scores; player baselines. Not the three-model consensus; not validated."
+  },
+  {
+   "phase": 15,
+   "name": "Final inactive pregame freeze",
+   "status": "PENDING",
+   "detail": "Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call."
+  }
+ ],
+ "connectors": {
+  "checked_utc": "2026-11-26T19:39:36+00:00",
+  "sources": {
+   "ODDS_API_KEY": {
+    "provider": "The Odds API",
+    "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
+    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+   },
+   "NFL_BDL_API_KEY": {
+    "provider": "BallDontLie NFL",
+    "used_for": "second-source check of the slate (schedule and teams)",
+    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+   },
+   "NFL_API_SPORTS_KEY": {
+    "provider": "API-Sports NFL",
+    "used_for": "access check only; not used in the packet",
+    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+   }
+  },
+  "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."
+ }
+}

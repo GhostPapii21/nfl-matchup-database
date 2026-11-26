@@ -1,0 +1,37 @@
+{
+  "attempt": 32,
+  "checked_utc": "2026-11-26T21:16:22.624924+00:00",
+  "checked_et": "2026-11-26T16:16:22.624924-05:00",
+  "minutes_to_kick": 13.6,
+  "inactives_status": "INCOMPLETE",
+  "inactives_teams": {
+    "PHI": "OK",
+    "DAL": "MISSING"
+  },
+  "sim100k_exit": 2,
+  "sim100k_status": "REFUSED",
+  "gates": {
+    "G0_entrypoint": "PASS",
+    "G1_flags": "PASS",
+    "G2_nfl43": "PASS",
+    "G3_packet": "PASS",
+    "G4_freshness": "REFUSED",
+    "G5_phases": "REFUSED",
+    "G7_asof": "PASS",
+    "G6_rocket": "NOT_RUN (earlier gates refused)"
+  },
+  "reasons": [
+    "G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: odds STALE: as-of 2026-11-26T20:03:28+00:00 (live_pull (live endpoint; pull time is the quote time)) is 73 min old; limit is 20 min at 0.2 h to kickoff.",
+    "G4: official_inactives MISSING: official_inactives hook returned 'INCOMPLETE', not OK.",
+    "G4: four_book_prices STALE: 73 min old; limit is 20 min.",
+    "G5: phase 1 (Slate, schedule, venue) is MISSING",
+    "G5: phase 7 (Coverage structure and shell) is GAP",
+    "G5: phase 8 (Defender assignment and explosive allowance) is GAP",
+    "G5: phase 9 (QB pressure, blitz, scramble) is GAP",
+    "G5: phase 12 (Weather, roof, travel) is MISSING",
+    "G5: phase 13 (Timestamped book prices) is STALE",
+    "G5: phase 15 (Final inactive pregame freeze) is MISSING"
+  ]
+}
