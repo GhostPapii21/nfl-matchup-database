@@ -1,0 +1,258 @@
+[
+ {
+  "id": "30658",
+  "status": "resolved_pff_recap_error",
+  "evidence": "ESPN summary event 401872972 final NYJ 12 CHI 23; nflverse PBP 4Q TD + XP No Good. PFF schedule 12-23 right, PFF recap header 13 wrong."
+ },
+ {
+  "id": "30722",
+  "status": "resolved_pff_takeaway_team_inverted",
+  "evidence": "nflverse PBP: LAR Q.Lake 45 + T.McDuffie 26 = 71, LAC 0. ESPN interceptions box to confirm in espn_box_extract."
+ },
+ {
+  "id": "30718",
+  "status": "resolved_pff_takeaway_team_inverted_value_diff",
+  "evidence": "nflverse PBP: JAX R.Lane 92 TD + B.Combs 9 = 101; PFF \"Colts had 99\"."
+ },
+ {
+  "id": "30722_snaps",
+  "status": "resolved_qa_artifact",
+  "evidence": "73/73 rows"
+ },
+ {
+  "id": "30648 Deebo Samuel",
+  "status": "resolved_pff_correct",
+  "evidence": "ESPN SF receiving 0 REC 80 YDS 1 TD 0 TGT matches PFF; nflverse-derived 0 was QA PBP-aggregation gap (lateral/non-target play)."
+ },
+ {
+  "id": "v1 Javonte Williams/Derrick Henry/McCaffrey/Schultz/Zay Flowers etc",
+  "status": "resolved_qa_parser_bug",
+  "evidence": "v1 card parser read adjacent card values; v2 card-split parser matches ESPN."
+ },
+ {
+  "id": "ATL Bijan/Brian Robinson etc",
+  "status": "resolved_qa_name_key_collision",
+  "evidence": "v2 full-name keys"
+ },
+ {
+  "id": "14 snap-conflict games",
+  "status": "open_pff_internal_inconsistency",
+  "evidence": "In these games PFF top offense snaps \u2248 ESPN offensive plays (mean +0.5), while elsewhere PFF \u2248 PFR snaps (both ~+3.3 over ESPN plays, i.e. include penalty plays). Suggests PFF used a different snap basis in these games (cause unknown). No official snap source accessed; PFR via nflverse is not official.",
+  "games": [
+   30623,
+   30625,
+   30627,
+   30628,
+   30629,
+   30630,
+   30631,
+   30632,
+   30633,
+   30634,
+   30644,
+   30661,
+   30667,
+   30723
+  ]
+ },
+ {
+  "id": "team first downs",
+  "status": "definition_evidence",
+  "evidence": "PFF total first downs below ESPN by 1-6 in 202/242; PFF penalty first downs lower; definitions not reconciled \u2014 do not use as verified."
+ },
+ {
+  "id": "team total yards / rushing yards",
+  "status": "open",
+  "evidence": "totalYards 193/242 differ (-47..+50); rushingYards 101/242; PFF yardage basis differs; unverified."
+ },
+ {
+  "id": "30611 Jared Goff rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF -4.0 ESPN 2.0 nflverse 2.0"
+ },
+ {
+  "id": "30616 Geno Smith rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 1.0 ESPN 7.0 nflverse 7.0"
+ },
+ {
+  "id": "30619 Tucker Kraft rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 53.0 ESPN 65.0 nflverse 65.0"
+ },
+ {
+  "id": "30622 Cooper Rush rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 11.0 ESPN 20.0 nflverse 20.0"
+ },
+ {
+  "id": "30623 Tyler Shough rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 16.0 ESPN 23.0 nflverse 23.0"
+ },
+ {
+  "id": "30623 Devaughn Vele rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 58.0 ESPN 64.0 nflverse 64.0"
+ },
+ {
+  "id": "30623 Juwan Johnson rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 35.0 ESPN 66.0 nflverse 66.0"
+ },
+ {
+  "id": "30627 Geno Smith rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 1.0 ESPN 17.0 nflverse 17.0"
+ },
+ {
+  "id": "30632 Eric Saubert rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 0.0 ESPN -10.0 nflverse -10.0"
+ },
+ {
+  "id": "30633 Jayden Daniels rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 56.0 ESPN 69.0 nflverse 69.0"
+ },
+ {
+  "id": "30634 Malik Willis pass_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 203.0 ESPN 197.0 nflverse 197.0"
+ },
+ {
+  "id": "30634 DJ Herman rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 25.0 ESPN 18.0 nflverse 18.0"
+ },
+ {
+  "id": "30636 Tyquan Thornton rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 80.0 ESPN 86.0 nflverse 86.0"
+ },
+ {
+  "id": "30638 Kaleb Johnson rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 11.0 ESPN 6.0 nflverse 6.0"
+ },
+ {
+  "id": "30641 Geno Smith pass_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 310.0 ESPN 321.0 nflverse 321.0"
+ },
+ {
+  "id": "30641 Garrett Wilson rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 96.0 ESPN 107.0 nflverse 107.0"
+ },
+ {
+  "id": "30651 Tyler Shough pass_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 250.0 ESPN 255.0 nflverse 255.0"
+ },
+ {
+  "id": "30651 Juwan Johnson rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 48.0 ESPN 53.0 nflverse 53.0"
+ },
+ {
+  "id": "30671 Jalen Hurts rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF -3.0 ESPN 2.0 nflverse 2.0"
+ },
+ {
+  "id": "30673 Drake Maye pass_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 362.0 ESPN 374.0 nflverse 374.0"
+ },
+ {
+  "id": "30673 TreVeyon Henderson rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 4.0 ESPN 16.0 nflverse 4.0"
+ },
+ {
+  "id": "30674 Kyler Murray rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 40.0 ESPN 51.0 nflverse 51.0"
+ },
+ {
+  "id": "30675 Braelon Allen rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 110.0 ESPN 116.0 nflverse 116.0"
+ },
+ {
+  "id": "30676 Aaron Rodgers pass_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 229.0 ESPN 235.0 nflverse 235.0"
+ },
+ {
+  "id": "30676 Jaylen Warren rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 107.0 ESPN 101.0 nflverse 101.0"
+ },
+ {
+  "id": "30676 Jaylen Warren rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 81.0 ESPN 87.0 nflverse 87.0"
+ },
+ {
+  "id": "30680 Jared Goff pass_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 265.0 ESPN 271.0 nflverse 271.0"
+ },
+ {
+  "id": "30680 Amon-Ra St. Brown rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 63.0 ESPN 69.0 nflverse 69.0"
+ },
+ {
+  "id": "30681 Tucker Kraft rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 50.0 ESPN 64.0 nflverse 64.0"
+ },
+ {
+  "id": "30681 Rome Odunze rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 46.0 ESPN 40.0 nflverse 40.0"
+ },
+ {
+  "id": "30687 Roschon Johnson rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 22.0 ESPN 34.0 nflverse 22.0"
+ },
+ {
+  "id": "30694 Colby Parkinson rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 25.0 ESPN 31.0 nflverse 31.0"
+ },
+ {
+  "id": "30696 Josh Allen rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF -4.0 ESPN 1.0 nflverse 1.0"
+ },
+ {
+  "id": "30699 Hunter Henry rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 60.0 ESPN 71.0 nflverse 71.0"
+ },
+ {
+  "id": "30710 Connor Heyward rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 0.0 ESPN 13.0 nflverse 13.0"
+ },
+ {
+  "id": "30715 Gunnar Helm rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 51.0 ESPN 76.0 nflverse 76.0"
+ },
+ {
+  "id": "30718 Jonathan Taylor rush_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 14.0 ESPN 23.0 nflverse 23.0"
+ },
+ {
+  "id": "30723 Jonah Coleman rec_yds",
+  "status": "open_pff_vs_espn",
+  "evidence": "PFF 53.0 ESPN 63.0 nflverse 63.0"
+ }
+]
