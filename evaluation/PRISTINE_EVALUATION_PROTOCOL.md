@@ -12,6 +12,10 @@ existed before any outcome was known.
   market comparisons are not scored.
 - **Coverage:** below 30 scored games across 3 weeks, the aggregate status is
   `UNSCORABLE_INSUFFICIENT_COVERAGE`. Per-game numbers are still written, but they are not calibration evidence.
+- **Aggregation (NFL-44 #1):** primary report is **micro** (equal weight per scored game). **Macro**
+  (equal weight per scored week: mean of week-means) is also reported. A metric with zero non-null
+  values is `null`, never `0`. Unscorable locks never enter either denominator. NOLINE market cells
+  are nulled; they are not filled or renormalized. See the `aggregation` block in the JSON.
 - **Comparison:** the raw model is compared with each book's no-vig probability. No market-anchored output is
   produced, so `independently_calibrated` stays `false` (NFL-45).
 
