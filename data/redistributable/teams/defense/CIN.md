@@ -223,6 +223,59 @@ Holds (-1.5 YPT or better): none
 - Daxton Hill ← Wan'Dale Robinson: 7 tgt, 6 rec, 56 yds
 - DJ Ivey ← Elic Ayomanor: 5 tgt, 3 rec, 34 yds
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### CIN defense vs WSH (CIN@WSH, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Josh Newton | CB | 5 | 4 | 88 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x4 | S.Diggs 3, T.Burks 1, C.Okonkwo 1 | C.Okonkwo 32 deep_middle Q2; S.Diggs 29 deep_middle Q4 |
+| DJ Turner II | CB | 5 | 5 | 74 | 0 | 0 | 0 | 0 | tackler x5 | A.Ekeler 1, T.Burks 1, C.Okonkwo 1, S.Diggs 1, A.Williams 1 | A.Williams 42 deep_middle Q4 |
+| Bryan Cook | S | 2 | 2 | 35 | 0 | 0 | 0 | 0 | tackler x2 | C.Okonkwo 1, A.Williams 1 | A.Williams 22 deep_middle Q4 |
+| Dax Hill | CB | 2 | 2 | 22 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x2 | A.Ekeler 1, T.Burks 1, A.Williams 1 | A.Williams 20 short_middle Q4 |
+| Barrett Carter | LB | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | J.Croskey-Merritt 1, S.Diggs 1, A.Williams 1 |  |
+| Jordan Battle | S | 2 | 2 | 18 | 0 | 0 | 0 | 0 | tackler x2 | A.Williams 2 |  |
+| Demetrius Knight Jr. | LB | 3 | 3 | 16 | 0 | 0 | 0 | 0 | tackler x3 | A.Williams 1, C.Okonkwo 1, J.Croskey-Merritt 1 |  |
+| Cedric Johnson | DE | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | A.Williams 1 |  |
+| Myles Murphy | DE | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | A.Williams 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 15/21 for 197 yds, 0 TD; TE 4/5 for 66 yds, 0 TD; RB 4/6 for 26 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 5/2
+Pass rush: sacks B.Mafe 3; QB hits D.Lawrence 1, J.Allen 1
+Video (highlight transcript) mentions: Dax Hill (CB) @9:30 ">> Joe: THIRD DOWN AND FOUR. CONTACT, NO FLAGS. BURKS, COVERED BY DAX HILL. AND THE FIELD GOAL TEAM WILL BALL GAME. HERE IS A 40-YARD TRY NOW." [coverage word: COVERED]; Dax Hill (CB) @5:09 ">> Joe: THIRD DOWN AND FOUR. CONTACT, NO FLAGS. BURKS, COVERED BY DAX HILL. AND THE FIELD GOAL TEAM WILL CHAINS. >> Joe: HALF A MINUTE TO GO IN" [coverage word: COVERED]; Barrett Carter (LB) @6:19 "DIGGS. THIRD AND SHORT COMING UP, STRONG TACKLE BY BARRETT CARTER. SAW DIGGS FRUSTRATED ON THE HIGH SNAP. DANIELS, END ZONE, IT'S NOT" [coverage word: ZONE]; Boye Mafe (DE) @6:32 "THERE. WILLIAMS, THE CLOSEST ONE TO IT, BUT BIG-TIME PRESSURE BY BOYE MAFE, WHO HAS ALREADY GOT THREE ABLE TO KEEP THE SCORES DOWN, HAS BEEN DOWN IN THE RED ZONE." [coverage word: ZONE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### CIN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 45.4% | 27.4% |
+| Zone | 53.4% | 65.9% |
+| MOF closed (single-high) | 58.4% | 54.0% |
+| MOF open (two-high) | 41.6% | 41.7% |
+| Blitz | 18.1% | 16.7% |
+| Cover 0 | 4.2% | not published |
+| Cover 1 | 34.6% | not published |
+| Cover 2 | 25.1% | not published |
+| Cover 2-Man | 6.6% | not published |
+| Cover 3 | 18.5% | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | 2.4% | not published |
+| Coverage snaps | 335 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/cin). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 45.4% vs Sharp 27.4% (+18.0 pts); Zone: StatRankings 53.4% vs Sharp 65.9% (-12.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## CIN season coverage rates (public, season-level; NOT game-level)
 

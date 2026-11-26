@@ -203,6 +203,59 @@ Holds (-1.5 YPT or better): WR2: 6.68 YPT on 19 tgts (league 8.2, -1.52)
 - 20+ catches: M.Lemon(WR1) 20y deep_left - T.Amos [tackler]; S.Barkley(RB) 24y deep_left - no tackler named [unattributed]; E.Stowers(TE2+) 34y short_left - T.Amos [tackler]
 - 15+ runs: T.McKee(QB) 15y rush left end
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### WSH defense vs CIN (CIN@WSH, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jeremy Reaves | S | 5 | 4 | 91 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x4 | M.Gesicki 3, D.Sample 1, S.Perine 1 | S.Perine 44 short_middle Q2; M.Gesicki 32 deep_right Q4 |
+| Frankie Luvu | LB | 5 | 5 | 38 | 0 | 0 | 0 | 0 | tackler x5 | S.Perine 2, J.Endries 3 |  |
+| Rasul Douglas | CB | 7 | 5 | 29 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x5 | J.Chase 5, C.Young 1, C.Brown 1 |  |
+| Sonny Styles | LB | 4 | 4 | 29 | 0 | 0 | 0 | 0 | tackler x4 | C.Brown 1, M.Gesicki 2, D.Meyers 1 |  |
+| Quan Martin | S | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | M.Gesicki 1 |  |
+| Trey Amos | CB | 3 | 3 | 15 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x3 | C.Brown 1, J.Chase 2, J.Endries 1 |  |
+| Nick Cross | S | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | T.Higgins 1 |  |
+| K'Lavon Chaisson | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Brown 1 |  |
+| Mike Sainristil | CB | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | C.Brown 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): TE 10/12 for 119 yds, 0 TD; RB 9/12 for 101 yds, 0 TD; WR 9/15 for 80 yds, 2 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 3/0
+Pass rush: sacks T.Settle (half) 1, K.Chaisson (half) 1, T.Settle 1, N.Cross (half) 1, K.Medrano (half) 1; QB hits C.Omenihu 1, K.Chaisson 1, J.Josephs 2, F.Luvu 1
+Video (highlight transcript) mentions: Nick Cross (S) @2:18 "SAFETIES AND CORNERS BOTH HAVE BEEN ATTACKING. >> Joe: NICK CROSS COMING ON THE BLITZ. BURROW IS ABLE TO FIND PERINE -- DROPPED IT!" [coverage word: BLITZ]; Trey Amos (CB) @5:37 "I MEAN HE MAKES THESE LOOK ROUTE. TREY AMOS IN COVERAGE, A LOOK AT THE END OF IT, ENDS UP CATCHING IT WITH ONE HAND, DOESN'T SUES HIS RIGHT HAND." [coverage word: COVERAGE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### WSH season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 19.4% | 13.8% |
+| Zone | 80.3% | 77.6% |
+| MOF closed (single-high) | 38.3% | 33.4% |
+| MOF open (two-high) | 61.7% | 60.7% |
+| Blitz | 44.2% | 40.4% |
+| Cover 0 | 4.6% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 36.3% | not published |
+| Cover 2-Man | 5.7% | not published |
+| Cover 3 | 26.6% | not published |
+| Cover 4 | 12.6% | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | 1.4% | not published |
+| Coverage snaps | 350 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/was). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** none at 7+ pts
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Zone: gap +2.7 pts is +12.2 vs the median gap; rank 2 StatRankings vs 13 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## WSH season coverage rates (public, season-level; NOT game-level)
 

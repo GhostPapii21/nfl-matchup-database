@@ -1,7 +1,7 @@
 """INDEX.md (headlines) + COVERAGE_MATRIX.md. refs NFL-56, NFL-49."""
 import json, os, datetime, glob
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NOWS = datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p AST')
+NOWS = datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p ' + __import__('time').strftime('%Z'))
 G = json.load(open(f'{OUT}/data/_all_games.json'))
 sb = json.load(open(f'{OUT}/raw/scoreboard.json'))
 started = {r['game'] for r in G}
@@ -15,7 +15,7 @@ for r in G:
     ac = r.get('assign_counts', {})
     I.append(f"| {r['game']} | {r['status'].split(' - partial')[0]} | {q} | {away if a1>h1 else home if h1>a1 else 'TIE'} {a1}-{h1} | {home} {ats.get('home_spread','unknown')}, {ats.get('total_line','unknown')} | {ats.get('cover','unknown') if 'FINAL' in r['status'] else 'n/a (in progress)'} | {ats.get('total','?')} {ats.get('total_res','unknown') if 'FINAL' in r['status'] else '(in progress)'} | {rz} | {f'{tl[1]} ({tl[0]}) {tl[2]}' if tl else 'unknown'} | {'; '.join(f'{t}: {v[0]} {v[1]}-{v[2]}' for t, v in mb.items())} | {'; '.join((f'{t}: {v[0]} PBU {v[1]}/INT {v[2]}/DPI {v[3]}' if v else f'{t}: none named') for t, v in r.get('most_verified', {}).items())} | {ac.get('verified')}/{ac.get('tackler_inferred')}/{ac.get('unattributed')} |")
 ns = [e['shortName'] + ' (' + e['status']['type']['shortDetail'] + ')' for e in sb['events'] if e['status']['type']['name'] != 'STATUS_FINAL']
-I += ['', 'Not logged in this run (not final at pull time; a later run logs them): ' + ', '.join(ns), '',
+I += ['', ('Not logged in this run (not final at pull time; a later run logs them): ' + ', '.join(ns) if ns else f'All {len(G)} Week 11 games are FINAL and logged (CIN@WSH MNF added by the late run).'), '',
       'Files: one `<AWAY>_at_<HOME>.md` per game, `pbp/` full play-by-play CSVs, `data/` JSON (pass-play defender log per game), DEFENSE_PROFILES.md, NGS_W11_SNAPSHOT.md, VIDEO_EVIDENCE.md, SLIP_LEG_RESULTS.md, COVERAGE_MATRIX.md, EXTRAS_TO_CAPTURE.md.']
 open(f'{OUT}/INDEX.md', 'w').write('\n'.join(I) + '\n')
 FIELDS = [('Quarter scores, quarter/1H/2H winners', lambda r: 'filled'), ('Q2 leader track', lambda r: 'filled' if r.get('q2_leaders') else 'unknown'),

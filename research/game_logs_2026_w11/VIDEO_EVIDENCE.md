@@ -153,3 +153,34 @@ Other mentions without a coverage word (count only): Fred Warner x2
 
 Scheme words in commentary (counts, not charting): {'zone': 2, 'coverage': 1, 'corner': 2, 'beat': 1, 'intercepted': 1, 'picked': 1}
 
+## CIN@WSH: Cincinnati Bengals vs Washington Commanders Game Highlights | 2026 NFL Season Week 11
+URL https://www.youtube.com/watch?v=C3ZJX7on7OE | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### CIN defenders mentioned near a coverage word (1)
+- Dax Hill (CB) @9:30 ">> Joe: THIRD DOWN AND FOUR. CONTACT, NO FLAGS. BURKS, COVERED BY DAX HILL. AND THE FIELD GOAL TEAM WILL BALL GAME. HERE IS A 40-YARD TRY NOW." [coverage word: COVERED]
+Other mentions without a coverage word (count only): Boye Mafe x1, Josh Newton x2, Barrett Carter x1
+
+### WSH defenders mentioned near a coverage word (2)
+- Nick Cross (S) @2:18 "SAFETIES AND CORNERS BOTH HAVE BEEN ATTACKING. >> Joe: NICK CROSS COMING ON THE BLITZ. BURROW IS ABLE TO FIND PERINE -- DROPPED IT!" [coverage word: BLITZ]
+- Trey Amos (CB) @5:37 "I MEAN HE MAKES THESE LOOK ROUTE. TREY AMOS IN COVERAGE, A LOOK AT THE END OF IT, ENDS UP CATCHING IT WITH ONE HAND, DOESN'T SUES HIS RIGHT HAND." [coverage word: COVERAGE]
+Other mentions without a coverage word (count only): K'Lavon Chaisson x1, Rasul Douglas x4, Frankie Luvu x3, Tim Settle x1, Trey Amos x2, Sonny Styles x1
+
+Scheme words in commentary (counts, not charting): {'double': 1, 'blitz': 2, 'missed': 2, 'miss': 1, 'coverage': 1, 'picked': 2, 'beat': 1, 'misses': 1, 'separation': 1, 'covered': 1, 'blitzed': 1, 'interceptions': 1}
+
+## CIN@WSH: Jayden Daniels Every Throw & Run | Week 11
+URL https://www.youtube.com/watch?v=uLyhvnGoWNA | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### CIN defenders mentioned near a coverage word (4)
+- Dax Hill (CB) @9:30 ">> Joe: THIRD DOWN AND FOUR. CONTACT, NO FLAGS. BURKS, COVERED BY DAX HILL. AND THE FIELD GOAL TEAM WILL BALL GAME. HERE IS A 40-YARD TRY NOW." [coverage word: COVERED]
+- Dax Hill (CB) @5:09 ">> Joe: THIRD DOWN AND FOUR. CONTACT, NO FLAGS. BURKS, COVERED BY DAX HILL. AND THE FIELD GOAL TEAM WILL CHAINS. >> Joe: HALF A MINUTE TO GO IN" [coverage word: COVERED]
+- Barrett Carter (LB) @6:19 "DIGGS. THIRD AND SHORT COMING UP, STRONG TACKLE BY BARRETT CARTER. SAW DIGGS FRUSTRATED ON THE HIGH SNAP. DANIELS, END ZONE, IT'S NOT" [coverage word: ZONE]
+- Boye Mafe (DE) @6:32 "THERE. WILLIAMS, THE CLOSEST ONE TO IT, BUT BIG-TIME PRESSURE BY BOYE MAFE, WHO HAS ALREADY GOT THREE ABLE TO KEEP THE SCORES DOWN, HAS BEEN DOWN IN THE RED ZONE." [coverage word: ZONE]
+Other mentions without a coverage word (count only): Boye Mafe x4, Josh Newton x1, Barrett Carter x1, Dax Hill x1
+
+### WSH defenders mentioned near a coverage word (2)
+- Nick Cross (S) @2:18 "SAFETIES AND CORNERS BOTH HAVE BEEN ATTACKING. >> Joe: NICK CROSS COMING ON THE BLITZ. BURROW IS ABLE TO FIND PERINE -- DROPPED IT!" [coverage word: BLITZ]
+- Trey Amos (CB) @5:37 "I MEAN HE MAKES THESE LOOK ROUTE. TREY AMOS IN COVERAGE, A LOOK AT THE END OF IT, ENDS UP CATCHING IT WITH ONE HAND, DOESN'T SUES HIS RIGHT HAND." [coverage word: COVERAGE]
+Other mentions without a coverage word (count only): none
+
+Scheme words in commentary (counts, not charting): {'picked': 1, 'beat': 1, 'zone': 3, 'covered': 1}
+

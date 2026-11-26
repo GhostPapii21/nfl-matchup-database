@@ -14,11 +14,11 @@ def get(url, path):
     data = urllib.request.urlopen(req, timeout=30).read()
     open(path, 'wb').write(data); return json.loads(data)
 now = datetime.datetime.now()
-NOWS = now.strftime('%Y-%m-%d %I:%M %p AST')
+NOWS = now.strftime('%Y-%m-%d %I:%M %p ' + __import__('time').strftime('%Z'))
 sb = get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?seasontype=2&week=11&dates=2026', f'{RAW}/scoreboard.json')
 an = get('https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=15,30,68,69,71,75,79&date=20261122&periods=event', f'{RAW}/an_v2.json')
 an2 = get('https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=15,30,68,69,71,75,79&date=20261123&periods=event', f'{RAW}/an_v2_1123.json')
-ABBR_FIX = {'JAC': 'JAX', 'WSH': 'WSH'}
+ABBR_FIX = {'JAC': 'JAX', 'WSH': 'WSH', 'WAS': 'WSH'}  # AN uses WAS, ESPN uses WSH (fixed 2026-11-24 MNF run)
 an_games = {}
 for g in an['games'] + an2['games']:
     t = {x['id']: ABBR_FIX.get(x['abbr'], x['abbr']) for x in g['teams']}
@@ -207,9 +207,12 @@ def build(ev):
     for dr, p in plays:
         st = p.get('start', {})
         if st.get('down') != 3 or 'No Play' in p['text'] or p['type']['text'] in ('Timeout', 'Penalty', 'Field Goal Good', 'Punt', 'Field Goal Missed', 'Two-minute warning', 'End Period'): continue
+        if THIRD_FIX and p['type']['text'] not in OFFTYPES: continue  # 2026-11-24 MNF fix: skip 'Official Timeout' and other non-snap rows
         tm = tid.get(st.get('team', {}).get('id'), '?'); dist = st.get('distance') or 0
         b = 'short (1-3)' if dist <= 3 else 'medium (4-6)' if dist <= 6 else 'long (7+)'
         conv = (p.get('statYardage') or 0) >= dist or 'TOUCHDOWN' in p['text']
+        if THIRD_FIX:  # gain on the snap from play text (a post-play penalty or a fumble out of bounds changes statYardage, not the conversion)
+            gm = re.search(r'for (-?\d+) yards?|for no gain', p['text']); conv = conv or (bool(gm) and gm.group(1) is not None and int(gm.group(1)) >= dist)
         td3[tm][1] += 1; td3[tm][0] += int(conv); td3[tm][2][(b, conv)] += 1
     for tm in (away, home):
         c, a, cc = td3[tm]
@@ -260,8 +263,8 @@ def build(ev):
     sacks = collections.Counter(); hits = collections.Counter(); explos = []; injuries = []; pens = collections.Counter()
     for dr, p in plays:
         txt = p['text']; st = p.get('start', {}); off = tid.get(st.get('team', {}).get('id'), '?'); de = home if off == away else away
-        for m in re.finditer(r'([A-Z]{2,3})-([A-Z][\w\.\'\- ]+?) was injured', txt): injuries.append((p['period']['number'], p['clock']['displayValue'], m.group(1), m.group(2)))
-        for m in re.finditer(r'PENALTY on ([A-Z]{2,3})-([A-Z][\w\.\'\-]+), ([A-Za-z \-]+?),', txt): pens[(m.group(1), m.group(3))] += 1
+        for m in re.finditer(r'([A-Z]{2,3})-([A-Z][\w\.\'\- ]+?) was injured', txt): injuries.append((p['period']['number'], p['clock']['displayValue'], ABBR_FIX.get(m.group(1), m.group(1)), m.group(2)))
+        for m in re.finditer(r'PENALTY on ([A-Z]{2,3})-([A-Z][\w\.\'\-]+), ([A-Za-z \-]+?),', txt): pens[(ABBR_FIX.get(m.group(1), m.group(1)), m.group(3))] += 1
         dpi = re.search(r'PENALTY on ([A-Z]{2,3})-([A-Z][\w\.\'\-]+), Defensive Pass Interference, (\d+) yards', txt)
         if 'sacked' in txt:
             sm = re.search(r'sacked [^()]*\(([^)]*)\)', txt)
@@ -273,7 +276,7 @@ def build(ev):
             # No Play rule (Ghost6, PR #107): the snap never happened -> no tackler/PBU/INT rows; the DPI flag still counts
             pp = parse_pass(txt)
             if pp:
-                a = dagg[(dpi.group(1), dpi.group(2))]; a['team'] = dpi.group(1); a['dpi'] += 1; a['vs'][pp['target']] += 1
+                dt_ = ABBR_FIX.get(dpi.group(1), dpi.group(1)); a = dagg[(dt_, dpi.group(2))]; a['team'] = dt_; a['dpi'] += 1; a['vs'][pp['target']] += 1
                 dlog.append({'q': p['period']['number'], 'clock': p['clock']['displayValue'], 'off': off, 'def': de, 'qb': pp['qb'], 'target': pp['target'], 'depth': pp['depth'], 'dir': pp['dir'], 'result': 'DPI', 'yds': int(dpi.group(3)), 'defender': dpi.group(2), 'evidence': 'VERIFIED-DPI (flagged defender; No Play)', 'text': txt})
         elif ' pass ' in txt and 'No Play' not in txt and 'sacked' not in txt:
             pp = parse_pass(txt)
@@ -295,7 +298,7 @@ def build(ev):
             dlog.append({'q': p['period']['number'], 'clock': p['clock']['displayValue'], 'off': off, 'def': de, 'qb': pp['qb'], 'target': pp['target'], 'depth': pp['depth'], 'dir': pp['dir'],
                          'result': 'INT' if pp['int_by'] else 'INC' if pp['inc'] else 'TD' if pp['td'] else 'C', 'yds': pp['yds'], 'defender': '; '.join(who), 'evidence': lab, 'text': txt})
             if dpi:
-                a = dagg[(dpi.group(1), dpi.group(2))]; a['team'] = dpi.group(1); a['dpi'] += 1; a['vs'][pp['target']] += 1
+                dt_ = ABBR_FIX.get(dpi.group(1), dpi.group(1)); a = dagg[(dt_, dpi.group(2))]; a['team'] = dt_; a['dpi'] += 1; a['vs'][pp['target']] += 1
                 dlog.append({'q': p['period']['number'], 'clock': p['clock']['displayValue'], 'off': off, 'def': de, 'qb': pp['qb'], 'target': pp['target'], 'depth': pp['depth'], 'dir': pp['dir'], 'result': 'DPI', 'yds': int(dpi.group(3)), 'defender': dpi.group(2), 'evidence': 'VERIFIED-DPI (flagged defender)', 'text': txt})
         elif p['type']['text'] in ('Rush', 'Rushing Touchdown') and 'No Play' not in txt:
             rr = parse_rush(txt)
@@ -358,8 +361,9 @@ def build(ev):
 os.makedirs(f'{OUT}/data', exist_ok=True)
 recs = []
 EXCLUDE = {'MIN@SF', 'MIN VS SF', 'CIN@WSH', 'CIN @ WSH'}  # in progress / MNF: logged by a later run
-ONLY = os.environ.get('ONLY')  # e.g. ONLY='MIN VS SF' (late-game run 2026-11-23): build just that game, merge into _all_games.json
-if ONLY: EXCLUDE = {'CIN@WSH', 'CIN @ WSH'}
+ONLY = os.environ.get('ONLY')
+THIRD_FIX = ONLY == 'CIN @ WSH'  # applied only to the MNF late run; earlier games keep their committed counts  # e.g. ONLY='MIN VS SF' (late-game run 2026-11-23): build just that game, merge into _all_games.json
+if ONLY: EXCLUDE = set() if ONLY == 'CIN @ WSH' else {'CIN@WSH', 'CIN @ WSH'}  # MNF late run 2026-11-24: ONLY='CIN @ WSH'
 for ev in sb['events']:
     if ev['status']['type']['name'] != 'STATUS_FINAL' or ev['shortName'].replace(' @ ', '@') in EXCLUDE or ev['shortName'] in EXCLUDE:
         print('skip', ev['shortName'], ev['status']['type']['name']); continue
