@@ -61,9 +61,8 @@ Evidence: `runs/2026-11-26_w12_pristine_continue/`
 
 ## Readiness regen
 
-- Regenerated `2026-11-26T21:20:53.324611+00:00` (2026-11-26T16:20:53.324611-05:00)
-- `w12_remaining_post_kickoff`: ['2026_12_GB_LA']
-- `w12_remaining_eligible` count: 15
-- ceiling: **29**; shortfall at ceiling: **1**
+- Regenerated with `python3 -m evaluation.readiness --write` at `2026-11-26T21:21:15.765413+00:00` (2026-11-26T16:21:15.765413-05:00)
+- `w12_remaining_post_kickoff`: ['2026_12_CHI_DET', '2026_12_GB_LA']
+- `w12_remaining_eligible` count: 14
+- ceiling: **28**; shortfall at ceiling: **2**
 - `projection_ready_flag`: false
-- Branch HEAD after push: see git
