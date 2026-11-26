@@ -4,55 +4,55 @@
 
 Market (schedule consensus, not a timestamped quote): JAX -14.5, total 49.5.
 
-Generated 2026-11-26T22:36:13+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T22:49:25+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T22:36:10+00:00 UTC. At kickoff: 65 F, wind 7 mph S, 0% chance of precipitation, Mostly Cloudy. During the game: low 65 F, wind up to 7 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-26T22:49:24+00:00 UTC. At kickoff: 65 F, wind 7 mph S, 0% chance of precipitation, Mostly Cloudy. During the game: low 65 F, wind up to 7 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-26T22:30:54Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
+Retrieved 2026-11-26T22:44:14Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | JAX -14.5 | -104 | -122 | 48.1% | 51.9% | 5.9% | 2026-11-26T22:30:54+00:00 |
-| spread | pinnacle | JAX -14.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-26T22:30:54+00:00 |
-| spread | consensus | JAX -14.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | draftkings | JAX -14.5 | -104 | -116 | 48.7% | 51.3% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | betrivers | JAX -14.5 | -107 | -115 | 49.1% | 50.8% | 5.2% | 2026-11-26T22:30:54+00:00 |
-| spread | betmgm | JAX -14.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| spread | bet365 | JAX -14.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | williamhill_us | JAX -14.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | open | JAX -5.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| total | fanduel | Over 49.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-26T22:30:54+00:00 |
-| total | pinnacle | Over 49.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-26T22:30:54+00:00 |
-| total | consensus | Over 49.5 | -107 | -110 | 49.7% | 50.3% | 4.1% | 2026-11-26T22:30:54+00:00 |
-| total | draftkings | Over 49.5 | -106 | -113 | 49.2% | 50.8% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| total | betrivers | Over 49.5 | -113 | -110 | 50.3% | 49.7% | 5.4% | 2026-11-26T22:30:54+00:00 |
-| total | bet365 | Over 49.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| total | williamhill_us | Over 49.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| total | betmgm | Over 49 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| moneyline | fanduel | JAX | -1150 | +730 | 88.4% | 11.6% | 4.0% | 2026-11-26T22:30:54+00:00 |
-| moneyline | pinnacle | JAX | -1090 | +723 | 88.3% | 11.7% | 3.8% | 2026-11-26T22:30:54+00:00 |
-| moneyline | consensus | JAX | -1175 | +750 | 88.7% | 11.3% | 3.9% | 2026-11-26T22:30:54+00:00 |
-| moneyline | draftkings | JAX | -1260 | +780 | 89.1% | 10.9% | 4.0% | 2026-11-26T22:30:54+00:00 |
-| moneyline | betrivers | JAX | -1250 | +700 | 88.1% | 11.9% | 5.1% | 2026-11-26T22:30:54+00:00 |
-| moneyline | betmgm | JAX | -1100 | +750 | 88.6% | 11.4% | 3.4% | 2026-11-26T22:30:54+00:00 |
-| moneyline | bet365 | JAX | -1200 | +750 | 88.7% | 11.3% | 4.1% | 2026-11-26T22:30:54+00:00 |
-| moneyline | williamhill_us | JAX | -1250 | +700 | 88.1% | 11.9% | 5.1% | 2026-11-26T22:30:54+00:00 |
+| spread | fanduel | JAX -14.5 | -104 | -122 | 48.1% | 51.9% | 5.9% | 2026-11-26T22:44:14+00:00 |
+| spread | pinnacle | JAX -14.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-26T22:44:14+00:00 |
+| spread | consensus | JAX -14.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | draftkings | JAX -14.5 | -104 | -116 | 48.7% | 51.3% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | betrivers | JAX -14.5 | -107 | -115 | 49.1% | 50.8% | 5.2% | 2026-11-26T22:44:14+00:00 |
+| spread | betmgm | JAX -14.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| spread | bet365 | JAX -14.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | williamhill_us | JAX -14.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | open | JAX -5.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| total | fanduel | Over 49.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-26T22:44:14+00:00 |
+| total | pinnacle | Over 49.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-26T22:44:14+00:00 |
+| total | consensus | Over 49.5 | -107 | -110 | 49.7% | 50.3% | 4.1% | 2026-11-26T22:44:14+00:00 |
+| total | draftkings | Over 49.5 | -106 | -113 | 49.2% | 50.8% | 4.5% | 2026-11-26T22:44:14+00:00 |
+| total | betrivers | Over 49.5 | -113 | -110 | 50.3% | 49.7% | 5.4% | 2026-11-26T22:44:14+00:00 |
+| total | bet365 | Over 49.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| total | williamhill_us | Over 49.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-26T22:44:14+00:00 |
+| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| total | betmgm | Over 49 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| moneyline | fanduel | JAX | -1150 | +730 | 88.4% | 11.6% | 4.0% | 2026-11-26T22:44:14+00:00 |
+| moneyline | pinnacle | JAX | -1090 | +723 | 88.3% | 11.7% | 3.8% | 2026-11-26T22:44:14+00:00 |
+| moneyline | consensus | JAX | -1175 | +750 | 88.7% | 11.3% | 3.9% | 2026-11-26T22:44:14+00:00 |
+| moneyline | draftkings | JAX | -1260 | +780 | 89.1% | 10.9% | 4.0% | 2026-11-26T22:44:14+00:00 |
+| moneyline | betrivers | JAX | -1250 | +700 | 88.1% | 11.9% | 5.1% | 2026-11-26T22:44:14+00:00 |
+| moneyline | betmgm | JAX | -1100 | +750 | 88.6% | 11.4% | 3.4% | 2026-11-26T22:44:14+00:00 |
+| moneyline | bet365 | JAX | -1200 | +750 | 88.7% | 11.3% | 4.1% | 2026-11-26T22:44:14+00:00 |
+| moneyline | williamhill_us | JAX | -1250 | +700 | 88.1% | 11.9% | 5.1% | 2026-11-26T22:44:14+00:00 |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Carnell Tate | receiving yards | fanduel | 50.5 | -114 / -114 | 50.0% | 50.0% | 69.1 | 66.6 | 6 | 18.6 |
 | Carnell Tate | receiving yards | draftkings | 50.5 | -113 / -111 | 50.2% | 50.0% | 69.1 | 66.6 | 6 | 18.6 |
 | Carnell Tate | receiving yards | betonlineag | 50.5 | -115 / -112 | 50.3% | 50.0% | 69.1 | 66.6 | 6 | 18.6 |
 | Carnell Tate | receiving yards | bovada | 50.5 | -115 / -115 | 50.0% | 50.0% | 69.1 | 66.6 | 6 | 18.6 |
 | Tony Pollard | rushing yards | fanduel | 52.5 | -114 / -114 | 50.0% | 50.0% | 71.0 | 64.6 | 8 | 18.5 |
 | Parker Washington | receiving yards | fanduel | 69.5 | -114 / -114 | 50.0% | n/a | 87.9 | 71.9 | 8 | 18.4 |
+| Carnell Tate | receiving yards | fanduel | 52.5 | -114 / -114 | 50.0% | n/a | 69.1 | 66.6 | 6 | 16.6 |
 | Tony Pollard | rushing yards | draftkings | 54.5 | -112 / -112 | 50.0% | n/a | 71.0 | 64.6 | 8 | 16.5 |
 | Tony Pollard | rushing yards | betrivers | 54.5 | -118 / -122 | 49.6% | n/a | 71.0 | 64.6 | 8 | 16.5 |
 | Tony Pollard | rushing yards | betonlineag | 54.5 | -115 / -112 | 50.3% | n/a | 71.0 | 64.6 | 8 | 16.5 |
@@ -704,20 +704,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T22:35:35+00:00 | d5382f5015cf |
-| pbp | OK | 2026-11-26T22:35:35+00:00 | 80be4d265972 |
-| rosters | OK | 2026-11-26T22:35:36+00:00 | 73ab519d2b6d |
-| injuries | OK | 2026-11-26T22:35:36+00:00 | b40c5c041074 |
-| depth_charts | OK | 2026-11-26T22:35:36+00:00 | d4af2fc566a2 |
-| snap_counts | OK | 2026-11-26T22:35:36+00:00 | 923df2bfeef1 |
-| ftn | OK | 2026-11-26T22:35:36+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T22:35:36+00:00 | f1217d79cc1e |
-| pfr_rec | OK | 2026-11-26T22:35:36+00:00 | 14b79cccde48 |
-| pfr_rush | OK | 2026-11-26T22:35:36+00:00 | 45b28d9bfb26 |
-| ngs_receiving | OK | 2026-11-26T22:35:36+00:00 | 2b336f985ad8 |
-| ngs_rushing | OK | 2026-11-26T22:35:37+00:00 | 9cde647ab3c8 |
-| ngs_passing | OK | 2026-11-26T22:35:37+00:00 | 02d9d8211a15 |
-| espn_injuries | OK | 2026-11-26T22:35:37+00:00 |  |
+| games | OK | 2026-11-26T22:49:07+00:00 | d8c720e9933e |
+| pbp | OK | 2026-11-26T22:49:07+00:00 | 80be4d265972 |
+| rosters | OK | 2026-11-26T22:49:08+00:00 | 73ab519d2b6d |
+| injuries | OK | 2026-11-26T22:49:08+00:00 | b40c5c041074 |
+| depth_charts | OK | 2026-11-26T22:49:08+00:00 | d4af2fc566a2 |
+| snap_counts | OK | 2026-11-26T22:49:08+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T22:49:08+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T22:49:08+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T22:49:08+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T22:49:09+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T22:49:09+00:00 | 2b336f985ad8 |
+| ngs_rushing | OK | 2026-11-26T22:49:09+00:00 | 9cde647ab3c8 |
+| ngs_passing | OK | 2026-11-26T22:49:09+00:00 | 02d9d8211a15 |
+| espn_injuries | OK | 2026-11-26T22:49:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

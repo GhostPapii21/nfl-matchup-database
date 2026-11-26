@@ -4,44 +4,44 @@
 
 Market (schedule consensus, not a timestamped quote): PIT +4.5, total 36.5.
 
-Generated 2026-11-26T22:35:48+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T22:49:15+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T22:35:46+00:00 UTC. At kickoff: 42 F, wind 17 mph SW, 65% chance of precipitation, Chance Light Rain. During the game: low 41 F, wind up to 17 mph, precipitation chance up to 65%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-26T22:49:14+00:00 UTC. At kickoff: 42 F, wind 17 mph SW, 65% chance of precipitation, Chance Light Rain. During the game: low 41 F, wind up to 17 mph, precipitation chance up to 65%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-26T22:30:54Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, circasports, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
+Retrieved 2026-11-26T22:44:14Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, circasports, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | PIT +4.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-26T22:30:54+00:00 |
-| spread | pinnacle | PIT +5 | -109 | -104 | 50.6% | 49.4% | 3.1% | 2026-11-26T22:30:54+00:00 |
-| spread | consensus | PIT +4.5 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| spread | draftkings | PIT +4.5 | +101 | -122 | 47.5% | 52.5% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | bet365 | PIT +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | williamhill_us | PIT +4.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| spread | open | PIT +1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| spread | betmgm | PIT +5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| spread | betrivers | PIT +4 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-26T22:30:54+00:00 |
-| total | fanduel | Over 36.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-26T22:30:54+00:00 |
-| total | pinnacle | Over 37 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-26T22:30:54+00:00 |
-| total | draftkings | Over 36.5 | -119 | -101 | 51.9% | 48.0% | 4.6% | 2026-11-26T22:30:54+00:00 |
-| total | betrivers | Over 36.5 | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-26T22:30:54+00:00 |
-| total | bet365 | Over 36.5 | -117 | -103 | 51.5% | 48.5% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| total | open | Over 39.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| total | consensus | Over 37 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| total | betmgm | Over 37 | -105 | -112 | 49.2% | 50.8% | 4.0% | 2026-11-26T22:30:54+00:00 |
-| total | williamhill_us | Over 37 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| moneyline | fanduel | PIT | +194 | -235 | 32.6% | 67.3% | 4.2% | 2026-11-26T22:30:54+00:00 |
-| moneyline | pinnacle | PIT | +192 | -222 | 33.2% | 66.8% | 3.2% | 2026-11-26T22:30:54+00:00 |
-| moneyline | consensus | PIT | +195 | -237 | 32.5% | 67.5% | 4.2% | 2026-11-26T22:30:54+00:00 |
-| moneyline | draftkings | PIT | +209 | -254 | 31.1% | 68.9% | 4.1% | 2026-11-26T22:30:54+00:00 |
-| moneyline | betrivers | PIT | +195 | -245 | 32.3% | 67.7% | 4.9% | 2026-11-26T22:30:54+00:00 |
-| moneyline | betmgm | PIT | +195 | -235 | 32.6% | 67.4% | 4.0% | 2026-11-26T22:30:54+00:00 |
-| moneyline | bet365 | PIT | +195 | -240 | 32.4% | 67.6% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| moneyline | williamhill_us | PIT | +193 | -235 | 32.7% | 67.3% | 4.3% | 2026-11-26T22:30:54+00:00 |
+| spread | fanduel | PIT +4.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-26T22:44:14+00:00 |
+| spread | pinnacle | PIT +5 | -109 | -104 | 50.6% | 49.4% | 3.1% | 2026-11-26T22:44:14+00:00 |
+| spread | consensus | PIT +4.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | draftkings | PIT +4.5 | +101 | -122 | 47.5% | 52.5% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | bet365 | PIT +4.5 | -103 | -117 | 48.5% | 51.5% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | williamhill_us | PIT +4.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | open | PIT +1.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| spread | betmgm | PIT +5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| spread | betrivers | PIT +4 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-26T22:44:14+00:00 |
+| total | fanduel | Over 36.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-26T22:44:14+00:00 |
+| total | pinnacle | Over 37 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-26T22:44:14+00:00 |
+| total | draftkings | Over 36.5 | -119 | -101 | 51.9% | 48.0% | 4.6% | 2026-11-26T22:44:14+00:00 |
+| total | betrivers | Over 36.5 | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-26T22:44:14+00:00 |
+| total | bet365 | Over 36.5 | -119 | -103 | 51.7% | 48.3% | 5.1% | 2026-11-26T22:44:14+00:00 |
+| total | open | Over 39.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| total | consensus | Over 37 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| total | betmgm | Over 37 | -105 | -112 | 49.2% | 50.8% | 4.0% | 2026-11-26T22:44:14+00:00 |
+| total | williamhill_us | Over 37 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| moneyline | fanduel | PIT | +194 | -235 | 32.6% | 67.3% | 4.2% | 2026-11-26T22:44:14+00:00 |
+| moneyline | pinnacle | PIT | +192 | -222 | 33.2% | 66.8% | 3.2% | 2026-11-26T22:44:14+00:00 |
+| moneyline | consensus | PIT | +195 | -237 | 32.5% | 67.5% | 4.2% | 2026-11-26T22:44:14+00:00 |
+| moneyline | draftkings | PIT | +209 | -254 | 31.1% | 68.9% | 4.1% | 2026-11-26T22:44:14+00:00 |
+| moneyline | betrivers | PIT | +195 | -245 | 32.3% | 67.7% | 4.9% | 2026-11-26T22:44:14+00:00 |
+| moneyline | betmgm | PIT | +195 | -235 | 32.6% | 67.4% | 4.0% | 2026-11-26T22:44:14+00:00 |
+| moneyline | bet365 | PIT | +195 | -240 | 32.4% | 67.6% | 4.5% | 2026-11-26T22:44:14+00:00 |
+| moneyline | williamhill_us | PIT | +193 | -235 | 32.7% | 67.3% | 4.3% | 2026-11-26T22:44:14+00:00 |
 
 ### Player props beside the research baseline
 
@@ -687,20 +687,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T22:35:35+00:00 | d5382f5015cf |
-| pbp | OK | 2026-11-26T22:35:35+00:00 | 80be4d265972 |
-| rosters | OK | 2026-11-26T22:35:36+00:00 | 73ab519d2b6d |
-| injuries | OK | 2026-11-26T22:35:36+00:00 | b40c5c041074 |
-| depth_charts | OK | 2026-11-26T22:35:36+00:00 | d4af2fc566a2 |
-| snap_counts | OK | 2026-11-26T22:35:36+00:00 | 923df2bfeef1 |
-| ftn | OK | 2026-11-26T22:35:36+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T22:35:36+00:00 | f1217d79cc1e |
-| pfr_rec | OK | 2026-11-26T22:35:36+00:00 | 14b79cccde48 |
-| pfr_rush | OK | 2026-11-26T22:35:36+00:00 | 45b28d9bfb26 |
-| ngs_receiving | OK | 2026-11-26T22:35:36+00:00 | 2b336f985ad8 |
-| ngs_rushing | OK | 2026-11-26T22:35:37+00:00 | 9cde647ab3c8 |
-| ngs_passing | OK | 2026-11-26T22:35:37+00:00 | 02d9d8211a15 |
-| espn_injuries | OK | 2026-11-26T22:35:37+00:00 |  |
+| games | OK | 2026-11-26T22:49:07+00:00 | d8c720e9933e |
+| pbp | OK | 2026-11-26T22:49:07+00:00 | 80be4d265972 |
+| rosters | OK | 2026-11-26T22:49:08+00:00 | 73ab519d2b6d |
+| injuries | OK | 2026-11-26T22:49:08+00:00 | b40c5c041074 |
+| depth_charts | OK | 2026-11-26T22:49:08+00:00 | d4af2fc566a2 |
+| snap_counts | OK | 2026-11-26T22:49:08+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T22:49:08+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T22:49:08+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T22:49:08+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T22:49:09+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T22:49:09+00:00 | 2b336f985ad8 |
+| ngs_rushing | OK | 2026-11-26T22:49:09+00:00 | 9cde647ab3c8 |
+| ngs_passing | OK | 2026-11-26T22:49:09+00:00 | 02d9d8211a15 |
+| espn_injuries | OK | 2026-11-26T22:49:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

@@ -4,45 +4,45 @@
 
 Market (schedule consensus, not a timestamped quote): TB -3, total 43.5.
 
-Generated 2026-11-26T22:36:33+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T22:49:34+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T22:36:30+00:00 UTC. At kickoff: 67 F, wind 3 mph NE, 45% chance of precipitation, Scattered Showers And Thunderstorms. During the game: low 66 F, wind up to 3 mph, precipitation chance up to 45%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-26T22:49:33+00:00 UTC. At kickoff: 67 F, wind 3 mph NE, 45% chance of precipitation, Scattered Showers And Thunderstorms. During the game: low 66 F, wind up to 3 mph, precipitation chance up to 45%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-26T22:30:54Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
+Retrieved 2026-11-26T22:44:14Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | TB -3 | -104 | -116 | 48.7% | 51.3% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | pinnacle | TB -3 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-26T22:30:54+00:00 |
-| spread | consensus | TB -3 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| spread | draftkings | TB -3 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| spread | betmgm | TB -3 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| spread | williamhill_us | TB -3 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| spread | open | TB -3.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| spread | betrivers | TB -2.5 | -120 | -103 | 51.8% | 48.2% | 5.3% | 2026-11-26T22:30:54+00:00 |
-| spread | bet365 | TB -2.5 | -127 | +107 | 53.7% | 46.3% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| total | fanduel | Over 43.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-26T22:30:54+00:00 |
-| total | pinnacle | Over 44 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-26T22:30:54+00:00 |
-| total | consensus | Over 43.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| total | draftkings | Over 43.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-26T22:30:54+00:00 |
-| total | betrivers | Over 43.5 | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-26T22:30:54+00:00 |
-| total | betmgm | Over 43.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| total | bet365 | Over 43.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| total | williamhill_us | Over 43.5 | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-26T22:30:54+00:00 |
-| total | open | Over 44.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| moneyline | fanduel | TB | -162 | +136 | 59.3% | 40.7% | 4.2% | 2026-11-26T22:30:54+00:00 |
-| moneyline | pinnacle | TB | -161 | +142 | 59.9% | 40.1% | 3.0% | 2026-11-26T22:30:54+00:00 |
-| moneyline | consensus | TB | -161 | +135 | 59.2% | 40.8% | 4.2% | 2026-11-26T22:30:54+00:00 |
-| moneyline | open | TB | -198 | +164 | 63.7% | 36.3% | 4.3% | 2026-11-26T22:30:54+00:00 |
-| moneyline | draftkings | TB | -157 | +132 | 58.6% | 41.4% | 4.2% | 2026-11-26T22:30:54+00:00 |
-| moneyline | betrivers | TB | -148 | +120 | 56.8% | 43.2% | 5.1% | 2026-11-26T22:30:54+00:00 |
-| moneyline | betmgm | TB | -165 | +135 | 59.4% | 40.6% | 4.8% | 2026-11-26T22:30:54+00:00 |
-| moneyline | bet365 | TB | -163 | +138 | 59.6% | 40.4% | 4.0% | 2026-11-26T22:30:54+00:00 |
-| moneyline | williamhill_us | TB | -159 | +134 | 59.0% | 41.0% | 4.1% | 2026-11-26T22:30:54+00:00 |
+| spread | fanduel | TB -3 | -104 | -116 | 48.7% | 51.3% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | pinnacle | TB -3 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-26T22:44:14+00:00 |
+| spread | consensus | TB -3 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| spread | draftkings | TB -3 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-26T22:44:14+00:00 |
+| spread | betmgm | TB -3 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| spread | williamhill_us | TB -3 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| spread | open | TB -3.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| spread | betrivers | TB -2.5 | -120 | -103 | 51.8% | 48.2% | 5.3% | 2026-11-26T22:44:14+00:00 |
+| spread | bet365 | TB -2.5 | -127 | +107 | 53.7% | 46.3% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| total | fanduel | Over 43.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-26T22:44:14+00:00 |
+| total | pinnacle | Over 44 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-26T22:44:14+00:00 |
+| total | consensus | Over 43.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| total | draftkings | Over 43.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-26T22:44:14+00:00 |
+| total | betrivers | Over 43.5 | -113 | -108 | 50.5% | 49.5% | 5.0% | 2026-11-26T22:44:14+00:00 |
+| total | betmgm | Over 43.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| total | bet365 | Over 43.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| total | williamhill_us | Over 43.5 | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-26T22:44:14+00:00 |
+| total | open | Over 44.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| moneyline | fanduel | TB | -162 | +136 | 59.3% | 40.7% | 4.2% | 2026-11-26T22:44:14+00:00 |
+| moneyline | pinnacle | TB | -161 | +142 | 59.9% | 40.1% | 3.0% | 2026-11-26T22:44:14+00:00 |
+| moneyline | consensus | TB | -161 | +135 | 59.2% | 40.8% | 4.2% | 2026-11-26T22:44:14+00:00 |
+| moneyline | open | TB | -198 | +164 | 63.7% | 36.3% | 4.3% | 2026-11-26T22:44:14+00:00 |
+| moneyline | draftkings | TB | -157 | +132 | 58.6% | 41.4% | 4.2% | 2026-11-26T22:44:14+00:00 |
+| moneyline | betrivers | TB | -148 | +120 | 56.8% | 43.2% | 5.1% | 2026-11-26T22:44:14+00:00 |
+| moneyline | betmgm | TB | -165 | +135 | 59.4% | 40.6% | 4.8% | 2026-11-26T22:44:14+00:00 |
+| moneyline | bet365 | TB | -163 | +138 | 59.6% | 40.4% | 4.0% | 2026-11-26T22:44:14+00:00 |
+| moneyline | williamhill_us | TB | -159 | +134 | 59.0% | 41.0% | 4.1% | 2026-11-26T22:44:14+00:00 |
 
 ### Player props beside the research baseline
 
@@ -426,7 +426,7 @@ Defensive front: LDE Derrick Brown, NT Lee Hunter, RDE Tershawn Wharton, WLB Pat
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Jaycee Horn (CB) Injured Reserve; Bobby Okereke (LB) Questionable; Brady Christensen (G) Injured Reserve; Thomas Incoom (LB) Injured Reserve; Tetairoa McMillan (WR) Questionable; Jackson Kuwatch (LB) Questionable; Mitchell Evans (TE) Questionable; Patrick Jones II (LB) Questionable; Tommy Tremble (TE) Questionable; Jaelan Phillips (LB) Questionable; Feleipe Franks (TE) Questionable; Darren Waller (TE) Questionable; Jonathon Brooks (RB) Injured Reserve.
+ESPN live list (designations only): Jaycee Horn (CB) Injured Reserve; Bobby Okereke (LB) Questionable; Brady Christensen (G) Injured Reserve; Thomas Incoom (LB) Injured Reserve; Tetairoa McMillan (WR) Questionable; Jackson Kuwatch (LB) Questionable; Patrick Jones II (LB) Questionable; Jaelan Phillips (LB) Questionable; Feleipe Franks (TE) Questionable; Darren Waller (TE) Questionable; Jonathon Brooks (RB) Injured Reserve; Tommy Tremble (TE) Questionable; Mitchell Evans (TE) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -640,7 +640,7 @@ Defensive front: LDE Calijah Kancey, NT Vita Vea, RDE A'Shawn Robinson, WLB Rueb
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Jacob Parrish (CB) Questionable; Benjamin Morrison (CB) Questionable; Elijah Simmons (DT) Questionable; Antoine Winfield Jr. (S) Questionable; Jalen McMillan (WR) Injured Reserve; Christian Rozeboom (LB) Injured Reserve; Josiah Trotter (LB) Questionable.
+ESPN live list (designations only): Jacob Parrish (CB) Questionable; Benjamin Morrison (CB) Questionable; Elijah Simmons (DT) Questionable; Antoine Winfield Jr. (S) Questionable; Christian Rozeboom (LB) Injured Reserve; Josiah Trotter (LB) Questionable; Jalen McMillan (WR) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -684,20 +684,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T22:35:35+00:00 | d5382f5015cf |
-| pbp | OK | 2026-11-26T22:35:35+00:00 | 80be4d265972 |
-| rosters | OK | 2026-11-26T22:35:36+00:00 | 73ab519d2b6d |
-| injuries | OK | 2026-11-26T22:35:36+00:00 | b40c5c041074 |
-| depth_charts | OK | 2026-11-26T22:35:36+00:00 | d4af2fc566a2 |
-| snap_counts | OK | 2026-11-26T22:35:36+00:00 | 923df2bfeef1 |
-| ftn | OK | 2026-11-26T22:35:36+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T22:35:36+00:00 | f1217d79cc1e |
-| pfr_rec | OK | 2026-11-26T22:35:36+00:00 | 14b79cccde48 |
-| pfr_rush | OK | 2026-11-26T22:35:36+00:00 | 45b28d9bfb26 |
-| ngs_receiving | OK | 2026-11-26T22:35:36+00:00 | 2b336f985ad8 |
-| ngs_rushing | OK | 2026-11-26T22:35:37+00:00 | 9cde647ab3c8 |
-| ngs_passing | OK | 2026-11-26T22:35:37+00:00 | 02d9d8211a15 |
-| espn_injuries | OK | 2026-11-26T22:35:37+00:00 |  |
+| games | OK | 2026-11-26T22:49:07+00:00 | d8c720e9933e |
+| pbp | OK | 2026-11-26T22:49:07+00:00 | 80be4d265972 |
+| rosters | OK | 2026-11-26T22:49:08+00:00 | 73ab519d2b6d |
+| injuries | OK | 2026-11-26T22:49:08+00:00 | b40c5c041074 |
+| depth_charts | OK | 2026-11-26T22:49:08+00:00 | d4af2fc566a2 |
+| snap_counts | OK | 2026-11-26T22:49:08+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T22:49:08+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T22:49:08+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T22:49:08+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T22:49:09+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T22:49:09+00:00 | 2b336f985ad8 |
+| ngs_rushing | OK | 2026-11-26T22:49:09+00:00 | 9cde647ab3c8 |
+| ngs_passing | OK | 2026-11-26T22:49:09+00:00 | 02d9d8211a15 |
+| espn_injuries | OK | 2026-11-26T22:49:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

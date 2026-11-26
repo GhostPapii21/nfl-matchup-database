@@ -4,56 +4,56 @@
 
 Market (schedule consensus, not a timestamped quote): DAL -8.5, total 49.5.
 
-Generated 2026-11-26T22:35:40+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T22:49:12+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T22:35:38+00:00 UTC. At kickoff: 53 F, wind 10 mph NW, 0% chance of precipitation, Sunny. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-26T22:49:11+00:00 UTC. At kickoff: 53 F, wind 10 mph NW, 0% chance of precipitation, Sunny. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-26T22:30:54Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: fanduel.
+Retrieved 2026-11-26T22:44:14Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: fanduel.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | DAL -18.5 | -118 | -112 | 50.6% | 49.4% | 7.0% | 2026-11-26T22:30:54+00:00 |
-| total | fanduel | Over 49.5 | -118 | -112 | 50.6% | 49.4% | 7.0% | 2026-11-26T22:30:54+00:00 |
-| moneyline | fanduel | DAL | -5000 | +1300 | 93.2% | 6.8% | 5.2% | 2026-11-26T22:30:54+00:00 |
+| spread | fanduel | DAL -17.5 | -114 | -114 | 50.0% | 50.0% | 6.5% | 2026-11-26T22:44:14+00:00 |
+| total | fanduel | Over 48.5 | -112 | -118 | 49.4% | 50.6% | 7.0% | 2026-11-26T22:44:14+00:00 |
+| moneyline | fanduel | DAL | -5000 | +1300 | 93.2% | 6.8% | 5.2% | 2026-11-26T22:44:14+00:00 |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Ryan Flournoy | receiving yards | fanduel | 16.5 | -120 / -110 | 51.0% | n/a | 55.7 | 52.2 | 8 | 39.2 |
-| CeeDee Lamb | receiving yards | fanduel | 82.5 | -112 / -118 | 49.4% | n/a | 113.9 | 81.9 | 8 | 31.4 |
-| George Pickens | receiving yards | fanduel | 75.5 | -112 / -118 | 49.4% | n/a | 102.5 | 84.1 | 7 | 27.0 |
+| Ryan Flournoy | receiving yards | fanduel | 15.5 | -114 / -114 | 50.0% | n/a | 55.7 | 52.2 | 8 | 40.2 |
+| CeeDee Lamb | receiving yards | fanduel | 78.5 | -114 / -114 | 50.0% | n/a | 113.9 | 81.9 | 8 | 35.4 |
+| George Pickens | receiving yards | fanduel | 72.5 | -118 / -112 | 50.6% | n/a | 102.5 | 84.1 | 7 | 30.0 |
+| Will Shipley | rushing yards | fanduel | 35.5 | -114 / -114 | 50.0% | n/a | 12.3 | 10.0 | 3 | -23.2 |
 | Makai Lemon | receiving yards | fanduel | 22.5 | -114 / -114 | 50.0% | n/a | 42.4 | 39.4 | 8 | 19.9 |
-| Will Shipley | rushing yards | fanduel | 26.5 | -118 / -112 | 50.6% | n/a | 12.3 | 10.0 | 3 | -14.2 |
-| Javonte Williams | rushing yards | fanduel | 91.5 | -112 / -118 | 49.4% | n/a | 78.3 | 65.3 | 8 | -13.2 |
-| Darius Cooper | receiving yards | fanduel | 26.5 | -118 / -112 | 50.6% | n/a | 36.4 | 27.4 | 7 | 9.9 |
-| CeeDee Lamb | receptions | fanduel | 5.5 | +102 / -136 | 46.2% | n/a | 9.3 | 8.9 | 8 | 3.8 |
-| George Pickens | receptions | fanduel | 3.5 | -188 / +140 | 61.0% | n/a | 6.7 | 6.6 | 7 | 3.2 |
-| Ryan Flournoy | receptions | fanduel | 1.5 | -166 / +124 | 58.3% | n/a | 4.0 | 3.9 | 8 | 2.5 |
-| Darius Cooper | receptions | fanduel | 2.5 | +110 / -146 | 44.5% | n/a | 2.3 | 2.1 | 7 | -0.2 |
-| Zach Ertz | receptions | fanduel | 1.5 | -138 / +104 | 54.2% | n/a | n/a | n/a | n/a | n/a |
-| DeVonta Smith | receptions | fanduel | 7.5 | +102 / -136 | 46.2% | n/a | n/a | n/a | n/a | n/a |
-| Luke Schoonmaker | receptions | fanduel | 0.5 | +128 / -172 | 40.9% | n/a | n/a | n/a | n/a | n/a |
-| Luke Schoonmaker | receiving yards | fanduel | 0.5 | +140 / -188 | 39.0% | n/a | n/a | n/a | n/a | n/a |
-| Zach Ertz | receiving yards | fanduel | 12.5 | -112 / -118 | 49.4% | n/a | n/a | n/a | n/a | n/a |
-| Makai Lemon | receptions | fanduel | 4.5 | +116 / -154 | 43.3% | n/a | 4.5 | 4.2 | 8 | 0.0 |
+| Javonte Williams | rushing yards | fanduel | 90.5 | -112 / -118 | 49.4% | n/a | 78.3 | 65.3 | 8 | -12.2 |
+| Darius Cooper | receiving yards | fanduel | 26.5 | -112 / -118 | 49.4% | n/a | 36.4 | 27.4 | 7 | 9.9 |
+| CeeDee Lamb | receptions | fanduel | 5.5 | +124 / -166 | 41.7% | n/a | 9.3 | 8.9 | 8 | 3.8 |
+| George Pickens | receptions | fanduel | 3.5 | -154 / +116 | 56.7% | n/a | 6.7 | 6.6 | 7 | 3.2 |
+| Ryan Flournoy | receptions | fanduel | 1.5 | -148 / +112 | 55.9% | n/a | 4.0 | 3.9 | 8 | 2.5 |
+| Makai Lemon | receptions | fanduel | 5.5 | +126 / -166 | 41.5% | n/a | 4.5 | 4.2 | 8 | -1.0 |
+| Darius Cooper | receptions | fanduel | 2.5 | +118 / -158 | 42.8% | n/a | 2.3 | 2.1 | 7 | -0.2 |
+| Zach Ertz | receptions | fanduel | 1.5 | -132 / +100 | 53.2% | n/a | n/a | n/a | n/a | n/a |
+| DeVonta Smith | receptions | fanduel | 8.5 | +118 / -158 | 42.8% | n/a | n/a | n/a | n/a | n/a |
+| Luke Schoonmaker | receptions | fanduel | 0.5 | +136 / -182 | 39.6% | n/a | n/a | n/a | n/a | n/a |
+| Luke Schoonmaker | receiving yards | fanduel | 0.5 | +152 / -205 | 37.1% | n/a | n/a | n/a | n/a | n/a |
+| Zach Ertz | receiving yards | fanduel | 11.5 | -122 / -108 | 51.4% | n/a | n/a | n/a | n/a | n/a |
 | Javonte Williams | receiving yards | fanduel | 7.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
-| DeVonta Smith | receiving yards | fanduel | 79.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
-| Javonte Williams | receptions | fanduel | 1.5 | -210 / +154 | 63.2% | n/a | n/a | n/a | n/a | n/a |
-| KaVontae Turpin | receptions | fanduel | 1.5 | +126 / -168 | 41.4% | n/a | n/a | n/a | n/a | n/a |
-| Brevyn Spann | receptions | fanduel | 1.5 | +162 / -220 | 35.7% | n/a | n/a | n/a | n/a | n/a |
-| Will Shipley | receptions | fanduel | 1.5 | -148 / +112 | 55.9% | n/a | n/a | n/a | n/a | n/a |
-| Brevyn Spann | receiving yards | fanduel | 7.5 | -112 / -118 | 49.4% | n/a | n/a | n/a | n/a | n/a |
-| Will Shipley | receiving yards | fanduel | 9.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
-| KaVontae Turpin | receiving yards | fanduel | 31.5 | +134 / -180 | 39.9% | n/a | n/a | n/a | n/a | n/a |
-| Jashaun Corbin | rushing yards | fanduel | 17.5 | -122 / -108 | 51.4% | n/a | n/a | n/a | n/a | n/a |
-| Joe Milton III | rushing yards | fanduel | 25.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
-| KaVontae Turpin | rushing yards | fanduel | 2.5 | -112 / -118 | 49.4% | n/a | n/a | n/a | n/a | n/a |
-| Dak Prescott | rushing yards | fanduel | 4.5 | -122 / -108 | 51.4% | n/a | n/a | n/a | n/a | n/a |
+| DeVonta Smith | receiving yards | fanduel | 100.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Javonte Williams | receptions | fanduel | 1.5 | -205 / +152 | 62.9% | n/a | n/a | n/a | n/a | n/a |
+| KaVontae Turpin | receptions | fanduel | 1.5 | +142 / -192 | 38.6% | n/a | n/a | n/a | n/a | n/a |
+| Brevyn Spann | receptions | fanduel | 1.5 | +182 / -250 | 33.2% | n/a | n/a | n/a | n/a | n/a |
+| Will Shipley | receptions | fanduel | 2.5 | +104 / -138 | 45.8% | n/a | n/a | n/a | n/a | n/a |
+| Brevyn Spann | receiving yards | fanduel | 6.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Will Shipley | receiving yards | fanduel | 14.5 | -108 / -122 | 48.6% | n/a | n/a | n/a | n/a | n/a |
+| KaVontae Turpin | receiving yards | fanduel | 31.5 | +152 / -205 | 37.1% | n/a | n/a | n/a | n/a | n/a |
+| Jashaun Corbin | rushing yards | fanduel | 27.5 | -114 / -114 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Joe Milton III | rushing yards | fanduel | 28.5 | -112 / -118 | 49.4% | n/a | n/a | n/a | n/a | n/a |
+| KaVontae Turpin | rushing yards | fanduel | 1.5 | -112 / -118 | 49.4% | n/a | n/a | n/a | n/a | n/a |
+| Dak Prescott | rushing yards | fanduel | 4.5 | -104 / -128 | 47.6% | n/a | n/a | n/a | n/a | n/a |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -399,7 +399,7 @@ Defensive front: LDE Jalen Carter, NT Byron Young, RDE Moro Ojomo, WLB Nolan Smi
 | Tanner McKee | QB |  | none listed | Full Participation in Practice |  |
 | Will Shipley | RB |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Zack Baun (LB) Injured Reserve; Jonathan Jones (CB) Out; Arnold Ebiketie (LB) Out; Grant Calcaterra (TE) Out; Ajani Cornelius (OT) Out; AJ Epenesa (DE) Out; Cole Payton (QB) Out; Cooper DeJean (CB) Questionable.
+ESPN live list (designations only): Zack Baun (LB) Injured Reserve; Jonathan Jones (CB) Out; Arnold Ebiketie (LB) Out; Grant Calcaterra (TE) Out; Ajani Cornelius (OT) Out; AJ Epenesa (DE) Out; Cole Payton (QB) Out; Cooper DeJean (CB) Questionable; Dallas Goedert (TE) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -669,20 +669,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T22:35:35+00:00 | d5382f5015cf |
-| pbp | OK | 2026-11-26T22:35:35+00:00 | 80be4d265972 |
-| rosters | OK | 2026-11-26T22:35:36+00:00 | 73ab519d2b6d |
-| injuries | OK | 2026-11-26T22:35:36+00:00 | b40c5c041074 |
-| depth_charts | OK | 2026-11-26T22:35:36+00:00 | d4af2fc566a2 |
-| snap_counts | OK | 2026-11-26T22:35:36+00:00 | 923df2bfeef1 |
-| ftn | OK | 2026-11-26T22:35:36+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T22:35:36+00:00 | f1217d79cc1e |
-| pfr_rec | OK | 2026-11-26T22:35:36+00:00 | 14b79cccde48 |
-| pfr_rush | OK | 2026-11-26T22:35:36+00:00 | 45b28d9bfb26 |
-| ngs_receiving | OK | 2026-11-26T22:35:36+00:00 | 2b336f985ad8 |
-| ngs_rushing | OK | 2026-11-26T22:35:37+00:00 | 9cde647ab3c8 |
-| ngs_passing | OK | 2026-11-26T22:35:37+00:00 | 02d9d8211a15 |
-| espn_injuries | OK | 2026-11-26T22:35:37+00:00 |  |
+| games | OK | 2026-11-26T22:49:07+00:00 | d8c720e9933e |
+| pbp | OK | 2026-11-26T22:49:07+00:00 | 80be4d265972 |
+| rosters | OK | 2026-11-26T22:49:08+00:00 | 73ab519d2b6d |
+| injuries | OK | 2026-11-26T22:49:08+00:00 | b40c5c041074 |
+| depth_charts | OK | 2026-11-26T22:49:08+00:00 | d4af2fc566a2 |
+| snap_counts | OK | 2026-11-26T22:49:08+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T22:49:08+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T22:49:08+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T22:49:08+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T22:49:09+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T22:49:09+00:00 | 2b336f985ad8 |
+| ngs_rushing | OK | 2026-11-26T22:49:09+00:00 | 9cde647ab3c8 |
+| ngs_passing | OK | 2026-11-26T22:49:09+00:00 | 02d9d8211a15 |
+| espn_injuries | OK | 2026-11-26T22:49:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
