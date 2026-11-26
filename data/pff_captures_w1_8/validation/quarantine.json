@@ -1,0 +1,368 @@
+[
+ {
+  "pff_game_id": "30658",
+  "kind": "final_score",
+  "detail": "PFF recap header/quarter line NYJ 13 (4Q 7); nflverse PBP NYJ 12: 4Q TD (9:25, G.Smith->I.Williams 58) followed by J.Sanders XP No Good. PFF schedule page 12-23 agrees with nflverse. PFF recap header likely wrong; not corrected.",
+  "status": "quarantined_pff_recap_score"
+ },
+ {
+  "pff_game_id": "30722",
+  "kind": "int_return_attribution",
+  "detail": "PFF takeaway \"Chargers had 71 more INT return yards\"; nflverse: Rams Q.Lake 45 + T.McDuffie 26 = 71, Chargers T.Still 0. Total matches, team label inverted.",
+  "status": "quarantined_pff_label_inverted"
+ },
+ {
+  "pff_game_id": "30718",
+  "kind": "int_return_attribution",
+  "detail": "PFF takeaway \"Colts had 99 more\"; nflverse: JAX R.Lane 92 (pick-six) + B.Combs 9 = 101, IND 0. Team inverted and magnitude 99 vs 101.",
+  "status": "quarantined_pff_label_inverted_and_value_diff"
+ },
+ {
+  "pff_game_id": "30722",
+  "kind": "snap_rows",
+  "detail": "Earlier 72 vs 73 was a QA grep artifact; line parse finds 18/20/16/19 = 73 rows = declared. Resolved, not a missing row.",
+  "status": "resolved"
+ },
+ {
+  "pff_game_id": "multiple",
+  "kind": "snap_unit_row_shortfalls",
+  "detail": "Apparent declared-vs-parsed shortfalls (ATL B.Robinson/Bijan, NE etc.) were initial+lastname key collisions in QA parser; fixed by full-name keys. Not PFF data loss.",
+  "status": "resolved"
+ },
+ {
+  "pff_game_id": "30623,30625,30627,30628,30629,30630,30631,30632,30633,30634,30644,30661,30667,30723",
+  "kind": "systemic_snap_disagreement",
+  "detail": ">15% of player snap rows differ by >1 vs nflverse/PFR snap_counts (e.g. 30627 GB OL PFF 50 vs PFR 59). Cluster in Week 2 (30623-30634). Source of error (PFF vs PFR cache) undetermined.",
+  "status": "quarantined_snaps_for_these_games"
+ },
+ {
+  "pff_game_id": "30713,30715",
+  "kind": "date",
+  "detail": "metadata page_title absent so PFF date not compared; nflverse 2026-10-29 / 2026-11-01.",
+  "status": "unverifiable_date"
+ },
+ {
+  "pff_game_id": "12 games",
+  "kind": "LA_labels",
+  "detail": "PFF uses \"LA\" for both LAC and LAR in comparison rows; QA joined by nicknames in header/box cards (CHARGERS/RAMS) \u2014 box player fields reconciled; overview \"LA\" rows not parsed.",
+  "status": "open_for_overview_fields"
+ },
+ {
+  "pff_game_id": "30611",
+  "kind": "player_field_large_diff",
+  "detail": "DET Jared Goff rush_yds PFF -4.0 vs nflverse 2.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30612",
+  "kind": "player_field_large_diff",
+  "detail": "BUF Khalil Shakir rec_yds PFF 50.0 vs nflverse 40.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30616",
+  "kind": "player_field_large_diff",
+  "detail": "NYJ Geno Smith rush_yds PFF 1.0 vs nflverse 7.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30619",
+  "kind": "player_field_large_diff",
+  "detail": "GB Tucker Kraft rec_yds PFF 53.0 vs nflverse 65.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30622",
+  "kind": "player_field_large_diff",
+  "detail": "ATL Cooper Rush rush_yds PFF 11.0 vs nflverse 20.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30623",
+  "kind": "player_field_large_diff",
+  "detail": "NO Tyler Shough rush_yds PFF 16.0 vs nflverse 23.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30623",
+  "kind": "player_field_large_diff",
+  "detail": "NO Devaughn Vele rec_yds PFF 58.0 vs nflverse 64.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30623",
+  "kind": "player_field_large_diff",
+  "detail": "NO Devaughn Vele tgt PFF 2.0 vs nflverse 7.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30625",
+  "kind": "player_field_large_diff",
+  "detail": "HOU Dalton Schultz rec PFF 3.0 vs nflverse 12.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30625",
+  "kind": "player_field_large_diff",
+  "detail": "HOU Dalton Schultz tgt PFF 4.0 vs nflverse 14.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30627",
+  "kind": "player_field_large_diff",
+  "detail": "NYJ Geno Smith rush_yds PFF 1.0 vs nflverse 17.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30632",
+  "kind": "player_field_large_diff",
+  "detail": "SEA Eric Saubert rec_yds PFF 0.0 vs nflverse -10.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30633",
+  "kind": "player_field_large_diff",
+  "detail": "WAS Jayden Daniels rush_yds PFF 56.0 vs nflverse 69.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30634",
+  "kind": "player_field_large_diff",
+  "detail": "MIA Malik Willis pass_yds PFF 203.0 vs nflverse 197.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30634",
+  "kind": "player_field_large_diff",
+  "detail": "MIA DJ Herman rec_yds PFF 25.0 vs nflverse 18.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30636",
+  "kind": "player_field_large_diff",
+  "detail": "KC Tyquan Thornton rec_yds PFF 80.0 vs nflverse 86.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30641",
+  "kind": "player_field_large_diff",
+  "detail": "NYJ Geno Smith pass_yds PFF 310.0 vs nflverse 321.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30641",
+  "kind": "player_field_large_diff",
+  "detail": "NYJ Garrett Wilson rec_yds PFF 96.0 vs nflverse 107.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30642",
+  "kind": "player_field_large_diff",
+  "detail": "IND Daniel Jones rush_yds PFF 13.0 vs nflverse 5.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30648",
+  "kind": "player_field_large_diff",
+  "detail": "SF Deebo Samuel rec_yds PFF 80.0 vs nflverse 0.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30651",
+  "kind": "player_field_large_diff",
+  "detail": "NO Tyler Shough pass_yds PFF 250.0 vs nflverse 255.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30651",
+  "kind": "player_field_large_diff",
+  "detail": "NO Juwan Johnson rec_yds PFF 48.0 vs nflverse 53.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30653",
+  "kind": "player_field_large_diff",
+  "detail": "CHI Luther Burden III tgt PFF 6.0 vs nflverse 11.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30662",
+  "kind": "player_field_large_diff",
+  "detail": "LA Puka Nacua tgt PFF 6.0 vs nflverse 12.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30668",
+  "kind": "player_field_large_diff",
+  "detail": "DET Jahmyr Gibbs rec_yds PFF 31.0 vs nflverse 22.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30671",
+  "kind": "player_field_large_diff",
+  "detail": "PHI Jalen Hurts rush_yds PFF -3.0 vs nflverse 2.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30673",
+  "kind": "player_field_large_diff",
+  "detail": "NE Drake Maye pass_yds PFF 362.0 vs nflverse 374.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30674",
+  "kind": "player_field_large_diff",
+  "detail": "MIN Kyler Murray rush_yds PFF 40.0 vs nflverse 51.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30675",
+  "kind": "player_field_large_diff",
+  "detail": "NYJ Braelon Allen rush_yds PFF 110.0 vs nflverse 116.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30676",
+  "kind": "player_field_large_diff",
+  "detail": "PIT Aaron Rodgers pass_yds PFF 229.0 vs nflverse 235.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30676",
+  "kind": "player_field_large_diff",
+  "detail": "PIT Jaylen Warren rush_yds PFF 107.0 vs nflverse 101.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30676",
+  "kind": "player_field_large_diff",
+  "detail": "PIT Jaylen Warren rec_yds PFF 81.0 vs nflverse 87.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30680",
+  "kind": "player_field_large_diff",
+  "detail": "DET Jared Goff pass_yds PFF 265.0 vs nflverse 271.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30680",
+  "kind": "player_field_large_diff",
+  "detail": "DET Amon-Ra St. Brown rec_yds PFF 63.0 vs nflverse 69.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30681",
+  "kind": "player_field_large_diff",
+  "detail": "GB Tucker Kraft rec_yds PFF 50.0 vs nflverse 64.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30681",
+  "kind": "player_field_large_diff",
+  "detail": "CHI Rome Odunze rec_yds PFF 46.0 vs nflverse 40.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30694",
+  "kind": "player_field_large_diff",
+  "detail": "LA Colby Parkinson rec_yds PFF 25.0 vs nflverse 31.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30698",
+  "kind": "player_field_large_diff",
+  "detail": "SF Christian McCaffrey rec PFF 1.0 vs nflverse 9.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30698",
+  "kind": "player_field_large_diff",
+  "detail": "SF Christian McCaffrey tgt PFF 1.0 vs nflverse 10.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30702",
+  "kind": "player_field_large_diff",
+  "detail": "ATL Bijan Robinson rec_yds PFF 59.0 vs nflverse 45.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30703",
+  "kind": "player_field_large_diff",
+  "detail": "BAL Derrick Henry rush_att PFF 4.0 vs nflverse 17.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30703",
+  "kind": "player_field_large_diff",
+  "detail": "BAL Zay Flowers rec PFF 2.0 vs nflverse 8.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30703",
+  "kind": "player_field_large_diff",
+  "detail": "BAL Zay Flowers tgt PFF 3.0 vs nflverse 11.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30705",
+  "kind": "player_field_large_diff",
+  "detail": "HOU Nico Collins tgt PFF 0.0 vs nflverse 5.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30709",
+  "kind": "player_field_large_diff",
+  "detail": "GB MarShawn Lloyd rec_yds PFF 15.0 vs nflverse 10.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30710",
+  "kind": "player_field_large_diff",
+  "detail": "LV Connor Heyward rec_yds PFF 0.0 vs nflverse 13.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30713",
+  "kind": "player_field_large_diff",
+  "detail": "GB J. Michael Sturdivant rec PFF 6.0 vs nflverse 1.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30713",
+  "kind": "player_field_large_diff",
+  "detail": "GB J. Michael Sturdivant tgt PFF 6.0 vs nflverse 1.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30715",
+  "kind": "player_field_large_diff",
+  "detail": "TEN Gunnar Helm rec_yds PFF 51.0 vs nflverse 76.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30716",
+  "kind": "player_field_large_diff",
+  "detail": "DAL Javonte Williams rush_att PFF 7.0 vs nflverse 24.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30717",
+  "kind": "player_field_large_diff",
+  "detail": "MIN Jordan Mason rush_att PFF 1.0 vs nflverse 8.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30718",
+  "kind": "player_field_large_diff",
+  "detail": "IND Jonathan Taylor rush_yds PFF 14.0 vs nflverse 23.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ },
+ {
+  "pff_game_id": "30723",
+  "kind": "player_field_large_diff",
+  "detail": "DEN Jonah Coleman rec_yds PFF 53.0 vs nflverse 63.0 (possible name-key/parse/stat-correction issue)",
+  "status": "quarantined"
+ }
+]
