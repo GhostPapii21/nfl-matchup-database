@@ -42,7 +42,7 @@ for tid, ab in ((9, 'GB'), (14, 'LAR')):
 def played(name):
     return pl(name) is not None or any(name in r['dressed'] for r in ros.values())  # a box-score stat proves he played
 L = ['<!-- GBLAR-GRADE-START -->', f'## Pregame lock grading (freeze `{FZ_PATH}`)', '',
-     f"Lock: prices pulled {et(meta['pulled_utc'])} ({meta['pulled_utc']}), freeze written {et(meta['written_utc'])}; kickoff {et(KO)} ({KO}). Freeze written 88 min before kickoff (prices pulled 93 min before), so it is a valid pristine pregame lock. Source: {meta['source']}. Final: LAR {LA}, GB {GB} (ESPN FINAL).", '',
+     f"Lock: prices pulled {et(meta['pulled_utc'])} ({meta['pulled_utc']}), freeze written {et(meta['written_utc'])}; kickoff {et(KO)} ({KO}). Freeze written 88 min before kickoff (prices pulled 93 min before). This is a pregame price freeze / research grading reference; not eligible for pristine holdout scoring (not a protocol-qualified snapshots/<game_id>/<lock>/LOCK.json). Source: {meta['source']}. Final: LAR {LA}, GB {GB} (ESPN FINAL).", '',
      '| Market | Consensus line at lock | Pinnacle ref | Best retail price at lock | Actual | Result |', '|---|---|---|---|---|---|']
 sp = M['spread']; tot = M['total']; ml = M['moneyline']
 def best(m, s): b = m['best_retail_price'][s]; return f"{b['book']} {b['line'] if b['line'] is not None else ''} {int(b['price']):+d}".replace('  ', ' ')

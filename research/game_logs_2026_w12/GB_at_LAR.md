@@ -33,7 +33,7 @@ ESPN pickcenter (DraftKings): LAR -2.5, O/U 43.5 (ESPN-displayed pre-game line; 
 <!-- GBLAR-GRADE-START -->
 ## Pregame lock grading (freeze `pregame/price_freezes/2026-11-25_GB@LA/freeze_20261125T233144Z.json`)
 
-Lock: prices pulled 2026-11-25 06:26 PM EST (2026-11-25T23:26:26Z), freeze written 2026-11-25 06:31 PM EST; kickoff 2026-11-25 08:00 PM EST (2026-11-26T01:00Z). Freeze written 88 min before kickoff (prices pulled 93 min before), so it is a valid pristine pregame lock. Source: direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. Final: LAR 26, GB 13 (ESPN FINAL).
+Lock: prices pulled 2026-11-25 06:26 PM EST (2026-11-25T23:26:26Z), freeze written 2026-11-25 06:31 PM EST; kickoff 2026-11-25 08:00 PM EST (2026-11-26T01:00Z). Freeze written 88 min before kickoff (prices pulled 93 min before). This is a pregame price freeze / research grading reference; not eligible for pristine holdout scoring (not a protocol-qualified snapshots/<game_id>/<lock>/LOCK.json). Source: direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. Final: LAR 26, GB 13 (ESPN FINAL).
 
 | Market | Consensus line at lock | Pinnacle ref | Best retail price at lock | Actual | Result |
 |---|---|---|---|---|---|
