@@ -252,3 +252,53 @@ The two sources use different charting definitions: never mix or average them. S
 **Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
 Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
 <!-- W11-COVRATES-END -->
+
+<!-- W12-GAMELOG-START refs NFL-56 -->
+## Week 12 game log (GB@LAR, 2026-11-25, ESPN play text + nflverse; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w12/GB_at_LAR.md. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion (inferred). Man/zone, blitz and MOF shell for this game are unknown (FTN charting not posted for week 12 at pull time). Snap shares: unknown until nflverse snap counts post.
+
+### GB defense vs LAR (GB@LAR, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Keisean Nixon | CB | 6 | 6 | 52 | 0 | 0 | 0 | 0 | tackler x6 | K.Williams 1, D.Allen 2, X.Smith 1, K.Mumpfield 2 | K.Mumpfield 20 deep_right Q3 |
+| Evan Williams | S | 2 | 2 | 29 | 0 | 0 | 0 | 0 | tackler x2 | K.Mumpfield 1, T.Higbee 1 |  |
+| Xavier McKinney | S | 2 | 2 | 25 | 0 | 0 | 0 | 0 | tackler x2 | K.Williams 1, K.Mumpfield 1 | K.Mumpfield 24 deep_right Q2 |
+| Ty'Ron Hopper | LB | 3 | 2 | 19 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x2 | K.Williams 1, T.Higbee 1, B.Corum 1 |  |
+| Isaiah McDuffie | LB | 3 | 3 | 14 | 0 | 0 | 0 | 0 | tackler x3 | K.Williams 1, B.Corum 1, C.Parkinson 1 |  |
+| Devonte Wyatt | DT | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | C.Parkinson 1 |  |
+| Brandon Cisse | CB | 0 | 0 | 0 | 0 | 0 | 0 | 1 | VERIFIED x1 | X.Smith 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 5/6 for 73 yds, 0 TD; RB 6/8 for 40 yds, 0 TD; TE 5/7 for 27 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/1
+Pass rush: sacks M.Parsons 1; QB hits I.McDuffie 1, M.Parsons 1, B.Cisse 2
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### GB season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 24.1% | 13.5% |
+| Zone | 75.4% | 78.5% |
+| MOF closed (single-high) | 36.5% | 34.7% |
+| MOF open (two-high) | 63.5% | 61.0% |
+| Blitz | 36.8% | 33.3% |
+| Cover 0 | 3.8% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 35.1% | not published |
+| Cover 2-Man | 8.2% | not published |
+| Cover 3 | 21.8% | not published |
+| Cover 4 | 11.8% | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 390 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/gb). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 24.1% vs Sharp 13.5% (+10.6 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W12-GAMELOG-END -->

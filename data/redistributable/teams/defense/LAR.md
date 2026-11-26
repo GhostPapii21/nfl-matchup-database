@@ -243,3 +243,58 @@ The two sources use different charting definitions: never mix or average them. S
 **Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
 Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
 <!-- W11-COVRATES-END -->
+
+<!-- W12-GAMELOG-START refs NFL-56 -->
+## Week 12 game log (GB@LAR, 2026-11-25, ESPN play text + nflverse; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w12/GB_at_LAR.md. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion (inferred). Man/zone, blitz and MOF shell for this game are unknown (FTN charting not posted for week 12 at pull time). Snap shares: unknown until nflverse snap counts post.
+
+### LAR defense vs GB (GB@LAR, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kam Curl | S | 2 | 2 | 71 | 0 | 0 | 0 | 0 | tackler x2 | C.Watson 1, M.Golden 1 | C.Watson 32 short_left Q1; M.Golden 39 deep_right Q2 |
+| Trent McDuffie | CB | 3 | 2 | 31 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | K.Johnson 1, M.Golden 1, B.Melton 1 |  |
+| Emmanuel Forbes Jr. | CB | 4 | 3 | 22 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x3 | S.Williams 1, B.Melton 2, C.Brooks 1 |  |
+| Quentin Lake | S | 4 | 2 | 13 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | M.Golden 1, S.Williams 1, T.Kraft 1, C.Brooks 1 |  |
+| Omar Speights | LB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | T.Kraft 1, M.Lloyd 1 |  |
+| Nate Landman | LB | 1 | 1 | 10 | 0 | 0 | 0 | 0 | tackler x1 | T.Kraft 1 |  |
+| Josh Wallace | CB | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | C.Watson 1 |  |
+| Josaiah Stewart | LB | 2 | 2 | 6 | 0 | 0 | 0 | 0 | tackler x2 | C.Brooks 2 |  |
+| Kamren Kinchens | S | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | J.Sturdivant 1, T.Kraft 1 |  |
+| Aaron Donald | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | K.Johnson 1 |  |
+| Jaylen McCollough | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | M.Golden 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 8/16 for 127 yds, 1 TD; RB 6/8 for 47 yds, 0 TD; TE 3/5 for 24 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 3/0
+Pass rush: sacks B.Young 1; QB hits M.Garrett 2
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### LAR season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 40.1% | 22.3% |
+| Zone | 59.3% | 70.8% |
+| MOF closed (single-high) | 45.7% | 37.8% |
+| MOF open (two-high) | 54.3% | 57.9% |
+| Blitz | 30.4% | 26.6% |
+| Cover 0 | 4.5% | not published |
+| Cover 1 | 28.8% | not published |
+| Cover 2 | 28.5% | not published |
+| Cover 2-Man | 6.8% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | 9.2% | not published |
+| Cover 6 | 5.6% | not published |
+| Cover 9 | 2.4% | not published |
+| Coverage snaps | 337 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lar). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 40.1% vs Sharp 22.3% (+17.8 pts); Zone: StatRankings 59.3% vs Sharp 70.8% (-11.5 pts); MOF closed (single-high): StatRankings 45.7% vs Sharp 37.8% (+7.9 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+
+<!-- W12-GAMELOG-END -->

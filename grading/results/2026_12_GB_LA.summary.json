@@ -1,0 +1,119 @@
+{
+ "actual_sources": {
+  "games": {
+   "retrieved_utc": "2026-11-26T08:41:50+00:00",
+   "sha256": "674af1d1a4a3a222f47c2221ff37d07b017b23e9dc8d0190166b7523cb100a4c",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet"
+  },
+  "pbp": {
+   "retrieved_utc": "2026-11-26T08:41:50+00:00",
+   "sha256": "240aa5869852b5bd6189fe67b01bfb9df8da390bc78d9c89b77d95195709d4b4",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet"
+  },
+  "rosters": {
+   "retrieved_utc": "2026-11-26T08:41:50+00:00",
+   "sha256": "78bcb0df4af517aad6ee06f366ccc238c349bea30a2862f8ed9080801e8e3fd2",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet"
+  },
+  "snap_counts": {
+   "retrieved_utc": "2026-11-26T08:41:50+00:00",
+   "sha256": "ef0897b31ad563191aec8f63da3addb004a18ef9e50f99595185b297bd63f5a7",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet"
+  }
+ },
+ "counts": {
+  "flagged_prop": {
+   "actual_known": 186,
+   "closing_known": 208,
+   "edges": 0,
+   "rows": 208
+  },
+  "player_projection": {
+   "actual_known": 27,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 37
+  },
+  "team_market": {
+   "actual_known": 6,
+   "closing_known": 4,
+   "edges": 0,
+   "rows": 6
+  },
+  "team_projection": {
+   "actual_known": 8,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 8
+  }
+ },
+ "final_score": {
+  "GB": 13,
+  "LA": 26,
+  "pulled_utc": "2026-11-26T08:41:50+00:00",
+  "source": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet sha256=674af1d1a4a3a222f47c2221ff37d07b017b23e9dc8d0190166b7523cb100a4c"
+ },
+ "freeze_ref": "working tree",
+ "game_id": "2026_12_GB_LA",
+ "graded_utc": "2026-11-26T08:41:51+00:00",
+ "holdout_by_market_type": {
+  "moneyline": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "receiving_yards": {
+   "beat_close": 1,
+   "did_not_beat": 7,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 8,
+   "positive": false
+  },
+  "receptions": {
+   "beat_close": 1,
+   "did_not_beat": 8,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 9,
+   "positive": false
+  },
+  "rushing_yards": {
+   "beat_close": 2,
+   "did_not_beat": 1,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 3,
+   "positive": false
+  },
+  "spread": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "total": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  }
+ },
+ "kickoff_utc": "2026-11-26T01:00:00+00:00",
+ "packet_source": "git:cb7128e9429538332507145cf67443c0fc9bac0f:pregame/packets/2026_12_GB_LA/packet.json",
+ "projection_ready": false,
+ "research_artifacts": {},
+ "schema": "grading.summary.v1",
+ "validation": "research only, not validated"
+}
