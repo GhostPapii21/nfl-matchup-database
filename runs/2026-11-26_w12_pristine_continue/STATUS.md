@@ -61,8 +61,10 @@ Evidence: `runs/2026-11-26_w12_pristine_continue/`
 
 ## Readiness regen
 
-- Regenerated with `python3 -m evaluation.readiness --write` at `2026-11-26T21:21:15.765413+00:00` (2026-11-26T16:21:15.765413-05:00)
-- `w12_remaining_post_kickoff`: ['2026_12_CHI_DET', '2026_12_GB_LA']
-- `w12_remaining_eligible` count: 14
-- ceiling: **28**; shortfall at ceiling: **2**
+- Regenerated with `python3 -m evaluation.readiness --write` at `2026-11-26T21:31:36.191592+00:00` (2026-11-26T16:31:36.191592-05:00)
+- `w12_remaining_post_kickoff`: ['2026_12_CHI_DET', '2026_12_GB_LA', '2026_12_PHI_DAL']
+- `w12_remaining_eligible` count: 13 → ['2026_12_ATL_MIN', '2026_12_BAL_HOU', '2026_12_CAR_TB', '2026_12_DEN_PIT', '2026_12_KC_BUF', '2026_12_LV_CLE', '2026_12_NE_LAC', '2026_12_NO_CIN', '2026_12_NYG_IND', '2026_12_NYJ_MIA', '2026_12_SEA_SF', '2026_12_TEN_JAX', '2026_12_WAS_ARI']
+- ceiling: **27**; shortfall at ceiling: **3**
 - `projection_ready_flag`: false
+- Qualifying LOCKs created this run: **0**
+- Branch: `cursor/w12-pristine-holdout-cont-3852`
