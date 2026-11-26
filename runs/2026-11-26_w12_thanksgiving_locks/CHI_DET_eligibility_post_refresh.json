@@ -1,0 +1,28 @@
+{
+  "schema": "pristine-lock-eligibility/1",
+  "checked_utc": "2026-11-26T12:49:06.748630+00:00",
+  "checked_et": "2026-11-26T07:49:06.748630-05:00",
+  "branch": "cursor/w12-thanksgiving-locks-9aff",
+  "code_commit": "f58032c3b26b9255a54f049908f4601748e7e476",
+  "git_status_clean": false,
+  "game_id": "2026_12_CHI_DET",
+  "kickoff_utc": "2026-11-26T18:00:00+00:00",
+  "decision": "NO_LOCK",
+  "reason": "protocol gates refuse; do not invent a lock",
+  "sim100k_exit": 2,
+  "refusal_reasons": [
+    "G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: official_inactives NOT_YET: Inactives post about Thu 11:30 AM ET (T-90); not available yet.",
+    "G5: phase 7 (Coverage structure and shell) is GAP",
+    "G5: phase 8 (Defender assignment and explosive allowance) is GAP",
+    "G5: phase 9 (QB pressure, blitz, scramble) is GAP",
+    "G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+  ],
+  "notes": [
+    "Fresh sportsbooks pull + direct_books freeze at ~2026-11-26T12:42:59Z cleared odds/four_book STALE.",
+    "Packet rebuild cleared nflverse UNKNOWN_NO_SOURCE_TIMESTAMP for digest-matched assets.",
+    "Remaining blockers: ftn_charting GAP and pfr_defense GAP for completed 2026_12_GB_LA (publishers still max week 11); official_inactives NOT_YET until ~T-90 16:30Z.",
+    "No LOCK accepted. GB@LAR already final \u2014 retroactive lock forbidden."
+  ]
+}
