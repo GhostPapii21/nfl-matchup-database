@@ -66,4 +66,6 @@ Bounded check, after `python3 -m pip install -r requirements-smoke.txt`:
 bash scripts/smoke_offline.sh
 ```
 
-That runs two offline pytest modules. It does not fetch data, fit a model, or certify the 15-phase or 100k workflows. The security review and the hash-only exclusion list are `inventory/PUBLIC_SECURITY_REVIEW.md` and `inventory/EXCLUSIONS.json`. Archive hashes are in `inventory/RESTORE_VERIFICATION.json`.
+That runs two offline pytest modules. It does not fetch data, fit a model, or certify the 15-phase or 100k workflows.
+
+Full engine, market, export, and source-gate collection needs `requirements-verify.txt` (adds PyArrow and jsonschema) and `bash scripts/verify_public_checkpoint.sh`. The latest counts, the tests that fail because inputs were withheld, and the command log are in `inventory/VERIFICATION_REPORT.md`. Those failures are left in place. The 15-phase ledger and the 100k run are still not executed. The security review and the hash-only exclusion list are `inventory/PUBLIC_SECURITY_REVIEW.md` and `inventory/EXCLUSIONS.json`. Archive hashes are in `inventory/RESTORE_VERIFICATION.json`.
