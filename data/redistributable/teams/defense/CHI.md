@@ -258,12 +258,13 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | N.Sewell (name unresolved) | unknown | 1 | 1 | 24 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 | C.Olave 24 deep_left Q2 |
 | T.Stevenson (name unresolved) | unknown | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Tyson 1, C.Olave 2, C.Donaldson 1 |  |
 | C.Phillips (name unresolved) | unknown | 3 | 2 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | C.Donaldson 1, J.Tyson 1, N.Fant 1 |  |
+| Dillon Thieneman | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | C.Olave 1 |  |
 | Austin Booker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | J.Johnson 1, T.Etienne 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 17/24 for 184 yds, 0 TD; TE 3/6 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 17/25 for 184 yds, 0 TD; TE 3/6 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks J.Simmons 3, C.Lewis 1, M.Sweat 1, C.Phillips 1; QB hits A.Booker 1, N.Gallimore 1, M.Sweat 2
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Austin Booker (DE) @2:51 "AND THE BEARS WILL TAKE OVER.    CLARK KNOCKED IT AWAY. AUSTIN BOOKER PICKED IT UP, AND  CHICAGO GETS IT. >> Tom: YEAH, MAYBE INCOMPLETE.  I KNOW THIS IS REGULAR SPEED" [coverage word: PICKED]; Montez Sweat (DE) @4:07 "SEASON AND MADE AN IMPACT LAST   WEEK. >> Kevin: THE PLAY FAKE, HERE    COMES SWEAT ON HIS FACE. INTERCEPTED.                     IT IS DILLON THIENEMAN, THE" [coverage word: INTERCEPTED]; Dillon Thieneman (S) @4:12 ">> Kevin: THE PLAY FAKE, HERE    COMES SWEAT ON HIS FACE. INTERCEPTED.                     IT IS DILLON THIENEMAN, THE ROOKIE, AND THE BEARS DEFENSE,   THEY HAVE THEIR SECOND TURNOVER" [coverage word: INTERCEPTED]; Montez Sweat (DE) @10:15 "TROUBLE N THE END ZONE, AND      IT'S A SAFETY. BEARS GET HOME WITH MONTEZ       SWEAT! JOHNSON WHO WANTS TO SEE WHAT'S  THE REST OF THE SEASON GOING TO" [coverage word: ZONE]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### CHI season coverage rates (public, season-level; NOT game-level)

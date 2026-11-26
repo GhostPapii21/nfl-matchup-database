@@ -253,6 +253,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Quay Walker | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | J.Coleman 2, N.Adkins 1, E.Engram 1 |  |
 | Treydan Stukes | S | 2 | 1 | 21 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Waddle 1, E.Engram 1 | E.Engram 21 short_left Q4 |
 | Maxx Crosby | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | C.Sutton 1, M.Mims 1 |  |
+| Isaiah Pola-Mao | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | no intended receiver 1 |  |
 
 Yards allowed by target position (WR slot/outside unknown): WR 7/16 for 129 yds, 0 TD; TE 8/11 for 78 yds, 1 TD; RB 4/5 for 18 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/0

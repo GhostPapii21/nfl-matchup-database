@@ -234,7 +234,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | D.Key (name unresolved) | unknown | 2 | 2 | 47 | 0 | 0 | 0 | 0 | tackler x2 | T.Tucker 1, A.Jeanty 1 | T.Tucker 39 deep_left Q4 |
-| Ja'Quan McMillian | CB | 3 | 3 | 28 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, M.Mayer 1, J.Bech 1 |  |
+| Ja'Quan McMillian | CB | 4 | 3 | 28 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x3 | A.Jeanty 1, M.Mayer 1, T.Tucker 1, J.Bech 1 |  |
 | Justin Strnad | LB | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, J.Bech 2 |  |
 | Riley Moss | CB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | J.Bech 2 |  |
 | Jahdae Barron | CB | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | J.Bech 1 |  |
@@ -245,7 +245,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Zach Allen | DE | 3 | 0 | 0 | 0 | 3 | 0 | 0 | VERIFIED x3 | T.Tucker 1, J.Bech 1, A.Jeanty 1 |  |
 | D.J. Jones | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | A.Jeanty 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 164 yds, 2 TD; RB 5/8 for 90 yds, 1 TD; TE 2/5 for 23 yds, 1 TD
+Yards allowed by target position (WR slot/outside unknown): WR 12/25 for 164 yds, 2 TD; RB 5/8 for 90 yds, 1 TD; TE 2/5 for 23 yds, 1 TD
 Explosives allowed (pass 20+/rush 15+): 2/1
 Pass rush: sacks J.Cooper 2, A.Singleton 1, Z.Allen (half) 1, N.Bonitto (half) 1, M.Roach 1; QB hits J.Cooper 1, D.Tillman 1, J.Strnad 1, Q.Robinson 1, Z.Allen 1, T.Hufanga 1
 Video (highlight transcript) mentions: Ja'Quan McMillian (CB) @16:18 "COMPLETES IT TO BECH. [WHISTLE] >> Andrew: OUT OF BOUNDS, WITH McMILLIAN ON THE COVERAGE. THROW THIS BALL OFF. WE'LL SEE IF HE CAN KEEP THESE" [coverage word: COVERAGE]

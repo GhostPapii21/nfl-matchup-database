@@ -227,7 +227,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Minkah Fitzpatrick | S | 2 | 2 | 35 | 0 | 0 | 0 | 0 | tackler x2 | D.Njoku 1, T.Harris 1 | T.Harris 22 short_right Q4 |
-| Jamien Sherwood | LB | 3 | 2 | 17 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Q.Johnston 1, L.McConkey 2 |  |
+| Jamien Sherwood | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | Q.Johnston 1, L.McConkey 2 |  |
 | Kingsley Enagbare | LB | 1 | 1 | 15 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
 | Demario Davis | LB | 2 | 2 | 14 | 0 | 0 | 0 | 0 | tackler x2 | C.Kolar 1, T.Harris 1 |  |
 | Brandon Stephens | CB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | O.Hampton 1, D.Njoku 1 |  |
@@ -235,7 +235,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | D'Angelo Ponds | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
 | David Bailey | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | L.McConkey 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 6/10 for 60 yds, 1 TD; TE 3/4 for 29 yds, 0 TD; RB 4/4 for 28 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 7/10 for 68 yds, 1 TD; TE 3/4 for 29 yds, 0 TD; RB 4/4 for 28 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks D.Bailey 2, H.Phillips 1, J.Briggs 1, J.Heflin (half) 1, D.Jackson (half) 1, J.Sherwood 1, J.Briggs (half) 1, M.Fitzpatrick (half) 1; QB hits D.Bailey 1
 Video (highlight transcript) mentions: Minkah Fitzpatrick (S) @7:50 "AND IT IS HAMPTON ALONG THE EDGE WITH THE BEST L.A. RUN OF THE DAY. FITZPATRICK THE TACKLE DOWN IN THE RED ZONE. >> Drew: YEAH." [coverage word: ZONE]

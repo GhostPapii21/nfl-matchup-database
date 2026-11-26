@@ -8,6 +8,7 @@ OFFT = {'Rush', 'Pass Reception', 'Pass Incompletion', 'Sack', 'Passing Touchdow
 _cache = {}
 def _get(url, path):
     if path in _cache: return _cache[path]
+    if os.environ.get('OFFLINE') and os.path.exists(path): _cache[path] = json.load(open(path)); return _cache[path]  # Monday rebuild from cached raw
     data = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30).read()
     open(path, 'wb').write(data); _cache[path] = json.loads(data); return _cache[path]
 
@@ -172,6 +173,7 @@ def run(d, ev, away, home, tid, W, rec, raw, out, nows, final, parse_pass, parse
         if ' pass ' in txt and 'sacked' not in txt:
             pp = parse_pass(txt)
             if not pp: continue
+            if pp['target'] == 'no intended receiver': continue  # INT with no intended receiver: no target position to charge
             pos = pos_of(shorts[off], pp['target'])
             pos = pos.replace(' (last-name match)', '')
             pg = 'WR' if pos == 'WR' else 'TE' if pos == 'TE' else 'RB' if pos in ('RB', 'FB') else pos

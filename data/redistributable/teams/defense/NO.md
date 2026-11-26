@@ -217,11 +217,13 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Kool-Aid McKinstry | CB | 5 | 4 | 31 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x4 | D.Swift 1, R.Odunze 2, K.Raymond 1, Z.Thomas 1 |  |
 | Jordan Howden | S | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Raymond 1, R.Odunze 1 |  |
 | Anfernee Jennings | LB | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | C.Loveland 1 |  |
+| Danny Stutsman | LB | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | L.Burden 1 |  |
+| Carl Granderson | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | L.Burden 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 9/13 for 125 yds, 0 TD; TE 4/4 for 48 yds, 1 TD; RB 2/3 for 8 yds, 1 TD
+Yards allowed by target position (WR slot/outside unknown): WR 9/14 for 125 yds, 0 TD; TE 4/4 for 48 yds, 1 TD; RB 2/3 for 8 yds, 1 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks C.Young 1, C.Wooden 1, J.Sanker 1, J.Ridgeway 1; QB hits A.Jennings 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Danny Stutsman (LB) @6:19 "THAT'LL BE A BIG ASK.            LOOK AT THE THROW. IT'S INTERCEPTED BY STUTSMAN,    THE LINEBACKER. AND THE SAINTS HAVE THEIR FIRST  TURNOVER OF THE DAY." [coverage word: INTERCEPTED]; Danny Stutsman (LB) @6:26 "AND THE SAINTS HAVE THEIR FIRST  TURNOVER OF THE DAY. AND FOR DANNY STUTSMAN, HIS      FIRST CAREER INTERCEPTION. HERE IS SHOUGH.                  OVER THE MIDDLE." [coverage word: INTERCEPTION]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### NO season coverage rates (public, season-level; NOT game-level)

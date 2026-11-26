@@ -153,3 +153,51 @@ Other mentions without a coverage word (count only): Fred Warner x2
 
 Scheme words in commentary (counts, not charting): {'zone': 2, 'coverage': 1, 'corner': 2, 'beat': 1, 'intercepted': 1, 'picked': 1}
 
+## MIA@BUF: Miami Dolphins vs. Buffalo Bills Game Highlights | NFL 2026 Season Week 11
+URL https://www.youtube.com/watch?v=F69kepglAY0 | track: English - CC1 | retrieved via yt-dlp --write-subs (official NFL channel captions), 2026-11-23 07:12 AM AST
+
+### MIA defenders mentioned near a coverage word (3)
+- Jacob Rodriguez (LB) @6:02 "DEFLECTED.                       IN THE AIR AND ITS PICKED. TAKEN BY RODRIGUEZ.              AND THAT WAS THE TURNING POINT PLAY THAT JEFF HAFLEY FROM HIS   DEFENSE." [coverage word: DEFLECTED]
+- Zayne Anderson (S) @7:11 "-- INTERCEPTED.                  SECOND TAKEAWAY FOR MIAMI. IT'S ZAYNE ANDERSON.             SO ALLEN AGAIN TRYING TO MAKE TRADER HAS HIS SECOND CAREER     PICK." [coverage word: INTERCEPTED]
+- Jordyn Brooks (LB) @10:57 "THEY RING HIM UP FOR 38.         ADAM: THIS IS ONE OF THE FEW BUT THE THREAT BRINGS BROOKS OUT OF THE COVERAGE AND THAT OPENS UP THAT HOLE.                    SPERO: SHAKIR ONE OF THE FASTEST" [coverage word: COVERAGE]
+Other mentions without a coverage word (count only): Jordyn Brooks x1, Zayne Anderson x3, Chris Johnson x2, Jacob Rodriguez x2, Michael Taaffe x1, Josh Uche x1
+
+### BUF defenders mentioned near a coverage word (3)
+- Kaleb Elarms-Orr (LB) @5:51 "AND THEY'RE GOING TO BE WELL     SHORT OF THE FIRST DOWN MARKER. EVERYONE COVERED DOWN THE FIELD. ELARMS-ORR. IS THERE TO MAKE THE OPEN FIELD  TACKLE FOR THE BILLS." [coverage word: COVERED]
+- Maxwell Hairston (CB) @8:38 "DOES A LITTLE PIROUETTE AND      SLINGS ONE TO THE END ZONE AND IT'S BATTED DOWN.                MAXWELL HAIRSTON WAS THERE FOR THE BILLS.                       SPOT START." [coverage word: ZONE]
+- Amani Hooker (S) @9:58 "OF NICE PLAYS, BLITZING AND IN   THE RUN GAME EARLIER THIS GAME. BUT HOOKER ALLOWS THIS SECONDARY TO REALLY COME TOGETHER. SPERO: MCCOY TRYING TO THREAD    THE NEEDLE." [coverage word: BLITZING]
+Other mentions without a coverage word (count only): Greg Rousseau x1, Damar Hamlin x3, Maxwell Hairston x1, Christian Benford x1, Cole Bishop x1, Amani Hooker x1, Dee Alford x1
+
+Scheme words in commentary (counts, not charting): {'zone': 3, 'double': 1, 'covered': 1, 'deflected': 1, 'picked': 1, 'intercepted': 2, 'blitz': 2, 'corner': 2, 'blitzing': 1, 'coverage': 2, 'miss': 1, 'beat': 1}
+
+## NO@CHI: New Orleans Saints vs. Chicago Bears Game Highlights | NFL 2026 Season Week 11
+URL https://www.youtube.com/watch?v=TAvO7hOMR70 | track: English - CC1 | retrieved via yt-dlp --write-subs (official NFL channel captions), 2026-11-23 07:12 AM AST
+
+### NO defenders mentioned near a coverage word (2)
+- Danny Stutsman (LB) @6:19 "THAT'LL BE A BIG ASK.            LOOK AT THE THROW. IT'S INTERCEPTED BY STUTSMAN,    THE LINEBACKER. AND THE SAINTS HAVE THEIR FIRST  TURNOVER OF THE DAY." [coverage word: INTERCEPTED]
+- Danny Stutsman (LB) @6:26 "AND THE SAINTS HAVE THEIR FIRST  TURNOVER OF THE DAY. AND FOR DANNY STUTSMAN, HIS      FIRST CAREER INTERCEPTION. HERE IS SHOUGH.                  OVER THE MIDDLE." [coverage word: INTERCEPTION]
+Other mentions without a coverage word (count only): Julian Blackmon x1, Cameron Jordan x1, Jonas Sanker x1
+
+### CHI defenders mentioned near a coverage word (4)
+- Austin Booker (DE) @2:51 "AND THE BEARS WILL TAKE OVER.    CLARK KNOCKED IT AWAY. AUSTIN BOOKER PICKED IT UP, AND  CHICAGO GETS IT. >> Tom: YEAH, MAYBE INCOMPLETE.  I KNOW THIS IS REGULAR SPEED" [coverage word: PICKED]
+- Montez Sweat (DE) @4:07 "SEASON AND MADE AN IMPACT LAST   WEEK. >> Kevin: THE PLAY FAKE, HERE    COMES SWEAT ON HIS FACE. INTERCEPTED.                     IT IS DILLON THIENEMAN, THE" [coverage word: INTERCEPTED]
+- Dillon Thieneman (S) @4:12 ">> Kevin: THE PLAY FAKE, HERE    COMES SWEAT ON HIS FACE. INTERCEPTED.                     IT IS DILLON THIENEMAN, THE ROOKIE, AND THE BEARS DEFENSE,   THEY HAVE THEIR SECOND TURNOVER" [coverage word: INTERCEPTED]
+- Montez Sweat (DE) @10:15 "TROUBLE N THE END ZONE, AND      IT'S A SAFETY. BEARS GET HOME WITH MONTEZ       SWEAT! JOHNSON WHO WANTS TO SEE WHAT'S  THE REST OF THE SEASON GOING TO" [coverage word: ZONE]
+Other mentions without a coverage word (count only): Jeffery Simmons x3, Montez Sweat x1
+
+Scheme words in commentary (counts, not charting): {'blitz': 5, 'zone': 4, 'coverage': 3, 'picked': 3, 'intercepted': 2, 'over the top': 2, 'beat': 1, 'interception': 2, 'miss': 1, 'cover': 1}
+
+## BAL@CAR: Baltimore Ravens vs. Carolina Panthers Game Highlights | 2026 NFL Season Week 11
+URL https://www.youtube.com/watch?v=wdlsXc0by8U | track: English - CC1 | retrieved via yt-dlp --write-subs (official NFL channel captions), 2026-11-23 07:12 AM AST
+
+### BAL defenders mentioned near a coverage word (1)
+- T.J. Tampa (CB) @10:51 "DIVING INTERCEPTION MADE BY      T.J. TAMPA.                           YOU JUST TALKED ABOUT HIM A THE JETS, AND NOW WALKER TODAY.  THERE HAVE BEEN NO OTHER" [coverage word: INTERCEPTION]
+Other mentions without a coverage word (count only): Mike Green x1, Kyle Hamilton x2, Trey Hendrickson x3
+
+### CAR defenders mentioned near a coverage word (2)
+- Jaycee Horn (CB) @2:49 "FROM HILL AND HILL PICKS UP      ANOTHER RAVENS FIRST DOWN. SUPPOSED TO BE HIM AND HORN AS   THAT CORNER TOP CORNER DUO. >> Kenny: DOTSON HAS RETURNED    FOR CAROLINA." [coverage word: CORNER]
+- Tyrel Dodson (LB) @15:51 "PRESSURE, STAYS ON HIS FEET,     SPINS AND NOW HE THROWS. IT IS PICKED OFF BY DODSON!      DODSON COMES UP WITH THE BRISSETT DOES EVERYTHING HE CAN  TO STAY ALIVE AND JUST MADE A" [coverage word: PICKED]
+Other mentions without a coverage word (count only): none
+
+Scheme words in commentary (counts, not charting): {'zone': 9, 'coverage': 1, 'corner': 2, 'over the top': 1, 'interception': 1, 'picked': 2}
+

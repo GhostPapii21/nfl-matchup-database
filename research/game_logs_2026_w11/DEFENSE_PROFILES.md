@@ -1,4 +1,4 @@
-# Defensive coverage profiles from Week 11 games (built 2026-11-23 02:05 AM AST by Blitz, refs NFL-56)
+# Defensive coverage profiles from Week 11 games (built 2026-11-23 07:18 AM AST by Blitz, refs NFL-56)
 
 Sources: ESPN summary JSON play text (per game, pull time in each game file), ESPN team rosters for names/positions, official NFL YouTube highlight auto-captions where noted (labeled video). No PFF/FTN paid content.
 **Evidence levels:** VERIFIED = play text names the defender who broke up/intercepted the pass or was flagged for DPI. tackler = defender named as tackler on a completion (not proof of coverage). video = a highlight-commentary mention (auto-captions; names can be misspelled). Man/zone, blitz and MOF shell per play are **unknown** in free data.
@@ -153,7 +153,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Kyle Hamilton | S | 5 | 5 | 85 | 0 | 0 | 0 | 0 | tackler x5 | T.McMillan 2, M.Evans 1, J.Coker 1, D.Waller 1 | J.Coker 35 deep_left Q1; T.McMillan 29 deep_right Q3 |
-| T.J. Tampa | CB | 2 | 1 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | D.Waller 1, J.Coker 1 | D.Waller 27 deep_middle Q3 |
+| T.J. Tampa | CB | 3 | 1 | 27 | 0 | 1 | 1 | 0 | VERIFIED x2, tackler x1 | D.Waller 1, J.Coker 1, T.McMillan 1 | D.Waller 27 deep_middle Q3 |
 | Malaki Starks | S | 2 | 2 | 25 | 0 | 0 | 0 | 0 | tackler x2 | J.Coker 1, J.Metchie 1 |  |
 | Trenton Simpson | LB | 1 | 1 | 18 | 0 | 0 | 0 | 0 | tackler x1 | T.Tremble 1 |  |
 | Roquan Smith | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Evans 1, T.McMillan 1 |  |
@@ -166,10 +166,10 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | David Olajiga | DT | 1 | 1 | 0 | 0 | 0 | 0 | 0 | tackler x1 | J.Coker 1 |  |
 | Calais Campbell | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.McMillan 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 12/19 for 143 yds, 1 TD; TE 9/9 for 104 yds, 1 TD; RB 1/1 for 7 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 12/20 for 143 yds, 1 TD; TE 9/9 for 104 yds, 1 TD; RB 1/1 for 7 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/3
 Pass rush: sacks M.Green 2, T.Jones 1; QB hits T.Hendrickson 1, C.Campbell 1, D.Olajiga 1, R.Smith 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: T.J. Tampa (CB) @10:51 "DIVING INTERCEPTION MADE BY      T.J. TAMPA.                           YOU JUST TALKED ABOUT HIM A THE JETS, AND NOW WALKER TODAY.  THERE HAVE BEEN NO OTHER" [coverage word: INTERCEPTION]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### BAL season coverage rates (public, season-level; NOT game-level)
@@ -203,18 +203,18 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Tre'von Moehrig | S | 2 | 2 | 40 | 0 | 0 | 0 | 0 | tackler x2 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
 | Zakee Wheatley | S | 3 | 3 | 38 | 0 | 0 | 0 | 0 | tackler x3 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
-| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x2 | J.Lane 1, Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
-| Tyrel Dodson | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1 |  |
+| W.Lee (name unresolved) | unknown | 4 | 3 | 35 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x3 | J.Lane 1, Z.Flowers 1, D.Henry 2, R.Bateman 1 | Z.Flowers 26 short_left Q2 |
+| Tyrel Dodson | LB | 5 | 4 | 23 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1, R.Bateman 1 |  |
 | Chau Smith-Wade | CB | 3 | 2 | 23 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | Mike Jackson | CB | 4 | 2 | 19 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | R.Bateman 2, Z.Flowers 2 |  |
 | Devin Lloyd | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | Z.Flowers 1, J.Hill 1 |  |
 | P.Jones (name unresolved) | unknown | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Hibner 1, J.Cuevas 1 |  |
 | Derrick Brown | DT | 3 | 2 | 5 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Henry 1, Z.Flowers 2 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 11/17 for 198 yds, 1 TD; RB 7/10 for 41 yds, 0 TD; TE 5/8 for 34 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 11/18 for 198 yds, 1 TD; RB 8/10 for 44 yds, 0 TD; TE 5/8 for 34 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/4
 Pass rush: sacks P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1, P.Umanmielen 1; QB hits T.Wharton 2, P.Jones 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Jaycee Horn (CB) @2:49 "FROM HILL AND HILL PICKS UP      ANOTHER RAVENS FIRST DOWN. SUPPOSED TO BE HIM AND HORN AS   THAT CORNER TOP CORNER DUO. >> Kenny: DOTSON HAS RETURNED    FOR CAROLINA." [coverage word: CORNER]; Tyrel Dodson (LB) @15:51 "PRESSURE, STAYS ON HIS FEET,     SPINS AND NOW HE THROWS. IT IS PICKED OFF BY DODSON!      DODSON COMES UP WITH THE BRISSETT DOES EVERYTHING HE CAN  TO STAY ALIVE AND JUST MADE A" [coverage word: PICKED]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### CAR season coverage rates (public, season-level; NOT game-level)
@@ -246,20 +246,21 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| CJ Allen | LB | 6 | 6 | 41 | 0 | 0 | 0 | 0 | tackler x6 | X.Hutchinson 1, M.Klein 1, E.Demercado 2, K.Boutte 1, N.Collins 1 | K.Boutte 20 short_middle Q2 |
+| CJ Allen | LB | 6 | 6 | 37 | 0 | 0 | 0 | 0 | tackler x6 | X.Hutchinson 1, M.Klein 1, E.Demercado 2, K.Boutte 1, N.Collins 1 |  |
 | Bryce Boettcher | LB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | M.Klein 1, F.Moreau 1 |  |
 | Johnathan Edwards | CB | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | D.Schultz 1 |  |
 | Austin Ajiake | LB | 3 | 2 | 11 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | N.Collins 1, D.Montgomery 2 |  |
 | Arden Key | DE | 1 | 1 | 10 | 0 | 0 | 0 | 0 | tackler x1 | T.Dell 1 |  |
+| A.J. Haulcy | S | 2 | 1 | 9 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x1 | N.Collins 1, D.Montgomery 1 |  |
 | Kapena Gushiken | CB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | T.Dell 1 |  |
-| A.J. Haulcy | S | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | D.Montgomery 1 |  |
 | Justin Walley | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | D.Montgomery 1 |  |
 | Hunter Wohler | S | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | M.Klein 1 |  |
 | Caden Curry | LB | 1 | 1 | 2 | 0 | 0 | 0 | 0 | tackler x1 | X.Hutchinson 1 |  |
+| Cam Bynum | S | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | N.Collins 1 |  |
 | Jaylahn Tuimoloau | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | X.Hutchinson 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/13 for 142 yds, 2 TD; TE 6/6 for 43 yds, 1 TD; RB 5/6 for 13 yds, 0 TD
-Explosives allowed (pass 20+/rush 15+): 3/2
+Yards allowed by target position (WR slot/outside unknown): WR 10/14 for 138 yds, 2 TD; TE 6/6 for 43 yds, 1 TD; RB 5/6 for 13 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/2
 Pass rush: sacks A.Adebawore 1; QB hits none
 Video (highlight transcript) mentions: A.J. Haulcy (S) @1:44 "HAVE BEEN PICKED AFTER A DOUBLE TAP. AJ. HAULCY ABLE TO COME UP WITH IT. LOOKED LIKE IT WAS BATTED" [coverage word: PICKED]; Cam Bynum (S) @2:00 "HE'S RUNNING BACK. HE GOES OFF OF HIS HELMET. HE ENDS UP INTERCEPTING IT. GOES OFF OF BYNUM BACK TO INTERCEPTION. SECOND AND NINE." [coverage word: INTERCEPTING]; Cameron Ball (DT) @6:14 "IF HE MISSES THIS WITH HIS FIELD POSITION AND THE TEXANS GETTING THE BALL TO START THE SECOND HALF. YEAH, THEY GET THE BALL ON THE OTHER SIDE OF THE 50 AND" [coverage word: MISSES]; Austin Ajiake (LB) @7:17 "PRESSURE THROWS INCOMPLETE. INTENDED FOR MONTGOMERY. GOOD COVERAGE THAT TIME. AJIAKE IN THE MIDDLE. SO IT'S FOURTH DOWN AND SIX. IN COMES THE FIELD GOAL" [coverage word: COVERAGE]; Cam Bynum (S) @10:22 "AND MEANWHILE THE PRESSURE WAS PUT ON THAT TIME BLITZ COMING IN FORCING THAT THROW CAM BYNUM PUT IT ON. ALMOST HAD THAT PICK BEFORE BUT IT WAS OVERTURNED THAT" [coverage word: BLITZ]; Bryce Boettcher (LB) @11:40 "CORNER? HE CAN NOT. AND THAT TIME IT'S BRYCE BOETTCHER THE ROOKIE OUT OF OREGON WHO STOPS HIM TURNED THE BALL OVER ON DOWNS WITH" [coverage word: CORNER]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
@@ -299,11 +300,11 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Henry To'oTo'o | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | S.McGowan 1, T.Warren 1, J.Taylor 1 | T.Warren 22 deep_right Q2 |
 | Calen Bullock | S | 2 | 1 | 17 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | A.Gould 1, A.Dulin 1 |  |
 | Wade Woodaz | LB | 2 | 2 | 11 | 0 | 0 | 0 | 0 | tackler x2 | D.Giddens 1, J.Taylor 1 |  |
-| Kamari Lassiter | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Burks 1 |  |
+| Kamari Lassiter | CB | 2 | 0 | 0 | 0 | 1 | 1 | 0 | VERIFIED x2 | D.Burks 2 |  |
 | Jake Hansen | LB | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | T.Warren 2 |  |
 | Tommy Togiai | DT | 2 | 1 | -1 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Taylor 1, T.Warren 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 5/13 for 104 yds, 0 TD; TE 1/5 for 22 yds, 0 TD; RB 6/7 for 18 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 5/14 for 104 yds, 0 TD; TE 1/5 for 22 yds, 0 TD; RB 6/7 for 18 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/0
 Pass rush: sacks J.Clowney 1, W.Anderson 1; QB hits W.Anderson 3, L.Hall 1
 Video (highlight transcript) mentions: Jalen Pitre (S) @3:34 "THEY'LL SPOT IT AT THE 48. WELL THE RIGHT TIME TO CALL THIS SCREEN BECAUSE OF THE BLITZ RIGHT HERE FROM PITRE. WITH THE THIRD AND 19. COLTS DOWN 7 TO 3." [coverage word: BLITZ]; Calen Bullock (S) @10:57 "ZONE AND DOUBLE COVERAGE. BROKEN UP. INCOMPLETE. INTENDED FOR DULIN BULLOCK BUT THE TALENT IS HERE. PRESSURE AGAIN." [coverage word: ZONE]
@@ -351,7 +352,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Travon Walker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | M.Nabers 2 |  |
 | Arik Armstead | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Mooney 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 98 yds, 1 TD; TE 3/5 for 64 yds, 0 TD; RB 4/8 for 19 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 11/24 for 90 yds, 1 TD; TE 3/5 for 64 yds, 0 TD; RB 4/8 for 19 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/1
 Pass rush: sacks J.Hines-Allen 1; QB hits F.Oluokun 1, T.Walker 1
 Video (highlight transcript) mentions: none found / not checked
@@ -388,14 +389,14 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Jevon Holland | S | 8 | 7 | 95 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x7 | P.Washington 4, J.Meyers 2, T.Hunter 1, B.Tuten 1 | P.Washington 21 deep_left Q2; J.Meyers 23 short_left Q3 |
 | Ar'Darius Washington | S | 5 | 3 | 55 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | J.Cameron 3, J.Meyers 2 | J.Meyers 26 deep_middle Q4 |
-| Deonte Banks | CB | 5 | 3 | 37 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | P.Washington 3, Bri.Thomas 1, J.Cameron 1 |  |
+| Deonte Banks | CB | 6 | 3 | 37 | 0 | 2 | 1 | 0 | VERIFIED x3, tackler x3 | P.Washington 4, Bri.Thomas 1, J.Cameron 1 |  |
 | Dru Phillips (last-name match) | CB | 7 | 4 | 31 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | B.Strange 2, J.Meyers 2, B.Tuten 1, P.Washington 2 | P.Washington 21 deep_right Q4 |
-| Paulson Adebo | CB | 4 | 1 | 23 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x1 | J.Meyers 2, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
+| Paulson Adebo | CB | 5 | 1 | 23 | 0 | 3 | 1 | 0 | VERIFIED x4, tackler x1 | J.Meyers 3, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
 | Arvell Reese | LB | 4 | 4 | 21 | 0 | 0 | 0 | 0 | tackler x4 | P.Washington 2, B.Strange 1, L.Allen 1 |  |
 | Micah McFadden | LB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | B.Tuten 1, C.Rodriguez 1 |  |
 | G.Newsome (name unresolved) | unknown | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | P.Washington 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 16/33 for 235 yds, 0 TD; RB 5/5 for 32 yds, 0 TD; unknown 1/3 for 18 yds, 1 TD; TE 3/4 for 16 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 16/35 for 235 yds, 0 TD; RB 5/5 for 32 yds, 0 TD; unknown 1/3 for 18 yds, 1 TD; TE 3/4 for 16 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 5/0
 Pass rush: sacks D.Reader 1, A.Carter 2; QB hits A.Reese 1, A.Carter 3, D.Reader 1, S.Harris 1, B.Okoye 1, J.Kelly 1
 Video (highlight transcript) mentions: Kayvon Thibodeaux (LB) @13:50 "BUYING TIME, SLIPS IT, PICKED OFF IN THE END ZONE BY THIBODEAUX. >> J.J.: THERE YOU GO. NOT HAPPY, YOU HAVE TO FIND A WAY TO BURN SOME O'CLOCK." [coverage word: PICKED]
@@ -438,6 +439,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Quay Walker | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | J.Coleman 2, N.Adkins 1, E.Engram 1 |  |
 | Treydan Stukes | S | 2 | 1 | 21 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Waddle 1, E.Engram 1 | E.Engram 21 short_left Q4 |
 | Maxx Crosby | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | C.Sutton 1, M.Mims 1 |  |
+| Isaiah Pola-Mao | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | no intended receiver 1 |  |
 
 Yards allowed by target position (WR slot/outside unknown): WR 7/16 for 129 yds, 0 TD; TE 8/11 for 78 yds, 1 TD; RB 4/5 for 18 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/0
@@ -475,7 +477,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | D.Key (name unresolved) | unknown | 2 | 2 | 47 | 0 | 0 | 0 | 0 | tackler x2 | T.Tucker 1, A.Jeanty 1 | T.Tucker 39 deep_left Q4 |
-| Ja'Quan McMillian | CB | 3 | 3 | 28 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, M.Mayer 1, J.Bech 1 |  |
+| Ja'Quan McMillian | CB | 4 | 3 | 28 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x3 | A.Jeanty 1, M.Mayer 1, T.Tucker 1, J.Bech 1 |  |
 | Justin Strnad | LB | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, J.Bech 2 |  |
 | Riley Moss | CB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | J.Bech 2 |  |
 | Jahdae Barron | CB | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | J.Bech 1 |  |
@@ -486,7 +488,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Zach Allen | DE | 3 | 0 | 0 | 0 | 3 | 0 | 0 | VERIFIED x3 | T.Tucker 1, J.Bech 1, A.Jeanty 1 |  |
 | D.J. Jones | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | A.Jeanty 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 164 yds, 2 TD; RB 5/8 for 90 yds, 1 TD; TE 2/5 for 23 yds, 1 TD
+Yards allowed by target position (WR slot/outside unknown): WR 12/25 for 164 yds, 2 TD; RB 5/8 for 90 yds, 1 TD; TE 2/5 for 23 yds, 1 TD
 Explosives allowed (pass 20+/rush 15+): 2/1
 Pass rush: sacks J.Cooper 2, A.Singleton 1, Z.Allen (half) 1, N.Bonitto (half) 1, M.Roach 1; QB hits J.Cooper 1, D.Tillman 1, J.Strnad 1, Q.Robinson 1, Z.Allen 1, T.Hufanga 1
 Video (highlight transcript) mentions: Ja'Quan McMillian (CB) @16:18 "COMPLETES IT TO BECH. [WHISTLE] >> Andrew: OUT OF BOUNDS, WITH McMILLIAN ON THE COVERAGE. THROW THIS BALL OFF. WE'LL SEE IF HE CAN KEEP THESE" [coverage word: COVERAGE]
@@ -521,20 +523,21 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Jacob Rodriguez | LB | 7 | 7 | 67 | 0 | 0 | 0 | 0 | tackler x7 | D.Moore 2, T.Johnson 3, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
+| Jacob Rodriguez | LB | 8 | 7 | 67 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x7 | D.Moore 2, T.Johnson 3, K.Latu 1, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
 | Michael Taaffe | S | 2 | 2 | 61 | 0 | 0 | 0 | 0 | tackler x2 | D.Knox 1, K.Shakir 1 | D.Knox 23 short_middle Q1; K.Shakir 38 deep_right Q3 |
-| Zayne Anderson | S | 6 | 4 | 58 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x4 | K.Shakir 2, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
+| Zayne Anderson | S | 7 | 4 | 58 | 0 | 2 | 1 | 0 | VERIFIED x3, tackler x4 | K.Shakir 3, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
 | J.Marshall (name unresolved) | unknown | 4 | 4 | 40 | 0 | 0 | 0 | 0 | tackler x4 | D.Moore 2, K.Coleman 1, T.Johnson 1 |  |
 | Malik Washington | WR | 1 | 1 | 30 | 0 | 0 | 0 | 0 | tackler x1 | K.Latu 1 | K.Latu 30 deep_middle Q1 |
 | Chris Johnson | CB | 6 | 5 | 28 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x5 | K.Shakir 2, R.Davis 1, T.Johnson 1, K.Coleman 1, J.Cook 1 |  |
 | JuJu Brents | CB | 3 | 2 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Moore 2, K.Coleman 1 |  |
 | D.Baker (name unresolved) | unknown | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | K.Shakir 1 |  |
 | Kyle Louis | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | T.Johnson 1 |  |
+| Chop Robinson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | K.Latu 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 15/24 for 209 yds, 1 TD; RB 10/12 for 64 yds, 0 TD; TE 3/6 for 61 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 15/25 for 209 yds, 1 TD; RB 10/12 for 64 yds, 0 TD; TE 3/7 for 61 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 5/0
 Pass rush: sacks J.Brooks 1, Z.Anderson 1, K.Cooper 1; QB hits C.Robinson 1, K.Cooper 1, J.Brooks 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Jacob Rodriguez (LB) @6:02 "DEFLECTED.                       IN THE AIR AND ITS PICKED. TAKEN BY RODRIGUEZ.              AND THAT WAS THE TURNING POINT PLAY THAT JEFF HAFLEY FROM HIS   DEFENSE." [coverage word: DEFLECTED]; Zayne Anderson (S) @7:11 "-- INTERCEPTED.                  SECOND TAKEAWAY FOR MIAMI. IT'S ZAYNE ANDERSON.             SO ALLEN AGAIN TRYING TO MAKE TRADER HAS HIS SECOND CAREER     PICK." [coverage word: INTERCEPTED]; Jordyn Brooks (LB) @10:57 "THEY RING HIM UP FOR 38.         ADAM: THIS IS ONE OF THE FEW BUT THE THREAT BRINGS BROOKS OUT OF THE COVERAGE AND THAT OPENS UP THAT HOLE.                    SPERO: SHAKIR ONE OF THE FASTEST" [coverage word: COVERAGE]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### MIA season coverage rates (public, season-level; NOT game-level)
@@ -575,14 +578,16 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Kaleb Elarms-Orr | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Dulcich 1 |  |
 | Dee Alford | CB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | M.Washington 2 |  |
 | Deone Walker | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | M.Washington 1 |  |
+| Damar Hamlin | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | C.Bell 1 |  |
+| Michael Hoecht | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.Bell 1 |  |
 | Tre'Davious White | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | K.Coleman 1 |  |
 | Shaq Thompson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.Douglas 1 |  |
 | Ed Oliver | DT | 1 | 1 | -3 | 0 | 0 | 0 | 0 | tackler x1 | O.Gordon 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 7/21 for 85 yds, 0 TD; TE 2/7 for 12 yds, 0 TD; RB 3/4 for 5 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 7/22 for 85 yds, 0 TD; TE 2/7 for 12 yds, 0 TD; RB 3/4 for 5 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks G.Rousseau 2; QB hits L.Jackson 1, B.Chubb 2, A.Hooker 1, J.Solomon 1, D.Carter 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Kaleb Elarms-Orr (LB) @5:51 "AND THEY'RE GOING TO BE WELL     SHORT OF THE FIRST DOWN MARKER. EVERYONE COVERED DOWN THE FIELD. ELARMS-ORR. IS THERE TO MAKE THE OPEN FIELD  TACKLE FOR THE BILLS." [coverage word: COVERED]; Maxwell Hairston (CB) @8:38 "DOES A LITTLE PIROUETTE AND      SLINGS ONE TO THE END ZONE AND IT'S BATTED DOWN.                MAXWELL HAIRSTON WAS THERE FOR THE BILLS.                       SPOT START." [coverage word: ZONE]; Amani Hooker (S) @9:58 "OF NICE PLAYS, BLITZING AND IN   THE RUN GAME EARLIER THIS GAME. BUT HOOKER ALLOWS THIS SECONDARY TO REALLY COME TOGETHER. SPERO: MCCOY TRYING TO THREAD    THE NEEDLE." [coverage word: BLITZING]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### BUF season coverage rates (public, season-level; NOT game-level)
@@ -667,7 +672,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Upton Stout | CB | 2 | 2 | 42 | 0 | 0 | 0 | 0 | tackler x2 | T.Hockenson 1, M.Price 1 | T.Hockenson 20 short_right Q1; M.Price 22 deep_right Q4 |
 | Garret Wallow | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | T.Hockenson 2, D.Dallas 1 |  |
 | Malik Mustapha | S | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | J.Jennings 1, T.Felton 2 |  |
-| Ji'Ayir Brown | S | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | A.Jones 1, T.Hockenson 1 |  |
+| Ji'Ayir Brown | S | 3 | 2 | 16 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x2 | A.Jones 1, T.Hockenson 1, T.Felton 1 |  |
 | Ephesians Prysock | CB | 2 | 2 | 15 | 0 | 0 | 0 | 0 | tackler x2 | T.Felton 1, J.Jefferson 1 |  |
 | Fred Warner | LB | 2 | 1 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Felton 2 |  |
 | Siran Neal | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | J.Jones 1 |  |
@@ -676,7 +681,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Marques Sigle | S | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.Felton 1 |  |
 | DeForest Buckner | DT | 1 | 1 | -1 | 0 | 0 | 0 | 0 | tackler x1 | J.Mason 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 19/29 for 182 yds, 0 TD; TE 7/10 for 60 yds, 0 TD; RB 3/3 for 22 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 19/30 for 182 yds, 0 TD; TE 7/10 for 60 yds, 0 TD; RB 3/3 for 22 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/1
 Pass rush: sacks O.Odighizuwa (half) 1, D.Buckner (half) 1; QB hits O.Odighizuwa 1, N.Bosa 2, M.Williams 1, C.West 1
 Video (highlight transcript) mentions: Deommodore Lenoir (CB) @4:12 ">> Cris: I THINK COUSINS IS ANNOYED A LITTLE BIT, TOO. IN FOR THE TOUCHDOWN. HE DROVE LENOIR INTO THE END ZONE. >> Cris: THE OUTSIDE ZONE COMING" [coverage word: ZONE]; Deommodore Lenoir (CB) @4:08 "CUTS IT BACK AND LOST THE BALL. IT'S PICKED UP BY DEOMMODORE LENOIR. HE'S COMING BACK THE OTHER WAY. TILLMAN. HE'S THE NEW GUY THAT PUNCHES" [coverage word: PICKED]
@@ -716,11 +721,13 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Kool-Aid McKinstry | CB | 5 | 4 | 31 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x4 | D.Swift 1, R.Odunze 2, K.Raymond 1, Z.Thomas 1 |  |
 | Jordan Howden | S | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Raymond 1, R.Odunze 1 |  |
 | Anfernee Jennings | LB | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | C.Loveland 1 |  |
+| Danny Stutsman | LB | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | L.Burden 1 |  |
+| Carl Granderson | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | L.Burden 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 9/13 for 125 yds, 0 TD; TE 4/4 for 48 yds, 1 TD; RB 2/3 for 8 yds, 1 TD
+Yards allowed by target position (WR slot/outside unknown): WR 9/14 for 125 yds, 0 TD; TE 4/4 for 48 yds, 1 TD; RB 2/3 for 8 yds, 1 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks C.Young 1, C.Wooden 1, J.Sanker 1, J.Ridgeway 1; QB hits A.Jennings 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Danny Stutsman (LB) @6:19 "THAT'LL BE A BIG ASK.            LOOK AT THE THROW. IT'S INTERCEPTED BY STUTSMAN,    THE LINEBACKER. AND THE SAINTS HAVE THEIR FIRST  TURNOVER OF THE DAY." [coverage word: INTERCEPTED]; Danny Stutsman (LB) @6:26 "AND THE SAINTS HAVE THEIR FIRST  TURNOVER OF THE DAY. AND FOR DANNY STUTSMAN, HIS      FIRST CAREER INTERCEPTION. HERE IS SHOUGH.                  OVER THE MIDDLE." [coverage word: INTERCEPTION]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### NO season coverage rates (public, season-level; NOT game-level)
@@ -759,12 +766,13 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | N.Sewell (name unresolved) | unknown | 1 | 1 | 24 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 | C.Olave 24 deep_left Q2 |
 | T.Stevenson (name unresolved) | unknown | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Tyson 1, C.Olave 2, C.Donaldson 1 |  |
 | C.Phillips (name unresolved) | unknown | 3 | 2 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | C.Donaldson 1, J.Tyson 1, N.Fant 1 |  |
+| Dillon Thieneman | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | C.Olave 1 |  |
 | Austin Booker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | J.Johnson 1, T.Etienne 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 17/24 for 184 yds, 0 TD; TE 3/6 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 17/25 for 184 yds, 0 TD; TE 3/6 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks J.Simmons 3, C.Lewis 1, M.Sweat 1, C.Phillips 1; QB hits A.Booker 1, N.Gallimore 1, M.Sweat 2
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Austin Booker (DE) @2:51 "AND THE BEARS WILL TAKE OVER.    CLARK KNOCKED IT AWAY. AUSTIN BOOKER PICKED IT UP, AND  CHICAGO GETS IT. >> Tom: YEAH, MAYBE INCOMPLETE.  I KNOW THIS IS REGULAR SPEED" [coverage word: PICKED]; Montez Sweat (DE) @4:07 "SEASON AND MADE AN IMPACT LAST   WEEK. >> Kevin: THE PLAY FAKE, HERE    COMES SWEAT ON HIS FACE. INTERCEPTED.                     IT IS DILLON THIENEMAN, THE" [coverage word: INTERCEPTED]; Dillon Thieneman (S) @4:12 ">> Kevin: THE PLAY FAKE, HERE    COMES SWEAT ON HIS FACE. INTERCEPTED.                     IT IS DILLON THIENEMAN, THE ROOKIE, AND THE BEARS DEFENSE,   THEY HAVE THEIR SECOND TURNOVER" [coverage word: INTERCEPTED]; Montez Sweat (DE) @10:15 "TROUBLE N THE END ZONE, AND      IT'S A SAFETY. BEARS GET HOME WITH MONTEZ       SWEAT! JOHNSON WHO WANTS TO SEE WHAT'S  THE REST OF THE SEASON GOING TO" [coverage word: ZONE]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### CHI season coverage rates (public, season-level; NOT game-level)
@@ -797,7 +805,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Minkah Fitzpatrick | S | 2 | 2 | 35 | 0 | 0 | 0 | 0 | tackler x2 | D.Njoku 1, T.Harris 1 | T.Harris 22 short_right Q4 |
-| Jamien Sherwood | LB | 3 | 2 | 17 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Q.Johnston 1, L.McConkey 2 |  |
+| Jamien Sherwood | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | Q.Johnston 1, L.McConkey 2 |  |
 | Kingsley Enagbare | LB | 1 | 1 | 15 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
 | Demario Davis | LB | 2 | 2 | 14 | 0 | 0 | 0 | 0 | tackler x2 | C.Kolar 1, T.Harris 1 |  |
 | Brandon Stephens | CB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | O.Hampton 1, D.Njoku 1 |  |
@@ -805,7 +813,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | D'Angelo Ponds | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
 | David Bailey | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | L.McConkey 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 6/10 for 60 yds, 1 TD; TE 3/4 for 29 yds, 0 TD; RB 4/4 for 28 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 7/10 for 68 yds, 1 TD; TE 3/4 for 29 yds, 0 TD; RB 4/4 for 28 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks D.Bailey 2, H.Phillips 1, J.Briggs 1, J.Heflin (half) 1, D.Jackson (half) 1, J.Sherwood 1, J.Briggs (half) 1, M.Fitzpatrick (half) 1; QB hits D.Bailey 1
 Video (highlight transcript) mentions: Minkah Fitzpatrick (S) @7:50 "AND IT IS HAMPTON ALONG THE EDGE WITH THE BEST L.A. RUN OF THE DAY. FITZPATRICK THE TACKLE DOWN IN THE RED ZONE. >> Drew: YEAH." [coverage word: ZONE]

@@ -218,7 +218,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Upton Stout | CB | 2 | 2 | 42 | 0 | 0 | 0 | 0 | tackler x2 | T.Hockenson 1, M.Price 1 | T.Hockenson 20 short_right Q1; M.Price 22 deep_right Q4 |
 | Garret Wallow | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | T.Hockenson 2, D.Dallas 1 |  |
 | Malik Mustapha | S | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | J.Jennings 1, T.Felton 2 |  |
-| Ji'Ayir Brown | S | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | A.Jones 1, T.Hockenson 1 |  |
+| Ji'Ayir Brown | S | 3 | 2 | 16 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x2 | A.Jones 1, T.Hockenson 1, T.Felton 1 |  |
 | Ephesians Prysock | CB | 2 | 2 | 15 | 0 | 0 | 0 | 0 | tackler x2 | T.Felton 1, J.Jefferson 1 |  |
 | Fred Warner | LB | 2 | 1 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Felton 2 |  |
 | Siran Neal | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | J.Jones 1 |  |
@@ -227,7 +227,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Marques Sigle | S | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.Felton 1 |  |
 | DeForest Buckner | DT | 1 | 1 | -1 | 0 | 0 | 0 | 0 | tackler x1 | J.Mason 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 19/29 for 182 yds, 0 TD; TE 7/10 for 60 yds, 0 TD; RB 3/3 for 22 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 19/30 for 182 yds, 0 TD; TE 7/10 for 60 yds, 0 TD; RB 3/3 for 22 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/1
 Pass rush: sacks O.Odighizuwa (half) 1, D.Buckner (half) 1; QB hits O.Odighizuwa 1, N.Bosa 2, M.Williams 1, C.West 1
 Video (highlight transcript) mentions: Deommodore Lenoir (CB) @4:12 ">> Cris: I THINK COUSINS IS ANNOYED A LITTLE BIT, TOO. IN FOR THE TOUCHDOWN. HE DROVE LENOIR INTO THE END ZONE. >> Cris: THE OUTSIDE ZONE COMING" [coverage word: ZONE]; Deommodore Lenoir (CB) @4:08 "CUTS IT BACK AND LOST THE BALL. IT'S PICKED UP BY DEOMMODORE LENOIR. HE'S COMING BACK THE OTHER WAY. TILLMAN. HE'S THE NEW GUY THAT PUNCHES" [coverage word: PICKED]

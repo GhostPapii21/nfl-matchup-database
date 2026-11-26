@@ -180,7 +180,7 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | LV | J.Chinn | 1 | 1 | 36 | 0 | 0 | 0 | 0 | M.Mims 1 | M.Mims 36 deep_left Q2 |
 | LV | T.Johnson | 3 | 3 | 32 | 0 | 0 | 0 | 0 | P.Bryant 3 | P.Bryant 20 deep_left Q1 |
 | LV | J.McCoy | 4 | 3 | 32 | 0 | 1 | 0 | 0 | J.Waddle 2, E.Engram 2 |  |
-| DEN | J.McMillian | 3 | 3 | 28 | 0 | 0 | 0 | 0 | A.Jeanty 1, M.Mayer 1, J.Bech 1 |  |
+| DEN | J.McMillian | 4 | 3 | 28 | 0 | 0 | 1 | 0 | A.Jeanty 1, M.Mayer 1, T.Tucker 1, J.Bech 1 |  |
 | LV | Q.Walker | 4 | 4 | 23 | 0 | 0 | 0 | 0 | J.Coleman 2, N.Adkins 1, E.Engram 1 |  |
 | DEN | J.Strnad | 3 | 3 | 22 | 0 | 0 | 0 | 0 | J.Bech 2, A.Jeanty 1 |  |
 | DEN | R.Moss | 2 | 2 | 21 | 0 | 0 | 0 | 0 | J.Bech 2 |  |
@@ -191,10 +191,11 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | DEN | A.Singleton | 2 | 1 | 5 | 0 | 1 | 0 | 0 | M.Mayer 1, J.Bech 1 |  |
 | DEN | J.Cooper | 2 | 1 | 4 | 0 | 1 | 0 | 0 | A.Jeanty 1, M.Mayer 1 |  |
 | LV | M.Crosby | 2 | 0 | 0 | 0 | 2 | 0 | 0 | C.Sutton 1, M.Mims 1 |  |
+| LV | I.Pola-Mao | 1 | 0 | 0 | 0 | 0 | 1 | 0 | no intended receiver 1 |  |
 | DEN | Z.Allen | 3 | 0 | 0 | 0 | 3 | 0 | 0 | T.Tucker 1, J.Bech 1, A.Jeanty 1 |  |
 | DEN | D.Jones | 1 | 0 | 0 | 0 | 1 | 0 | 0 | A.Jeanty 1 |  |
 
-Assignment evidence count: 12 VERIFIED (PBU/INT/DPI-named), 33 tackler-not-coverage (inferred), 25 unattributed.
+Assignment evidence count: 14 VERIFIED (PBU/INT/DPI-named), 33 tackler-not-coverage (inferred), 25 unattributed.
 Most yards charged to a LV defender (tackler tag, not coverage; inferred): E.Stokes 3 rec / 43 yds.
 Most VERIFIED-PBU/INT/DPI credits on a LV defender (the only coverage counts): M.Crosby PBU 2, INT 0, DPI 0.
 Most yards charged to a DEN defender (tackler tag, not coverage; inferred): D.Key 2 rec / 47 yds.
@@ -233,6 +234,7 @@ LV Offensive Holding x2, LV Defensive Holding x1, LV Defensive Pass Interference
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `outdoors`): Partly Cloudy Temp: 44° F, Humidity: 47%, Wind: N 9 mph
 Venue: Empower Field at Mile High (Denver), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T21:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 44.3, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 6.4, "wind_gusts_10m": 7.4}
 
@@ -321,11 +323,11 @@ LV defense by depth/location (proxy, not alignment): short_left 7/8 80y; deep_le
 **DEN defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 24 | 12 | 164 | 2 | 6.8 |
+| WR | 25 | 12 | 164 | 2 | 6.6 |
 | RB | 8 | 5 | 90 | 1 | 11.2 |
 | TE | 5 | 2 | 23 | 1 | 4.6 |
 
-DEN defense by depth/location (proxy, not alignment): short_right 11/15 113y; deep_right 2/4 87y; deep_left 1/2 39y; short_left 3/6 24y; short_middle 2/8 14y; deep_middle 0/2 0y
+DEN defense by depth/location (proxy, not alignment): short_right 11/15 113y; deep_right 2/4 87y; deep_left 1/2 39y; short_left 3/7 24y; short_middle 2/8 14y; deep_middle 0/2 0y
 
 
 ## Extras (src: ESPN summary JSON event 401873075, pulled 2026-11-22 09:36 PM AST; derived where noted)
@@ -336,11 +338,11 @@ DEN defense by depth/location (proxy, not alignment): short_right 11/15 113y; de
 | Sack rate (sacks / dropbacks) | 11.6% (5/43) | 2.8% (1/36) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 9.3% (4/43) | 5.6% (2/36) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 148 air / 129 YAC on 19 comps | 132 air / 93 YAC on 19 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 192.0 air yds on 18 incompletions (total intended 331.0, aDOT 8.95 on 37 att; nflverse pbp) | 197.0 air yds on 15 incompletions (total intended 375.0, aDOT 10.71 on 35 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 4 / 0 | 2 / 1 |
 | Penalties-yds | 9-63 | 2-10 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 21 | 10 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -350,6 +352,50 @@ DEN defense by depth/location (proxy, not alignment): short_right 11/15 113y; de
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Partly Cloudy Temp: 44° F, Humidity: 47%, Wind: N 9 mph (roof: outdoors).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| LV | 37 | 331.0 | 8.95 | 18 | 192.0 | 1 |
+| DEN | 35 | 375.0 | 10.71 | 15 | 197.0 | 1 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| LV | T.Tucker | 10 | 166 | 50% | 16.6 |
+| LV | J.Bech | 9 | 72 | 22% | 8.0 |
+| LV | A.Jeanty | 8 | -6 | -2% | -0.8 |
+| LV | J.Nailor | 5 | 59 | 18% | 11.8 |
+| LV | M.Mayer | 4 | 27 | 8% | 6.8 |
+| LV | I.Thomas | 1 | 13 | 4% | 13.0 |
+| DEN | E.Engram | 8 | 79 | 24% | 9.9 |
+| DEN | J.Waddle | 6 | 113 | 35% | 18.8 |
+| DEN | J.Coleman | 5 | -8 | -2% | -1.6 |
+| DEN | P.Bryant | 4 | 28 | 9% | 7.0 |
+| DEN | C.Sutton | 2 | 17 | 5% | 8.5 |
+| DEN | M.Mims | 2 | 30 | 9% | 15.0 |
+| DEN | N.Adkins | 2 | 6 | 2% | 3.0 |
+| DEN | T.Franklin | 2 | 58 | 18% | 29.0 |
+| DEN | A.Trautman | 1 | 1 | 0% | 1.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 13; nflverse plays with a named pass defender or interceptor 13; matched 13; nflverse-only 0; ESPN-only 0. DPI rows (1) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_LV_DEN rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_LV_DEN rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

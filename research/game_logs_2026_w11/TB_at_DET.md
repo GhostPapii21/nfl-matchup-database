@@ -219,6 +219,7 @@ TB False Start x2, DET False Start x2, TB Unnecessary Roughness x2, DET Defensiv
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `dome`): n/a: indoor (dome); NFL feed has no weather string
 Venue: Ford Field (Detroit), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 60.4, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 6.6, "wind_gusts_10m": 14.8}
 
@@ -319,11 +320,11 @@ DET defense by depth/location (proxy, not alignment): short_right 8/12 80y; shor
 | Sack rate (sacks / dropbacks) | 11.4% (4/35) | 3.4% (1/29) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 5.7% (2/35) | 17.2% (5/29) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 100 air / 88 YAC on 20 comps | 159 air / 120 YAC on 20 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 119.0 air yds on 12 incompletions (total intended 214.0, aDOT 6.69 on 32 att; nflverse pbp) | 58.0 air yds on 8 incompletions (total intended 218.0, aDOT 7.79 on 28 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 3 / 1 | 1 / 1 |
 | Penalties-yds | 8-58 | 8-72 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 11 | 8 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -333,6 +334,51 @@ DET defense by depth/location (proxy, not alignment): short_right 8/12 80y; shor
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** n/a: indoor (dome); NFL feed has no weather string (roof: dome).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| TB | 32 | 214.0 | 6.69 | 12 | 119.0 | 0 |
+| DET | 28 | 218.0 | 7.79 | 8 | 58.0 | 0 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| TB | T.Hurst | 7 | 60 | 29% | 8.6 |
+| TB | E.Egbuka | 5 | 71 | 35% | 14.2 |
+| TB | K.Gainwell | 5 | 12 | 6% | 2.4 |
+| TB | B.Irving | 4 | 18 | 9% | 4.5 |
+| TB | C.Godwin | 3 | -4 | -2% | -1.3 |
+| TB | C.Otton | 3 | 48 | 23% | 16.0 |
+| TB | T.Johnson | 3 | 2 | 1% | 0.7 |
+| TB | B.Sharp | 1 | -2 | -1% | -2.0 |
+| DET | A.St. Brown | 6 | 32 | 15% | 5.3 |
+| DET | S.LaPorta | 6 | 73 | 34% | 12.2 |
+| DET | J.Gibbs | 5 | -6 | -3% | -1.2 |
+| DET | J.Williams | 4 | 62 | 28% | 15.5 |
+| DET | I.TeSlaa | 3 | 14 | 6% | 4.7 |
+| DET | B.Wright | 2 | 23 | 11% | 11.5 |
+| DET | S.Vaki | 1 | 5 | 2% | 5.0 |
+| DET | T.Conklin | 1 | 15 | 7% | 15.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 10; nflverse plays with a named pass defender or interceptor 10; matched 10; nflverse-only 0; ESPN-only 0. DPI rows (2) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_TB_DET rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_TB_DET rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

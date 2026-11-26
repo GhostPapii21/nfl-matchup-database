@@ -13,7 +13,7 @@ for vid, game in MAP.items():
     fn = f'{OUT}/video/{vid}.json'
     if not os.path.exists(fn): continue
     x = json.load(open(fn)); away, home = game.split('@')
-    md += [f'## {game}: {x["title"]}', f'URL https://www.youtube.com/watch?v={vid} | track: {x.get("track_name")} | retrieved via Firecrawl youtube-com/video_transcript', '']
+    md += [f'## {game}: {x["title"]}', f'URL https://www.youtube.com/watch?v={vid} | track: {x.get("track_name")} | retrieved via {x.get("retrieved_via", "Firecrawl youtube-com/video_transcript")}', '']
     segs = x.get('segments', [])
     allln = {}
     for tm in (away, home):

@@ -10,11 +10,12 @@ NEUTRAL = {'Estadio Banorte': (19.3029, -99.1505), 'Estadio Azteca': (19.3029, -
 AN_BOOKS = {15: 'consensus', 30: 'open', 68: 'DraftKings', 69: 'FanDuel', 75: 'BetMGM', 71: 'BetRivers', 79: 'bet365'}
 UA = {'User-Agent': 'Mozilla/5.0'}
 def get(url, path):
+    if os.environ.get('OFFLINE') and os.path.exists(path): return json.load(open(path))  # Monday rebuild from cached raw pulls
     req = urllib.request.Request(url, headers=UA)
     data = urllib.request.urlopen(req, timeout=30).read()
     open(path, 'wb').write(data); return json.loads(data)
 now = datetime.datetime.now()
-NOWS = now.strftime('%Y-%m-%d %I:%M %p AST')
+NOWS = os.environ.get('PULLED_AS') or now.strftime('%Y-%m-%d %I:%M %p AST')  # OFFLINE rebuild keeps the original pull time of the cached raw
 sb = get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?seasontype=2&week=11&dates=2026', f'{RAW}/scoreboard.json')
 an = get('https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=15,30,68,69,71,75,79&date=20261122&periods=event', f'{RAW}/an_v2.json')
 an2 = get('https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=15,30,68,69,71,75,79&date=20261123&periods=event', f'{RAW}/an_v2_1123.json')
@@ -49,16 +50,25 @@ def tacklers(text):
     return [x.strip() for x in re.split(r'[;,]', m.group(1)) if x.strip() and 'Shotgun' not in x and 'Huddle' not in x and not re.match(r'Timeout #', x.strip())]
 
 def parse_pass(text):
+    if 'REVERSED.' in text: text = text.split('REVERSED.', 1)[1]  # 2026-11-23 fix: replay reversal -> grade the final ruling only
     t = re.sub(r'^\s*\([^)]*\)\s*', '', text)
-    m = re.search(r'(\S+) pass (incomplete )?(short|deep)? ?(left|middle|right)? ?to ([A-Z][\w\.\'\-]+(?: [A-Z][\w\.\'\-]+)?)', t)
-    if not m: return None
+    m = re.search(r'(\S+) pass (incomplete )?(short|deep)? ?(left|middle|right)? ?(?:to|intended for) ([A-Z][\w\.\'\-]+(?: [A-Z][\w\.\'\-]+)?)', t)
+    if not m:  # 2026-11-23 fix: interceptions with no intended receiver ("pass deep middle INTERCEPTED by X")
+        m2 = re.search(r'(\S+) pass (short|deep)? ?(left|middle|right)? ?INTERCEPTED by ([A-Z][\w\.\'\-]+)', t)
+        if not m2: return None
+        rest = t[m2.end():]
+        cm = re.match(r'\s*\(([^)]*)\)', rest)
+        return {'qb': m2.group(1), 'inc': False, 'depth': m2.group(2) or '?', 'dir': m2.group(3) or '?', 'target': 'no intended receiver', 'yds': None, 'td': False,
+                'int_by': m2.group(4).rstrip('.,'), 'int_assist': [x.strip() for x in re.split(r'[;,]', cm.group(1)) if x.strip()] if cm else [], 'pbu': None, 'tack': [], 'qb_hit': re.findall(r'\[([^\]]+)\]', rest)}
     tgt = re.split(r'\.(?=[A-Z]{2,})', m.group(5))[0]
     tgt = ' '.join(w for w in tgt.split() if not re.fullmatch(r'[A-Z]{2,}\.?', w))
     d = {'qb': m.group(1), 'inc': bool(m.group(2)), 'depth': m.group(3) or '?', 'dir': m.group(4) or '?', 'target': tgt.rstrip('.,')}
     rest = t[m.end():]
     ym = re.search(r'for (-?\d+) yards?', rest); d['yds'] = int(ym.group(1)) if ym else (0 if 'no gain' in rest else None)
     d['td'] = 'TOUCHDOWN' in rest
-    im = re.search(r'INTERCEPTED by ([A-Z][\w\.\'\-]+)', rest); d['int_by'] = im.group(1) if im else None
+    im = re.search(r'INTERCEPTED by ([A-Z][\w\.\'\-]+?)\.?(?=[\s\[(]|$)\s*(?:\(([^)]*)\))?', t); d['int_by'] = im.group(1) if im else None
+    d['int_assist'] = [x.strip() for x in re.split(r'[;,]', im.group(2)) if x.strip()] if im and im.group(2) else []
+    if im: d['yds'] = None  # 'for N yards' after an INT is the return, not a reception
     d['pbu'] = None; d['tack'] = []
     if d['inc']:
         pm = re.match(r'\s*\(([^)]*)\)', rest)
@@ -280,7 +290,7 @@ def build(ev):
             if not pp: continue
             if pp['yds'] is not None and pp['yds'] >= 20 and not pp['inc']: explos.append((p['period']['number'], p['clock']['displayValue'], off, 'pass', pp['target'], pp['yds'], ', '.join(pp['tack']) or '(no tackler named)'))
             ev2 = None
-            if pp['int_by']: who, lab = [pp['int_by']], 'VERIFIED-PBU/INT (INT)'
+            if pp['int_by']: who, lab = [pp['int_by']] + [x for x in pp.get('int_assist', []) if x != pp['int_by']], 'VERIFIED-PBU/INT (INT)'  # assist = defender named in () on the INT (NFL feed PD credit)
             elif pp['inc'] and pp['pbu']: who, lab = pp['pbu'], 'VERIFIED-PBU/INT (PBU)'
             elif not pp['inc'] and pp['tack']: who, lab = pp['tack'][:1], 'tackler, not coverage'
             elif not pp['inc']: who, lab = [], 'unattributed (TD/out of bounds, no defender named)'
@@ -291,7 +301,7 @@ def build(ev):
                     a['rec'] += 1; a['yds'] += pp['yds'] or 0; a['td'] += int(pp['td'])
                     if (pp['yds'] or 0) >= 20: a['big'].append(f"{pp['target']} {pp['yds']} {pp['depth']}_{pp['dir']} Q{p['period']['number']}")
                 if pp['inc']: a['pbu'] += 1
-                if pp['int_by']: a['int'] += 1
+                if pp['int_by']: a['int' if w == pp['int_by'] else 'pbu'] += 1
             dlog.append({'q': p['period']['number'], 'clock': p['clock']['displayValue'], 'off': off, 'def': de, 'qb': pp['qb'], 'target': pp['target'], 'depth': pp['depth'], 'dir': pp['dir'],
                          'result': 'INT' if pp['int_by'] else 'INC' if pp['inc'] else 'TD' if pp['td'] else 'C', 'yds': pp['yds'], 'defender': '; '.join(who), 'evidence': lab, 'text': txt})
             if dpi:
