@@ -66,7 +66,7 @@ def test_repo_report_is_honest_and_report_only():
 
 
 def test_evidence_boundary_excludes_open_draft_prs():
-    """Holdout is only SCORED snapshot LOCKs; draft #131 has no snapshots/2026_12_GB_LA and is not game 15."""
+    """Holdout is only SCORED snapshot LOCKs; W12 packets/freezes and #131 do not raise the count."""
     r = R.evaluate()
     eb = r["evidence_boundary"]
     assert eb["open_draft_prs_do_not_count"] is True
@@ -74,8 +74,10 @@ def test_evidence_boundary_excludes_open_draft_prs():
     assert eb["pristine_weeks_scored"] == ["10", "11"]
     assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
     assert "LOCK.json" in eb["pristine_requires"]
-    assert not (Path(R.ROOT) / "snapshots" / "2026_12_GB_LA").exists()
+    snaps = Path(R.ROOT) / "snapshots"
+    assert not (snaps / "2026_12_GB_LA").exists()
+    assert not any(p.is_dir() and p.name.startswith("2026_12_") for p in snaps.iterdir())
+    assert len(list((Path(R.ROOT) / "pregame" / "packets").glob("2026_12_*"))) == 16
     md = R.render(r)
-    assert "Evidence boundary" in md and "PR #131" in md
-    assert "not game 15" in md
-    assert "14" in md and "fail-closed" in md.lower()
+    assert "Evidence boundary" in md and "14+15=29" in md
+    assert "Week 13" in md and "fail-closed" in md.lower()

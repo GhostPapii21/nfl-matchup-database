@@ -11,7 +11,7 @@
 | NFL-49 P1 freshness/quotes | PASS | NFL-49 Done | quotes=FREE_FEED_ACCEPTED |
 | NFL-49 P2 accounting | PASS | NFL-42/43 Done | entrypoint_enforced; NFL-43 bounds ACCEPTED |
 | NFL-49 P3 calibration | FAIL | NFL-45 Done on Linear; claim still false | no fitted calibration; no market meets Rico's rule |
-| NFL-49 P4 e2e / holdout | FAIL | NFL-7 In Progress; PR #119 draft | 14 scored / weeks 10–11; need 30 / 3; Week 12 ends Nov 30 |
+| NFL-49 P4 e2e / holdout | FAIL | NFL-7 In Progress; PR #119 draft | 14 scored / weeks 10–11; 0 W12 snapshot LOCKs; even 14+15 remaining W12 = 29 (need W13); GB@LAR post-kickoff cannot be locked |
 | pristine_protocol_complete | false | NFL-44 In Progress | aggregation rules now in protocol; Ghost6 verify pending |
 | production_validated | false | NFL-7 | calendar-bound through Week 12 MNF |
 | PFF | NOT_READY_NO_DUPLICATE | NFL-47/48 | needs access or Rico waiver |

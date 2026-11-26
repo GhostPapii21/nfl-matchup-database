@@ -212,13 +212,15 @@ def evidence_boundary(root: Path = ROOT) -> dict:
         "pristine_requires": "snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol "
                              "(pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)",
         "note": ("Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json "
-                 "(discovered via snapshots/*/*/LOCK.json). Open draft research/grade PRs do not count. "
-                 "PR #131 (W12 GB@LAR) has price freezes and grading packets but is NOT a pristine evaluation lock: "
-                 "there is no snapshots/2026_12_GB_LA directory, so it cannot be game 15. Pregame packets and "
-                 "price-freeze directories are useful inputs, not substitutes for LOCK.json. Week 12 games count "
-                 "only after valid snapshot locks are created and scored under the freeze. Research/grade rows "
-                 "without matched closing prices are not player-prop calibration evidence. All readiness flags "
-                 "stay fail-closed."),
+                 "(discovered via snapshots/*/*/LOCK.json). Main has snapshot dirs for Weeks 10–11 only "
+                 "(14 scored); no Week 12 snapshot dirs. The 16 Week 12 pregame packets are "
+                 "RESEARCH_ONLY_NOT_BETTING_ADVICE with projection_ready=false; matching price-freeze "
+                 "dirs exist, but freezes alone cannot increase pristine coverage. PR #131 (GB@LAR) is "
+                 "not a pristine lock and cannot be added retroactively after kickoff. The other 15 "
+                 "Week 12 games need final inactives/quote freshness plus a valid pre-kickoff 100k "
+                 "LOCK (code_dirty=false, asof PASS). Even if all 15 qualify: 14+15=29 — still below "
+                 "min_coverage 30 games / 3 weeks, so at least one eligible Week 13 lock is also "
+                 "required. All readiness flags stay fail-closed."),
     }
 
 
@@ -249,7 +251,8 @@ def render(r: dict) -> str:
               f"- Stamp: `{r['evaluated_utc']}` UTC. Counts only committed files on this tree.",
               f"- Pristine holdout cited: **{eb.get('pristine_games_scored')}** scored games, weeks "
               f"**{eb.get('pristine_weeks_scored')}** (`evaluation/EVALUATION.json`).",
-              f"- Open draft PRs do **not** count. PR #131 is research/grade only (no `snapshots/2026_12_GB_LA` LOCK) — not game 15.",
+              f"- Open drafts / price freezes do **not** count. No Week 12 `snapshots/` dirs; PR #131 is not a LOCK and cannot be added post-kickoff.",
+              f"- Ceiling if all 15 remaining W12 games lock: **14+15=29** (still need ≥1 Week 13 game for min 30 / 3 weeks).",
               f"- Pristine requires: `{eb.get('pristine_requires')}`.",
               f"- {eb.get('note')}", ""]
     L += [f"## NFL-49: {yn(r['nfl49_pass'])}", "", "| Pillar | Result | Evidence / blockers |", "| --- | --- | --- |"]

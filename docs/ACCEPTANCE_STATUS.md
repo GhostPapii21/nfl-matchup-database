@@ -33,10 +33,11 @@ Source: PR #21 backtest as quoted in NFL-75. Known causes under investigation: p
 
 ## Evidence boundary (holdout / drafts)
 
-- Readiness counts only committed `evaluation/EVALUATION.json` on the tree that produced the report stamp (SCORED locks under `snapshots/*/*/LOCK.json`).
-- Current holdout: **14** pristine scored games, weeks **10–11**. Main has snapshot dirs only for Weeks 10–11; there is **no** `snapshots/2026_12_GB_LA`.
-- [PR #131](https://github.com/GhostPapii21/nfl-matchup-database/pull/131) is a W12 research/grade packet + price freeze. It is **not** a pristine evaluation lock (no LOCK.json under snapshots for that game) and must **not** be counted as game 15. Pregame packets and `pregame/price_freezes/` are inputs, not substitutes for protocol locks.
-- Week 12 games enter holdout coverage only after valid pre-kickoff 100k snapshot locks are created and scored under the freeze. `calibration_fitted_claim` and `projection_ready` stay false.
+- Readiness counts only committed `evaluation/EVALUATION.json` (SCORED locks under `snapshots/*/*/LOCK.json`).
+- Current holdout: **14** pristine scored games, weeks **10–11**. Snapshot dirs exist only for those games; **zero** Week 12 snapshot dirs on main.
+- All **16** `pregame/packets/2026_12_*` are `projection_ready=false` / `RESEARCH_ONLY_NOT_BETTING_ADVICE` (Phase 13 PARTIAL, 14 PARTIAL_RESEARCH_ONLY, 15 PENDING). Matching price-freeze dirs exist; **price freezes alone cannot increase pristine coverage**.
+- [PR #131](https://github.com/GhostPapii21/nfl-matchup-database/pull/131) (GB@LAR) is research/grade only — not a LOCK — and **cannot be added retroactively after kickoff**.
+- The other **15** Week 12 games need final inactives/quote freshness and a valid pre-kickoff 100k LOCK (`code_dirty=false`, as-of PASS). Even if all 15 qualify: **14+15=29**, still below **30 / 3 weeks** — at least one eligible Week 13 game is also required. `calibration_fitted_claim` and `projection_ready` stay false.
 
 ## Earliest dates
 
