@@ -199,28 +199,124 @@ def nfl56_criteria(root: Path = ROOT):
     return [{"criterion": a, "pass": bool(b), "evidence": e, "note": ("" if b and n.startswith("needs") else n)} for a, b, e, n in c]
 
 
-def evidence_boundary(root: Path = ROOT) -> dict:
-    """Stamp what this report may cite. Open draft PRs never count toward pristine holdout coverage."""
+def _snapshot_lock_game_ids(root: Path) -> set[str]:
+    """Game ids that have at least one committed snapshots/<game>/<lock>/LOCK.json."""
+    snaps = root / "snapshots"
+    if not snaps.is_dir():
+        return set()
+    return {p.parent.parent.name for p in snaps.glob("*/*/LOCK.json")}
+
+
+def _packet_kickoff_utc(packet_dir: Path):
+    """Parse pregame packet kickoff (ET wall clock) to UTC; None if unknown."""
+    pj = packet_dir / "packet.json"
+    if not pj.exists():
+        return None
+    try:
+        g = (json.loads(pj.read_text()).get("game") or {})
+    except (json.JSONDecodeError, OSError):
+        return None
+    date, hhmm = g.get("date"), g.get("kickoff_et")
+    if not date or not hhmm:
+        return None
+    try:
+        from zoneinfo import ZoneInfo
+        local = datetime.strptime(f"{date} {hhmm}", "%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("America/New_York"))
+        return local.astimezone(timezone.utc)
+    except Exception:
+        return None
+
+
+def evidence_boundary(root: Path = ROOT, now: datetime | None = None) -> dict:
+    """Live boundary derived from committed EVALUATION.json + snapshot LOCKs + packet dirs.
+
+    Draft PRs and price-freeze directories never count. Arithmetic is recomputed each run so new
+    Week 12/13 LOCKs cannot leave a stale hard-coded coverage ceiling in a regenerated report.
+    """
+    now = now or datetime.now(timezone.utc)
     ev = json.loads((root / "evaluation" / "EVALUATION.json").read_text())
+    proto = json.loads((root / "evaluation" / "PRISTINE_EVALUATION_PROTOCOL.json").read_text())
+    need = proto.get("min_coverage") or {"games_scored": 30, "weeks": 3}
     scored = [g for g in (ev.get("games") or []) if g.get("status") == "SCORED"]
+    scored_ids = [g["game_id"] for g in scored]
+    n_scored = len(scored_ids)
+    weeks_scored = sorted({gid.split("_")[1] for gid in scored_ids if len(gid.split("_")) > 1})
+    lock_ids = _snapshot_lock_game_ids(root)
+    snap_weeks = sorted({gid.split("_")[1] for gid in lock_ids if len(gid.split("_")) > 1})
+
+    pkt_root = root / "pregame" / "packets"
+    w12_packets = sorted(p.name for p in pkt_root.glob("2026_12_*") if p.is_dir()) if pkt_root.is_dir() else []
+    w12_locked = sorted(gid for gid in w12_packets if gid in lock_ids)
+    w12_scored = sorted(gid for gid in scored_ids if gid.startswith("2026_12_"))
+    remaining_eligible, remaining_post_kickoff = [], []
+    for gid in w12_packets:
+        if gid in lock_ids:
+            continue
+        ko = _packet_kickoff_utc(pkt_root / gid)
+        if ko is not None and ko <= now:
+            remaining_post_kickoff.append(gid)
+        else:
+            remaining_eligible.append(gid)
+    ceiling = n_scored + len(remaining_eligible)
+    shortfall = max(0, int(need.get("games_scored", 30)) - ceiling)
+    freeze_dirs = 0
+    fr = root / "pregame" / "price_freezes"
+    if fr.is_dir():
+        freeze_dirs = sum(1 for p in fr.iterdir() if p.is_dir())
+
+    parts = [
+        f"Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json "
+        f"(discovered via snapshots/*/*/LOCK.json): {n_scored} scored, weeks {weeks_scored}.",
+        f"Committed snapshot LOCKs cover weeks {snap_weeks or '[]'} ({len(lock_ids)} game ids).",
+        f"Week 12 pregame packets on this tree: {len(w12_packets)}; with LOCK: {len(w12_locked)}; "
+        f"already scored: {len(w12_scored)}.",
+        "Price-freeze directories and open draft PRs never count toward pristine coverage.",
+    ]
+    if remaining_post_kickoff:
+        parts.append(
+            f"{len(remaining_post_kickoff)} Week 12 packet(s) already past kickoff without a LOCK "
+            f"({', '.join(remaining_post_kickoff)}) — cannot be added retroactively."
+        )
+    if remaining_eligible:
+        parts.append(
+            f"{len(remaining_eligible)} Week 12 packet(s) still pre-kickoff without a LOCK; "
+            f"each still needs final inactives/quote freshness and a valid 100k LOCK. "
+            f"Ceiling if all lock and score: {n_scored}+{len(remaining_eligible)}={ceiling}."
+        )
+    else:
+        parts.append("No remaining pre-kickoff Week 12 packets without a LOCK on this tree.")
+    if shortfall > 0:
+        parts.append(
+            f"Even at that ceiling, shortfall vs min_coverage {need} is {shortfall} game(s) — "
+            f"later-week eligible LOCKs (e.g. Week 13+) are still required."
+        )
+    else:
+        parts.append(f"Ceiling {ceiling} meets games_scored floor {need.get('games_scored')}; week floor still checked separately.")
+    parts.append("All readiness flags stay fail-closed.")
+
     return {
-        "evaluated_from": "committed evaluation/EVALUATION.json + known_flags/KNOWN_LIMITATIONS.json + grading/results on this tree",
-        "pristine_games_scored": ev.get("games_scored"),
-        "pristine_weeks_scored": ev.get("weeks_scored"),
-        "pristine_scored_game_ids": [g["game_id"] for g in scored],
+        "evaluated_from": "committed evaluation/EVALUATION.json + snapshots/*/LOCK.json + pregame/packets on this tree",
+        "derived_live": True,
+        "pristine_games_scored": n_scored,
+        "pristine_weeks_scored": weeks_scored,
+        "pristine_scored_game_ids": scored_ids,
+        "snapshot_lock_game_ids": sorted(lock_ids),
+        "snapshot_lock_weeks": snap_weeks,
+        "w12_packet_count": len(w12_packets),
+        "w12_packet_ids": w12_packets,
+        "w12_with_lock": w12_locked,
+        "w12_scored": w12_scored,
+        "w12_remaining_eligible": remaining_eligible,
+        "w12_remaining_post_kickoff": remaining_post_kickoff,
+        "price_freeze_dir_count": freeze_dirs,
+        "coverage_ceiling_if_remaining_w12_lock": ceiling,
+        "min_coverage": need,
+        "shortfall_vs_min_games_at_ceiling": shortfall,
         "open_draft_prs_do_not_count": True,
+        "price_freezes_do_not_count": True,
         "pristine_requires": "snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol "
                              "(pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)",
-        "note": ("Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json "
-                 "(discovered via snapshots/*/*/LOCK.json). Main has snapshot dirs for Weeks 10–11 only "
-                 "(14 scored); no Week 12 snapshot dirs. The 16 Week 12 pregame packets are "
-                 "RESEARCH_ONLY_NOT_BETTING_ADVICE with projection_ready=false; matching price-freeze "
-                 "dirs exist, but freezes alone cannot increase pristine coverage. PR #131 (GB@LAR) is "
-                 "not a pristine lock and cannot be added retroactively after kickoff. The other 15 "
-                 "Week 12 games need final inactives/quote freshness plus a valid pre-kickoff 100k "
-                 "LOCK (code_dirty=false, asof PASS). Even if all 15 qualify: 14+15=29 — still below "
-                 "min_coverage 30 games / 3 weeks, so at least one eligible Week 13 lock is also "
-                 "required. All readiness flags stay fail-closed."),
+        "note": " ".join(parts),
     }
 
 
@@ -247,12 +343,23 @@ def render(r: dict) -> str:
          f"**{r['projection_ready_flag']}**. May flip: **{r['projection_ready_may_flip']}**. Nothing here changes a flag.", ""]
     eb = r.get("evidence_boundary") or {}
     if eb:
-        L += ["## Evidence boundary", "",
-              f"- Stamp: `{r['evaluated_utc']}` UTC. Counts only committed files on this tree.",
-              f"- Pristine holdout cited: **{eb.get('pristine_games_scored')}** scored games, weeks "
+        rem = eb.get("w12_remaining_eligible") or []
+        post = eb.get("w12_remaining_post_kickoff") or []
+        ceil = eb.get("coverage_ceiling_if_remaining_w12_lock")
+        n = eb.get("pristine_games_scored")
+        L += ["## Evidence boundary (derived live)", "",
+              f"- Stamp: `{r['evaluated_utc']}` UTC. Counts only committed files on this tree (`derived_live={eb.get('derived_live')}`).",
+              f"- Pristine holdout cited: **{n}** scored games, weeks "
               f"**{eb.get('pristine_weeks_scored')}** (`evaluation/EVALUATION.json`).",
-              f"- Open drafts / price freezes do **not** count. No Week 12 `snapshots/` dirs; PR #131 is not a LOCK and cannot be added post-kickoff.",
-              f"- Ceiling if all 15 remaining W12 games lock: **14+15=29** (still need ≥1 Week 13 game for min 30 / 3 weeks).",
+              f"- Snapshot LOCKs on tree: **{len(eb.get('snapshot_lock_game_ids') or [])}** game ids, weeks "
+              f"**{eb.get('snapshot_lock_weeks')}**.",
+              f"- Week 12 packets: **{eb.get('w12_packet_count')}**; with LOCK: **{len(eb.get('w12_with_lock') or [])}**; "
+              f"scored: **{len(eb.get('w12_scored') or [])}**; pre-kickoff without LOCK: **{len(rem)}**; "
+              f"post-kickoff without LOCK (not retroactive): **{len(post)}**.",
+              f"- Open drafts / price freezes do **not** count (`price_freeze_dir_count={eb.get('price_freeze_dir_count')}`).",
+              f"- Ceiling if all remaining pre-kickoff W12 packets lock+score: "
+              f"**{n}+{len(rem)}={ceil}** (shortfall vs min games at ceiling: "
+              f"**{eb.get('shortfall_vs_min_games_at_ceiling')}**; min_coverage={eb.get('min_coverage')}).",
               f"- Pristine requires: `{eb.get('pristine_requires')}`.",
               f"- {eb.get('note')}", ""]
     L += [f"## NFL-49: {yn(r['nfl49_pass'])}", "", "| Pillar | Result | Evidence / blockers |", "| --- | --- | --- |"]

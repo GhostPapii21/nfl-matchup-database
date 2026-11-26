@@ -1,15 +1,17 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-26T09:01:31+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-26T09:45:18+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
-## Evidence boundary
+## Evidence boundary (derived live)
 
-- Stamp: `2026-11-26T09:01:31+00:00` UTC. Counts only committed files on this tree.
+- Stamp: `2026-11-26T09:45:18+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
 - Pristine holdout cited: **14** scored games, weeks **['10', '11']** (`evaluation/EVALUATION.json`).
-- Open drafts / price freezes do **not** count. No Week 12 `snapshots/` dirs; PR #131 is not a LOCK and cannot be added post-kickoff.
-- Ceiling if all 15 remaining W12 games lock: **14+15=29** (still need ≥1 Week 13 game for min 30 / 3 weeks).
+- Snapshot LOCKs on tree: **14** game ids, weeks **['10', '11']**.
+- Week 12 packets: **16**; with LOCK: **0**; scored: **0**; pre-kickoff without LOCK: **15**; post-kickoff without LOCK (not retroactive): **1**.
+- Open drafts / price freezes do **not** count (`price_freeze_dir_count=29`).
+- Ceiling if all remaining pre-kickoff W12 packets lock+score: **14+15=29** (shortfall vs min games at ceiling: **1**; min_coverage={'games_scored': 30, 'weeks': 3}).
 - Pristine requires: `snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol (pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)`.
-- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json). Main has snapshot dirs for Weeks 10–11 only (14 scored); no Week 12 snapshot dirs. The 16 Week 12 pregame packets are RESEARCH_ONLY_NOT_BETTING_ADVICE with projection_ready=false; matching price-freeze dirs exist, but freezes alone cannot increase pristine coverage. PR #131 (GB@LAR) is not a pristine lock and cannot be added retroactively after kickoff. The other 15 Week 12 games need final inactives/quote freshness plus a valid pre-kickoff 100k LOCK (code_dirty=false, asof PASS). Even if all 15 qualify: 14+15=29 — still below min_coverage 30 games / 3 weeks, so at least one eligible Week 13 lock is also required. All readiness flags stay fail-closed.
+- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 14 scored, weeks ['10', '11']. Committed snapshot LOCKs cover weeks ['10', '11'] (14 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 0; already scored: 0. Price-freeze directories and open draft PRs never count toward pristine coverage. 1 Week 12 packet(s) already past kickoff without a LOCK (2026_12_GB_LA) — cannot be added retroactively. 15 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if all lock and score: 14+15=29. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 1 game(s) — later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed.
 
 ## NFL-49: FAIL
 

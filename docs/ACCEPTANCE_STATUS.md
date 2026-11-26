@@ -33,11 +33,10 @@ Source: PR #21 backtest as quoted in NFL-75. Known causes under investigation: p
 
 ## Evidence boundary (holdout / drafts)
 
-- Readiness counts only committed `evaluation/EVALUATION.json` (SCORED locks under `snapshots/*/*/LOCK.json`).
-- Current holdout: **14** pristine scored games, weeks **10–11**. Snapshot dirs exist only for those games; **zero** Week 12 snapshot dirs on main.
-- All **16** `pregame/packets/2026_12_*` are `projection_ready=false` / `RESEARCH_ONLY_NOT_BETTING_ADVICE` (Phase 13 PARTIAL, 14 PARTIAL_RESEARCH_ONLY, 15 PENDING). Matching price-freeze dirs exist; **price freezes alone cannot increase pristine coverage**.
-- [PR #131](https://github.com/GhostPapii21/nfl-matchup-database/pull/131) (GB@LAR) is research/grade only — not a LOCK — and **cannot be added retroactively after kickoff**.
-- The other **15** Week 12 games need final inactives/quote freshness and a valid pre-kickoff 100k LOCK (`code_dirty=false`, as-of PASS). Even if all 15 qualify: **14+15=29**, still below **30 / 3 weeks** — at least one eligible Week 13 game is also required. `calibration_fitted_claim` and `projection_ready` stay false.
+- The readiness report’s **Evidence boundary** section is **derived live** each run from committed `evaluation/EVALUATION.json`, `snapshots/*/*/LOCK.json`, and `pregame/packets/` (see `evaluation.readiness.evidence_boundary`). It is not a hard-coded audit table.
+- Draft PRs and `pregame/price_freezes/` never count.
+- Example as of the latest regenerated report on this branch: 14 scored / weeks 10–11, 0 Week 12 LOCKs, 16 W12 packets, GB@LAR post-kickoff without LOCK (not retroactive). Numbers in a fresh `python -m evaluation.readiness --write` win if they differ.
+- `calibration_fitted_claim` and `projection_ready` stay false.
 
 ## Earliest dates
 
