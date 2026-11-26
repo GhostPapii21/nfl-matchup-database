@@ -41,8 +41,9 @@ Still blocking:
 ## Holdout inventory (unchanged thresholds)
 
 - Unique qualifying scored games: **14** (weeks **10, 11**)
-- Week 12 LOCKs: **0**
-- Ceiling if all 15 remaining W12 lock+score: **29** vs min **30** games / **3** weeks
+- Week 12 **pristine-qualifying** LOCKs: **0**
+- Parallel `snapshots.lock` artifacts on `cursor/w12-pristine-holdout-23b6`: research/NOT_FINAL only — **not** pristine (sim100k G0–G7 did not PASS; see `NON_QUALIFYING_PARALLEL_LOCKS.md`)
+- Ceiling if all 15 remaining W12 eventually qualify+score: **29** vs min **30** games / **3** weeks
 - Shortfall at ceiling: **≥1 game** (Week 13+ still required)
 - `projection_ready`: **false** (must remain false)
 
