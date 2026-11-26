@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-29, 16:25 ET.** Site: Home; roof: not listed; surface: grass. Rest: WAS 6 days, ARI 7 days. Listed QBs: Jayden Daniels (WAS), Gardner Minshew (ARI).
 
-Market (schedule consensus, not a timestamped quote): ARI +7, total 41.5.
+Market (schedule consensus, not a timestamped quote): ARI +6.5, total 41.5.
 
-Generated 2026-11-26T11:33:34+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T14:40:18+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T11:33:32+00:00 UTC. At kickoff: 77 F, wind 5 mph ESE, 0% chance of precipitation, Sunny. During the game: low 75 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-26T14:40:16+00:00 UTC. At kickoff: 77 F, wind 5 mph ESE, 0% chance of precipitation, Sunny. During the game: low 75 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -120,8 +120,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | WAS 25.2 - ARI 22.6 | 47.8 | -2.6 | 41.6% | 66.1% | 67.3% | WAS 12.4 - ARI 11.1 |
-| independent | WAS 21.2 - ARI 19.6 | 40.8 | -1.6 | 44.1% | 74.0% | 51.5% | WAS 9.8 - ARI 9.6 |
+| matchup_pair | WAS 25.2 - ARI 22.6 | 47.8 | -2.6 | 41.6% | 63.2% | 67.3% | WAS 12.4 - ARI 11.1 |
+| independent | WAS 21.2 - ARI 19.6 | 40.8 | -1.6 | 44.1% | 70.3% | 51.5% | WAS 9.8 - ARI 9.6 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -281,28 +281,28 @@ Blitz rate 42.4% and play-action faced 18.7% on 347 charted dropbacks (FTN). Dee
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
 | Amik Robertson | 7 | 55 | 35 | 394 | 7.2 | 1 | 0 | 2 |
-| Sonny Styles | 7 | 42 | 28 | 286 | 6.8 | 1 | 1 | 6 |
-| Rasul Douglas | 7 | 32 | 16 | 197 | 6.2 | 0 | 3 | 1 |
-| Jeremy Reaves | 7 | 26 | 13 | 151 | 5.8 | 0 | 0 | 1 |
-| Frankie Luvu | 6 | 22 | 14 | 110 | 5.0 | 0 | 0 | 1 |
-| Trey Amos | 4 | 22 | 11 | 139 | 6.3 | 1 | 0 | 1 |
-| Nick Cross | 4 | 18 | 10 | 91 | 5.1 | 0 | 1 | 0 |
-| Quan Martin | 6 | 15 | 7 | 116 | 7.7 | 0 | 0 | 0 |
-| Kain Medrano | 3 | 12 | 9 | 83 | 6.9 | 1 | 1 | 3 |
-| Mike Sainristil | 5 | 12 | 8 | 98 | 8.2 | 3 | 0 | 1 |
+| Sonny Styles | 8 | 47 | 32 | 313 | 6.7 | 1 | 1 | 6 |
+| Rasul Douglas | 8 | 40 | 21 | 225 | 5.6 | 1 | 3 | 1 |
+| Trey Amos | 5 | 30 | 16 | 195 | 6.5 | 2 | 0 | 2 |
+| Frankie Luvu | 7 | 30 | 19 | 182 | 6.1 | 0 | 0 | 1 |
+| Jeremy Reaves | 8 | 30 | 16 | 198 | 6.6 | 0 | 0 | 1 |
+| Nick Cross | 5 | 22 | 13 | 125 | 5.7 | 0 | 1 | 1 |
+| Quan Martin | 7 | 16 | 8 | 135 | 8.4 | 0 | 0 | 0 |
+| Mike Sainristil | 6 | 13 | 9 | 104 | 8.0 | 3 | 0 | 1 |
+| Kain Medrano | 4 | 12 | 9 | 83 | 6.9 | 1 | 1 | 3 |
 
 ### WAS pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| K'Lavon Chaisson | 7 | 12 | 2.5 | 4 | 12 |
+| K'Lavon Chaisson | 8 | 14 | 3.0 | 4 | 12 |
+| Charles Omenihu | 5 | 11 | 1.0 | 4 | 0 |
 | Odafe Oweh | 7 | 11 | 4.0 | 6 | 9 |
-| Charles Omenihu | 4 | 10 | 1.0 | 4 | 0 |
 | Dorance Armstrong Jr. | 7 | 7 | 1.0 | 2 | 5 |
-| Frankie Luvu | 6 | 6 | 1.0 | 3 | 47 |
+| Frankie Luvu | 7 | 7 | 1.0 | 3 | 58 |
+| Sonny Styles | 8 | 5 | 0.0 | 4 | 49 |
 | Daron Payne | 4 | 5 | 1.0 | 1 | 0 |
-| Sonny Styles | 7 | 4 | 0.0 | 3 | 37 |
-| Shy Tuttle | 4 | 3 | 2.0 | 1 | 0 |
+| Nick Cross | 5 | 4 | 0.5 | 2 | 18 |
 
 ### WAS offense: what it produces (rank 1 = best offense)
 
@@ -694,20 +694,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T11:33:29+00:00 | d8fca4cae777 |
-| pbp | OK | 2026-11-26T11:33:29+00:00 | f530660deb4f |
-| rosters | OK | 2026-11-26T11:33:29+00:00 | 78bcb0df4af5 |
-| injuries | OK | 2026-11-26T11:33:29+00:00 | 1540681821fb |
-| depth_charts | OK | 2026-11-26T11:33:30+00:00 | f6eec5e5e059 |
-| snap_counts | OK | 2026-11-26T11:33:30+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-26T11:33:30+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T11:33:30+00:00 | c4251b1fd2fa |
-| pfr_rec | OK | 2026-11-26T11:33:30+00:00 | 8f0fd28d26e7 |
-| pfr_rush | OK | 2026-11-26T11:33:30+00:00 | b0d1aa83f4d1 |
-| ngs_receiving | OK | 2026-11-26T11:33:30+00:00 | be5f07804748 |
-| ngs_rushing | OK | 2026-11-26T11:33:30+00:00 | 66aedd0a8d42 |
-| ngs_passing | OK | 2026-11-26T11:33:31+00:00 | b88e8dfa5fb8 |
-| espn_injuries | OK | 2026-11-26T11:33:32+00:00 |  |
+| games | OK | 2026-11-26T14:39:46+00:00 | d90faf6a6a15 |
+| pbp | OK | 2026-11-26T14:39:46+00:00 | f530660deb4f |
+| rosters | OK | 2026-11-26T14:39:46+00:00 | 78bcb0df4af5 |
+| injuries | OK | 2026-11-26T14:39:46+00:00 | 1540681821fb |
+| depth_charts | OK | 2026-11-26T14:39:46+00:00 | f6eec5e5e059 |
+| snap_counts | OK | 2026-11-26T14:39:46+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T14:39:47+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T14:39:47+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T14:39:47+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T14:39:47+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T14:39:47+00:00 | be5f07804748 |
+| ngs_rushing | OK | 2026-11-26T14:39:47+00:00 | 66aedd0a8d42 |
+| ngs_passing | OK | 2026-11-26T14:39:48+00:00 | b88e8dfa5fb8 |
+| espn_injuries | OK | 2026-11-26T14:39:49+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 

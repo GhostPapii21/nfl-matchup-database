@@ -2,13 +2,13 @@
 
 **Thursday 2026-11-26, 16:30 ET.** Site: Home; roof: not listed; surface: matrixturf. Rest: PHI 4 days, DAL 4 days. Listed QBs: Joe Milton III (PHI), Dak Prescott (DAL).
 
-Market (schedule consensus, not a timestamped quote): DAL -8.5, total 48.5.
+Market (schedule consensus, not a timestamped quote): DAL -8.5, total 49.5.
 
-Generated 2026-11-26T10:50:30+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T14:39:53+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T10:50:29+00:00 UTC. At kickoff: 52 F, wind 10 mph NW, 0% chance of precipitation, Sunny. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-26T14:39:52+00:00 UTC. At kickoff: 52 F, wind 10 mph NW, 0% chance of precipitation, Sunny. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -124,8 +124,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | PHI 25.0 - DAL 24.9 | 49.9 | -0.1 | 45.8% | 21.7% | 49.0% | PHI 13.4 - DAL 12.0 |
-| independent | PHI 20.3 - DAL 28.8 | 49.1 | +8.4 | 74.5% | 50.6% | 50.1% | PHI 12.4 - DAL 14.8 |
+| matchup_pair | PHI 25.0 - DAL 24.9 | 49.9 | -0.1 | 45.8% | 21.7% | 47.1% | PHI 13.4 - DAL 12.0 |
+| independent | PHI 20.3 - DAL 28.8 | 49.1 | +8.4 | 74.5% | 50.6% | 48.4% | PHI 12.4 - DAL 14.8 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -702,20 +702,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T10:50:26+00:00 | 43881eb22e19 |
-| pbp | OK | 2026-11-26T10:50:27+00:00 | f530660deb4f |
-| rosters | OK | 2026-11-26T10:50:27+00:00 | 78bcb0df4af5 |
-| injuries | OK | 2026-11-26T10:50:27+00:00 | 1540681821fb |
-| depth_charts | OK | 2026-11-26T10:50:27+00:00 | f6eec5e5e059 |
-| snap_counts | OK | 2026-11-26T10:50:27+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-26T10:50:27+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T10:50:27+00:00 | c4251b1fd2fa |
-| pfr_rec | OK | 2026-11-26T10:50:27+00:00 | 8f0fd28d26e7 |
-| pfr_rush | OK | 2026-11-26T10:50:28+00:00 | b0d1aa83f4d1 |
-| ngs_receiving | OK | 2026-11-26T10:50:28+00:00 | be5f07804748 |
-| ngs_rushing | OK | 2026-11-26T10:50:28+00:00 | 66aedd0a8d42 |
-| ngs_passing | OK | 2026-11-26T10:50:28+00:00 | b88e8dfa5fb8 |
-| espn_injuries | OK | 2026-11-26T10:50:29+00:00 |  |
+| games | OK | 2026-11-26T14:39:46+00:00 | d90faf6a6a15 |
+| pbp | OK | 2026-11-26T14:39:46+00:00 | f530660deb4f |
+| rosters | OK | 2026-11-26T14:39:46+00:00 | 78bcb0df4af5 |
+| injuries | OK | 2026-11-26T14:39:46+00:00 | 1540681821fb |
+| depth_charts | OK | 2026-11-26T14:39:46+00:00 | f6eec5e5e059 |
+| snap_counts | OK | 2026-11-26T14:39:46+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T14:39:47+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T14:39:47+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T14:39:47+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T14:39:47+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T14:39:47+00:00 | be5f07804748 |
+| ngs_rushing | OK | 2026-11-26T14:39:47+00:00 | 66aedd0a8d42 |
+| ngs_passing | OK | 2026-11-26T14:39:48+00:00 | b88e8dfa5fb8 |
+| espn_injuries | OK | 2026-11-26T14:39:49+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 

@@ -2,13 +2,13 @@
 
 **Friday 2026-11-27, 15:00 ET.** Site: Home; roof: outdoors; surface: grass. Rest: DEN 5 days, PIT 5 days. Listed QBs: Bo Nix (DEN), Mason Rudolph (PIT).
 
-Market (schedule consensus, not a timestamped quote): PIT +3.5, total 36.5.
+Market (schedule consensus, not a timestamped quote): PIT +4.5, total 36.5.
 
-Generated 2026-11-26T10:50:40+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T14:39:58+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T10:50:39+00:00 UTC. At kickoff: 43 F, wind 18 mph SW, 65% chance of precipitation, Light Rain Likely. During the game: low 42 F, wind up to 18 mph, precipitation chance up to 76%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-26T14:39:56+00:00 UTC. At kickoff: 43 F, wind 18 mph SW, 65% chance of precipitation, Light Rain Likely. During the game: low 42 F, wind up to 18 mph, precipitation chance up to 76%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
@@ -123,8 +123,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | DEN 22.6 - PIT 20.9 | 43.5 | -1.7 | 40.6% | 58.8% | 65.3% | DEN 10.5 - PIT 10.2 |
-| independent | DEN 23.3 - PIT 22.5 | 45.8 | -0.8 | 51.0% | 62.3% | 79.6% | DEN 10.3 - PIT 11.0 |
+| matchup_pair | DEN 22.6 - PIT 20.9 | 43.5 | -1.7 | 40.6% | 64.2% | 65.3% | DEN 10.5 - PIT 10.2 |
+| independent | DEN 23.3 - PIT 22.5 | 45.8 | -0.8 | 51.0% | 66.7% | 79.6% | DEN 10.3 - PIT 11.0 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -687,20 +687,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T10:50:36+00:00 | 43881eb22e19 |
-| pbp | OK | 2026-11-26T10:50:37+00:00 | f530660deb4f |
-| rosters | OK | 2026-11-26T10:50:37+00:00 | 78bcb0df4af5 |
-| injuries | OK | 2026-11-26T10:50:37+00:00 | 1540681821fb |
-| depth_charts | OK | 2026-11-26T10:50:37+00:00 | f6eec5e5e059 |
-| snap_counts | OK | 2026-11-26T10:50:37+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-26T10:50:37+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T10:50:37+00:00 | c4251b1fd2fa |
-| pfr_rec | OK | 2026-11-26T10:50:37+00:00 | 8f0fd28d26e7 |
-| pfr_rush | OK | 2026-11-26T10:50:37+00:00 | b0d1aa83f4d1 |
-| ngs_receiving | OK | 2026-11-26T10:50:38+00:00 | be5f07804748 |
-| ngs_rushing | OK | 2026-11-26T10:50:38+00:00 | 66aedd0a8d42 |
-| ngs_passing | OK | 2026-11-26T10:50:38+00:00 | b88e8dfa5fb8 |
-| espn_injuries | OK | 2026-11-26T10:50:39+00:00 |  |
+| games | OK | 2026-11-26T14:39:46+00:00 | d90faf6a6a15 |
+| pbp | OK | 2026-11-26T14:39:46+00:00 | f530660deb4f |
+| rosters | OK | 2026-11-26T14:39:46+00:00 | 78bcb0df4af5 |
+| injuries | OK | 2026-11-26T14:39:46+00:00 | 1540681821fb |
+| depth_charts | OK | 2026-11-26T14:39:46+00:00 | f6eec5e5e059 |
+| snap_counts | OK | 2026-11-26T14:39:46+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T14:39:47+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T14:39:47+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T14:39:47+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T14:39:47+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T14:39:47+00:00 | be5f07804748 |
+| ngs_rushing | OK | 2026-11-26T14:39:47+00:00 | 66aedd0a8d42 |
+| ngs_passing | OK | 2026-11-26T14:39:48+00:00 | b88e8dfa5fb8 |
+| espn_injuries | OK | 2026-11-26T14:39:49+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 

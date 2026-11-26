@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): CIN -10, total 49.5.
 
-Generated 2026-11-26T11:32:56+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T14:40:04+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-26T11:32:54+00:00 UTC. At kickoff: 52 F, wind 10 mph S, 93% chance of precipitation, Light Rain. During the game: low 52 F, wind up to 13 mph, precipitation chance up to 93%. Roof: outdoors. Flags: PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-26T14:40:03+00:00 UTC. At kickoff: 52 F, wind 10 mph S, 93% chance of precipitation, Light Rain. During the game: low 52 F, wind up to 13 mph, precipitation chance up to 93%. Roof: outdoors. Flags: PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
@@ -509,29 +509,29 @@ Blitz rate 18.8% and play-action faced 22.9% on 292 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Jordan Battle | 7 | 33 | 20 | 259 | 7.8 | 1 | 3 | 10 |
-| Barrett Carter | 7 | 31 | 20 | 241 | 7.8 | 0 | 1 | 3 |
+| Barrett Carter | 8 | 36 | 23 | 258 | 7.2 | 0 | 1 | 3 |
+| Jordan Battle | 8 | 35 | 22 | 266 | 7.6 | 1 | 3 | 10 |
 | DJ Ivey | 7 | 30 | 15 | 174 | 5.8 | 3 | 0 | 2 |
-| Daxton Hill | 7 | 24 | 16 | 217 | 9.0 | 1 | 0 | 2 |
-| DJ Turner | 7 | 21 | 13 | 122 | 5.8 | 2 | 0 | 3 |
-| Demetrius Knight | 7 | 20 | 16 | 143 | 7.2 | 1 | 1 | 0 |
-| Josh Newton | 3 | 13 | 5 | 62 | 4.8 | 1 | 0 | 1 |
-| Bryan Cook | 5 | 13 | 6 | 68 | 5.2 | 0 | 0 | 4 |
+| Daxton Hill | 8 | 30 | 20 | 263 | 8.8 | 1 | 0 | 2 |
+| DJ Turner | 8 | 25 | 17 | 207 | 8.3 | 2 | 0 | 5 |
+| Demetrius Knight | 8 | 23 | 19 | 172 | 7.5 | 1 | 1 | 0 |
+| Josh Newton | 4 | 21 | 9 | 107 | 5.1 | 1 | 0 | 2 |
+| Bryan Cook | 6 | 15 | 7 | 90 | 6.0 | 0 | 0 | 4 |
 | Tacario Davis | 5 | 11 | 5 | 46 | 4.2 | 0 | 0 | 0 |
-| Oren Burks | 6 | 5 | 5 | 25 | 5.0 | 0 | 0 | 1 |
+| Myles Murphy | 8 | 5 | 4 | 24 | 4.8 | 1 | 0 | 3 |
 
 ### CIN pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Boye Mafe | 6 | 13 | 5.5 | 3 | 1 |
-| Jonathan Allen | 6 | 11 | 2.0 | 3 | 0 |
-| Dexter Lawrence | 7 | 11 | 5.0 | 5 | 0 |
-| Myles Murphy | 7 | 9 | 2.0 | 5 | 0 |
+| Boye Mafe | 7 | 16 | 8.5 | 3 | 2 |
+| Jonathan Allen | 7 | 13 | 2.0 | 4 | 0 |
+| Dexter Lawrence | 8 | 12 | 5.0 | 5 | 0 |
+| Myles Murphy | 8 | 9 | 2.0 | 5 | 0 |
 | Cashius Howell | 4 | 7 | 1.0 | 3 | 0 |
-| B.J. Hill | 3 | 3 | 0.0 | 2 | 0 |
-| Barrett Carter | 7 | 3 | 1.0 | 1 | 20 |
-| Demetrius Knight | 7 | 3 | 0.0 | 2 | 14 |
+| B.J. Hill | 4 | 4 | 0.0 | 3 | 0 |
+| Barrett Carter | 8 | 3 | 1.0 | 1 | 22 |
+| Demetrius Knight | 8 | 3 | 0.0 | 2 | 16 |
 
 ### CIN offense: what it produces (rank 1 = best offense)
 
@@ -685,20 +685,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-26T11:32:51+00:00 | d8fca4cae777 |
-| pbp | OK | 2026-11-26T11:32:51+00:00 | f530660deb4f |
-| rosters | OK | 2026-11-26T11:32:51+00:00 | 78bcb0df4af5 |
-| injuries | OK | 2026-11-26T11:32:52+00:00 | 1540681821fb |
-| depth_charts | OK | 2026-11-26T11:32:52+00:00 | f6eec5e5e059 |
-| snap_counts | OK | 2026-11-26T11:32:52+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-26T11:32:52+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-26T11:32:52+00:00 | c4251b1fd2fa |
-| pfr_rec | OK | 2026-11-26T11:32:52+00:00 | 8f0fd28d26e7 |
-| pfr_rush | OK | 2026-11-26T11:32:52+00:00 | b0d1aa83f4d1 |
-| ngs_receiving | OK | 2026-11-26T11:32:52+00:00 | be5f07804748 |
-| ngs_rushing | OK | 2026-11-26T11:32:53+00:00 | 66aedd0a8d42 |
-| ngs_passing | OK | 2026-11-26T11:32:53+00:00 | b88e8dfa5fb8 |
-| espn_injuries | OK | 2026-11-26T11:32:54+00:00 |  |
+| games | OK | 2026-11-26T14:39:46+00:00 | d90faf6a6a15 |
+| pbp | OK | 2026-11-26T14:39:46+00:00 | f530660deb4f |
+| rosters | OK | 2026-11-26T14:39:46+00:00 | 78bcb0df4af5 |
+| injuries | OK | 2026-11-26T14:39:46+00:00 | 1540681821fb |
+| depth_charts | OK | 2026-11-26T14:39:46+00:00 | f6eec5e5e059 |
+| snap_counts | OK | 2026-11-26T14:39:46+00:00 | 923df2bfeef1 |
+| ftn | OK | 2026-11-26T14:39:47+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T14:39:47+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-26T14:39:47+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-26T14:39:47+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-26T14:39:47+00:00 | be5f07804748 |
+| ngs_rushing | OK | 2026-11-26T14:39:47+00:00 | 66aedd0a8d42 |
+| ngs_passing | OK | 2026-11-26T14:39:48+00:00 | b88e8dfa5fb8 |
+| espn_injuries | OK | 2026-11-26T14:39:49+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
