@@ -1,0 +1,50 @@
+{
+  "checked_utc": "2026-11-26T19:27:57.912591+00:00",
+  "exit": 2,
+  "report": {
+    "schema": "nfl56-sim100k/2",
+    "game_id": "2026_12_PHI_DAL",
+    "trials_requested": 100000,
+    "projection_ready": false,
+    "research_only": true,
+    "ran": false,
+    "ok": false,
+    "gates": {
+      "G0_entrypoint": "PASS",
+      "G1_flags": "PASS",
+      "G2_nfl43": "PASS",
+      "G3_packet": "PASS",
+      "G4_freshness": "REFUSED",
+      "G5_phases": "REFUSED",
+      "G7_asof": "PASS",
+      "G6_rocket": "NOT_RUN (earlier gates refused)"
+    },
+    "reasons": [
+      "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 403: rate limit exceeded",
+      "G4: rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 403: rate limit exceeded",
+      "G4: depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 403: rate limit exceeded",
+      "G4: snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 403: rate limit exceeded",
+      "G4: ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 403: rate limit exceeded",
+      "G4: pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 403: rate limit exceeded",
+      "G4: official_inactives NOT_YET: Inactives post about Thu 03:00 PM ET (T-90); not available yet.",
+      "G5: phase 1 (Slate, schedule, venue) is MISSING",
+      "G5: phase 7 (Coverage structure and shell) is GAP",
+      "G5: phase 8 (Defender assignment and explosive allowance) is MISSING",
+      "G5: phase 9 (QB pressure, blitz, scramble) is GAP",
+      "G5: phase 11 (Injury and depth chart) is MISSING",
+      "G5: phase 12 (Weather, roof, travel) is MISSING",
+      "G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+    ],
+    "checked_utc": "2026-11-26T19:27:57+00:00",
+    "entrypoint": {
+      "status": "OK",
+      "entrypoint": "core/possession_engine_v0/validation/entrypoint.py:run_validation",
+      "authorized_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1",
+      "denied": [
+        "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py",
+        "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json"
+      ]
+    },
+    "status": "REFUSED"
+  }
+}
