@@ -16,7 +16,7 @@ The flags files are the source of truth; if this page disagrees with them, the f
 | quotes | FREE_FEED_ACCEPTED | Owner (Rico) accepted the free public game-line feed Nov 22 2026 (Action Network public scoreboard: DraftKings, FanDuel, BetMGM, Caesars, BetRivers, bet365; FanDuel and Pinnacle direct; raw responses saved and sha256-hashed). Code [PR #93](https://github.com/GhostPapii21/nfl-matchup-database/pull/93) ([1a4de36](https://github.com/GhostPapii21/nfl-matchup-database/commit/1a4de36af726c2d7fc2b93c69484f17521ebff9b)); verification `docs/verification/nfl49_p1_quotes/VERIFY.md` ([PR #94](https://github.com/GhostPapii21/nfl-matchup-database/pull/94)). Verified by Ghost6 Nov 22 7:49 AM ET. NFL-45 calibration is separate and unchanged. |
 | Phase15 | AUTO | Wired per game at [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24). Each game ledger shows AUTO / NOT_YET / MISSING with source and pull time; a game that is not AUTO still blocks its 100k. First live AUTO: WAS@NYG, pulled 6:58 PM ET Nov 12. Verified by Ghost6 7:45 PM ET. |
 | entrypoint_enforced | true | NFL-42 guard enforced at sim100k G0 (rechecked before every engine call), the snapshot locker and rocket R1, with no override: [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24). Verified by Ghost6 7:45 PM ET. Residual: research scripts that call `simulate_games` directly are not guarded. |
-| pristine_protocol_complete | false | Protocol and freeze exist in `evaluation/`; aggregation rules missing (NFL-44 #1). |
+| pristine_protocol_complete | false | Protocol, freeze, and aggregation rules (micro/macro, weighting, zero-n null) exist in `evaluation/` (NFL-44 #1). Flag stays false until Ghost6 verifies. |
 | DEFERRED_100K | false | Un-deferred Nov 12 ~3:05 PM ET on Rico's OK. 100k still gated per game. |
 | PFF | NOT_READY_NO_DUPLICATE | Only if Rico supplies access (NFL-47/48). |
 | NFL-43 bounds | ACCEPTED at [32b9b92](https://github.com/GhostPapii21/nfl-matchup-database/commit/32b9b921407167ef4eb76811aaddb17714483792) | Still unsupported: kick-play fouls, joint_producer penalties/return yards, blocked kicks/onside/fakes. |
@@ -30,6 +30,13 @@ The flags files are the source of truth; if this page disagrees with them, the f
 | Total MAE | 11.34 | 10.33 |
 
 Source: PR #21 backtest as quoted in NFL-75. Known causes under investigation: penalty clock 4 s vs 11.8 s (about 4.5 snaps per team too fast) and about 19.9% of red-zone gains truncated at the goal line. Both are engine changes and are not made before tonight's TNF 100k.
+
+## Evidence boundary (holdout / drafts)
+
+- The readiness report’s **Evidence boundary** section is **derived live** each run from committed `evaluation/EVALUATION.json`, `snapshots/*/*/LOCK.json`, and `pregame/packets/` (see `evaluation.readiness.evidence_boundary`). It is not a hard-coded audit table.
+- Draft PRs and `pregame/price_freezes/` never count.
+- Example as of the latest regenerated report on this branch: 14 scored / weeks 10–11, 0 Week 12 LOCKs, 16 W12 packets, GB@LAR post-kickoff without LOCK (not retroactive). Numbers in a fresh `python -m evaluation.readiness --write` win if they differ.
+- `calibration_fitted_claim` and `projection_ready` stay false.
 
 ## Earliest dates
 

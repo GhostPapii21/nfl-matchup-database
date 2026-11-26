@@ -137,13 +137,28 @@ def evaluate(root: Path = ROOT) -> dict:
             games.append(rec)
     weeks = {g["game_id"].split("_")[1] for g in scored}
     need = proto["min_coverage"]
-    agg = {}
+    rules = proto.get("aggregation") or {"primary": "micro", "also_report": ["macro"]}
+    micro, macro = {}, {}
     for k in proto["primary_metrics"]:
-        v = [g["metrics"][k] for g in scored if g["metrics"].get(k) is not None]
-        agg[k] = (sum(v) / len(v)) if v else None
+        # micro: equal weight per scored game with a non-null value (zero-n -> null, never 0)
+        vals = [g["metrics"][k] for g in scored if g["metrics"].get(k) is not None]
+        micro[k] = (sum(vals) / len(vals)) if vals else None
+        # macro: equal weight per scored week that has at least one non-null value
+        by_week: dict[str, list[float]] = {}
+        for g in scored:
+            v = g["metrics"].get(k)
+            if v is None:
+                continue
+            by_week.setdefault(g["game_id"].split("_")[1], []).append(v)
+        week_means = [sum(vs) / len(vs) for vs in by_week.values()]
+        macro[k] = (sum(week_means) / len(week_means)) if week_means else None
+    primary_name = rules.get("primary", "micro")
+    agg = micro if primary_name == "micro" else macro
     status = "OK" if len(scored) >= need["games_scored"] and len(weeks) >= need["weeks"] else proto["insufficient_coverage_status"]
     return {"schema": "evaluation/1", "status": status, "games_scored": len(scored), "weeks_scored": sorted(weeks),
-            "min_coverage": need, "aggregate_primary": agg, "historical_pristine_claim": False,
+            "min_coverage": need, "aggregation": {"primary": primary_name, "micro": micro, "macro": macro,
+                                                  "no_silent_renormalization": True},
+            "aggregate_primary": agg, "historical_pristine_claim": False,
             "independently_calibrated": False, "games": games}
 
 

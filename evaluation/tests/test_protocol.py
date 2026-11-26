@@ -134,3 +134,49 @@ def test_lock_after_real_espn_kickoff_is_rejected(tmp_path):
         (d / "SCORE.json").write_text(json.dumps({"metrics": M, "final": {"kickoff_espn_utc": "2026-11-22T18:00:00+00:00"}}))
     st = {g["game_id"]: g["status"] for g in P.evaluate(r)["games"]}
     assert st == {"2026_11_A_B": "SCORED", "2026_11_C_D": "LOCKED_AFTER_KICKOFF"}
+
+
+def test_aggregation_rules_declared_in_protocol():
+    """NFL-44 #1: protocol must declare micro/macro, weighting, and zero-n handling."""
+    d = json.loads((ROOT / "evaluation/PRISTINE_EVALUATION_PROTOCOL.json").read_text())
+    agg = d["aggregation"]
+    assert agg["primary"] == "micro"
+    assert "macro" in agg["also_report"]
+    assert agg["micro"]["weighting"] == "equal_per_scored_game"
+    assert agg["macro"]["weighting"] == "equal_per_scored_week"
+    assert agg["zero_n_cells"]["rule"] == "null_not_zero"
+    assert agg["no_silent_renormalization"] is True
+
+
+def test_micro_macro_and_zero_n_null(tmp_path):
+    """Micro = equal per game; macro = equal per week; zero-n metric stays null (never 0)."""
+    r = _root(tmp_path)
+    # Freeze before outcomes (SCORE.json would exclude a lock from the freeze).
+    a = _lock(r, "2026_10_A_B")
+    b = _lock(r, "2026_10_C_D")
+    c = _lock(r, "2026_11_E_F")
+    dirty = _lock(r, "2026_11_G_H", dirty=True)
+    P.freeze(r, now=NOW)
+    (a / "SCORE.json").write_text(json.dumps({"metrics": {**M, "win_brier": 0.1}}))
+    (b / "SCORE.json").write_text(json.dumps({"metrics": {**M, "win_brier": 0.3}}))
+    (c / "SCORE.json").write_text(json.dumps({"metrics": {**M, "win_brier": 0.5}}))
+    (dirty / "SCORE.json").write_text(json.dumps({"metrics": {**M, "win_brier": 0.0}}))
+    e = P.evaluate(r)
+    assert e["games_scored"] == 3
+    st = {g["game_id"]: g["status"] for g in e["games"]}
+    assert st["2026_11_G_H"] == "CODE_DIRTY"
+    # micro: (0.1 + 0.3 + 0.5) / 3 = 0.3  (dirty 0.0 excluded)
+    assert abs(e["aggregation"]["micro"]["win_brier"] - 0.3) < 1e-12
+    # macro: mean(week10=0.2, week11=0.5) = 0.35
+    assert abs(e["aggregation"]["macro"]["win_brier"] - 0.35) < 1e-12
+    assert e["aggregate_primary"] == e["aggregation"]["micro"]
+    assert e["aggregation"]["no_silent_renormalization"] is True
+    # zero-n: null every win_logloss -> aggregate null, never 0
+    for d in (a, b, c):
+        sc = json.loads((d / "SCORE.json").read_text())
+        sc["metrics"]["win_logloss"] = None
+        (d / "SCORE.json").write_text(json.dumps(sc))
+    e3 = P.evaluate(r)
+    assert e3["aggregation"]["micro"]["win_logloss"] is None
+    assert e3["aggregation"]["macro"]["win_logloss"] is None
+    assert e3["aggregate_primary"]["win_logloss"] is None

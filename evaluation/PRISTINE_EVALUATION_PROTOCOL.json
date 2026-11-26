@@ -30,6 +30,28 @@
   "weeks": 3
  },
  "insufficient_coverage_status": "UNSCORABLE_INSUFFICIENT_COVERAGE",
+ "aggregation": {
+  "primary": "micro",
+  "also_report": [
+   "macro"
+  ],
+  "micro": {
+   "definition": "unweighted mean of per-game metric values among SCORED locks",
+   "weighting": "equal_per_scored_game",
+   "denominator": "games with a non-null value for that metric"
+  },
+  "macro": {
+   "definition": "unweighted mean of per-week means; each week mean is the unweighted mean of that week's scored games",
+   "weighting": "equal_per_scored_week",
+   "denominator": "weeks that have at least one non-null value for that metric"
+  },
+  "zero_n_cells": {
+   "rule": "null_not_zero",
+   "detail": "If a metric has zero non-null values in the aggregation denominator, the aggregate is null. Never substitute 0, never drop the metric silently, never renormalize unscorable or NOLINE market cells into the scored denominator."
+  },
+  "unscorable_exclusion": "Games whose status is not SCORED never enter micro or macro numerators or denominators. NOLINE market comparisons null out book Brier cells only; the game still counts for non-market primary metrics when SCORED.",
+  "no_silent_renormalization": true
+ },
  "unscorable_reasons": [
   "NO_PROTOCOL_FREEZE",
   "NOT_FINAL",
