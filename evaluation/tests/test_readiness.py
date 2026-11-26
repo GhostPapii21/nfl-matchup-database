@@ -97,15 +97,25 @@ def test_evidence_boundary_derived_live_from_repo():
     assert eb["pristine_games_scored"] == 14
     assert eb["pristine_weeks_scored"] == ["10", "11"]
     assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
-    assert eb["w12_with_lock"] == []
+    # W12 LOCKs may exist (pre-FINAL); they must not inflate scored coverage.
+    assert eb["w12_scored"] == []
+    assert "2026_12_GB_LA" not in eb["w12_with_lock"]
+    for gid in eb["w12_with_lock"]:
+        assert gid.startswith("2026_12_")
+        assert gid not in eb["pristine_scored_game_ids"]
+    assert set(eb["w12_locked_unscored"]) == set(eb["w12_with_lock"])
     assert eb["w12_packet_count"] == 16
     assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]
-    assert eb["coverage_ceiling_if_remaining_w12_lock"] == 14 + len(eb["w12_remaining_eligible"])
+    assert eb["coverage_ceiling_if_remaining_w12_lock"] == (
+        14 + len(eb["w12_locked_unscored"]) + len(eb["w12_remaining_eligible"])
+    )
     assert eb["shortfall_vs_min_games_at_ceiling"] == max(0, 30 - eb["coverage_ceiling_if_remaining_w12_lock"])
     md = R.render(r)
     assert "derived live" in md.lower()
-    assert f"{eb['pristine_games_scored']}+{len(eb['w12_remaining_eligible'])}={eb['coverage_ceiling_if_remaining_w12_lock']}" in md
-    # live path must not hard-code the historical 14-scored / 15-remaining ceiling as literals in render output keys
+    assert (
+        f"{eb['pristine_games_scored']}+{len(eb['w12_locked_unscored'])}+"
+        f"{len(eb['w12_remaining_eligible'])}={eb['coverage_ceiling_if_remaining_w12_lock']}"
+    ) in md
     assert "w12_remaining_eligible" in eb and eb["derived_live"] is True
 
 
@@ -154,14 +164,16 @@ def test_evidence_boundary_updates_when_w12_lock_committed(tmp_path):
     assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]
     assert "2026_12_CHI_DET" not in eb["w12_remaining_eligible"]
     assert len(eb["w12_remaining_eligible"]) == 14
-    assert eb["coverage_ceiling_if_remaining_w12_lock"] == 15 + 14  # 29, not stale 14+15
+    # CHI_DET already scored → not in locked_unscored; 14 remaining eligible → 15+0+14=29
+    assert eb["w12_locked_unscored"] == []
+    assert eb["coverage_ceiling_if_remaining_w12_lock"] == 15 + 0 + 14  # 29, not stale 14+15
     assert eb["shortfall_vs_min_games_at_ceiling"] == 1
     md = R.render({"evaluated_utc": now.isoformat(), "projection_ready_flag": False,
                    "projection_ready_may_flip": False, "nfl49_pass": False, "nfl56_pass": True,
                    "nfl49_pillars": [], "nfl56_criteria": [], "holdout_first_week": 10,
                    "spots_excluded": {}, "markets": [], "evidence_boundary": eb})
     assert "**15**" in md or "15 scored" in md or "Pristine holdout cited: **15**" in md
-    assert "15+14=29" in md
+    assert "15+0+14=29" in md
     assert "14+15=29" not in md  # must not keep the pre-W12-lock arithmetic
     assert "no Week 12 snapshot" not in eb["note"].lower()
     assert eb["w12_scored"] == ["2026_12_CHI_DET"]
