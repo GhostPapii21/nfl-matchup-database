@@ -1,0 +1,131 @@
+{
+  "schema": "pristine-lock-eligibility/1",
+  "checked_utc": "2026-11-26T12:48:26+00:00",
+  "branch": "cursor/w12-thanksgiving-locks-9aff",
+  "code_commit": "32a7937f28399f8c88b34e2d1ab6a1c9a14c127a",
+  "working_tree_note": "prewarm packet/freeze/direct_lines present but uncommitted pending T-90 refresh",
+  "game_id": "2026_12_CHI_DET",
+  "kickoff_utc": "2026-11-26T18:00:00+00:00",
+  "t90_utc": "2026-11-26T16:30:00+00:00",
+  "window_open_utc": "2026-11-26T16:32:00+00:00",
+  "decision": "NO_LOCK_YET",
+  "reason": "Waiting for T-90 official inactives; remaining blockers after prewarm listed in refusal_reasons",
+  "gates": {
+    "G0_entrypoint": "PASS",
+    "G1_flags": "PASS",
+    "G2_nfl43": "PASS",
+    "G3_packet": "PASS",
+    "G4_freshness": "REFUSED",
+    "G5_phases": "REFUSED",
+    "G7_asof": "PASS",
+    "G6_rocket": "NOT_RUN (earlier gates refused)"
+  },
+  "refusal_reasons": [
+    "G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: official_inactives NOT_YET: Inactives post about Thu 11:30 AM ET (T-90); not available yet.",
+    "G5: phase 7 (Coverage structure and shell) is GAP",
+    "G5: phase 8 (Defender assignment and explosive allowance) is GAP",
+    "G5: phase 9 (QB pressure, blitz, scramble) is GAP",
+    "G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+  ],
+  "freshness": [
+    {
+      "source": "schedule",
+      "status": "FRESH",
+      "reason": "as-of 2026-11-26T12:46:55+00:00 (live_pull (live endpoint; pull time is the quote time)) is 2 min old; limit 1440 min."
+    },
+    {
+      "source": "play_by_play",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T10:01:33+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "rosters",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T07:04:16+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "depth_charts",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T07:01:50+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "snap_counts",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T12:01:39+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "ftn_charting",
+      "status": "GAP",
+      "reason": "latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA."
+    },
+    {
+      "source": "pfr_defense",
+      "status": "GAP",
+      "reason": "latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA."
+    },
+    {
+      "source": "official_injuries",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T07:01:23+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "news_injuries",
+      "status": "FRESH",
+      "reason": "as-of 2026-11-26T12:46:57+00:00 (live_pull (live endpoint; pull time is the quote time)) is 1 min old; limit 120 min."
+    },
+    {
+      "source": "weather",
+      "status": "NOT_REQUIRED",
+      "reason": "Indoor game."
+    },
+    {
+      "source": "odds",
+      "status": "FRESH",
+      "reason": "as-of 2026-11-26T12:41:55+00:00 (live_pull (live endpoint; pull time is the quote time)) is 7 min old; limit 60 min."
+    },
+    {
+      "source": "ngs_passing",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T07:36:02+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "ngs_receiving",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T07:36:18+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "ngs_rushing",
+      "status": "FRESH",
+      "reason": "latest published asset as-of 2026-11-26T07:36:10+00:00 (nflverse_asset_digest_match); newest-release rule, no max-age clock."
+    },
+    {
+      "source": "official_inactives",
+      "status": "NOT_YET",
+      "reason": "Inactives post about Thu 11:30 AM ET (T-90); not available yet."
+    },
+    {
+      "source": "four_book_prices",
+      "status": "FRESH",
+      "reason": "5 min old; limit 60 min."
+    },
+    {
+      "source": "ngs_defender_matchup",
+      "status": "FRESH",
+      "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=FILLED; qb_pass_location=FILLED; qb_success_vs_defense=FILLED; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified."
+    }
+  ],
+  "prewarm": {
+    "sportsbooks": "fanduel/pinnacle/startwho/actionnetwork OK; draftkings/caesars 403",
+    "packet_generated_utc": "2026-11-26T12:46:59+00:00",
+    "books_status": "OK_DIRECT",
+    "books_retrieved_utc": "2026-11-26T12:41:55Z",
+    "newest_freeze": "pregame/price_freezes/2026-11-26_CHI@DET/freeze_20261126T124745Z.json"
+  },
+  "historical_note": "Week 11 CIN@WAS LOCK exists while sim100k REFUSED on ftn/pfr GAP; pristine eligibility is LOCK fields via snapshots.lock. Gameday workflow still requires official inactives before lock.",
+  "do_not_lock": [
+    "2026_12_GB_LA"
+  ],
+  "next": "timer chi-det-t90-lock ~2026-11-26T16:28Z -> inactives -> sportsbooks -> build_packets -> snapshots.lock -> pipeline.sim100k"
+}
