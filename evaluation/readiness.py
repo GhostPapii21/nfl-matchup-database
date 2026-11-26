@@ -209,12 +209,16 @@ def evidence_boundary(root: Path = ROOT) -> dict:
         "pristine_weeks_scored": ev.get("weeks_scored"),
         "pristine_scored_game_ids": [g["game_id"] for g in scored],
         "open_draft_prs_do_not_count": True,
-        "note": ("Open draft research/grade PRs (including Week 12 GB@LAR PR #131) are outside this evidence "
-                 "boundary until independently vetted, merged, and incorporated under the frozen pristine protocol. "
-                 "Even if one additional Week 12 game were later accepted, coverage would be at most 15 games across "
-                 "weeks 10–12 — still below min_coverage 30 games / 3 weeks. Research/grade packets without matched "
-                 "closing prices are not player-prop calibration evidence. Refresh this report only after incorporation. "
-                 "All readiness flags stay fail-closed."),
+        "pristine_requires": "snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol "
+                             "(pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)",
+        "note": ("Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json "
+                 "(discovered via snapshots/*/*/LOCK.json). Open draft research/grade PRs do not count. "
+                 "PR #131 (W12 GB@LAR) has price freezes and grading packets but is NOT a pristine evaluation lock: "
+                 "there is no snapshots/2026_12_GB_LA directory, so it cannot be game 15. Pregame packets and "
+                 "price-freeze directories are useful inputs, not substitutes for LOCK.json. Week 12 games count "
+                 "only after valid snapshot locks are created and scored under the freeze. Research/grade rows "
+                 "without matched closing prices are not player-prop calibration evidence. All readiness flags "
+                 "stay fail-closed."),
     }
 
 
@@ -245,7 +249,8 @@ def render(r: dict) -> str:
               f"- Stamp: `{r['evaluated_utc']}` UTC. Counts only committed files on this tree.",
               f"- Pristine holdout cited: **{eb.get('pristine_games_scored')}** scored games, weeks "
               f"**{eb.get('pristine_weeks_scored')}** (`evaluation/EVALUATION.json`).",
-              f"- Open draft PRs do **not** count toward pristine coverage (including PR #131 GB@LAR research/grade).",
+              f"- Open draft PRs do **not** count. PR #131 is research/grade only (no `snapshots/2026_12_GB_LA` LOCK) — not game 15.",
+              f"- Pristine requires: `{eb.get('pristine_requires')}`.",
               f"- {eb.get('note')}", ""]
     L += [f"## NFL-49: {yn(r['nfl49_pass'])}", "", "| Pillar | Result | Evidence / blockers |", "| --- | --- | --- |"]
     for p in r["nfl49_pillars"]:

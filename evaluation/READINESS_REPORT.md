@@ -1,6 +1,14 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-25T23:45:24+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-26T08:49:28+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+
+## Evidence boundary
+
+- Stamp: `2026-11-26T08:49:28+00:00` UTC. Counts only committed files on this tree.
+- Pristine holdout cited: **14** scored games, weeks **['10', '11']** (`evaluation/EVALUATION.json`).
+- Open draft PRs do **not** count. PR #131 is research/grade only (no `snapshots/2026_12_GB_LA` LOCK) — not game 15.
+- Pristine requires: `snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol (pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)`.
+- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json). Open draft research/grade PRs do not count. PR #131 (W12 GB@LAR) has price freezes and grading packets but is NOT a pristine evaluation lock: there is no snapshots/2026_12_GB_LA directory, so it cannot be game 15. Pregame packets and price-freeze directories are useful inputs, not substitutes for LOCK.json. Week 12 games count only after valid snapshot locks are created and scored under the freeze. Research/grade rows without matched closing prices are not player-prop calibration evidence. All readiness flags stay fail-closed.
 
 ## NFL-49: FAIL
 
