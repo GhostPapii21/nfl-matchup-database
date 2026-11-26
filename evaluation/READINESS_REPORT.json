@@ -1,6 +1,6 @@
 {
  "schema": "readiness-report/1",
- "evaluated_utc": "2026-11-26T12:17:56+00:00",
+ "evaluated_utc": "2026-11-26T12:24:09+00:00",
  "report_only": true,
  "projection_ready_flag": false,
  "projection_ready_may_flip": false,
@@ -349,6 +349,7 @@
    "2026_11_PIT_PHI",
    "2026_11_TB_DET",
    "2026_11_TEN_DAL",
+   "2026_12_ATL_MIN",
    "2026_12_CHI_DET",
    "2026_12_DEN_PIT",
    "2026_12_KC_BUF",
@@ -379,12 +380,14 @@
    "2026_12_WAS_ARI"
   ],
   "w12_with_lock": [
+   "2026_12_ATL_MIN",
    "2026_12_CHI_DET",
    "2026_12_DEN_PIT",
    "2026_12_KC_BUF",
    "2026_12_PHI_DAL"
   ],
   "w12_locked_unscored": [
+   "2026_12_ATL_MIN",
    "2026_12_CHI_DET",
    "2026_12_DEN_PIT",
    "2026_12_KC_BUF",
@@ -392,7 +395,6 @@
   ],
   "w12_scored": [],
   "w12_remaining_eligible": [
-   "2026_12_ATL_MIN",
    "2026_12_BAL_HOU",
    "2026_12_CAR_TB",
    "2026_12_LV_CLE",
@@ -417,6 +419,6 @@
   "open_draft_prs_do_not_count": true,
   "price_freezes_do_not_count": true,
   "pristine_requires": "snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol (pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)",
-  "note": "Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 14 scored, weeks ['10', '11']. Committed snapshot LOCKs cover weeks ['10', '11', '12'] (18 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 4; already scored: 0. Price-freeze directories and open draft PRs never count toward pristine coverage. 1 Week 12 packet(s) already past kickoff without a LOCK (2026_12_GB_LA) \u2014 cannot be added retroactively. 4 Week 12 LOCK(s) committed but not yet scored (2026_12_CHI_DET, 2026_12_DEN_PIT, 2026_12_KC_BUF, 2026_12_PHI_DAL) \u2014 count toward the ceiling only after FINAL + SCORE.json. 11 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if unscored LOCKs score and remaining packets lock+score: 14+4+11=29. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 1 game(s) \u2014 later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed."
+  "note": "Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 14 scored, weeks ['10', '11']. Committed snapshot LOCKs cover weeks ['10', '11', '12'] (19 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 5; already scored: 0. Price-freeze directories and open draft PRs never count toward pristine coverage. 1 Week 12 packet(s) already past kickoff without a LOCK (2026_12_GB_LA) \u2014 cannot be added retroactively. 5 Week 12 LOCK(s) committed but not yet scored (2026_12_ATL_MIN, 2026_12_CHI_DET, 2026_12_DEN_PIT, 2026_12_KC_BUF, 2026_12_PHI_DAL) \u2014 count toward the ceiling only after FINAL + SCORE.json. 10 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if unscored LOCKs score and remaining packets lock+score: 14+5+10=29. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 1 game(s) \u2014 later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed."
  }
 }
