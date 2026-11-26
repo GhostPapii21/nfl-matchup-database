@@ -82,9 +82,11 @@ def _text(fragment: str) -> str:
 
 
 def find_article_links(index_html: str) -> list[str]:
-    links = re.findall(r'href="(/news/[^"#?]*inactive[^"#?]*)"', index_html, flags=re.I)
+    """Club news index links whose path contains 'inactive' (relative or absolute https hrefs)."""
+    # Relative: href="/news/inactives-..." ; absolute: href="https://www.club.com/news/inactives-..."
+    raw = re.findall(r'href="(?:https?://[^"/]+)?(/news/[^"#?]*inactive[^"#?]*)"', index_html, flags=re.I)
     seen, out = set(), []
-    for l in links:
+    for l in raw:
         if l not in seen:
             seen.add(l); out.append(l)
     return out

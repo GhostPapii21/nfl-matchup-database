@@ -17,17 +17,18 @@
   "G6_rocket": "NOT_RUN (earlier gates refused)"
  },
  "reasons": [
-  "G4: snap_counts GAP: latest published asset (as-of 2026-11-24T12:01:52+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
   "G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
-  "G4: pfr_defense GAP: latest published asset (as-of 2026-11-25T12:05:25+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_11_CIN_WAS, 2026_12_GB_LA.",
-  "G4: official_inactives NOT_YET: Inactives post about Thu 11:30 AM ET (T-90); not available yet.",
-  "G5: phase 4 (Role, snaps, routes, opportunity) is GAP",
+  "G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+  "G4: odds STALE: as-of 2026-11-26T16:36:09+00:00 (live_pull (live endpoint; pull time is the quote time)) is 21 min old; limit is 20 min at 1.0 h to kickoff.",
+  "G4: official_inactives MISSING: official_inactives hook returned 'INCOMPLETE', not OK.",
+  "G4: four_book_prices STALE: 21 min old; limit is 20 min.",
   "G5: phase 7 (Coverage structure and shell) is GAP",
   "G5: phase 8 (Defender assignment and explosive allowance) is GAP",
   "G5: phase 9 (QB pressure, blitz, scramble) is GAP",
-  "G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+  "G5: phase 13 (Timestamped book prices) is STALE",
+  "G5: phase 15 (Final inactive pregame freeze) is MISSING"
  ],
- "checked_utc": "2026-11-26T11:06:43+00:00",
+ "checked_utc": "2026-11-26T16:57:23+00:00",
  "entrypoint": {
   "status": "OK",
   "entrypoint": "core/possession_engine_v0/validation/entrypoint.py:run_validation",
