@@ -58,3 +58,12 @@ Packets built locally (14 games starting 2026-12-03 KC@LA). No W13 engine config
 - No `snapshots.lock` run (gates never passed)
 
 Evidence: `runs/2026-11-26_w12_pristine_continue/`
+
+## Readiness regen
+
+- Regenerated `2026-11-26T21:20:53.324611+00:00` (2026-11-26T16:20:53.324611-05:00)
+- `w12_remaining_post_kickoff`: ['2026_12_GB_LA']
+- `w12_remaining_eligible` count: 15
+- ceiling: **29**; shortfall at ceiling: **1**
+- `projection_ready_flag`: false
+- Branch HEAD after push: see git
