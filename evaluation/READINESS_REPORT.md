@@ -1,17 +1,17 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-26T13:39:56+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-26T13:50:36+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## Evidence boundary (derived live)
 
-- Stamp: `2026-11-26T13:39:56+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
+- Stamp: `2026-11-26T13:50:36+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
 - Pristine holdout cited: **14** scored games, weeks **['10', '11']** (`evaluation/EVALUATION.json`).
-- Snapshot LOCKs on tree: **26** game ids, weeks **['10', '11', '12']**.
-- Week 12 packets: **16**; with LOCK: **12**; scored: **0**; pre-kickoff without LOCK: **3**; post-kickoff without LOCK (not retroactive): **1**.
+- Snapshot LOCKs on tree: **27** game ids, weeks **['10', '11', '12']**.
+- Week 12 packets: **16**; with LOCK: **13**; scored: **0**; pre-kickoff without LOCK: **2**; post-kickoff without LOCK (not retroactive): **1**.
 - Open drafts / price freezes do **not** count (`price_freeze_dir_count=29`).
-- Ceiling if unscored W12 LOCKs score and remaining pre-kickoff packets lock+score: **14+12+3=29** (shortfall vs min games at ceiling: **1**; min_coverage={'games_scored': 30, 'weeks': 3}).
+- Ceiling if unscored W12 LOCKs score and remaining pre-kickoff packets lock+score: **14+13+2=29** (shortfall vs min games at ceiling: **1**; min_coverage={'games_scored': 30, 'weeks': 3}).
 - Pristine requires: `snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol (pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)`.
-- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 14 scored, weeks ['10', '11']. Committed snapshot LOCKs cover weeks ['10', '11', '12'] (26 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 12; already scored: 0. Price-freeze directories and open draft PRs never count toward pristine coverage. 1 Week 12 packet(s) already past kickoff without a LOCK (2026_12_GB_LA) — cannot be added retroactively. 12 Week 12 LOCK(s) committed but not yet scored (2026_12_ATL_MIN, 2026_12_BAL_HOU, 2026_12_CHI_DET, 2026_12_DEN_PIT, 2026_12_KC_BUF, 2026_12_LV_CLE, 2026_12_NE_LAC, 2026_12_NO_CIN, 2026_12_NYG_IND, 2026_12_NYJ_MIA, 2026_12_PHI_DAL, 2026_12_TEN_JAX) — count toward the ceiling only after FINAL + SCORE.json. 3 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if unscored LOCKs score and remaining packets lock+score: 14+12+3=29. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 1 game(s) — later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed.
+- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 14 scored, weeks ['10', '11']. Committed snapshot LOCKs cover weeks ['10', '11', '12'] (27 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 13; already scored: 0. Price-freeze directories and open draft PRs never count toward pristine coverage. 1 Week 12 packet(s) already past kickoff without a LOCK (2026_12_GB_LA) — cannot be added retroactively. 13 Week 12 LOCK(s) committed but not yet scored (2026_12_ATL_MIN, 2026_12_BAL_HOU, 2026_12_CHI_DET, 2026_12_DEN_PIT, 2026_12_KC_BUF, 2026_12_LV_CLE, 2026_12_NE_LAC, 2026_12_NO_CIN, 2026_12_NYG_IND, 2026_12_NYJ_MIA, 2026_12_PHI_DAL, 2026_12_SEA_SF, 2026_12_TEN_JAX) — count toward the ceiling only after FINAL + SCORE.json. 2 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if unscored LOCKs score and remaining packets lock+score: 14+13+2=29. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 1 game(s) — later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed.
 
 ## NFL-49: FAIL
 
