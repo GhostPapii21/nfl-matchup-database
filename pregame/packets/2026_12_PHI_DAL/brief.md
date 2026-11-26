@@ -2,91 +2,91 @@
 
 **Thursday 2026-11-26, 16:30 ET.** Site: Home; roof: not listed; surface: matrixturf. Rest: PHI 4 days, DAL 4 days. Listed QBs: Joe Milton III (PHI), Dak Prescott (DAL).
 
-Market (schedule consensus, not a timestamped quote): DAL -8.5, total 47.5.
+Market (schedule consensus, not a timestamped quote): DAL -8.5, total 48.5.
 
-Generated 2026-11-25T23:31:47+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-26T10:50:30+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-25T23:31:46+00:00 UTC. At kickoff: 53 F, wind 10 mph NW, 0% chance of precipitation, Sunny. During the game: low 47 F, wind up to 10 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-26T10:50:29+00:00 UTC. At kickoff: 52 F, wind 10 mph NW, 0% chance of precipitation, Sunny. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-25T23:26:26Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, circasports, consensus, draftkings, fanduel, open, williamhill_us.
+Retrieved 2026-11-26T10:45:27Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, circasports, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | DAL -8.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-25T23:26:26+00:00 |
-| spread | pinnacle | DAL -9 | -105 | -108 | 49.7% | 50.3% | 3.1% | 2026-11-25T23:26:26+00:00 |
-| spread | consensus | DAL -8.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-25T23:26:26+00:00 |
-| spread | draftkings | DAL -8.5 | -111 | -108 | 50.3% | 49.7% | 4.5% | 2026-11-25T23:26:26+00:00 |
-| spread | betrivers | DAL -8.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-25T23:26:26+00:00 |
-| spread | betmgm | DAL -8.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T23:26:26+00:00 |
-| spread | bet365 | DAL -8.5 | -111 | -109 | 50.2% | 49.8% | 4.8% | 2026-11-25T23:26:26+00:00 |
-| spread | williamhill_us | DAL -8.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-25T23:26:26+00:00 |
-| spread | open | DAL -1.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-25T23:26:26+00:00 |
-| total | fanduel | Over 48.5 | -106 | -120 | 48.5% | 51.5% | 6.0% | 2026-11-25T23:26:26+00:00 |
-| total | pinnacle | Over 48 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-25T23:26:26+00:00 |
-| total | consensus | Over 47.5 | -119 | -102 | 51.8% | 48.2% | 4.8% | 2026-11-25T23:26:26+00:00 |
-| total | draftkings | Over 47.5 | -116 | -103 | 51.4% | 48.6% | 4.4% | 2026-11-25T23:26:26+00:00 |
-| total | bet365 | Over 47.5 | -119 | -101 | 51.9% | 48.0% | 4.6% | 2026-11-25T23:26:26+00:00 |
-| total | open | Over 49.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-25T23:26:26+00:00 |
-| total | betrivers | Over 48 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-25T23:26:26+00:00 |
-| total | betmgm | Over 48 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-25T23:26:26+00:00 |
-| total | williamhill_us | Over 48 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-25T23:26:26+00:00 |
-| moneyline | fanduel | DAL | -480 | +370 | 79.5% | 20.4% | 4.0% | 2026-11-25T23:26:26+00:00 |
-| moneyline | pinnacle | DAL | -430 | +343 | 78.2% | 21.8% | 3.7% | 2026-11-25T23:26:26+00:00 |
-| moneyline | consensus | DAL | -480 | +370 | 79.5% | 20.4% | 4.0% | 2026-11-25T23:26:26+00:00 |
-| moneyline | draftkings | DAL | -480 | +370 | 79.5% | 20.4% | 4.0% | 2026-11-25T23:26:26+00:00 |
-| moneyline | betrivers | DAL | -455 | +335 | 78.1% | 21.9% | 5.0% | 2026-11-25T23:26:26+00:00 |
-| moneyline | betmgm | DAL | -475 | +375 | 79.7% | 20.3% | 3.7% | 2026-11-25T23:26:26+00:00 |
-| moneyline | bet365 | DAL | -480 | +365 | 79.4% | 20.6% | 4.3% | 2026-11-25T23:26:26+00:00 |
-| moneyline | williamhill_us | DAL | -460 | +340 | 78.3% | 21.7% | 4.9% | 2026-11-25T23:26:26+00:00 |
+| spread | fanduel | DAL -8.5 | -115 | -111 | 50.4% | 49.6% | 6.1% | 2026-11-26T10:45:27+00:00 |
+| spread | pinnacle | DAL -9 | -106 | -107 | 49.9% | 50.1% | 3.1% | 2026-11-26T10:45:27+00:00 |
+| spread | consensus | DAL -8.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T10:45:27+00:00 |
+| spread | draftkings | DAL -8.5 | -111 | -108 | 50.3% | 49.7% | 4.5% | 2026-11-26T10:45:27+00:00 |
+| spread | betrivers | DAL -8.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-26T10:45:27+00:00 |
+| spread | betmgm | DAL -8.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T10:45:27+00:00 |
+| spread | bet365 | DAL -8.5 | -111 | -109 | 50.2% | 49.8% | 4.8% | 2026-11-26T10:45:27+00:00 |
+| spread | williamhill_us | DAL -8.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-26T10:45:27+00:00 |
+| spread | open | DAL -1.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-26T10:45:27+00:00 |
+| total | fanduel | Over 48.5 | -111 | -115 | 49.6% | 50.4% | 6.1% | 2026-11-26T10:45:27+00:00 |
+| total | pinnacle | Over 49 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-26T10:45:27+00:00 |
+| total | consensus | Over 48.5 | -108 | -107 | 50.1% | 49.9% | 3.6% | 2026-11-26T10:45:27+00:00 |
+| total | draftkings | Over 48.5 | -115 | -104 | 51.2% | 48.8% | 4.5% | 2026-11-26T10:45:27+00:00 |
+| total | bet365 | Over 48.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-26T10:45:27+00:00 |
+| total | open | Over 49.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-26T10:45:27+00:00 |
+| total | betrivers | Over 48 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-26T10:45:27+00:00 |
+| total | betmgm | Over 48 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-26T10:45:27+00:00 |
+| total | williamhill_us | Over 48 | -118 | -103 | 51.6% | 48.4% | 4.9% | 2026-11-26T10:45:27+00:00 |
+| moneyline | fanduel | DAL | -480 | +370 | 79.5% | 20.4% | 4.0% | 2026-11-26T10:45:27+00:00 |
+| moneyline | pinnacle | DAL | -434 | +345 | 78.3% | 21.7% | 3.8% | 2026-11-26T10:45:27+00:00 |
+| moneyline | consensus | DAL | -475 | +365 | 79.3% | 20.7% | 4.1% | 2026-11-26T10:45:27+00:00 |
+| moneyline | draftkings | DAL | -436 | +341 | 78.2% | 21.8% | 4.0% | 2026-11-26T10:45:27+00:00 |
+| moneyline | betrivers | DAL | -455 | +335 | 78.1% | 21.9% | 5.0% | 2026-11-26T10:45:27+00:00 |
+| moneyline | betmgm | DAL | -475 | +375 | 79.7% | 20.3% | 3.7% | 2026-11-26T10:45:27+00:00 |
+| moneyline | bet365 | DAL | -470 | +360 | 79.1% | 20.9% | 4.2% | 2026-11-26T10:45:27+00:00 |
+| moneyline | williamhill_us | DAL | -460 | +340 | 78.3% | 21.7% | 4.9% | 2026-11-26T10:45:27+00:00 |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
+| Saquon Barkley | rushing yards | bovada | 86.5 | +225 / -310 | 28.9% | n/a | 51.3 | 51.1 | 6 | -35.2 |
 | George Pickens | receiving yards | fanduel | 68.5 | -113 / -113 | 50.0% | 50.6% | 102.5 | 84.1 | 7 | 34.0 |
 | George Pickens | receiving yards | draftkings | 69.5 | -114 / -110 | 50.4% | n/a | 102.5 | 84.1 | 7 | 33.0 |
-| George Pickens | receiving yards | betonlineag | 69.5 | -115 / -112 | 50.3% | n/a | 102.5 | 84.1 | 7 | 33.0 |
-| George Pickens | receiving yards | betrivers | 69.5 | -114 / -117 | 49.7% | n/a | 102.5 | 84.1 | 7 | 33.0 |
+| George Pickens | receiving yards | betonlineag | 69.5 | -114 / -114 | 50.0% | n/a | 102.5 | 84.1 | 7 | 33.0 |
+| George Pickens | receiving yards | betmgm | 69.5 | -115 / -115 | 50.0% | n/a | 102.5 | 84.1 | 7 | 33.0 |
+| George Pickens | receiving yards | betrivers | 70.5 | -115 / -114 | 50.1% | n/a | 102.5 | 84.1 | 7 | 32.0 |
 | George Pickens | receiving yards | circasports | 70.5 | -110 / -110 | 50.0% | n/a | 102.5 | 84.1 | 7 | 32.0 |
-| George Pickens | receiving yards | betmgm | 72.5 | -115 / -115 | 50.0% | n/a | 102.5 | 84.1 | 7 | 30.0 |
-| Ryan Flournoy | receiving yards | betmgm | 28.5 | -120 / -111 | 50.9% | n/a | 55.7 | 52.2 | 8 | 27.2 |
-| CeeDee Lamb | receiving yards | fanduel | 87.5 | -113 / -113 | 50.0% | 50.0% | 113.9 | 81.9 | 8 | 26.4 |
-| CeeDee Lamb | receiving yards | betrivers | 87.5 | -115 / -115 | 50.0% | 50.0% | 113.9 | 81.9 | 8 | 26.4 |
 | Ryan Flournoy | receiving yards | fanduel | 29.5 | -113 / -113 | 50.0% | 50.0% | 55.7 | 52.2 | 8 | 26.2 |
+| Ryan Flournoy | receiving yards | betmgm | 29.5 | -115 / -115 | 50.0% | 50.0% | 55.7 | 52.2 | 8 | 26.2 |
 | CeeDee Lamb | receiving yards | circasports | 88.5 | -110 / -110 | 50.0% | n/a | 113.9 | 81.9 | 8 | 25.4 |
 | Ryan Flournoy | receiving yards | draftkings | 30.5 | -114 / -110 | 50.4% | n/a | 55.7 | 52.2 | 8 | 25.2 |
 | Ryan Flournoy | receiving yards | betonlineag | 30.5 | -116 / -111 | 50.5% | n/a | 55.7 | 52.2 | 8 | 25.2 |
-| CeeDee Lamb | receiving yards | betmgm | 89.5 | -115 / -115 | 50.0% | n/a | 113.9 | 81.9 | 8 | 24.4 |
-| Ryan Flournoy | receiving yards | betrivers | 31.5 | -114 / -117 | 49.7% | n/a | 55.7 | 52.2 | 8 | 24.2 |
-| Saquon Barkley | rushing yards | bovada | 75.5 | +145 / -190 | 38.4% | n/a | 51.3 | 51.1 | 6 | -24.2 |
-| CeeDee Lamb | receiving yards | draftkings | 90.5 | -111 / -113 | 49.8% | n/a | 113.9 | 81.9 | 8 | 23.4 |
-| CeeDee Lamb | receiving yards | betonlineag | 90.5 | -114 / -114 | 50.0% | n/a | 113.9 | 81.9 | 8 | 23.4 |
+| CeeDee Lamb | receiving yards | fanduel | 89.5 | -113 / -113 | 50.0% | n/a | 113.9 | 81.9 | 8 | 24.4 |
+| CeeDee Lamb | receiving yards | betrivers | 89.5 | -114 / -117 | 49.7% | n/a | 113.9 | 81.9 | 8 | 24.4 |
+| Ryan Flournoy | receiving yards | betrivers | 31.5 | -118 / -113 | 50.5% | n/a | 55.7 | 52.2 | 8 | 24.2 |
+| CeeDee Lamb | receiving yards | betmgm | 90.5 | -115 / -115 | 50.0% | n/a | 113.9 | 81.9 | 8 | 23.4 |
 | George Pickens | receiving yards | bovada | 79.5 | +130 / -170 | 40.8% | n/a | 102.5 | 84.1 | 7 | 23.0 |
-| Javonte Williams | rushing yards | bovada | 95.5 | +215 / -295 | 29.8% | n/a | 78.3 | 65.3 | 8 | -17.2 |
+| CeeDee Lamb | receiving yards | draftkings | 91.5 | -110 / -114 | 49.6% | n/a | 113.9 | 81.9 | 8 | 22.4 |
+| CeeDee Lamb | receiving yards | betonlineag | 91.5 | -114 / -114 | 50.0% | n/a | 113.9 | 81.9 | 8 | 22.4 |
 | Ryan Flournoy | receiving yards | bovada | 40.5 | +155 / -210 | 36.7% | n/a | 55.7 | 52.2 | 8 | 15.2 |
-| Saquon Barkley | rushing yards | draftkings | 65.5 | -112 / -112 | 50.0% | n/a | 51.3 | 51.1 | 6 | -14.2 |
-| Saquon Barkley | rushing yards | fanduel | 64.5 | -113 / -113 | 50.0% | 50.0% | 51.3 | 51.1 | 6 | -13.2 |
-| Saquon Barkley | rushing yards | betonlineag | 64.5 | -114 / -114 | 50.0% | 50.0% | 51.3 | 51.1 | 6 | -13.2 |
-| Saquon Barkley | rushing yards | betmgm | 64.5 | -115 / -115 | 50.0% | 50.0% | 51.3 | 51.1 | 6 | -13.2 |
-| Saquon Barkley | rushing yards | betrivers | 64.5 | -117 / -113 | 50.4% | 50.0% | 51.3 | 51.1 | 6 | -13.2 |
-| Saquon Barkley | rushing yards | circasports | 64.5 | -110 / -110 | 50.0% | 50.0% | 51.3 | 51.1 | 6 | -13.2 |
+| Javonte Williams | rushing yards | bovada | 93.5 | +215 / -295 | 29.8% | n/a | 78.3 | 65.3 | 8 | -15.2 |
+| Saquon Barkley | rushing yards | draftkings | 66.5 | -114 / -111 | 50.3% | n/a | 51.3 | 51.1 | 6 | -15.2 |
+| Saquon Barkley | rushing yards | fanduel | 64.5 | -113 / -113 | 50.0% | 50.6% | 51.3 | 51.1 | 6 | -13.2 |
+| Saquon Barkley | rushing yards | betonlineag | 64.5 | -114 / -114 | 50.0% | 50.6% | 51.3 | 51.1 | 6 | -13.2 |
+| Saquon Barkley | rushing yards | betmgm | 64.5 | -115 / -115 | 50.0% | 50.6% | 51.3 | 51.1 | 6 | -13.2 |
+| Saquon Barkley | rushing yards | betrivers | 64.5 | -117 / -113 | 50.4% | 50.6% | 51.3 | 51.1 | 6 | -13.2 |
+| Saquon Barkley | rushing yards | circasports | 64.5 | -110 / -110 | 50.0% | 50.6% | 51.3 | 51.1 | 6 | -13.2 |
 | Makai Lemon | receiving yards | fanduel | 29.5 | -113 / -113 | 50.0% | 50.0% | 42.4 | 39.4 | 8 | 12.9 |
-| Makai Lemon | receiving yards | draftkings | 29.5 | -115 / -109 | 50.6% | 50.0% | 42.4 | 39.4 | 8 | 12.9 |
-| Makai Lemon | receiving yards | betonlineag | 29.5 | -116 / -111 | 50.5% | 50.0% | 42.4 | 39.4 | 8 | 12.9 |
 | Makai Lemon | receiving yards | betmgm | 29.5 | -115 / -115 | 50.0% | 50.0% | 42.4 | 39.4 | 8 | 12.9 |
-| Makai Lemon | receiving yards | bovada | 29.5 | -120 / -110 | 51.0% | 50.0% | 42.4 | 39.4 | 8 | 12.9 |
-| Darius Cooper | receiving yards | betrivers | 24.5 | -118 / -113 | 50.5% | n/a | 36.4 | 27.4 | 7 | 11.9 |
+| Makai Lemon | receiving yards | draftkings | 30.5 | -115 / -109 | 50.6% | n/a | 42.4 | 39.4 | 8 | 11.9 |
+| Makai Lemon | receiving yards | betonlineag | 30.5 | -118 / -110 | 50.8% | n/a | 42.4 | 39.4 | 8 | 11.9 |
 | Makai Lemon | receiving yards | circasports | 30.5 | -110 / -110 | 50.0% | n/a | 42.4 | 39.4 | 8 | 11.9 |
 | Dallas Goedert | receiving yards | fanduel | 30.5 | -113 / -113 | 50.0% | 50.6% | 41.6 | 41.0 | 6 | 11.1 |
-| Dallas Goedert | receiving yards | betmgm | 30.5 | -110 / -120 | 49.0% | 50.6% | 41.6 | 41.0 | 6 | 11.1 |
+| Dallas Goedert | receiving yards | fanatics | 30.5 | -115 / -115 | 50.0% | 50.6% | 41.6 | 41.0 | 6 | 11.1 |
 | Dallas Goedert | receiving yards | circasports | 30.5 | -110 / -110 | 50.0% | 50.6% | 41.6 | 41.0 | 6 | 11.1 |
-| Makai Lemon | receiving yards | betrivers | 31.5 | -120 / -112 | 50.8% | n/a | 42.4 | 39.4 | 8 | 10.9 |
+| Makai Lemon | receiving yards | betrivers | 31.5 | -114 / -117 | 49.7% | n/a | 42.4 | 39.4 | 8 | 10.9 |
 | Dallas Goedert | receiving yards | draftkings | 31.5 | -112 / -112 | 50.0% | n/a | 41.6 | 41.0 | 6 | 10.1 |
 | Dallas Goedert | receiving yards | betonlineag | 31.5 | -115 / -112 | 50.3% | n/a | 41.6 | 41.0 | 6 | 10.1 |
+| Dallas Goedert | receiving yards | betmgm | 31.5 | -115 / -115 | 50.0% | n/a | 41.6 | 41.0 | 6 | 10.1 |
+| Dallas Goedert | receiving yards | betrivers | 31.5 | -117 / -114 | 50.3% | n/a | 41.6 | 41.0 | 6 | 10.1 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -124,8 +124,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | PHI 25.0 - DAL 24.9 | 49.9 | -0.1 | 45.8% | 21.7% | 50.8% | PHI 13.4 - DAL 12.0 |
-| independent | PHI 20.3 - DAL 28.8 | 49.1 | +8.4 | 74.5% | 50.6% | 53.9% | PHI 12.4 - DAL 14.8 |
+| matchup_pair | PHI 25.0 - DAL 24.9 | 49.9 | -0.1 | 45.8% | 21.7% | 49.0% | PHI 13.4 - DAL 12.0 |
+| independent | PHI 20.3 - DAL 28.8 | 49.1 | +8.4 | 74.5% | 50.6% | 50.1% | PHI 12.4 - DAL 14.8 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -408,7 +408,7 @@ Neutral-situation pass rate 52.8%; 58.5 plays per game; target share WR 62% / TE
 | defense allows | Deep middle | 7 | 2% | 14% | 2.71 | 0 |
 | defense allows | Deep right | 30 | 10% | 50% | 13.4 | 13 |
 
-### PHI lines (depth chart as of 2026-11-25T17:56:34Z)
+### PHI lines (depth chart as of 2026-11-26T07:01:42Z)
 
 Offensive line: LT Jordan Mailata, LG Landon Dickerson, C Drew Kendall, RG Tyler Steen, RT Markel Bell.  
 Defensive front: LDE Jalen Carter, NT Byron Young, RDE Moro Ojomo, WLB Nolan Smith Jr., SLB Jonathan Greenard.
@@ -417,8 +417,8 @@ Defensive front: LDE Jalen Carter, NT Byron Young, RDE Moro Ojomo, WLB Nolan Smi
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Jonathan Jones | CB | yes | none listed | Did Not Participate In Practice |  |
-| Quinyon Mitchell | CB | yes | none listed | Limited Participation in Practice |  |
+| Jonathan Jones | CB | yes | Out | Did Not Participate In Practice | Ankle |
+| Quinyon Mitchell | CB | yes | none listed | Full Participation in Practice |  |
 | Jalen Carter | DT | yes | none listed | Full Participation in Practice |  |
 | Jonathan Greenard | LB | yes | none listed | Full Participation in Practice |  |
 | Saquon Barkley | RB | yes | none listed | Full Participation in Practice |  |
@@ -427,7 +427,7 @@ Defensive front: LDE Jalen Carter, NT Byron Young, RDE Moro Ojomo, WLB Nolan Smi
 | Britain Covey | WR | yes | none listed | Full Participation in Practice |  |
 | Michael Carter II | CB |  | none listed | Full Participation in Practice |  |
 | Kelee Ringo | CB |  | none listed | Full Participation in Practice |  |
-| Arnold Ebiketie | LB |  | none listed | Did Not Participate In Practice |  |
+| Arnold Ebiketie | LB |  | Out | Did Not Participate In Practice | Oblique |
 | Smael Mondon Jr. | LB |  | none listed | Limited Participation in Practice |  |
 | Tanner McKee | QB |  | none listed | Full Participation in Practice |  |
 | Will Shipley | RB |  | none listed | Limited Participation in Practice |  |
@@ -635,7 +635,7 @@ Neutral-situation pass rate 52.9%; 67.6 plays per game; target share WR 74% / TE
 | defense allows | Deep middle | 12 | 4% | 50% | 13.42 | 5 |
 | defense allows | Deep right | 22 | 8% | 41% | 11.05 | 8 |
 
-### DAL lines (depth chart as of 2026-11-25T17:56:34Z)
+### DAL lines (depth chart as of 2026-11-26T07:01:42Z)
 
 Offensive line: LT Tyler Guyton, LG Tyler Smith, C Cooper Beebe, RG Tyler Booker, RT Terence Steele.  
 Defensive front: LDE Quinnen Williams, NT Otito Ogbonnia, RDE Kenny Clark, WLB Rashan Gary, SLB Donovan Ezeiruaku.
@@ -647,18 +647,18 @@ Defensive front: LDE Quinnen Williams, NT Otito Ogbonnia, RDE Kenny Clark, WLB R
 | Cobie Durant | CB | yes | none listed | Full Participation in Practice |  |
 | Joey Porter Jr. | CB | yes | none listed | Full Participation in Practice |  |
 | Otito Ogbonnia | DE | yes | none listed | Full Participation in Practice |  |
-| Tyler Booker | G | yes | none listed | Did Not Participate In Practice |  |
-| Dee Winters | LB | yes | none listed | Limited Participation in Practice |  |
+| Tyler Booker | G | yes | Out | Did Not Participate In Practice | Ankle |
+| Dee Winters | LB | yes | none listed | Full Participation in Practice |  |
 | Donovan Ezeiruaku | LB | yes | none listed | Full Participation in Practice |  |
 | Dak Prescott | QB | yes | none listed | Full Participation in Practice |  |
-| P.J. Locke | S | yes | none listed | Limited Participation in Practice |  |
-| Jake Ferguson | TE | yes | none listed | Did Not Participate In Practice |  |
-| Devin Moore | CB |  | none listed | Full Participation in Practice |  |
-| Jaishawn Barham | LB |  | none listed | Limited Participation in Practice |  |
-| Jalen Thompson | S |  | none listed | Full Participation in Practice |  |
-| Jonathan Mingo | WR |  | none listed | Did Not Participate In Practice |  |
+| Jalen Thompson | S | yes | Questionable | Full Participation in Practice | Hamstring |
+| Jake Ferguson | TE | yes | Out | Did Not Participate In Practice | Knee |
+| Devin Moore | CB |  | Questionable | Full Participation in Practice | Hip |
+| Jaishawn Barham | LB |  | none listed | Full Participation in Practice |  |
+| P.J. Locke | S |  | Out | Limited Participation in Practice | Concussion |
+| Jonathan Mingo | WR |  | Out | Did Not Participate In Practice | Ankle |
 
-ESPN live list (designations only): Tyler Booker (G) Out; DaRon Bland (CB) Injured Reserve; Jonathan Mingo (WR) Out; Devin Moore (CB) Injured Reserve; Jake Ferguson (TE) Out; P.J. Locke (S) Out; Jalen Thompson (S) Questionable.
+ESPN live list (designations only): Tyler Booker (G) Out; DaRon Bland (CB) Injured Reserve; Jake Ferguson (TE) Out; Jalen Thompson (S) Questionable; Jonathan Mingo (WR) Out; P.J. Locke (S) Out; Devin Moore (CB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -666,15 +666,15 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 ### DAL roster moves (last 4 weeks)
 
 Arrived: none.  
-Left for another team: Emari Demercado (RB) to HOU; Tyrus Wheat (LB) to DET; Ajani Cornelius (OL) to PHI.
+Left for another team: Emari Demercado (RB) to HOU; Tyrus Wheat (LB) to DET; Wanya Morris (OL) to IND; Ajani Cornelius (OL) to PHI.
 
 ## Keyed connectors in this run
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -702,21 +702,21 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-25T23:31:38+00:00 | 77fb5209595d |
-| pbp | OK | 2026-11-25T23:31:38+00:00 | bf67de3a1b7c |
-| rosters | OK | 2026-11-25T23:31:38+00:00 | ed880688b34e |
-| injuries | OK | 2026-11-25T23:31:39+00:00 | 817556322552 |
-| depth_charts | OK | 2026-11-25T23:31:39+00:00 | fbee5945e1b2 |
-| snap_counts | OK | 2026-11-25T23:31:39+00:00 | ef0897b31ad5 |
-| ftn | OK | 2026-11-25T23:31:39+00:00 | f7a34d74de28 |
-| pfr_def | OK | 2026-11-25T23:31:40+00:00 | c4251b1fd2fa |
-| pfr_rec | OK | 2026-11-25T23:31:40+00:00 | 8f0fd28d26e7 |
-| pfr_rush | OK | 2026-11-25T23:31:40+00:00 | b0d1aa83f4d1 |
-| ngs_receiving | OK | 2026-11-25T23:31:40+00:00 | ed8f3bae7a35 |
-| ngs_rushing | OK | 2026-11-25T23:31:41+00:00 | f4a7e49167df |
-| ngs_passing | OK | 2026-11-25T23:31:41+00:00 | 8fb034918611 |
-| espn_injuries | OK | 2026-11-25T23:31:42+00:00 |  |
+| games | OK | 2026-11-26T10:50:26+00:00 | 43881eb22e19 |
+| pbp | OK | 2026-11-26T10:50:27+00:00 | f530660deb4f |
+| rosters | OK | 2026-11-26T10:50:27+00:00 | 78bcb0df4af5 |
+| injuries | OK | 2026-11-26T10:50:27+00:00 | 1540681821fb |
+| depth_charts | OK | 2026-11-26T10:50:27+00:00 | f6eec5e5e059 |
+| snap_counts | OK | 2026-11-26T10:50:27+00:00 | ef0897b31ad5 |
+| ftn | OK | 2026-11-26T10:50:27+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-26T10:50:27+00:00 | c4251b1fd2fa |
+| pfr_rec | OK | 2026-11-26T10:50:27+00:00 | 8f0fd28d26e7 |
+| pfr_rush | OK | 2026-11-26T10:50:28+00:00 | b0d1aa83f4d1 |
+| ngs_receiving | OK | 2026-11-26T10:50:28+00:00 | be5f07804748 |
+| ngs_rushing | OK | 2026-11-26T10:50:28+00:00 | 66aedd0a8d42 |
+| ngs_passing | OK | 2026-11-26T10:50:28+00:00 | b88e8dfa5fb8 |
+| espn_injuries | OK | 2026-11-26T10:50:29+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
+| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
