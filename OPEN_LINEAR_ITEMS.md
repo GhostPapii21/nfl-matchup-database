@@ -44,6 +44,8 @@
 
 | PR | Title | Draft |
 |---|---|---|
+| #131 | W12 GB@LAR research/grade vs freeze (not pristine holdout until vetted+incorporated) | yes |
+| #130 | NFL-44 aggregation rules + readiness docs (this track) | no |
 | #120 | W11 late game log: MNF CIN@WSH + defense profiles | yes |
 | #119 | NFL-49 P4: score Week 11 holdout (12 games) | yes |
 | #116 | Board: exclude IR/out on 80+ watch | yes |

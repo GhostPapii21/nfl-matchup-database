@@ -31,6 +31,13 @@ The flags files are the source of truth; if this page disagrees with them, the f
 
 Source: PR #21 backtest as quoted in NFL-75. Known causes under investigation: penalty clock 4 s vs 11.8 s (about 4.5 snaps per team too fast) and about 19.9% of red-zone gains truncated at the goal line. Both are engine changes and are not made before tonight's TNF 100k.
 
+## Evidence boundary (holdout / drafts)
+
+- Readiness counts only committed `evaluation/EVALUATION.json` on the tree that produced the report stamp.
+- As of the 2026-11-26T08:33:45Z report on PR #130: **14** pristine scored games, weeks **10–11**. Open draft PRs do **not** count.
+- [PR #131](https://github.com/GhostPapii21/nfl-matchup-database/pull/131) (W12 GB@LAR research/grade, opened ~08:41Z) is outside that stamp. It is not pristine holdout coverage until independently vetted, merged, and incorporated under the frozen protocol. Even then, coverage would be at most **15** games across weeks 10–12 — still below **30 / 3**.
+- PR #131 reports no matched closing prices / no model edges on its player-projection rows: useful research/grade evidence, **not** player-prop calibration evidence. `calibration_fitted_claim` and `projection_ready` stay false.
+
 ## Earliest dates
 
 - Code and data items: possible from Nov 12 after 7:30 PM ET (engine/pregame merges are frozen until then).

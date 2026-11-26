@@ -199,6 +199,25 @@ def nfl56_criteria(root: Path = ROOT):
     return [{"criterion": a, "pass": bool(b), "evidence": e, "note": ("" if b and n.startswith("needs") else n)} for a, b, e, n in c]
 
 
+def evidence_boundary(root: Path = ROOT) -> dict:
+    """Stamp what this report may cite. Open draft PRs never count toward pristine holdout coverage."""
+    ev = json.loads((root / "evaluation" / "EVALUATION.json").read_text())
+    scored = [g for g in (ev.get("games") or []) if g.get("status") == "SCORED"]
+    return {
+        "evaluated_from": "committed evaluation/EVALUATION.json + known_flags/KNOWN_LIMITATIONS.json + grading/results on this tree",
+        "pristine_games_scored": ev.get("games_scored"),
+        "pristine_weeks_scored": ev.get("weeks_scored"),
+        "pristine_scored_game_ids": [g["game_id"] for g in scored],
+        "open_draft_prs_do_not_count": True,
+        "note": ("Open draft research/grade PRs (including Week 12 GB@LAR PR #131) are outside this evidence "
+                 "boundary until independently vetted, merged, and incorporated under the frozen pristine protocol. "
+                 "Even if one additional Week 12 game were later accepted, coverage would be at most 15 games across "
+                 "weeks 10–12 — still below min_coverage 30 games / 3 weeks. Research/grade packets without matched "
+                 "closing prices are not player-prop calibration evidence. Refresh this report only after incorporation. "
+                 "All readiness flags stay fail-closed."),
+    }
+
+
 def evaluate(root: Path = ROOT, results_dir: Path | None = None):
     sp, excl = spots(results_dir or root / "grading" / "results")
     mt = market_table(sp)
@@ -211,15 +230,24 @@ def evaluate(root: Path = ROOT, results_dir: Path | None = None):
             "report_only": True, "projection_ready_flag": flags.get("projection_ready"),
             "projection_ready_may_flip": gate49 and gate56,
             "nfl49_pass": gate49, "nfl56_pass": gate56, "nfl49_pillars": pl, "nfl56_criteria": c56,
-            "market_rule": RULE, "holdout_first_week": HOLDOUT_FIRST_WEEK, "spots_excluded": excl, "markets": mt}
+            "market_rule": RULE, "holdout_first_week": HOLDOUT_FIRST_WEEK, "spots_excluded": excl, "markets": mt,
+            "evidence_boundary": evidence_boundary(root)}
 
 
 def render(r: dict) -> str:
     yn = lambda b: "PASS" if b else "FAIL"
     L = ["# Readiness report (report only)", "",
          f"Evaluated {r['evaluated_utc']} UTC by `python -m evaluation.readiness`. projection_ready on main: "
-         f"**{r['projection_ready_flag']}**. May flip: **{r['projection_ready_may_flip']}**. Nothing here changes a flag.", "",
-         f"## NFL-49: {yn(r['nfl49_pass'])}", "", "| Pillar | Result | Evidence / blockers |", "| --- | --- | --- |"]
+         f"**{r['projection_ready_flag']}**. May flip: **{r['projection_ready_may_flip']}**. Nothing here changes a flag.", ""]
+    eb = r.get("evidence_boundary") or {}
+    if eb:
+        L += ["## Evidence boundary", "",
+              f"- Stamp: `{r['evaluated_utc']}` UTC. Counts only committed files on this tree.",
+              f"- Pristine holdout cited: **{eb.get('pristine_games_scored')}** scored games, weeks "
+              f"**{eb.get('pristine_weeks_scored')}** (`evaluation/EVALUATION.json`).",
+              f"- Open draft PRs do **not** count toward pristine coverage (including PR #131 GB@LAR research/grade).",
+              f"- {eb.get('note')}", ""]
+    L += [f"## NFL-49: {yn(r['nfl49_pass'])}", "", "| Pillar | Result | Evidence / blockers |", "| --- | --- | --- |"]
     for p in r["nfl49_pillars"]:
         L.append(f"| {p['pillar']} | {yn(p['pass'])} | {'; '.join(p['blockers'] or p['evidence']).replace('|', '/')} |")
     L += ["", f"## NFL-56: {yn(r['nfl56_pass'])}", "", "| Criterion | Result | Evidence | Note |", "| --- | --- | --- | --- |"]

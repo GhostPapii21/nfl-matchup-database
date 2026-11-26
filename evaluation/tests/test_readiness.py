@@ -63,3 +63,16 @@ def test_repo_report_is_honest_and_report_only():
         assert r["projection_ready_may_flip"] is False
     src = Path(R.__file__).read_text()
     assert "KNOWN_LIMITATIONS.json\").write" not in src and ".write_text" in src   # writes only the report files
+
+
+def test_evidence_boundary_excludes_open_draft_prs():
+    """Holdout coverage is only committed EVALUATION.json; draft PRs (e.g. #131) never inflate the count."""
+    r = R.evaluate()
+    eb = r["evidence_boundary"]
+    assert eb["open_draft_prs_do_not_count"] is True
+    assert eb["pristine_games_scored"] == 14
+    assert eb["pristine_weeks_scored"] == ["10", "11"]
+    assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
+    md = R.render(r)
+    assert "Evidence boundary" in md and "PR #131" in md
+    assert "14" in md and "fail-closed" in md.lower()
