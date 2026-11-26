@@ -1,0 +1,80 @@
+{
+ "schema": "snapshot-lock/1",
+ "game_id": "2026_12_PHI_DAL",
+ "locked_utc": "2026-11-26T11:29:26+00:00",
+ "kickoff_utc": "2026-11-26T21:30:00+00:00",
+ "kickoff_config_utc": "2026-11-26T21:30:00+00:00",
+ "kickoff_espn_utc": null,
+ "projection_ready": false,
+ "research_only": true,
+ "code_commit": "88f8beef5a25012c553eb094c252965ce07ceb38",
+ "code_dirty": false,
+ "engine_tree_sha256": "314e0ade1208e0ecdf964abc5ad02f7934066d34f8987a4983165091d905c96e",
+ "config_id": "phi_dal_2026-11-26_data_only_nfl43",
+ "model_weights_changed": false,
+ "nfl43_review": "ACCEPTED",
+ "still_unsupported": [
+  "kick-play fouls",
+  "joint_producer penalties/return yards",
+  "blocked kicks/onside/fakes"
+ ],
+ "sim": {
+  "n": 100000,
+  "seed": 258085159,
+  "chunks": 3,
+  "chunk_seeds": [
+   258085159,
+   259085162,
+   260085165
+  ],
+  "runtime_sec": 1175.8,
+  "statuses": [
+   "OK"
+  ]
+ },
+ "inputs": {
+  "pbp_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+  "pbp_sha256": "7232b5520edfe2a9c25496e9e995ce6b39805399f9f4f74a6b5f9d6d3467ed5a",
+  "pbp_local_name": "pbp_2026_w1_11_pulled_20261124T1717ET.parquet",
+  "price_freeze_origin": "",
+  "price_freeze_sha256": "f7b08fb0a549fb034a96ba196b2a15387b7fc5b1277c8f1d0534a03fe7b09db0",
+  "packet_path": "pregame/packets/2026_12_PHI_DAL/packet.json",
+  "packet_sha256": "65946777e5ef48aa12d599aa3d68c362658cca8cb8d013f8f8addb22374f9667",
+  "packet_generated_utc": "2026-11-25T23:31:47+00:00",
+  "price_freeze_pulled_utc": "2026-11-25T23:26:26Z",
+  "price_status": "OK",
+  "price_freeze_books": [
+   "bet365",
+   "betmgm",
+   "betrivers",
+   "draftkings",
+   "fanduel",
+   "williamhill_us"
+  ]
+ },
+ "asof_checks": "PASS",
+ "limitations": [
+  "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+  "Clock costs use empirical median deltas when available else fixed means \u2014 not a situational clock model",
+  "OT rule: official 2025 regular-season (both possess, then sudden death, ties allowed)",
+  "No league silent pool; proposed pooling config default false",
+  "W1-8 development set; no betting edge claim",
+  "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+  "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields",
+  "NFL-43 still_unsupported (not invented): kick-play fouls, joint_producer penalties/return yards, blocked kicks/onside/fakes",
+  "data_only config: no injury/inactive adjustment; Phase 15 inactives not applied to the sim",
+  "team scores only; player yards are bootstrap credits, not a player projection model"
+ ],
+ "scoring": {
+  "command": "python3 -m snapshots.score --snapshot snapshots/2026_12_PHI_DAL/20261126T112926Z",
+  "status": "NOT_SCORED_UNTIL_FINAL"
+ },
+ "files": {
+  "inputs/phi_dal_2026-11-26_data_only_nfl43.json": "a4ad9e28370fc161dc1c00b06366daedaeb96b7b4b6d010ffc7fd24754fa3153",
+  "inputs/team_prices_freeze_20261125T233147Z.json": "876cfcaf13f98557f0ebd10943616d0f4b010643656a17c4dca901878dd23ed2",
+  "report.md": "58000cff0350cd37cf8c3d9762ab095877f57338b0e6f55e43599ac87fcedfc4",
+  "sim_arrays.npz": "fc7866dd312e003ba7bf0ce701f282c2561d295ce1586222bb08529d8d5ac560",
+  "sim_meta.json": "df4e63c05bad0192334be2a7e1cd8a0921446e1ce1076b0db6440868f67ffece",
+  "summary.json": "9c911639399a5c0476d570df88a78d0dd9997671fff98b3822c3a049e765b5a2"
+ }
+}
