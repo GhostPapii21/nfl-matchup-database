@@ -1,34 +1,24 @@
-# W12 Thanksgiving pristine lock — T-90 status
+# W12 Thanksgiving pristine lock — status
 
-- Checked: `2026-11-26T16:56:16.130334+00:00` (11:56 AM EST)
+- Checked: `2026-11-26T17:26:33+00:00` (12:26 PM EST)
 - Branch: `cursor/w12-thanksgiving-locks-9aff`
-- CHI@DET decision: **NO_LOCK**
-- Kickoff: 2026-11-26T18:00:00Z (still PRE)
+- CHI@DET: still PRE at last check; **NO_LOCK** (protocol)
+- Worker [Week 12 pristine holdout eval](bc-621b3725-f09e-5863-b942-60ca89b823b6) produced 15 `snapshots.lock` artifacts on `cursor/w12-pristine-holdout-23b6` — **non-qualifying** (see `NON_QUALIFYING_PARALLEL_LOCKS.md`). `sim100k` still REFUSED.
 
-## Refusals after T-90 refresh
+## Live refusals (~17:20Z)
 
-- FTN charting GAP — missing `2026_12_GB_LA`
-- PFR defense GAP — missing `2026_12_GB_LA`
-- Official inactives INCOMPLETE — DET OK, CHI MISSING
-- Phases 7/8/9 GAP; phase 15 MISSING
+- FTN/PFR GAP for `2026_12_GB_LA`
+- CHI official inactives MISSING (DET OK)
+- Odds/four_book STALE inside T-2h — refreshed again (`freeze_20261126T172633Z.json`, pulled `17:21:44Z`)
 
-## Cleared
+## Protocol correction
 
-- Odds / four_book freeze `freeze_20261126T165552Z.json` (pulled 16:50:58Z)
-- Packet rebuilt `--no-index`
+Parallel branch artifacts are research/`NOT_FINAL` only. Do not merge as holdout completion.
+Scored remains **14** (weeks 10–11) until finals + SCORE under the frozen protocol after a
+**sim100k-gated** lock.
 
-## Protocol correction (ack)
+## Holdout
 
-Parallel branch `cursor/w12-pristine-holdout-23b6` wrote ~15 `snapshots.lock`
-artifacts. **None qualify** for pristine inventory: `sim100k` G0–G7 did not PASS
-(FTN/PFR GAP + inactives). See `NON_QUALIFYING_PARALLEL_LOCKS.md`. Treat as
-research/NOT_FINAL only. Do not merge as holdout completion.
-
-**Confirmed:** scored remains **14** (weeks 10–11) until finals + SCORE under the
-frozen protocol after a sim100k-gated lock.
-
-## Next
-
-- Poll CHI inactives / publisher GAP clearance before any re-attempt
-- Even with CHI OK, FTN/PFR GAP still refuses unless publishers update
-- PHI@DAL / KC@BUF same GAP risk
+- Scored: **14** (W10–11)
+- Qualifying W12 LOCKs on this branch: **0**
+- `projection_ready`: **false**

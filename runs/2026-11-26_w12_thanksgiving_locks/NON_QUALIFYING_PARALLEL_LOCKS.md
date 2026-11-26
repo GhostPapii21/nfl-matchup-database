@@ -6,7 +6,7 @@ These artifacts are **research / NOT_FINAL only**. They are **not** pristine hol
 inventory. Do **not** merge as holdout completion. Do **not** count them toward the
 30-game / 3-week minimum.
 
-Branch: `origin/cursor/w12-pristine-holdout-23b6`
+Branch: `origin/cursor/w12-pristine-holdout-23b6` @ `ee086274`
 (worker [Week 12 pristine holdout eval](bc-621b3725-f09e-5863-b942-60ca89b823b6)).
 
 ## Rule (fail-closed)
@@ -15,19 +15,25 @@ Pristine inventory requires **`pipeline.sim100k` G0–G7 PASS** (then lock under
 approved gameday chain). `asof_checks=PASS` + `n=100000` + `code_dirty=false` alone
 are insufficient when G4 freshness / G5 phases refuse.
 
-Evidence from the worker’s own run:
+Evidence (worker + this machine T-90 and ~17:20Z, CHI@DET still PRE):
 
-- `python3 -m pipeline.sim100k --game 2026_12_CHI_DET` → exit **2 REFUSED**
-  (FTN/PFR GAP for completed `2026_12_GB_LA`; CHI inactives INCOMPLETE; phases 7–9 GAP)
-- Early CHI lock `20261126T110635Z` is **pre-T-90** (before official inactives window)
+```
+python3 -m pipeline.sim100k --game 2026_12_CHI_DET
+# REFUSED exit 2 — FTN/PFR GAP for completed 2026_12_GB_LA
+#                — CHI official inactives INCOMPLETE (DET OK)
+#                — later odds/four_book STALE inside T-2h (refreshed)
+```
+
+Publisher assets still max week **11** (no `2026_12_GB_LA` in FTN/PFR). That GAP
+applies slate-wide until nflverse updates.
 
 ## All parallel LOCK.json paths — **0 qualifying**
 
 | game_id | Snapshot dir | Why non-qualifying |
 | --- | --- | --- |
-| 2026_12_CHI_DET | `20261126T110635Z` | Pre-T-90; sim100k would refuse (inactives NOT_YET + FTN/PFR GAP) |
-| 2026_12_CHI_DET | `20261126T165631Z` | sim100k **REFUSED** exit 2 in same window (GAP + CHI inactives incomplete) |
-| 2026_12_PHI_DAL | `20261126T112220Z` | Locked while G4/G5 refuse (same slate GAP); no sim100k PASS |
+| 2026_12_CHI_DET | `20261126T110635Z` | Pre-T-90; sim100k would refuse |
+| 2026_12_CHI_DET | `20261126T165631Z` | sim100k **REFUSED** exit 2 (GAP + CHI inactives incomplete) |
+| 2026_12_PHI_DAL | `20261126T112220Z` | snapshots.lock only; same slate GAP; no sim100k PASS |
 | 2026_12_KC_BUF | `20261126T125422Z` | same |
 | 2026_12_DEN_PIT | `20261126T124129Z` | same |
 | 2026_12_ATL_MIN | `20261126T120039Z` | same |
@@ -43,18 +49,14 @@ Evidence from the worker’s own run:
 | 2026_12_WAS_ARI | `20261126T143822Z` | same |
 | 2026_12_GB_LA | — | Past kickoff; no lock (correct) |
 
-**Count:** 16 LOCK.json files on the parallel branch across 15 games → **0** pristine-qualifying.
+**Count:** 16 LOCK.json files across 15 games → **0** pristine-qualifying.
 
-Ledger may list them as `NOT_FINAL` under `evaluation.protocol evaluate`. That status is
-research bookkeeping only — **not** SCORED holdout evidence and **not** a pass of G0–G7.
+Ledger `NOT_FINAL` rows are research bookkeeping only — **not** SCORED holdout evidence
+and **not** a pass of G0–G7.
 
 ## This PR branch (`cursor/w12-thanksgiving-locks-9aff`)
 
-Intentionally has **no** protocol-qualified `snapshots/2026_12_*/` LOCK for pristine inventory.
-CHI@DET T-90 decision: **NO_LOCK** (see `STATUS.md`).
-
-## Holdout (unchanged)
-
-- Unique qualifying **SCORED** games: **14** (weeks **10, 11**)
-- Week 12 pristine-qualifying LOCKs: **0**
-- `projection_ready`: **false**
+Intentionally has **no** protocol-qualified `snapshots/2026_12_*/` LOCK.
+CHI@DET T-90+ decision: **NO_LOCK**. Qualifying W12 locks: **0**. Scored: **14**.
+Ceiling if all 15 later truly qualify+score: **29** (&lt; 30); Week 13+ still required.
+`projection_ready`: **false**.
