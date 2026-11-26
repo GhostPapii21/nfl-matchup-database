@@ -1,24 +1,28 @@
-# W12 Thanksgiving pristine lock — status
+# W12 Thanksgiving pristine lock — final pre-kickoff status
 
-- Checked: `2026-11-26T17:26:33+00:00` (12:26 PM EST)
-- Branch: `cursor/w12-thanksgiving-locks-9aff`
-- CHI@DET: still PRE at last check; **NO_LOCK** (protocol)
-- Worker [Week 12 pristine holdout eval](bc-621b3725-f09e-5863-b942-60ca89b823b6) produced 15 `snapshots.lock` artifacts on `cursor/w12-pristine-holdout-23b6` — **non-qualifying** (see `NON_QUALIFYING_PARALLEL_LOCKS.md`). `sim100k` still REFUSED.
+- Checked: `2026-11-26T17:37:55.017655+00:00` (12:37 PM EST)
+- CHI@DET ESPN: **PRE** (~22.1 min to kickoff)
+- Decision: **NO_LOCK**
 
-## Live refusals (~17:20Z)
+## Refusals
 
-- FTN/PFR GAP for `2026_12_GB_LA`
-- CHI official inactives MISSING (DET OK)
-- Odds/four_book STALE inside T-2h — refreshed again (`freeze_20261126T172633Z.json`, pulled `17:21:44Z`)
-
-## Protocol correction
-
-Parallel branch artifacts are research/`NOT_FINAL` only. Do not merge as holdout completion.
-Scored remains **14** (weeks 10–11) until finals + SCORE under the frozen protocol after a
-**sim100k-gated** lock.
+- G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 504: Gateway Timeout
+- G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.
+- G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.
+- G4: odds STALE: as-of 2026-11-26T16:50:58+00:00 (live_pull (live endpoint; pull time is the quote time)) is 47 min old; limit is 20 min at 0.4 h to kickoff.
+- G4: ngs_passing STALE: 'sources.ngs_passing': not the latest published asset: UNKNOWN_NO_SOURCE_TIMESTAMP: asset was re-published after our pull; our copy is superseded and its publish time is unknown
+- G4: ngs_receiving STALE: 'sources.ngs_receiving': not the latest published asset: UNKNOWN_NO_SOURCE_TIMESTAMP: asset was re-published after our pull; our copy is superseded and its publish time is unknown
+- G4: ngs_rushing STALE: 'sources.ngs_rushing': not the latest published asset: UNKNOWN_NO_SOURCE_TIMESTAMP: asset was re-published after our pull; our copy is superseded and its publish time is unknown
+- G4: official_inactives MISSING: official_inactives hook returned 'INCOMPLETE', not OK.
+- G5: phase 4 (Role, snaps, routes, opportunity) is MISSING
+- G5: phase 7 (Coverage structure and shell) is GAP
+- G5: phase 8 (Defender assignment and explosive allowance) is STALE
+- G5: phase 9 (QB pressure, blitz, scramble) is GAP
+- G5: phase 13 (Timestamped book prices) is STALE
+- G5: phase 15 (Final inactive pregame freeze) is MISSING
 
 ## Holdout
 
 - Scored: **14** (W10–11)
-- Qualifying W12 LOCKs on this branch: **0**
+- Qualifying W12 LOCKs: **0**
 - `projection_ready`: **false**

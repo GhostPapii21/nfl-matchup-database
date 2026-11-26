@@ -1,0 +1,37 @@
+{
+  "schema": "pristine-lock-eligibility/1",
+  "checked_utc": "2026-11-26T17:37:55.017655+00:00",
+  "checked_et": "2026-11-26T12:37:55.017655-05:00",
+  "branch": "cursor/w12-thanksgiving-locks-9aff",
+  "code_commit": "496bc1bdde9bf6496f9723b7961a4b26d72482f1",
+  "game_id": "2026_12_CHI_DET",
+  "kickoff_utc": "2026-11-26T18:00:00+00:00",
+  "espn_state": "pre",
+  "minutes_to_kick": 22.1,
+  "decision": "NO_LOCK",
+  "reason": "final pre-kickoff recheck: protocol gates still refuse",
+  "refusal_reasons": [
+    "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: release lookup failed: HTTPError: HTTP Error 504: Gateway Timeout",
+    "G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA.",
+    "G4: odds STALE: as-of 2026-11-26T16:50:58+00:00 (live_pull (live endpoint; pull time is the quote time)) is 47 min old; limit is 20 min at 0.4 h to kickoff.",
+    "G4: ngs_passing STALE: 'sources.ngs_passing': not the latest published asset: UNKNOWN_NO_SOURCE_TIMESTAMP: asset was re-published after our pull; our copy is superseded and its publish time is unknown",
+    "G4: ngs_receiving STALE: 'sources.ngs_receiving': not the latest published asset: UNKNOWN_NO_SOURCE_TIMESTAMP: asset was re-published after our pull; our copy is superseded and its publish time is unknown",
+    "G4: ngs_rushing STALE: 'sources.ngs_rushing': not the latest published asset: UNKNOWN_NO_SOURCE_TIMESTAMP: asset was re-published after our pull; our copy is superseded and its publish time is unknown",
+    "G4: official_inactives MISSING: official_inactives hook returned 'INCOMPLETE', not OK.",
+    "G5: phase 4 (Role, snaps, routes, opportunity) is MISSING",
+    "G5: phase 7 (Coverage structure and shell) is GAP",
+    "G5: phase 8 (Defender assignment and explosive allowance) is STALE",
+    "G5: phase 9 (QB pressure, blitz, scramble) is GAP",
+    "G5: phase 13 (Timestamped book prices) is STALE",
+    "G5: phase 15 (Final inactive pregame freeze) is MISSING"
+  ],
+  "ftn_pfr_gb_la": false,
+  "chi_inactives": "MISSING",
+  "det_inactives": "OK",
+  "notes": [
+    "Bears.com never published an Inactives article through this recheck.",
+    "nflverse FTN/PFR still max week 11; GAP for completed 2026_12_GB_LA.",
+    "No LOCK invented. projection_ready remains false."
+  ]
+}
