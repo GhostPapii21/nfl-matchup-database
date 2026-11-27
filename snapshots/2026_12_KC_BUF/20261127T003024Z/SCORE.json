@@ -1,0 +1,381 @@
+{
+ "schema": "snapshot-score/1",
+ "game_id": "2026_12_KC_BUF",
+ "locked_utc": "2026-11-27T00:30:24+00:00",
+ "scored_utc": "2026-11-27T19:27:06+00:00",
+ "final": {
+  "home_score": 13,
+  "away_score": 10,
+  "source": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261126",
+  "espn_event": "401873082",
+  "kickoff_espn_utc": "2026-11-27T01:20+00:00",
+  "status": "STATUS_FINAL",
+  "quarters": {
+   "q1": [
+    0,
+    0
+   ],
+   "q2": [
+    7,
+    3
+   ],
+   "q3": [
+    0,
+    7
+   ],
+   "q4": [
+    6,
+    0
+   ]
+  },
+  "retrieved_utc": "2026-11-27T19:27:06+00:00"
+ },
+ "model": {
+  "p_home_win_ex_tie": 0.4112587644733268,
+  "mean_margin": -3.23274,
+  "mean_total": 62.80794
+ },
+ "metrics": {
+  "win_logloss": 0.8885326653404038,
+  "win_brier": 0.34661624240947375,
+  "margin_crps": 4.4760271302,
+  "total_crps": 32.2022222974,
+  "margin_pit": 0.6512650000000001,
+  "total_pit": 0.0006850000000000001,
+  "margin_abs_err": 6.23274,
+  "total_abs_err": 39.80794,
+  "brier_model_mean_lines": 0.5628115858889879,
+  "brier_book_mean_lines": 0.20953176923076924
+ },
+ "vs_market": [
+  {
+   "market": "spread",
+   "book": "fanduel",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.5043,
+   "reference_only": false,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "pinnacle",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.507,
+   "reference_only": true,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "consensus",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.5068,
+   "reference_only": true,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "draftkings",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.5186,
+   "reference_only": false,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "betrivers",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.5043,
+   "reference_only": false,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "betmgm",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.5116,
+   "reference_only": false,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "williamhill_us",
+   "side": "Kansas City Chiefs",
+   "line": 3.0,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.04055,
+   "p_book_novig": 0.5174,
+   "reference_only": false,
+   "result": "PUSH"
+  },
+  {
+   "market": "spread",
+   "book": "open",
+   "side": "Kansas City Chiefs",
+   "line": 2.5,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4892,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.3981483801000001,
+   "brier_book": 0.23931664000000002
+  },
+  {
+   "market": "spread",
+   "book": "bet365",
+   "side": "Kansas City Chiefs",
+   "line": 2.5,
+   "p_model_cover": 0.63099,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4613,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.3981483801000001,
+   "brier_book": 0.21279768999999998
+  },
+  {
+   "market": "total",
+   "book": "fanduel",
+   "side": "Over",
+   "line": 46.5,
+   "p_model": 0.89264,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4896,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.7968061696,
+   "brier_book": 0.23970815999999998
+  },
+  {
+   "market": "total",
+   "book": "pinnacle",
+   "side": "Over",
+   "line": 46.0,
+   "p_model": 0.89264,
+   "p_model_push": 0.01074,
+   "p_book_novig": 0.5023,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.7968061696,
+   "brier_book": 0.25230528999999996
+  },
+  {
+   "market": "total",
+   "book": "draftkings",
+   "side": "Over",
+   "line": 45.5,
+   "p_model": 0.90338,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5033,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.8160954243999999,
+   "brier_book": 0.25331088999999996
+  },
+  {
+   "market": "total",
+   "book": "betrivers",
+   "side": "Over",
+   "line": 45.5,
+   "p_model": 0.90338,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5054,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.8160954243999999,
+   "brier_book": 0.25542915999999993
+  },
+  {
+   "market": "total",
+   "book": "bet365",
+   "side": "Over",
+   "line": 45.5,
+   "p_model": 0.90338,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5087,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.8160954243999999,
+   "brier_book": 0.25877569000000006
+  },
+  {
+   "market": "total",
+   "book": "open",
+   "side": "Over",
+   "line": 50.5,
+   "p_model": 0.8196,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.67174416,
+   "brier_book": 0.25
+  },
+  {
+   "market": "total",
+   "book": "consensus",
+   "side": "Over",
+   "line": 46.0,
+   "p_model": 0.89264,
+   "p_model_push": 0.01074,
+   "p_book_novig": 0.5032,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.7968061696,
+   "brier_book": 0.25321024
+  },
+  {
+   "market": "total",
+   "book": "betmgm",
+   "side": "Over",
+   "line": 46.0,
+   "p_model": 0.89264,
+   "p_model_push": 0.01074,
+   "p_book_novig": 0.4978,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.7968061696,
+   "brier_book": 0.24780484000000003
+  },
+  {
+   "market": "total",
+   "book": "williamhill_us",
+   "side": "Over",
+   "line": 46.0,
+   "p_model": 0.89264,
+   "p_model_push": 0.01074,
+   "p_book_novig": 0.4957,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.7968061696,
+   "brier_book": 0.24571848999999998
+  },
+  {
+   "market": "moneyline",
+   "book": "fanduel",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4066,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.16532356
+  },
+  {
+   "market": "moneyline",
+   "book": "pinnacle",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.3967,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.15737088999999999
+  },
+  {
+   "market": "moneyline",
+   "book": "consensus",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4088,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.16711744
+  },
+  {
+   "market": "moneyline",
+   "book": "open",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4255,
+   "reference_only": true,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.18105025
+  },
+  {
+   "market": "moneyline",
+   "book": "draftkings",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4176,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.17438976000000003
+  },
+  {
+   "market": "moneyline",
+   "book": "betrivers",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4146,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.17189316000000002
+  },
+  {
+   "market": "moneyline",
+   "book": "betmgm",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4088,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.16711744
+  },
+  {
+   "market": "moneyline",
+   "book": "bet365",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.404,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.16321600000000003
+  },
+  {
+   "market": "moneyline",
+   "book": "williamhill_us",
+   "side": "Kansas City Chiefs",
+   "p_model_win": 0.58525,
+   "p_model_win_ex_tie": 0.5887412355266732,
+   "p_book_novig": 0.4104,
+   "reference_only": false,
+   "result": 0.0,
+   "brier_model": 0.34661624240947375,
+   "brier_book": 0.16842816
+  }
+ ],
+ "note": "One game. Aggregate across future games under the NFL-44 protocol before any calibration claim."
+}

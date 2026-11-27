@@ -1,10 +1,11 @@
 {
  "schema": "evaluation/1",
  "status": "UNSCORABLE_INSUFFICIENT_COVERAGE",
- "games_scored": 14,
+ "games_scored": 16,
  "weeks_scored": [
   "10",
-  "11"
+  "11",
+  "12"
  ],
  "min_coverage": {
   "games_scored": 30,
@@ -13,24 +14,24 @@
  "aggregation": {
   "primary": "micro",
   "micro": {
-   "win_logloss": 0.5430989285706114,
-   "win_brier": 0.1844541399774475,
-   "margin_crps": 6.171881299321428,
-   "total_crps": 8.347443619349999
+   "win_logloss": 0.5750320075629675,
+   "win_brier": 0.19916857702409746,
+   "margin_crps": 6.634691792925,
+   "total_crps": 9.6141372454875
   },
   "macro": {
-   "win_logloss": 0.4628409301728938,
-   "win_brier": 0.14556213567678986,
-   "margin_crps": 6.490746856916667,
-   "total_crps": 6.9543333161
+   "win_logloss": 0.574748473618416,
+   "win_brier": 0.19776463590140894,
+   "margin_crps": 7.618619653994444,
+   "total_crps": 10.796553086883334
   },
   "no_silent_renormalization": true
  },
  "aggregate_primary": {
-  "win_logloss": 0.5430989285706114,
-  "win_brier": 0.1844541399774475,
-  "margin_crps": 6.171881299321428,
-  "total_crps": 8.347443619349999
+  "win_logloss": 0.5750320075629675,
+  "win_brier": 0.19916857702409746,
+  "margin_crps": 6.634691792925,
+  "total_crps": 9.6141372454875
  },
  "historical_pristine_claim": false,
  "independently_calibrated": false,
@@ -329,6 +330,38 @@
     "total_pit": 0.9986,
     "brier_model_mean_lines": 0.3342874629042309,
     "brier_book_mean_lines": 0.18487915833333332
+   }
+  },
+  {
+   "game_id": "2026_12_DEN_PIT",
+   "lock": "snapshots/2026_12_DEN_PIT/20261127T111648Z",
+   "status": "SCORED",
+   "market_comparison": "SCORED_VS_FROZEN_QUOTES",
+   "metrics": {
+    "win_logloss": 0.7085944556785164,
+    "win_brier": 0.2577230302918207,
+    "margin_crps": 15.2727033661,
+    "total_crps": 4.759762959500001,
+    "margin_pit": 0.956275,
+    "total_pit": 0.24538,
+    "brier_model_mean_lines": 0.2477925394627281,
+    "brier_book_mean_lines": 0.31721107478260874
+   }
+  },
+  {
+   "game_id": "2026_12_KC_BUF",
+   "lock": "snapshots/2026_12_KC_BUF/20261127T003024Z",
+   "status": "SCORED",
+   "market_comparison": "SCORED_VS_FROZEN_QUOTES",
+   "metrics": {
+    "win_logloss": 0.8885326653404038,
+    "win_brier": 0.34661624240947375,
+    "margin_crps": 4.4760271302,
+    "total_crps": 32.2022222974,
+    "margin_pit": 0.6512650000000001,
+    "total_pit": 0.0006850000000000001,
+    "brier_model_mean_lines": 0.5628115858889879,
+    "brier_book_mean_lines": 0.20953176923076924
    }
   }
  ]

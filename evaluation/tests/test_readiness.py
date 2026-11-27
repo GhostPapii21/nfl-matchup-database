@@ -94,13 +94,21 @@ def test_evidence_boundary_derived_live_from_repo():
     assert eb["derived_live"] is True
     assert eb["open_draft_prs_do_not_count"] is True
     assert eb["price_freezes_do_not_count"] is True
-    assert eb["pristine_games_scored"] == 14
-    assert eb["pristine_weeks_scored"] == ["10", "11"]
+    assert eb["pristine_games_scored"] == 16
+    assert eb["pristine_weeks_scored"] == ["10", "11", "12"]
     assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
-    assert eb["w12_with_lock"] == []
+    assert "2026_12_KC_BUF" in eb["pristine_scored_game_ids"]
+    assert "2026_12_DEN_PIT" in eb["pristine_scored_game_ids"]
+    assert set(["2026_12_KC_BUF", "2026_12_DEN_PIT"]).issubset(set(eb["w12_with_lock"]))
+    assert set(["2026_12_KC_BUF", "2026_12_DEN_PIT"]).issubset(set(eb["w12_scored"]))
+    assert "2026_12_GB_LA" not in eb["w12_with_lock"]
+    for gid in eb["w12_with_lock"]:
+        assert gid not in eb["w12_remaining_eligible"]
+        assert gid not in eb["w12_remaining_post_kickoff"]
     assert eb["w12_packet_count"] == 16
     assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]
-    assert eb["coverage_ceiling_if_remaining_w12_lock"] == 14 + len(eb["w12_remaining_eligible"])
+    n = eb["pristine_games_scored"]
+    assert eb["coverage_ceiling_if_remaining_w12_lock"] == n + len(eb["w12_remaining_eligible"])
     assert eb["shortfall_vs_min_games_at_ceiling"] == max(0, 30 - eb["coverage_ceiling_if_remaining_w12_lock"])
     md = R.render(r)
     assert "derived live" in md.lower()
