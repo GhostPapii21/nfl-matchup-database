@@ -1,0 +1,242 @@
+{
+ "markets": {
+  "moneyline": {
+   "best_retail_price": {
+    "DEN": {
+     "book": "fanduel",
+     "break_even": 0.9333,
+     "line": null,
+     "price": -1400.0
+    },
+    "MIA": {
+     "book": "fanduel",
+     "break_even": 0.1075,
+     "line": null,
+     "price": 830.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0409,
+     "last_update": "2026-11-27T18:32:28+00:00",
+     "line": null,
+     "no_vig": {
+      "DEN": 0.8967,
+      "MIA": 0.1033
+     },
+     "prices": {
+      "DEN": -1400.0,
+      "MIA": 830.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": null,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "DEN": 0.8967,
+     "MIA": 0.1033
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "DEN",
+    "MIA"
+   ]
+  },
+  "spread": {
+   "best_retail_price": {
+    "DEN": {
+     "book": "fanduel",
+     "break_even": 0.5238,
+     "line": -14.5,
+     "price": -110.0
+    },
+    "MIA": {
+     "book": "fanduel",
+     "break_even": 0.5238,
+     "line": -14.5,
+     "price": -110.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0476,
+     "last_update": "2026-11-27T18:32:28+00:00",
+     "line": -14.5,
+     "no_vig": {
+      "DEN": 0.5,
+      "MIA": 0.5
+     },
+     "prices": {
+      "DEN": -110.0,
+      "MIA": -110.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": -14.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "DEN": 0.5,
+     "MIA": 0.5
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "DEN",
+    "MIA"
+   ]
+  },
+  "total": {
+   "best_retail_price": {
+    "Over": {
+     "book": "fanduel",
+     "break_even": 0.5349,
+     "line": 38.5,
+     "price": -115.0
+    },
+    "Under": {
+     "book": "fanduel",
+     "break_even": 0.5122,
+     "line": 38.5,
+     "price": -105.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0471,
+     "last_update": "2026-11-27T18:32:28+00:00",
+     "line": 38.5,
+     "no_vig": {
+      "Over": 0.5108,
+      "Under": 0.4892
+     },
+     "prices": {
+      "Over": -115.0,
+      "Under": -105.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 38.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "Over": 0.5108,
+     "Under": 0.4892
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "Over",
+    "Under"
+   ]
+  }
+ },
+ "meta": {
+  "as_of_note": "these feeds publish no per-price update time; a book's as-of time is its pull time",
+  "book_retrieved_utc": {
+   "fanduel": "2026-11-27T18:32:28Z"
+  },
+  "books": [
+   "fanduel"
+  ],
+  "dropped": 0,
+  "fetch_log": [
+   {
+    "bytes": 531906,
+    "fetched_utc": "2026-11-27T18:37:19+00:00",
+    "file": "pregame/direct_lines/raw/actionnetwork_20261127T183719Z_7ed7ceafaf51.json.gz",
+    "sha256": "7ed7ceafaf51182dd07cfdc57dbf712bbf5f0f15238eabf9d33c1dcc60cc40b6",
+    "source": "actionnetwork",
+    "url": "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=68,69,75,123,71,79,15,30&periods=event"
+   }
+  ],
+  "game": "MIA@DEN",
+  "game_id": "2026_13_MIA_DEN",
+  "pulled_utc": "2026-11-27T18:32:28Z",
+  "raw_sha256": "36e33d5a1a64c5e0a6dcbffc80a3cce6bfe8c9bce03b805a417caaa32878cf4a",
+  "research_only": true,
+  "schema": "price-freeze/direct-2",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "source_files": [
+   {
+    "file": "pregame/direct_lines/2026_13_MIA_DEN.json",
+    "sha256": "28336726e99db44257c024566fe69bf11ed5382c310eda41a1a2a089c7d1d014"
+   }
+  ],
+  "status": "OK",
+  "written_utc": "2026-11-27T18:39:11Z"
+ },
+ "rows": [
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-27T18:32:28+00:00",
+   "hold": 0.0409,
+   "implied_a": 0.1075,
+   "implied_b": 0.9333,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.1033,
+   "novig_b": 0.8967,
+   "player": null,
+   "price_a": 830,
+   "price_b": -1400,
+   "reference_only": false,
+   "side_a": "Miami Dolphins",
+   "side_b": "Denver Broncos"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-27T18:32:28+00:00",
+   "hold": 0.0476,
+   "implied_a": 0.5238,
+   "implied_b": 0.5238,
+   "line": 14.5,
+   "market": "spreads",
+   "novig_a": 0.5,
+   "novig_b": 0.5,
+   "player": null,
+   "price_a": -110,
+   "price_b": -110,
+   "reference_only": false,
+   "side_a": "Miami Dolphins",
+   "side_b": "Denver Broncos"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-27T18:32:28+00:00",
+   "hold": 0.0471,
+   "implied_a": 0.5349,
+   "implied_b": 0.5122,
+   "line": 38.5,
+   "market": "totals",
+   "novig_a": 0.5108,
+   "novig_b": 0.4892,
+   "player": null,
+   "price_a": -115,
+   "price_b": -105,
+   "reference_only": false,
+   "side_a": "Over",
+   "side_b": "Under"
+  }
+ ]
+}

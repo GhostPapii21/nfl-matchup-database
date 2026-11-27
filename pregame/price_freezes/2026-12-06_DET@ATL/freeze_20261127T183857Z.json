@@ -1,0 +1,242 @@
+{
+ "markets": {
+  "moneyline": {
+   "best_retail_price": {
+    "ATL": {
+     "book": "fanduel",
+     "break_even": 0.3623,
+     "line": null,
+     "price": 176.0
+    },
+    "DET": {
+     "book": "fanduel",
+     "break_even": 0.6774,
+     "line": null,
+     "price": -210.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0397,
+     "last_update": "2026-11-27T18:32:28+00:00",
+     "line": null,
+     "no_vig": {
+      "ATL": 0.3485,
+      "DET": 0.6515
+     },
+     "prices": {
+      "ATL": 176.0,
+      "DET": -210.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": null,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "ATL": 0.3485,
+     "DET": 0.6515
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "ATL",
+    "DET"
+   ]
+  },
+  "spread": {
+   "best_retail_price": {
+    "ATL": {
+     "book": "fanduel",
+     "break_even": 0.5122,
+     "line": 3.5,
+     "price": -105.0
+    },
+    "DET": {
+     "book": "fanduel",
+     "break_even": 0.5349,
+     "line": 3.5,
+     "price": -115.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0471,
+     "last_update": "2026-11-27T18:32:28+00:00",
+     "line": 3.5,
+     "no_vig": {
+      "ATL": 0.4892,
+      "DET": 0.5108
+     },
+     "prices": {
+      "ATL": -105.0,
+      "DET": -115.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 3.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "ATL": 0.4892,
+     "DET": 0.5108
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "ATL",
+    "DET"
+   ]
+  },
+  "total": {
+   "best_retail_price": {
+    "Over": {
+     "book": "fanduel",
+     "break_even": 0.5349,
+     "line": 50.5,
+     "price": -115.0
+    },
+    "Under": {
+     "book": "fanduel",
+     "break_even": 0.5122,
+     "line": 50.5,
+     "price": -105.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0471,
+     "last_update": "2026-11-27T18:32:28+00:00",
+     "line": 50.5,
+     "no_vig": {
+      "Over": 0.5108,
+      "Under": 0.4892
+     },
+     "prices": {
+      "Over": -115.0,
+      "Under": -105.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 50.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "Over": 0.5108,
+     "Under": 0.4892
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "Over",
+    "Under"
+   ]
+  }
+ },
+ "meta": {
+  "as_of_note": "these feeds publish no per-price update time; a book's as-of time is its pull time",
+  "book_retrieved_utc": {
+   "fanduel": "2026-11-27T18:32:28Z"
+  },
+  "books": [
+   "fanduel"
+  ],
+  "dropped": 0,
+  "fetch_log": [
+   {
+    "bytes": 531906,
+    "fetched_utc": "2026-11-27T18:37:19+00:00",
+    "file": "pregame/direct_lines/raw/actionnetwork_20261127T183719Z_7ed7ceafaf51.json.gz",
+    "sha256": "7ed7ceafaf51182dd07cfdc57dbf712bbf5f0f15238eabf9d33c1dcc60cc40b6",
+    "source": "actionnetwork",
+    "url": "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=68,69,75,123,71,79,15,30&periods=event"
+   }
+  ],
+  "game": "DET@ATL",
+  "game_id": "2026_13_DET_ATL",
+  "pulled_utc": "2026-11-27T18:32:28Z",
+  "raw_sha256": "7652bd23217e91265d89942fc0d6b8d7c2794db4f23e850304995bb1b6a41ecd",
+  "research_only": true,
+  "schema": "price-freeze/direct-2",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "source_files": [
+   {
+    "file": "pregame/direct_lines/2026_13_DET_ATL.json",
+    "sha256": "771e4e52841006867f36bb26798ae14b0655915d601c3996ff0397e410c1293e"
+   }
+  ],
+  "status": "OK",
+  "written_utc": "2026-11-27T18:38:57Z"
+ },
+ "rows": [
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-27T18:32:28+00:00",
+   "hold": 0.0397,
+   "implied_a": 0.6774,
+   "implied_b": 0.3623,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.6515,
+   "novig_b": 0.3485,
+   "player": null,
+   "price_a": -210,
+   "price_b": 176,
+   "reference_only": false,
+   "side_a": "Detroit Lions",
+   "side_b": "Atlanta Falcons"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-27T18:32:28+00:00",
+   "hold": 0.0471,
+   "implied_a": 0.5349,
+   "implied_b": 0.5122,
+   "line": -3.5,
+   "market": "spreads",
+   "novig_a": 0.5108,
+   "novig_b": 0.4892,
+   "player": null,
+   "price_a": -115,
+   "price_b": -105,
+   "reference_only": false,
+   "side_a": "Detroit Lions",
+   "side_b": "Atlanta Falcons"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-27T18:32:28+00:00",
+   "hold": 0.0471,
+   "implied_a": 0.5349,
+   "implied_b": 0.5122,
+   "line": 50.5,
+   "market": "totals",
+   "novig_a": 0.5108,
+   "novig_b": 0.4892,
+   "player": null,
+   "price_a": -115,
+   "price_b": -105,
+   "reference_only": false,
+   "side_a": "Over",
+   "side_b": "Under"
+  }
+ ]
+}
