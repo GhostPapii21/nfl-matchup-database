@@ -59,3 +59,7 @@ for the game) → ledger → commit. One job per game, in parallel. A refusal is
 
 It ticks every 15 minutes on game days because GitHub starts scheduled jobs hours late on this repo. Details, credit
 cost and the credit floor: `pipeline/workflow_to_install/README.md`.
+
+## Read rules (flags only, Week 13 on)
+
+Before the phases, `python -m pipeline.read_rules --game <id>` writes the targets-first, defense-allowed and hourly weather flags for the game (`pipeline/ledgers/read_rules/`). They never change a phase status or cut a leg. See [READ_RULES_W13.md](READ_RULES_W13.md).
