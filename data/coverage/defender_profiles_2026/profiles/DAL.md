@@ -125,3 +125,23 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-07 | SEA | J.Price (RB) | 5 | short_right 38%, short_left 38% | Shemar James (18%) | Dee Winters (13%) |
 
 Defender pool = DAL players with defensive snaps in their most recent game (2026_12_PHI_DAL); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Cobie Durant | CB | 40.9 | 27.7 | 396.2 | 9.69 | 7.61 | 211.3 | 13 |
+| Caleb Downs | S | 24.2 | 14.0 | 280.2 | 11.58 | 7.43 | 211.8 | 5 |
+| Malik Hooker | S | 59.3 | 39.1 | 489.4 | 8.25 | 6.56 | 210.6 | 6 |
+| Joey Porter Jr. | CB | 33.8 | 24.8 | 323.4 | 9.57 | 4.73 | 143.5 | 5 |
+| DaRon Bland | CB | 33.1 | 20.8 | 248.4 | 7.5 | 4.01 | 124.8 | 5 |
+| Markquese Bell | S | 24.9 | 15.9 | 194.9 | 7.83 | 3.83 | 98.0 | 4 |
+| Shemar James | LB | 35.1 | 27.1 | 288.1 | 8.21 | 2.27 | 109.2 | 2 |
+| Reddy Steward | CB | 8.9 | 6.7 | 96.8 | 10.88 | 1.87 | 61.7 | 3 |
+| Dee Winters | LB | 18.9 | 15.8 | 154.4 | 8.17 | 1.49 | 55.0 | 0 |
+| Shavon Revel Jr. | CB | 10.9 | 6.8 | 73.1 | 6.71 | 1.21 | 32.4 | 1 |
+| Jaishawn Barham | LB | 17.0 | 12.9 | 105.9 | 6.23 | 1.11 | 27.2 | 0 |
+| Donovan Ezeiruaku | LB | 16.0 | 13.3 | 108.6 | 6.79 | 0.81 | 18.7 | 0 |

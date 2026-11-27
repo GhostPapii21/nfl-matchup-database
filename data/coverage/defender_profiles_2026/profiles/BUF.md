@@ -124,3 +124,23 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | NE | H.Henry (TE) | 6 | short_right 40%, short_left 25% | Cole Bishop (15%) | Amani Hooker (14%) |
 
 Defender pool = BUF players with defensive snaps in their most recent game (2026_12_KC_BUF); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Cole Bishop | S | 75.4 | 43.6 | 534.3 | 7.09 | 8.08 | 207.1 | 6 |
+| C.J. Gardner-Johnson | S | 14.8 | 8.1 | 143.3 | 9.68 | 4.44 | 107.0 | 4 |
+| Terrel Bernard | LB | 81.8 | 56.8 | 486.8 | 5.95 | 3.63 | 94.1 | 6 |
+| Davison Igbinosun | CB | 35.0 | 18.5 | 223.5 | 6.39 | 3.31 | 82.5 | 3 |
+| Maxwell Hairston | CB | 30.8 | 14.9 | 200.4 | 6.51 | 3.29 | 79.4 | 7 |
+| Christian Benford | CB | 26.5 | 16.9 | 204.3 | 7.71 | 3.22 | 83.3 | 5 |
+| Dee Alford | CB | 31.3 | 18.0 | 209.2 | 6.68 | 3.17 | 80.7 | 0 |
+| Damar Hamlin | S | 7.0 | 3.9 | 92.3 | 13.19 | 2.24 | 66.9 | 4 |
+| Bradley Chubb | LB | 39.8 | 26.1 | 213.3 | 5.36 | 1.57 | 40.7 | 0 |
+| Jordan Hancock | CB | 15.1 | 7.2 | 74.4 | 4.93 | 1.05 | 27.9 | 0 |
+| Anthony Kendall | CB | 10.8 | 8.2 | 75.5 | 6.99 | 0.8 | 22.9 | 0 |
+| Amani Hooker | S | 6.3 | 1.9 | 32.1 | 5.1 | 0.66 | 18.7 | 1 |

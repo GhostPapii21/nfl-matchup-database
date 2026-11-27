@@ -121,3 +121,28 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | HOU | K.Boutte (WR) | 8 | short_middle 26%, short_right 23% | Jalen Ramsey (21%) | Daylen Everette (19%) |
 
 Defender pool = PIT players with defensive snaps in their most recent game (2026_11_PIT_PHI); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jaquan Brisker | S | 29.3 | 17.7 | 280.2 | 9.56 | 5.8 | 184.9 | 4 |
+| Jalen Ramsey | CB | 39.1 | 24.3 | 301.1 | 7.7 | 5.36 | 159.7 | 8 |
+| Jamel Dean | CB | 41.7 | 28.2 | 319.8 | 7.67 | 5.11 | 150.1 | 5 |
+| Asante Samuel Jr. | CB | 39.0 | 25.9 | 337.1 | 8.64 | 5.01 | 167.5 | 6 |
+| Robert Spears-Jennings | S | 38.5 | 24.3 | 300.8 | 7.81 | 4.62 | 142.4 | 4 |
+| Payton Wilson | LB | 47.9 | 36.4 | 288.1 | 6.01 | 2.62 | 69.3 | 1 |
+| Patrick Queen | LB | 75.6 | 56.3 | 468.9 | 6.2 | 2.59 | 68.3 | 4 |
+| Daylen Everette | CB | 14.9 | 9.1 | 91.2 | 6.12 | 1.06 | 29.7 | 1 |
+
+### Rest of Week 12: receivers vs likely PIT window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-27 | DEN | E.Engram (TE) | 13 | 8% | Robert Spears-Jennings (30%, 4.62) | Payton Wilson (25%, 2.62) |
+| 2026-11-27 | DEN | C.Sutton (WR) | 11 | 15% | Jalen Ramsey (24%, 5.36) | Jamel Dean (19%, 5.11) |
+| 2026-11-27 | DEN | P.Bryant (WR) | 9 | 5% | Jalen Ramsey (26%, 5.36) | Daylen Everette (16%, 1.06) |
+| 2026-11-27 | DEN | J.Coleman (RB) | 9 | 0% | Patrick Queen (46%, 2.59) | Payton Wilson (26%, 2.62) |

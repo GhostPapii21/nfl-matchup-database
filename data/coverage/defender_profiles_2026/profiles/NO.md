@@ -120,3 +120,29 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | GB | S.Williams (WR) | 9 | short_left 33%, short_middle 28% | Jordan Howden (26%) | Kool-Aid McKinstry (25%) |
 
 Defender pool = NO players with defensive snaps in their most recent game (2026_11_NO_CHI); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Justin Reid | S | 71.6 | 48.7 | 576.4 | 8.05 | 8.08 | 225.1 | 8 |
+| Quincy Riley | CB | 31.1 | 21.0 | 290.1 | 9.33 | 4.44 | 141.1 | 5 |
+| Julian Blackmon | S | 19.3 | 13.3 | 247.0 | 12.8 | 4.3 | 146.0 | 5 |
+| Kaden Elliss | LB | 50.1 | 39.8 | 350.6 | 7.0 | 4.27 | 108.6 | 6 |
+| Kool-Aid McKinstry | CB | 37.7 | 20.5 | 298.0 | 7.9 | 3.75 | 136.4 | 4 |
+| Jonas Sanker | S | 19.2 | 12.2 | 162.6 | 8.47 | 2.95 | 104.2 | 3 |
+| Martin Emerson | CB | 14.5 | 7.4 | 112.9 | 7.79 | 2.07 | 75.7 | 2 |
+| Danny Stutsman | LB | 19.8 | 15.4 | 160.1 | 8.09 | 1.82 | 54.4 | 0 |
+| Pete Werner | LB | 31.9 | 23.9 | 207.5 | 6.5 | 1.06 | 29.6 | 0 |
+
+### Rest of Week 12: receivers vs likely NO window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | CIN | J.Chase (WR) | 35 | 16% | Julian Blackmon (43%, 4.3) | Kool-Aid McKinstry (21%, 3.75) |
+| 2026-11-29 | CIN | C.Brown (RB) | 20 | 0% | Kaden Elliss (62%, 4.27) | Danny Stutsman (18%, 1.82) |
+| 2026-11-29 | CIN | T.Higgins (WR) | 15 | 12% | Julian Blackmon (44%, 4.3) | Kool-Aid McKinstry (20%, 3.75) |
+| 2026-11-29 | CIN | M.Gesicki (TE) | 10 | 12% | Julian Blackmon (59%, 4.3) | Kaden Elliss (18%, 4.27) |

@@ -124,3 +124,31 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | TEN | G.Helm (TE) | 7 | short_left 52%, short_middle 24% | Nick Cross (14%) | Jeremy Reaves (14%) |
 
 Defender pool = WAS players with defensive snaps in their most recent game (2026_11_CIN_WAS); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jeremy Reaves | S | 80.6 | 52.3 | 606.8 | 7.53 | 7.7 | 236.0 | 10 |
+| Nick Cross | S | 15.8 | 9.0 | 199.8 | 12.65 | 4.53 | 165.6 | 8 |
+| Trey Amos | CB | 21.9 | 14.6 | 168.0 | 7.67 | 3.54 | 93.0 | 3 |
+| Mike Sainristil | CB | 24.9 | 17.6 | 236.9 | 9.51 | 3.14 | 108.4 | 1 |
+| Rasul Douglas | CB | 34.2 | 24.6 | 239.5 | 7.0 | 2.91 | 93.7 | 1 |
+| Frankie Luvu | LB | 57.0 | 42.1 | 392.4 | 6.88 | 2.76 | 104.7 | 3 |
+| Sonny Styles | LB | 59.4 | 45.3 | 396.6 | 6.68 | 2.44 | 75.3 | 2 |
+| Amik Robertson | CB | 34.6 | 22.2 | 205.9 | 5.95 | 2.42 | 52.9 | 1 |
+| Quan Martin | S | 8.0 | 4.6 | 82.6 | 10.32 | 1.89 | 43.3 | 2 |
+| K'Lavon Chaisson | LB | 6.5 | 4.2 | 48.8 | 7.51 | 0.4 | 11.8 | 1 |
+| Fabian Moreau | CB | 5.6 | 3.6 | 25.8 | 4.61 | 0.15 | 3.5 | 0 |
+
+### Rest of Week 12: receivers vs likely WAS window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | ARI | T.McBride (TE) | 27 | 4% | Jeremy Reaves (44%, 7.7) | Sonny Styles (24%, 2.44) |
+| 2026-11-29 | ARI | S.Fehoko (WR) | 8 | 33% | Rasul Douglas (34%, 2.91) | Jeremy Reaves (29%, 7.7) |
+| 2026-11-29 | ARI | H.Wallace (WR) | 8 | 25% | Jeremy Reaves (37%, 7.7) | Trey Amos (19%, 3.54) |
+| 2026-11-29 | ARI | Mi.Wilson (WR) | 7 | 19% | Jeremy Reaves (35%, 7.7) | Rasul Douglas (25%, 2.91) |

@@ -123,3 +123,30 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | NYG | M.Fields (WR) | 14 | short_left 23%, short_middle 23% | Deommodore Lenoir (23%) | Renardo Green (21%) |
 
 Defender pool = SF players with defensive snaps in their most recent game (2026_11_MIN_SF); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Ji'Ayir Brown | S | 59.3 | 40.4 | 429.7 | 7.25 | 5.55 | 167.7 | 5 |
+| Deommodore Lenoir | CB | 38.4 | 23.2 | 319.8 | 8.33 | 5.11 | 177.6 | 6 |
+| Upton Stout | CB | 59.3 | 38.7 | 395.0 | 6.66 | 4.99 | 139.7 | 5 |
+| Renardo Green | CB | 49.7 | 33.4 | 355.6 | 7.15 | 4.18 | 115.4 | 8 |
+| Malik Mustapha | S | 13.4 | 6.4 | 106.4 | 7.94 | 2.7 | 75.5 | 2 |
+| Fred Warner | LB | 73.8 | 57.9 | 438.0 | 5.93 | 2.56 | 64.0 | 1 |
+| Marques Sigle | S | 11.1 | 6.0 | 57.0 | 5.14 | 0.95 | 22.4 | 0 |
+| Dre Greenlaw | LB | 34.3 | 27.7 | 186.2 | 5.43 | 0.73 | 20.3 | 0 |
+| Jaden Dugger | LB | 10.3 | 8.7 | 59.5 | 5.78 | 0.17 | 3.7 | 0 |
+| Garret Wallow | LB | 5.5 | 4.8 | 33.9 | 6.16 | 0.07 | 1.6 | 0 |
+
+### Rest of Week 12: receivers vs likely SF window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | SEA | J.Smith-Njigba (WR) | 20 | 17% | Upton Stout (30%, 4.99) | Fred Warner (15%, 2.56) |
+| 2026-11-29 | SEA | A.Barner (TE) | 7 | 0% | Marques Sigle (38%, 0.95) | Fred Warner (27%, 2.56) |
+| 2026-11-29 | SEA | C.Kupp (WR) | 5 | 6% | Upton Stout (31%, 4.99) | Fred Warner (17%, 2.56) |
+| 2026-11-29 | SEA | J.Price (RB) | 5 | 12% | Fred Warner (52%, 2.56) | Garret Wallow (17%, 0.07) |

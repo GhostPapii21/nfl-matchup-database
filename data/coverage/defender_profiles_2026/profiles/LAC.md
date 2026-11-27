@@ -123,3 +123,30 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | TB | K.Gainwell (RB) | 8 | short_right 58%, short_left 35% | Tuli Tuipulotu (18%) | Khalil Mack (15%) |
 
 Defender pool = LAC players with defensive snaps in their most recent game (2026_11_NYJ_LAC); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Elijah Molden | S | 38.7 | 29.1 | 401.0 | 10.36 | 5.4 | 168.1 | 5 |
+| Cam Hart | CB | 34.7 | 23.7 | 364.1 | 10.49 | 5.19 | 185.2 | 7 |
+| Donte Jackson | CB | 27.9 | 18.4 | 253.3 | 9.08 | 3.62 | 117.1 | 4 |
+| Daiyan Henley | LB | 62.0 | 44.2 | 402.0 | 6.48 | 3.53 | 100.9 | 4 |
+| Tony Jefferson | S | 17.0 | 10.9 | 172.8 | 10.16 | 3.16 | 90.1 | 3 |
+| Tarheeb Still | CB | 29.7 | 20.2 | 230.2 | 7.75 | 2.43 | 62.7 | 4 |
+| Derwin James | S | 22.8 | 14.4 | 177.9 | 7.8 | 2.33 | 72.6 | 1 |
+| Tuli Tuipulotu | LB | 32.4 | 23.8 | 183.8 | 5.67 | 1.02 | 27.7 | 0 |
+| Deane Leonard | CB | 9.3 | 6.8 | 60.3 | 6.48 | 0.11 | 2.2 | 0 |
+| Isas Waxter | CB | 6.8 | 4.8 | 34.0 | 5.0 | 0.11 | 4.3 | 0 |
+
+### Rest of Week 12: receivers vs likely LAC window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | NE | M.Hollins (WR) | 12 | 22% | Donte Jackson (26%, 3.62) | Deane Leonard (25%, 0.11) |
+| 2026-11-29 | NE | D.Douglas (WR) | 12 | 22% | Deane Leonard (26%, 0.11) | Donte Jackson (20%, 3.62) |
+| 2026-11-29 | NE | E.Raridon (TE) | 7 | 15% | Elijah Molden (39%, 5.4) | Tuli Tuipulotu (22%, 1.02) |
+| 2026-11-29 | NE | H.Henry (TE) | 6 | 2% | Elijah Molden (40%, 5.4) | Tuli Tuipulotu (20%, 1.02) |

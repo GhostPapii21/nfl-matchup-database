@@ -115,3 +115,29 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 12 | 2026-11-29 | CLE | D.Boston (WR) | 9 | short_left 29%, short_right 23% | Jermod McCoy (28%) | Eric Stokes (21%) |
 
 Defender pool = LV players with defensive snaps in their most recent game (2026_11_LV_DEN); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jeremy Chinn | S | 63.2 | 43.0 | 581.3 | 9.2 | 9.02 | 300.5 | 8 |
+| Treydan Stukes | S | 21.7 | 11.3 | 280.1 | 12.91 | 6.43 | 232.1 | 7 |
+| Darien Porter | CB | 30.3 | 22.3 | 299.4 | 9.88 | 4.25 | 132.4 | 4 |
+| Eric Stokes | CB | 36.4 | 23.2 | 304.7 | 8.37 | 3.96 | 119.0 | 5 |
+| Taron Johnson | CB | 46.1 | 29.1 | 355.1 | 7.7 | 3.94 | 123.7 | 5 |
+| Quay Walker | LB | 47.8 | 38.8 | 341.9 | 7.15 | 2.82 | 70.9 | 2 |
+| Nakobe Dean | LB | 40.8 | 33.3 | 287.1 | 7.04 | 1.81 | 43.0 | 0 |
+| Hezekiah Masses | CB | 13.5 | 7.9 | 140.8 | 10.43 | 1.45 | 71.2 | 3 |
+| Jermod McCoy | CB | 9.4 | 5.8 | 85.8 | 9.13 | 1.32 | 35.1 | 1 |
+
+### Rest of Week 12: receivers vs likely LV window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | CLE | K.Concepcion (WR) | 14 | 14% | Taron Johnson (29%, 3.94) | Jermod McCoy (22%, 1.32) |
+| 2026-11-29 | CLE | D.Sampson (RB) | 12 | 0% | Quay Walker (56%, 2.82) | Nakobe Dean (19%, 1.81) |
+| 2026-11-29 | CLE | H.Fannin (TE) | 11 | 6% | Jeremy Chinn (39%, 9.02) | Nakobe Dean (20%, 1.81) |
+| 2026-11-29 | CLE | D.Boston (WR) | 9 | 24% | Taron Johnson (27%, 3.94) | Jermod McCoy (19%, 1.32) |

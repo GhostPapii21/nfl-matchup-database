@@ -119,3 +119,31 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 12 | 2026-11-29 | HOU | K.Boutte (WR) | 8 | short_middle 26%, short_right 23% | Nate Wiggins (24%) | T.J. Tampa (13%) |
 
 Defender pool = BAL players with defensive snaps in their most recent game (2026_11_BAL_CAR); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Malaki Starks | S | 63.7 | 43.1 | 570.3 | 8.95 | 8.78 | 266.1 | 11 |
+| Kyle Hamilton | S | 22.7 | 17.2 | 326.6 | 14.39 | 7.28 | 233.2 | 11 |
+| Nate Wiggins | CB | 34.1 | 22.5 | 284.0 | 8.33 | 3.96 | 122.3 | 3 |
+| Marlon Humphrey | CB | 29.6 | 20.8 | 263.3 | 8.9 | 2.68 | 95.7 | 1 |
+| Roquan Smith | LB | 67.7 | 47.2 | 397.2 | 5.87 | 2.35 | 59.7 | 3 |
+| Chidobe Awuzie | CB | 21.1 | 12.7 | 163.9 | 7.77 | 2.02 | 69.4 | 3 |
+| Chandler Rivers | CB | 21.2 | 15.2 | 147.7 | 6.97 | 1.31 | 36.6 | 0 |
+| T.J. Tampa | CB | 8.2 | 4.9 | 69.9 | 8.52 | 1.14 | 37.7 | 0 |
+| Keyon Martin | CB | 12.5 | 8.8 | 91.9 | 7.35 | 1.03 | 28.4 | 0 |
+| Tavius Robinson | LB | 19.4 | 13.3 | 108.5 | 5.59 | 1.0 | 24.8 | 0 |
+| Trenton Simpson | LB | 14.9 | 11.4 | 103.9 | 6.97 | 0.33 | 9.4 | 0 |
+
+### Rest of Week 12: receivers vs likely BAL window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | HOU | N.Collins (WR) | 25 | 18% | Chidobe Awuzie (27%, 2.02) | Nate Wiggins (20%, 3.96) |
+| 2026-11-29 | HOU | X.Hutchinson (WR) | 17 | 18% | Chidobe Awuzie (28%, 2.02) | Roquan Smith (18%, 2.35) |
+| 2026-11-29 | HOU | T.Dell (WR) | 17 | 22% | Chidobe Awuzie (26%, 2.02) | Nate Wiggins (20%, 3.96) |
+| 2026-11-29 | HOU | K.Boutte (WR) | 8 | 23% | Chidobe Awuzie (27%, 2.02) | Nate Wiggins (17%, 3.96) |

@@ -60,3 +60,54 @@ so they don't identify a shadow corner.
    neither verified (pbp) nor inferred (model).
 4. Don't use All-22 / NFL+ / PFF premium, and don't bypass a login or paywall. If no free clip shows the play, record "not visible".
 5. After about 50 plays, compare OBSERVED-VIDEO with the inferred pick to measure accuracy on ordinary catches.
+
+---
+
+# v2: coverage-window ("zone of responsibility") credit — coverage_sim.py (2026-11-27)
+
+Rico's rule: whoever's window the ball was caught in gave up the play. A 30-yard catch near safety X counts against X. Everything here is **INFERRED**.
+
+1. **Shell mix per defense**: StatRankings public Cover 0/1/2/2-man/3/4/6 rates (through 2026-11-20). When a team isn't on one of the public top-25 lists,
+   that shell is set to 0.8 × the lowest listed value (IMPUTED; per-team list in `team_shell_mix.json`). Rates are normalised.
+2. **Roles each game** come from that game's snap counts plus roster depth-chart position:
+   - The top-2 CBs are the outside corners. Each one's side (offense's left/right) comes from his own verified and tackle-zone history.
+   - CB3 (35%+ snaps) is the nickel.
+   - Of the top-2 safeties, the deeper one is FS and the other is SS. The more-left safety takes the left half in two-high shells.
+   - The top-2 LBs are MLB and LB2.
+3. **Field grid** (offense's view): depth bands are behind the LOS, 0–9, 10–19 and 20+ (air yards = catch point). Width is L / L-slot / M / R-slot / R.
+   pbp only says left/middle/right, so outside vs slot is sampled (WR 60% outside, TE 15%, RB 30%).
+4. **Simulation**: each target gets 10,000 draws of (shell, width, strength side, middle split) from the team's mix. For each draw:
+   - Zone shells: the owner of that window under that shell.
+   - Man shells: the defender matched to that receiver's alignment (outside WR → that side's CB, slot WR → nickel, TE → SS, RB → MLB). The FS owns deep middle in Cover 1.
+   - A defender's ownership probability is his share of the draws.
+5. **Tackler blend** (completions):
+   - YAC under 10 and the tackler is a role player: credit = 0.7 × window + 0.3 × tackler.
+   - YAC 10+: the window owner keeps the credit, and a different tackler is logged as `help_defender`.
+   - Rushing 10+ yards: the tackler is logged in `rush_explosives_10plus_tackler.csv` (pursuit evidence only; there's no window model for runs).
+
+## v2 validation: held out verified PBU/INT, weeks 9–12 (same 364 plays as v1)
+Tendencies were rebuilt without any week 9–12 verified play. StatRankings shell rates are season-to-date through Nov 20, so they include some of the test weeks
+(mild scheme-rate leakage).
+
+| Method | Exact defender top-1 | Top-2 | Window class (CB-left / CB-right / nickel / S / LB) | Position group (CB/S/LB) |
+|---|---|---|---|---|
+| v1 (same strict holdout) | 22.5% | 42.6% | 26.9% | 50.8% |
+| v2 window simulator | 24.2% | 39.3% | **32.1%** | 50.5% |
+| v2 × v1 hybrid | 24.7% | 41.2% | 30.5% | 50.8% |
+| Majority-class baseline | — | — | 20.3% | 44.0% |
+
+(The v1 number in the first half of this doc, 25.0% / 40.7%, used a looser leave-one-play-out holdout.)
+
+v2 tiers (window probability): high ≥ 0.6 → 41% exact / 50% window (n=22); med 0.4–0.6 → 24% / 32% (n=284); low → 19% / 24% (n=58).
+19% of verified defenders aren't in any of the 9 role slots (3rd LB, rotational backs, DL batted balls). Those plays can't be credited correctly.
+
+**Reading**: the window class is right about 1 time in 3 (vs 1 in 5 by always guessing the most common class). The exact defender is right about 1 in 4, the
+same as v1. It's a vicinity estimate, as Rico framed it, not an assignment. Credit on any single play is a coin flip among 2–3 nearby players. Season
+totals (window yards, 20+ credit) average that noise out better than single plays do, but they're still unverified.
+
+Also: PBU/INT plays are contested throws, so the test says nothing direct about clean catches. Cornerbacks travel and flip sides by formation, which free
+data doesn't show. The man-to-alignment map is a template, not a game plan.
+
+Outputs: `defender_window_credit_inferred.csv`, `defender_explosives_allowed_inferred.csv`, `rush_explosives_10plus_tackler.csv`,
+`upcoming_w12_window_matchups_inferred.csv`, `team_shell_mix.json`, `attribution_v2_validation_*.csv`, `charts/*.png`, and the v2 section in every profile.
+Rebuild: `python3 coverage_sim.py --raw <dir>` (needs `sr_cover_types_2026-11-22.csv` and `games.csv` in the raw dir) and `python3 validate_v2.py --raw <dir>`.

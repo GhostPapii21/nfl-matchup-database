@@ -115,3 +115,28 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 12 | 2026-11-29 | MIA | O.Gordon (RB) | 9 | short_left 56%, short_right 28% | Demario Davis (34%) | Jamien Sherwood (33%) |
 
 Defender pool = NYJ players with defensive snaps in their most recent game (2026_11_NYJ_LAC); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Dane Belton | S | 66.5 | 43.8 | 583.9 | 8.78 | 7.88 | 260.7 | 8 |
+| Azareye'h Thomas | CB | 38.0 | 26.5 | 282.7 | 7.44 | 3.75 | 110.3 | 5 |
+| Jarvis Brownlee Jr. | CB | 41.9 | 26.4 | 280.7 | 6.7 | 3.7 | 107.9 | 3 |
+| Minkah Fitzpatrick | S | 9.5 | 5.6 | 124.0 | 13.05 | 3.23 | 99.1 | 4 |
+| Brandon Stephens | CB | 33.8 | 20.1 | 231.5 | 6.85 | 2.74 | 86.3 | 3 |
+| Demario Davis | LB | 52.9 | 37.7 | 345.6 | 6.53 | 2.52 | 80.1 | 1 |
+| Jamien Sherwood | LB | 41.7 | 31.1 | 287.3 | 6.89 | 2.1 | 67.3 | 2 |
+| D'Angelo Ponds | CB | 9.2 | 6.4 | 71.1 | 7.73 | 0.49 | 23.5 | 0 |
+
+### Rest of Week 12: receivers vs likely NYJ window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | MIA | C.Douglas (WR) | 26 | 22% | D'Angelo Ponds (28%, 0.49) | Azareye'h Thomas (21%, 3.75) |
+| 2026-11-29 | MIA | G.Dulcich (TE) | 13 | 10% | Dane Belton (45%, 7.88) | Demario Davis (17%, 2.52) |
+| 2026-11-29 | MIA | M.Washington (WR) | 12 | 28% | D'Angelo Ponds (28%, 0.49) | Brandon Stephens (18%, 2.74) |
+| 2026-11-29 | MIA | O.Gordon (RB) | 9 | 0% | Jamien Sherwood (56%, 2.1) | Demario Davis (19%, 2.52) |

@@ -119,3 +119,29 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | CIN | M.Gesicki (TE) | 10 | short_left 29%, short_middle 21% | Grant Delpit (18%) | Emmanuel McNeil-Warren (17%) |
 
 Defender pool = CLE players with defensive snaps in their most recent game (2026_10_HOU_CLE); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Myles Harden | CB | 70.6 | 42.4 | 486.6 | 6.89 | 5.81 | 178.5 | 4 |
+| Tyson Campbell | CB | 35.5 | 20.1 | 276.5 | 7.79 | 5.43 | 153.7 | 7 |
+| Ronnie Hickman Jr. | S | 20.7 | 9.7 | 213.5 | 10.31 | 5.09 | 175.3 | 6 |
+| Grant Delpit | S | 49.6 | 32.0 | 385.9 | 7.78 | 4.54 | 150.9 | 4 |
+| Denzel Ward | CB | 42.7 | 24.7 | 287.7 | 6.74 | 3.61 | 109.8 | 4 |
+| Carson Schwesinger | LB | 47.6 | 34.5 | 257.8 | 5.42 | 2.2 | 57.3 | 2 |
+| Emmanuel McNeil-Warren | S | 9.9 | 5.3 | 62.1 | 6.27 | 0.99 | 28.5 | 1 |
+| Mekhi Blackmon | CB | 7.4 | 4.3 | 61.5 | 8.31 | 0.69 | 21.2 | 1 |
+| Quincy Williams | LB | 31.1 | 24.0 | 161.5 | 5.19 | 0.65 | 18.9 | 0 |
+
+### Rest of Week 12: receivers vs likely CLE window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | LV | T.Tucker (WR) | 20 | 24% | Myles Harden (35%, 5.81) | Tyson Campbell (22%, 5.43) |
+| 2026-11-29 | LV | A.Jeanty (RB) | 19 | 3% | Carson Schwesinger (75%, 2.2) | Quincy Williams (11%, 0.65) |
+| 2026-11-29 | LV | J.Bech (WR) | 18 | 4% | Myles Harden (41%, 5.81) | Tyson Campbell (18%, 5.43) |
+| 2026-11-29 | LV | J.Nailor (WR) | 13 | 8% | Myles Harden (40%, 5.81) | Denzel Ward (22%, 3.61) |

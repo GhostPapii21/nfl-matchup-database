@@ -121,3 +121,27 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | DEN | J.Coleman (RB) | 9 | short_right 53%, short_left 37% | Jordyn Brooks (33%) | Jacob Rodriguez (30%) |
 
 Defender pool = MIA players with defensive snaps in their most recent game (2026_11_MIA_BUF); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Michael Taaffe | S | 43.1 | 31.0 | 404.7 | 9.39 | 7.61 | 223.7 | 7 |
+| Dante Trader Jr. | S | 11.1 | 8.1 | 226.9 | 20.44 | 4.62 | 184.3 | 4 |
+| Chris Johnson | CB | 33.0 | 24.9 | 308.0 | 9.33 | 4.15 | 151.7 | 8 |
+| Jason Marshall Jr. | CB | 43.8 | 32.0 | 349.8 | 7.99 | 3.76 | 111.9 | 1 |
+| Julius Brents | CB | 32.3 | 24.5 | 252.6 | 7.82 | 3.1 | 79.4 | 2 |
+| Jacob Rodriguez | LB | 55.9 | 44.4 | 370.6 | 6.63 | 2.87 | 79.3 | 3 |
+| Jordyn Brooks | LB | 51.8 | 40.0 | 287.6 | 5.55 | 1.69 | 48.1 | 2 |
+
+### Rest of Week 12: receivers vs likely MIA window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | NYJ | G.Wilson (WR) | 19 | 13% | Jason Marshall Jr. (26%, 3.76) | Julius Brents (18%, 3.1) |
+| 2026-11-29 | NYJ | A.Mitchell (WR) | 18 | 36% | Jason Marshall Jr. (21%, 3.76) | Chris Johnson (21%, 4.15) |
+| 2026-11-29 | NYJ | B.Hall (RB) | 11 | 0% | Jacob Rodriguez (44%, 2.87) | Jordyn Brooks (24%, 1.69) |
+| 2026-11-29 | NYJ | O.Cooper (WR) | 11 | 12% | Jason Marshall Jr. (28%, 3.76) | Chris Johnson (21%, 4.15) |

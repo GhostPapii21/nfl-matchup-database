@@ -124,3 +124,29 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | CAR | T.Tremble (TE) | 12 | short_left 44%, short_right 39% | Josh Metellus (12%) | James Pierre (10%) |
 
 Defender pool = MIN players with defensive snaps in their most recent game (2026_11_MIN_SF); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Josh Metellus | S | 62.4 | 36.5 | 501.2 | 8.03 | 6.82 | 235.4 | 8 |
+| Theo Jackson | S | 10.5 | 5.8 | 139.7 | 13.3 | 3.04 | 103.1 | 4 |
+| Byron Murphy | CB | 35.9 | 23.8 | 263.0 | 7.33 | 2.48 | 69.1 | 2 |
+| Isaiah Rodgers | CB | 28.6 | 18.4 | 184.2 | 6.44 | 2.44 | 62.3 | 4 |
+| James Pierre | CB | 37.8 | 25.8 | 251.1 | 6.64 | 1.74 | 52.4 | 0 |
+| Eric Wilson | LB | 39.7 | 23.2 | 242.7 | 6.11 | 1.54 | 66.6 | 1 |
+| Blake Cashman | LB | 45.4 | 31.6 | 273.2 | 6.02 | 1.39 | 43.9 | 0 |
+| Harrison Smith | S | 5.5 | 2.2 | 58.5 | 10.64 | 1.15 | 46.5 | 2 |
+| Dallas Turner | LB | 6.8 | 5.1 | 50.1 | 7.37 | 0.4 | 10.7 | 0 |
+
+### Rest of Week 12: receivers vs likely MIN window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | ATL | D.London (WR) | 17 | 13% | Josh Metellus (38%, 6.82) | James Pierre (18%, 1.74) |
+| 2026-11-29 | ATL | B.Robinson (RB) | 12 | 0% | Blake Cashman (46%, 1.39) | Dallas Turner (23%, 0.4) |
+| 2026-11-29 | ATL | K.Pitts (TE) | 10 | 7% | Josh Metellus (48%, 6.82) | Dallas Turner (23%, 0.4) |
+| 2026-11-29 | ATL | J.Dotson (WR) | 8 | 26% | Josh Metellus (35%, 6.82) | James Pierre (21%, 1.74) |

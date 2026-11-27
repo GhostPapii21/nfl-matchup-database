@@ -123,3 +123,32 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | MIA | O.Gordon (RB) | 9 | short_left 56%, short_right 28% | Alex Singleton (20%) | Nik Bonitto (17%) |
 
 Defender pool = DEN players with defensive snaps in their most recent game (2026_11_LV_DEN); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Brandon Jones | S | 48.3 | 32.0 | 394.7 | 8.17 | 5.28 | 182.3 | 7 |
+| Ja'Quan McMillian | CB | 61.0 | 36.8 | 424.0 | 6.95 | 4.31 | 144.7 | 3 |
+| Alex Singleton | LB | 74.6 | 52.3 | 492.3 | 6.6 | 4.26 | 172.7 | 6 |
+| Pat Surtain II | CB | 23.7 | 14.0 | 176.1 | 7.43 | 3.33 | 87.9 | 4 |
+| Taylor Rapp | S | 20.9 | 15.1 | 195.9 | 9.37 | 3.04 | 92.1 | 4 |
+| Riley Moss | CB | 31.0 | 19.0 | 227.0 | 7.32 | 1.99 | 70.9 | 2 |
+| Talanoa Hufanga | S | 12.0 | 5.3 | 97.6 | 8.13 | 1.8 | 51.8 | 1 |
+| Justin Strnad | LB | 28.6 | 20.9 | 170.8 | 5.97 | 1.33 | 51.6 | 0 |
+| Devon Key | S | 8.3 | 4.1 | 81.4 | 9.81 | 0.84 | 42.4 | 0 |
+| Jahdae Barron | CB | 18.8 | 9.9 | 98.2 | 5.22 | 0.84 | 25.3 | 1 |
+| Kris Abrams-Draine | CB | 19.2 | 11.0 | 101.8 | 5.3 | 0.25 | 8.9 | 0 |
+| Nik Bonitto | LB | 5.1 | 3.4 | 31.2 | 6.12 | 0.2 | 6.2 | 0 |
+
+### Rest of Week 12: receivers vs likely DEN window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-27 | PIT | G.Bernard (WR) | 13 | 11% | Ja'Quan McMillian (36%, 4.31) | Riley Moss (17%, 1.99) |
+| 2026-11-27 | PIT | D.Metcalf (WR) | 10 | 31% | Ja'Quan McMillian (29%, 4.31) | Pat Surtain II (20%, 3.33) |
+| 2026-11-27 | PIT | J.Warren (RB) | 9 | 0% | Alex Singleton (67%, 4.26) | Justin Strnad (16%, 1.33) |
+| 2026-11-27 | PIT | P.Freiermuth (TE) | 8 | 14% | Devon Key (54%, 0.84) | Alex Singleton (18%, 4.26) |

@@ -122,3 +122,29 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-07 | DAL | R.Flournoy (WR) | 11 | short_left 42%, short_middle 22% | Josh Jobe (25%) | Devon Witherspoon (23%) |
 
 Defender pool = SEA players with defensive snaps in their most recent game (2026_10_SEA_LV); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Ty Okada | S | 56.5 | 36.8 | 345.5 | 6.12 | 3.56 | 83.6 | 4 |
+| Josh Jobe | CB | 31.5 | 20.5 | 194.0 | 6.16 | 3.25 | 79.5 | 1 |
+| Julian Love | S | 28.9 | 15.4 | 163.3 | 5.65 | 2.6 | 62.8 | 5 |
+| Ernest Jones | LB | 65.1 | 50.6 | 391.8 | 6.02 | 2.08 | 59.9 | 2 |
+| Devon Witherspoon | CB | 37.1 | 22.2 | 172.0 | 4.64 | 1.62 | 45.5 | 1 |
+| Rodney Thomas | S | 6.1 | 2.5 | 55.5 | 9.1 | 1.31 | 44.4 | 2 |
+| Drake Thomas | LB | 34.7 | 25.9 | 169.3 | 4.88 | 0.6 | 14.9 | 0 |
+| Nehemiah Pritchett | CB | 16.7 | 11.4 | 90.4 | 5.41 | 0.37 | 8.3 | 0 |
+| Tyrice Knight | LB | 9.7 | 7.1 | 48.9 | 5.04 | 0.0 | 0.0 | 0 |
+
+### Rest of Week 12: receivers vs likely SEA window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | SF | G.Kittle (TE) | 19 | 6% | Ty Okada (48%, 3.56) | Ernest Jones (22%, 2.08) |
+| 2026-11-29 | SF | K.Allen (WR) | 11 | 7% | Ty Okada (37%, 3.56) | Devon Witherspoon (15%, 1.62) |
+| 2026-11-29 | SF | C.McCaffrey (RB) | 10 | 0% | Ernest Jones (44%, 2.08) | Drake Thomas (24%, 0.6) |
+| 2026-11-29 | SF | J.Watkins (WR) | 8 | 29% | Ty Okada (37%, 3.56) | Josh Jobe (17%, 3.25) |

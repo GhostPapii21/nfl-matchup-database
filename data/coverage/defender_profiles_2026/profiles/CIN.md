@@ -121,3 +121,30 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | CLE | D.Boston (WR) | 9 | short_left 29%, short_right 23% | DJ Turner II (27%) | Josh Newton (20%) |
 
 Defender pool = CIN players with defensive snaps in their most recent game (2026_11_CIN_WAS); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jordan Battle | S | 60.2 | 38.9 | 500.2 | 8.31 | 8.12 | 224.5 | 11 |
+| Barrett Carter | LB | 63.2 | 46.2 | 435.6 | 6.89 | 5.22 | 137.8 | 4 |
+| Bryan Cook | S | 15.2 | 8.7 | 163.6 | 10.76 | 4.53 | 121.9 | 3 |
+| Daxton Hill | CB | 37.6 | 24.1 | 263.9 | 7.02 | 3.46 | 94.9 | 4 |
+| DJ Turner II | CB | 36.7 | 22.7 | 253.0 | 6.89 | 3.14 | 84.7 | 4 |
+| Josh Newton | CB | 20.2 | 14.0 | 158.1 | 7.83 | 2.52 | 68.4 | 3 |
+| D.J. Ivey | CB | 20.8 | 14.3 | 179.4 | 8.62 | 2.34 | 61.8 | 3 |
+| Demetrius Knight Jr. | LB | 35.9 | 27.7 | 257.6 | 7.18 | 2.19 | 63.8 | 0 |
+| Jalen Davis | CB | 16.9 | 9.9 | 118.0 | 6.98 | 1.44 | 38.9 | 2 |
+| Tacario Davis | CB | 7.6 | 4.8 | 61.4 | 8.08 | 0.61 | 19.6 | 0 |
+
+### Rest of Week 12: receivers vs likely CIN window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | NO | C.Olave (WR) | 31 | 24% | Josh Newton (29%, 2.52) | DJ Turner II (21%, 3.14) |
+| 2026-11-29 | NO | J.Tyson (WR) | 20 | 10% | Josh Newton (34%, 2.52) | Daxton Hill (20%, 3.46) |
+| 2026-11-29 | NO | D.Vele (WR) | 13 | 11% | Josh Newton (32%, 2.52) | DJ Turner II (26%, 3.14) |
+| 2026-11-29 | NO | A.Kamara (RB) | 10 | 3% | Barrett Carter (58%, 5.22) | Demetrius Knight Jr. (17%, 2.19) |

@@ -122,3 +122,32 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 12 | 2026-11-29 | NYG | M.Fields (WR) | 14 | short_left 23%, short_middle 23% | Justin Walley (27%) | Kapena Gushiken (20%) |
 
 Defender pool = IND players with defensive snaps in their most recent game (2026_11_IND_HOU); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Camryn Bynum | S | 26.9 | 16.2 | 315.8 | 11.74 | 6.01 | 208.1 | 4 |
+| Charvarius Ward | CB | 41.8 | 24.0 | 354.4 | 8.48 | 6.0 | 193.6 | 10 |
+| Justin Walley | CB | 50.1 | 31.5 | 385.9 | 7.7 | 5.13 | 186.9 | 8 |
+| A.J. Haulcy | S | 45.5 | 27.3 | 358.3 | 7.87 | 4.73 | 155.4 | 2 |
+| Sauce Gardner | CB | 22.2 | 13.9 | 239.8 | 10.8 | 4.04 | 157.5 | 5 |
+| Akeem Davis-Gaither | LB | 41.4 | 29.8 | 341.0 | 8.24 | 3.14 | 131.2 | 3 |
+| Kapena Gushiken | CB | 8.9 | 5.3 | 77.6 | 8.72 | 1.87 | 56.5 | 2 |
+| CJ Allen | LB | 28.8 | 20.0 | 183.6 | 6.38 | 1.76 | 48.1 | 2 |
+| Jaylon Carlies | LB | 15.3 | 11.0 | 116.2 | 7.59 | 1.12 | 37.4 | 0 |
+| Cam Taylor-Britt | CB | 10.1 | 5.6 | 57.5 | 5.69 | 0.73 | 15.2 | 0 |
+| Bryce Boettcher | LB | 10.8 | 7.5 | 54.8 | 5.07 | 0.44 | 10.1 | 0 |
+| Johnathan Edwards | CB | 5.6 | 4.3 | 44.3 | 7.91 | 0.32 | 10.6 | 0 |
+
+### Rest of Week 12: receivers vs likely IND window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | NYG | M.Nabers (WR) | 27 | 22% | Johnathan Edwards (31%, 0.32) | Justin Walley (19%, 5.13) |
+| 2026-11-29 | NYG | I.Likely (TE) | 20 | 7% | A.J. Haulcy (51%, 4.73) | CJ Allen (19%, 1.76) |
+| 2026-11-29 | NYG | D.Mooney (WR) | 14 | 31% | Johnathan Edwards (29%, 0.32) | Kapena Gushiken (22%, 1.87) |
+| 2026-11-29 | NYG | M.Fields (WR) | 14 | 25% | Johnathan Edwards (31%, 0.32) | Kapena Gushiken (18%, 1.87) |

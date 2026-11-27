@@ -118,3 +118,21 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-03 | KC | E.Johnson (RB) | 15 | short_right 48%, short_left 42% | Byron Young (18%) | Myles Garrett (16%) |
 
 Defender pool = LA players with defensive snaps in their most recent game (2026_12_GB_LA); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Quentin Lake | S | 79.0 | 48.0 | 527.2 | 6.67 | 5.53 | 175.2 | 8 |
+| Josh Wallace | CB | 40.4 | 24.8 | 311.0 | 7.7 | 4.83 | 161.6 | 2 |
+| Kam Curl | S | 19.6 | 9.0 | 146.9 | 7.49 | 3.63 | 89.9 | 5 |
+| Nate Landman | LB | 45.4 | 31.7 | 285.5 | 6.29 | 2.78 | 99.3 | 4 |
+| Byron Young | LB | 51.2 | 34.8 | 312.0 | 6.09 | 2.36 | 74.9 | 1 |
+| Emmanuel Forbes | CB | 29.3 | 16.9 | 171.9 | 5.87 | 2.35 | 71.3 | 1 |
+| Jaylen Watson | CB | 19.6 | 13.1 | 163.0 | 8.32 | 2.02 | 72.4 | 3 |
+| Trent McDuffie | CB | 22.2 | 14.6 | 145.7 | 6.56 | 1.82 | 66.6 | 2 |
+| Kamren Kinchens | S | 11.0 | 7.5 | 67.6 | 6.15 | 0.39 | 15.2 | 0 |
+| Josaiah Stewart | LB | 7.7 | 4.4 | 41.1 | 5.34 | 0.23 | 8.7 | 0 |

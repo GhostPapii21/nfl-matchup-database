@@ -121,3 +121,30 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | PIT | P.Freiermuth (TE) | 8 | short_left 30%, short_middle 26% | Reed Blankenship (17%) | Jalen Pitre (17%) |
 
 Defender pool = HOU players with defensive snaps in their most recent game (2026_11_IND_HOU); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jalen Pitre | S | 83.8 | 53.2 | 689.3 | 8.23 | 10.92 | 344.1 | 10 |
+| Derek Stingley Jr. | CB | 36.9 | 20.1 | 328.1 | 8.89 | 6.04 | 206.4 | 9 |
+| Calen Bullock | S | 23.6 | 11.3 | 264.6 | 11.21 | 5.6 | 191.5 | 6 |
+| Kamari Lassiter | CB | 41.4 | 26.2 | 295.3 | 7.13 | 4.37 | 138.1 | 5 |
+| Henry To'oTo'o | LB | 33.3 | 22.4 | 218.2 | 6.55 | 3.39 | 89.0 | 5 |
+| Azeez Al-Shaair | LB | 42.6 | 32.2 | 258.2 | 6.06 | 2.32 | 57.9 | 2 |
+| Tremon Smith | CB | 13.0 | 8.2 | 110.0 | 8.46 | 1.75 | 51.4 | 0 |
+| M.J. Stewart | S | 12.1 | 7.1 | 80.3 | 6.64 | 1.52 | 49.9 | 1 |
+| Jake Hansen | LB | 32.2 | 23.1 | 169.5 | 5.26 | 1.49 | 33.0 | 0 |
+| Reed Blankenship | S | 12.2 | 7.6 | 61.0 | 5.0 | 0.37 | 8.4 | 0 |
+
+### Rest of Week 12: receivers vs likely HOU window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | BAL | Z.Flowers (WR) | 24 | 10% | Jalen Pitre (40%, 10.92) | Henry To'oTo'o (20%, 3.39) |
+| 2026-11-29 | BAL | J.Hill (RB) | 15 | 0% | Henry To'oTo'o (53%, 3.39) | Jake Hansen (21%, 1.49) |
+| 2026-11-29 | BAL | M.Andrews (TE) | 13 | 4% | Jalen Pitre (46%, 10.92) | Henry To'oTo'o (31%, 3.39) |
+| 2026-11-29 | BAL | R.Bateman (WR) | 13 | 17% | Jalen Pitre (39%, 10.92) | Kamari Lassiter (19%, 4.37) |

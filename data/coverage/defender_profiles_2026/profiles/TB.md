@@ -123,3 +123,29 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | LAC | Q.Johnston (WR) | 7 | short_right 30%, short_left 21% | Zyon McCollum (28%) | Benjamin Morrison (15%) |
 
 Defender pool = TB players with defensive snaps in their most recent game (2026_11_TB_DET); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Tykee Smith | S | 59.2 | 37.5 | 427.0 | 7.21 | 5.21 | 169.9 | 4 |
+| Keionte Scott | CB | 56.2 | 34.7 | 369.7 | 6.58 | 3.61 | 126.0 | 5 |
+| Jacob Parrish | CB | 30.0 | 18.0 | 252.9 | 8.43 | 3.31 | 126.8 | 3 |
+| Ifeatu Melifonwu | S | 8.1 | 4.8 | 151.0 | 18.64 | 3.05 | 130.3 | 5 |
+| Zyon McCollum | CB | 32.6 | 21.0 | 247.6 | 7.6 | 2.43 | 74.4 | 2 |
+| Alex Anzalone | LB | 65.7 | 45.5 | 399.9 | 6.09 | 2.12 | 82.5 | 1 |
+| Antoine Winfield Jr. | S | 8.3 | 3.2 | 83.5 | 10.06 | 2.01 | 70.6 | 2 |
+| Benjamin Morrison | CB | 14.1 | 11.0 | 118.4 | 8.4 | 1.35 | 38.2 | 2 |
+| Josiah Trotter | LB | 43.2 | 32.3 | 257.6 | 5.96 | 0.92 | 27.3 | 0 |
+
+### Rest of Week 12: receivers vs likely TB window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-30 | CAR | T.McMillan (WR) | 22 | 16% | Tykee Smith (40%, 5.21) | Alex Anzalone (16%, 2.12) |
+| 2026-11-30 | CAR | D.Waller (TE) | 17 | 14% | Tykee Smith (50%, 5.21) | Alex Anzalone (20%, 2.12) |
+| 2026-11-30 | CAR | J.Coker (WR) | 16 | 17% | Tykee Smith (40%, 5.21) | Benjamin Morrison (18%, 1.35) |
+| 2026-11-30 | CAR | T.Tremble (TE) | 12 | 0% | Tykee Smith (50%, 5.21) | Josiah Trotter (24%, 0.92) |

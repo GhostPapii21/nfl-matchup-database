@@ -125,3 +125,23 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | ATL | J.Dotson (WR) | 8 | short_left 29%, deep_left 18% | Roger McCreary (23%) | Brian Branch (22%) |
 
 Defender pool = DET players with defensive snaps in their most recent game (2026_12_CHI_DET); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Chuck Clark | S | 67.9 | 46.5 | 524.1 | 7.72 | 7.53 | 202.4 | 6 |
+| Roger McCreary | CB | 50.1 | 30.5 | 358.1 | 7.15 | 7.08 | 179.3 | 9 |
+| D.J. Reed | CB | 42.4 | 28.0 | 377.8 | 8.91 | 6.09 | 185.3 | 7 |
+| Derrick Barnes | LB | 48.2 | 36.8 | 320.4 | 6.65 | 2.96 | 85.6 | 3 |
+| Brian Branch | S | 17.2 | 9.2 | 146.7 | 8.53 | 2.81 | 91.9 | 2 |
+| Keith Abney II | CB | 23.1 | 14.6 | 145.9 | 6.32 | 2.13 | 53.9 | 2 |
+| Jack Campbell | LB | 45.4 | 36.6 | 291.4 | 6.42 | 2.1 | 47.8 | 1 |
+| Ennis Rakestraw Jr. | CB | 18.9 | 13.6 | 152.4 | 8.06 | 2.03 | 49.2 | 1 |
+| Thomas Harper | S | 11.6 | 6.1 | 97.1 | 8.37 | 1.81 | 60.3 | 2 |
+| Malcolm Rodriguez | LB | 23.5 | 18.0 | 183.5 | 7.81 | 0.75 | 23.1 | 1 |
+| Rock Ya-Sin | CB | 22.0 | 14.0 | 115.8 | 5.26 | 0.69 | 19.0 | 1 |
+| Khalil Dorsey | CB | 5.7 | 3.1 | 28.4 | 4.98 | 0.57 | 13.3 | 0 |

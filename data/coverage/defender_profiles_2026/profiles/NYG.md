@@ -123,3 +123,31 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | SF | J.Watkins (WR) | 8 | deep_left 24%, deep_middle 24% | Paulson Adebo (26%) | Deonte Banks (19%) |
 
 Defender pool = NYG players with defensive snaps in their most recent game (2026_11_JAX_NYG); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Andru Phillips | CB | 68.7 | 40.3 | 458.3 | 6.67 | 6.25 | 173.1 | 5 |
+| Greg Newsome II | CB | 33.7 | 22.2 | 268.3 | 7.96 | 3.42 | 107.6 | 6 |
+| Ar'Darius Washington | S | 20.7 | 12.8 | 145.9 | 7.05 | 2.69 | 66.2 | 2 |
+| Jevon Holland | S | 16.8 | 6.8 | 121.4 | 7.23 | 2.53 | 73.6 | 2 |
+| Tyler Nubin | S | 26.2 | 17.7 | 171.2 | 6.53 | 2.52 | 57.7 | 4 |
+| Tremaine Edmunds | LB | 29.0 | 22.8 | 183.4 | 6.32 | 1.86 | 48.5 | 1 |
+| Deonte Banks | CB | 38.8 | 19.1 | 197.2 | 5.08 | 1.55 | 32.8 | 3 |
+| Arvell Reese | LB | 40.6 | 30.7 | 223.6 | 5.51 | 1.13 | 30.0 | 0 |
+| Colton Hood | CB | 9.6 | 6.3 | 76.8 | 8.0 | 0.97 | 20.3 | 1 |
+| Micah McFadden | LB | 21.4 | 15.4 | 130.7 | 6.11 | 0.83 | 28.2 | 0 |
+| Jason Pinnock | S | 13.4 | 7.2 | 65.4 | 4.88 | 0.58 | 16.1 | 1 |
+
+### Rest of Week 12: receivers vs likely NYG window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | IND | T.Warren (TE) | 15 | 2% | Ar'Darius Washington (52%, 2.69) | Arvell Reese (17%, 1.13) |
+| 2026-11-29 | IND | J.Taylor (RB) | 14 | 0% | Arvell Reese (60%, 1.13) | Micah McFadden (17%, 0.83) |
+| 2026-11-29 | IND | K.Allen (WR) | 8 | 7% | Andru Phillips (35%, 6.25) | Paulson Adebo (18%, 0.67) |
+| 2026-11-29 | IND | A.Dulin (WR) | 8 | 20% | Andru Phillips (30%, 6.25) | Paulson Adebo (25%, 0.67) |

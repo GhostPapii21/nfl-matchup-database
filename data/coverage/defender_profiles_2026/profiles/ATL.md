@@ -123,3 +123,31 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | DET | J.Gibbs (RB) | 19 | short_left 40%, short_middle 30% | Kendal Daniels (35%) | Harold Perkins Jr. (20%) |
 
 Defender pool = ATL players with defensive snaps in their most recent game (2026_10_KC_ATL); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jessie Bates | S | 73.2 | 52.7 | 555.7 | 7.59 | 6.2 | 162.6 | 5 |
+| Xavier Watts | S | 21.8 | 13.4 | 243.4 | 11.17 | 5.24 | 171.7 | 5 |
+| Mike Hughes | CB | 39.7 | 26.1 | 323.0 | 8.14 | 5.09 | 150.6 | 6 |
+| C.J. Henderson | CB | 34.3 | 21.3 | 279.7 | 8.15 | 4.13 | 134.4 | 5 |
+| Billy Bowman Jr. | CB | 23.6 | 14.5 | 192.9 | 8.17 | 3.29 | 99.1 | 2 |
+| Kendal Daniels | LB | 42.4 | 33.4 | 271.3 | 6.4 | 2.29 | 57.6 | 2 |
+| A.J. Terrell | CB | 14.7 | 9.7 | 133.8 | 9.1 | 1.64 | 66.8 | 3 |
+| Harold Perkins Jr. | LB | 23.3 | 17.3 | 125.3 | 5.38 | 1.37 | 33.6 | 0 |
+| Avieon Terrell | CB | 11.5 | 8.3 | 81.8 | 7.11 | 1.15 | 30.6 | 1 |
+| Divine Deablo | LB | 39.4 | 26.6 | 183.7 | 4.66 | 0.88 | 18.1 | 1 |
+| Josh Woods | LB | 7.3 | 6.6 | 60.8 | 8.33 | 0.2 | 4.7 | 0 |
+
+### Rest of Week 12: receivers vs likely ATL window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | MIN | J.Jefferson (WR) | 33 | 11% | Billy Bowman Jr. (29%, 3.29) | C.J. Henderson (22%, 4.13) |
+| 2026-11-29 | MIN | T.Felton (WR) | 17 | 17% | Billy Bowman Jr. (30%, 3.29) | C.J. Henderson (23%, 4.13) |
+| 2026-11-29 | MIN | T.Hockenson (TE) | 14 | 6% | Xavier Watts (46%, 5.24) | Kendal Daniels (20%, 2.29) |
+| 2026-11-29 | MIN | M.Price (WR) | 10 | 29% | Billy Bowman Jr. (27%, 3.29) | C.J. Henderson (24%, 4.13) |

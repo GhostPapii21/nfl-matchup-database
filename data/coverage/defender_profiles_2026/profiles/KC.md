@@ -119,3 +119,21 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-03 | LA | K.Mumpfield (WR) | 11 | short_middle 25%, deep_right 25% | Chamarri Conner (23%) | Nohl Williams (22%) |
 
 Defender pool = KC players with defensive snaps in their most recent game (2026_12_KC_BUF); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Alohi Gilman | S | 68.2 | 42.2 | 492.9 | 7.23 | 7.45 | 211.2 | 5 |
+| Mansoor Delane | CB | 28.2 | 15.4 | 222.3 | 7.88 | 4.96 | 150.9 | 7 |
+| Christian Roland-Wallace | CB | 36.6 | 20.2 | 234.9 | 6.42 | 3.52 | 105.9 | 6 |
+| Chamarri Conner | S | 18.3 | 9.3 | 138.5 | 7.57 | 3.4 | 95.1 | 3 |
+| L'Jarius Sneed | CB | 35.7 | 22.3 | 224.9 | 6.3 | 1.92 | 70.7 | 2 |
+| Nick Bolton | LB | 72.7 | 51.9 | 414.4 | 5.7 | 1.87 | 58.6 | 1 |
+| Drue Tranquill | LB | 40.7 | 28.9 | 266.5 | 6.55 | 1.6 | 55.4 | 1 |
+| Jaden Hicks | S | 6.6 | 4.0 | 66.3 | 10.05 | 0.86 | 38.8 | 1 |
+| Kristian Fulton | CB | 11.8 | 6.3 | 56.1 | 4.75 | 0.73 | 16.5 | 1 |
+| Nohl Williams | CB | 36.0 | 20.6 | 169.2 | 4.7 | 0.67 | 22.9 | 0 |

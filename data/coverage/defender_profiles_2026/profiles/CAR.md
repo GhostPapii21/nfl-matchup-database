@@ -126,3 +126,32 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | MIN | M.Price (WR) | 10 | short_left 41%, short_right 24% | Mike Jackson (29%) | Will Lee III (25%) |
 
 Defender pool = CAR players with defensive snaps in their most recent game (2026_11_BAL_CAR); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Tre'von Moehrig | S | 77.7 | 49.4 | 512.2 | 6.59 | 5.08 | 141.1 | 4 |
+| Will Lee III | CB | 33.7 | 21.0 | 258.7 | 7.68 | 2.69 | 110.0 | 4 |
+| Marco Wilson | CB | 13.8 | 10.0 | 106.0 | 7.68 | 2.14 | 50.2 | 3 |
+| Nick Scott | S | 13.5 | 7.2 | 132.6 | 9.82 | 1.7 | 72.2 | 1 |
+| Jaycee Horn | CB | 7.1 | 4.4 | 61.7 | 8.69 | 1.56 | 39.6 | 2 |
+| Chau Smith-Wade | CB | 21.5 | 13.9 | 130.6 | 6.07 | 1.38 | 39.0 | 2 |
+| Akayleb Evans | CB | 16.5 | 9.3 | 121.6 | 7.37 | 1.15 | 50.3 | 1 |
+| Devin Lloyd | LB | 59.7 | 44.9 | 352.6 | 5.91 | 0.89 | 20.7 | 0 |
+| Corey Thornton | CB | 11.0 | 8.8 | 80.9 | 7.35 | 0.88 | 21.1 | 1 |
+| Mike Jackson | CB | 8.9 | 5.6 | 70.1 | 7.88 | 0.72 | 27.1 | 1 |
+| Tyrel Dodson | LB | 19.8 | 14.8 | 104.3 | 5.27 | 0.22 | 6.1 | 0 |
+| Patrick Jones II | LB | 5.8 | 3.4 | 25.7 | 4.43 | 0.05 | 1.2 | 0 |
+
+### Rest of Week 12: receivers vs likely CAR window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-30 | TB | C.Otton (TE) | 11 | 7% | Tre'von Moehrig (34%, 5.08) | Devin Lloyd (24%, 0.89) |
+| 2026-11-30 | TB | E.Egbuka (WR) | 10 | 15% | Chau Smith-Wade (27%, 1.38) | Tre'von Moehrig (16%, 5.08) |
+| 2026-11-30 | TB | B.Irving (RB) | 9 | 0% | Devin Lloyd (49%, 0.89) | Tyrel Dodson (23%, 0.22) |
+| 2026-11-30 | TB | K.Gainwell (RB) | 8 | 0% | Devin Lloyd (46%, 0.89) | Tyrel Dodson (24%, 0.22) |

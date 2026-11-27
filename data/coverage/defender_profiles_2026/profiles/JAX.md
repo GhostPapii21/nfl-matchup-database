@@ -124,3 +124,30 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | CHI | D.Swift (RB) | 11 | short_right 54%, short_left 36% | Foyesade Oluokun (31%) | Ventrell Miller (26%) |
 
 Defender pool = JAX players with defensive snaps in their most recent game (2026_11_JAX_NYG); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Jarrian Jones | CB | 37.0 | 23.8 | 330.8 | 8.94 | 4.91 | 165.5 | 5 |
+| Eric Murray | S | 43.3 | 30.1 | 399.4 | 9.22 | 4.88 | 154.6 | 2 |
+| Antonio Johnson | S | 15.5 | 8.2 | 173.7 | 11.21 | 3.48 | 120.4 | 3 |
+| Jourdan Lewis | CB | 36.1 | 24.2 | 268.4 | 7.43 | 3.17 | 91.1 | 4 |
+| Montaric Brown | CB | 27.7 | 18.5 | 212.8 | 7.68 | 2.93 | 92.2 | 3 |
+| Foyesade Oluokun | LB | 68.0 | 50.1 | 386.1 | 5.68 | 2.18 | 65.3 | 4 |
+| Ventrell Miller | LB | 45.8 | 33.4 | 242.1 | 5.29 | 1.0 | 27.5 | 0 |
+| Rayuan Lane III | S | 19.1 | 11.3 | 118.0 | 6.18 | 0.57 | 33.4 | 1 |
+| Jessie Bates | S | 13.7 | 6.9 | 79.3 | 5.79 | 0.49 | 17.2 | 1 |
+| Kaevon Merriweather | S | 17.7 | 11.3 | 100.4 | 5.67 | 0.4 | 19.8 | 1 |
+
+### Rest of Week 12: receivers vs likely JAX window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | TEN | E.Ayomanor (WR) | 13 | 13% | Jessie Bates (39%, 0.49) | Jourdan Lewis (18%, 3.17) |
+| 2026-11-29 | TEN | T.Pollard (RB) | 10 | 3% | Foyesade Oluokun (53%, 2.18) | Ventrell Miller (20%, 1.0) |
+| 2026-11-29 | TEN | C.Dike (WR) | 10 | 17% | Jessie Bates (43%, 0.49) | Jourdan Lewis (18%, 3.17) |
+| 2026-11-29 | TEN | G.Helm (TE) | 7 | 3% | Jessie Bates (47%, 0.49) | Foyesade Oluokun (24%, 2.18) |

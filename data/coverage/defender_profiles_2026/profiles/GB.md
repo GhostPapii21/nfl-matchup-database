@@ -117,3 +117,20 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | NO | A.Kamara (RB) | 10 | short_left 43%, short_right 41% | Isaiah McDuffie (34%) | Ty'Ron Hopper (33%) |
 
 Defender pool = GB players with defensive snaps in their most recent game (2026_12_GB_LA); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Evan Williams | S | 126.3 | 80.9 | 885.9 | 7.01 | 10.47 | 317.1 | 12 |
+| Brandon Cisse | CB | 41.1 | 24.2 | 312.1 | 7.59 | 3.99 | 129.2 | 4 |
+| Keisean Nixon | CB | 40.3 | 31.4 | 283.3 | 7.03 | 3.74 | 99.2 | 3 |
+| Xavier McKinney | S | 16.0 | 9.2 | 148.1 | 9.26 | 3.53 | 89.5 | 5 |
+| Isaiah McDuffie | LB | 41.1 | 29.7 | 255.0 | 6.2 | 2.28 | 55.5 | 2 |
+| Zaire Franklin | LB | 41.3 | 28.9 | 243.1 | 5.89 | 0.97 | 29.5 | 1 |
+| Carrington Valentine | CB | 6.6 | 5.2 | 57.7 | 8.74 | 0.84 | 26.1 | 0 |
+| Ty'Ron Hopper | LB | 22.3 | 15.2 | 119.0 | 5.34 | 0.5 | 12.8 | 0 |
+| Edgerrin Cooper | LB | 15.8 | 12.7 | 100.4 | 6.35 | 0.41 | 15.6 | 0 |

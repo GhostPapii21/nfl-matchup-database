@@ -120,3 +120,21 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | ARI | Mi.Wilson (WR) | 7 | short_right 41%, deep_right 19% | Riq Woolen (28%) | Quinyon Mitchell (21%) |
 
 Defender pool = PHI players with defensive snaps in their most recent game (2026_12_PHI_DAL); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Riq Woolen | CB | 62.1 | 40.3 | 567.4 | 9.14 | 10.32 | 302.8 | 13 |
+| Andrew Mukuba | S | 43.4 | 25.4 | 378.7 | 8.73 | 6.63 | 176.7 | 4 |
+| Quinyon Mitchell | CB | 43.6 | 26.4 | 339.5 | 7.79 | 5.78 | 165.4 | 8 |
+| Cooper DeJean | CB | 39.9 | 22.6 | 317.7 | 7.96 | 5.39 | 160.1 | 7 |
+| Marcus Epps | S | 40.1 | 26.4 | 310.1 | 7.73 | 4.65 | 138.3 | 3 |
+| Zack Baun | LB | 35.0 | 22.8 | 202.5 | 5.79 | 1.77 | 49.1 | 3 |
+| Jihaad Campbell | LB | 30.6 | 22.4 | 186.7 | 6.1 | 1.55 | 49.4 | 0 |
+| Michael Carter II | CB | 15.6 | 10.0 | 122.3 | 7.84 | 1.31 | 39.1 | 0 |
+| Arnold Ebiketie | LB | 5.4 | 3.0 | 29.5 | 5.46 | 0.29 | 8.2 | 0 |
+| Jeremiah Trotter Jr. | LB | 35.9 | 27.9 | 200.6 | 5.59 | 0.25 | 6.0 | 0 |

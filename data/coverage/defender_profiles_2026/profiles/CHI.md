@@ -120,3 +120,21 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | JAX | B.Strange (TE) | 8 | short_left 35%, short_middle 28% | Devin Bush (16%) | T.J. Edwards (15%) |
 
 Defender pool = CHI players with defensive snaps in their most recent game (2026_12_CHI_DET); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Dillon Thieneman | S | 54.0 | 33.8 | 519.8 | 9.63 | 7.28 | 274.9 | 8 |
+| Cam Lewis | S | 23.5 | 15.2 | 341.3 | 14.52 | 6.47 | 241.2 | 6 |
+| Jaylon Johnson | CB | 36.1 | 23.6 | 331.5 | 9.18 | 4.92 | 161.9 | 6 |
+| Malik Muhammad | CB | 30.1 | 18.2 | 242.4 | 8.05 | 3.24 | 108.4 | 4 |
+| Tyrique Stevenson | CB | 38.2 | 21.9 | 295.6 | 7.74 | 3.04 | 112.9 | 4 |
+| T.J. Edwards | LB | 44.7 | 31.5 | 255.2 | 5.71 | 2.06 | 67.0 | 2 |
+| Clark Phillips III | CB | 21.9 | 13.3 | 142.1 | 6.49 | 1.68 | 51.1 | 1 |
+| Devin Bush | LB | 43.6 | 29.8 | 251.3 | 5.76 | 1.4 | 43.4 | 0 |
+| Kyler Gordon | CB | 15.9 | 9.1 | 126.2 | 7.94 | 1.03 | 43.6 | 0 |
+| D'Marco Jackson | LB | 15.0 | 13.5 | 111.4 | 7.43 | 0.63 | 27.5 | 1 |

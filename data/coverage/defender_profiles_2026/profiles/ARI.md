@@ -124,3 +124,31 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | PHI | D.Goedert (TE) | 9 | short_right 36%, short_left 32% | Wydett Williams Jr. (15%) | Budda Baker (13%) |
 
 Defender pool = ARI players with defensive snaps in their most recent game (2026_11_ARI_KC); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Budda Baker | S | 39.9 | 26.5 | 394.7 | 9.89 | 6.49 | 201.9 | 7 |
+| Denzel Burke | CB | 33.9 | 21.1 | 316.5 | 9.34 | 4.57 | 171.6 | 2 |
+| Andrew Wingard | S | 38.7 | 26.2 | 350.2 | 9.05 | 4.4 | 148.8 | 6 |
+| Garrett Williams | CB | 20.2 | 12.4 | 160.2 | 7.93 | 2.96 | 92.9 | 2 |
+| Max Melton | CB | 28.8 | 19.0 | 230.6 | 8.01 | 2.83 | 90.3 | 4 |
+| Wydett Williams Jr. | S | 5.2 | 3.4 | 83.0 | 15.96 | 2.62 | 74.2 | 4 |
+| Kei'Trel Clark | CB | 12.7 | 8.4 | 133.1 | 10.48 | 2.52 | 74.5 | 3 |
+| Mack Wilson | LB | 61.8 | 43.1 | 403.5 | 6.53 | 2.51 | 78.0 | 2 |
+| Jack Gibbens | LB | 39.3 | 29.9 | 268.3 | 6.83 | 2.42 | 69.0 | 2 |
+| Kalen King | CB | 18.3 | 13.8 | 147.0 | 8.03 | 1.04 | 32.1 | 1 |
+| Will Johnson | CB | 5.3 | 3.6 | 37.8 | 7.13 | 0.07 | 1.7 | 0 |
+
+### Rest of Week 12: receivers vs likely ARI window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | WAS | S.Diggs (WR) | 21 | 12% | Kalen King (28%, 1.04) | Denzel Burke (18%, 4.57) |
+| 2026-11-29 | WAS | C.Okonkwo (TE) | 20 | 14% | Budda Baker (38%, 6.49) | Mack Wilson (20%, 2.51) |
+| 2026-11-29 | WAS | A.Williams (WR) | 19 | 17% | Kalen King (27%, 1.04) | Denzel Burke (15%, 4.57) |
+| 2026-11-29 | WAS | A.Ekeler (RB) | 10 | 0% | Mack Wilson (61%, 2.51) | Jack Gibbens (18%, 2.42) |

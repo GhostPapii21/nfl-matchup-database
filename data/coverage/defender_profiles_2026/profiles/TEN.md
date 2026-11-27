@@ -123,3 +123,31 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | WAS | A.Ekeler (RB) | 10 | short_middle 40%, short_right 33% | Anthony Hill Jr. (35%) | Cedric Gray (30%) |
 
 Defender pool = TEN players with defensive snaps in their most recent game (2026_11_TEN_DAL); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Kevin Winston Jr. | S | 39.9 | 29.2 | 357.1 | 8.95 | 6.75 | 181.9 | 7 |
+| Alontae Taylor | CB | 39.2 | 31.0 | 402.5 | 10.27 | 6.69 | 178.0 | 11 |
+| Cordale Flott | CB | 32.1 | 23.8 | 327.7 | 10.21 | 5.09 | 153.1 | 5 |
+| Anthony Hill Jr. | LB | 56.9 | 44.5 | 414.4 | 7.28 | 4.53 | 120.7 | 6 |
+| Amani Hooker | S | 21.7 | 13.0 | 214.1 | 9.87 | 3.92 | 118.5 | 3 |
+| Marcus Harris | CB | 39.2 | 29.9 | 312.5 | 7.97 | 3.86 | 103.3 | 1 |
+| Joshua Williams | CB | 25.1 | 17.8 | 241.6 | 9.63 | 3.5 | 96.5 | 6 |
+| Cody Barton | LB | 34.3 | 28.1 | 250.5 | 7.3 | 2.29 | 72.2 | 0 |
+| Tony Adams | S | 11.1 | 6.7 | 88.6 | 7.98 | 1.81 | 48.5 | 0 |
+| Cedric Gray | LB | 10.8 | 9.0 | 98.9 | 9.16 | 0.9 | 37.4 | 1 |
+| Micah Robinson | CB | 9.1 | 7.2 | 79.2 | 8.7 | 0.5 | 12.6 | 0 |
+
+### Rest of Week 12: receivers vs likely TEN window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | JAX | P.Washington (WR) | 33 | 23% | Alontae Taylor (25%, 6.69) | Cordale Flott (24%, 5.09) |
+| 2026-11-29 | JAX | J.Meyers (WR) | 22 | 13% | Cordale Flott (27%, 5.09) | Alontae Taylor (17%, 6.69) |
+| 2026-11-29 | JAX | J.Cameron (WR) | 11 | 17% | Cordale Flott (26%, 5.09) | Cedric Gray (16%, 0.9) |
+| 2026-11-29 | JAX | B.Strange (TE) | 8 | 7% | Kevin Winston Jr. (38%, 6.75) | Cedric Gray (22%, 0.9) |

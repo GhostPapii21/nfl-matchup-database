@@ -27,6 +27,12 @@ Counts (this build): 32 teams; 353 CB/S/DB rows (169 CB, 145 S, 39 listed only a
 (remaining Week 12 + Week 13 games), `attribution_validation_*.csv`. Held-out top-1 accuracy on verified plays, weeks 9–12: 25% overall, 36% in the high tier.
 **INFERRED only**: method, validation and source findings are in `ATTRIBUTION_METHOD.md`.
 
+## v2 window credit (added 2026-11-27)
+
+`coverage_sim.py` simulates each defense's shell mix (10,000 draws per target) on a depth × width grid. It credits each catch to the defender whose window it
+landed in, blended with the tackler. Held-out (wk 9–12) window-class accuracy: 32% (majority baseline 20%); exact defender: 24%.
+Charts are in `charts/`. **INFERRED only**; see `ATTRIBUTION_METHOD.md`.
+
 ## Freshness and leak-free use
 
 | Input | Through | Pulled (UTC) |

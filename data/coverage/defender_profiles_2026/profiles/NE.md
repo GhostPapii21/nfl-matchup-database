@@ -126,3 +126,28 @@ Most-likely-defender estimate from pbp zone, receiver position, each defender's 
 | 13 | 2026-12-06 | BUF | T.Johnson (RB) | 13 | short_right 54%, short_left 39% | Christian Elliss (19%) | Elijah Ponder (13%) |
 
 Defender pool = NE players with defensive snaps in their most recent game (2026_10_NE_DET); check inactives before use.
+
+<!-- V2-WINDOW-CREDIT -->
+## v2 INFERRED window credit (zone of responsibility)
+
+Who owned the window where the ball was caught, from the team's shell mix + defender roles + catch spot (pbp direction + air yards), blended with the tackler. **INFERRED only.** Held-out wk 9–12 verified PBU/INT (n=364): exact defender 24% (top-2 39%); window class (CB-left/CB-right/nickel/S/LB) 32%; position group 50%.
+
+| Defender | Pos | Window tgts | Window rec | Window yds | YPT | 20+ catches credited (prob-weighted) | 20+ yds credited | 20+ as top credit |
+|---|---|---|---|---|---|---|---|---|
+| Marcus Jones | CB | 45.3 | 30.2 | 383.3 | 8.46 | 6.22 | 194.8 | 8 |
+| Craig Woodson | S | 44.5 | 27.6 | 372.3 | 8.37 | 6.16 | 190.5 | 4 |
+| Christian Gonzalez | CB | 30.1 | 22.6 | 324.1 | 10.77 | 5.8 | 173.3 | 10 |
+| Kevin Byard | S | 19.1 | 12.2 | 248.4 | 13.01 | 5.16 | 176.7 | 5 |
+| Charles Woods | CB | 39.0 | 26.6 | 310.6 | 7.96 | 4.27 | 131.0 | 1 |
+| Robert Spillane | LB | 53.8 | 41.3 | 400.5 | 7.44 | 3.46 | 103.2 | 2 |
+| Christian Elliss | LB | 45.9 | 35.0 | 315.0 | 6.86 | 2.85 | 89.3 | 3 |
+| Carlton Davis III | CB | 21.4 | 16.5 | 186.3 | 8.71 | 2.09 | 79.3 | 3 |
+
+### Rest of Week 12: receivers vs likely NE window defender (INFERRED)
+
+| Date | Offense | Receiver | Tgts last 4 | 20+ air tgt share | Window defender (share, his 20+ credit) | Next |
+|---|---|---|---|---|---|---|
+| 2026-11-29 | LAC | T.Harris (WR) | 14 | 17% | Charles Woods (27%, 4.27) | Christian Gonzalez (22%, 5.8) |
+| 2026-11-29 | LAC | L.McConkey (WR) | 8 | 16% | Charles Woods (27%, 4.27) | Christian Gonzalez (19%, 5.8) |
+| 2026-11-29 | LAC | C.Kolar (TE) | 7 | 0% | Craig Woodson (36%, 6.16) | Robert Spillane (22%, 3.46) |
+| 2026-11-29 | LAC | Q.Johnston (WR) | 7 | 27% | Charles Woods (25%, 4.27) | Christian Gonzalez (20%, 5.8) |
