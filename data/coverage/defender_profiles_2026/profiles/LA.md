@@ -1,0 +1,89 @@
+# LA defense — coverage profile (2026, research only)
+
+Built from free/public sources. nflverse pbp through week 12 (last game 2026-11-26); PFR charted coverage through week 11; NGS through week 12; FTN charting through week 11. nflverse pulled 2026-11-27T12:26:11Z.
+
+Labels: **PFR_charted** = targets charged by PFR charters to nearest defender (not an assignment). **verified** = named in pbp on a PBU, INT or DPI. **inferred** = tackler after the catch only. Slot vs outside alignment per defender = **MISSING** (no free source).
+
+## Scheme rates (two charting sources; do not mix on one slip)
+
+| Metric | Sharp | StatRankings | FTN via nflverse |
+|---|---|---|---|
+| Man % | 22.3 | 40.1 | — |
+| Zone % | 70.8 | 59.3 | — |
+| Single-high / MOFC % | 37.8 | 45.7 | — |
+| Two-high / MOFO % | 57.9 | 54.3 | — |
+| Blitz % | 26.6 | 30.4 | 28.2 (dropbacks with 1+ blitzer, thru wk 10) |
+| Light / heavy box %, sub package % | 50.6 / 19.0, 63.0 | — | — |
+
+Sharp YPT allowed: WR 7.4, TE 5.7, RB 6.3, **outside 7.1 vs slot 8.5** (team-level alignment split; the only free slot/outside number).
+Sharp as of Sharp pages 'Updated: November 24' 2026 (pulled 2026-11-27T12:26:33Z); StatRankings as of ranking pages last updated 2026-11-26T00:02:20Z (pulled 2026-11-27T12:27:16Z).
+Source check: man rank Sharp #10 vs StatRankings #8; blitz rank Sharp #19 vs SR #17 (raw gaps: man -17.8 pts, blitz -3.8 pts; Sharp man % runs lower than SR league-wide) → ranks agree (gap <8)
+
+## Allowed by receiver position (nflverse pbp)
+
+| Pos | Tgt/g | Yds/g | YPT | TD | EPA/tgt | Yds/g rank (1=most) |
+|---|---|---|---|---|---|---|
+| WR | 15.2 | 112.7 | 7.43 | 10 | 0.063 | 31 |
+| TE | 7.9 | 45.0 | 5.69 | 1 | -0.241 | 23 |
+| RB | 6.5 | 41.1 | 6.28 | 1 | -0.066 | 4 |
+
+## Zones: depth × direction (nflverse pbp; direction is offense's left/middle/right)
+
+| Zone | Tgt | Cmp | Yds | TD | INT | YPT | Lg YPT | YPT rank (1=most) | Weak? |
+|---|---|---|---|---|---|---|---|---|---|
+| deep left | 14 | 5 | 149 | 1 | 0 | 10.64 | 11.46 | 17 |  |
+| deep middle | 16 | 6 | 140 | 1 | 2 | 8.75 | 14.39 | 31 |  |
+| deep right | 20 | 5 | 175 | 1 | 2 | 8.75 | 12.14 | 26 |  |
+| short left | 111 | 73 | 641 | 1 | 2 | 5.77 | 5.99 | 19 |  |
+| short middle | 65 | 40 | 424 | 2 | 2 | 6.52 | 7.32 | 27 |  |
+| short right | 102 | 78 | 659 | 6 | 3 | 6.46 | 6.02 | 8 | **WEAK** |
+
+Weak = top-8 most YPT allowed in that zone league-wide with 12+ targets.
+
+## NGS separation allowed (proxy)
+
+Target-weighted avg separation of NGS-qualified receivers vs LA: **2.6 yds** (league 2.93; rank 31/32 most allowed). WR 2.65, TE 2.51, cushion 5.12. Sample: 25 receiver-games, 167 targets. NGS publishes separation per receiver, not per defender; this is a receiver-side proxy.
+
+## Every CB and S (PFR charted + pbp verified/inferred)
+
+| Player | Pos | G | Snap% (last) | Tgt | Cmp | Yds | TD | INT | YPT | Rtg (computed) | aDOT | 70+ yd games | PBU | DPI | Verified plays | Tackle-after-catch (yds) | Align |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Josh Wallace | CB | 11 | 78.1 (93.0 wk12) | 40 | 24 | 207 | 0 | 1 | 5.18 | 63.2 | 7.2 | 0 | 4 | 3 | 8 | 25 (255) | MISSING |
+| Trent McDuffie | CB | 8 | 95.6 (100.0 wk12) | 30 | 13 | 86 | 0 | 2 | 2.87 | 22.9 | 7.6 | 0 | 7 | 1 | 10 | 15 (100) | MISSING |
+| Jaylen Watson | CB | 7 | 84.0 (67.0 wk8) | 38 | 19 | 261 | 2 | 1 | 6.87 | 78.9 | 11.9 | 0 | 8 | 0 | 9 | 14 (162) | MISSING |
+| Emmanuel Forbes | CB | 9 | 48.1 (76.0 wk12) | 26 | 13 | 66 | 2 | 0 | 2.54 | 81.9 | 9.3 | 0 | 5 | 1 | 7 | 12 (59) | MISSING |
+| Cam Lampkin | CB | 2 | 4.5 (3.0 wk10) | 1 | 1 | 12 | 0 | 0 | 12.00 | 116.7 | 11.0 | 0 | 0 | 0 | 0 | 0 (0) | MISSING |
+| Quentin Lake | S | 11 | 100.0 (100.0 wk12) | 56 | 33 | 404 | 2 | 3 | 7.21 | 70.8 | 8.5 | 1 | 10 | 2 | 15 | 30 (308) | MISSING |
+| Kamren Curl | S | 11 | 93.6 (100.0 wk12) | 21 | 16 | 178 | 1 | 0 | 8.48 | 116.8 | 9.3 | 0 | 3 | 0 | 3 | 25 (424) | MISSING |
+| Kamren Kinchens | S | 9 | 67.2 (54.0 wk12) | 15 | 12 | 153 | 2 | 1 | 10.20 | 121.0 | 13.1 | 0 | 4 | 0 | 5 | 12 (191) | MISSING |
+| Jaylen McCollough | S | 11 | 37.2 (37.0 wk12) | 9 | 9 | 141 | 1 | 0 | 15.67 | 155.8 | 4.9 | 0 | 0 | 0 | 1 | 6 (53) | MISSING |
+| Maximus Pulley | S | 1 | 2.0 (2.0 wk12) | — | — | — | — | — | — | — | — | — | 0 | 0 | 0 | 0 (0) | MISSING |
+
+## Linebackers in coverage (PFR charted)
+
+| Player | G | Tgt | Cmp | Yds | TD | YPT | Rtg | PBU |
+|---|---|---|---|---|---|---|---|---|
+| Nathan Landman | 10 | 24 | 15 | 79 | 1 | 3.29 | 81.8 | 2 |
+| Omar Speights | 11 | 19 | 13 | 109 | 0 | 5.74 | 83.0 | 2 |
+
+## Most recent verified defender plays (pbp: PBU / INT / DPI)
+
+| Wk | Opp | Defender | Type | Receiver | Zone |
+|---|---|---|---|---|---|
+| 12 | GB | E.Forbes | INT | B.Melton | deep_right |
+| 12 | GB | J.McCollough | INT | M.Golden | deep_middle |
+| 12 | GB | Q.Lake | PBU | S.Williams | short_right |
+| 12 | GB | A.Donald | PBU | K.Johnson | short_middle |
+| 12 | GB | Q.Lake | PBU | M.Golden | deep_middle |
+| 12 | GB | T.McDuffie | PBU | M.Golden | short_right |
+| 12 | GB | K.Kinchens | PBU | T.Kraft | short_middle |
+| 12 | GB | K.Kinchens | PBU | J.Sturdivant | short_middle |
+| 10 | ARI | W.Bailey | INT | T.Allgeier | short_middle |
+| 10 | ARI | K.Kinchens | INT | D.Duvernay | short_middle |
+| 10 | ARI | K.Curl | PBU | Z.Jones | deep_right |
+| 9 | WAS | E.Forbes | PBU | V.Jefferson | deep_left |
+| 9 | WAS | B.Young | PBU | A.Ekeler | short_middle |
+| 9 | WAS | E.Forbes | PBU | V.Jefferson | short_left |
+| 9 | WAS | E.Forbes | PBU | C.Okonkwo | short_middle |
+
+Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.

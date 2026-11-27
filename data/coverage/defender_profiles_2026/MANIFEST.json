@@ -1,0 +1,69 @@
+{
+ "pulls": {
+  "nflverse": {
+   "pulled_utc": "2026-11-27T12:26:11Z",
+   "base_url": "https://github.com/nflverse/nflverse-data/releases/download/"
+  },
+  "sharp": {
+   "as_of": "Sharp pages 'Updated: November 24' 2026",
+   "pulled_utc": "2026-11-27T12:26:33Z"
+  },
+  "statrankings": {
+   "as_of": "ranking pages last updated 2026-11-26T00:02:20Z",
+   "pulled_utc": "2026-11-27T12:27:16Z"
+  }
+ },
+ "raw_inputs": {
+  "play_by_play_2026.parquet": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+   "sha256": "e0f532a73338bbd4cd68723bf6136daed8ec517455d93e51a1f939fe7880fb97",
+   "bytes": 13408203
+  },
+  "advstats_week_def_2026.parquet": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
+   "sha256": "f1217d79cc1e73112e97a2e053cd86492ea5c21a17478ef160b27116842f1e76",
+   "bytes": 105966
+  },
+  "snap_counts_2026.parquet": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
+   "sha256": "a671bbfca0a9079abfd71e2a35f0d062ec7c2e1d13b7b6e1a6f6f9c653e10c23",
+   "bytes": 155108
+  },
+  "roster_weekly_2026.parquet": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
+   "sha256": "42ad550d2948b27c4ef03676c58e1a2c75336ea5f023d96f75a34966b49c9806",
+   "bytes": 823507
+  },
+  "ngs_receiving.parquet": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.parquet",
+   "sha256": "9751793d14485312e5d883819adf4ff996be2ec573d2003cd332ff27c3a72769",
+   "bytes": 1182502
+  },
+  "ftn_charting_2026.parquet": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
+   "sha256": "ee09d5f28f5fe1637267cf5588ab9135d3706af834b83d2814ba0ba97ee1cac0",
+   "bytes": 337131
+  },
+  "sharp_nfl-coverage-schemes.html": {
+   "url": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "sha256": "9f5c9102392dcd9e5c6d140a70fa5fa64db5d71c063dd96a73e0a10dc1e55aa1",
+   "bytes": 163546
+  },
+  "sharp_nfl-defensive-tendencies.html": {
+   "url": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-defensive-tendencies/",
+   "sha256": "1cbe5be17b7cd5d6f484f79277f38cb5c64730c2f7730377c4195e53d9805bc7",
+   "bytes": 163590
+  },
+  "sharp_nfl-coverage-stats-by-position.html": {
+   "url": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-stats-by-position/",
+   "sha256": "54e86fb9c0d985575ef457e6b0dca8c08b5c08c16a3e6c95324c504a98cd5f08",
+   "bytes": 164878
+  },
+  "statrankings_team_cov.csv": {
+   "url": "https://statrankings.com/nfl/coverage/team/{team} (32 public team pages, headline chips only)",
+   "sha256": "961d383394aa2a1b962ec56917288729c9c597930c40f07f3dbb29e34ba9739d",
+   "bytes": 1170
+  }
+ },
+ "rebuild": "download raw_inputs into a dir, add PULLS.json, then: python3 data/coverage/defender_profiles_2026/build.py --raw <dir> [--through-week N]"
+}
