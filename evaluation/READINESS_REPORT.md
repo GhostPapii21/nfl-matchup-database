@@ -1,10 +1,10 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-27T18:40:11+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-27T19:06:11+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## Evidence boundary (derived live)
 
-- Stamp: `2026-11-27T18:40:11+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
+- Stamp: `2026-11-27T19:06:11+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
 - Pristine holdout cited: **14** scored games, weeks **['10', '11']** (`evaluation/EVALUATION.json`).
 - Snapshot LOCKs on tree: **14** game ids, weeks **['10', '11']**.
 - Week 12 packets: **16**; with LOCK: **0**; scored: **0**; pre-kickoff without LOCK: **12**; post-kickoff without LOCK (not retroactive): **4**.

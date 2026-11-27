@@ -53,3 +53,7 @@ Fail-closed when packet `game.roof` is null/empty (not inventable):
 - Holdout / packets: see latest commits on `cursor/w12-direct-lines-refresh-662b`
 - Do not set `projection_ready=true`
 - Do not count price-freeze folders as pristine locks
+
+## Note: LOCK on `main` for KC@BUF (unscored)
+
+`origin/main` contains `snapshots/2026_12_KC_BUF/20261127T003024Z/LOCK.json` (gameday bot, n=100000, `asof_checks=PASS`, no SCORE.json). It does **not** raise pristine scored count above 14 until scored. This agent's local sim100k attempts for KC@BUF were REFUSED on FTN/PFR GAP; the main LOCK came from a separate gameday path.
