@@ -89,3 +89,38 @@ Target-weighted avg separation of NGS-qualified receivers vs WAS: **3.05 yds** (
 | 9 | LA | S.Styles | DPI | T.Higbee | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Amik Robertson | CB | 59.7 | 39.0 | 376.5 | 6.31 | 3.34 | 89 (65) |
+| Sonny Styles | LB | 41.1 | 29.7 | 328.6 | 8.0 | 2.26 | 69 (19) |
+| Rasul Douglas | CB | 41.0 | 26.4 | 248.0 | 6.05 | 1.91 | 44 (29) |
+| Jeremy Reaves | S | 29.9 | 21.3 | 296.6 | 9.92 | 2.14 | 24 (0) |
+| Trey Amos | CB | 26.7 | 17.4 | 211.4 | 7.92 | 1.29 | 35 (22) |
+| Frankie Luvu | LB | 25.6 | 18.9 | 168.6 | 6.59 | 0.56 | 38 (4) |
+| Quan Martin | S | 21.3 | 14.3 | 215.7 | 10.13 | 1.61 | 9 (2) |
+| K'Lavon Chaisson | LB | 20.2 | 15.0 | 131.4 | 6.5 | 0.75 | 9 (0) |
+| Nick Cross | S | 19.2 | 12.6 | 186.7 | 9.72 | 1.4 | 22 (5) |
+| Odafe Oweh | LB | 17.0 | 12.3 | 113.2 | 6.66 | 0.72 | 5 (0) |
+| Mike Sainristil | CB | 14.3 | 9.9 | 99.2 | 6.94 | 1.09 | 5 (0) |
+| Dorance Armstrong | LB | 13.2 | 9.8 | 83.5 | 6.33 | 0.45 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely WAS defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | ARI | T.McBride (TE) | 27 | short_right 50%, short_left 24% | Nick Cross (15%) | Jeremy Reaves (13%) |
+| 12 | 2026-11-29 | ARI | S.Fehoko (WR) | 8 | short_right 44%, deep_right 33% | Rasul Douglas (24%) | Trey Amos (15%) |
+| 12 | 2026-11-29 | ARI | H.Wallace (WR) | 8 | short_left 38%, short_right 25% | Trey Amos (29%) | Rasul Douglas (26%) |
+| 12 | 2026-11-29 | ARI | Mi.Wilson (WR) | 7 | short_right 41%, deep_right 19% | Rasul Douglas (26%) | Trey Amos (23%) |
+| 13 | 2026-12-06 | TEN | E.Ayomanor (WR) | 13 | short_left 33%, short_right 33% | Rasul Douglas (26%) | Trey Amos (25%) |
+| 13 | 2026-12-06 | TEN | T.Pollard (RB) | 10 | short_left 35%, short_right 32% | Frankie Luvu (20%) | Sonny Styles (17%) |
+| 13 | 2026-12-06 | TEN | C.Dike (WR) | 10 | short_left 39%, short_right 30% | Rasul Douglas (27%) | Trey Amos (23%) |
+| 13 | 2026-12-06 | TEN | G.Helm (TE) | 7 | short_left 52%, short_middle 24% | Nick Cross (14%) | Jeremy Reaves (14%) |
+
+Defender pool = WAS players with defensive snaps in their most recent game (2026_11_CIN_WAS); check inactives before use.

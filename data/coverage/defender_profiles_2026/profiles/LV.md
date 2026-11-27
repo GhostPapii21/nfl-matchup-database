@@ -85,3 +85,33 @@ Target-weighted avg separation of NGS-qualified receivers vs LV: **3.06 yds** (l
 | 8 | NYJ | T.Eichenberg | PBU | G.Wilson | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Eric Stokes | CB | 56.6 | 37.9 | 495.7 | 8.76 | 4.67 | 80 (51) |
+| Taron Johnson | CB | 42.7 | 27.9 | 371.0 | 8.69 | 3.19 | 33 (13) |
+| Nakobe Dean | LB | 35.1 | 27.9 | 253.2 | 7.21 | 1.95 | 38 (23) |
+| Quay Walker | LB | 34.8 | 27.4 | 251.9 | 7.24 | 1.95 | 40 (21) |
+| Jeremy Chinn | S | 34.2 | 24.6 | 284.3 | 8.31 | 2.97 | 32 (15) |
+| Hezekiah Masses | CB | 30.1 | 18.1 | 295.2 | 9.81 | 2.47 | 34 (18) |
+| Treydan Stukes | S | 29.8 | 18.8 | 279.4 | 9.38 | 1.76 | 12 (4) |
+| Darien Porter | CB | 22.0 | 14.9 | 201.7 | 9.17 | 1.99 | 26 (12) |
+| Jermod McCoy | CB | 14.6 | 8.8 | 160.3 | 10.98 | 0.79 | 18 (9) |
+| Tommy Eichenberg | LB | 6.6 | 4.7 | 51.1 | 7.74 | 0.41 | 0 (0) |
+| Isaiah Pola-Mao | S | 6.3 | 5.0 | 46.3 | 7.35 | 0.84 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely LV defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | CLE | K.Concepcion (WR) | 14 | short_left 40%, short_right 21% | Jermod McCoy (29%) | Taron Johnson (20%) |
+| 12 | 2026-11-29 | CLE | D.Sampson (RB) | 12 | short_left 43%, short_right 30% | Nakobe Dean (34%) | Quay Walker (33%) |
+| 12 | 2026-11-29 | CLE | H.Fannin (TE) | 11 | short_left 37%, short_right 34% | Jeremy Chinn (20%) | Treydan Stukes (18%) |
+| 12 | 2026-11-29 | CLE | D.Boston (WR) | 9 | short_left 29%, short_right 23% | Jermod McCoy (28%) | Eric Stokes (21%) |
+
+Defender pool = LV players with defensive snaps in their most recent game (2026_11_LV_DEN); check inactives before use.

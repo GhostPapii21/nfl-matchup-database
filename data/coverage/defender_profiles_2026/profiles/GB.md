@@ -88,3 +88,32 @@ Target-weighted avg separation of NGS-qualified receivers vs GB: **2.93 yds** (l
 | 8 | CAR | X.McKinney | PBU | T.Tremble | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Keisean Nixon | CB | 77.9 | 58.1 | 506.0 | 6.5 | 3.71 | 103 (82) |
+| Brandon Cisse | CB | 71.1 | 43.0 | 522.5 | 7.35 | 3.28 | 104 (78) |
+| Evan Williams | S | 38.0 | 23.5 | 293.4 | 7.72 | 2.03 | 29 (4) |
+| Xavier McKinney | S | 33.1 | 20.3 | 260.6 | 7.87 | 1.4 | 23 (1) |
+| Isaiah McDuffie | LB | 26.7 | 19.7 | 164.4 | 6.16 | 1.14 | 8 (7) |
+| Zaire Franklin | LB | 25.0 | 18.5 | 146.3 | 5.85 | 0.49 | 37 (20) |
+| Ty'Ron Hopper | LB | 23.3 | 17.1 | 123.6 | 5.3 | 0.51 | 23 (22) |
+| Javon Bullard | S | 22.9 | 14.3 | 160.6 | 7.01 | 0.94 | 4 (0) |
+| Carrington Valentine | CB | 19.3 | 13.2 | 123.3 | 6.39 | 0.67 | 17 (16) |
+| Edgerrin Cooper | LB | 9.6 | 7.7 | 66.2 | 6.9 | 0.37 | 4 (1) |
+
+### Upcoming: opposing receivers vs likely GB defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-06 | NO | C.Olave (WR) | 31 | short_right 33%, short_left 29% | Brandon Cisse (35%) | Keisean Nixon (31%) |
+| 13 | 2026-12-06 | NO | J.Tyson (WR) | 20 | short_left 35%, short_right 35% | Keisean Nixon (34%) | Brandon Cisse (32%) |
+| 13 | 2026-12-06 | NO | D.Vele (WR) | 13 | short_left 46%, short_right 18% | Brandon Cisse (44%) | Keisean Nixon (23%) |
+| 13 | 2026-12-06 | NO | A.Kamara (RB) | 10 | short_left 43%, short_right 41% | Isaiah McDuffie (34%) | Ty'Ron Hopper (33%) |
+
+Defender pool = GB players with defensive snaps in their most recent game (2026_12_GB_LA); check inactives before use.

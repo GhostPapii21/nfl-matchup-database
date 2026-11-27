@@ -87,3 +87,35 @@ Target-weighted avg separation of NGS-qualified receivers vs CLE: **2.78 yds** (
 | 9 | NO | M.Harden | PBU | C.Olave | short_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Denzel Ward | CB | 68.5 | 40.8 | 462.9 | 6.76 | 3.3 | 91 (66) |
+| Tyson Campbell | CB | 50.6 | 28.0 | 401.6 | 7.94 | 1.98 | 65 (53) |
+| Myles Harden | CB | 45.0 | 25.8 | 308.3 | 6.85 | 1.66 | 32 (24) |
+| Quincy Williams | LB | 36.7 | 26.8 | 207.5 | 5.65 | 1.47 | 37 (22) |
+| Carson Schwesinger | LB | 36.3 | 25.8 | 221.9 | 6.11 | 1.47 | 25 (16) |
+| Ronnie Hickman Jr. | S | 26.8 | 17.3 | 230.8 | 8.61 | 1.83 | 20 (10) |
+| Grant Delpit | S | 23.5 | 16.2 | 164.4 | 7.0 | 1.71 | 20 (3) |
+| Mekhi Blackmon | CB | 13.3 | 7.2 | 95.3 | 7.17 | 0.43 | 20 (11) |
+| Emmanuel McNeil-Warren | S | 11.1 | 7.2 | 78.7 | 7.09 | 0.87 | 5 (0) |
+
+### Upcoming: opposing receivers vs likely CLE defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | LV | T.Tucker (WR) | 20 | short_left 28%, short_right 22% | Tyson Campbell (30%) | Denzel Ward (24%) |
+| 12 | 2026-11-29 | LV | A.Jeanty (RB) | 19 | short_left 36%, short_middle 36% | Carson Schwesinger (31%) | Quincy Williams (31%) |
+| 12 | 2026-11-29 | LV | J.Bech (WR) | 18 | short_middle 33%, short_left 33% | Denzel Ward (24%) | Tyson Campbell (24%) |
+| 12 | 2026-11-29 | LV | J.Nailor (WR) | 13 | short_left 27%, short_right 24% | Denzel Ward (28%) | Tyson Campbell (23%) |
+| 13 | 2026-12-06 | CIN | J.Chase (WR) | 35 | short_right 33%, short_left 32% | Denzel Ward (28%) | Tyson Campbell (24%) |
+| 13 | 2026-12-06 | CIN | C.Brown (RB) | 20 | short_right 42%, short_left 39% | Carson Schwesinger (33%) | Quincy Williams (31%) |
+| 13 | 2026-12-06 | CIN | T.Higgins (WR) | 15 | short_right 32%, short_left 28% | Denzel Ward (28%) | Tyson Campbell (24%) |
+| 13 | 2026-12-06 | CIN | M.Gesicki (TE) | 10 | short_left 29%, short_middle 21% | Grant Delpit (18%) | Emmanuel McNeil-Warren (17%) |
+
+Defender pool = CLE players with defensive snaps in their most recent game (2026_10_HOU_CLE); check inactives before use.

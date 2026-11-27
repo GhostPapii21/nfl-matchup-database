@@ -88,3 +88,34 @@ Target-weighted avg separation of NGS-qualified receivers vs BAL: **2.88 yds** (
 | 8 | BUF | R.Smith | PBU | D.Moore | short_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Marlon Humphrey | CB | 52.5 | 34.7 | 455.3 | 8.67 | 2.12 | 73 (55) |
+| Nate Wiggins | CB | 48.5 | 32.7 | 421.2 | 8.68 | 2.02 | 84 (49) |
+| Roquan Smith | LB | 30.3 | 21.8 | 187.3 | 6.18 | 0.98 | 54 (6) |
+| Kyle Hamilton | S | 27.8 | 20.0 | 299.6 | 10.78 | 2.09 | 24 (5) |
+| Malaki Starks | S | 22.8 | 15.9 | 200.7 | 8.8 | 1.22 | 12 (0) |
+| Trenton Simpson | LB | 18.8 | 13.4 | 120.3 | 6.4 | 0.65 | 16 (0) |
+| Chidobe Awuzie | CB | 18.2 | 11.9 | 150.5 | 8.27 | 0.71 | 18 (12) |
+| Mike Green | LB | 13.7 | 9.7 | 78.7 | 5.74 | 0.49 | 6 (2) |
+| Trey Hendrickson | LB | 12.8 | 9.2 | 78.2 | 6.11 | 0.47 | 0 (0) |
+| Keyon Martin | CB | 11.6 | 7.9 | 99.0 | 8.53 | 0.59 | 9 (0) |
+| Tavius Robinson | LB | 11.2 | 8.0 | 55.9 | 4.99 | 0.3 | 5 (0) |
+| Jaylinn Hawkins | S | 10.7 | 7.3 | 80.4 | 7.51 | 0.31 | 7 (0) |
+
+### Upcoming: opposing receivers vs likely BAL defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | HOU | N.Collins (WR) | 25 | short_right 30%, short_middle 22% | Nate Wiggins (26%) | T.J. Tampa (13%) |
+| 12 | 2026-11-29 | HOU | X.Hutchinson (WR) | 17 | short_middle 30%, short_right 26% | Nate Wiggins (25%) | T.J. Tampa (13%) |
+| 12 | 2026-11-29 | HOU | T.Dell (WR) | 17 | deep_right 28%, short_middle 28% | Nate Wiggins (27%) | T.J. Tampa (12%) |
+| 12 | 2026-11-29 | HOU | K.Boutte (WR) | 8 | short_middle 26%, short_right 23% | Nate Wiggins (24%) | T.J. Tampa (13%) |
+
+Defender pool = BAL players with defensive snaps in their most recent game (2026_11_BAL_CAR); check inactives before use.

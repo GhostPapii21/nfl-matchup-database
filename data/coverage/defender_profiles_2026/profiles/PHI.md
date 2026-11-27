@@ -89,3 +89,34 @@ Target-weighted avg separation of NGS-qualified receivers vs PHI: **2.65 yds** (
 | 9 | NYG | T.Woolen | PBU | M.Fields | deep_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Quinyon Mitchell | CB | 62.7 | 38.4 | 492.5 | 7.85 | 2.78 | 88 (44) |
+| Riq Woolen | CB | 57.5 | 34.9 | 528.1 | 9.18 | 3.19 | 83 (57) |
+| Cooper DeJean | CB | 54.5 | 34.0 | 401.7 | 7.37 | 2.61 | 57 (31) |
+| Andrew Mukuba | S | 26.8 | 17.2 | 227.3 | 8.48 | 1.6 | 15 (4) |
+| Jihaad Campbell | LB | 22.6 | 15.9 | 161.8 | 7.16 | 0.8 | 14 (1) |
+| Jeremiah Trotter Jr. | LB | 19.8 | 15.4 | 124.3 | 6.28 | 0.64 | 35 (6) |
+| Zack Baun | LB | 17.3 | 11.9 | 105.6 | 6.1 | 0.66 | 15 (4) |
+| Nolan Smith | LB | 14.6 | 9.8 | 84.0 | 5.75 | 0.58 | 5 (0) |
+| Kenny Moore II | CB | 14.3 | 8.7 | 131.9 | 9.22 | 0.79 | 9 (0) |
+| Michael Carter II | CB | 13.0 | 7.3 | 94.4 | 7.26 | 0.45 | 9 (2) |
+| Jalyx Hunt | LB | 12.2 | 9.0 | 72.0 | 5.9 | 0.36 | 2 (0) |
+| Marcus Epps | S | 9.8 | 6.7 | 69.0 | 7.04 | 0.44 | 10 (0) |
+
+### Upcoming: opposing receivers vs likely PHI defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-06 | ARI | T.McBride (TE) | 27 | short_right 50%, short_left 24% | Andrew Mukuba (13%) | Riq Woolen (12%) |
+| 13 | 2026-12-06 | ARI | S.Fehoko (WR) | 8 | short_right 44%, deep_right 33% | Riq Woolen (37%) | Quinyon Mitchell (15%) |
+| 13 | 2026-12-06 | ARI | H.Wallace (WR) | 8 | short_left 38%, short_right 25% | Quinyon Mitchell (26%) | Riq Woolen (22%) |
+| 13 | 2026-12-06 | ARI | Mi.Wilson (WR) | 7 | short_right 41%, deep_right 19% | Riq Woolen (28%) | Quinyon Mitchell (21%) |
+
+Defender pool = PHI players with defensive snaps in their most recent game (2026_12_PHI_DAL); check inactives before use.

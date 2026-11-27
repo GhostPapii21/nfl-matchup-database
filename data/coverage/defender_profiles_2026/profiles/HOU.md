@@ -88,3 +88,36 @@ Target-weighted avg separation of NGS-qualified receivers vs HOU: **2.99 yds** (
 | 9 | LAC | A.Al-Shaair | PBU | K.Mitchell | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Kamari Lassiter | CB | 82.4 | 51.7 | 600.3 | 7.29 | 2.5 | 106 (82) |
+| Derek Stingley Jr. | CB | 65.5 | 38.5 | 527.9 | 8.06 | 3.14 | 89 (60) |
+| Calen Bullock | S | 34.0 | 19.2 | 331.1 | 9.74 | 1.14 | 27 (12) |
+| Jake Hansen | LB | 31.1 | 22.3 | 175.5 | 5.64 | 0.72 | 30 (21) |
+| Azeez Al-Shaair | LB | 29.8 | 20.8 | 191.3 | 6.42 | 1.24 | 27 (11) |
+| Henry To'oTo'o | LB | 23.5 | 15.5 | 160.2 | 6.82 | 1.13 | 24 (9) |
+| Jalen Pitre | S | 21.6 | 13.9 | 169.6 | 7.85 | 0.76 | 7 (0) |
+| Reed Blankenship | S | 21.2 | 14.3 | 140.1 | 6.61 | 0.43 | 14 (1) |
+| M.J. Stewart | S | 11.8 | 8.6 | 104.7 | 8.87 | 0.31 | 10 (6) |
+| Tremon Smith | CB | 6.2 | 4.1 | 56.6 | 9.13 | 0.42 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely HOU defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | BAL | Z.Flowers (WR) | 24 | short_right 35%, short_middle 30% | Derek Stingley Jr. (32%) | Kamari Lassiter (26%) |
+| 12 | 2026-11-29 | BAL | J.Hill (RB) | 15 | short_right 57%, short_left 25% | Henry To'oTo'o (34%) | Jake Hansen (22%) |
+| 12 | 2026-11-29 | BAL | M.Andrews (TE) | 13 | short_middle 41%, short_left 30% | Reed Blankenship (18%) | Jalen Pitre (17%) |
+| 12 | 2026-11-29 | BAL | R.Bateman (WR) | 13 | short_left 26%, short_right 24% | Kamari Lassiter (32%) | Derek Stingley Jr. (29%) |
+| 13 | 2026-12-06 | PIT | G.Bernard (WR) | 13 | short_left 31%, short_right 31% | Derek Stingley Jr. (31%) | Kamari Lassiter (30%) |
+| 13 | 2026-12-06 | PIT | D.Metcalf (WR) | 10 | short_right 27%, short_left 26% | Kamari Lassiter (32%) | Derek Stingley Jr. (30%) |
+| 13 | 2026-12-06 | PIT | J.Warren (RB) | 9 | short_right 51%, short_left 31% | Henry To'oTo'o (34%) | Jake Hansen (22%) |
+| 13 | 2026-12-06 | PIT | P.Freiermuth (TE) | 8 | short_left 30%, short_middle 26% | Reed Blankenship (17%) | Jalen Pitre (17%) |
+
+Defender pool = HOU players with defensive snaps in their most recent game (2026_11_IND_HOU); check inactives before use.

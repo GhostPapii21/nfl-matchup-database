@@ -88,3 +88,38 @@ Target-weighted avg separation of NGS-qualified receivers vs TB: **3.16 yds** (l
 | 8 | ATL | K.Scott | PBU | J.Dotson | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Zyon McCollum | CB | 59.5 | 37.3 | 430.5 | 7.24 | 2.85 | 84 (73) |
+| Jacob Parrish | CB | 54.4 | 32.5 | 414.5 | 7.62 | 2.23 | 77 (66) |
+| Keionte Scott | CB | 31.1 | 19.9 | 219.1 | 7.05 | 1.2 | 0 (0) |
+| Alex Anzalone | LB | 30.6 | 21.4 | 217.5 | 7.11 | 1.52 | 57 (6) |
+| Josiah Trotter | LB | 28.4 | 20.4 | 183.5 | 6.46 | 0.92 | 38 (12) |
+| Tykee Smith | S | 24.5 | 15.8 | 174.3 | 7.11 | 1.52 | 28 (4) |
+| Benjamin Morrison | CB | 15.3 | 12.0 | 121.9 | 7.97 | 0.61 | 24 (15) |
+| Antoine Winfield Jr. | S | 12.7 | 8.0 | 106.9 | 8.42 | 0.78 | 7 (1) |
+| Yaya Diaby | LB | 12.2 | 8.7 | 77.6 | 6.36 | 0.37 | 0 (0) |
+| Ifeatu Melifonwu | S | 10.5 | 6.0 | 98.4 | 9.37 | 0.59 | 5 (1) |
+| Rueben Bain Jr. | nan | 10.4 | 6.9 | 70.1 | 6.74 | 0.34 | 0 (0) |
+| Al-Quadin Muhammad | LB | 9.6 | 6.6 | 61.9 | 6.45 | 0.31 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely TB defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-30 | CAR | T.McMillan (WR) | 22 | short_right 25%, short_middle 24% | Zyon McCollum (24%) | Benjamin Morrison (14%) |
+| 12 | 2026-11-30 | CAR | D.Waller (TE) | 17 | short_right 38%, short_left 26% | Tykee Smith (15%) | Ifeatu Melifonwu (14%) |
+| 12 | 2026-11-30 | CAR | J.Coker (WR) | 16 | short_left 38%, short_middle 22% | Zyon McCollum (20%) | Benjamin Morrison (16%) |
+| 12 | 2026-11-30 | CAR | T.Tremble (TE) | 12 | short_left 44%, short_right 39% | Tykee Smith (16%) | Ifeatu Melifonwu (14%) |
+| 13 | 2026-12-06 | LAC | T.Harris (WR) | 14 | short_right 31%, short_left 29% | Zyon McCollum (29%) | Benjamin Morrison (14%) |
+| 13 | 2026-12-06 | LAC | L.McConkey (WR) | 8 | short_right 31%, short_middle 22% | Zyon McCollum (27%) | Benjamin Morrison (12%) |
+| 13 | 2026-12-06 | LAC | C.Kolar (TE) | 7 | short_right 62%, short_middle 21% | Tykee Smith (14%) | Zyon McCollum (14%) |
+| 13 | 2026-12-06 | LAC | Q.Johnston (WR) | 7 | short_right 30%, short_left 21% | Zyon McCollum (28%) | Benjamin Morrison (15%) |
+
+Defender pool = TB players with defensive snaps in their most recent game (2026_11_TB_DET); check inactives before use.

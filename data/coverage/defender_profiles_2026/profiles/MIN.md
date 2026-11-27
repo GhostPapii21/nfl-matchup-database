@@ -89,3 +89,38 @@ Target-weighted avg separation of NGS-qualified receivers vs MIN: **3.3 yds** (l
 | 8 | DET | J.Redmond | PBU | J.Gibbs | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Byron Murphy | CB | 53.6 | 33.3 | 468.1 | 8.73 | 2.49 | 82 (50) |
+| Isaiah Rodgers | CB | 41.6 | 25.9 | 309.5 | 7.44 | 1.37 | 51 (38) |
+| James Pierre | CB | 27.8 | 18.2 | 189.9 | 6.83 | 0.78 | 29 (11) |
+| Blake Cashman | LB | 24.4 | 16.3 | 146.3 | 6.0 | 0.6 | 27 (0) |
+| Josh Metellus | S | 24.4 | 14.2 | 175.7 | 7.2 | 0.81 | 41 (3) |
+| Eric Wilson | LB | 22.4 | 15.1 | 134.2 | 5.99 | 0.37 | 20 (0) |
+| Dallas Turner | LB | 18.5 | 12.0 | 107.9 | 5.83 | 0.4 | 8 (0) |
+| Andrew Van Ginkel | LB | 18.1 | 12.2 | 100.8 | 5.57 | 0.31 | 9 (2) |
+| Harrison Smith | S | 11.7 | 6.7 | 85.9 | 7.34 | 0.43 | 0 (0) |
+| Theo Jackson | S | 11.7 | 6.3 | 91.1 | 7.79 | 0.44 | 6 (1) |
+| Kyle Van Noy | LB | 8.0 | 5.3 | 50.6 | 6.32 | 0.24 | 0 (0) |
+| Ivan Pace Jr. | LB | 5.4 | 3.5 | 35.9 | 6.65 | 0.19 | 2 (0) |
+
+### Upcoming: opposing receivers vs likely MIN defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | ATL | D.London (WR) | 17 | short_right 29%, short_left 27% | Byron Murphy (24%) | James Pierre (23%) |
+| 12 | 2026-11-29 | ATL | B.Robinson (RB) | 12 | short_left 51%, short_right 36% | Blake Cashman (19%) | Dallas Turner (14%) |
+| 12 | 2026-11-29 | ATL | K.Pitts (TE) | 10 | short_right 40%, short_left 33% | Josh Metellus (12%) | Blake Cashman (10%) |
+| 12 | 2026-11-29 | ATL | J.Dotson (WR) | 8 | short_left 29%, deep_left 18% | Byron Murphy (25%) | James Pierre (23%) |
+| 13 | 2026-12-06 | CAR | T.McMillan (WR) | 22 | short_right 25%, short_middle 24% | James Pierre (23%) | Byron Murphy (22%) |
+| 13 | 2026-12-06 | CAR | D.Waller (TE) | 17 | short_right 38%, short_left 26% | Josh Metellus (12%) | Blake Cashman (10%) |
+| 13 | 2026-12-06 | CAR | J.Coker (WR) | 16 | short_left 38%, short_middle 22% | James Pierre (25%) | Byron Murphy (21%) |
+| 13 | 2026-12-06 | CAR | T.Tremble (TE) | 12 | short_left 44%, short_right 39% | Josh Metellus (12%) | James Pierre (10%) |
+
+Defender pool = MIN players with defensive snaps in their most recent game (2026_11_MIN_SF); check inactives before use.

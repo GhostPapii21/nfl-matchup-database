@@ -91,3 +91,34 @@ Target-weighted avg separation of NGS-qualified receivers vs IND: **2.68 yds** (
 | 9 | DAL | K.Gushiken | DPI | R.Flournoy | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Charvarius Ward | CB | 50.0 | 28.7 | 462.4 | 9.25 | 2.63 | 63 (42) |
+| Sauce Gardner | CB | 48.5 | 29.5 | 434.0 | 8.95 | 2.82 | 53 (31) |
+| Justin Walley | CB | 45.0 | 28.4 | 348.0 | 7.73 | 2.59 | 59 (25) |
+| Camryn Bynum | S | 31.2 | 19.8 | 284.9 | 9.13 | 2.69 | 30 (5) |
+| Akeem Davis-Gaither | LB | 30.0 | 20.3 | 234.8 | 7.83 | 1.91 | 43 (21) |
+| A.J. Haulcy | S | 21.5 | 14.0 | 181.1 | 8.42 | 1.87 | 13 (5) |
+| CJ Allen | LB | 19.1 | 13.3 | 117.9 | 6.17 | 1.28 | 21 (11) |
+| Bryce Boettcher | LB | 16.2 | 11.9 | 110.9 | 6.85 | 0.71 | 9 (7) |
+| Jaylon Carlies | LB | 11.4 | 8.2 | 103.5 | 9.08 | 0.49 | 5 (1) |
+| Kapena Gushiken | CB | 9.8 | 6.5 | 72.1 | 7.36 | 0.57 | 5 (0) |
+| Austin Ajiake | LB | 9.4 | 6.7 | 68.1 | 7.24 | 0.77 | 3 (0) |
+| Cam Taylor-Britt | CB | 8.9 | 5.0 | 52.2 | 5.87 | 0.49 | 4 (0) |
+
+### Upcoming: opposing receivers vs likely IND defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | NYG | M.Nabers (WR) | 27 | short_right 31%, short_left 28% | Justin Walley (27%) | Kapena Gushiken (20%) |
+| 12 | 2026-11-29 | NYG | I.Likely (TE) | 20 | short_middle 33%, short_left 30% | Camryn Bynum (18%) | CJ Allen (16%) |
+| 12 | 2026-11-29 | NYG | D.Mooney (WR) | 14 | short_left 33%, short_middle 17% | Justin Walley (25%) | Kapena Gushiken (20%) |
+| 12 | 2026-11-29 | NYG | M.Fields (WR) | 14 | short_left 23%, short_middle 23% | Justin Walley (27%) | Kapena Gushiken (20%) |
+
+Defender pool = IND players with defensive snaps in their most recent game (2026_11_IND_HOU); check inactives before use.

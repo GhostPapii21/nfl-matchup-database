@@ -90,3 +90,37 @@ Target-weighted avg separation of NGS-qualified receivers vs JAX: **3.05 yds** (
 | 10 | TEN | M.Dickerson | PBU | E.Ayomanor | short_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Jarrian Jones | CB | 58.8 | 39.1 | 503.8 | 8.57 | 1.96 | 80 (62) |
+| Jourdan Lewis | CB | 46.1 | 30.2 | 352.5 | 7.65 | 1.28 | 24 (15) |
+| Foyesade Oluokun | LB | 44.2 | 32.8 | 252.2 | 5.71 | 1.36 | 62 (40) |
+| Montaric Brown | CB | 43.6 | 28.6 | 306.7 | 7.03 | 1.33 | 76 (43) |
+| Ventrell Miller | LB | 31.0 | 22.8 | 187.9 | 6.06 | 1.05 | 22 (8) |
+| Antonio Johnson | S | 26.7 | 16.5 | 197.4 | 7.39 | 1.1 | 11 (1) |
+| Rayuan Lane III | S | 17.4 | 10.7 | 102.6 | 5.9 | 0.57 | 28 (0) |
+| Dennis Gardeck | LB | 16.7 | 10.9 | 105.5 | 6.32 | 0.6 | 0 (0) |
+| Eric Murray | S | 11.5 | 8.3 | 111.1 | 9.66 | 0.82 | 9 (0) |
+| Kaevon Merriweather | S | 8.1 | 5.2 | 47.7 | 5.89 | 0.44 | 3 (0) |
+| Branson Combs | LB | 5.5 | 4.0 | 39.1 | 7.11 | 0.14 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely JAX defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | TEN | E.Ayomanor (WR) | 13 | short_left 33%, short_right 33% | Montaric Brown (35%) | Jourdan Lewis (25%) |
+| 12 | 2026-11-29 | TEN | T.Pollard (RB) | 10 | short_left 35%, short_right 32% | Foyesade Oluokun (33%) | Ventrell Miller (25%) |
+| 12 | 2026-11-29 | TEN | C.Dike (WR) | 10 | short_left 39%, short_right 30% | Montaric Brown (36%) | Jourdan Lewis (26%) |
+| 12 | 2026-11-29 | TEN | G.Helm (TE) | 7 | short_left 52%, short_middle 24% | Antonio Johnson (19%) | Jessie Bates (18%) |
+| 13 | 2026-12-06 | CHI | R.Odunze (WR) | 20 | short_right 25%, short_middle 20% | Montaric Brown (30%) | Jourdan Lewis (23%) |
+| 13 | 2026-12-06 | CHI | L.Burden (WR) | 20 | short_middle 26%, short_left 26% | Montaric Brown (31%) | Jourdan Lewis (23%) |
+| 13 | 2026-12-06 | CHI | K.Raymond (WR) | 16 | short_right 38%, short_middle 24% | Montaric Brown (32%) | Jourdan Lewis (24%) |
+| 13 | 2026-12-06 | CHI | D.Swift (RB) | 11 | short_right 54%, short_left 36% | Foyesade Oluokun (31%) | Ventrell Miller (26%) |
+
+Defender pool = JAX players with defensive snaps in their most recent game (2026_11_JAX_NYG); check inactives before use.

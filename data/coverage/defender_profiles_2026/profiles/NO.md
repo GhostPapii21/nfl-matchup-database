@@ -87,3 +87,36 @@ Target-weighted avg separation of NGS-qualified receivers vs NO: **2.97 yds** (l
 | 9 | CLE | J.Sanker | PBU | B.Whiteheart | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Kool-Aid McKinstry | CB | 61.0 | 39.9 | 501.8 | 8.23 | 3.52 | 74 (43) |
+| Quincy Riley | CB | 46.2 | 30.1 | 370.6 | 8.02 | 2.27 | 54 (40) |
+| Kaden Elliss | LB | 33.3 | 25.7 | 249.4 | 7.49 | 1.3 | 49 (30) |
+| Martin Emerson | CB | 27.8 | 16.2 | 213.8 | 7.69 | 0.81 | 32 (24) |
+| Julian Blackmon | S | 27.2 | 18.0 | 263.3 | 9.68 | 1.91 | 22 (4) |
+| Pete Werner | LB | 26.8 | 20.6 | 190.9 | 7.12 | 0.85 | 24 (13) |
+| Justin Reid | S | 23.7 | 16.7 | 205.5 | 8.67 | 1.29 | 16 (2) |
+| Jonas Sanker | S | 21.1 | 14.8 | 180.7 | 8.56 | 1.32 | 9 (0) |
+| Danny Stutsman | LB | 17.3 | 13.1 | 137.7 | 7.96 | 1.24 | 10 (4) |
+| Jordan Howden | CB | 10.9 | 6.7 | 99.6 | 9.14 | 0.37 | 7 (6) |
+
+### Upcoming: opposing receivers vs likely NO defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | CIN | J.Chase (WR) | 35 | short_right 33%, short_left 32% | Quincy Riley (29%) | Kool-Aid McKinstry (26%) |
+| 12 | 2026-11-29 | CIN | C.Brown (RB) | 20 | short_right 42%, short_left 39% | Kaden Elliss (35%) | Danny Stutsman (32%) |
+| 12 | 2026-11-29 | CIN | T.Higgins (WR) | 15 | short_right 32%, short_left 28% | Quincy Riley (27%) | Kool-Aid McKinstry (26%) |
+| 12 | 2026-11-29 | CIN | M.Gesicki (TE) | 10 | short_left 29%, short_middle 21% | Julian Blackmon (20%) | Quincy Riley (15%) |
+| 13 | 2026-12-06 | GB | M.Golden (WR) | 24 | short_left 28%, short_right 24% | Quincy Riley (29%) | Kool-Aid McKinstry (25%) |
+| 13 | 2026-12-06 | GB | C.Watson (WR) | 17 | short_right 30%, short_left 27% | Jordan Howden (28%) | Kool-Aid McKinstry (24%) |
+| 13 | 2026-12-06 | GB | T.Kraft (TE) | 12 | short_right 41%, short_middle 28% | Julian Blackmon (20%) | Kaden Elliss (15%) |
+| 13 | 2026-12-06 | GB | S.Williams (WR) | 9 | short_left 33%, short_middle 28% | Jordan Howden (26%) | Kool-Aid McKinstry (25%) |
+
+Defender pool = NO players with defensive snaps in their most recent game (2026_11_NO_CHI); check inactives before use.

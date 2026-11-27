@@ -94,3 +94,34 @@ Target-weighted avg separation of NGS-qualified receivers vs DET: **2.67 yds** (
 | 10 | NE | N.Whiteside | DPI | K.Williams | deep_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Roger McCreary | CB | 67.4 | 41.2 | 466.0 | 6.91 | 3.16 | 85 (46) |
+| D.J. Reed | CB | 54.1 | 34.2 | 462.4 | 8.55 | 3.15 | 67 (43) |
+| Rock Ya-Sin | CB | 40.4 | 27.7 | 276.3 | 6.84 | 2.51 | 56 (22) |
+| Derrick Barnes | LB | 35.2 | 26.1 | 239.5 | 6.8 | 2.08 | 35 (11) |
+| Jack Campbell | LB | 30.8 | 24.4 | 222.0 | 7.21 | 2.49 | 37 (21) |
+| Chuck Clark | S | 27.4 | 20.5 | 194.7 | 7.11 | 2.22 | 35 (4) |
+| Brian Branch | CB | 26.2 | 16.1 | 171.5 | 6.55 | 0.96 | 22 (5) |
+| Malcolm Rodriguez | LB | 18.3 | 14.2 | 147.4 | 8.05 | 0.67 | 20 (5) |
+| Christian Izien | CB | 13.6 | 10.1 | 95.8 | 7.04 | 0.51 | 13 (1) |
+| Keith Abney II | CB | 13.1 | 8.1 | 93.4 | 7.13 | 0.56 | 5 (0) |
+| Ennis Rakestraw Jr. | CB | 11.9 | 8.3 | 107.8 | 9.06 | 1.04 | 0 (0) |
+| Trevor Nowaske | LB | 11.6 | 8.9 | 79.4 | 6.84 | 0.52 | 1 (0) |
+
+### Upcoming: opposing receivers vs likely DET defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-06 | ATL | D.London (WR) | 17 | short_right 29%, short_left 27% | Roger McCreary (22%) | Brian Branch (22%) |
+| 13 | 2026-12-06 | ATL | B.Robinson (RB) | 12 | short_left 51%, short_right 36% | Malcolm Rodriguez (23%) | Trevor Nowaske (18%) |
+| 13 | 2026-12-06 | ATL | K.Pitts (TE) | 10 | short_right 40%, short_left 33% | Kerby Joseph (15%) | Rock Ya-Sin (13%) |
+| 13 | 2026-12-06 | ATL | J.Dotson (WR) | 8 | short_left 29%, deep_left 18% | Roger McCreary (23%) | Brian Branch (22%) |
+
+Defender pool = DET players with defensive snaps in their most recent game (2026_12_CHI_DET); check inactives before use.

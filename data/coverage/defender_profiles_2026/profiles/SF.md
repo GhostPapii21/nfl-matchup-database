@@ -88,3 +88,38 @@ Target-weighted avg separation of NGS-qualified receivers vs SF: **2.98 yds** (l
 | 10 | DAL | R.Green | PBU | G.Pickens | deep_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Renardo Green | CB | 71.4 | 49.6 | 502.3 | 7.04 | 3.74 | 110 (64) |
+| Deommodore Lenoir | CB | 69.7 | 43.3 | 504.0 | 7.23 | 4.15 | 76 (43) |
+| Fred Warner | LB | 42.6 | 33.3 | 243.0 | 5.7 | 1.32 | 46 (15) |
+| Dre Greenlaw | LB | 31.7 | 25.8 | 161.0 | 5.08 | 0.88 | 49 (28) |
+| Upton Stout | CB | 31.6 | 21.4 | 223.3 | 7.07 | 1.46 | 6 (0) |
+| Ji'Ayir Brown | S | 26.9 | 18.3 | 181.2 | 6.74 | 1.08 | 21 (1) |
+| Malik Mustapha | S | 22.1 | 14.2 | 171.8 | 7.77 | 1.4 | 17 (3) |
+| Jaden Dugger | LB | 17.8 | 14.1 | 116.7 | 6.56 | 0.56 | 12 (3) |
+| Marques Sigle | S | 15.4 | 9.7 | 106.4 | 6.91 | 0.33 | 4 (0) |
+| Jack Jones | CB | 10.2 | 5.9 | 70.1 | 6.87 | 0.54 | 9 (0) |
+| Garret Wallow | LB | 6.0 | 4.7 | 35.8 | 5.97 | 0.05 | 2 (1) |
+| Ephesians Prysock | CB | 5.8 | 3.8 | 40.6 | 7.0 | 0.36 | 3 (0) |
+
+### Upcoming: opposing receivers vs likely SF defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | SEA | J.Smith-Njigba (WR) | 20 | short_right 31%, short_left 25% | Deommodore Lenoir (22%) | Renardo Green (21%) |
+| 12 | 2026-11-29 | SEA | A.Barner (TE) | 7 | short_right 49%, short_left 29% | Fred Warner (14%) | Ji'Ayir Brown (13%) |
+| 12 | 2026-11-29 | SEA | C.Kupp (WR) | 5 | short_left 31%, short_right 29% | Renardo Green (22%) | Deommodore Lenoir (21%) |
+| 12 | 2026-11-29 | SEA | J.Price (RB) | 5 | short_right 38%, short_left 38% | Fred Warner (27%) | Garret Wallow (22%) |
+| 13 | 2026-12-06 | NYG | M.Nabers (WR) | 27 | short_right 31%, short_left 28% | Renardo Green (23%) | Deommodore Lenoir (22%) |
+| 13 | 2026-12-06 | NYG | I.Likely (TE) | 20 | short_middle 33%, short_left 30% | Malik Mustapha (14%) | Marques Sigle (14%) |
+| 13 | 2026-12-06 | NYG | D.Mooney (WR) | 14 | short_left 33%, short_middle 17% | Renardo Green (23%) | Deommodore Lenoir (23%) |
+| 13 | 2026-12-06 | NYG | M.Fields (WR) | 14 | short_left 23%, short_middle 23% | Deommodore Lenoir (23%) | Renardo Green (21%) |
+
+Defender pool = SF players with defensive snaps in their most recent game (2026_11_MIN_SF); check inactives before use.

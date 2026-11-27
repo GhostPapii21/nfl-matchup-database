@@ -20,6 +20,13 @@ Nothing here is a coverage **assignment**. No free source publishes who covered 
 Counts (this build): 32 teams; 353 CB/S/DB rows (169 CB, 145 S, 39 listed only as DB) + 254 LB; 319 DBs have PFR-charted targets, 171 have 20+;
 256 DBs have at least one verified pbp play. Links: 1,668 verified (1,241 PBU, 239 INT, 188 DPI) and 6,335 inferred (tackler).
 
+## INFERRED attribution layer (added 2026-11-27)
+
+`attribution.py` → `defender_attribution_inferred.csv` (each target: inferred defender, probability, runner-up, confidence, method, verified defender if any),
+`defender_inferred_coverage_totals.csv` (probability-weighted targets/rec/yds/TD in each defender's vicinity), `upcoming_receiver_vs_likely_defender.csv`
+(remaining Week 12 + Week 13 games), `attribution_validation_*.csv`. Held-out top-1 accuracy on verified plays, weeks 9–12: 25% overall, 36% in the high tier.
+**INFERRED only**: method, validation and source findings are in `ATTRIBUTION_METHOD.md`.
+
 ## Freshness and leak-free use
 
 | Input | Through | Pulled (UTC) |

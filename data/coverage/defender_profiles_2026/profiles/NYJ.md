@@ -87,3 +87,31 @@ Target-weighted avg separation of NGS-qualified receivers vs NYJ: **3.21 yds** (
 | 7 | MIA | D.Davis | PBU | O.Gordon | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Azareye'h Thomas | CB | 62.9 | 43.8 | 446.4 | 7.1 | 4.84 | 96 (77) |
+| Brandon Stephens | CB | 58.2 | 35.0 | 415.1 | 7.13 | 3.66 | 79 (68) |
+| Jamien Sherwood | LB | 38.0 | 27.7 | 271.8 | 7.15 | 2.22 | 26 (25) |
+| Demario Davis | LB | 36.4 | 26.5 | 252.0 | 6.92 | 2.66 | 28 (18) |
+| Dane Belton | S | 33.9 | 23.6 | 292.5 | 8.63 | 1.91 | 35 (22) |
+| Jarvis Brownlee Jr. | CB | 23.4 | 13.6 | 172.5 | 7.37 | 0.99 | 12 (7) |
+| Minkah Fitzpatrick | S | 22.6 | 14.5 | 206.4 | 9.13 | 1.44 | 17 (9) |
+| Andre Cisco | S | 9.4 | 6.8 | 78.7 | 8.37 | 0.22 | 5 (5) |
+| D'Angelo Ponds | CB | 7.9 | 5.5 | 62.8 | 7.95 | 0.75 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely NYJ defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | MIA | C.Douglas (WR) | 26 | short_right 31%, short_left 22% | Brandon Stephens (25%) | Azareye'h Thomas (24%) |
+| 12 | 2026-11-29 | MIA | G.Dulcich (TE) | 13 | short_right 41%, short_left 27% | Dane Belton (18%) | Minkah Fitzpatrick (18%) |
+| 12 | 2026-11-29 | MIA | M.Washington (WR) | 12 | short_right 28%, short_left 28% | Brandon Stephens (29%) | Azareye'h Thomas (24%) |
+| 12 | 2026-11-29 | MIA | O.Gordon (RB) | 9 | short_left 56%, short_right 28% | Demario Davis (34%) | Jamien Sherwood (33%) |
+
+Defender pool = NYJ players with defensive snaps in their most recent game (2026_11_NYJ_LAC); check inactives before use.

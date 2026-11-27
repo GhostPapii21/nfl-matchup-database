@@ -91,3 +91,38 @@ Target-weighted avg separation of NGS-qualified receivers vs CAR: **3.37 yds** (
 | 9 | DEN | C.Thornton | PBU | C.Sutton | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Will Lee III | CB | 42.5 | 24.0 | 273.6 | 6.44 | 1.47 | 49 (28) |
+| Devin Lloyd | LB | 30.7 | 23.1 | 183.4 | 5.97 | 1.07 | 53 (7) |
+| Akayleb Evans | CB | 27.0 | 15.7 | 204.3 | 7.57 | 0.84 | 33 (29) |
+| Marco Wilson | CB | 25.0 | 17.1 | 169.6 | 6.78 | 1.18 | 37 (23) |
+| Bobby Okereke | LB | 22.1 | 15.7 | 125.3 | 5.67 | 0.8 | 29 (3) |
+| Tre'von Moehrig | S | 20.6 | 14.1 | 136.5 | 6.63 | 0.77 | 10 (0) |
+| Chau Smith-Wade | CB | 20.0 | 15.1 | 144.0 | 7.2 | 0.71 | 15 (5) |
+| Nick Scott | S | 17.4 | 12.4 | 142.9 | 8.21 | 1.06 | 17 (0) |
+| Mike Jackson | CB | 16.7 | 10.7 | 155.4 | 9.31 | 1.02 | 28 (8) |
+| Zakee Wheatley | S | 16.6 | 10.7 | 123.3 | 7.43 | 0.83 | 13 (2) |
+| Patrick Jones II | LB | 14.8 | 10.6 | 80.2 | 5.42 | 0.52 | 0 (0) |
+| Jaelan Phillips | LB | 13.6 | 9.2 | 73.6 | 5.41 | 0.49 | 3 (0) |
+
+### Upcoming: opposing receivers vs likely CAR defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-30 | TB | C.Otton (TE) | 11 | short_right 46%, short_middle 22% | Zakee Wheatley (14%) | Tre'von Moehrig (12%) |
+| 12 | 2026-11-30 | TB | E.Egbuka (WR) | 10 | short_right 34%, short_left 29% | Mike Jackson (26%) | Will Lee III (24%) |
+| 12 | 2026-11-30 | TB | B.Irving (RB) | 9 | short_left 47%, short_right 44% | Tyrel Dodson (19%) | Devin Lloyd (18%) |
+| 12 | 2026-11-30 | TB | K.Gainwell (RB) | 8 | short_right 58%, short_left 35% | Tyrel Dodson (19%) | Devin Lloyd (18%) |
+| 13 | 2026-12-06 | MIN | J.Jefferson (WR) | 33 | short_left 36%, short_right 29% | Mike Jackson (28%) | Will Lee III (25%) |
+| 13 | 2026-12-06 | MIN | T.Felton (WR) | 17 | short_left 38%, short_right 25% | Mike Jackson (28%) | Will Lee III (23%) |
+| 13 | 2026-12-06 | MIN | T.Hockenson (TE) | 14 | short_left 33%, short_right 25% | Tre'von Moehrig (15%) | Zakee Wheatley (15%) |
+| 13 | 2026-12-06 | MIN | M.Price (WR) | 10 | short_left 41%, short_right 24% | Mike Jackson (29%) | Will Lee III (25%) |
+
+Defender pool = CAR players with defensive snaps in their most recent game (2026_11_BAL_CAR); check inactives before use.

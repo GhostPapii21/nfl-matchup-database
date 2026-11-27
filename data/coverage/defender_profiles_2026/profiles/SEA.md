@@ -87,3 +87,38 @@ Target-weighted avg separation of NGS-qualified receivers vs SEA: **3.24 yds** (
 | 6 | DEN | D.Witherspoon | PBU | J.Waddle | deep_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Devon Witherspoon | CB | 52.5 | 32.8 | 284.9 | 5.43 | 1.3 | 72 (28) |
+| Josh Jobe | CB | 52.0 | 31.3 | 317.1 | 6.1 | 1.91 | 83 (41) |
+| Ernest Jones | LB | 34.5 | 25.9 | 190.9 | 5.53 | 1.22 | 62 (14) |
+| Julian Love | S | 23.5 | 15.5 | 148.9 | 6.34 | 0.58 | 18 (0) |
+| Drake Thomas | LB | 19.2 | 15.2 | 105.3 | 5.48 | 0.79 | 14 (1) |
+| DeMarcus Lawrence | LB | 16.4 | 10.8 | 87.8 | 5.35 | 0.49 | 8 (0) |
+| Nehemiah Pritchett | CB | 15.9 | 10.2 | 89.5 | 5.63 | 0.57 | 9 (7) |
+| Nick Emmanwori | S | 14.6 | 10.3 | 85.5 | 5.86 | 0.26 | 5 (0) |
+| Derick Hall | LB | 13.8 | 10.5 | 68.2 | 4.94 | 0.37 | 6 (0) |
+| Ty Okada | S | 13.4 | 9.0 | 93.4 | 6.97 | 0.15 | 2 (1) |
+| Uchenna Nwosu | LB | 10.0 | 7.6 | 51.7 | 5.17 | 0.35 | 0 (0) |
+| Rodney Thomas | S | 9.3 | 4.9 | 58.6 | 6.3 | 0.56 | 3 (2) |
+
+### Upcoming: opposing receivers vs likely SEA defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | SF | G.Kittle (TE) | 19 | short_left 37%, short_middle 25% | Nick Emmanwori (14%) | Ty Okada (14%) |
+| 12 | 2026-11-29 | SF | K.Allen (WR) | 11 | short_left 36%, short_right 32% | Devon Witherspoon (25%) | Josh Jobe (24%) |
+| 12 | 2026-11-29 | SF | C.McCaffrey (RB) | 10 | short_left 46%, short_right 37% | Ernest Jones (20%) | Drake Thomas (15%) |
+| 12 | 2026-11-29 | SF | J.Watkins (WR) | 8 | deep_left 24%, deep_middle 24% | Josh Jobe (26%) | Devon Witherspoon (22%) |
+| 13 | 2026-12-07 | DAL | C.Lamb (WR) | 51 | short_right 36%, short_left 24% | Devon Witherspoon (26%) | Josh Jobe (25%) |
+| 13 | 2026-12-07 | DAL | G.Pickens (WR) | 37 | short_left 35%, short_right 28% | Josh Jobe (28%) | Devon Witherspoon (25%) |
+| 13 | 2026-12-07 | DAL | J.Williams (RB) | 12 | short_right 44%, short_left 33% | Ernest Jones (21%) | Drake Thomas (14%) |
+| 13 | 2026-12-07 | DAL | R.Flournoy (WR) | 11 | short_left 42%, short_middle 22% | Josh Jobe (25%) | Devon Witherspoon (23%) |
+
+Defender pool = SEA players with defensive snaps in their most recent game (2026_10_SEA_LV); check inactives before use.

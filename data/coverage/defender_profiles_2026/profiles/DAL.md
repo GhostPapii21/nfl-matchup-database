@@ -94,3 +94,34 @@ Target-weighted avg separation of NGS-qualified receivers vs DAL: **2.97 yds** (
 | 9 | IND | P.Locke | PBU | J.Downs | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Caleb Downs | CB | 58.7 | 37.2 | 515.2 | 8.78 | 3.17 | 81 (20) |
+| DaRon Bland | CB | 51.6 | 31.9 | 410.7 | 7.96 | 2.72 | 82 (44) |
+| Cobie Durant | CB | 36.5 | 25.6 | 357.5 | 9.79 | 3.06 | 39 (25) |
+| Joey Porter Jr. | CB | 24.9 | 17.9 | 240.4 | 9.65 | 1.98 | 33 (0) |
+| Shemar James | LB | 23.5 | 18.5 | 201.6 | 8.58 | 1.74 | 30 (6) |
+| Malik Hooker | S | 16.3 | 10.7 | 140.6 | 8.63 | 0.82 | 6 (0) |
+| Dee Winters | LB | 16.0 | 13.1 | 120.4 | 7.52 | 1.01 | 18 (1) |
+| Rashan Gary | LB | 15.9 | 12.3 | 115.9 | 7.29 | 1.17 | 4 (0) |
+| Donovan Ezeiruaku | LB | 15.3 | 11.7 | 98.6 | 6.44 | 1.1 | 15 (0) |
+| Ameer Speed | CB | 12.7 | 8.6 | 126.9 | 9.99 | 0.87 | 0 (0) |
+| Shavon Revel Jr. | CB | 12.4 | 8.7 | 107.8 | 8.69 | 0.73 | 4 (0) |
+| Jaishawn Barham | LB | 11.8 | 9.5 | 80.7 | 6.84 | 0.87 | 7 (0) |
+
+### Upcoming: opposing receivers vs likely DAL defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-07 | SEA | J.Smith-Njigba (WR) | 20 | short_right 31%, short_left 25% | Caleb Downs (23%) | Cobie Durant (20%) |
+| 13 | 2026-12-07 | SEA | A.Barner (TE) | 7 | short_right 49%, short_left 29% | Malik Hooker (13%) | Shemar James (12%) |
+| 13 | 2026-12-07 | SEA | C.Kupp (WR) | 5 | short_left 31%, short_right 29% | Caleb Downs (23%) | Cobie Durant (20%) |
+| 13 | 2026-12-07 | SEA | J.Price (RB) | 5 | short_right 38%, short_left 38% | Shemar James (18%) | Dee Winters (13%) |
+
+Defender pool = DAL players with defensive snaps in their most recent game (2026_12_PHI_DAL); check inactives before use.

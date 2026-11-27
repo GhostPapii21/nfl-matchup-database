@@ -89,3 +89,34 @@ Target-weighted avg separation of NGS-qualified receivers vs CHI: **2.65 yds** (
 | 8 | SEA | J.Lynch | INT | A.Barner | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Jaylon Johnson | CB | 50.5 | 31.0 | 465.5 | 9.22 | 1.72 | 66 (44) |
+| Cam Lewis | CB | 45.2 | 31.0 | 435.3 | 9.63 | 1.68 | 43 (29) |
+| Dillon Thieneman | CB | 45.1 | 29.1 | 379.9 | 8.42 | 2.08 | 22 (2) |
+| Devin Bush | LB | 36.1 | 26.3 | 240.4 | 6.66 | 1.66 | 48 (22) |
+| Tyrique Stevenson | CB | 34.5 | 18.6 | 263.1 | 7.63 | 1.9 | 61 (29) |
+| Malik Muhammad | CB | 29.7 | 18.2 | 260.8 | 8.78 | 1.74 | 42 (5) |
+| T.J. Edwards | LB | 27.2 | 19.2 | 136.7 | 5.03 | 1.04 | 28 (21) |
+| D'Marco Jackson | LB | 12.0 | 9.2 | 120.5 | 10.04 | 1.19 | 5 (2) |
+| Clark Phillips III | CB | 10.5 | 6.4 | 75.9 | 7.23 | 0.34 | 0 (0) |
+| Kyler Gordon | CB | 10.3 | 5.8 | 85.1 | 8.26 | 0.42 | 5 (2) |
+| Xavier Woods | CB | 7.8 | 5.1 | 56.5 | 7.24 | 0.2 | 0 (0) |
+| Noah Sewell | LB | 7.3 | 4.9 | 44.3 | 6.07 | 0.32 | 6 (0) |
+
+### Upcoming: opposing receivers vs likely CHI defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-06 | JAX | P.Washington (WR) | 33 | short_left 36%, deep_left 22% | Malik Muhammad (25%) | Cam Lewis (18%) |
+| 13 | 2026-12-06 | JAX | J.Meyers (WR) | 22 | short_left 36%, short_middle 25% | Malik Muhammad (20%) | Cam Lewis (20%) |
+| 13 | 2026-12-06 | JAX | J.Cameron (WR) | 11 | short_middle 29%, short_left 29% | Cam Lewis (20%) | Dillon Thieneman (19%) |
+| 13 | 2026-12-06 | JAX | B.Strange (TE) | 8 | short_left 35%, short_middle 28% | Devin Bush (16%) | T.J. Edwards (15%) |
+
+Defender pool = CHI players with defensive snaps in their most recent game (2026_12_CHI_DET); check inactives before use.

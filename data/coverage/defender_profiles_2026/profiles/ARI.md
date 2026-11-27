@@ -89,3 +89,38 @@ Target-weighted avg separation of NGS-qualified receivers vs ARI: **2.99 yds** (
 | 8 | DAL | D.Burke | DPI | R.Flournoy | deep_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Denzel Burke | CB | 48.5 | 30.0 | 433.9 | 8.95 | 4.48 | 58 (12) |
+| Mack Wilson | LB | 31.3 | 22.8 | 243.9 | 7.79 | 2.27 | 43 (1) |
+| Budda Baker | S | 30.9 | 20.0 | 264.5 | 8.56 | 3.7 | 56 (8) |
+| Max Melton | CB | 29.6 | 19.6 | 252.3 | 8.52 | 2.15 | 36 (10) |
+| Kei'Trel Clark | CB | 28.2 | 18.2 | 257.6 | 9.13 | 1.57 | 38 (14) |
+| Jack Gibbens | LB | 24.3 | 17.6 | 168.0 | 6.91 | 1.72 | 29 (0) |
+| Josh Sweat | LB | 15.6 | 10.9 | 110.8 | 7.1 | 1.2 | 6 (0) |
+| Andrew Wingard | S | 15.0 | 10.5 | 133.6 | 8.91 | 1.9 | 20 (5) |
+| Kalen King | CB | 13.8 | 9.5 | 114.5 | 8.3 | 0.5 | 3 (0) |
+| Zaven Collins | LB | 13.3 | 9.4 | 93.0 | 6.99 | 0.99 | 0 (0) |
+| Baron Browning | LB | 13.3 | 9.4 | 92.9 | 6.98 | 1.1 | 0 (0) |
+| Garrett Williams | CB | 12.5 | 8.2 | 98.4 | 7.87 | 0.92 | 5 (0) |
+
+### Upcoming: opposing receivers vs likely ARI defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | WAS | S.Diggs (WR) | 21 | short_right 32%, short_left 31% | Kei'Trel Clark (24%) | Denzel Burke (24%) |
+| 12 | 2026-11-29 | WAS | C.Okonkwo (TE) | 20 | short_right 36%, short_left 27% | Wydett Williams Jr. (16%) | Budda Baker (14%) |
+| 12 | 2026-11-29 | WAS | A.Williams (WR) | 19 | short_right 31%, short_left 27% | Denzel Burke (24%) | Kei'Trel Clark (22%) |
+| 12 | 2026-11-29 | WAS | A.Ekeler (RB) | 10 | short_middle 40%, short_right 33% | Mack Wilson (21%) | Jack Gibbens (16%) |
+| 13 | 2026-12-06 | PHI | D.Smith (WR) | 26 | short_right 31%, short_left 30% | Kei'Trel Clark (28%) | Denzel Burke (25%) |
+| 13 | 2026-12-06 | PHI | M.Lemon (WR) | 18 | short_left 41%, short_right 29% | Kei'Trel Clark (24%) | Denzel Burke (22%) |
+| 13 | 2026-12-06 | PHI | D.Cooper (WR) | 15 | short_middle 31%, short_left 26% | Kei'Trel Clark (22%) | Denzel Burke (21%) |
+| 13 | 2026-12-06 | PHI | D.Goedert (TE) | 9 | short_right 36%, short_left 32% | Wydett Williams Jr. (15%) | Budda Baker (13%) |
+
+Defender pool = ARI players with defensive snaps in their most recent game (2026_11_ARI_KC); check inactives before use.

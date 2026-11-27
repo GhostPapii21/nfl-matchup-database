@@ -86,3 +86,38 @@ Target-weighted avg separation of NGS-qualified receivers vs PIT: **3.04 yds** (
 | 7 | NO | Y.Black | PBU | J.Johnson | short_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Jamel Dean | CB | 51.2 | 32.5 | 347.7 | 6.79 | 1.58 | 82 (53) |
+| Asante Samuel Jr. | CB | 50.9 | 31.3 | 417.1 | 8.19 | 1.37 | 61 (26) |
+| Jalen Ramsey | CB | 49.9 | 33.9 | 389.6 | 7.81 | 1.21 | 51 (14) |
+| Patrick Queen | LB | 33.7 | 25.3 | 224.5 | 6.66 | 1.2 | 42 (12) |
+| Payton Wilson | LB | 29.7 | 22.9 | 225.6 | 7.6 | 1.04 | 35 (7) |
+| Daylen Everette | CB | 24.8 | 14.4 | 196.8 | 7.94 | 0.41 | 22 (15) |
+| Jaquan Brisker | S | 24.7 | 17.5 | 207.4 | 8.4 | 1.26 | 29 (2) |
+| T.J. Watt | LB | 16.9 | 12.1 | 98.9 | 5.85 | 0.81 | 11 (0) |
+| Alex Highsmith | LB | 14.8 | 11.0 | 94.8 | 6.41 | 0.51 | 0 (0) |
+| Nick Herbig | LB | 12.4 | 9.2 | 76.3 | 6.15 | 0.47 | 1 (0) |
+| Robert Spears-Jennings | S | 9.1 | 6.4 | 69.4 | 7.63 | 0.3 | 1 (0) |
+| Jack Sawyer | LB | 7.7 | 5.6 | 50.2 | 6.52 | 0.27 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely PIT defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-27 | DEN | E.Engram (TE) | 13 | short_left 45%, short_right 32% | Jamel Dean (12%) | Daylen Everette (12%) |
+| 12 | 2026-11-27 | DEN | C.Sutton (WR) | 11 | short_left 33%, short_right 33% | Daylen Everette (24%) | Jamel Dean (23%) |
+| 12 | 2026-11-27 | DEN | P.Bryant (WR) | 9 | short_right 43%, short_left 29% | Daylen Everette (23%) | Jamel Dean (22%) |
+| 12 | 2026-11-27 | DEN | J.Coleman (RB) | 9 | short_right 53%, short_left 37% | Patrick Queen (20%) | T.J. Watt (20%) |
+| 13 | 2026-12-06 | HOU | N.Collins (WR) | 25 | short_right 30%, short_middle 22% | Jalen Ramsey (21%) | Daylen Everette (21%) |
+| 13 | 2026-12-06 | HOU | X.Hutchinson (WR) | 17 | short_middle 30%, short_right 26% | Jalen Ramsey (22%) | Daylen Everette (19%) |
+| 13 | 2026-12-06 | HOU | T.Dell (WR) | 17 | deep_right 28%, short_middle 28% | Jalen Ramsey (24%) | Daylen Everette (18%) |
+| 13 | 2026-12-06 | HOU | K.Boutte (WR) | 8 | short_middle 26%, short_right 23% | Jalen Ramsey (21%) | Daylen Everette (19%) |
+
+Defender pool = PIT players with defensive snaps in their most recent game (2026_11_PIT_PHI); check inactives before use.

@@ -88,3 +88,38 @@ Target-weighted avg separation of NGS-qualified receivers vs ATL: **2.88 yds** (
 | 5 | BAL | X.Watts | DPI | — | deep_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| C.J. Henderson | CB | 54.3 | 34.5 | 472.3 | 8.7 | 2.97 | 78 (52) |
+| Mike Hughes | CB | 44.2 | 27.8 | 350.8 | 7.94 | 1.52 | 42 (29) |
+| Xavier Watts | S | 30.3 | 20.7 | 233.4 | 7.7 | 1.43 | 30 (9) |
+| Kendal Daniels | LB | 29.2 | 22.2 | 188.2 | 6.45 | 1.99 | 30 (12) |
+| Jessie Bates | S | 28.9 | 21.9 | 201.5 | 6.97 | 1.58 | 37 (16) |
+| A.J. Terrell | CB | 25.4 | 15.8 | 204.3 | 8.04 | 2.18 | 34 (22) |
+| Harold Perkins Jr. | LB | 24.5 | 18.6 | 145.0 | 5.92 | 1.64 | 19 (14) |
+| Divine Deablo | LB | 22.3 | 16.4 | 128.7 | 5.77 | 1.22 | 33 (8) |
+| Sydney Brown | CB | 18.8 | 13.9 | 152.7 | 8.12 | 0.93 | 2 (0) |
+| Avieon Terrell | CB | 18.2 | 14.6 | 146.3 | 8.04 | 0.67 | 10 (8) |
+| Billy Bowman Jr. | CB | 16.9 | 9.7 | 122.4 | 7.24 | 1.16 | 13 (0) |
+| Jared Ivey | LB | 5.4 | 4.0 | 32.5 | 6.02 | 0.38 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely ATL defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | MIN | J.Jefferson (WR) | 33 | short_left 36%, short_right 29% | C.J. Henderson (27%) | A.J. Terrell (25%) |
+| 12 | 2026-11-29 | MIN | T.Felton (WR) | 17 | short_left 38%, short_right 25% | C.J. Henderson (26%) | A.J. Terrell (23%) |
+| 12 | 2026-11-29 | MIN | T.Hockenson (TE) | 14 | short_left 33%, short_right 25% | Xavier Watts (18%) | DeMarcco Hellams (16%) |
+| 12 | 2026-11-29 | MIN | M.Price (WR) | 10 | short_left 41%, short_right 24% | C.J. Henderson (28%) | A.J. Terrell (24%) |
+| 13 | 2026-12-06 | DET | A.St. Brown (WR) | 31 | short_left 31%, short_right 26% | C.J. Henderson (27%) | A.J. Terrell (23%) |
+| 13 | 2026-12-06 | DET | J.Williams (WR) | 22 | short_left 33%, deep_left 17% | C.J. Henderson (29%) | A.J. Terrell (24%) |
+| 13 | 2026-12-06 | DET | S.LaPorta (TE) | 20 | short_right 33%, short_middle 28% | Xavier Watts (18%) | DeMarcco Hellams (18%) |
+| 13 | 2026-12-06 | DET | J.Gibbs (RB) | 19 | short_left 40%, short_middle 30% | Kendal Daniels (35%) | Harold Perkins Jr. (20%) |
+
+Defender pool = ATL players with defensive snaps in their most recent game (2026_10_KC_ATL); check inactives before use.

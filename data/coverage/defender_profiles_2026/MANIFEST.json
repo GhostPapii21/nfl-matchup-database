@@ -63,7 +63,14 @@
    "url": "https://statrankings.com/nfl/coverage/team/{team} (32 public team pages, headline chips only)",
    "sha256": "961d383394aa2a1b962ec56917288729c9c597930c40f07f3dbb29e34ba9739d",
    "bytes": 1170
+  },
+  "games.csv": {
+   "url": "https://github.com/nflverse/nfldata/raw/master/data/games.csv",
+   "sha256": "e538e7bd38eed4f5032d3eb070dc98b938a4674cb222a12c2cbe15928721a525",
+   "bytes": 2192557,
+   "pulled_et": "2026-11-27 ~07:40"
   }
  },
- "rebuild": "download raw_inputs into a dir, add PULLS.json, then: python3 data/coverage/defender_profiles_2026/build.py --raw <dir> [--through-week N]"
+ "rebuild": "download raw_inputs into a dir, add PULLS.json, then: python3 data/coverage/defender_profiles_2026/build.py --raw <dir> [--through-week N]",
+ "rebuild_attribution": "python3 data/coverage/defender_profiles_2026/attribution.py --raw <dir> (run after build.py; needs games.csv)"
 }

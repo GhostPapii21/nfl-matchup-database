@@ -87,3 +87,34 @@ Target-weighted avg separation of NGS-qualified receivers vs LA: **2.6 yds** (le
 | 9 | WAS | E.Forbes | PBU | C.Okonkwo | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Josh Wallace | CB | 45.3 | 27.9 | 301.7 | 6.66 | 1.65 | 56 (19) |
+| Trent McDuffie | CB | 39.5 | 22.7 | 260.9 | 6.61 | 2.81 | 53 (29) |
+| Jaylen Watson | CB | 34.5 | 19.2 | 244.1 | 7.08 | 1.73 | 41 (28) |
+| Quentin Lake | S | 33.3 | 21.1 | 210.7 | 6.33 | 0.82 | 57 (5) |
+| Kam Curl | S | 26.0 | 15.6 | 180.4 | 6.94 | 0.82 | 23 (3) |
+| Emmanuel Forbes | CB | 24.4 | 13.9 | 176.4 | 7.23 | 0.76 | 15 (13) |
+| Byron Young | LB | 23.9 | 16.9 | 157.7 | 6.6 | 0.74 | 30 (4) |
+| Nate Landman | LB | 23.2 | 16.4 | 143.2 | 6.17 | 0.43 | 31 (4) |
+| Josaiah Stewart | LB | 17.9 | 12.3 | 114.2 | 6.38 | 0.44 | 3 (0) |
+| Kamren Kinchens | S | 14.8 | 10.1 | 109.9 | 7.43 | 0.34 | 9 (2) |
+| Omar Speights | LB | 14.1 | 10.0 | 93.8 | 6.65 | 0.68 | 9 (0) |
+| Jaylen McCollough | S | 9.2 | 5.8 | 62.8 | 6.83 | 0.27 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely LA defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-03 | KC | R.Rice (WR) | 24 | short_right 35%, short_left 31% | Josh Wallace (24%) | Trent McDuffie (23%) |
+| 13 | 2026-12-03 | KC | T.Kelce (TE) | 22 | short_right 44%, short_middle 23% | Quentin Lake (14%) | Kam Curl (14%) |
+| 13 | 2026-12-03 | KC | X.Worthy (WR) | 16 | short_right 44%, short_left 21% | Trent McDuffie (26%) | Josh Wallace (22%) |
+| 13 | 2026-12-03 | KC | E.Johnson (RB) | 15 | short_right 48%, short_left 42% | Byron Young (18%) | Myles Garrett (16%) |
+
+Defender pool = LA players with defensive snaps in their most recent game (2026_12_GB_LA); check inactives before use.

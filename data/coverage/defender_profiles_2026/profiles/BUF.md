@@ -93,3 +93,34 @@ Target-weighted avg separation of NGS-qualified receivers vs BUF: **2.81 yds** (
 | 11 | MIA | D.Igbinosun | PBU | C.Douglas | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Davison Igbinosun | CB | 53.6 | 27.7 | 339.4 | 6.33 | 1.8 | 78 (22) |
+| Christian Benford | CB | 53.4 | 32.4 | 381.1 | 7.14 | 2.71 | 96 (48) |
+| Terrel Bernard | LB | 38.6 | 25.3 | 251.3 | 6.51 | 1.34 | 58 (13) |
+| Maxwell Hairston | CB | 36.9 | 19.4 | 240.6 | 6.52 | 1.67 | 35 (20) |
+| Cole Bishop | S | 33.3 | 21.1 | 258.1 | 7.75 | 1.14 | 45 (10) |
+| Greg Rousseau | LB | 24.7 | 16.4 | 141.6 | 5.73 | 1.17 | 17 (2) |
+| Dee Alford | CB | 22.0 | 11.6 | 138.9 | 6.31 | 0.81 | 6 (0) |
+| Dorian Williams | LB | 21.7 | 14.9 | 144.4 | 6.65 | 1.07 | 11 (0) |
+| Bradley Chubb | LB | 21.1 | 14.3 | 127.1 | 6.02 | 0.71 | 16 (0) |
+| C.J. Gardner-Johnson | S | 15.8 | 10.1 | 138.1 | 8.74 | 0.98 | 8 (2) |
+| Damar Hamlin | S | 12.4 | 6.3 | 81.4 | 6.56 | 0.27 | 1 (0) |
+| TJ Parker | LB | 11.2 | 7.4 | 65.7 | 5.87 | 0.26 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely BUF defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-06 | NE | M.Hollins (WR) | 12 | short_right 34%, deep_right 25% | Davison Igbinosun (26%) | Maxwell Hairston (24%) |
+| 13 | 2026-12-06 | NE | D.Douglas (WR) | 12 | short_right 35%, short_left 22% | Davison Igbinosun (25%) | Maxwell Hairston (21%) |
+| 13 | 2026-12-06 | NE | E.Raridon (TE) | 7 | short_left 37%, short_middle 26% | Cole Bishop (15%) | Amani Hooker (13%) |
+| 13 | 2026-12-06 | NE | H.Henry (TE) | 6 | short_right 40%, short_left 25% | Cole Bishop (15%) | Amani Hooker (14%) |
+
+Defender pool = BUF players with defensive snaps in their most recent game (2026_12_KC_BUF); check inactives before use.

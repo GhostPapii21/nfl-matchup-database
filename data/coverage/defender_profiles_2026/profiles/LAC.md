@@ -88,3 +88,38 @@ Target-weighted avg separation of NGS-qualified receivers vs LAC: **2.91 yds** (
 | 6 | KC | C.Hart | INT | A.Armstrong | short_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Cam Hart | CB | 44.6 | 29.3 | 415.8 | 9.32 | 2.73 | 67 (29) |
+| Tarheeb Still | CB | 43.2 | 29.9 | 360.8 | 8.35 | 2.45 | 68 (24) |
+| Elijah Molden | CB | 29.6 | 21.0 | 268.0 | 9.05 | 1.97 | 43 (2) |
+| Daiyan Henley | LB | 24.5 | 17.9 | 155.9 | 6.36 | 0.65 | 35 (1) |
+| Tuli Tuipulotu | LB | 19.1 | 13.7 | 122.2 | 6.4 | 0.9 | 9 (0) |
+| Donte Jackson | CB | 17.9 | 12.2 | 163.1 | 9.11 | 1.57 | 5 (0) |
+| Khalil Mack | LB | 15.9 | 11.5 | 105.4 | 6.63 | 0.69 | 3 (0) |
+| Del'Shawn Phillips | LB | 15.0 | 10.8 | 92.9 | 6.19 | 0.45 | 15 (1) |
+| Tony Jefferson | S | 13.4 | 9.4 | 121.6 | 9.07 | 0.62 | 14 (2) |
+| Akheem Mesidor | LB | 12.7 | 9.1 | 79.4 | 6.25 | 0.46 | 4 (0) |
+| Genesis Smith | S | 9.3 | 5.9 | 87.2 | 9.38 | 0.47 | 0 (0) |
+| Derwin James | S | 8.9 | 6.0 | 62.6 | 7.03 | 0.55 | 14 (3) |
+
+### Upcoming: opposing receivers vs likely LAC defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | NE | M.Hollins (WR) | 12 | short_right 34%, deep_right 25% | Elijah Molden (22%) | Cam Hart (21%) |
+| 12 | 2026-11-29 | NE | D.Douglas (WR) | 12 | short_right 35%, short_left 22% | Cam Hart (23%) | Elijah Molden (20%) |
+| 12 | 2026-11-29 | NE | E.Raridon (TE) | 7 | short_left 37%, short_middle 26% | Cam Hart (13%) | Elijah Molden (11%) |
+| 12 | 2026-11-29 | NE | H.Henry (TE) | 6 | short_right 40%, short_left 25% | Cam Hart (11%) | Elijah Molden (10%) |
+| 13 | 2026-12-06 | TB | C.Otton (TE) | 11 | short_right 46%, short_middle 22% | Elijah Molden (11%) | Cam Hart (10%) |
+| 13 | 2026-12-06 | TB | E.Egbuka (WR) | 10 | short_right 34%, short_left 29% | Cam Hart (21%) | Elijah Molden (19%) |
+| 13 | 2026-12-06 | TB | B.Irving (RB) | 9 | short_left 47%, short_right 44% | Tuli Tuipulotu (19%) | Khalil Mack (14%) |
+| 13 | 2026-12-06 | TB | K.Gainwell (RB) | 8 | short_right 58%, short_left 35% | Tuli Tuipulotu (18%) | Khalil Mack (15%) |
+
+Defender pool = LAC players with defensive snaps in their most recent game (2026_11_NYJ_LAC); check inactives before use.

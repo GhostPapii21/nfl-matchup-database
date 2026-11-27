@@ -88,3 +88,34 @@ Target-weighted avg separation of NGS-qualified receivers vs KC: **2.9 yds** (le
 | 10 | ATL | G.Karlaftis | PBU | D.London | short_right |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Nohl Williams | CB | 60.0 | 34.0 | 346.3 | 5.77 | 1.5 | 99 (48) |
+| Nick Bolton | LB | 43.2 | 32.0 | 274.6 | 6.36 | 0.87 | 57 (26) |
+| Mansoor Delane | CB | 36.8 | 20.3 | 288.1 | 7.83 | 0.91 | 57 (24) |
+| Drue Tranquill | LB | 36.0 | 26.4 | 214.8 | 5.97 | 0.38 | 42 (18) |
+| Chamarri Conner | CB | 36.0 | 20.5 | 252.8 | 7.02 | 0.93 | 30 (3) |
+| Kristian Fulton | CB | 27.1 | 14.8 | 157.9 | 5.83 | 0.94 | 20 (12) |
+| L'Jarius Sneed | CB | 25.5 | 17.3 | 167.4 | 6.56 | 0.32 | 23 (13) |
+| Jaden Hicks | CB | 25.5 | 14.8 | 169.9 | 6.66 | 0.62 | 9 (4) |
+| Christian Roland-Wallace | CB | 24.0 | 14.3 | 139.0 | 5.79 | 0.52 | 9 (1) |
+| Alohi Gilman | S | 23.7 | 15.3 | 162.1 | 6.84 | 0.78 | 9 (2) |
+| Jack Cochrane | LB | 8.4 | 6.0 | 53.0 | 6.31 | 0.12 | 0 (0) |
+| Jadon Canady | CB | 5.0 | 2.6 | 37.7 | 7.54 | 0.06 | 0 (0) |
+
+### Upcoming: opposing receivers vs likely KC defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 13 | 2026-12-03 | LA | P.Nacua (WR) | 19 | short_left 32%, short_right 29% | Nohl Williams (22%) | Chamarri Conner (22%) |
+| 13 | 2026-12-03 | LA | K.Williams (RB) | 14 | short_right 45%, short_left 39% | Nick Bolton (29%) | Drue Tranquill (27%) |
+| 13 | 2026-12-03 | LA | T.Higbee (TE) | 12 | short_right 52%, short_left 20% | Nohl Williams (17%) | Alohi Gilman (16%) |
+| 13 | 2026-12-03 | LA | K.Mumpfield (WR) | 11 | short_middle 25%, deep_right 25% | Chamarri Conner (23%) | Nohl Williams (22%) |
+
+Defender pool = KC players with defensive snaps in their most recent game (2026_12_KC_BUF); check inactives before use.

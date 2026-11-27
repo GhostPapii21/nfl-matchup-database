@@ -88,3 +88,38 @@ Target-weighted avg separation of NGS-qualified receivers vs NYG: **2.59 yds** (
 | 10 | WAS | D.Banks | DPI | T.Burks | deep_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Deonte Banks | CB | 51.7 | 27.2 | 279.9 | 5.41 | 1.98 | 91 (64) |
+| Greg Newsome II | CB | 43.8 | 27.6 | 348.8 | 7.96 | 2.27 | 52 (33) |
+| Andru Phillips | CB | 39.2 | 23.2 | 246.6 | 6.29 | 1.79 | 21 (6) |
+| Arvell Reese | LB | 30.0 | 23.0 | 170.8 | 5.69 | 2.24 | 34 (6) |
+| Jevon Holland | S | 22.9 | 12.8 | 148.2 | 6.47 | 0.8 | 12 (2) |
+| Tremaine Edmunds | LB | 17.0 | 13.3 | 100.4 | 5.91 | 1.33 | 20 (7) |
+| Abdul Carter | LB | 16.6 | 12.2 | 95.5 | 5.75 | 1.25 | 4 (0) |
+| Paulson Adebo | CB | 16.1 | 8.2 | 132.7 | 8.24 | 0.97 | 19 (16) |
+| Kayvon Thibodeaux | LB | 15.8 | 10.4 | 96.0 | 6.08 | 1.2 | 6 (0) |
+| Ar'Darius Washington | S | 14.3 | 8.3 | 96.6 | 6.76 | 0.85 | 14 (0) |
+| Micah McFadden | LB | 13.2 | 9.8 | 74.4 | 5.64 | 0.64 | 18 (7) |
+| Colton Hood | CB | 11.5 | 8.0 | 82.9 | 7.21 | 0.62 | 16 (8) |
+
+### Upcoming: opposing receivers vs likely NYG defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | IND | T.Warren (TE) | 15 | short_left 36%, short_middle 30% | Ar'Darius Washington (13%) | Jevon Holland (12%) |
+| 12 | 2026-11-29 | IND | J.Taylor (RB) | 14 | short_left 58%, short_right 31% | Arvell Reese (18%) | Micah McFadden (18%) |
+| 12 | 2026-11-29 | IND | K.Allen (WR) | 8 | short_left 36%, short_right 32% | Deonte Banks (20%) | Andru Phillips (20%) |
+| 12 | 2026-11-29 | IND | A.Dulin (WR) | 8 | short_right 53%, short_left 20% | Paulson Adebo (21%) | Andru Phillips (19%) |
+| 13 | 2026-12-06 | SF | G.Kittle (TE) | 19 | short_left 37%, short_middle 25% | Jevon Holland (14%) | Ar'Darius Washington (14%) |
+| 13 | 2026-12-06 | SF | K.Allen (WR) | 11 | short_left 36%, short_right 32% | Deonte Banks (20%) | Andru Phillips (20%) |
+| 13 | 2026-12-06 | SF | C.McCaffrey (RB) | 10 | short_left 46%, short_right 37% | Arvell Reese (19%) | Micah McFadden (18%) |
+| 13 | 2026-12-06 | SF | J.Watkins (WR) | 8 | deep_left 24%, deep_middle 24% | Paulson Adebo (26%) | Deonte Banks (19%) |
+
+Defender pool = NYG players with defensive snaps in their most recent game (2026_11_JAX_NYG); check inactives before use.

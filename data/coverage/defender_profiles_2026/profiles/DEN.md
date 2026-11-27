@@ -88,3 +88,38 @@ Target-weighted avg separation of NGS-qualified receivers vs DEN: **2.61 yds** (
 | 8 | KC | Z.Allen | PBU | R.Rice | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Riley Moss | CB | 41.4 | 23.6 | 284.3 | 6.87 | 2.14 | 55 (34) |
+| Pat Surtain II | CB | 40.8 | 22.2 | 327.1 | 8.02 | 2.05 | 50 (27) |
+| Ja'Quan McMillian | CB | 37.7 | 23.7 | 238.2 | 6.32 | 1.33 | 30 (2) |
+| Alex Singleton | LB | 36.6 | 27.0 | 262.6 | 7.17 | 2.13 | 67 (7) |
+| Justin Strnad | LB | 28.8 | 20.0 | 208.7 | 7.25 | 1.77 | 20 (5) |
+| Jahdae Barron | CB | 27.2 | 17.6 | 178.0 | 6.54 | 0.94 | 31 (14) |
+| Brandon Jones | S | 23.7 | 15.3 | 179.3 | 7.57 | 1.17 | 28 (14) |
+| Kris Abrams-Draine | CB | 19.4 | 11.5 | 113.5 | 5.85 | 0.32 | 25 (8) |
+| Nik Bonitto | LB | 15.8 | 11.1 | 110.8 | 7.01 | 0.86 | 6 (0) |
+| Devon Key | CB | 14.4 | 7.7 | 93.2 | 6.47 | 0.57 | 2 (1) |
+| Talanoa Hufanga | S | 14.3 | 7.8 | 129.3 | 9.04 | 0.62 | 16 (4) |
+| Que Robinson | LB | 12.9 | 9.1 | 84.2 | 6.53 | 0.65 | 3 (0) |
+
+### Upcoming: opposing receivers vs likely DEN defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-27 | PIT | G.Bernard (WR) | 13 | short_left 31%, short_right 31% | Pat Surtain II (21%) | Riley Moss (20%) |
+| 12 | 2026-11-27 | PIT | D.Metcalf (WR) | 10 | short_right 27%, short_left 26% | Pat Surtain II (23%) | Riley Moss (21%) |
+| 12 | 2026-11-27 | PIT | J.Warren (RB) | 9 | short_right 51%, short_left 31% | Alex Singleton (21%) | Justin Strnad (15%) |
+| 12 | 2026-11-27 | PIT | P.Freiermuth (TE) | 8 | short_left 30%, short_middle 26% | Talanoa Hufanga (16%) | Pat Surtain II (12%) |
+| 13 | 2026-12-06 | MIA | C.Douglas (WR) | 26 | short_right 31%, short_left 22% | Pat Surtain II (23%) | Riley Moss (21%) |
+| 13 | 2026-12-06 | MIA | G.Dulcich (TE) | 13 | short_right 41%, short_left 27% | Talanoa Hufanga (14%) | Riley Moss (11%) |
+| 13 | 2026-12-06 | MIA | M.Washington (WR) | 12 | short_right 28%, short_left 28% | Pat Surtain II (23%) | Riley Moss (22%) |
+| 13 | 2026-12-06 | MIA | O.Gordon (RB) | 9 | short_left 56%, short_right 28% | Alex Singleton (20%) | Nik Bonitto (17%) |
+
+Defender pool = DEN players with defensive snaps in their most recent game (2026_11_LV_DEN); check inactives before use.

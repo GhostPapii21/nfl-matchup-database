@@ -91,3 +91,38 @@ Target-weighted avg separation of NGS-qualified receivers vs NE: **2.89 yds** (l
 | 6 | NYJ | C.Woods | INT | K.Sadiq | deep_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Christian Gonzalez | CB | 49.3 | 35.3 | 526.2 | 10.67 | 3.65 | 67 (49) |
+| Marcus Jones | CB | 42.9 | 30.4 | 363.4 | 8.47 | 2.93 | 51 (8) |
+| Christian Elliss | LB | 27.2 | 20.5 | 186.9 | 6.87 | 0.87 | 44 (3) |
+| Carlton Davis III | CB | 25.1 | 19.1 | 217.7 | 8.67 | 1.66 | 42 (12) |
+| Kevin Byard | S | 24.1 | 15.0 | 211.2 | 8.76 | 1.41 | 26 (3) |
+| Robert Spillane | LB | 24.1 | 18.0 | 173.2 | 7.19 | 0.79 | 20 (2) |
+| Charles Woods | CB | 23.8 | 15.3 | 195.3 | 8.21 | 1.23 | 15 (11) |
+| Craig Woodson | S | 20.9 | 13.9 | 188.4 | 9.01 | 1.47 | 21 (6) |
+| Elijah Ponder | LB | 17.0 | 12.3 | 118.0 | 6.94 | 0.57 | 1 (0) |
+| Gabe Jacas | LB | 12.8 | 9.4 | 95.1 | 7.43 | 0.44 | 3 (0) |
+| Dre'Mont Jones | LB | 11.7 | 8.7 | 88.3 | 7.55 | 0.39 | 0 (0) |
+| Kindle Vildor | CB | 6.4 | 4.3 | 53.0 | 8.28 | 0.21 | 11 (5) |
+
+### Upcoming: opposing receivers vs likely NE defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | LAC | T.Harris (WR) | 14 | short_right 31%, short_left 29% | Christian Gonzalez (26%) | Marcus Jones (22%) |
+| 12 | 2026-11-29 | LAC | L.McConkey (WR) | 8 | short_right 31%, short_middle 22% | Christian Gonzalez (24%) | Marcus Jones (22%) |
+| 12 | 2026-11-29 | LAC | C.Kolar (TE) | 7 | short_right 62%, short_middle 21% | Kevin Byard (13%) | Christian Elliss (11%) |
+| 12 | 2026-11-29 | LAC | Q.Johnston (WR) | 7 | short_right 30%, short_left 21% | Christian Gonzalez (26%) | Marcus Jones (21%) |
+| 13 | 2026-12-06 | BUF | D.Moore (WR) | 27 | short_left 33%, short_right 24% | Christian Gonzalez (23%) | Marcus Jones (22%) |
+| 13 | 2026-12-06 | BUF | K.Shakir (WR) | 22 | short_right 45%, short_middle 27% | Christian Gonzalez (22%) | Marcus Jones (21%) |
+| 13 | 2026-12-06 | BUF | K.Coleman (WR) | 14 | short_right 32%, short_left 22% | Christian Gonzalez (26%) | Marcus Jones (21%) |
+| 13 | 2026-12-06 | BUF | T.Johnson (RB) | 13 | short_right 54%, short_left 39% | Christian Elliss (19%) | Elijah Ponder (13%) |
+
+Defender pool = NE players with defensive snaps in their most recent game (2026_10_NE_DET); check inactives before use.

@@ -89,3 +89,35 @@ Target-weighted avg separation of NGS-qualified receivers vs MIA: **3.44 yds** (
 | 7 | NYJ | Z.Biggers | PBU | B.Allen | short_middle |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Chris Johnson | CB | 52.5 | 39.4 | 421.3 | 8.02 | 2.7 | 81 (48) |
+| Jacob Rodriguez | LB | 40.9 | 32.0 | 264.5 | 6.47 | 3.06 | 48 (18) |
+| Jordyn Brooks | LB | 38.6 | 30.9 | 244.6 | 6.34 | 2.57 | 50 (25) |
+| Julius Brents | CB | 34.7 | 25.5 | 302.6 | 8.72 | 2.3 | 38 (24) |
+| Jason Marshall Jr. | CB | 33.3 | 24.7 | 286.5 | 8.6 | 1.88 | 20 (9) |
+| Michael Taaffe | S | 26.4 | 19.3 | 254.6 | 9.64 | 1.78 | 19 (2) |
+| Dante Trader Jr. | S | 18.6 | 13.9 | 197.3 | 10.61 | 1.6 | 8 (2) |
+| Willie Gay Jr. | LB | 11.6 | 9.0 | 99.7 | 8.59 | 1.16 | 2 (1) |
+| Zayne Anderson | S | 10.8 | 6.8 | 109.7 | 10.16 | 0.42 | 9 (5) |
+
+### Upcoming: opposing receivers vs likely MIA defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | NYJ | G.Wilson (WR) | 19 | short_left 34%, short_right 28% | Chris Johnson (23%) | Julius Brents (20%) |
+| 12 | 2026-11-29 | NYJ | A.Mitchell (WR) | 18 | short_left 29%, deep_right 27% | Jason Marshall Jr. (20%) | Chris Johnson (20%) |
+| 12 | 2026-11-29 | NYJ | B.Hall (RB) | 11 | short_right 52%, short_left 38% | Jordyn Brooks (33%) | Jacob Rodriguez (30%) |
+| 12 | 2026-11-29 | NYJ | O.Cooper (WR) | 11 | short_right 50%, short_left 25% | Chris Johnson (29%) | Julius Brents (20%) |
+| 13 | 2026-12-06 | DEN | E.Engram (TE) | 13 | short_left 45%, short_right 32% | Zayne Anderson (18%) | Michael Taaffe (17%) |
+| 13 | 2026-12-06 | DEN | C.Sutton (WR) | 11 | short_left 33%, short_right 33% | Chris Johnson (23%) | Julius Brents (21%) |
+| 13 | 2026-12-06 | DEN | P.Bryant (WR) | 9 | short_right 43%, short_left 29% | Chris Johnson (27%) | Jason Marshall Jr. (19%) |
+| 13 | 2026-12-06 | DEN | J.Coleman (RB) | 9 | short_right 53%, short_left 37% | Jordyn Brooks (33%) | Jacob Rodriguez (30%) |
+
+Defender pool = MIA players with defensive snaps in their most recent game (2026_11_MIA_BUF); check inactives before use.

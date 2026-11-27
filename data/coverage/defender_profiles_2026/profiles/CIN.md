@@ -88,3 +88,36 @@ Target-weighted avg separation of NGS-qualified receivers vs CIN: **2.93 yds** (
 | 8 | TEN | B.Cook | DPI | G.Helm | short_left |
 
 Full per-play log: `defender_target_log_pbp.csv`; per-week: `defender_weekly_log.csv`.
+
+<!-- INFERRED-ATTRIBUTION -->
+## INFERRED coverage attribution (not verified)
+
+Most-likely-defender estimate from pbp zone, receiver position, each defender's verified/tackle side-depth tendencies, same-game receiver links, snap % and shell. **INFERRED only: it never satisfies the verified-defender rule.** Held-out accuracy on verified PBU/INT plays, weeks 9–12, top pick right: high 36% (n=45), med 31% (n=102), low 20% (n=217), ALL 25% (n=364).
+
+| Defender | Pos | Exp. targets | Exp. rec | Exp. yds | Exp. YPT | Exp. TD | Top-pick targets (high/med) |
+|---|---|---|---|---|---|---|---|
+| Daxton Hill | CB | 59.1 | 36.9 | 447.4 | 7.57 | 2.55 | 69 (25) |
+| DJ Turner II | CB | 55.5 | 35.2 | 422.8 | 7.62 | 2.37 | 64 (33) |
+| Barrett Carter | LB | 41.0 | 31.3 | 279.8 | 6.82 | 0.58 | 55 (30) |
+| Jordan Battle | S | 33.9 | 24.2 | 295.1 | 8.71 | 1.14 | 43 (4) |
+| Demetrius Knight Jr. | LB | 32.9 | 24.8 | 222.2 | 6.75 | 0.61 | 17 (14) |
+| Bryan Cook | S | 26.0 | 16.7 | 215.4 | 8.28 | 0.75 | 24 (5) |
+| Josh Newton | CB | 20.3 | 12.1 | 151.8 | 7.48 | 0.87 | 15 (11) |
+| D.J. Ivey | CB | 19.4 | 13.1 | 145.0 | 7.47 | 0.85 | 14 (4) |
+| Jalen Davis | CB | 12.3 | 7.4 | 99.5 | 8.09 | 0.32 | 6 (2) |
+| Tacario Davis | CB | 7.5 | 4.0 | 52.8 | 7.04 | 0.6 | 6 (0) |
+
+### Upcoming: opposing receivers vs likely CIN defender (INFERRED)
+
+| Wk | Date | Offense | Receiver | Tgts last 4 wks | Receiver's main zones | Likely defender (share) | Next (share) |
+|---|---|---|---|---|---|---|---|
+| 12 | 2026-11-29 | NO | C.Olave (WR) | 31 | short_right 33%, short_left 29% | DJ Turner II (28%) | Josh Newton (22%) |
+| 12 | 2026-11-29 | NO | J.Tyson (WR) | 20 | short_left 35%, short_right 35% | DJ Turner II (27%) | Daxton Hill (21%) |
+| 12 | 2026-11-29 | NO | D.Vele (WR) | 13 | short_left 46%, short_right 18% | DJ Turner II (28%) | Daxton Hill (21%) |
+| 12 | 2026-11-29 | NO | A.Kamara (RB) | 10 | short_left 43%, short_right 41% | Barrett Carter (31%) | Demetrius Knight Jr. (28%) |
+| 13 | 2026-12-06 | CLE | K.Concepcion (WR) | 14 | short_left 40%, short_right 21% | DJ Turner II (27%) | Daxton Hill (21%) |
+| 13 | 2026-12-06 | CLE | D.Sampson (RB) | 12 | short_left 43%, short_right 30% | Barrett Carter (34%) | Demetrius Knight Jr. (30%) |
+| 13 | 2026-12-06 | CLE | H.Fannin (TE) | 11 | short_left 37%, short_right 34% | Bryan Cook (19%) | Jordan Battle (19%) |
+| 13 | 2026-12-06 | CLE | D.Boston (WR) | 9 | short_left 29%, short_right 23% | DJ Turner II (27%) | Josh Newton (20%) |
+
+Defender pool = CIN players with defensive snaps in their most recent game (2026_11_CIN_WAS); check inactives before use.
