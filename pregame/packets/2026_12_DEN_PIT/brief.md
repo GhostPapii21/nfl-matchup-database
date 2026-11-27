@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): PIT +4.5, total 37.5.
 
-Generated 2026-11-27T18:39:33+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-27T18:41:31+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-27T18:39:32+00:00 UTC. At kickoff: 36 F, wind 17 mph SW, 81% chance of precipitation, Rain Showers. During the game: low 36 F, wind up to 17 mph, precipitation chance up to 81%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-27T18:41:30+00:00 UTC. At kickoff: 36 F, wind 17 mph SW, 81% chance of precipitation, Rain Showers. During the game: low 36 F, wind up to 17 mph, precipitation chance up to 81%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
@@ -686,20 +686,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-27T18:39:29+00:00 | 4fdf3a2bbfb1 |
-| pbp | OK | 2026-11-27T18:39:30+00:00 | 2b2ef85b4456 |
-| rosters | OK | 2026-11-27T18:39:30+00:00 | 06b4b4cecfb8 |
-| injuries | OK | 2026-11-27T18:39:30+00:00 | ace8009e13f6 |
-| depth_charts | OK | 2026-11-27T18:39:30+00:00 | 57991dafec0f |
-| snap_counts | OK | 2026-11-27T18:39:30+00:00 | a671bbfca0a9 |
-| ftn | OK | 2026-11-27T18:39:30+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-27T18:39:30+00:00 | f1217d79cc1e |
-| pfr_rec | OK | 2026-11-27T18:39:30+00:00 | 14b79cccde48 |
-| pfr_rush | OK | 2026-11-27T18:39:31+00:00 | 45b28d9bfb26 |
-| ngs_receiving | OK | 2026-11-27T18:39:31+00:00 | 115f58b6825a |
-| ngs_rushing | OK | 2026-11-27T18:39:31+00:00 | cefb252761e8 |
-| ngs_passing | OK | 2026-11-27T18:39:31+00:00 | 23d6077e29fc |
-| espn_injuries | OK | 2026-11-27T18:39:32+00:00 |  |
+| games | OK | 2026-11-27T18:41:27+00:00 | 4fdf3a2bbfb1 |
+| pbp | OK | 2026-11-27T18:41:27+00:00 | 2b2ef85b4456 |
+| rosters | OK | 2026-11-27T18:41:28+00:00 | 06b4b4cecfb8 |
+| injuries | OK | 2026-11-27T18:41:28+00:00 | ace8009e13f6 |
+| depth_charts | OK | 2026-11-27T18:41:28+00:00 | 57991dafec0f |
+| snap_counts | OK | 2026-11-27T18:41:28+00:00 | a671bbfca0a9 |
+| ftn | OK | 2026-11-27T18:41:28+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-27T18:41:28+00:00 | f1217d79cc1e |
+| pfr_rec | OK | 2026-11-27T18:41:28+00:00 | 14b79cccde48 |
+| pfr_rush | OK | 2026-11-27T18:41:28+00:00 | 45b28d9bfb26 |
+| ngs_receiving | OK | 2026-11-27T18:41:29+00:00 | 115f58b6825a |
+| ngs_rushing | OK | 2026-11-27T18:41:29+00:00 | cefb252761e8 |
+| ngs_passing | OK | 2026-11-27T18:41:29+00:00 | 23d6077e29fc |
+| espn_injuries | OK | 2026-11-27T18:41:30+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
