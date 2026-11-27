@@ -150,3 +150,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | ATL | B.Robinson (RB) | 12 | 0% | Blake Cashman (46%, 1.39) | Dallas Turner (23%, 0.4) |
 | 2026-11-29 | ATL | K.Pitts (TE) | 10 | 7% | Josh Metellus (48%, 6.82) | Dallas Turner (23%, 0.4) |
 | 2026-11-29 | ATL | J.Dotson (WR) | 8 | 26% | Josh Metellus (35%, 6.82) | James Pierre (21%, 1.74) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Josh Metellus (S) 45 tgt, 64.4% catch, 8.33 ypt, rating 97.9 [TARGET MAGNET]
+**Best / lockdown:** James Pierre (CB) 29 tgt, 48.3% catch, 4.59 ypt, rating 32.7 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** deep middle 18.1 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| James Pierre | CB | 10 | 29 | 15% | 48.3 | 4.59 | 9.5 | 0.452 | 32.7 | 0 | 2 | 3 | 93.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Isaiah Rodgers | CB | 9 | 35 | 19% | 45.7 | 6.03 | 13.19 | 0.452 | 53.4 | 0 | 1 | 4 | 86.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Byron Murphy | CB | 10 | 51 | 26% | 66.7 | 7.55 | 11.32 | 0.714 | 62.9 | 1 | 4 | 4 | 46.5 |  |  |
+| Harrison Smith | S | 10 | 22 | 11% | 54.5 | 5.32 | 9.75 | 0.348 | 71.4 | 3 | 2 | 2 | 84.2 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Josh Metellus | S | 10 | 45 | 23% | 64.4 | 8.33 | 12.93 | 0.622 | 97.9 | 1 | 0 | 4 | 30.2 | TARGET MAGNET |  |

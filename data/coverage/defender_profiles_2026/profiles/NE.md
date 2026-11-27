@@ -151,3 +151,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | LAC | L.McConkey (WR) | 8 | 16% | Charles Woods (27%, 4.27) | Christian Gonzalez (19%, 5.8) |
 | 2026-11-29 | LAC | C.Kolar (TE) | 7 | 0% | Craig Woodson (36%, 6.16) | Robert Spillane (22%, 3.46) |
 | 2026-11-29 | LAC | Q.Johnston (WR) | 7 | 27% | Charles Woods (25%, 4.27) | Christian Gonzalez (20%, 5.8) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Christian Gonzalez (CB) 48 tgt, 64.6% catch, 9.83 ypt, rating 109.0 [GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK]
+**Best / lockdown:** Kevin Byard (S) 27 tgt, 55.6% catch, 8.63 ypt, rating 78.2 []
+**Weak zones:** deep right 18.5 ypt; deep left 15.0 ypt; short middle 8.4 ypt; short left 6.5 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Charles Woods | CB | 8 | 31 | 16% | 61.3 | 8.61 | 14.05 | 1.035 | 107.9 | 3 | 1 | 2 | 32.5 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |
+| Marcus Jones | CB | 10 | 45 | 19% | 66.7 | 8.56 | 12.83 | 0.74 | 106.2 | 3 | 1 | 5 | 25.2 | WEAK LINK |  |
+| Carlton Davis | CB | 5 | 32 | 27% | 75.0 | 7.69 | 10.25 | 0.946 | 96.6 | 0 | 0 | 2 | 23.2 | TARGET MAGNET | small sample (<35 tgts) |
+| Christian Gonzalez | CB | 8 | 48 | 26% | 64.6 | 9.83 | 15.23 | 0.957 | 109.0 | 3 | 1 | 6 | 11.2 | GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK |  |
+| Kevin Byard | S | 10 | 27 | 11% | 55.6 | 8.63 | 15.53 | 0.386 | 78.2 | 2 | 2 | 3 | 56.8 |  | small sample (<35 tgts) |
+| Craig Woodson | S | 9 | 27 | 13% | 55.6 | 8.89 | 16.0 | 0.462 | 94.7 | 2 | 1 | 2 | 48.8 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |

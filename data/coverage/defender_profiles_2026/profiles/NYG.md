@@ -151,3 +151,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | IND | J.Taylor (RB) | 14 | 0% | Arvell Reese (60%, 1.13) | Micah McFadden (17%, 0.83) |
 | 2026-11-29 | IND | K.Allen (WR) | 8 | 7% | Andru Phillips (35%, 6.25) | Paulson Adebo (18%, 0.67) |
 | 2026-11-29 | IND | A.Dulin (WR) | 8 | 20% | Andru Phillips (30%, 6.25) | Paulson Adebo (25%, 0.67) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Andru Phillips (CB) 45 tgt, 60.0% catch, 6.49 ypt, rating 93.9 []
+**Best / lockdown:** Deonte Banks (CB) 51 tgt, 45.1% catch, 4.12 ypt, rating 66.6 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Deonte Banks | CB | 8 | 51 | 26% | 45.1 | 4.12 | 9.13 | 0.406 | 66.6 | 4 | 2 | 12 | 87.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Greg Newsome II | CB | 9 | 39 | 17% | 56.4 | 6.54 | 11.59 | 0.528 | 65.7 | 0 | 1 | 7 | 67.2 |  |  |
+| Andru Phillips | CB | 10 | 45 | 19% | 60.0 | 6.49 | 10.81 | 0.605 | 93.9 | 2 | 0 | 5 | 53.2 |  |  |
+| Jevon Holland | S | 9 | 29 | 13% | 41.4 | 7.34 | 17.75 | 0.36 | 62.1 | 3 | 4 | 3 | 76.2 | LIMITS CATCHES, GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Ar'Darius Washington | S | 8 | 25 | 13% | 60.0 | 6.56 | 10.93 | 0.529 | 62.7 | 0 | 1 | 5 | 69.2 | LOCKDOWN, LIMITS YARDS | small sample (<35 tgts) |

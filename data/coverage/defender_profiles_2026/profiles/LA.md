@@ -136,3 +136,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Trent McDuffie | CB | 22.2 | 14.6 | 145.7 | 6.56 | 1.82 | 66.6 | 2 |
 | Kamren Kinchens | S | 11.0 | 7.5 | 67.6 | 6.15 | 0.39 | 15.2 | 0 |
 | Josaiah Stewart | LB | 7.7 | 4.4 | 41.1 | 5.34 | 0.23 | 8.7 | 0 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Kamren Curl (S) 21 tgt, 76.2% catch, 8.48 ypt, rating 116.8 []
+**Best / lockdown:** Trent McDuffie (CB) 30 tgt, 43.3% catch, 2.87 ypt, rating 22.9 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short right 6.5 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Trent McDuffie | CB | 7 | 30 | 21% | 43.3 | 2.87 | 6.62 | 0.219 | 22.9 | 0 | 2 | 6 | 97.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Emmanuel Forbes | CB | 8 | 26 | 13% | 50.0 | 2.54 | 5.08 | 0.311 | 81.9 | 2 | 0 | 5 | 87.0 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Josh Wallace | CB | 9 | 40 | 19% | 60.0 | 5.18 | 8.62 | 0.441 | 63.2 | 0 | 1 | 4 | 75.8 | LOCKDOWN, LIMITS YARDS |  |
+| Jaylen Watson | CB | 7 | 38 | 21% | 50.0 | 6.87 | 13.74 | 0.683 | 78.9 | 2 | 1 | 8 | 62.5 | LIMITS CATCHES |  |
+| Quentin Lake | S | 10 | 56 | 24% | 58.9 | 7.21 | 12.24 | 0.659 | 70.8 | 2 | 3 | 8 | 49.8 | TARGET MAGNET |  |
+| Kamren Curl | S | 9 | 21 | 10% | 76.2 | 8.48 | 11.12 | 0.312 | 116.8 | 1 | 0 | 3 | 33.8 |  | small sample (<35 tgts) |

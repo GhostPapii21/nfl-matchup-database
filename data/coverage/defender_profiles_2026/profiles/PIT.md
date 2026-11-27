@@ -146,3 +146,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-27 | DEN | C.Sutton (WR) | 11 | 15% | Jalen Ramsey (24%, 5.36) | Jamel Dean (19%, 5.11) |
 | 2026-11-27 | DEN | P.Bryant (WR) | 9 | 5% | Jalen Ramsey (26%, 5.36) | Daylen Everette (16%, 1.06) |
 | 2026-11-27 | DEN | J.Coleman (RB) | 9 | 0% | Patrick Queen (46%, 2.59) | Payton Wilson (26%, 2.62) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Asante Samuel Jr. (CB) 53 tgt, 45.3% catch, 8.55 ypt, rating 88.0 [LIMITS CATCHES, GIVES UP EXPLOSIVES]
+**Best / lockdown:** Robert Spears-Jennings (S) 21 tgt, 57.1% catch, 6.52 ypt, rating 57.0 [LOCKDOWN, LIMITS YARDS]
+**Weak zones:** deep right 17.8 ypt; deep left 14.3 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jamel Dean | CB | 9 | 60 | 25% | 58.3 | 6.52 | 11.17 | 0.823 | 70.9 | 0 | 1 | 8 | 51.5 | TARGET MAGNET |  |
+| Daylen Everette | CB | 8 | 34 | 14% | 55.9 | 8.32 | 14.89 | 1.097 | 80.9 | 1 | 1 | 5 | 51.5 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Jalen Ramsey | CB | 10 | 54 | 19% | 61.1 | 5.28 | 8.64 | 0.456 | 112.0 | 6 | 0 | 3 | 51.5 | LIMITS YARDS |  |
+| Asante Samuel Jr. | CB | 10 | 53 | 19% | 45.3 | 8.55 | 18.88 | 0.855 | 88.0 | 2 | 0 | 9 | 47.5 | LIMITS CATCHES, GIVES UP EXPLOSIVES |  |
+| Robert Spears-Jennings | S | 7 | 21 | 10% | 57.1 | 6.52 | 11.42 | 0.493 | 57.0 | 0 | 1 | 1 | 75.0 | LOCKDOWN, LIMITS YARDS | small sample (<35 tgts) |
+| Jaquan Brisker | S | 10 | 45 | 16% | 48.9 | 7.51 | 15.36 | 0.552 | 72.3 | 1 | 1 | 2 | 59.0 | LIMITS CATCHES |  |

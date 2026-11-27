@@ -27,6 +27,13 @@ Counts (this build): 32 teams; 353 CB/S/DB rows (169 CB, 145 S, 39 listed only a
 (remaining Week 12 + Week 13 games), `attribution_validation_*.csv`. Held-out top-1 accuracy on verified plays, weeks 9–12: 25% overall, 36% in the high tier.
 **INFERRED only**: method, validation and source findings are in `ATTRIBUTION_METHOD.md`.
 
+## Defender quality grades (added 2026-11-27, Rico t548u)
+
+`grades.py` → `defender_grades.csv` (171 CB/S with 20+ charted targets: target share, catch %, YPT, yards/snap, rating, TD, explosive proxy, PBU+INT rate,
+position percentiles, labels LOCKDOWN / LIMITS CATCHES / LIMITS YARDS / GIVES UP EXPLOSIVES / TARGET MAGNET / WEAK LINK) and `team_defense_summary.csv`
+(allowed by position and zone, weakest link, best defender). Thresholds and backtest: `GRADES.md`. Proposed rule (not applied):
+`docs/proposed_skill_changes/DEFENDER_GRADE_RULE_PATCH.md`.
+
 ## v2 window credit (added 2026-11-27)
 
 `coverage_sim.py` simulates each defense's shell mix (10,000 draws per target) on a depth × width grid. It credits each catch to the defender whose window it

@@ -141,3 +141,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | CLE | D.Sampson (RB) | 12 | 0% | Quay Walker (56%, 2.82) | Nakobe Dean (19%, 1.81) |
 | 2026-11-29 | CLE | H.Fannin (TE) | 11 | 6% | Jeremy Chinn (39%, 9.02) | Nakobe Dean (20%, 1.81) |
 | 2026-11-29 | CLE | D.Boston (WR) | 9 | 24% | Taron Johnson (27%, 3.94) | Jermod McCoy (19%, 1.32) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Eric Stokes (CB) 54 tgt, 61.1% catch, 8.35 ypt, rating 112.5 [WEAK LINK]
+**Best / lockdown:** Taron Johnson (CB) 38 tgt, 65.8% catch, 6.13 ypt, rating 100.0 [LIMITS YARDS]
+**Weak zones:** deep middle 17.5 ypt; deep left 14.3 ypt; short left 6.9 ypt; short right 6.7 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Taron Johnson | CB | 11 | 38 | 16% | 65.8 | 6.13 | 9.32 | 0.425 | 100.0 | 2 | 0 | 2 | 54.0 | LIMITS YARDS |  |
+| Hezekiah Masses | CB | 10 | 33 | 16% | 54.5 | 9.12 | 16.72 | 0.899 | 87.2 | 4 | 3 | 4 | 52.2 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Darien Porter | CB | 7 | 25 | 18% | 56.0 | 8.68 | 15.5 | 0.819 | 98.2 | 1 | 0 | 5 | 43.8 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Eric Stokes | CB | 11 | 54 | 23% | 61.1 | 8.35 | 13.67 | 0.626 | 112.5 | 4 | 0 | 4 | 26.2 | WEAK LINK |  |
+| Treydan Stukes | S | 10 | 35 | 17% | 60.0 | 9.46 | 15.76 | 0.526 | 96.2 | 3 | 2 | 3 | 34.8 | GIVES UP EXPLOSIVES |  |
+| Jeremy Chinn | S | 11 | 28 | 12% | 78.6 | 8.68 | 11.05 | 0.328 | 99.9 | 1 | 1 | 1 | 33.8 |  | small sample (<35 tgts) |

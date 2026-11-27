@@ -146,3 +146,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | CIN | C.Brown (RB) | 20 | 0% | Kaden Elliss (62%, 4.27) | Danny Stutsman (18%, 1.82) |
 | 2026-11-29 | CIN | T.Higgins (WR) | 15 | 12% | Julian Blackmon (44%, 4.3) | Kool-Aid McKinstry (20%, 3.75) |
 | 2026-11-29 | CIN | M.Gesicki (TE) | 10 | 12% | Julian Blackmon (59%, 4.3) | Kaden Elliss (18%, 4.27) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Justin Reid (S) 35 tgt, 68.6% catch, 9.37 ypt, rating 126.8 [TARGET MAGNET, WEAK LINK]
+**Best / lockdown:** Martin Emerson (CB) 27 tgt, 51.9% catch, 9.15 ypt, rating 64.9 [LIMITS CATCHES, GIVES UP EXPLOSIVES]
+**Weak zones:** deep left 17.2 ypt; short right 7.0 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Martin Emerson | CB | 7 | 27 | 16% | 51.9 | 9.15 | 17.64 | 0.943 | 64.9 | 1 | 2 | 2 | 57.5 | LIMITS CATCHES, GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Quincy Riley | CB | 9 | 36 | 17% | 58.3 | 7.64 | 13.1 | 0.602 | 119.6 | 4 | 0 | 5 | 40.0 |  |  |
+| Kool-Aid McKinstry | CB | 10 | 47 | 21% | 59.6 | 8.34 | 14.0 | 0.621 | 100.7 | 2 | 0 | 7 | 34.8 | GIVES UP EXPLOSIVES |  |
+| Jonas Sanker | S | 10 | 50 | 22% | 64.0 | 6.72 | 10.5 | 0.706 | 90.1 | 1 | 0 | 4 | 45.0 | TARGET MAGNET |  |
+| Julian Blackmon | S | 10 | 26 | 12% | 61.5 | 10.31 | 16.75 | 0.405 | 103.8 | 4 | 2 | 0 | 34.5 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Justin Reid | S | 9 | 35 | 17% | 68.6 | 9.37 | 13.67 | 0.591 | 126.8 | 3 | 0 | 0 | 16.2 | TARGET MAGNET, WEAK LINK |  |

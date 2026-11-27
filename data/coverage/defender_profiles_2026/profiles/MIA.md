@@ -145,3 +145,19 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | NYJ | A.Mitchell (WR) | 18 | 36% | Jason Marshall Jr. (21%, 3.76) | Chris Johnson (21%, 4.15) |
 | 2026-11-29 | NYJ | B.Hall (RB) | 11 | 0% | Jacob Rodriguez (44%, 2.87) | Jordyn Brooks (24%, 1.69) |
 | 2026-11-29 | NYJ | O.Cooper (WR) | 11 | 12% | Jason Marshall Jr. (28%, 3.76) | Chris Johnson (21%, 4.15) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Jason Marshall (CB) 37 tgt, 67.6% catch, 9.38 ypt, rating 115.5 [GIVES UP EXPLOSIVES, WEAK LINK]
+**Best / lockdown:** Michael Taaffe (S) 33 tgt, 57.6% catch, 10.33 ypt, rating 85.5 [GIVES UP EXPLOSIVES, TARGET MAGNET]
+**Weak zones:** deep middle 20.3 ypt; deep right 17.4 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Julius Brents | CB | 9 | 33 | 19% | 69.7 | 7.82 | 11.22 | 0.584 | 102.8 | 1 | 0 | 2 | 35.8 |  | small sample (<35 tgts) |
+| Chris Johnson | CB | 10 | 45 | 24% | 71.1 | 9.07 | 12.75 | 0.66 | 102.8 | 3 | 2 | 3 | 20.5 |  |  |
+| Jason Marshall | CB | 9 | 37 | 21% | 67.6 | 9.38 | 13.88 | 0.766 | 115.5 | 2 | 0 | 1 | 18.5 | GIVES UP EXPLOSIVES, WEAK LINK |  |
+| Michael Taaffe | S | 10 | 33 | 18% | 57.6 | 10.33 | 17.95 | 0.567 | 85.5 | 3 | 3 | 0 | 37.0 | GIVES UP EXPLOSIVES, TARGET MAGNET | small sample (<35 tgts) |

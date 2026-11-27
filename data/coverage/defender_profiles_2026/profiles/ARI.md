@@ -152,3 +152,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | WAS | C.Okonkwo (TE) | 20 | 14% | Budda Baker (38%, 6.49) | Mack Wilson (20%, 2.51) |
 | 2026-11-29 | WAS | A.Williams (WR) | 19 | 17% | Kalen King (27%, 1.04) | Denzel Burke (15%, 4.57) |
 | 2026-11-29 | WAS | A.Ekeler (RB) | 10 | 0% | Mack Wilson (61%, 2.51) | Jack Gibbens (18%, 2.42) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Kalen King (CB) 21 tgt, 76.2% catch, 9.76 ypt, rating 122.1 [WEAK LINK]
+**Best / lockdown:** Kei'Trel Clark (CB) 30 tgt, 53.3% catch, 6.23 ypt, rating 72.5 [LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short left 7.6 ypt; short right 6.7 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kei'Trel Clark | CB | 10 | 30 | 14% | 53.3 | 6.23 | 11.69 | 0.505 | 72.5 | 0 | 0 | 3 | 78.2 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Denzel Burke | CB | 11 | 46 | 20% | 54.3 | 6.63 | 12.2 | 0.48 | 94.9 | 4 | 1 | 8 | 60.5 |  |  |
+| Max Melton | CB | 9 | 37 | 20% | 56.8 | 7.03 | 12.38 | 0.745 | 96.7 | 2 | 0 | 6 | 52.5 |  |  |
+| Kalen King | CB | 6 | 21 | 17% | 76.2 | 9.76 | 12.81 | 1.096 | 122.1 | 1 | 0 | 2 | 16.0 | WEAK LINK | small sample (<35 tgts) |
+| Budda Baker | S | 11 | 40 | 18% | 52.5 | 8.38 | 15.95 | 0.474 | 109.9 | 5 | 1 | 3 | 45.0 | LIMITS CATCHES, GIVES UP EXPLOSIVES |  |

@@ -138,3 +138,19 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Michael Carter II | CB | 15.6 | 10.0 | 122.3 | 7.84 | 1.31 | 39.1 | 0 |
 | Arnold Ebiketie | LB | 5.4 | 3.0 | 29.5 | 5.46 | 0.29 | 8.2 | 0 |
 | Jeremiah Trotter Jr. | LB | 35.9 | 27.9 | 200.6 | 5.59 | 0.25 | 6.0 | 0 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Andrew Mukuba (S) 33 tgt, 60.6% catch, 9.97 ypt, rating 121.1 [GIVES UP EXPLOSIVES, WEAK LINK]
+**Best / lockdown:** Quinyon Mitchell (CB) 59 tgt, 52.5% catch, 5.71 ypt, rating 68.3 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short middle 8.3 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Quinyon Mitchell | CB | 10 | 59 | 23% | 52.5 | 5.71 | 10.87 | 0.536 | 68.3 | 1 | 1 | 10 | 73.5 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Cooper DeJean | CB | 10 | 51 | 20% | 56.9 | 6.33 | 11.14 | 0.467 | 93.8 | 4 | 1 | 5 | 56.0 |  |  |
+| Riq Woolen | CB | 10 | 55 | 22% | 60.0 | 8.44 | 14.06 | 0.788 | 105.4 | 3 | 0 | 8 | 26.5 | GIVES UP EXPLOSIVES, WEAK LINK |  |
+| Andrew Mukuba | S | 10 | 33 | 13% | 60.6 | 9.97 | 16.45 | 0.474 | 121.1 | 4 | 1 | 2 | 25.8 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |

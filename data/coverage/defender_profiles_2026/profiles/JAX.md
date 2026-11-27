@@ -151,3 +151,19 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | TEN | T.Pollard (RB) | 10 | 3% | Foyesade Oluokun (53%, 2.18) | Ventrell Miller (20%, 1.0) |
 | 2026-11-29 | TEN | C.Dike (WR) | 10 | 17% | Jessie Bates (43%, 0.49) | Jourdan Lewis (18%, 3.17) |
 | 2026-11-29 | TEN | G.Helm (TE) | 7 | 3% | Jessie Bates (47%, 0.49) | Foyesade Oluokun (24%, 2.18) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Montaric Brown (CB) 32 tgt, 62.5% catch, 9.5 ypt, rating 101.6 [GIVES UP EXPLOSIVES]
+**Best / lockdown:** Jourdan Lewis (CB) 35 tgt, 51.4% catch, 4.63 ypt, rating 47.6 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jourdan Lewis | CB | 10 | 35 | 18% | 51.4 | 4.63 | 9.0 | 0.439 | 47.6 | 2 | 3 | 0 | 90.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Jarrian Jones | CB | 9 | 54 | 32% | 53.7 | 7.31 | 13.62 | 0.99 | 69.6 | 0 | 1 | 7 | 53.5 | LIMITS CATCHES, TARGET MAGNET |  |
+| Montaric Brown | CB | 8 | 32 | 24% | 62.5 | 9.5 | 15.2 | 0.927 | 101.6 | 2 | 1 | 3 | 27.5 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Antonio Johnson | S | 9 | 32 | 18% | 53.1 | 5.41 | 10.18 | 0.348 | 79.3 | 1 | 0 | 3 | 77.8 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |

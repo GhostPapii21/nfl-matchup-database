@@ -145,3 +145,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | LV | A.Jeanty (RB) | 19 | 3% | Carson Schwesinger (75%, 2.2) | Quincy Williams (11%, 0.65) |
 | 2026-11-29 | LV | J.Bech (WR) | 18 | 4% | Myles Harden (41%, 5.81) | Tyson Campbell (18%, 5.43) |
 | 2026-11-29 | LV | J.Nailor (WR) | 13 | 8% | Myles Harden (40%, 5.81) | Denzel Ward (22%, 3.61) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Ronnie Hickman (S) 26 tgt, 69.2% catch, 10.65 ypt, rating 127.7 [WEAK LINK]
+**Best / lockdown:** Denzel Ward (CB) 56 tgt, 41.1% catch, 4.27 ypt, rating 49.6 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Denzel Ward | CB | 10 | 56 | 21% | 41.1 | 4.27 | 10.39 | 0.365 | 49.6 | 3 | 3 | 10 | 93.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Myles Harden | CB | 10 | 60 | 23% | 60.0 | 8.25 | 13.75 | 1.181 | 90.6 | 2 | 1 | 7 | 33.8 |  |  |
+| Tyson Campbell | CB | 9 | 44 | 20% | 63.6 | 8.59 | 13.5 | 0.691 | 96.6 | 2 | 1 | 5 | 28.0 |  |  |
+| Grant Delpit | S | 9 | 38 | 16% | 52.6 | 6.47 | 12.3 | 0.407 | 70.7 | 1 | 1 | 3 | 72.8 | LIMITS CATCHES, LIMITS YARDS |  |
+| Ronnie Hickman | S | 8 | 26 | 13% | 69.2 | 10.65 | 15.39 | 0.471 | 127.7 | 4 | 1 | 3 | 12.5 | WEAK LINK | small sample (<35 tgts) |

@@ -148,3 +148,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | BAL | J.Hill (RB) | 15 | 0% | Henry To'oTo'o (53%, 3.39) | Jake Hansen (21%, 1.49) |
 | 2026-11-29 | BAL | M.Andrews (TE) | 13 | 4% | Jalen Pitre (46%, 10.92) | Henry To'oTo'o (31%, 3.39) |
 | 2026-11-29 | BAL | R.Bateman (WR) | 13 | 17% | Jalen Pitre (39%, 10.92) | Kamari Lassiter (19%, 4.37) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Reed Blankenship (S) 38 tgt, 71.1% catch, 8.47 ypt, rating 103.2 [TARGET MAGNET]
+**Best / lockdown:** Jalen Pitre (S) 31 tgt, 54.8% catch, 4.48 ypt, rating 77.2 [LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kamari Lassiter | CB | 10 | 67 | 25% | 55.2 | 6.49 | 11.76 | 0.665 | 78.9 | 2 | 1 | 11 | 53.5 | TARGET MAGNET |  |
+| Derek Stingley Jr. | CB | 10 | 50 | 19% | 50.0 | 8.44 | 16.88 | 0.652 | 83.9 | 2 | 1 | 6 | 49.5 | LIMITS CATCHES, GIVES UP EXPLOSIVES |  |
+| Jalen Pitre | S | 8 | 31 | 15% | 54.8 | 4.48 | 8.18 | 0.283 | 77.2 | 1 | 0 | 5 | 81.5 | LIMITS YARDS | small sample (<35 tgts) |
+| Calen Bullock | S | 10 | 40 | 15% | 55.0 | 9.2 | 16.73 | 0.574 | 73.8 | 1 | 2 | 6 | 42.8 | GIVES UP EXPLOSIVES |  |
+| M.J. Stewart | S | 4 | 25 | 21% | 64.0 | 7.72 | 12.06 | 0.894 | 100.9 | 1 | 0 | 1 | 30.5 | TARGET MAGNET | small sample (<35 tgts) |
+| Reed Blankenship | S | 7 | 38 | 20% | 71.1 | 8.47 | 11.93 | 0.824 | 103.2 | 2 | 1 | 2 | 20.0 | TARGET MAGNET |  |

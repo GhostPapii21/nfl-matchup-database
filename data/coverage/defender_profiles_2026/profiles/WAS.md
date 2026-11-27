@@ -152,3 +152,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | ARI | S.Fehoko (WR) | 8 | 33% | Rasul Douglas (34%, 2.91) | Jeremy Reaves (29%, 7.7) |
 | 2026-11-29 | ARI | H.Wallace (WR) | 8 | 25% | Jeremy Reaves (37%, 7.7) | Trey Amos (19%, 3.54) |
 | 2026-11-29 | ARI | Mi.Wilson (WR) | 7 | 19% | Jeremy Reaves (35%, 7.7) | Rasul Douglas (25%, 2.91) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Mike Sainristil (CB) 21 tgt, 71.4% catch, 9.48 ypt, rating 140.7 [WEAK LINK]
+**Best / lockdown:** Rasul Douglas (CB) 48 tgt, 54.2% catch, 6.42 ypt, rating 54.9 [LIMITS CATCHES]
+**Weak zones:** deep right 15.4 ypt; short middle 8.6 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Rasul Douglas | CB | 10 | 48 | 18% | 54.2 | 6.42 | 11.85 | 0.788 | 54.9 | 1 | 3 | 6 | 71.2 | LIMITS CATCHES |  |
+| Trey Amos | CB | 5 | 30 | 23% | 53.3 | 6.5 | 12.19 | 0.675 | 95.8 | 2 | 0 | 2 | 52.5 | LIMITS CATCHES | small sample (<35 tgts) |
+| Amik Robertson | CB | 9 | 66 | 28% | 63.6 | 6.83 | 10.74 | 0.761 | 88.6 | 1 | 0 | 10 | 35.2 | TARGET MAGNET |  |
+| Mike Sainristil | CB | 8 | 21 | 10% | 71.4 | 9.48 | 13.27 | 1.076 | 140.7 | 5 | 0 | 0 | 25.2 | WEAK LINK | small sample (<35 tgts) |
+| Nick Cross | S | 7 | 28 | 16% | 64.3 | 6.5 | 10.11 | 0.422 | 91.7 | 2 | 1 | 2 | 54.2 | LIMITS YARDS | small sample (<35 tgts) |
+| Jeremy Reaves | S | 10 | 36 | 14% | 58.3 | 8.42 | 14.43 | 0.523 | 113.5 | 3 | 0 | 5 | 38.2 |  |  |

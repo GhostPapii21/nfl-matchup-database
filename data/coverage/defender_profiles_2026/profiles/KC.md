@@ -137,3 +137,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Jaden Hicks | S | 6.6 | 4.0 | 66.3 | 10.05 | 0.86 | 38.8 | 1 |
 | Kristian Fulton | CB | 11.8 | 6.3 | 56.1 | 4.75 | 0.73 | 16.5 | 1 |
 | Nohl Williams | CB | 36.0 | 20.6 | 169.2 | 4.7 | 0.67 | 22.9 | 0 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** L'Jarius Sneed (CB) 43 tgt, 79.1% catch, 7.93 ypt, rating 107.5 [TARGET MAGNET]
+**Best / lockdown:** Kristian Fulton (CB) 27 tgt, 44.4% catch, 4.56 ypt, rating 42.7 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kristian Fulton | CB | 8 | 27 | 14% | 44.4 | 4.56 | 10.25 | 0.389 | 42.7 | 0 | 1 | 2 | 94.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Nohl Williams | CB | 10 | 56 | 23% | 44.6 | 4.54 | 10.16 | 0.416 | 55.2 | 2 | 2 | 11 | 90.0 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Mansoor Delane | CB | 7 | 31 | 17% | 58.1 | 8.23 | 14.17 | 0.689 | 92.8 | 2 | 1 | 6 | 45.2 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Christian Roland-Wallace | CB | 10 | 21 | 9% | 85.7 | 6.38 | 7.44 | 0.451 | 109.1 | 1 | 0 | 2 | 44.2 |  | small sample (<35 tgts) |
+| L'Jarius Sneed | CB | 6 | 43 | 30% | 79.1 | 7.93 | 10.03 | 1.322 | 107.5 | 1 | 0 | 3 | 15.0 | TARGET MAGNET |  |
+| Chamarri Conner | S | 7 | 20 | 11% | 65.0 | 10.1 | 15.54 | 0.467 | 98.3 | 0 | 0 | 2 | 32.2 |  | small sample (<35 tgts) |

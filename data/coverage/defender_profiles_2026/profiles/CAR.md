@@ -155,3 +155,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-30 | TB | E.Egbuka (WR) | 10 | 15% | Chau Smith-Wade (27%, 1.38) | Tre'von Moehrig (16%, 5.08) |
 | 2026-11-30 | TB | B.Irving (RB) | 9 | 0% | Devin Lloyd (49%, 0.89) | Tyrel Dodson (23%, 0.22) |
 | 2026-11-30 | TB | K.Gainwell (RB) | 8 | 0% | Devin Lloyd (46%, 0.89) | Tyrel Dodson (24%, 0.22) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Akayleb Evans (CB) 31 tgt, 67.7% catch, 9.42 ypt, rating 119.3 [GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK]
+**Best / lockdown:** Tre'von Moehrig (S) 33 tgt, 54.5% catch, 4.94 ypt, rating 68.1 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short middle 7.8 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Will Lee | CB | 8 | 52 | 26% | 53.8 | 6.54 | 12.14 | 0.825 | 80.6 | 1 | 0 | 7 | 54.5 | LIMITS CATCHES, TARGET MAGNET |  |
+| Marco Wilson | CB | 3 | 25 | 32% | 64.0 | 5.6 | 8.75 | 0.676 | 78.8 | 0 | 0 | 3 | 47.5 | LIMITS YARDS, TARGET MAGNET | small sample (<35 tgts) |
+| Akayleb Evans | CB | 5 | 31 | 24% | 67.7 | 9.42 | 13.9 | 1.202 | 119.3 | 2 | 0 | 2 | 9.5 | GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK | small sample (<35 tgts) |
+| Tre'von Moehrig | S | 10 | 33 | 13% | 54.5 | 4.94 | 9.06 | 0.247 | 68.1 | 0 | 0 | 1 | 85.5 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Nick Scott | S | 8 | 27 | 13% | 66.7 | 7.85 | 11.78 | 0.46 | 115.0 | 2 | 0 | 2 | 38.0 |  | small sample (<35 tgts) |
+| Zakee Wheatley | S | 8 | 22 | 10% | 63.6 | 15.09 | 23.71 | 0.806 | 127.8 | 3 | 1 | 3 | 11.2 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |

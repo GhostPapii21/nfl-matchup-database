@@ -151,3 +151,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | JAX | J.Meyers (WR) | 22 | 13% | Cordale Flott (27%, 5.09) | Alontae Taylor (17%, 6.69) |
 | 2026-11-29 | JAX | J.Cameron (WR) | 11 | 17% | Cordale Flott (26%, 5.09) | Cedric Gray (16%, 0.9) |
 | 2026-11-29 | JAX | B.Strange (TE) | 8 | 7% | Kevin Winston Jr. (38%, 6.75) | Cedric Gray (22%, 0.9) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Alontae Taylor (CB) 33 tgt, 87.9% catch, 10.97 ypt, rating 122.5 [WEAK LINK]
+**Best / lockdown:** Kevin Winston (S) 20 tgt, 65.0% catch, 7.4 ypt, rating 120.4 []
+**Weak zones:** deep left 14.7 ypt; short left 7.8 ypt; short middle 8.6 ypt; short right 6.6 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Cordale Flott | CB | 9 | 43 | 20% | 65.1 | 8.47 | 13.0 | 0.65 | 95.5 | 3 | 2 | 2 | 29.8 |  |  |
+| Marcus Harris | CB | 9 | 32 | 16% | 75.0 | 10.28 | 13.71 | 1.038 | 94.4 | 0 | 1 | 0 | 24.2 |  | small sample (<35 tgts) |
+| Joshua Williams | CB | 5 | 40 | 28% | 75.0 | 9.12 | 12.17 | 1.0 | 119.3 | 2 | 0 | 2 | 7.5 | TARGET MAGNET, WEAK LINK |  |
+| Alontae Taylor | CB | 8 | 33 | 18% | 87.9 | 10.97 | 12.48 | 0.734 | 122.5 | 1 | 0 | 0 | 5.0 | WEAK LINK | small sample (<35 tgts) |
+| Kevin Winston | S | 8 | 20 | 11% | 65.0 | 7.4 | 11.38 | 0.271 | 120.4 | 2 | 0 | 0 | 48.2 |  | small sample (<35 tgts) |
+| Amani Hooker | S | 7 | 33 | 21% | 63.6 | 8.3 | 13.05 | 0.448 | 60.2 | 1 | 5 | 3 | 45.2 | TARGET MAGNET | small sample (<35 tgts) |

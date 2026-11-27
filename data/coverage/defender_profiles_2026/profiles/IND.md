@@ -151,3 +151,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | NYG | I.Likely (TE) | 20 | 7% | A.J. Haulcy (51%, 4.73) | CJ Allen (19%, 1.76) |
 | 2026-11-29 | NYG | D.Mooney (WR) | 14 | 31% | Johnathan Edwards (29%, 0.32) | Kapena Gushiken (22%, 1.87) |
 | 2026-11-29 | NYG | M.Fields (WR) | 14 | 25% | Johnathan Edwards (31%, 0.32) | Kapena Gushiken (18%, 1.87) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Camryn Bynum (S) 27 tgt, 66.7% catch, 10.7 ypt, rating 126.4 [GIVES UP EXPLOSIVES, WEAK LINK]
+**Best / lockdown:** Charvarius Ward (CB) 45 tgt, 42.2% catch, 6.29 ypt, rating 70.9 [LIMITS CATCHES, GIVES UP EXPLOSIVES]
+**Weak zones:** deep right 15.0 ypt; deep left 14.3 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Charvarius Ward | CB | 9 | 45 | 24% | 42.2 | 6.29 | 14.89 | 0.525 | 70.9 | 1 | 0 | 8 | 75.5 | LIMITS CATCHES, GIVES UP EXPLOSIVES |  |
+| Justin Walley | CB | 9 | 50 | 27% | 66.0 | 7.1 | 10.76 | 0.831 | 100.0 | 2 | 0 | 5 | 33.0 |  |  |
+| Sauce Gardner | CB | 9 | 33 | 18% | 57.6 | 10.03 | 17.42 | 0.65 | 102.0 | 1 | 0 | 7 | 32.8 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| A.J. Haulcy | S | 10 | 31 | 16% | 38.7 | 9.65 | 24.92 | 0.591 | 100.7 | 5 | 1 | 2 | 48.0 | LIMITS CATCHES, GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Camryn Bynum | S | 10 | 27 | 13% | 66.7 | 10.7 | 16.06 | 0.416 | 126.4 | 4 | 1 | 3 | 21.5 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |

@@ -148,3 +148,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | NO | J.Tyson (WR) | 20 | 10% | Josh Newton (34%, 2.52) | Daxton Hill (20%, 3.46) |
 | 2026-11-29 | NO | D.Vele (WR) | 13 | 11% | Josh Newton (32%, 2.52) | DJ Turner II (26%, 3.14) |
 | 2026-11-29 | NO | A.Kamara (RB) | 10 | 3% | Barrett Carter (58%, 5.22) | Demetrius Knight Jr. (17%, 2.19) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** DJ Turner (CB) 38 tgt, 63.2% catch, 7.66 ypt, rating 104.2 []
+**Best / lockdown:** Josh Newton (CB) 21 tgt, 42.9% catch, 5.1 ypt, rating 74.9 [LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short right 7.3 ypt; short middle 8.4 ypt; short left 6.6 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Josh Newton | CB | 4 | 21 | 22% | 42.9 | 5.1 | 11.89 | 0.469 | 74.9 | 1 | 0 | 4 | 83.8 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| DJ Ivey | CB | 7 | 30 | 19% | 50.0 | 5.8 | 11.6 | 0.763 | 101.2 | 3 | 0 | 3 | 69.5 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Daxton Hill | CB | 10 | 48 | 20% | 58.3 | 7.92 | 13.57 | 0.617 | 90.6 | 1 | 0 | 6 | 44.8 |  |  |
+| DJ Turner | CB | 10 | 38 | 16% | 63.2 | 7.66 | 12.12 | 0.466 | 104.2 | 2 | 0 | 6 | 39.8 |  |  |
+| Bryan Cook | S | 8 | 21 | 10% | 47.6 | 7.43 | 15.6 | 0.285 | 72.7 | 0 | 0 | 0 | 74.0 | LIMITS CATCHES | small sample (<35 tgts) |
+| Jordan Battle | S | 10 | 46 | 19% | 58.7 | 8.04 | 13.7 | 0.568 | 64.6 | 1 | 3 | 5 | 49.0 | TARGET MAGNET |  |

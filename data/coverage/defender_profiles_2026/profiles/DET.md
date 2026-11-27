@@ -145,3 +145,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Malcolm Rodriguez | LB | 23.5 | 18.0 | 183.5 | 7.81 | 0.75 | 23.1 | 1 |
 | Rock Ya-Sin | CB | 22.0 | 14.0 | 115.8 | 5.26 | 0.69 | 19.0 | 1 |
 | Khalil Dorsey | CB | 5.7 | 3.1 | 28.4 | 4.98 | 0.57 | 13.3 | 0 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** D.J. Reed (CB) 36 tgt, 55.6% catch, 9.08 ypt, rating 93.2 [GIVES UP EXPLOSIVES]
+**Best / lockdown:** Chuck Clark (S) 39 tgt, 38.5% catch, 4.82 ypt, rating 32.9 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short middle 8.9 ypt; short right 6.5 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Rock Ya-Sin | CB | 8 | 42 | 21% | 59.5 | 4.95 | 8.32 | 0.568 | 88.2 | 2 | 0 | 1 | 67.5 | LIMITS YARDS |  |
+| Ennis Rakestraw | CB | 6 | 22 | 13% | 59.1 | 7.68 | 13.0 | 1.243 | 83.3 | 0 | 0 | 2 | 55.5 |  | small sample (<35 tgts) |
+| Roger McCreary | CB | 10 | 63 | 23% | 58.7 | 7.44 | 12.68 | 0.842 | 96.6 | 4 | 1 | 10 | 35.5 |  |  |
+| D.J. Reed | CB | 7 | 36 | 17% | 55.6 | 9.08 | 16.35 | 0.693 | 93.2 | 2 | 1 | 6 | 35.2 | GIVES UP EXPLOSIVES |  |
+| Chuck Clark | S | 10 | 39 | 14% | 38.5 | 4.82 | 12.53 | 0.309 | 32.9 | 0 | 2 | 2 | 93.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |

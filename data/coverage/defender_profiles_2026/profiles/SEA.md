@@ -148,3 +148,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | SF | K.Allen (WR) | 11 | 7% | Ty Okada (37%, 3.56) | Devon Witherspoon (15%, 1.62) |
 | 2026-11-29 | SF | C.McCaffrey (RB) | 10 | 0% | Ernest Jones (44%, 2.08) | Drake Thomas (24%, 0.6) |
 | 2026-11-29 | SF | J.Watkins (WR) | 8 | 29% | Ty Okada (37%, 3.56) | Josh Jobe (17%, 3.25) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Josh Jobe (CB) 46 tgt, 71.7% catch, 6.22 ypt, rating 93.2 [LIMITS YARDS]
+**Best / lockdown:** Nehemiah Pritchett (CB) 21 tgt, 42.9% catch, 5.9 ypt, rating 22.8 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS, GIVES UP EXPLOSIVES]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Nehemiah Pritchett | CB | 9 | 21 | 11% | 42.9 | 5.9 | 13.78 | 0.599 | 22.8 | 0 | 2 | 3 | 92.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS, GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Devon Witherspoon | CB | 10 | 54 | 26% | 63.0 | 4.7 | 7.47 | 0.416 | 74.2 | 0 | 0 | 3 | 69.2 | LIMITS YARDS |  |
+| Josh Jobe | CB | 10 | 46 | 22% | 71.7 | 6.22 | 8.67 | 0.47 | 93.2 | 2 | 1 | 1 | 48.8 | LIMITS YARDS |  |
+| Julian Love | S | 9 | 26 | 14% | 53.8 | 6.5 | 12.07 | 0.314 | 42.0 | 0 | 2 | 5 | 82.5 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Nick Emmanwori | S | 9 | 30 | 16% | 60.0 | 5.43 | 9.06 | 0.369 | 85.8 | 1 | 0 | 3 | 71.2 | LIMITS YARDS | small sample (<35 tgts) |

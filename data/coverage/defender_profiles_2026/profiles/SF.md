@@ -150,3 +150,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | SEA | A.Barner (TE) | 7 | 0% | Marques Sigle (38%, 0.95) | Fred Warner (27%, 2.56) |
 | 2026-11-29 | SEA | C.Kupp (WR) | 5 | 6% | Upton Stout (31%, 4.99) | Fred Warner (17%, 2.56) |
 | 2026-11-29 | SEA | J.Price (RB) | 5 | 12% | Fred Warner (52%, 2.56) | Garret Wallow (17%, 0.07) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Upton Stout (CB) 38 tgt, 73.7% catch, 9.79 ypt, rating 130.6 [WEAK LINK]
+**Best / lockdown:** Malik Mustapha (S) 29 tgt, 37.9% catch, 5.83 ypt, rating 40.7 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jack Jones | CB | 6 | 21 | 14% | 57.1 | 6.0 | 10.5 | 1.355 | 106.4 | 2 | 0 | 3 | 60.8 | LIMITS YARDS | small sample (<35 tgts) |
+| Renardo Green | CB | 9 | 53 | 22% | 67.9 | 6.89 | 10.14 | 0.593 | 68.5 | 2 | 4 | 3 | 43.8 |  |  |
+| Deommodore Lenoir | CB | 10 | 59 | 23% | 62.7 | 6.53 | 10.41 | 0.61 | 109.8 | 5 | 0 | 7 | 35.0 |  |  |
+| Upton Stout | CB | 9 | 38 | 16% | 73.7 | 9.79 | 13.29 | 1.008 | 130.6 | 3 | 0 | 2 | 9.2 | WEAK LINK |  |
+| Malik Mustapha | S | 9 | 29 | 13% | 37.9 | 5.83 | 15.36 | 0.422 | 40.7 | 1 | 2 | 4 | 90.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Ji'Ayir Brown | S | 10 | 29 | 11% | 65.5 | 7.59 | 11.58 | 0.373 | 85.4 | 1 | 1 | 3 | 52.2 |  | small sample (<35 tgts) |

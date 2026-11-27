@@ -152,3 +152,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-27 | PIT | D.Metcalf (WR) | 10 | 31% | Ja'Quan McMillian (29%, 4.31) | Pat Surtain II (20%, 3.33) |
 | 2026-11-27 | PIT | J.Warren (RB) | 9 | 0% | Alex Singleton (67%, 4.26) | Justin Strnad (16%, 1.33) |
 | 2026-11-27 | PIT | P.Freiermuth (TE) | 8 | 14% | Devon Key (54%, 0.84) | Alex Singleton (18%, 4.26) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Brandon Jones (S) 26 tgt, 69.2% catch, 11.12 ypt, rating 86.9 [GIVES UP EXPLOSIVES]
+**Best / lockdown:** Riley Moss (CB) 43 tgt, 46.5% catch, 5.67 ypt, rating 78.1 [LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** short left 7.0 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Riley Moss | CB | 8 | 43 | 21% | 46.5 | 5.67 | 12.2 | 0.484 | 78.1 | 3 | 1 | 7 | 76.2 | LIMITS CATCHES, LIMITS YARDS |  |
+| Patrick Surtain II | CB | 7 | 37 | 22% | 54.1 | 5.35 | 9.9 | 0.442 | 87.4 | 2 | 0 | 2 | 71.5 | LIMITS CATCHES, LIMITS YARDS |  |
+| Kris Abrams-Draine | CB | 4 | 23 | 22% | 60.9 | 4.87 | 8.0 | 0.526 | 69.5 | 1 | 1 | 4 | 70.5 | LOCKDOWN, LIMITS YARDS | small sample (<35 tgts) |
+| Ja'Quan McMillian | CB | 10 | 52 | 20% | 55.8 | 6.42 | 11.52 | 0.714 | 65.7 | 1 | 2 | 6 | 65.8 |  |  |
+| Jahdae Barron | CB | 8 | 35 | 16% | 62.9 | 7.2 | 11.45 | 0.733 | 103.5 | 2 | 0 | 2 | 39.8 |  |  |
+| Brandon Jones | S | 8 | 26 | 13% | 69.2 | 11.12 | 16.06 | 0.544 | 86.9 | 1 | 2 | 3 | 23.0 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |

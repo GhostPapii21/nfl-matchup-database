@@ -140,3 +140,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | MIA | G.Dulcich (TE) | 13 | 10% | Dane Belton (45%, 7.88) | Demario Davis (17%, 2.52) |
 | 2026-11-29 | MIA | M.Washington (WR) | 12 | 28% | D'Angelo Ponds (28%, 0.49) | Brandon Stephens (18%, 2.74) |
 | 2026-11-29 | MIA | O.Gordon (RB) | 9 | 0% | Jamien Sherwood (56%, 2.1) | Demario Davis (19%, 2.52) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Minkah Fitzpatrick (S) 22 tgt, 54.5% catch, 10.55 ypt, rating 102.8 [LIMITS CATCHES, GIVES UP EXPLOSIVES]
+**Best / lockdown:** Dane Belton (S) 37 tgt, 48.6% catch, 5.7 ypt, rating 66.4 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** deep right 15.3 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Azareye'h Thomas | CB | 11 | 57 | 26% | 57.9 | 6.23 | 10.76 | 0.497 | 92.4 | 4 | 1 | 6 | 57.5 | LIMITS YARDS |  |
+| Brandon Stephens | CB | 11 | 56 | 25% | 51.8 | 7.2 | 13.9 | 0.582 | 99.0 | 4 | 0 | 5 | 52.0 | LIMITS CATCHES, GIVES UP EXPLOSIVES |  |
+| Jarvis Brownlee | CB | 8 | 29 | 16% | 62.1 | 6.38 | 10.28 | 0.67 | 114.9 | 3 | 0 | 0 | 49.5 |  | small sample (<35 tgts) |
+| Dane Belton | S | 10 | 37 | 18% | 48.6 | 5.7 | 11.72 | 0.296 | 66.4 | 0 | 0 | 5 | 81.5 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Minkah Fitzpatrick | S | 8 | 22 | 14% | 54.5 | 10.55 | 19.33 | 0.426 | 102.8 | 2 | 1 | 2 | 39.5 | LIMITS CATCHES, GIVES UP EXPLOSIVES | small sample (<35 tgts) |

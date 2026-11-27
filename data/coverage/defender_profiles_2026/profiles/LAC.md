@@ -150,3 +150,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | NE | D.Douglas (WR) | 12 | 22% | Deane Leonard (26%, 0.11) | Donte Jackson (20%, 3.62) |
 | 2026-11-29 | NE | E.Raridon (TE) | 7 | 15% | Elijah Molden (39%, 5.4) | Tuli Tuipulotu (22%, 1.02) |
 | 2026-11-29 | NE | H.Henry (TE) | 6 | 2% | Elijah Molden (40%, 5.4) | Tuli Tuipulotu (20%, 1.02) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Elijah Molden (S) 20 tgt, 75.0% catch, 13.25 ypt, rating 133.3 [GIVES UP EXPLOSIVES, WEAK LINK]
+**Best / lockdown:** Genesis Smith (S) 26 tgt, 53.8% catch, 8.12 ypt, rating 87.2 [LIMITS CATCHES]
+**Weak zones:** deep right 16.6 ypt; short left 6.7 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Cam Hart | CB | 10 | 37 | 17% | 59.5 | 9.16 | 15.41 | 0.613 | 67.3 | 0 | 2 | 5 | 48.2 | GIVES UP EXPLOSIVES |  |
+| Tarheeb Still | CB | 9 | 39 | 20% | 64.1 | 7.82 | 12.2 | 0.556 | 103.0 | 3 | 1 | 4 | 34.5 |  |  |
+| Genesis Smith | S | 9 | 26 | 13% | 53.8 | 8.12 | 15.07 | 0.725 | 87.2 | 3 | 2 | 3 | 59.5 | LIMITS CATCHES | small sample (<35 tgts) |
+| Tony Jefferson | S | 10 | 23 | 11% | 69.6 | 7.91 | 11.38 | 0.433 | 107.5 | 1 | 0 | 2 | 45.5 |  | small sample (<35 tgts) |
+| Elijah Molden | S | 8 | 20 | 11% | 75.0 | 13.25 | 17.67 | 0.643 | 133.3 | 1 | 0 | 1 | 9.8 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |

@@ -149,3 +149,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-30 | CAR | D.Waller (TE) | 17 | 14% | Tykee Smith (50%, 5.21) | Alex Anzalone (20%, 2.12) |
 | 2026-11-30 | CAR | J.Coker (WR) | 16 | 17% | Tykee Smith (40%, 5.21) | Benjamin Morrison (18%, 1.35) |
 | 2026-11-30 | CAR | T.Tremble (TE) | 12 | 0% | Tykee Smith (50%, 5.21) | Josiah Trotter (24%, 0.92) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Benjamin Morrison (CB) 23 tgt, 69.6% catch, 9.52 ypt, rating 128.7 [TARGET MAGNET, WEAK LINK]
+**Best / lockdown:** Zyon McCollum (CB) 56 tgt, 53.6% catch, 6.04 ypt, rating 54.0 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Zyon McCollum | CB | 9 | 56 | 24% | 53.6 | 6.04 | 11.27 | 0.557 | 54.0 | 2 | 4 | 7 | 70.8 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Jacob Parrish | CB | 9 | 54 | 24% | 50.0 | 6.87 | 13.74 | 0.828 | 63.1 | 1 | 2 | 11 | 62.8 | LIMITS CATCHES, TARGET MAGNET |  |
+| Keionte Scott | CB | 10 | 42 | 17% | 69.0 | 6.12 | 8.86 | 0.696 | 108.9 | 3 | 0 | 4 | 46.0 | LIMITS YARDS |  |
+| Benjamin Morrison | CB | 3 | 23 | 33% | 69.6 | 9.52 | 13.69 | 1.672 | 128.7 | 2 | 0 | 2 | 5.2 | TARGET MAGNET, WEAK LINK | small sample (<35 tgts) |
+| Tykee Smith | S | 10 | 49 | 20% | 46.9 | 6.53 | 13.91 | 0.551 | 71.8 | 3 | 2 | 2 | 66.0 | LIMITS CATCHES, LIMITS YARDS |  |

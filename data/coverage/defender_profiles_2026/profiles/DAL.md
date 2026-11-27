@@ -145,3 +145,19 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Shavon Revel Jr. | CB | 10.9 | 6.8 | 73.1 | 6.71 | 1.21 | 32.4 | 1 |
 | Jaishawn Barham | LB | 17.0 | 12.9 | 105.9 | 6.23 | 1.11 | 27.2 | 0 |
 | Donovan Ezeiruaku | LB | 16.0 | 13.3 | 108.6 | 6.79 | 0.81 | 18.7 | 0 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** DaRon Bland (CB) 57 tgt, 63.2% catch, 8.68 ypt, rating 120.1 [TARGET MAGNET, WEAK LINK]
+**Best / lockdown:** Shavon Revel (CB) 22 tgt, 63.6% catch, 7.41 ypt, rating 101.1 []
+**Weak zones:** short right 7.7 ypt; short left 7.1 ypt; short middle 7.9 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Shavon Revel | CB | 7 | 22 | 16% | 63.6 | 7.41 | 11.64 | 0.926 | 101.1 | 1 | 0 | 1 | 47.0 |  | small sample (<35 tgts) |
+| Cobie Durant | CB | 6 | 24 | 17% | 62.5 | 9.29 | 14.87 | 0.68 | 106.8 | 1 | 0 | 2 | 27.0 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |
+| DaRon Bland | CB | 10 | 57 | 27% | 63.2 | 8.68 | 13.75 | 0.809 | 120.1 | 5 | 0 | 7 | 15.8 | TARGET MAGNET, WEAK LINK |  |
+| Caleb Downs | S | 10 | 37 | 17% | 78.4 | 8.62 | 11.0 | 0.46 | 109.3 | 2 | 1 | 2 | 23.8 |  |  |

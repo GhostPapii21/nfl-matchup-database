@@ -151,3 +151,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | MIN | T.Felton (WR) | 17 | 17% | Billy Bowman Jr. (30%, 3.29) | C.J. Henderson (23%, 4.13) |
 | 2026-11-29 | MIN | T.Hockenson (TE) | 14 | 6% | Xavier Watts (46%, 5.24) | Kendal Daniels (20%, 2.29) |
 | 2026-11-29 | MIN | M.Price (WR) | 10 | 29% | Billy Bowman Jr. (27%, 3.29) | C.J. Henderson (24%, 4.13) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Mike Hughes (CB) 47 tgt, 61.7% catch, 9.51 ypt, rating 121.5 [GIVES UP EXPLOSIVES, WEAK LINK]
+**Best / lockdown:** Billy Bowman (CB) 24 tgt, 58.3% catch, 6.29 ypt, rating 90.8 []
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Billy Bowman | CB | 5 | 24 | 18% | 58.3 | 6.29 | 10.79 | 0.932 | 90.8 | 1 | 0 | 3 | 58.5 |  | small sample (<35 tgts) |
+| C.J. Henderson | CB | 9 | 51 | 23% | 54.9 | 7.06 | 12.86 | 0.773 | 96.9 | 3 | 0 | 9 | 45.5 |  |  |
+| AJ Terrell | CB | 6 | 25 | 19% | 56.0 | 10.24 | 18.29 | 0.813 | 131.0 | 4 | 0 | 4 | 20.8 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |
+| Mike Hughes | CB | 9 | 47 | 21% | 61.7 | 9.51 | 15.41 | 1.037 | 121.5 | 4 | 0 | 5 | 13.5 | GIVES UP EXPLOSIVES, WEAK LINK |  |
+| Jessie Bates III | S | 8 | 30 | 14% | 66.7 | 8.0 | 12.0 | 0.366 | 116.7 | 5 | 1 | 3 | 32.8 |  | small sample (<35 tgts) |
+| Xavier Watts | S | 9 | 31 | 14% | 71.0 | 8.71 | 12.27 | 0.406 | 94.8 | 1 | 1 | 1 | 32.0 |  | small sample (<35 tgts) |

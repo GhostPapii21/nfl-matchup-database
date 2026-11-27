@@ -144,3 +144,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Jordan Hancock | CB | 15.1 | 7.2 | 74.4 | 4.93 | 1.05 | 27.9 | 0 |
 | Anthony Kendall | CB | 10.8 | 8.2 | 75.5 | 6.99 | 0.8 | 22.9 | 0 |
 | Amani Hooker | S | 6.3 | 1.9 | 32.1 | 5.1 | 0.66 | 18.7 | 1 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** C.J. Gardner-Johnson (S) 21 tgt, 61.9% catch, 10.38 ypt, rating 93.0 [GIVES UP EXPLOSIVES]
+**Best / lockdown:** Davison Igbinosun (CB) 52 tgt, 44.2% catch, 5.29 ypt, rating 57.8 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** none flagged
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Davison Igbinosun | CB | 10 | 52 | 19% | 44.2 | 5.29 | 11.96 | 0.634 | 57.8 | 2 | 2 | 11 | 86.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS |  |
+| Maxwell Hairston | CB | 10 | 34 | 12% | 47.1 | 5.79 | 12.31 | 0.49 | 85.0 | 2 | 0 | 3 | 80.2 | LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Dee Alford | CB | 8 | 30 | 14% | 53.3 | 6.9 | 12.94 | 0.802 | 72.5 | 1 | 1 | 4 | 70.2 | LIMITS CATCHES | small sample (<35 tgts) |
+| Christian Benford | CB | 8 | 49 | 23% | 53.1 | 6.16 | 11.62 | 0.654 | 92.4 | 3 | 0 | 8 | 60.0 | LIMITS CATCHES, LIMITS YARDS |  |
+| Cole Bishop | S | 10 | 43 | 15% | 55.8 | 6.49 | 11.62 | 0.438 | 83.4 | 1 | 0 | 3 | 63.2 | LIMITS YARDS |  |
+| C.J. Gardner-Johnson | S | 6 | 21 | 12% | 61.9 | 10.38 | 16.77 | 0.553 | 93.0 | 1 | 1 | 1 | 28.2 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |

@@ -147,3 +147,19 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | 2026-11-29 | HOU | X.Hutchinson (WR) | 17 | 18% | Chidobe Awuzie (28%, 2.02) | Roquan Smith (18%, 2.35) |
 | 2026-11-29 | HOU | T.Dell (WR) | 17 | 22% | Chidobe Awuzie (26%, 2.02) | Nate Wiggins (20%, 3.96) |
 | 2026-11-29 | HOU | K.Boutte (WR) | 8 | 23% | Chidobe Awuzie (27%, 2.02) | Nate Wiggins (17%, 3.96) |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Malaki Starks (S) 26 tgt, 76.9% catch, 12.73 ypt, rating 157.9 [GIVES UP EXPLOSIVES, WEAK LINK]
+**Best / lockdown:** Nate Wiggins (CB) 42 tgt, 52.4% catch, 5.55 ypt, rating 76.8 [LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** deep right 19.0 ypt; deep left 17.4 ypt; deep middle 17.8 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Nate Wiggins | CB | 9 | 42 | 21% | 52.4 | 5.55 | 10.59 | 0.384 | 76.8 | 1 | 0 | 5 | 78.8 | LIMITS CATCHES, LIMITS YARDS |  |
+| Marlon Humphrey | CB | 9 | 49 | 25% | 55.1 | 8.06 | 14.63 | 0.796 | 88.4 | 1 | 0 | 9 | 43.2 | GIVES UP EXPLOSIVES, TARGET MAGNET |  |
+| Kyle Hamilton | S | 11 | 43 | 18% | 72.1 | 8.93 | 12.39 | 0.582 | 97.4 | 1 | 1 | 4 | 23.8 | TARGET MAGNET |  |
+| Malaki Starks | S | 11 | 26 | 11% | 76.9 | 12.73 | 16.55 | 0.483 | 157.9 | 4 | 0 | 2 | 11.5 | GIVES UP EXPLOSIVES, WEAK LINK | small sample (<35 tgts) |

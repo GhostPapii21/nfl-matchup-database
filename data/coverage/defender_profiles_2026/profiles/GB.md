@@ -134,3 +134,21 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Carrington Valentine | CB | 6.6 | 5.2 | 57.7 | 8.74 | 0.84 | 26.1 | 0 |
 | Ty'Ron Hopper | LB | 22.3 | 15.2 | 119.0 | 5.34 | 0.5 | 12.8 | 0 |
 | Edgerrin Cooper | LB | 15.8 | 12.7 | 100.4 | 6.35 | 0.41 | 15.6 | 0 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Keisean Nixon (CB) 68 tgt, 67.6% catch, 6.03 ypt, rating 82.4 [LIMITS YARDS]
+**Best / lockdown:** Xavier McKinney (S) 31 tgt, 45.2% catch, 6.16 ypt, rating 36.6 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** deep left 14.4 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Carrington Valentine | CB | 7 | 20 | 10% | 60.0 | 5.15 | 8.58 | 0.752 | 90.2 | 1 | 0 | 3 | 69.8 | LIMITS YARDS | small sample (<35 tgts) |
+| Brandon Cisse | CB | 10 | 45 | 18% | 55.6 | 8.04 | 14.48 | 0.631 | 94.9 | 3 | 1 | 7 | 47.2 | GIVES UP EXPLOSIVES |  |
+| Keisean Nixon | CB | 10 | 68 | 27% | 67.6 | 6.03 | 8.91 | 0.612 | 82.4 | 1 | 1 | 7 | 45.8 | LIMITS YARDS |  |
+| Xavier McKinney | S | 10 | 31 | 12% | 45.2 | 6.16 | 13.64 | 0.284 | 36.6 | 1 | 6 | 1 | 88.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Javon Bullard | S | 10 | 46 | 18% | 58.7 | 4.76 | 8.11 | 0.446 | 92.6 | 3 | 0 | 6 | 66.8 | LIMITS YARDS |  |
+| Evan Williams | S | 9 | 39 | 16% | 56.4 | 6.92 | 12.27 | 0.391 | 71.5 | 3 | 3 | 5 | 60.8 |  |  |

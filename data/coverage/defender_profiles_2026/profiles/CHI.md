@@ -138,3 +138,20 @@ Who owned the window where the ball was caught, from the team's shell mix + defe
 | Devin Bush | LB | 43.6 | 29.8 | 251.3 | 5.76 | 1.4 | 43.4 | 0 |
 | Kyler Gordon | CB | 15.9 | 9.1 | 126.2 | 7.94 | 1.03 | 43.6 | 0 |
 | D'Marco Jackson | LB | 15.0 | 13.5 | 111.4 | 7.43 | 0.63 | 27.5 | 1 |
+
+<!-- DEFENDER-GRADES -->
+## Defender quality grades (CB/S with 20+ charted targets)
+
+PFR charted (weekly via nflverse) + pbp PBU. Percentiles vs his position league-wide (100 = best). Labels: see GRADES.md.
+
+**Weakest link:** Jaylon Johnson (CB) 49 tgt, 69.4% catch, 11.2 ypt, rating 104.9 [GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK]
+**Best / lockdown:** Dillon Thieneman (S) 28 tgt, 46.4% catch, 5.96 ypt, rating 47.8 [LOCKDOWN, LIMITS CATCHES, LIMITS YARDS]
+**Weak zones:** deep middle 29.2 ypt; short right 6.5 ypt
+
+| Player | Pos | G | Tgt | Tgt share | Catch % | YPT | Yds/cmp | Yds/snap | Rating | TD | INT | PBU | Composite | Labels | Note |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Malik Muhammad | CB | 7 | 31 | 23% | 54.8 | 8.81 | 16.06 | 0.965 | 81.8 | 1 | 1 | 4 | 46.5 | GIVES UP EXPLOSIVES | small sample (<35 tgts) |
+| Tyrique Stevenson | CB | 8 | 43 | 26% | 55.8 | 8.91 | 15.96 | 1.055 | 116.7 | 4 | 0 | 5 | 25.0 | GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK |  |
+| Jaylon Johnson | CB | 10 | 49 | 24% | 69.4 | 11.2 | 16.15 | 0.982 | 104.9 | 1 | 1 | 2 | 10.2 | GIVES UP EXPLOSIVES, TARGET MAGNET, WEAK LINK |  |
+| Dillon Thieneman | S | 10 | 28 | 14% | 46.4 | 5.96 | 12.85 | 0.295 | 47.8 | 1 | 2 | 4 | 90.2 | LOCKDOWN, LIMITS CATCHES, LIMITS YARDS | small sample (<35 tgts) |
+| Cameron Lewis | S | 9 | 20 | 10% | 80.0 | 9.55 | 11.94 | 0.404 | 125.2 | 3 | 1 | 1 | 25.2 | WEAK LINK | small sample (<35 tgts) |
