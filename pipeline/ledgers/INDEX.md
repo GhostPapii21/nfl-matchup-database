@@ -1,6 +1,6 @@
 # NFL-56 slate ledger
 
-Checked 2026-11-27 00:35 UTC. Research only; `projection_ready` is false.
+Checked 2026-11-27 01:13 UTC. Research only; `projection_ready` is false.
 
 **100k ran for 0 of 14 games; 1 refused.**
 
