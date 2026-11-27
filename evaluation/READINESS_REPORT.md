@@ -1,17 +1,17 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-26T09:45:18+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-27T19:27:23+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## Evidence boundary (derived live)
 
-- Stamp: `2026-11-26T09:45:18+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
-- Pristine holdout cited: **14** scored games, weeks **['10', '11']** (`evaluation/EVALUATION.json`).
-- Snapshot LOCKs on tree: **14** game ids, weeks **['10', '11']**.
-- Week 12 packets: **16**; with LOCK: **0**; scored: **0**; pre-kickoff without LOCK: **15**; post-kickoff without LOCK (not retroactive): **1**.
+- Stamp: `2026-11-27T19:27:23+00:00` UTC. Counts only committed files on this tree (`derived_live=True`).
+- Pristine holdout cited: **15** scored games, weeks **['10', '11', '12']** (`evaluation/EVALUATION.json`).
+- Snapshot LOCKs on tree: **15** game ids, weeks **['10', '11', '12']**.
+- Week 12 packets: **16**; with LOCK: **1**; scored: **1**; pre-kickoff without LOCK: **12**; post-kickoff without LOCK (not retroactive): **3**.
 - Open drafts / price freezes do **not** count (`price_freeze_dir_count=29`).
-- Ceiling if all remaining pre-kickoff W12 packets lock+score: **14+15=29** (shortfall vs min games at ceiling: **1**; min_coverage={'games_scored': 30, 'weeks': 3}).
+- Ceiling if all remaining pre-kickoff W12 packets lock+score: **15+12=27** (shortfall vs min games at ceiling: **3**; min_coverage={'games_scored': 30, 'weeks': 3}).
 - Pristine requires: `snapshots/<game_id>/<lock>/LOCK.json scored under the frozen protocol (pre-kickoff, n=100000, code_dirty=false, asof_checks=PASS, intact file hashes, SCORE.json)`.
-- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 14 scored, weeks ['10', '11']. Committed snapshot LOCKs cover weeks ['10', '11'] (14 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 0; already scored: 0. Price-freeze directories and open draft PRs never count toward pristine coverage. 1 Week 12 packet(s) already past kickoff without a LOCK (2026_12_GB_LA) — cannot be added retroactively. 15 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if all lock and score: 14+15=29. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 1 game(s) — later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed.
+- Holdout coverage is only SCORED rows from committed evaluation/EVALUATION.json (discovered via snapshots/*/*/LOCK.json): 15 scored, weeks ['10', '11', '12']. Committed snapshot LOCKs cover weeks ['10', '11', '12'] (15 game ids). Week 12 pregame packets on this tree: 16; with LOCK: 1; already scored: 1. Price-freeze directories and open draft PRs never count toward pristine coverage. 3 Week 12 packet(s) already past kickoff without a LOCK (2026_12_CHI_DET, 2026_12_GB_LA, 2026_12_PHI_DAL) — cannot be added retroactively. 12 Week 12 packet(s) still pre-kickoff without a LOCK; each still needs final inactives/quote freshness and a valid 100k LOCK. Ceiling if all lock and score: 15+12=27. Even at that ceiling, shortfall vs min_coverage {'games_scored': 30, 'weeks': 3} is 3 game(s) — later-week eligible LOCKs (e.g. Week 13+) are still required. All readiness flags stay fail-closed.
 
 ## NFL-49: FAIL
 
@@ -20,7 +20,7 @@ Evaluated 2026-11-26T09:45:18+00:00 UTC by `python -m evaluation.readiness`. pro
 | NFL-49 P1 source freshness/completeness | PASS | Phase15='AUTO' (known_flags/KNOWN_LIMITATIONS.json); quotes='FREE_FEED_ACCEPTED' (known_flags/KNOWN_LIMITATIONS.json); per-game freshness is checked live by pipeline/freshness.py (publisher as-of time, NFL-56) |
 | NFL-49 P2 integrated sim accounting | PASS | entrypoint_enforced=True (known_flags/KNOWN_LIMITATIONS.json); NFL-43 review: ACCEPTED by Ghost6 for SEMANTICS_BOUNDS.md sha256 975e84cc... at 32b9b92 (Nov 12 ~3:05 PM ; still unsupported (bounded, enforced): ['kick-play fouls', 'joint_producer penalties/return yards', 'blocked kicks/onside/fakes']; SHARED_ACCOUNTING: core/possession_engine_v0/shared_accounting.py; contaminated validator superseded by core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py |
 | NFL-49 P3 calibration evidence | FAIL | calibration_fitted_claim=False (known_flags/KNOWN_LIMITATIONS.json); no fitted calibration (NFL-45); no market meets Rico's market-readiness rule (see market table) |
-| NFL-49 P4 end-to-end acceptance | FAIL | full_integration_acceptance=False (known_flags/KNOWN_LIMITATIONS.json); production_validated=False (known_flags/KNOWN_LIMITATIONS.json); pristine evaluation status='UNSCORABLE_INSUFFICIENT_COVERAGE', games_scored=14, weeks_scored=['10', '11'] vs min {'games_scored': 30, 'weeks': 3} (evaluation/EVALUATION.json); pristine_protocol_complete=False (known_flags/KNOWN_LIMITATIONS.json) |
+| NFL-49 P4 end-to-end acceptance | FAIL | full_integration_acceptance=False (known_flags/KNOWN_LIMITATIONS.json); production_validated=False (known_flags/KNOWN_LIMITATIONS.json); pristine evaluation status='UNSCORABLE_INSUFFICIENT_COVERAGE', games_scored=15, weeks_scored=['10', '11', '12'] vs min {'games_scored': 30, 'weeks': 3} (evaluation/EVALUATION.json); pristine_protocol_complete=False (known_flags/KNOWN_LIMITATIONS.json) |
 
 ## NFL-56: PASS
 
