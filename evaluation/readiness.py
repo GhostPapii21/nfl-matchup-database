@@ -257,7 +257,9 @@ def evidence_boundary(root: Path = ROOT, now: datetime | None = None) -> dict:
             remaining_post_kickoff.append(gid)
         else:
             remaining_eligible.append(gid)
-    ceiling = n_scored + len(remaining_eligible)
+    # Unscored W12 LOCKs still count toward the eventual ceiling once FINAL + SCORE.
+    w12_locked_unscored = sorted(gid for gid in w12_locked if gid not in w12_scored)
+    ceiling = n_scored + len(w12_locked_unscored) + len(remaining_eligible)
     shortfall = max(0, int(need.get("games_scored", 30)) - ceiling)
     freeze_dirs = 0
     fr = root / "pregame" / "price_freezes"
@@ -277,11 +279,17 @@ def evidence_boundary(root: Path = ROOT, now: datetime | None = None) -> dict:
             f"{len(remaining_post_kickoff)} Week 12 packet(s) already past kickoff without a LOCK "
             f"({', '.join(remaining_post_kickoff)}) — cannot be added retroactively."
         )
+    if w12_locked_unscored:
+        parts.append(
+            f"{len(w12_locked_unscored)} Week 12 LOCK(s) committed but not yet scored "
+            f"({', '.join(w12_locked_unscored)}) — count toward the ceiling only after FINAL + SCORE.json."
+        )
     if remaining_eligible:
         parts.append(
             f"{len(remaining_eligible)} Week 12 packet(s) still pre-kickoff without a LOCK; "
             f"each still needs final inactives/quote freshness and a valid 100k LOCK. "
-            f"Ceiling if all lock and score: {n_scored}+{len(remaining_eligible)}={ceiling}."
+            f"Ceiling if unscored LOCKs score and remaining packets lock+score: "
+            f"{n_scored}+{len(w12_locked_unscored)}+{len(remaining_eligible)}={ceiling}."
         )
     else:
         parts.append("No remaining pre-kickoff Week 12 packets without a LOCK on this tree.")
@@ -305,6 +313,7 @@ def evidence_boundary(root: Path = ROOT, now: datetime | None = None) -> dict:
         "w12_packet_count": len(w12_packets),
         "w12_packet_ids": w12_packets,
         "w12_with_lock": w12_locked,
+        "w12_locked_unscored": w12_locked_unscored,
         "w12_scored": w12_scored,
         "w12_remaining_eligible": remaining_eligible,
         "w12_remaining_post_kickoff": remaining_post_kickoff,
@@ -357,8 +366,9 @@ def render(r: dict) -> str:
               f"scored: **{len(eb.get('w12_scored') or [])}**; pre-kickoff without LOCK: **{len(rem)}**; "
               f"post-kickoff without LOCK (not retroactive): **{len(post)}**.",
               f"- Open drafts / price freezes do **not** count (`price_freeze_dir_count={eb.get('price_freeze_dir_count')}`).",
-              f"- Ceiling if all remaining pre-kickoff W12 packets lock+score: "
-              f"**{n}+{len(rem)}={ceil}** (shortfall vs min games at ceiling: "
+              f"- Ceiling if unscored W12 LOCKs score and remaining pre-kickoff packets lock+score: "
+              f"**{n}+{len(eb.get('w12_locked_unscored') or [])}+{len(rem)}={ceil}** "
+              f"(shortfall vs min games at ceiling: "
               f"**{eb.get('shortfall_vs_min_games_at_ceiling')}**; min_coverage={eb.get('min_coverage')}).",
               f"- Pristine requires: `{eb.get('pristine_requires')}`.",
               f"- {eb.get('note')}", ""]
