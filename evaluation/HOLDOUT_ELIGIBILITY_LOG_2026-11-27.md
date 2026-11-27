@@ -21,7 +21,7 @@ Protocol: pre-kickoff LOCK, n=100000, `code_dirty=false`, `asof_checks=PASS`, in
 | `2026_12_CHI_DET` | 2026-11-26T18:00Z | — | — | already final | **no retro LOCK** |
 | `2026_12_PHI_DAL` | 2026-11-26T21:30Z | T-80 / T-57 / T-43 | INCOMPLETE (DAL never posted in window) | FTN/PFR GAP on completed GB_LA; packet `roof` null (schedule later showed `closed`) | **REFUSED** |
 | `2026_12_KC_BUF` | 2026-11-27T01:20Z | T-78 | OK (KC+BUF) | FTN/PFR/snap_counts missing completed GB_LA + CHI_DET | **REFUSED** |
-| `2026_12_DEN_PIT` | 2026-11-27T20:00Z | T-88 then inactives-OK recheck; reconfirmed T-75 | OK (DEN+PIT) after T-88 | Sole remaining: FTN/PFR still **0** W12 rows (SHAs `ee09d5…` / `f1217d…`) through 2026-11-27T18:45Z | **REFUSED** |
+| `2026_12_DEN_PIT` | 2026-11-27T20:00Z | T-88 → T-75 → T-57 final | OK (DEN+PIT) | FTN/PFR still **0** W12 rows through 2026-11-27T19:02Z; also pbp republish STALE + quotes STALE on final check | **REFUSED — DEN retries stopped** |
 
 ## Publisher GAP (blocks remaining W12 locks)
 
