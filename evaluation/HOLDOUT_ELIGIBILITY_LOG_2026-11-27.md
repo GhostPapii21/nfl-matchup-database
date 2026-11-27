@@ -57,3 +57,7 @@ Fail-closed when packet `game.roof` is null/empty (not inventable):
 ## Note: LOCK on `main` for KC@BUF (unscored)
 
 `origin/main` contains `snapshots/2026_12_KC_BUF/20261127T003024Z/LOCK.json` (gameday bot, n=100000, `asof_checks=PASS`, no SCORE.json). It does **not** raise pristine scored count above 14 until scored. This agent's local sim100k attempts for KC@BUF were REFUSED on FTN/PFR GAP; the main LOCK came from a separate gameday path.
+
+## Post T-40 (2026-11-27 ~19:25Z)
+
+`2026_12_DEN_PIT` lock window closed (`pipeline.window`: skip, closed at T-40; ~34 min to kickoff). **No pristine LOCK; not retroactive.** Readiness may still list DEN under pre-kickoff packets until kickoff, but a new LOCK is no longer protocol-eligible. Sunday W12 slate remains blocked until nflverse FTN/PFR publish W12 coverage. Holdout scored remains **14**; `projection_ready` stays false.
