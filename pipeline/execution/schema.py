@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 from pathlib import Path
 
@@ -29,8 +30,23 @@ class ExecutionPolicyError(ValueError):
     """NOT_APPLICABLE was claimed without a policy or an explicit reason."""
 
 
+def _finite_tree(obj):
+    """Reject NaN and infinity so a hash cannot treat a non-number as a stable metric."""
+    if isinstance(obj, bool):
+        return obj
+    if isinstance(obj, float):
+        if not math.isfinite(obj):
+            raise ValueError("non-finite number")
+        return obj
+    if isinstance(obj, dict):
+        return {key: _finite_tree(value) for key, value in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_finite_tree(value) for value in obj]
+    return obj
+
+
 def canonical(obj) -> str:
-    return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False, default=str)
+    return json.dumps(_finite_tree(obj), sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)
 
 
 def content_hash(obj) -> str:

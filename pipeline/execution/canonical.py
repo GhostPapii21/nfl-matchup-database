@@ -1,9 +1,11 @@
 """Call canonical equation modules. This file does not invent summary counts.
 
-Only pregame.rain_model is invoked from a normal packet. Other canonical functions are named
-and refused until their real inputs are present. Absent modules are not given stand-ins.
+Only pregame.rain_model is invoked from a normal packet. A feature-table length is not an
+opportunity equation, and a missing opponent factor is not filled with 1.0.
 """
 from __future__ import annotations
+
+import math
 
 
 def _blocked(ctx: dict, code: str, message: str) -> dict:
@@ -61,8 +63,31 @@ def run_rain_model(ctx: dict) -> dict:
     }
 
 
+_STAT_KEYS = ("receiving_yards", "rushing_yards", "passing_yards")
+
+
+def _finite(value) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def _baseline_block(players: list) -> tuple[dict, str, dict] | None:
+    """First player/stat block that has a finite mean, a finite opponent factor, and a positive game count."""
+    for player in players:
+        if not isinstance(player, dict):
+            continue
+        for key in _STAT_KEYS:
+            block = player.get(key)
+            if not isinstance(block, dict):
+                continue
+            games = block.get("games")
+            if (_finite(block.get("weighted_mean")) and _finite(block.get("opponent_factor"))
+                    and isinstance(games, int) and not isinstance(games, bool) and games > 0):
+                return player, key, block
+    return None
+
+
 def run_player_baselines(ctx: dict) -> dict:
-    """pregame.packet.player_baselines. Refuses when the packet has no receiver and rusher logs."""
+    """pregame.packet.player_baselines. A missing opponent factor is not filled with 1.0."""
     inputs = (ctx.get("packet") or {}).get("baseline_inputs")
     if not isinstance(inputs, dict) or "off_players" not in inputs:
         return _blocked(
@@ -76,33 +101,31 @@ def run_player_baselines(ctx: dict) -> dict:
         inputs["off_players"], inputs.get("opp_def_sum") or {}, inputs.get("league_def_avg") or {},
         inputs.get("listed_qb"),
     )
-    players = [p for p in (result.get("players") or []) if isinstance(p, dict)]
-    means = []
-    for player in players:
-        for key in ("receiving_yards", "rushing_yards", "passing_yards"):
-            block = player.get(key) or {}
-            if isinstance(block, dict) and block.get("weighted_mean") is not None:
-                means.append(block["weighted_mean"])
-                factor = block.get("opponent_factor")
-                break
-        else:
-            factor = None
-        if means:
-            break
-    if not means:
+    chosen = _baseline_block([p for p in (result.get("players") or []) if isinstance(p, dict)])
+    if chosen is None:
         return _blocked(
             ctx, "ANALYTIC_OUTPUT_MISSING",
-            "pregame.packet.player_baselines returned no weighted_mean. Empty baselines are not a pass.",
+            "pregame.packet.player_baselines did not return a finite weighted_mean and opponent_factor "
+            "on the same stat block with a positive game count. A missing factor is not set to 1.0.",
         )
+    player, stat, block = chosen
+    row = {
+        "player": player.get("player"),
+        "pos": player.get("pos"),
+        "stat": stat,
+        "weighted_mean": block["weighted_mean"],
+        "opponent_factor": block["opponent_factor"],
+        "games": block["games"],
+    }
     return {
         "game_id": ctx["game_id"],
         "run_id": ctx["run_id"],
         "equation_id": "pregame.packet.player_baselines",
         "module_id": "pregame.packet",
-        "metrics": {"weighted_mean": means[0], "opponent_factor": factor if factor is not None else 1.0, "players_with_baseline": len(players)},
-        "denominator": int((players[0].get("receiving_yards") or players[0].get("rushing_yards") or players[0].get("passing_yards") or {}).get("games") or 0),
+        "metrics": {"weighted_mean": block["weighted_mean"], "opponent_factor": block["opponent_factor"]},
+        "denominator": block["games"],
         "provenance": result.get("method") or "pregame.packet.player_baselines",
-        "rows": players,
+        "rows": [row],
         "warnings": ["BASELINE_RESEARCH_ONLY; not the three-model consensus"],
         "research_only": True,
         "projection_ready": False,
@@ -110,30 +133,21 @@ def run_player_baselines(ctx: dict) -> dict:
 
 
 def run_opportunity(ctx: dict) -> dict:
-    """core.possession_engine_v0.opportunity.load_opp_lookup. Not called without an as-of play-by-play path."""
+    """load_opp_lookup is a feature table. Its length is not an opportunity equation."""
     spec = (ctx.get("packet") or {}).get("opportunity_inputs")
     if not isinstance(spec, dict) or not spec.get("pbp_path") or not spec.get("game_ids"):
         return _blocked(
             ctx, "ANALYTIC_INPUT_ABSENT",
-            "core.possession_engine_v0.opportunity.load_opp_lookup needs an as-of play-by-play path and game ids. "
-            "A snap-share count is not that lookup.",
+            "No as-of play-by-play path was supplied, and no per-player opportunity equation is registered. "
+            "A snap-share count is not that equation.",
         )
     from core.possession_engine_v0.opportunity import load_opp_lookup
 
     lookup = load_opp_lookup(spec["pbp_path"], spec["game_ids"])
-    rows = [{"key": key, "features": len(value) if hasattr(value, "__len__") else 1} for key, value in list(lookup.items())[:50]]
-    if not rows:
-        return _blocked(ctx, "EMPTY_OUTPUT", "load_opp_lookup returned no rows for the supplied games.")
-    return {
-        "game_id": ctx["game_id"],
-        "run_id": ctx["run_id"],
-        "equation_id": "core.possession_engine_v0.opportunity.load_opp_lookup",
-        "module_id": "core.possession_engine_v0.opportunity",
-        "metrics": {"features": sum(row["features"] for row in rows)},
-        "denominator": len(spec["game_ids"]),
-        "provenance": f"as-of play-by-play {spec['pbp_path']}",
-        "rows": rows,
-        "warnings": [],
-        "research_only": True,
-        "projection_ready": False,
-    }
+    nkeys = len(lookup) if isinstance(lookup, dict) else 0
+    return _blocked(
+        ctx, "ANALYTIC_OUTPUT_MISSING",
+        "core.possession_engine_v0.opportunity.load_opp_lookup returned a feature table "
+        f"({nkeys} keys), not per-player opportunity share, targets, carries, or touches. "
+        "A feature count is not that equation. Route participation remains a separate source gap.",
+    )

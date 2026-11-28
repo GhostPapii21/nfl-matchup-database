@@ -78,9 +78,9 @@
           "mandatory": true,
           "min_rows": 1,
           "min_denominator": 1,
-          "required_metrics": ["features"],
+          "required_metrics": ["opportunity_share"],
           "not_applicable_when": null,
-          "absence_reason": null
+          "absence_reason": "load_opp_lookup is a feature table. Feature counts are not opportunity share, targets, carries, or touches, so this task stays blocked."
         },
         {
           "task_id": "phase04.routes_participation",

@@ -107,7 +107,7 @@ def _ok_registry(*, boom=None, empty=None, bad_game=None, bad_run=None, omit=())
             game_id = "OTHER" if bad_game == task_id else ctx["game_id"]
             run_id = "OTHER-RUN" if bad_run == task_id else ctx["run_id"]
             if empty == task_id:
-                return {"game_id": game_id, "run_id": run_id, "rows": [], "denominator": 0}
+                return {"game_id": game_id, "run_id": run_id, "rows": [], "denominator": 1}
             denominator = 100000 if task_id.startswith("phase14.") else 1
             return {
                 "game_id": game_id,
@@ -227,6 +227,11 @@ def test_content_hash_is_stable_and_detects_change():
     assert content_hash({"b": 1, "a": 2}) == content_hash({"a": 2, "b": 1})
     assert content_hash({"a": 1}) != content_hash({"a": 2})
     assert content_hash({"a": 1}).startswith("sha256:")
+    assert content_hash({"a": 1.0}) == content_hash({"a": 1.0})
+    with pytest.raises(ValueError):
+        content_hash({"metric": float("nan")})
+    with pytest.raises(ValueError):
+        content_hash({"metric": float("inf")})
     assert config_hash() == config_hash(contract_document())
     assert config_hash().startswith("sha256:")
 
@@ -320,7 +325,12 @@ def test_default_phase_invokes_the_rain_equation_not_a_count(tmp_path):
     assert phase["invocations"][0]["function"] == "factor"
     assert body["equation_id"] == "pregame.rain_model.factor"
     assert body["module_id"] == "pregame.rain_model"
-    assert isinstance(body["metrics"]["attempts_factor"], float)
+    import math
+    from pregame.rain_model import coefficients, factor
+    meta = coefficients()["_meta"]
+    assert body["metrics"]["attempts_factor"] == factor("attempts", 0.0, 5.0)
+    assert math.isfinite(body["metrics"]["attempts_factor"])
+    assert body["denominator"] == int(meta["team_games"])
     assert body["denominator"] > 1
     assert "team-games" in body["provenance"]
     assert phase["prerequisite"]["satisfies_execution"] is False
@@ -614,6 +624,117 @@ def test_cli_exits_zero_only_when_the_run_is_accepted(tmp_path):
         "--freshness-json", str(fresh_path), "--phase", "12",
     ])
     assert accepted == 0
+
+
+def _rain_body(**changes):
+    body = {
+        "game_id": GAME, "run_id": RUN,
+        "equation_id": "pregame.rain_model.factor", "module_id": "pregame.rain_model",
+        "metrics": {"attempts_factor": 1.0}, "denominator": 100, "provenance": "rain_effects.json",
+        "rows": [{"attempts_factor": 1.0}],
+    }
+    body.update(changes)
+    return body
+
+
+def test_required_metrics_must_be_finite_and_denominator_a_positive_int(tmp_path):
+    cases = [
+        ({"metrics": {}}, "COUNT_ONLY"),
+        ({"metrics": {"attempts_factor": "1"}}, "ANALYTIC_OUTPUT_MISSING"),
+        ({"metrics": {"attempts_factor": True}}, "ANALYTIC_OUTPUT_MISSING"),
+        ({"metrics": {"attempts_factor": float("nan")}}, "ANALYTIC_OUTPUT_MISSING"),
+        ({"metrics": {"attempts_factor": float("inf")}}, "ANALYTIC_OUTPUT_MISSING"),
+        ({"metrics": {"attempts_factor": float("-inf")}}, "ANALYTIC_OUTPUT_MISSING"),
+        ({"denominator": 0}, "DENOMINATOR"),
+        ({"denominator": -3}, "DENOMINATOR"),
+        ({"denominator": True}, "DENOMINATOR"),
+        ({"denominator": 1.5}, "DENOMINATOR"),
+    ]
+    for change, code in cases:
+        payload = _rain_body(**change)
+        def respond(ctx, payload=payload):
+            return payload
+        res = run_game(_packet(), run_id=RUN, store=ReceiptStore(tmp_path / code / str(abs(hash(str(change))))),
+                       registry={"phase12.weather_adjust": respond}, freshness_rows=_fresh(), now=NOW,
+                       code_revision=REV, phases=[12])
+        assert res["phases"][0]["status"] == "FAILED", change
+        assert res["phases"][0]["failure"]["code"] == code, change
+
+
+def test_feature_table_is_not_an_opportunity_pass(tmp_path, monkeypatch):
+    import sys
+    import types
+    fake = types.ModuleType("core.possession_engine_v0.opportunity")
+    seen = {}
+
+    def load_opp_lookup(path, game_ids):
+        seen["path"] = path
+        seen["game_ids"] = list(game_ids)
+        return {"WR|deep": {"a": 1, "b": 2}, "RB|rz": {"c": 3}}
+
+    fake.load_opp_lookup = load_opp_lookup
+    monkeypatch.setitem(sys.modules, "core.possession_engine_v0.opportunity", fake)
+    packet = _packet()
+    packet["opportunity_inputs"] = {"pbp_path": "asof.parquet", "game_ids": ["2026_10_WAS_NYG"]}
+    res = run_game(packet, run_id=RUN, store=ReceiptStore(tmp_path / "opp"), registry=None,
+                   freshness_rows=_fresh(), now=NOW, code_revision=REV, phases=[4])
+    phase = res["phases"][0]
+    assert seen["path"] == "asof.parquet"
+    assert phase["status"] != "PASS"
+    opp = next(task for task in phase["blocked_tasks"] if task["task_id"] == "phase04.opportunity")
+    assert opp["code"] == "ANALYTIC_OUTPUT_MISSING"
+    assert "feature" in opp["message"].lower()
+    routes = next(task for task in phase["blocked_tasks"] if task["task_id"] == "phase04.routes_participation")
+    assert routes["code"] == "SOURCE_UNAVAILABLE"
+
+
+def test_baseline_does_not_invent_an_opponent_factor(tmp_path, monkeypatch):
+    import sys
+    import types
+    fake = types.ModuleType("pregame.packet")
+
+    def player_baselines(*_a, **_k):
+        return {"method": "test baseline", "players": [
+            {"player": "A", "pos": "WR", "receiving_yards": {"weighted_mean": 40.0, "games": 9}},
+            {"player": "B", "pos": "RB", "rushing_yards": {
+                "weighted_mean": 55.0, "opponent_factor": 1.04, "games": 6,
+            }},
+        ]}
+
+    fake.player_baselines = player_baselines
+    monkeypatch.setitem(sys.modules, "pregame.packet", fake)
+    packet = _packet()
+    packet["baseline_inputs"] = {"off_players": {"receivers": [], "rushers": [], "quarterbacks": []}}
+    res = run_game(packet, run_id=RUN, store=ReceiptStore(tmp_path / "base-ok"), registry=None,
+                   freshness_rows=_fresh(), now=NOW, code_revision=REV, phases=[5])
+    phase = res["phases"][0]
+    assert phase["status"] == "PASS"
+    row = phase["outputs"][0]["body"]["rows"][0]
+    assert row["player"] == "B" and row["stat"] == "rushing_yards"
+    assert row["opponent_factor"] == 1.04
+    assert phase["outputs"][0]["body"]["denominator"] == 6
+    assert phase["outputs"][0]["body"]["metrics"]["weighted_mean"] == 55.0
+
+    def missing_factor(*_a, **_k):
+        return {"players": [{"player": "A", "pos": "WR", "receiving_yards": {"weighted_mean": 40.0, "games": 9}}]}
+
+    fake.player_baselines = missing_factor
+    missing = run_game(packet, run_id="run-miss", store=ReceiptStore(tmp_path / "base-miss"), registry=None,
+                       freshness_rows=_fresh(), now=NOW, code_revision=REV, phases=[5])
+    assert missing["phases"][0]["status"] == "BLOCKED"
+    assert missing["phases"][0]["failure"]["code"] == "ANALYTIC_OUTPUT_MISSING"
+    assert "1.0" in missing["phases"][0]["failure"]["message"]
+
+    def zero_games(*_a, **_k):
+        return {"players": [{"player": "A", "pos": "WR", "receiving_yards": {
+            "weighted_mean": 40.0, "opponent_factor": 1.1, "games": 0,
+        }}]}
+
+    fake.player_baselines = zero_games
+    zero = run_game(packet, run_id="run-zero", store=ReceiptStore(tmp_path / "base-zero"), registry=None,
+                    freshness_rows=_fresh(), now=NOW, code_revision=REV, phases=[5])
+    assert zero["phases"][0]["status"] == "BLOCKED"
+    assert zero["phases"][0]["failure"]["code"] == "ANALYTIC_OUTPUT_MISSING"
 
 
 def test_existing_freshness_ledger_is_unchanged_and_not_execution():

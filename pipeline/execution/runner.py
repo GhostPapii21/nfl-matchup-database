@@ -5,6 +5,7 @@ Absent canonical modules stay BLOCKED. pipeline.sim100k is not called and is not
 """
 from __future__ import annotations
 
+import math
 from datetime import datetime, timezone
 
 from .schema import (
@@ -67,8 +68,12 @@ _BINDING_CODE = {
 }
 _COUNT_METRICS = {
     "players", "games", "count", "defenders", "depth_groups", "markets", "official", "espn_live",
-    "players_with_snap_share", "dropbacks_charted", "site", "players_with_baseline",
+    "players_with_snap_share", "dropbacks_charted", "site", "players_with_baseline", "features",
 }
+
+
+def _finite_number(value) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
 
 
 def default_registry() -> dict:
@@ -101,12 +106,15 @@ def _reject_non_analytic(result: dict, task: dict) -> dict | None:
     metrics = result.get("metrics")
     if not isinstance(metrics, dict) or not metrics:
         return {"code": "COUNT_ONLY", "message": f"{task['task_id']} emitted no equation metrics"}
-    numeric = [key for key, value in metrics.items() if isinstance(value, (int, float)) and not isinstance(value, bool)]
-    if not numeric or all(key in _COUNT_METRICS or key.endswith("_count") for key in numeric):
-        return {"code": "COUNT_ONLY", "message": f"{task['task_id']} metrics are only counts or metadata"}
     for key in task.get("required_metrics") or []:
-        if key not in metrics:
-            return {"code": "ANALYTIC_OUTPUT_MISSING", "message": f"{task['task_id']} missing metric {key}"}
+        if not _finite_number(metrics.get(key)):
+            return {
+                "code": "ANALYTIC_OUTPUT_MISSING",
+                "message": f"{task['task_id']} required metric {key} is missing or not a finite number",
+            }
+    numeric = [key for key, value in metrics.items() if _finite_number(value)]
+    if not numeric or all(key in _COUNT_METRICS or str(key).endswith("_count") for key in numeric):
+        return {"code": "COUNT_ONLY", "message": f"{task['task_id']} metrics are only counts or metadata"}
     if not isinstance(result.get("provenance"), str) or not result["provenance"].strip():
         return {"code": "PROVENANCE", "message": f"{task['task_id']} analytic output has no provenance"}
     return None
@@ -200,26 +208,35 @@ def _invoke(task: dict, ctx: dict, fn, stamp: str) -> tuple[dict, dict | None, d
             "message": f"{task['task_id']} returned run_id {result.get('run_id')!r}",
         }
     rows = result.get("rows")
-    try:
-        denominator = int(result.get("denominator"))
-    except (TypeError, ValueError):
-        denominator = -1
+    raw_denominator = result.get("denominator")
     min_rows = int(task.get("min_rows") or 1)
     min_denominator = int(task.get("min_denominator") or 1)
-    if not isinstance(rows, list) or len(rows) < min_rows or denominator < min_denominator:
+    if isinstance(raw_denominator, bool) or not isinstance(raw_denominator, int) or raw_denominator <= 0:
+        return _call(task, stamp, started, "FAILED", "EXECUTED"), None, {
+            "code": "DENOMINATOR",
+            "message": f"{task['task_id']} denominator {raw_denominator!r} is not a positive integer",
+        }
+    if not isinstance(rows, list) or len(rows) < min_rows or raw_denominator < min_denominator:
         return _call(task, stamp, started, "FAILED", "EXECUTED"), None, {
             "code": "EMPTY_OUTPUT",
             "message": f"{task['task_id']} returned {0 if not isinstance(rows, list) else len(rows)} rows "
-                       f"and denominator {result.get('denominator')!r}; minimum is {min_rows} rows and {min_denominator}",
+                       f"and denominator {raw_denominator!r}; minimum is {min_rows} rows and {min_denominator}",
         }
     analytic = _reject_non_analytic(result, task)
     if analytic:
         return _call(task, stamp, started, "FAILED", "EXECUTED"), None, analytic
+    try:
+        digest = content_hash(result)
+    except (TypeError, ValueError) as exc:
+        return _call(task, stamp, started, "FAILED", "EXECUTED"), None, {
+            "code": "ANALYTIC_OUTPUT_MISSING",
+            "message": f"{task['task_id']} output is not a finite canonical document: {type(exc).__name__}",
+        }
     output = {
         "artifact_id": task["task_id"],
-        "content_hash": content_hash(result),
+        "content_hash": digest,
         "row_count": len(rows),
-        "denominator": denominator,
+        "denominator": raw_denominator,
         "body": result,
     }
     return _call(task, stamp, started, "PASS", "VALIDATED"), output, None
