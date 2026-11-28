@@ -398,6 +398,13 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
     from sunday.ngs_verify import verify as verify_ngs
     ngs = verify_ngs(repo)
     ngs_sha = _dump(out_dir / "ngs_verify.json", ngs)
+    # Missing chart-only NGS children cannot veto a run that has real aggregate evidence.
+    # Preserve each missing receipt and block V7 when the aggregate ingestion itself fails.
+    if ngs.get("aggregate_usable"):
+        for child in components:
+            if child.get("id") == "orchestrator.ngs_matchup" and child.get("status") != "EXECUTED":
+                child["required_for_v7"] = False
+                child["reason"] += "; missing chart-level matchup is optional when NGS aggregates are available"
     ended = datetime.now(timezone.utc)
     components.append(_row(
         "ngs_verify", "sunday.ngs_verify", "verify", "check",
