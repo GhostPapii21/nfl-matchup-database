@@ -152,6 +152,10 @@ Do not start Phase 2 by writing a new simulator.
 8. **Postgame.** Grade the DEN@PIT lock and the #146 package without using finals as pregame input. New error classes are test candidates, not automatic promotions.
 9. **Clock.** Local runner first. A Render cron (or equivalent) is a candidate only after a measured dry-run, as a blueprint, not a deploy. Actions stays off the required path.
 
+## Sunday slice
+
+The runnable composition is `python -m pipeline.sunday`. It is documented in [SUNDAY_SLICE.md](SUNDAY_SLICE.md), including the DEN@PIT replay. It uses the period engine, neighbor cross-check, and opportunity board. It does not call `tools/sim_v6.py` or `pipeline.sim100k`. `projection_ready` stays false.
+
 ## Tests
 
 Registry checks, not model runs:

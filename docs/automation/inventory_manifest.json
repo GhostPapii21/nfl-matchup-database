@@ -1053,6 +1053,19 @@
       {"number": 152, "state": "open", "draft": false, "head": "cursor/durable-game-scheduler-b73e", "title": "Add a durable per-game scheduler that does not use GitHub Actions", "overlap": "Scheduler proposal that does not use GitHub Actions. It must not carry its own evaluation/tests/test_readiness.py edit. The canonical assertion stays on #137. Do not deploy from either PR.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/152"}
     ]
   },
+  "sunday_slice": {
+    "command_one_game": "python -m pipeline.sunday --game 2026_12_DEN_PIT",
+    "command_slate": "python -m pipeline.sunday --slate",
+    "module": "pipeline/sunday.py",
+    "doc": "docs/automation/SUNDAY_SLICE.md",
+    "primary": "core/period_engine_v0/monte_carlo.py simulate_game",
+    "cross_checks": ["dashboard/gamemodel.py neighbors", "core/possession_engine_v0/simulate.py simulate_games"],
+    "players": "dashboard/opportunity.py board_side",
+    "not_sim_v6": true,
+    "not_sim100k": true,
+    "projection_ready": false,
+    "replay": "2026_12_DEN_PIT historical_replay, pbp max week 11, period n=200 home_mean 20.255 away_mean 22.325"
+  },
   "contradictions": [
     {
       "id": "checker-vs-receipt",
