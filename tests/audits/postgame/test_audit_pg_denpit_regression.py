@@ -212,8 +212,7 @@ def test_current_lock_research_grade_covers_team_means_and_win_prob_only(act):
     assert kinds == {"research_team_projection": 4, "research_team_probability": 1}
     total = next(r for r in lock_rows if r.get("quantity") == "total")
     assert total["actual"]["value"] == 32 and round(total["projection"]["value"], 2) == 40.22
-    if git_history_available():   # a depth-1 checkout reports the checkout commit's time instead
-        assert total["artifact"]["committed_utc"] == "2026-11-27T06:20:29-05:00"     # PR #141 commit, before the 3:01 PM ET kick
+    assert total["artifact"]["committed_utc"] == "2026-11-27T06:20:29-05:00"     # PR #141 commit, before the 3:01 PM ET kick
 
 
 def test_postgame_review_flags_its_own_post_kick_projection_file():
