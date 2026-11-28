@@ -2,91 +2,91 @@
 
 **Sunday 2026-11-29, 13:00 ET.** Site: Home; roof: outdoors; surface: grass. Rest: TEN 7 days, JAX 7 days. Listed QBs: Cam Ward (TEN), Trevor Lawrence (JAX).
 
-Market (schedule consensus, not a timestamped quote): JAX -14.5, total 49.5.
+Market (schedule consensus, not a timestamped quote): JAX -14, total 48.5.
 
-Generated 2026-11-27T04:31:59+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-28T15:06:42+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-27T04:31:58+00:00 UTC. At kickoff: 65 F, wind 7 mph S, 0% chance of precipitation, Mostly Cloudy. During the game: low 65 F, wind up to 7 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-28T15:06:40+00:00 UTC. At kickoff: 62 F, wind 7 mph S, 0% chance of precipitation, Cloudy. During the game: low 62 F, wind up to 7 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-27T04:26:21Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
+Retrieved 2026-11-28T15:01:01Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, circasports, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | JAX -14.5 | -104 | -122 | 48.1% | 51.9% | 5.9% | 2026-11-27T04:26:21+00:00 |
-| spread | pinnacle | JAX -14.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-27T04:26:21+00:00 |
-| spread | consensus | JAX -14.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-27T04:26:21+00:00 |
-| spread | draftkings | JAX -14.5 | -104 | -116 | 48.7% | 51.3% | 4.7% | 2026-11-27T04:26:21+00:00 |
-| spread | betrivers | JAX -14.5 | -107 | -115 | 49.1% | 50.8% | 5.2% | 2026-11-27T04:26:21+00:00 |
-| spread | betmgm | JAX -14.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-27T04:26:21+00:00 |
-| spread | bet365 | JAX -14.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-27T04:26:21+00:00 |
-| spread | williamhill_us | JAX -14.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-27T04:26:21+00:00 |
-| spread | open | JAX -5.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-27T04:26:21+00:00 |
-| total | fanduel | Over 49.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-27T04:26:21+00:00 |
-| total | pinnacle | Over 49.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-27T04:26:21+00:00 |
-| total | consensus | Over 49.5 | -107 | -110 | 49.7% | 50.3% | 4.1% | 2026-11-27T04:26:21+00:00 |
-| total | draftkings | Over 49.5 | -106 | -113 | 49.2% | 50.8% | 4.5% | 2026-11-27T04:26:21+00:00 |
-| total | betrivers | Over 49.5 | -113 | -110 | 50.3% | 49.7% | 5.4% | 2026-11-27T04:26:21+00:00 |
-| total | bet365 | Over 49.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-27T04:26:21+00:00 |
-| total | williamhill_us | Over 49.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-27T04:26:21+00:00 |
-| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-27T04:26:21+00:00 |
-| total | betmgm | Over 49 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-27T04:26:21+00:00 |
-| moneyline | fanduel | JAX | -1150 | +730 | 88.4% | 11.6% | 4.0% | 2026-11-27T04:26:21+00:00 |
-| moneyline | pinnacle | JAX | -1090 | +723 | 88.3% | 11.7% | 3.8% | 2026-11-27T04:26:21+00:00 |
-| moneyline | consensus | JAX | -1175 | +750 | 88.7% | 11.3% | 3.9% | 2026-11-27T04:26:21+00:00 |
-| moneyline | draftkings | JAX | -1260 | +780 | 89.1% | 10.9% | 4.0% | 2026-11-27T04:26:21+00:00 |
-| moneyline | betrivers | JAX | -1250 | +700 | 88.1% | 11.9% | 5.1% | 2026-11-27T04:26:21+00:00 |
-| moneyline | betmgm | JAX | -1100 | +750 | 88.6% | 11.4% | 3.4% | 2026-11-27T04:26:21+00:00 |
-| moneyline | bet365 | JAX | -1200 | +750 | 88.7% | 11.3% | 4.1% | 2026-11-27T04:26:21+00:00 |
-| moneyline | williamhill_us | JAX | -1250 | +700 | 88.1% | 11.9% | 5.1% | 2026-11-27T04:26:21+00:00 |
+| spread | fanduel | JAX -13.5 | -120 | -106 | 51.5% | 48.5% | 6.0% | 2026-11-28T15:01:01+00:00 |
+| spread | pinnacle | JAX -14 | -102 | -112 | 48.9% | 51.1% | 3.3% | 2026-11-28T15:01:01+00:00 |
+| spread | betrivers | JAX -13.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-28T15:01:01+00:00 |
+| spread | bet365 | JAX -13.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-28T15:01:01+00:00 |
+| spread | open | JAX -5.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-28T15:01:01+00:00 |
+| spread | consensus | JAX -14 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-28T15:01:01+00:00 |
+| spread | draftkings | JAX -14 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-28T15:01:01+00:00 |
+| spread | betmgm | JAX -14 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-28T15:01:01+00:00 |
+| spread | williamhill_us | JAX -14 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-28T15:01:01+00:00 |
+| total | fanduel | Over 48.5 | -106 | -120 | 48.5% | 51.5% | 6.0% | 2026-11-28T15:01:01+00:00 |
+| total | pinnacle | Over 48 | -110 | -106 | 50.4% | 49.5% | 3.8% | 2026-11-28T15:01:01+00:00 |
+| total | consensus | Over 48.5 | -105 | -114 | 49.0% | 51.0% | 4.5% | 2026-11-28T15:01:01+00:00 |
+| total | draftkings | Over 48.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-28T15:01:01+00:00 |
+| total | bet365 | Over 48.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-28T15:01:01+00:00 |
+| total | open | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-28T15:01:01+00:00 |
+| total | betrivers | Over 47.5 | -115 | -108 | 50.7% | 49.3% | 5.4% | 2026-11-28T15:01:01+00:00 |
+| total | betmgm | Over 48 | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-28T15:01:01+00:00 |
+| total | williamhill_us | Over 48 | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-28T15:01:01+00:00 |
+| moneyline | fanduel | JAX | -1100 | +700 | 88.0% | 12.0% | 4.2% | 2026-11-28T15:01:01+00:00 |
+| moneyline | pinnacle | JAX | -996 | +675 | 87.6% | 12.4% | 3.8% | 2026-11-28T15:01:01+00:00 |
+| moneyline | consensus | JAX | -1048 | +700 | 88.0% | 12.0% | 3.8% | 2026-11-28T15:01:01+00:00 |
+| moneyline | draftkings | JAX | -930 | +630 | 86.8% | 13.2% | 4.0% | 2026-11-28T15:01:01+00:00 |
+| moneyline | betrivers | JAX | -1115 | +650 | 87.3% | 12.7% | 5.1% | 2026-11-28T15:01:01+00:00 |
+| moneyline | betmgm | JAX | -1000 | +700 | 87.9% | 12.1% | 3.4% | 2026-11-28T15:01:01+00:00 |
+| moneyline | bet365 | JAX | -1100 | +700 | 88.0% | 12.0% | 4.2% | 2026-11-28T15:01:01+00:00 |
+| moneyline | williamhill_us | JAX | -1000 | +650 | 87.2% | 12.8% | 4.2% | 2026-11-28T15:01:01+00:00 |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Parker Washington | receiving yards | fanduel | 68.5 | -114 / -114 | 50.0% | n/a | 87.9 | 71.9 | 8 | 19.4 |
-| Tony Pollard | rushing yards | fanduel | 52.5 | -114 / -114 | 50.0% | 50.0% | 71.0 | 64.6 | 8 | 18.5 |
-| Carnell Tate | receiving yards | fanduel | 52.5 | -114 / -114 | 50.0% | n/a | 69.1 | 66.6 | 6 | 16.6 |
-| Carnell Tate | receiving yards | draftkings | 52.5 | -111 / -114 | 49.7% | n/a | 69.1 | 66.6 | 6 | 16.6 |
-| Carnell Tate | receiving yards | betonlineag | 52.5 | -114 / -114 | 50.0% | n/a | 69.1 | 66.6 | 6 | 16.6 |
-| Carnell Tate | receiving yards | bovada | 52.5 | -115 / -115 | 50.0% | n/a | 69.1 | 66.6 | 6 | 16.6 |
-| Tony Pollard | rushing yards | draftkings | 54.5 | -112 / -112 | 50.0% | n/a | 71.0 | 64.6 | 8 | 16.5 |
-| Tony Pollard | rushing yards | betrivers | 54.5 | -118 / -122 | 49.6% | n/a | 71.0 | 64.6 | 8 | 16.5 |
-| Tony Pollard | rushing yards | betonlineag | 54.5 | -116 / -111 | 50.5% | n/a | 71.0 | 64.6 | 8 | 16.5 |
-| Tony Pollard | rushing yards | betmgm | 54.5 | -120 / -111 | 50.9% | n/a | 71.0 | 64.6 | 8 | 16.5 |
-| Tony Pollard | rushing yards | bovada | 54.5 | -115 / -115 | 50.0% | n/a | 71.0 | 64.6 | 8 | 16.5 |
-| Parker Washington | receiving yards | betrivers | 71.5 | -129 / -112 | 51.6% | n/a | 87.9 | 71.9 | 8 | 16.4 |
-| Carnell Tate | receiving yards | betrivers | 53.5 | -115 / -125 | 49.0% | n/a | 69.1 | 66.6 | 6 | 15.6 |
-| Carnell Tate | receiving yards | betmgm | 53.5 | -115 / -115 | 50.0% | n/a | 69.1 | 66.6 | 6 | 15.6 |
-| Parker Washington | receiving yards | betmgm | 72.5 | -115 / -115 | 50.0% | 44.3% | 87.9 | 71.9 | 8 | 15.4 |
-| Jakobi Meyers | receiving yards | betmgm | 48.5 | -115 / -115 | 50.0% | n/a | 62.3 | 58.1 | 8 | 13.8 |
-| Josh Cameron | receiving yards | betrivers | 23.5 | -162 / +110 | 56.5% | n/a | 37.1 | 48.3 | 7 | 13.6 |
-| Parker Washington | receiving yards | draftkings | 74.5 | -112 / -112 | 50.0% | n/a | 87.9 | 71.9 | 8 | 13.4 |
-| Parker Washington | receiving yards | betonlineag | 74.5 | -116 / -111 | 50.5% | n/a | 87.9 | 71.9 | 8 | 13.4 |
-| Parker Washington | receiving yards | bovada | 74.5 | -115 / -115 | 50.0% | n/a | 87.9 | 71.9 | 8 | 13.4 |
-| Jakobi Meyers | receiving yards | betrivers | 49.5 | -118 / -122 | 49.6% | n/a | 62.3 | 58.1 | 8 | 12.8 |
-| Josh Cameron | receiving yards | fanduel | 24.5 | -114 / -114 | 50.0% | 45.1% | 37.1 | 48.3 | 7 | 12.6 |
-| Chimere Dike | receiving yards | draftkings | 27.5 | -110 / -114 | 49.6% | n/a | 39.7 | 23.1 | 6 | 12.2 |
-| Chimere Dike | receiving yards | bovada | 27.5 | -115 / -115 | 50.0% | n/a | 39.7 | 23.1 | 6 | 12.2 |
-| Josh Cameron | receiving yards | draftkings | 25.5 | -112 / -112 | 50.0% | n/a | 37.1 | 48.3 | 7 | 11.6 |
-| Josh Cameron | receiving yards | betonlineag | 25.5 | -116 / -111 | 50.5% | n/a | 37.1 | 48.3 | 7 | 11.6 |
-| Josh Cameron | receiving yards | bovada | 25.5 | -115 / -115 | 50.0% | n/a | 37.1 | 48.3 | 7 | 11.6 |
-| Chimere Dike | receiving yards | fanduel | 28.5 | -114 / -114 | 50.0% | 50.0% | 39.7 | 23.1 | 6 | 11.2 |
-| Chimere Dike | receiving yards | betonlineag | 28.5 | -114 / -114 | 50.0% | 50.0% | 39.7 | 23.1 | 6 | 11.2 |
-| Jakobi Meyers | receiving yards | draftkings | 51.5 | -110 / -114 | 49.6% | n/a | 62.3 | 58.1 | 8 | 10.8 |
-| Jakobi Meyers | receiving yards | betonlineag | 51.5 | -116 / -111 | 50.5% | n/a | 62.3 | 58.1 | 8 | 10.8 |
-| Jakobi Meyers | receiving yards | bovada | 51.5 | -115 / -115 | 50.0% | n/a | 62.3 | 58.1 | 8 | 10.8 |
-| Chimere Dike | receiving yards | betrivers | 29.5 | -139 / -106 | 53.1% | n/a | 39.7 | 23.1 | 6 | 10.2 |
-| Chimere Dike | receiving yards | betmgm | 29.5 | -115 / -115 | 50.0% | n/a | 39.7 | 23.1 | 6 | 10.2 |
+| Chris Rodriguez | rushing yards | bovada | 97.5 | +210 / -290 | 30.3% | n/a | 27.8 | 32.4 | 8 | -69.7 |
+| Chris Rodriguez | rushing yards | betrivers | 80.5 | -118 / -122 | 49.6% | n/a | 27.8 | 32.4 | 8 | -52.7 |
+| Chris Rodriguez | rushing yards | draftkings | 77.5 | -110 / -114 | 49.6% | n/a | 27.8 | 32.4 | 8 | -49.7 |
+| Chris Rodriguez | rushing yards | betonlineag | 77.5 | -114 / -114 | 50.0% | n/a | 27.8 | 32.4 | 8 | -49.7 |
+| Chris Rodriguez | rushing yards | fanduel | 76.5 | -114 / -114 | 50.0% | n/a | 27.8 | 32.4 | 8 | -48.7 |
+| Jakobi Meyers | receiving yards | bovada | 81.5 | +130 / -170 | 40.8% | n/a | 62.3 | 58.1 | 8 | -19.2 |
+| Carnell Tate | receiving yards | betrivers | 50.5 | -122 / -118 | 50.4% | n/a | 69.1 | 66.6 | 6 | 18.6 |
+| Tony Pollard | rushing yards | fanduel | 52.5 | -114 / -114 | 50.0% | 52.8% | 71.0 | 64.6 | 8 | 18.5 |
+| Tony Pollard | rushing yards | betonlineag | 52.5 | -122 / -106 | 51.6% | 52.8% | 71.0 | 64.6 | 8 | 18.5 |
+| Tony Pollard | rushing yards | betmgm | 52.5 | -120 / -111 | 50.9% | 52.8% | 71.0 | 64.6 | 8 | 18.5 |
+| Carnell Tate | receiving yards | fanduel | 51.5 | -114 / -114 | 50.0% | 50.0% | 69.1 | 66.6 | 6 | 17.6 |
+| Carnell Tate | receiving yards | betonlineag | 51.5 | -114 / -114 | 50.0% | 50.0% | 69.1 | 66.6 | 6 | 17.6 |
+| Tony Pollard | rushing yards | draftkings | 53.5 | -115 / -109 | 50.6% | n/a | 71.0 | 64.6 | 8 | 17.5 |
+| Carnell Tate | receiving yards | circasports | 52.5 | -110 / -110 | 50.0% | n/a | 69.1 | 66.6 | 6 | 16.6 |
+| Tony Pollard | rushing yards | circasports | 54.5 | -110 / -110 | 50.0% | n/a | 71.0 | 64.6 | 8 | 16.5 |
+| Carnell Tate | receiving yards | draftkings | 53.5 | -111 / -112 | 49.9% | n/a | 69.1 | 66.6 | 6 | 15.6 |
+| Tony Pollard | rushing yards | betrivers | 55.5 | -122 / -118 | 50.4% | n/a | 71.0 | 64.6 | 8 | 15.5 |
+| Josh Cameron | receiving yards | bovada | 52.5 | +145 / -190 | 38.4% | n/a | 37.1 | 48.3 | 7 | -15.4 |
+| Carnell Tate | receiving yards | betmgm | 54.5 | -115 / -115 | 50.0% | n/a | 69.1 | 66.6 | 6 | 14.6 |
+| Brenton Strange | receiving yards | bovada | 49.5 | +145 / -190 | 38.4% | n/a | 36.5 | 35.9 | 8 | -13.0 |
+| Elic Ayomanor | receiving yards | betrivers | 23.5 | -150 / +104 | 55.0% | n/a | 34.1 | 25.7 | 8 | 10.6 |
+| Chimere Dike | receiving yards | fanduel | 29.5 | -114 / -114 | 50.0% | 50.0% | 39.7 | 23.1 | 6 | 10.2 |
+| Chimere Dike | receiving yards | draftkings | 29.5 | -113 / -111 | 50.2% | 50.0% | 39.7 | 23.1 | 6 | 10.2 |
+| Chimere Dike | receiving yards | betrivers | 29.5 | -136 / -107 | 52.7% | 50.0% | 39.7 | 23.1 | 6 | 10.2 |
+| Chimere Dike | receiving yards | betmgm | 29.5 | -115 / -115 | 50.0% | 50.0% | 39.7 | 23.1 | 6 | 10.2 |
+| Chimere Dike | receiving yards | bovada | 29.5 | -115 / -115 | 50.0% | 50.0% | 39.7 | 23.1 | 6 | 10.2 |
 | Elic Ayomanor | receiving yards | betmgm | 24.5 | -115 / -115 | 50.0% | n/a | 34.1 | 25.7 | 8 | 9.6 |
-| Elic Ayomanor | receiving yards | draftkings | 25.5 | -113 / -111 | 50.2% | n/a | 34.1 | 25.7 | 8 | 8.6 |
-| Elic Ayomanor | receiving yards | betrivers | 25.5 | -141 / -105 | 53.3% | n/a | 34.1 | 25.7 | 8 | 8.6 |
-| Elic Ayomanor | receiving yards | bovada | 25.5 | -115 / -115 | 50.0% | n/a | 34.1 | 25.7 | 8 | 8.6 |
-| Brenton Strange | receiving yards | fanduel | 28.5 | -114 / -114 | 50.0% | 50.0% | 36.5 | 35.9 | 8 | 8.0 |
-| Brenton Strange | receiving yards | draftkings | 28.5 | -114 / -110 | 50.4% | 50.0% | 36.5 | 35.9 | 8 | 8.0 |
+| Jakobi Meyers | receiving yards | draftkings | 71.5 | -110 / -114 | 49.6% | n/a | 62.3 | 58.1 | 8 | -9.2 |
+| Chimere Dike | receiving yards | betonlineag | 30.5 | -114 / -114 | 50.0% | n/a | 39.7 | 23.1 | 6 | 9.2 |
+| Elic Ayomanor | receiving yards | fanduel | 25.5 | -114 / -114 | 50.0% | 50.0% | 34.1 | 25.7 | 8 | 8.6 |
+| Elic Ayomanor | receiving yards | draftkings | 25.5 | -115 / -109 | 50.6% | 50.0% | 34.1 | 25.7 | 8 | 8.6 |
+| Elic Ayomanor | receiving yards | betonlineag | 25.5 | -114 / -114 | 50.0% | 50.0% | 34.1 | 25.7 | 8 | 8.6 |
+| Elic Ayomanor | receiving yards | circasports | 25.5 | -110 / -110 | 50.0% | 50.0% | 34.1 | 25.7 | 8 | 8.6 |
+| Elic Ayomanor | receiving yards | bovada | 25.5 | -120 / -110 | 51.0% | 50.0% | 34.1 | 25.7 | 8 | 8.6 |
+| Jakobi Meyers | receiving yards | betonlineag | 70.5 | -114 / -114 | 50.0% | n/a | 62.3 | 58.1 | 8 | -8.2 |
+| Tony Pollard | rushing yards | bovada | 63.5 | +145 / -190 | 38.4% | n/a | 71.0 | 64.6 | 8 | 7.5 |
+| Josh Cameron | receiving yards | fanduel | 43.5 | -114 / -114 | 50.0% | 50.0% | 37.1 | 48.3 | 7 | -6.4 |
+| Josh Cameron | receiving yards | betonlineag | 43.5 | -114 / -114 | 50.0% | 50.0% | 37.1 | 48.3 | 7 | -6.4 |
+| Jakobi Meyers | receiving yards | fanduel | 68.5 | -114 / -114 | 50.0% | 52.2% | 62.3 | 58.1 | 8 | -6.2 |
+| Carnell Tate | receiving yards | bovada | 63.5 | +135 / -180 | 39.8% | n/a | 69.1 | 66.6 | 6 | 5.6 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -125,8 +125,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | TEN 18.3 - JAX 28.2 | 46.4 | +9.9 | 76.9% | 37.0% | 38.0% | TEN 8.1 - JAX 14.9 |
-| independent | TEN 17.8 - JAX 27.9 | 45.7 | +10.2 | 76.6% | 37.4% | 39.2% | TEN 7.6 - JAX 14.9 |
+| matchup_pair | TEN 18.3 - JAX 28.2 | 46.4 | +9.9 | 76.9% | 38.5% | 40.8% | TEN 8.1 - JAX 14.9 |
+| independent | TEN 17.8 - JAX 27.9 | 45.7 | +10.2 | 76.6% | 38.4% | 43.0% | TEN 7.6 - JAX 14.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -413,7 +413,7 @@ Neutral-situation pass rate 48.7%; 58.5 plays per game; target share WR 66% / TE
 | defense allows | Deep middle | 6 | 2% | 50% | 15.5 | 3 |
 | defense allows | Deep right | 31 | 11% | 39% | 9.48 | 8 |
 
-### TEN lines (depth chart as of 2026-11-26T17:41:02Z)
+### TEN lines (depth chart as of 2026-11-28T09:35:17Z)
 
 Offensive line: LT Dan Moore Jr., LG Chandler Zavala, C Austin Schlottmann, RG Atonio Mafi, RT JC Latham.  
 Defensive front: LDE Jacob Martin, LDT John Franklin-Myers, RDT Solomon Thomas, RDE Jermaine Johnson II, WLB Cedric Gray, SLB Cody Barton.
@@ -422,17 +422,19 @@ Defensive front: LDE Jacob Martin, LDT John Franklin-Myers, RDT Solomon Thomas, 
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Cordale Flott | CB | yes | none listed | Did Not Participate In Practice |  |
-| John Franklin-Myers | DE | yes | none listed | Limited Participation in Practice |  |
+| Cordale Flott | CB | yes | Out | Did Not Participate In Practice | Neck |
+| John Franklin-Myers | DE | yes | none listed | Full Participation in Practice |  |
+| Tony Pollard | RB | yes | none listed | Full Participation in Practice |  |
 | Tony Adams | S | yes | none listed | Full Participation in Practice |  |
 | Kevin Winston Jr. | S | yes | none listed | Full Participation in Practice |  |
-| Dan Moore Jr. | T | yes | none listed | Did Not Participate In Practice |  |
+| Dan Moore Jr. | T | yes | Questionable | Limited Participation in Practice | Knee |
 | Carnell Tate | WR | yes | none listed | Full Participation in Practice |  |
-| Fernando Carmona | G |  | none listed | Full Participation in Practice |  |
-| Terrell Burgess | S |  | none listed | Did Not Participate In Practice |  |
+| Fernando Carmona | G |  | Questionable | Full Participation in Practice | Ankle |
+| Dorian Mausi | LB |  | none listed | Full Participation in Practice |  |
+| Terrell Burgess | S |  | Out | Did Not Participate In Practice | Knee |
 | Kylen Granson | TE |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Cor'Dale Flott (CB) Questionable; Dorian Mausi (LB) Questionable.
+ESPN live list (designations only): Cor'Dale Flott (CB) Out; Terrell Burgess (S) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -637,7 +639,7 @@ Neutral-situation pass rate 53.2%; 61.5 plays per game; target share WR 64% / TE
 | defense allows | Deep middle | 8 | 3% | 38% | 11.0 | 2 |
 | defense allows | Deep right | 23 | 8% | 39% | 11.87 | 6 |
 
-### JAX lines (depth chart as of 2026-11-26T17:41:02Z)
+### JAX lines (depth chart as of 2026-11-28T09:35:17Z)
 
 Offensive line: LT Walker Little, LG Emmanuel Pregnon, C Robert Hainsey, RG Ezra Cleveland, RT Cole Van Lanen.  
 Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT Jordan Davis, RDE Josh Hines-Allen, WLB Foyesade Oluokun, SLB Dennis Gardeck.
@@ -646,21 +648,22 @@ Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT Jordan Davis, RDE Jos
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Robert Hainsey | C | yes | none listed | Limited Participation in Practice |  |
+| Robert Hainsey | C | yes | Questionable | Limited Participation in Practice | Knee |
 | Jarrian Jones | CB | yes | none listed | Full Participation in Practice |  |
 | Dennis Gardeck | LB | yes | none listed | Limited Participation in Practice |  |
-| Bhayshul Tuten | RB | yes | none listed | Did Not Participate In Practice |  |
-| Cole Van Lanen | T | yes | none listed | Limited Participation in Practice |  |
+| Bhayshul Tuten | RB | yes | Out | Did Not Participate In Practice | Ankle |
+| Cole Van Lanen | T | yes | none listed | Full Participation in Practice |  |
 | Walker Little | T | yes | none listed | Limited Participation in Practice |  |
+| Parker Washington | WR | yes | Out | Did Not Participate In Practice | Shoulder |
 | Jonah Monheim | C |  | none listed | Limited Participation in Practice |  |
-| BJ Green II | DE |  | none listed | Full Participation in Practice |  |
-| Danny Striggow | DE |  | none listed | Limited Participation in Practice |  |
+| BJ Green II | DE |  | Out | Full Participation in Practice | Forearm |
+| Danny Striggow | DE |  | none listed | Full Participation in Practice |  |
 | Matt Dickerson | DT |  | none listed | Limited Participation in Practice |  |
-| Patrick Mekari | G |  | none listed | Limited Participation in Practice |  |
+| Patrick Mekari | G |  | Out | Limited Participation in Practice | Back |
 | Chris Rodriguez Jr. | RB |  | none listed | Full Participation in Practice |  |
-| Jakobi Meyers | WR |  | none listed | Limited Participation in Practice |  |
+| Jakobi Meyers | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Matt Dickerson (DE) Questionable; Robert Hainsey (C) Questionable; Jakobi Meyers (WR) Questionable; Cole Van Lanen (OT) Questionable; Jonah Monheim (C) Questionable; Dennis Gardeck (LB) Questionable; Patrick Mekari (G) Injured Reserve; Parker Washington (WR) Questionable; Bhayshul Tuten (RB) Questionable.
+ESPN live list (designations only): Parker Washington (WR) Out; Bhayshul Tuten (RB) Out; Patrick Mekari (G) Injured Reserve; B.J. Green II (DE) Injured Reserve; Robert Hainsey (C) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -704,20 +707,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-27T04:31:42+00:00 | ae62898ec00e |
-| pbp | OK | 2026-11-27T04:31:43+00:00 | 80be4d265972 |
-| rosters | OK | 2026-11-27T04:31:43+00:00 | 73ab519d2b6d |
-| injuries | OK | 2026-11-27T04:31:43+00:00 | b40c5c041074 |
-| depth_charts | OK | 2026-11-27T04:31:43+00:00 | d4af2fc566a2 |
-| snap_counts | OK | 2026-11-27T04:31:44+00:00 | 923df2bfeef1 |
-| ftn | OK | 2026-11-27T04:31:44+00:00 | ee09d5f28f5f |
-| pfr_def | OK | 2026-11-27T04:31:44+00:00 | f1217d79cc1e |
-| pfr_rec | OK | 2026-11-27T04:31:44+00:00 | 14b79cccde48 |
-| pfr_rush | OK | 2026-11-27T04:31:45+00:00 | 45b28d9bfb26 |
-| ngs_receiving | OK | 2026-11-27T04:31:45+00:00 | 2b336f985ad8 |
-| ngs_rushing | OK | 2026-11-27T04:31:45+00:00 | 9cde647ab3c8 |
-| ngs_passing | OK | 2026-11-27T04:31:46+00:00 | 02d9d8211a15 |
-| espn_injuries | OK | 2026-11-27T04:31:46+00:00 |  |
+| games | OK | 2026-11-28T15:06:24+00:00 | 16b042f07b0f |
+| pbp | OK | 2026-11-28T15:06:25+00:00 | b54bbd62874e |
+| rosters | OK | 2026-11-28T15:06:25+00:00 | 04b173dfc5ba |
+| injuries | OK | 2026-11-28T15:06:25+00:00 | ae9390d664d5 |
+| depth_charts | OK | 2026-11-28T15:06:25+00:00 | 422a684b26c9 |
+| snap_counts | OK | 2026-11-28T15:06:25+00:00 | cb8b5b09ed39 |
+| ftn | OK | 2026-11-28T15:06:26+00:00 | ee09d5f28f5f |
+| pfr_def | OK | 2026-11-28T15:06:26+00:00 | 26e568a89c46 |
+| pfr_rec | OK | 2026-11-28T15:06:26+00:00 | 8cc573297b5c |
+| pfr_rush | OK | 2026-11-28T15:06:26+00:00 | a8fe17c244fc |
+| ngs_receiving | OK | 2026-11-28T15:06:26+00:00 | d3a53f1333bf |
+| ngs_rushing | OK | 2026-11-28T15:06:26+00:00 | b6a7dae36980 |
+| ngs_passing | OK | 2026-11-28T15:06:27+00:00 | 30f7e7cbe73c |
+| espn_injuries | OK | 2026-11-28T15:06:27+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
