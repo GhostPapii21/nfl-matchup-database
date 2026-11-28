@@ -60,9 +60,10 @@ def main(argv=None) -> int:
     )
     print(summary_text(result))
     print(f"execution: {result['status']} accepted={result['accepted']} projection_ready=false")
-    if args.strict and not result["accepted"]:
-        return 3
-    return 0
+    # Exit 0 only when every selected phase passed. --strict remains accepted and changes nothing.
+    if result["accepted"]:
+        return 0
+    return 3
 
 
 if __name__ == "__main__":

@@ -594,6 +594,28 @@ def test_cli_strict_fails_closed_when_the_mandatory_task_is_skipped(tmp_path):
     assert code == 3
 
 
+def test_cli_exits_zero_only_when_the_run_is_accepted(tmp_path):
+    from pipeline.execution.__main__ import main
+
+    packet_path = tmp_path / "packet.json"
+    packet_path.write_text(json.dumps(_packet()))
+    fresh_path = tmp_path / "fresh.json"
+    fresh_path.write_text(json.dumps(_fresh()))
+    refused = main([
+        "--game", GAME, "--packet", str(packet_path), "--run-id", RUN,
+        "--receipt-dir", str(tmp_path / "refused"), "--code-revision", REV,
+        "--freshness-json", str(fresh_path), "--phase", "12",
+        "--skip-task", "phase12.weather_adjust",
+    ])
+    assert refused == 3
+    accepted = main([
+        "--game", GAME, "--packet", str(packet_path), "--run-id", RUN + "-ok",
+        "--receipt-dir", str(tmp_path / "accepted"), "--code-revision", REV,
+        "--freshness-json", str(fresh_path), "--phase", "12",
+    ])
+    assert accepted == 0
+
+
 def test_existing_freshness_ledger_is_unchanged_and_not_execution():
     """The NFL-56 checker still reports input freshness. AUTO is not an execution receipt."""
     from pipeline import phases as phases
