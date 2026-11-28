@@ -6,6 +6,7 @@
   "orchestrator",
   "matchup_research",
   "script_models",
+  "sim_v6",
   "player_board",
   "decision"
  ],
@@ -13,8 +14,8 @@
   {
    "analytical_execution": false,
    "calibration_status": null,
-   "duration_seconds": 0.066427,
-   "ended_utc": "2026-11-28T04:17:30+00:00",
+   "duration_seconds": 0.032768,
+   "ended_utc": "2026-11-28T05:43:55+00:00",
    "function": "resolve",
    "id": "schedule",
    "inputs": [
@@ -50,15 +51,15 @@
    ],
    "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:30+00:00",
+   "started_utc": "2026-11-28T05:43:55+00:00",
    "status": "BLOCKED",
    "trials": null
   },
   {
    "analytical_execution": false,
    "calibration_status": null,
-   "duration_seconds": 0.985871,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "duration_seconds": 0.569913,
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "function": "run_games",
    "id": "orchestrator",
    "inputs": [
@@ -77,7 +78,7 @@
    ],
    "reason": "existing modules joined in module-id order",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:30+00:00",
+   "started_utc": "2026-11-28T05:43:55+00:00",
    "status": "EXECUTED",
    "trials": null
   },
@@ -85,7 +86,7 @@
    "analytical_execution": false,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "freshness",
    "function": "freshness_check",
    "id": "orchestrator.freshness_check",
@@ -97,7 +98,7 @@
    "outputs": [],
    "reason": "PARTIAL",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "EXECUTED",
    "trials": null
   },
@@ -105,7 +106,7 @@
    "analytical_execution": false,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "adapter",
    "function": "game_identity",
    "id": "orchestrator.game_identity",
@@ -117,7 +118,7 @@
    "outputs": [],
    "reason": "PASS",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "EXECUTED",
    "trials": null
   },
@@ -125,7 +126,7 @@
    "analytical_execution": true,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "analytical",
    "function": "matchup_edges",
    "id": "orchestrator.matchup_edges",
@@ -137,7 +138,7 @@
    "outputs": [],
    "reason": "PASS",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "EXECUTED",
    "trials": null
   },
@@ -145,7 +146,7 @@
    "analytical_execution": false,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "adapter",
    "function": "ngs_matchup",
    "id": "orchestrator.ngs_matchup",
@@ -157,7 +158,7 @@
    "outputs": [],
    "reason": "orchestrator child status MISSING",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "MISSING",
    "trials": null
   },
@@ -165,7 +166,7 @@
    "analytical_execution": false,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "freshness",
    "function": "phase_ledger",
    "id": "orchestrator.phase_ledger",
@@ -177,7 +178,7 @@
    "outputs": [],
    "reason": "PASS",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "EXECUTED",
    "trials": null
   },
@@ -185,7 +186,7 @@
    "analytical_execution": true,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "analytical",
    "function": "rain_adjustment",
    "id": "orchestrator.rain_adjustment",
@@ -197,7 +198,7 @@
    "outputs": [],
    "reason": "PASS",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "EXECUTED",
    "trials": null
   },
@@ -205,7 +206,7 @@
    "analytical_execution": false,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "gate",
    "function": "sim100k_preflight",
    "id": "orchestrator.sim100k_preflight",
@@ -217,7 +218,7 @@
    "outputs": [],
    "reason": "orchestrator child status REFUSED",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "REFUSED",
    "trials": null
   },
@@ -225,7 +226,7 @@
    "analytical_execution": false,
    "calibration_status": null,
    "duration_seconds": 0.0,
-   "ended_utc": "2026-11-28T04:17:31+00:00",
+   "ended_utc": "2026-11-28T05:43:56+00:00",
    "execution_class": "stub",
    "function": "sim_v6_contract",
    "id": "orchestrator.sim_v6_contract",
@@ -233,19 +234,19 @@
    "kind": "check",
    "model_identity": null,
    "module": "pipeline.orchestrator.modules",
-   "orchestrator_status": "BLOCKED",
+   "orchestrator_status": "FAILED",
    "outputs": [],
-   "reason": "orchestrator child status BLOCKED",
+   "reason": "orchestrator child status FAILED",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
-   "status": "BLOCKED",
+   "started_utc": "2026-11-28T05:43:56+00:00",
+   "status": "FAILED",
    "trials": null
   },
   {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 1.359118,
-   "ended_utc": "2026-11-28T04:17:32+00:00",
+   "duration_seconds": 1.055789,
+   "ended_utc": "2026-11-28T05:43:57+00:00",
    "function": "build_packet",
    "id": "matchup_research",
    "inputs": [
@@ -264,19 +265,20 @@
    ],
    "reason": "prior-week matchup packet",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:31+00:00",
+   "started_utc": "2026-11-28T05:43:56+00:00",
    "status": "EXECUTED",
    "trials": null
   },
   {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 4.989269,
-   "ended_utc": "2026-11-28T04:17:37+00:00",
+   "duration_seconds": 4.107248,
+   "ended_utc": "2026-11-28T05:44:01+00:00",
    "function": "run_historical_replay",
    "id": "script_models",
    "inputs": [
     {
+     "acceptance_100k": false,
      "period_n": 400,
      "possession_n": 24
     }
@@ -287,20 +289,50 @@
    "outputs": [
     {
      "path": "script_models/manifest.json",
-     "sha256": "1b80ab2dde3770270be4f3b6290db84afaec2ac2c482ae8ed44513007a4887c8"
+     "sha256": "3a3430ea1ef0350ea22166e183c320d1573a1cb3ab6b34a76e56a45041ac1d0e"
     }
    ],
    "reason": "each engine and branch kept its own record",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:32+00:00",
+   "started_utc": "2026-11-28T05:43:57+00:00",
    "status": "EXECUTED",
    "trials": null
   },
   {
+   "analytical_execution": false,
+   "calibration_status": "MISSING",
+   "duration_seconds": 0.000209,
+   "ended_utc": "2026-11-28T05:44:01+00:00",
+   "function": "acceptance_receipt",
+   "id": "sim_v6",
+   "inputs": [
+    {
+     "cells": 9,
+     "fallback_used": false,
+     "trials_executed": 0,
+     "trials_required": 900000
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "tools.sim_v6",
+   "outputs": [
+    {
+     "path": "sim_v6_receipt.json",
+     "sha256": "c75a734ce0d2877ddb28f367a5ec1178c8ed114815a94bd1e67fab99b7e4c416"
+    }
+   ],
+   "reason": "The recovered sim_v6 source has mc, bias, and gr and no game-script argument. Three methods times three scripts at 100000 trials were not run. The count was not reduced, and no other engine was labeled sim_v6.",
+   "seed": null,
+   "started_utc": "2026-11-28T05:44:01+00:00",
+   "status": "REFUSED",
+   "trials": 0
+  },
+  {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 0.023567,
-   "ended_utc": "2026-11-28T04:17:37+00:00",
+   "duration_seconds": 0.012729,
+   "ended_utc": "2026-11-28T05:44:01+00:00",
    "function": "from_packet",
    "id": "player_board",
    "inputs": [
@@ -315,26 +347,26 @@
    "outputs": [
     {
      "path": "player_board.json",
-     "sha256": "250cc6aa54ba652e79aedad7407c5c084c8188bfeb89002a61fcbd88148c9904"
+     "sha256": "19ed2185c41211a6a322cf617e47a2f28cd1a102a174c9766e6a640188f86415"
     }
    ],
    "reason": "volume kept separate from efficiency",
    "seed": 89,
-   "started_utc": "2026-11-28T04:17:37+00:00",
+   "started_utc": "2026-11-28T05:44:01+00:00",
    "status": "EXECUTED",
    "trials": 400
   },
   {
-   "analytical_execution": true,
+   "analytical_execution": false,
    "calibration_status": null,
-   "duration_seconds": 0.000124,
-   "ended_utc": "2026-11-28T04:17:37+00:00",
+   "duration_seconds": 0.001005,
+   "ended_utc": "2026-11-28T05:44:01+00:00",
    "function": "build_board",
    "id": "decision",
    "inputs": [
     {
      "lines": 18,
-     "theses": 2
+     "theses": 6
     }
    ],
    "kind": "analytical",
@@ -343,29 +375,30 @@
    "outputs": [
     {
      "path": "decision_board.json",
-     "sha256": "3d50f5cae694f24e53fce96eff642d0c35a3e1be25d31f6f5e529e1d0a8e1a78"
+     "sha256": "b407a0051fcddba653ebb427ad7fc96978859740ac57007917aa5ac3f826271c"
     },
     {
      "path": "decision_board.md",
-     "sha256": "46aa58bb80047f3e9869914452dfab28d95ea6bb604ebda5e8693bec34f1d186"
+     "sha256": "4df65de1bb4d88ae835df5d921b5c67516432a2bfb83bfa78d59d5cc4690d715"
     }
    ],
-   "reason": "red team consumed joined lines; empty sections stay empty",
+   "reason": "kickoff is UNVERIFIED, so as-of was not compared with an authoritative kickoff; artifact hash does not match the file on disk",
    "seed": null,
-   "started_utc": "2026-11-28T04:17:37+00:00",
-   "status": "EXECUTED",
+   "started_utc": "2026-11-28T05:44:01+00:00",
+   "status": "REFUSED",
    "trials": null
   }
  ],
  "counts": {
-  "BLOCKED": 2,
-  "EXECUTED": 10,
+  "BLOCKED": 1,
+  "EXECUTED": 9,
+  "FAILED": 1,
   "MISSING": 1,
-  "REFUSED": 1
+  "REFUSED": 3
  },
  "game_id": "2026_12_LV_CLE",
  "git": {
-  "commit": "949814321e1f76a855b3e1e0d5bb20e00e5490bd",
+  "commit": "ec20087a829796efe52665f9e3b4f110543586f4",
   "dirty": true
  },
  "hashes": {
@@ -440,6 +473,6 @@
  "projection_ready": false,
  "research_only": true,
  "result": "BLOCKED",
- "run_id": "13363422a9aacd2b",
+ "run_id": "b8f24d7ef19c9675",
  "schema": "sunday-canonical-manifest/1"
 }

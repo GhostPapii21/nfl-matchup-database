@@ -7,7 +7,7 @@ This board does not target a number of picks and does not compute a hit rate. Em
 - Kickoff (UTC): None
 - projection_ready: false
 - edge_claim_allowed: false
-- Section counts: {'strong_reads': 0, 'soft_leans': 0, 'avoids': 0, 'no_plays': 2}
+- Section counts: {'strong_reads': 0, 'soft_leans': 0, 'avoids': 0, 'no_plays': 6}
 
 ## Market snapshots
 
@@ -17,6 +17,10 @@ Book, market, line, price, timestamp and missing-line status are recorded for ev
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | HOU | spread | HOU | — | — | — | — | yes | — | — | — | — | NOT_COMPUTED_MISSING_LINE |
 | GAME | total | HOU | — | — | — | — | yes | — | — | — | — | NOT_COMPUTED_MISSING_LINE |
+| T.Huntley | pass_yds | over | — | — | — | — | yes | — | — | — | — | NOT_COMPUTED_MISSING_LINE |
+| J.Brissett | pass_yds | over | — | — | — | — | yes | — | — | — | — | NOT_COMPUTED_MISSING_LINE |
+| C.Stroud | pass_yds | over | — | — | — | — | yes | — | — | — | — | NOT_COMPUTED_MISSING_LINE |
+| D.Mills | pass_yds | over | — | — | — | — | yes | — | — | — | — | NOT_COMPUTED_MISSING_LINE |
 
 ## Model probabilities
 
@@ -25,6 +29,22 @@ Threshold probability: — (withheld_no_model_probability). Disagreement: —.
 No model probability was published.
 
 ### team:total:HOU:None — consensus absent
+Threshold probability: — (withheld_no_model_probability). Disagreement: —.
+No model probability was published.
+
+### player:T.Huntley:pass — consensus absent
+Threshold probability: — (withheld_no_model_probability). Disagreement: —.
+No model probability was published.
+
+### player:J.Brissett:pass — consensus absent
+Threshold probability: — (withheld_no_model_probability). Disagreement: —.
+No model probability was published.
+
+### player:C.Stroud:pass — consensus absent
+Threshold probability: — (withheld_no_model_probability). Disagreement: —.
+No model probability was published.
+
+### player:D.Mills:pass — consensus absent
 Threshold probability: — (withheld_no_model_probability). Disagreement: —.
 No model probability was published.
 
@@ -62,6 +82,70 @@ Red-team checks:
 - Decision: NO PLAY: model probability is absent, so implied probability and edge were not calculated.
 - Decision: NO PLAY: sportsbook line is also missing.
 
+### player:T.Huntley:pass — reject / no_plays
+Supporting evidence:
+- none supplied (unspecified)
+Contradicting evidence:
+- No 100k sim_v6 probability was joined, so this passing row cannot support a read. (unspecified)
+Red-team checks:
+- Defensive suppression: none supplied; material=False
+- Role/volume fragility: tag=volume, fragile=False. 
+- Efficiency dependence: depends=True, support cited=False
+- Injury contingency:
+- Weather contingency:
+- Game script contingency:
+- Sample quality: n=None, withheld=True, blocks_reads=True. Passing and touchdown distributions stay on the script branch artifacts. They were not turned into one probability.
+- Decision: NO PLAY: model probability is absent, so implied probability and edge were not calculated.
+- Decision: NO PLAY: sportsbook line is also missing.
+
+### player:J.Brissett:pass — reject / no_plays
+Supporting evidence:
+- none supplied (unspecified)
+Contradicting evidence:
+- No 100k sim_v6 probability was joined, so this passing row cannot support a read. (unspecified)
+Red-team checks:
+- Defensive suppression: none supplied; material=False
+- Role/volume fragility: tag=volume, fragile=False. 
+- Efficiency dependence: depends=True, support cited=False
+- Injury contingency:
+- Weather contingency:
+- Game script contingency:
+- Sample quality: n=None, withheld=True, blocks_reads=True. Passing and touchdown distributions stay on the script branch artifacts. They were not turned into one probability.
+- Decision: NO PLAY: model probability is absent, so implied probability and edge were not calculated.
+- Decision: NO PLAY: sportsbook line is also missing.
+
+### player:C.Stroud:pass — reject / no_plays
+Supporting evidence:
+- none supplied (unspecified)
+Contradicting evidence:
+- No 100k sim_v6 probability was joined, so this passing row cannot support a read. (unspecified)
+Red-team checks:
+- Defensive suppression: none supplied; material=False
+- Role/volume fragility: tag=volume, fragile=False. 
+- Efficiency dependence: depends=True, support cited=False
+- Injury contingency:
+- Weather contingency:
+- Game script contingency:
+- Sample quality: n=None, withheld=True, blocks_reads=True. Passing and touchdown distributions stay on the script branch artifacts. They were not turned into one probability.
+- Decision: NO PLAY: model probability is absent, so implied probability and edge were not calculated.
+- Decision: NO PLAY: sportsbook line is also missing.
+
+### player:D.Mills:pass — reject / no_plays
+Supporting evidence:
+- none supplied (unspecified)
+Contradicting evidence:
+- No 100k sim_v6 probability was joined, so this passing row cannot support a read. (unspecified)
+Red-team checks:
+- Defensive suppression: none supplied; material=False
+- Role/volume fragility: tag=volume, fragile=False. 
+- Efficiency dependence: depends=True, support cited=False
+- Injury contingency:
+- Weather contingency:
+- Game script contingency:
+- Sample quality: n=None, withheld=True, blocks_reads=True. Passing and touchdown distributions stay on the script branch artifacts. They were not turned into one probability.
+- Decision: NO PLAY: model probability is absent, so implied probability and edge were not calculated.
+- Decision: NO PLAY: sportsbook line is also missing.
+
 ## Final board
 
 Columns: player/team, market, projection, threshold probability, role tag, confidence, model consensus, warnings.
@@ -88,11 +172,27 @@ None.
 | GAME | total  | HOU | not published | — | team_score | none | absent | research_only; projection_ready_false; not_a_pick; edge_is_not_a_claim; red_team_categories_not_supplied:defensive_suppression,role_volume_fragility,efficiency_dependence,injury,weather,game_script; sample_limitation |
 | | | | | | | | | NO PLAY: model probability is absent, so implied probability and edge were not calculated. |
 | | | | | | | | | NO PLAY: sportsbook line is also missing. |
+| T.Huntley | pass_yds  | over | not published | — | volume | none | absent | research_only; projection_ready_false; not_a_pick; edge_is_not_a_claim; red_team_categories_not_supplied:defensive_suppression,role_volume_fragility,injury,weather,game_script; sample_limitation |
+| | | | | | | | | NO PLAY: model probability is absent, so implied probability and edge were not calculated. |
+| | | | | | | | | NO PLAY: sportsbook line is also missing. |
+| J.Brissett | pass_yds  | over | not published | — | volume | none | absent | research_only; projection_ready_false; not_a_pick; edge_is_not_a_claim; red_team_categories_not_supplied:defensive_suppression,role_volume_fragility,injury,weather,game_script; sample_limitation |
+| | | | | | | | | NO PLAY: model probability is absent, so implied probability and edge were not calculated. |
+| | | | | | | | | NO PLAY: sportsbook line is also missing. |
+| C.Stroud | pass_yds  | over | not published | — | volume | none | absent | research_only; projection_ready_false; not_a_pick; edge_is_not_a_claim; red_team_categories_not_supplied:defensive_suppression,role_volume_fragility,injury,weather,game_script; sample_limitation |
+| | | | | | | | | NO PLAY: model probability is absent, so implied probability and edge were not calculated. |
+| | | | | | | | | NO PLAY: sportsbook line is also missing. |
+| D.Mills | pass_yds  | over | not published | — | volume | none | absent | research_only; projection_ready_false; not_a_pick; edge_is_not_a_claim; red_team_categories_not_supplied:defensive_suppression,role_volume_fragility,injury,weather,game_script; sample_limitation |
+| | | | | | | | | NO PLAY: model probability is absent, so implied probability and edge were not calculated. |
+| | | | | | | | | NO PLAY: sportsbook line is also missing. |
 
 ## Abstentions
 
 - team:spread:HOU:None (reject): NO PLAY: model probability is absent, so implied probability and edge were not calculated. NO PLAY: sportsbook line is also missing.
 - team:total:HOU:None (reject): NO PLAY: model probability is absent, so implied probability and edge were not calculated. NO PLAY: sportsbook line is also missing.
+- player:T.Huntley:pass (reject): NO PLAY: model probability is absent, so implied probability and edge were not calculated. NO PLAY: sportsbook line is also missing.
+- player:J.Brissett:pass (reject): NO PLAY: model probability is absent, so implied probability and edge were not calculated. NO PLAY: sportsbook line is also missing.
+- player:C.Stroud:pass (reject): NO PLAY: model probability is absent, so implied probability and edge were not calculated. NO PLAY: sportsbook line is also missing.
+- player:D.Mills:pass (reject): NO PLAY: model probability is absent, so implied probability and edge were not calculated. NO PLAY: sportsbook line is also missing.
 
 ## Boundaries
 

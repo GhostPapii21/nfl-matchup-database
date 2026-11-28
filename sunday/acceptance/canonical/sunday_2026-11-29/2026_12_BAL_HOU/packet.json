@@ -1,7 +1,7 @@
 {
  "as_of_utc": "2026-11-29T12:00:00+00:00",
  "canonical_manifest": "manifest.json",
- "canonical_sha256": "638049833785964f8c333058cf6252437bb8967c450b70bde0b5aafb7f02c1dc",
+ "canonical_sha256": "c9930cd8cfb0db68fac34410c4d2507d841908fe762fc5a00373bef6e6e82a4e",
  "checks": [
   {
    "detail": "Schedule identity matches. Kickoff 2026-11-29T18:00:00+00:00.",
@@ -197,10 +197,11 @@
  },
  "command": "python -m sunday game --game 2026_12_BAL_HOU --as-of 2026-11-29T12:00:00+00:00",
  "component_counts": {
-  "BLOCKED": 2,
-  "EXECUTED": 10,
+  "BLOCKED": 1,
+  "EXECUTED": 9,
+  "FAILED": 1,
   "MISSING": 1,
-  "REFUSED": 1
+  "REFUSED": 3
  },
  "critical_ids": [],
  "freshness": [
@@ -407,7 +408,7 @@
   "week": 12
  },
  "game_id": "2026_12_BAL_HOU",
- "git_sha": "949814321e1f76a855b3e1e0d5bb20e00e5490bd",
+ "git_sha": "ec20087a829796efe52665f9e3b4f110543586f4",
  "kickoff_utc": "2026-11-29T18:00:00+00:00",
  "kickoff_verification": "UNVERIFIED",
  "layer_gaps": [
@@ -596,12 +597,12 @@
   }
  },
  "runtime": {
-  "disk_free_bytes": 261720649728,
+  "disk_free_bytes": 261716369408,
   "memory": {
    "detail": "Per-game tracemalloc is off during fan-out. The slate index records process max RSS.",
-   "process_max_rss_kb": 914124
+   "process_max_rss_kb": 835628
   },
-  "wall_seconds": 19.742308
+  "wall_seconds": 15.544903
  },
  "scheduler": {
   "detail": "Manual local execution. GitHub Actions is not invoked and no schedule is registered.",

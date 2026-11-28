@@ -18,6 +18,12 @@ python -m sunday replay --game 2026_12_DEN_PIT
 `game` and `slate` call the registered components in this order, and write `manifest.json` for every game:
 
 1. `sunday.kickoff.resolve` — compares the offline NFL.com schedule capture (`data/schedule/nfl_official_schedule.json`, with `source` `https://www.nfl.com/schedules/...`, `retrieved_utc`, and `as_of`) to ESPN, `games.csv`, the possession-engine config, and the pregame packet. That capture is the only canonical clock. This checkout does not contain it, so LV@CLE, TEN@JAX, and NE@LAC stay `UNVERIFIED` / `BLOCKED`. Their recorded clocks still show the disagreement. Config files are not rewritten. A freshness or ledger row inside the orchestrator stays a check. A child `REFUSED`, `BLOCKED`, or `MISSING` status is its own manifest row and cannot make the manifest PASS.
+
+The decision row reads the research packet, the script manifest, and the player board, and it checks those file hashes. Coverage assignments stay `unavailable` unless a verified charting field is present. A sack or `qb_hit` target is `inferred`, not charted pressure. Possession touchdown reconciliation is copied onto the script record when the player box ran. It is not estimated when the box is missing.
+
+`tools/sim_v6.py` is the recovered historical prop engine's contract (blob `ab2144f03f6ca3b57950a1f2528e305193e723cd`). That source has `mc`, `bias`, and `gr` and no game-script argument, so the 3 x 3 x 100000 run is `REFUSED` with zero trials executed. Bias is refused without a dated holdout. No other engine is labeled sim_v6. A 24-trial or 400-trial possession or period run is not that acceptance.
+
+`sunday.jobs.JobStore` is a local sqlite queue for idempotent game windows, lease recovery, and an inactive lock. It does not call GitHub Actions and it does not create a Render service.
 2. `pipeline.orchestrator.runner.run_games`
 3. `pipeline.matchup_research.build.build_packet`
 4. `sunday.script_models.run_historical_replay`

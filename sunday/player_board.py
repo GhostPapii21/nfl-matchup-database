@@ -669,12 +669,20 @@ def _situational_block(sit: dict | None) -> dict:
         missing = "play-by-play situational counts were not supplied"
         return {"red_zone": _blocked(missing, "pbp"), "goal_line": _blocked(missing, "pbp"),
                 "third_down": _blocked(missing, "pbp"), "checkdown": _blocked(missing, "pbp"),
-                "pressure_targets": _blocked(missing, "pbp"), "opponent_quality": _blocked(missing, "pbp"),
-                "routes": _blocked("route participation is not in nflverse play-by-play", "pbp"),
-                "route_participation": _blocked("route participation is not in nflverse play-by-play", "pbp"),
-                "coverage_route_access": _blocked("no player-route coverage assignment is on the play-by-play", "pbp")}
+                "pressure_targets": {**_blocked(missing, "pbp"), "evidence_tier": "unavailable", "charting": "unavailable"},
+                "opponent_quality": _blocked(missing, "pbp"),
+                "routes": {**_blocked("route participation is not in nflverse play-by-play", "pbp"), "evidence_tier": "unavailable"},
+                "route_participation": {**_blocked("route participation is not in nflverse play-by-play", "pbp"), "evidence_tier": "unavailable"},
+                "coverage_route_access": {**_blocked("no player-route coverage assignment is on the play-by-play", "pbp"),
+                                          "evidence_tier": "unavailable", "charting": "unavailable"}}
     routes = sit.get("routes_status") or _blocked("route participation is not in nflverse play-by-play", "pbp")
     coverage = sit.get("coverage_status") or _blocked("no player-route coverage assignment is on the play-by-play", "pbp")
+    if isinstance(routes, dict):
+        routes = {**routes, "evidence_tier": routes.get("evidence_tier") or "unavailable"}
+    if isinstance(coverage, dict):
+        coverage = {**coverage, "evidence_tier": "unavailable" if coverage.get("status") != "OK" else coverage.get("evidence_tier") or "measured",
+                    "charting": "unavailable",
+                    "evidence_note": "No verified player-route coverage assignment is in this extract. Depth-chart names are not an assignment."}
     return {
         "red_zone": _ratio(sit.get("red_zone_targets"), sit.get("team_red_zone_targets"), "pbp yardline_100 <= 20"),
         "goal_line": {"targets": _ratio(sit.get("goal_line_targets"), sit.get("team_goal_line_targets"), "pbp yardline_100 <= 5"),
@@ -683,7 +691,12 @@ def _situational_block(sit: dict | None) -> dict:
         "third_down": _ratio(sit.get("third_down_targets"), sit.get("team_third_down_targets"), "pbp third_down_converted + third_down_failed > 0"),
         "checkdown": _ratio(sit.get("checkdown_targets"), sit.get("third_down_targets_with_air"),
                             f"third-down targets with air_yards < {CHECKDOWN_AIR_LT:g}"),
-        "pressure_targets": _ratio(sit.get("pressure_targets"), sit.get("team_pressure_targets"), "target on a sack or qb_hit play"),
+        "pressure_targets": {
+            **_ratio(sit.get("pressure_targets"), sit.get("team_pressure_targets"), "target on a sack or qb_hit play"),
+            "evidence_tier": "inferred",
+            "charting": "unavailable",
+            "evidence_note": "A sack or qb_hit on the target play is a result proxy. It is not charted decision-time pressure.",
+        },
         "opponent_quality": ({"status": "OK", "entering_pass_yards_allowed_per_game": _r(sit.get("opponent_pass_yards_allowed_entering"), 1),
                               "games": sit.get("opponent_quality_games"),
                               "definition": "mean of the opponent's prior-week pass yards allowed per game, weeks strictly before each of his games"}

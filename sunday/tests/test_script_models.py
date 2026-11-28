@@ -200,7 +200,9 @@ def test_fake_replay_keeps_branches_and_methods_unpooled(tmp_path):
     sim_v6 = _load(out, "models/sim_v6.json")
     assert sim_v6["simulated"] is False
     assert sim_v6["three_method_sim_v6_ran"] is False
-    assert sim_v6["status"] == "BLOCKED_ENTRYPOINT_ABSENT"
+    assert sim_v6["status"] == "REFUSED"
+    assert sim_v6["trials"] == 0
+    assert sim_v6["trials_required"] == 900_000
     assert sim_v6["calibration_status"] == "UNVALIDATED"
     sim100k = _load(out, "models/pipeline.sim100k__preflight.json")
     assert sim100k["simulated"] is False and sim100k["status"] == "REFUSED"

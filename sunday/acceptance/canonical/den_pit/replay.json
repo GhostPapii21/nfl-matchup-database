@@ -1,10 +1,10 @@
 {
  "as_of_utc": "2026-11-27T04:31:50+00:00",
- "canonical_sha256": "cdc50e7dfbc9f4589a8ac0917a48d8237e5bdfe2d374b86275461e38c64b395f",
+ "canonical_sha256": "f6b18d5d69cab230f7dd44dddc90f0dcb490bea660dab3230f3906dfbf70976c",
  "command": "python -m sunday replay --game 2026_12_DEN_PIT --as-of 2026-11-27T04:31:50+00:00",
  "detail": "Both runs share one canonical sha256. Runtime and RSS are recorded and are not part of that hash.",
  "game_id": "2026_12_DEN_PIT",
- "git_sha": "949814321e1f76a855b3e1e0d5bb20e00e5490bd",
+ "git_sha": "ec20087a829796efe52665f9e3b4f110543586f4",
  "leakage": {
   "excluded_count": 24,
   "inputs_read": [
@@ -22,9 +22,9 @@
  "research_only": true,
  "result": "PARTIAL",
  "run_a": {
-  "canonical_sha256": "cdc50e7dfbc9f4589a8ac0917a48d8237e5bdfe2d374b86275461e38c64b395f",
+  "canonical_sha256": "f6b18d5d69cab230f7dd44dddc90f0dcb490bea660dab3230f3906dfbf70976c",
   "critical_ids": [],
-  "memory": "tracemalloc peak 57395892 bytes; process max RSS 496172 KB",
+  "memory": "tracemalloc peak 57604404 bytes; process max RSS 504808 KB",
   "report": "run_a/2026_12_DEN_PIT/report.md",
   "required_ids": [
    "phases",
@@ -41,14 +41,14 @@
    "freshness.ngs_rushing"
   ],
   "result": "PARTIAL",
-  "wall_seconds": 8.820058
+  "wall_seconds": 8.390486
  },
  "run_b": {
-  "canonical_sha256": "cdc50e7dfbc9f4589a8ac0917a48d8237e5bdfe2d374b86275461e38c64b395f",
-  "memory": "tracemalloc peak 20293428 bytes; process max RSS 596472 KB",
+  "canonical_sha256": "f6b18d5d69cab230f7dd44dddc90f0dcb490bea660dab3230f3906dfbf70976c",
+  "memory": "tracemalloc peak 20344355 bytes; process max RSS 594200 KB",
   "report": "run_b/2026_12_DEN_PIT/report.md",
   "result": "PARTIAL",
-  "wall_seconds": 7.686591
+  "wall_seconds": 7.941056
  },
  "schema": "sunday-replay/1"
 }

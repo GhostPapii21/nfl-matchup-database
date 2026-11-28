@@ -14,3 +14,5 @@ python3 -m sunday slate --date 2026-11-29 --as-of 2026-11-29T12:00:00+00:00 --co
 ```
 
 The manifests in this folder are replaced when those commands are run again on this code.
+
+`sim_v6_receipt.json` records the recovered engine's refusal: 0 of 900000 trials, no fallback. The 24-trial and 400-trial script runs in the same manifest are not that acceptance. Coverage assignments stay unavailable. `projection_ready` is false.

@@ -480,6 +480,9 @@ def _sim_v6_record() -> dict:
     entry = ROOT / DOCUMENTED_SIM_V6
     calib = list(ROOT.glob("**/sim_v6_calib.json"))
     scratch = ROOT / "calibration" / "simv56" / "engines" / "cc_sim_v6.py"
+    from tools.sim_v6 import acceptance_receipt
+    receipt = acceptance_receipt() if entry.is_file() else None
+    refused = bool(receipt and receipt["status"] == "REFUSED")
     return {
         "engine_id": "sim_v6",
         "method": "absent",
@@ -490,16 +493,15 @@ def _sim_v6_record() -> dict:
         "called": False,
         "simulated": False,
         "three_method_sim_v6_ran": False,
-        "trials": None,
+        "trials": 0 if refused else None,
+        "trials_required": None if receipt is None else receipt["trials_required"],
         "seed": None,
         "calibration_status": "UNVALIDATED",
-        "bias_calibration_status": "UNVALIDATED_NO_ENTRYPOINT",
+        "bias_calibration_status": "MISSING" if refused else "UNVALIDATED_NO_ENTRYPOINT",
         "calibration_artifact": [str(p.relative_to(ROOT)) for p in calib],
-        "status": "BLOCKED_ENTRYPOINT_ABSENT" if not entry.is_file() else "PRESENT",
-        "blocker": None if entry.is_file() else (
-            "tools/sim_v6.py is not in this tree, so Monte Carlo, calibrated Bias and Game Randomness "
-            "were not run under that name. Bias stays unvalidated without that entrypoint and a calibration artifact."
-        ),
+        "status": "REFUSED" if refused else ("BLOCKED_ENTRYPOINT_ABSENT" if not entry.is_file() else "PRESENT"),
+        "blocker": None if receipt is None else receipt["reason"],
+        "acceptance_receipt": receipt,
         "not_used_as_substitute": [
             "calibration/simv56/engines/cc_sim_v6.py",
             "calibration/simv56/engines/cc_sim_v6_fix.py",
@@ -579,6 +581,33 @@ def _external_model_record(engine_id: str, where: str) -> dict:
         "artifact": None,
         "projection_ready": False,
         "limitations": ["Not substituted by the possession engine, the period engine, simv56, or sim100k."],
+    }
+
+
+def _scoring_conservation(player_box: Optional[dict]) -> dict:
+    """The possession box already reconciles offensive TDs to the engine's touchdown events.
+
+    A missing box is unavailable. It is not filled with a points-versus-touchdown estimate.
+    """
+    recon = (player_box or {}).get("reconciliation") if isinstance(player_box, dict) else None
+    if not isinstance(recon, dict):
+        return {
+            "status": "UNAVAILABLE",
+            "evidence_tier": "unavailable",
+            "reason": "The possession result did not include the player-box touchdown reconciliation.",
+        }
+    failures = int(recon.get("failures") or 0)
+    return {
+        "status": "MEASURED" if failures == 0 else "FAILED",
+        "evidence_tier": "measured",
+        "trials": recon.get("trials"),
+        "failures": failures,
+        "checks": recon.get("checks"),
+        "first_failures": recon.get("first_failures"),
+        "definition": (
+            "rush_td + rec_td + other_td equals the engine touchdown events for that team, "
+            "and player stat sums equal the team ledger. Passing and rushing touchdowns are not pooled."
+        ),
     }
 
 
@@ -782,6 +811,7 @@ def run_historical_replay(
                 "projection_ready": False,
                 "not_sim_v6": True,
                 "not_pipeline_sim100k": True,
+                "scoring_conservation": _scoring_conservation(result.get("player_box")),
                 "limitations": list(result.get("limitations") or []) + [
                     "Research trial count only. The 100k gate is a separate record.",
                 ],

@@ -19,6 +19,7 @@ ORDER = (
     "orchestrator",
     "matchup_research",
     "script_models",
+    "sim_v6",
     "player_board",
     "decision",
 )
@@ -278,12 +279,27 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
             sstatus = "FAILED"
             err = "script_models claimed the absent sim_v6 triad"
     manifest_path = script_dir / "manifest.json"
-    outputs = [{"path": "script_models/manifest.json", "sha256": _sha_file(manifest_path)}] if manifest_path.is_file() else []
+    script_sha = _sha_file(manifest_path) if manifest_path.is_file() else None
+    outputs = [{"path": "script_models/manifest.json", "sha256": script_sha}] if script_sha else []
     components.append(_row(
         "script_models", "sunday.script_models", "run_historical_replay", "analytical",
         sstatus, err or "each engine and branch kept its own record", started, ended,
-        [{"possession_n": possession_n, "period_n": period_n}], outputs,
+        [{"possession_n": possession_n, "period_n": period_n, "acceptance_100k": False}], outputs,
         trials=trials, seed=seed, model_identity=identity, calibration_status=calibration,
+    ))
+
+    started = datetime.now(timezone.utc)
+    from tools.sim_v6 import acceptance_receipt
+    sim_receipt = acceptance_receipt()
+    sim_sha = _dump(out_dir / "sim_v6_receipt.json", sim_receipt)
+    ended = datetime.now(timezone.utc)
+    components.append(_row(
+        "sim_v6", "tools.sim_v6", "acceptance_receipt", "analytical",
+        "REFUSED", sim_receipt["reason"], started, ended,
+        [{"cells": sim_receipt["cells_required"], "trials_required": sim_receipt["trials_required"],
+          "trials_executed": sim_receipt["trials_executed"], "fallback_used": False}],
+        [{"path": "sim_v6_receipt.json", "sha256": sim_sha}],
+        trials=0, calibration_status=sim_receipt["bias"]["calibration_status"],
     ))
 
     started = datetime.now(timezone.utc)
@@ -295,7 +311,10 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
         forced = _status_from_payload(board)
         if forced:
             bstatus = forced
-        outputs.append({"path": "player_board.json", "sha256": _dump(out_dir / "player_board.json", board)})
+        player_sha = _dump(out_dir / "player_board.json", board)
+        outputs.append({"path": "player_board.json", "sha256": player_sha})
+    else:
+        player_sha = None
     components.append(_row(
         "player_board", "sunday.player_board", "from_packet", "analytical",
         bstatus, err or "volume kept separate from efficiency", started, ended,
@@ -303,7 +322,30 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
     ))
 
     started = datetime.now(timezone.utc)
-    decision_input = _decision_packet(game, resolution["canonical_kickoff_utc"], packet or {})
+    from sunday.joinflow import build_joined_decision_input, hashes_match
+    research_row = next(row for row in components if row["id"] == "matchup_research")
+    research_sha = next((item.get("sha256") for item in research_row["outputs"] if item.get("sha256")), None)
+    recorded = {"research": research_sha, "script": script_sha, "player_board": player_sha}
+    on_disk = {
+        "research": _sha_file(out_dir / "matchup_research.json"),
+        "script": _sha_file(script_dir / "manifest.json"),
+        "player_board": _sha_file(out_dir / "player_board.json"),
+    }
+    base = _decision_packet(game, resolution.get("canonical_kickoff_utc"), packet or {})
+    decision_input = build_joined_decision_input(
+        game=game,
+        kickoff_utc=resolution.get("canonical_kickoff_utc"),
+        kickoff_verification=resolution.get("verification"),
+        as_of=as_of,
+        research=research if isinstance(research, dict) else None,
+        script=script if isinstance(script, dict) else None,
+        players=board if isinstance(board, dict) else None,
+        market_packet=packet or {},
+        hashes=recorded,
+        base_packet=base,
+    )
+    if not hashes_match(recorded, on_disk):
+        decision_input["joined"]["problems"].append("artifact hash does not match the file on disk")
     state, decision, err = _call("sunday.decision.board", "build_board", decision_input)
     ended = datetime.now(timezone.utc)
     dstatus = "NOT_REGISTERED" if state == "NOT_REGISTERED" else ("FAILED" if state == "FAILED" else "EXECUTED")
@@ -318,9 +360,13 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
             text = render_markdown(decision)
             (out_dir / "decision_board.md").write_text(text)
             outputs.append({"path": "decision_board.md", "sha256": _sha_bytes(text.encode())})
+    join_problems = decision_input["joined"]["problems"]
+    if join_problems and dstatus == "EXECUTED":
+        dstatus = "REFUSED"
+        err = "; ".join(join_problems)
     components.append(_row(
         "decision", "sunday.decision.board", "build_board", "analytical",
-        dstatus, err or "red team consumed joined lines; empty sections stay empty", started, ended,
+        dstatus, err or "red team consumed the joined research, script, player, and market rows", started, ended,
         [{"theses": len(decision_input["theses"]), "lines": len(decision_input["lines"])}], outputs,
     ))
     return _manifest(repo, game_id, as_of, command, resolution, components, out_dir, blocked=False)
