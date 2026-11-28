@@ -88,20 +88,41 @@ def test_repo_report_is_honest_and_report_only():
 
 
 def test_evidence_boundary_derived_live_from_repo():
-    """Live boundary uses committed LOCKs/EVALUATION; drafts and freezes never inflate counts."""
+    """Live boundary uses committed LOCKs/EVALUATION; drafts and freezes never inflate counts.
+
+    `w12_with_lock == []` was a time-bound fixture (no Week 12 snapshot LOCKs yet).
+    Legitimate pre-kickoff Week 12 LOCKs must be listed; they must not inflate
+    scored holdout counts, must be locked before kickoff, and must keep
+    projection_ready false. GB@LAR stays post-kickoff without a retroactive LOCK.
+    """
     r = R.evaluate()
     eb = r["evidence_boundary"]
+    assert r["report_only"] is True and r["projection_ready_flag"] is False
     assert eb["derived_live"] is True
     assert eb["open_draft_prs_do_not_count"] is True
     assert eb["price_freezes_do_not_count"] is True
     assert eb["pristine_games_scored"] == 14
     assert eb["pristine_weeks_scored"] == ["10", "11"]
     assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
-    assert eb["w12_with_lock"] == []
+    snaps = Path(R.ROOT) / "snapshots"
+    discovered = sorted({p.parent.parent.name for p in snaps.glob("2026_12_*/*/LOCK.json")})
+    assert eb["w12_with_lock"] == discovered
+    locked = set(eb["w12_with_lock"])
+    eligible = set(eb["w12_remaining_eligible"])
+    post = set(eb["w12_remaining_post_kickoff"])
+    assert locked.isdisjoint(eligible) and locked.isdisjoint(post) and eligible.isdisjoint(post)
+    assert locked | eligible | post == set(eb["w12_packet_ids"])
     assert eb["w12_packet_count"] == 16
-    assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]
+    assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]  # no retroactive LOCK after kickoff
     assert eb["coverage_ceiling_if_remaining_w12_lock"] == 14 + len(eb["w12_remaining_eligible"])
     assert eb["shortfall_vs_min_games_at_ceiling"] == max(0, 30 - eb["coverage_ceiling_if_remaining_w12_lock"])
+    for gid in eb["w12_with_lock"]:
+        for lock_path in sorted((snaps / gid).glob("*/LOCK.json")):
+            lk = json.loads(lock_path.read_text())
+            locked_at, kickoff = R._utc(lk.get("locked_utc")), R._utc(lk.get("kickoff_utc"))
+            assert locked_at is not None and kickoff is not None
+            assert locked_at < kickoff, f"{lock_path.relative_to(R.ROOT)} locked at/after kickoff"
+            assert lk.get("projection_ready") is False
     md = R.render(r)
     assert "derived live" in md.lower()
     assert f"{eb['pristine_games_scored']}+{len(eb['w12_remaining_eligible'])}={eb['coverage_ceiling_if_remaining_w12_lock']}" in md
