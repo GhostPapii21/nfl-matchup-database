@@ -140,6 +140,8 @@ def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
         exp_m = P["implied"] - plans[o]["implied"]
         noise = rng.lognormal(0, 0.10, n)
         PA = rng.poisson(np.clip(P["pa"] * pace * noise * np.exp(lg["bP"] * (margin - exp_m)), 5, 80))
+        adj = P.get("defensive", {})
+        PA = rng.binomial(PA, min(1., adj.get("attempts", 1.))) + rng.poisson(PA * max(0., adj.get("attempts", 1.) - 1.))
         RA = rng.poisson(np.clip(P["ra"] * pace / noise ** 0.5 * np.exp(lg["bR"] * (margin - exp_m)), 5, 60))
         pl = ctx.players
         qb = pl.gsis.iloc[0]
@@ -187,9 +189,9 @@ def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
                 y_v = ((ys.var() if k > 1 else lv) * k + lv * 30) / (k + 30)
             a_cr = 1 + 0.5 * (lg["opp_cr"].get((opp, pos), 1.0) - 1)
             a_y = 1 + 0.5 * (lg["opp_ypt"].get((opp, pos), 1.0) / lg["opp_cr"].get((opp, pos), 1.0) - 1)
-            cr = np.clip(_beta(rng, min(cr_m * a_cr, 0.92), (0.06) ** 2, n), 0, 1)
+            cr = np.clip(_beta(rng, min(cr_m * a_cr * adj.get("completion", 1.), 0.92), (0.06) ** 2, n), 0, 1)
             R = rng.binomial(T[:, i], cr)
-            Y = _gamma_sum(rng, R, y_m * a_y, y_v * a_y ** 2) * e
+            Y = _gamma_sum(rng, R, y_m * a_y * adj.get("yards_per_completion", 1.), y_v * a_y ** 2) * e
             tot_rec += R
             tot_ry += Y
             if g != "_other":
@@ -310,6 +312,10 @@ def run_cells(game: dict, methods=METHODS, scenarios=SCENARIOS, n: int = 100_000
     dog = away if fav == home else home
     imp = game.get("implied") or {}
     plans = {t: mc_team_plan(ctxs[t], ctxs[[x for x in ctxs if x != t][0]], imp.get(t)) for t in ctxs}
+    for t, plan in plans.items():
+        adj = game.get("defensive_profiles", {}).get(t, {})
+        if adj.get("qb_id") == ctxs[t].players.gsis.iloc[0]:
+            plan["defensive"] = adj
     results = {}
     for method in methods:
         base = "mc" if method == "bias" else method
