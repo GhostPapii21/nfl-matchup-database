@@ -1,0 +1,162 @@
+{
+ "schema": "sunday-script-branch/1",
+ "engine_id": "period_engine_v0",
+ "method": "monte_carlo",
+ "sampling": "matchup_pair",
+ "branch": "favorite_controls",
+ "definition": "Realized favorite margin >= 10 (study big-favorite edge).",
+ "algorithm": "partition of this engine's own trials",
+ "replacement_algorithm": false,
+ "pooled_with_other_branches": false,
+ "projection_ready": false,
+ "research_only": true,
+ "seed": 1952480004,
+ "n_parent_trials": 100,
+ "n_trials": 24,
+ "trial_indices": [
+  6,
+  11,
+  17,
+  18,
+  19,
+  22,
+  24,
+  26,
+  37,
+  42,
+  44,
+  49,
+  54,
+  62,
+  69,
+  75,
+  83,
+  84,
+  86,
+  87,
+  88,
+  90,
+  91,
+  97
+ ],
+ "score": {
+  "n_trials": 24,
+  "final": {
+   "home": {
+    "n": 24,
+    "mean": 33.625,
+    "p10": 20.900000000000002,
+    "p50": 34.0,
+    "p90": 45.0
+   },
+   "away": {
+    "n": 24,
+    "mean": 14.375,
+    "p10": 6.0,
+    "p50": 14.0,
+    "p90": 24.0
+   },
+   "favorite_margin": {
+    "n": 24,
+    "mean": 19.25,
+    "p10": 14.0,
+    "p50": 20.0,
+    "p90": 24.0
+   }
+  },
+  "quarters": {
+   "q1": {
+    "supported": true,
+    "home": {
+     "n": 24,
+     "mean": 6.75,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 14.0
+    },
+    "away": {
+     "n": 24,
+     "mean": 2.7083333333333335,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 9.099999999999998
+    }
+   },
+   "q2": {
+    "supported": true,
+    "home": {
+     "n": 24,
+     "mean": 10.916666666666666,
+     "p10": 7.0,
+     "p50": 10.0,
+     "p90": 17.0
+    },
+    "away": {
+     "n": 24,
+     "mean": 4.291666666666667,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 7.0
+    }
+   },
+   "q3": {
+    "supported": true,
+    "home": {
+     "n": 24,
+     "mean": 9.625,
+     "p10": 7.0,
+     "p50": 7.0,
+     "p90": 14.0
+    },
+    "away": {
+     "n": 24,
+     "mean": 3.125,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 7.0
+    }
+   },
+   "q4": {
+    "supported": true,
+    "home": {
+     "n": 24,
+     "mean": 6.333333333333333,
+     "p10": 0.9000000000000008,
+     "p50": 6.0,
+     "p90": 14.0
+    },
+    "away": {
+     "n": 24,
+     "mean": 4.25,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 14.0
+    }
+   }
+  }
+ },
+ "board_rule_disclosure": {
+  "source": "research/qb_script_2026-11-22/study.py current_rule",
+  "applied_to_simulated_plays": false,
+  "favorite": [
+   {
+    "margin": 10.0,
+    "pass_attempts_multiplier": 0.9,
+    "rush_attempts_multiplier": 1.12
+   }
+  ],
+  "underdog": [
+   {
+    "margin": -10.0,
+    "pass_attempts_multiplier": 1.1,
+    "rush_attempts_multiplier": 0.88
+   }
+  ],
+  "note": "The existing board rule evaluated at this branch's margin edges. 10 is the study cap and belongs to favorite_controls; it is not a trial in underdog_chases. Simulated plays are the engine's own trials."
+ },
+ "pace_and_plays": null,
+ "players": null,
+ "plays_supported": false,
+ "player_opportunity_supported": false,
+ "unsupported_reason": "This engine's trials have score and quarter outcomes only. Play counts and player opportunity are not copied from another engine."
+}

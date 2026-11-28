@@ -1,0 +1,137 @@
+{
+ "schema": "sunday-script-branch/1",
+ "engine_id": "period_engine_v0",
+ "method": "monte_carlo",
+ "sampling": "independent",
+ "branch": "residual",
+ "definition": "Realized favorite margin < -3. Stored so those trials are not folded into a named branch.",
+ "algorithm": "partition of this engine's own trials",
+ "replacement_algorithm": false,
+ "pooled_with_other_branches": false,
+ "projection_ready": false,
+ "research_only": true,
+ "seed": 1952480004,
+ "n_parent_trials": 100,
+ "n_trials": 17,
+ "trial_indices": [
+  22,
+  25,
+  28,
+  31,
+  33,
+  38,
+  39,
+  40,
+  43,
+  51,
+  55,
+  56,
+  65,
+  67,
+  71,
+  94,
+  97
+ ],
+ "score": {
+  "n_trials": 17,
+  "final": {
+   "home": {
+    "n": 17,
+    "mean": 14.235294117647058,
+    "p10": 1.8000000000000003,
+    "p50": 17.0,
+    "p90": 20.0
+   },
+   "away": {
+    "n": 17,
+    "mean": 28.058823529411764,
+    "p10": 24.0,
+    "p50": 27.0,
+    "p90": 34.0
+   },
+   "favorite_margin": {
+    "n": 17,
+    "mean": -13.823529411764707,
+    "p10": -26.799999999999997,
+    "p50": -14.0,
+    "p90": -5.199999999999999
+   }
+  },
+  "quarters": {
+   "q1": {
+    "supported": true,
+    "home": {
+     "n": 17,
+     "mean": 2.411764705882353,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 6.4
+    },
+    "away": {
+     "n": 17,
+     "mean": 1.4705882352941178,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 6.0
+    }
+   },
+   "q2": {
+    "supported": true,
+    "home": {
+     "n": 17,
+     "mean": 4.117647058823529,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 10.0
+    },
+    "away": {
+     "n": 17,
+     "mean": 7.823529411764706,
+     "p10": 3.6000000000000005,
+     "p50": 10.0,
+     "p90": 10.0
+    }
+   },
+   "q3": {
+    "supported": true,
+    "home": {
+     "n": 17,
+     "mean": 3.5294117647058822,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 8.200000000000001
+    },
+    "away": {
+     "n": 17,
+     "mean": 9.941176470588236,
+     "p10": 3.0,
+     "p50": 10.0,
+     "p90": 17.0
+    }
+   },
+   "q4": {
+    "supported": true,
+    "home": {
+     "n": 17,
+     "mean": 4.176470588235294,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 8.600000000000001
+    },
+    "away": {
+     "n": 17,
+     "mean": 8.823529411764707,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 14.0
+    }
+   }
+  }
+ },
+ "board_rule_disclosure": null,
+ "pace_and_plays": null,
+ "players": null,
+ "plays_supported": false,
+ "player_opportunity_supported": false,
+ "unsupported_reason": "This engine's trials have score and quarter outcomes only. Play counts and player opportunity are not copied from another engine."
+}

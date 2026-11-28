@@ -1,0 +1,40 @@
+{
+ "engine_id": "sim_v6",
+ "method": "absent",
+ "sampling": null,
+ "entrypoint": "tools/sim_v6.py",
+ "documented_command": "python3 tools/sim_v6.py run <legs.json> <out.json>",
+ "version": {
+  "path": "tools/sim_v6.py",
+  "sha256": null,
+  "exists": false
+ },
+ "called": false,
+ "simulated": false,
+ "three_method_sim_v6_ran": false,
+ "trials": null,
+ "seed": null,
+ "calibration_status": "UNVALIDATED",
+ "bias_calibration_status": "UNVALIDATED_NO_ENTRYPOINT",
+ "calibration_artifact": [],
+ "status": "BLOCKED_ENTRYPOINT_ABSENT",
+ "blocker": "tools/sim_v6.py is not in this tree, so Monte Carlo, calibrated Bias and Game Randomness were not run under that name. Bias stays unvalidated without that entrypoint and a calibration artifact.",
+ "not_used_as_substitute": [
+  "calibration/simv56/engines/cc_sim_v6.py",
+  "calibration/simv56/engines/cc_sim_v6_fix.py",
+  "calibration/simv56_pmodel.py",
+  "pipeline/sim100k.py",
+  "core/period_engine_v0/monte_carlo.py",
+  "core/possession_engine_v0/simulate.py"
+ ],
+ "scratch_file_present_not_the_entrypoint": true,
+ "inputs": {
+  "legs": null
+ },
+ "artifact": "models/sim_v6.json",
+ "projection_ready": false,
+ "limitations": [
+  "No three-method sim_v6 claim.",
+  "cc_sim_v6.py is a vendored scratch file used by the simv56 ensemble, not tools/sim_v6.py."
+ ]
+}

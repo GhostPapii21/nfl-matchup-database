@@ -65,7 +65,7 @@ def game_config(game_id: str) -> tuple[dict, dict]:
     cfg = dict(game_id=game_id, home=home, away=away, cutoff=SOURCE_CUTOFF, fav=fav, implied=implied,
                exclude=sorted(excl), market_source=b["market"].get("source"), board_file=os.path.relpath(path, D.REPO),
                board_sha256=D.sha256_file(path))
-    cfg["defensive_profiles"] = {D.NV.get(t,t): p for t,p in DEF.profiles(b).items()}
+    cfg["defensive_profiles"] = {D.NV.get(t, t): p for t, p in DEF.profiles(b, cutoff=SOURCE_CUTOFF).items()}
     return cfg, b
 
 
@@ -128,64 +128,224 @@ def _game_records(X, cfg, fav, dog, lines):
     return recs
 
 
+def _calib_status(method: str, market: str, calib: dict | None, is_residual: bool) -> str:
+    """After defensive integration, never inherit prior VALIDATED labels."""
+    if is_residual:
+        base = "RESIDUAL_EXPERIMENTAL_UNVALIDATED"
+    elif method != "bias":
+        return "NOT_APPLICABLE"
+    else:
+        prior = (calib or {}).get("markets", {}).get(market, {}).get("status", "UNCALIBRATED_MARKET_PASSTHROUGH")
+        base = "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED"
+        if prior:
+            base = f"{base}|prior={prior}"
+    return base
+
+
+def _unconditional_from_cells(method_result: dict, key_series_fn) -> list:
+    """Mixture of scenario-conditional draws weighted by actual scenario frequencies."""
+    cells = method_result.get("cells") or {}
+    freq = method_result.get("scenario_frequency") or {}
+    if not cells or not freq:
+        return []
+    bags = {}
+    for s, cell in cells.items():
+        X = cell.get("X") or {}
+        if not X:
+            continue
+        series = key_series_fn(X)
+        w = float(freq.get(s, 0.0))
+        if w <= 0:
+            continue
+        for k, v in series.items():
+            bags.setdefault(k, []).append((w, np.asarray(v, dtype=np.float64)))
+    out = []
+    for k, parts in bags.items():
+        chunks = []
+        total_w = sum(w for w, _ in parts) or 1.0
+        for w, arr in parts:
+            take = max(int(round(len(arr) * (w / total_w))), 1)
+            chunks.append(arr[:take])
+        mix = np.concatenate(chunks) if chunks else np.zeros(1)
+        player_id, market = k if isinstance(k, tuple) else (None, k)
+        out.append(dict(player_id=player_id, market=market, distribution=E.summarize(mix),
+                        draws=mix, scenario="unconditional", scenario_frequency=freq,
+                        note="mixture of exhaustive scenarios weighted by acceptance frequencies"))
+    return out
+
+
 def simulate_game(game_id: str, n: int = 100_000, seed: int = 20261129, methods=E.METHODS, scenarios=E.SCENARIOS,
-                  batch: int = 100_000, log=print) -> dict:
+                  batch: int = 100_000, log=print, include_residual: bool = True) -> dict:
     t0 = time.time()
     cfg, board = game_config(game_id)
     calib = load_calib()
-    run = E.run_cells(cfg, methods, scenarios, n=n, seed=seed, batch=batch, calib=calib, log=log)
+    run = E.run_cells(cfg, methods, scenarios, n=n, seed=seed, batch=batch, calib=calib, log=log,
+                      include_residual=include_residual)
     ctxs = run["ctxs"]
     lines = book_lines(board, ctxs)
     input_hash = D.context_hash(cfg, {t: c.game_ids for t, c in ctxs.items()}, E.ENGINE_VERSION,
-                                (calib or {}).get("as_of"))
+                                (calib or {}).get("as_of"), "defense_v1")
     names = {gs: (nm, c.team, pos) for c in ctxs.values() for gs, nm, pos in zip(c.players.gsis, c.players.name, c.players.pos)}
     records = []
+    residual_records = []
+    unconditional_records = []
     for method in methods:
         R = run["results"][method]
         if "cells" not in R:
-            for s in scenarios:
+            for s in list(scenarios) + ([E.RESIDUAL_SCENARIO] if include_residual else []):
                 records.append(dict(game_id=game_id, player_id=None, market="*", method=method, scenario=s, trial_count=0,
                                     seed=None, distribution=None, line_probabilities=[], calibration_status="MISSING",
                                     input_hash=input_hash, source_cutoff=SOURCE_CUTOFF, execution_status=R["execution_status"]))
             continue
         for s, cell in R["cells"].items():
             X = cell["X"]
+            is_res = bool(cell.get("is_residual"))
             common = dict(game_id=game_id, method=method, scenario=s, trial_count=cell["trial_count"], seed=R["seed"],
                           input_hash=input_hash, source_cutoff=SOURCE_CUTOFF, execution_status=cell["execution_status"],
-                          scenario_acceptance_rate=cell["acceptance_rate"], raw_trials_generated=R["raw_trials"])
+                          scenario_acceptance_rate=cell["acceptance_rate"], raw_trials_generated=R["raw_trials"],
+                          scenario_frequency=(R.get("scenario_frequency") or {}).get(s),
+                          is_residual=is_res)
+            bucket = residual_records if is_res else records
             for r in _game_records(X, cfg, run["fav"], run["dog"], lines):
-                cs = "NOT_APPLICABLE" if method != "bias" else "INHERITED_FROM_MC_NOT_CALIBRATED"
-                records.append(dict(common, **r, calibration_status=cs))
+                cs = _calib_status(method, r["market"], calib, is_res)
+                bucket.append(dict(common, **r, calibration_status=cs))
             for ctx in ctxs.values():
                 for (gs, mk), v in _player_series(X, ctx).items():
-                    if method == "bias":
-                        cs = calib["markets"].get(mk, {}).get("status", "UNCALIBRATED_MARKET_PASSTHROUGH")
-                    else:
-                        cs = "NOT_APPLICABLE"
+                    cs = _calib_status(method, mk, calib, is_res)
                     nm, team, pos = names[gs]
-                    records.append(dict(common, player_id=gs, player_name=nm, team=team, position=pos, market=mk,
-                                        distribution=E.summarize(v), line_probabilities=E.line_probs(v, lines.get((gs, mk), [])),
-                                        calibration_status=cs))
+                    bucket.append(dict(common, player_id=gs, player_name=nm, team=team, position=pos, market=mk,
+                                       distribution=E.summarize(v), line_probabilities=E.line_probs(v, lines.get((gs, mk), [])),
+                                       calibration_status=cs))
+        def series_fn(X):
+            out = {}
+            h, a = cfg["home"], cfg["away"]
+            out[f"{h}_points"] = X[f"{h}|pts"]
+            out[f"{a}_points"] = X[f"{a}|pts"]
+            out["total_points"] = X[f"{h}|pts"] + X[f"{a}|pts"]
+            out["home_margin"] = X[f"{h}|pts"] - X[f"{a}|pts"]
+            for ctx in ctxs.values():
+                for (gs, mk), v in _player_series(X, ctx).items():
+                    out[(gs, mk)] = v
+            return out
+        for u in _unconditional_from_cells(R, series_fn):
+            pid = u.get("player_id")
+            mk = u["market"]
+            draws = u.pop("draws", None)
+            lp = []
+            if draws is not None and pid is not None:
+                lp = E.line_probs(draws, lines.get((pid, mk), []))
+            elif draws is not None and mk == "total_points" and "total" in lines:
+                lp = E.line_probs(draws, lines["total"]["lines"])
+            row = dict(game_id=game_id, method=method, scenario="unconditional",
+                       trial_count=sum(c["trial_count"] for c in R["cells"].values()),
+                       seed=R["seed"], input_hash=input_hash, source_cutoff=SOURCE_CUTOFF,
+                       execution_status="OK", distribution=u["distribution"],
+                       line_probabilities=lp,
+                       calibration_status="EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+                       scenario_frequency=R.get("scenario_frequency"),
+                       note=u.get("note"))
+            if pid:
+                nm, team, pos = names[pid]
+                row.update(player_id=pid, player_name=nm, team=team, position=pos, market=mk)
+            else:
+                row.update(player_id=None, market=mk)
+            unconditional_records.append(row)
     meta = dict(engine=E.ENGINE_VERSION, not_original_sim_v6=True, game=cfg, fav=run["fav"],
                 methods={m: run["results"][m].get("seconds") for m in methods},
                 players={t: c.players.to_dict("records") for t, c in ctxs.items()},
                 history_games={t: c.game_ids for t, c in ctxs.items()},
                 calibration_artifact=dict(file=os.path.relpath(CALIB_FILE, D.REPO), as_of=(calib or {}).get("as_of"),
-                                          K=(calib or {}).get("K_selected")) if calib else None,
+                                          K=(calib or {}).get("K_selected"),
+                                          status_after_defense="EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+                                          note="prior holdout labels not inherited after defensive integration") if calib else None,
+                defensive_integration={t: {
+                    "status": p.get("status"),
+                    "integration": p.get("integration"),
+                    "calibration_status": p.get("calibration_status"),
+                    "scramble_status": (p.get("scramble") or {}).get("status"),
+                    "coverage_alloc_status": (p.get("coverage_allocation") or {}).get("status"),
+                    "sharp_status": (p.get("sharp_defense") or {}).get("status"),
+                    "charting": ((p.get("coverage_allocation") or {}).get("charting")),
+                } for t, p in (cfg.get("defensive_profiles") or {}).items()},
                 provenance=D.provenance(), runtime_seconds=round(time.time() - t0, 2),
                 status="RESEARCH_ONLY_NOT_PROJECTION_READY",
                 scenario_definitions={"favorite_controls": "fav leads at half and wins by >=10",
                                       "competitive": "|half margin|<=6 and |final margin|<=7",
-                                      "underdog_chases": "dog trails by >=7 at half and final fav margin <10"})
-    return dict(meta=meta, records=records)
+                                      "underdog_chases": "dog trails by >=7 at half and final fav margin <10",
+                                      "residual": "exhaustive complement of the three primary scripts",
+                                      "unconditional": "mixture weighted by actual scenario frequencies"},
+                scenario_frequency_by_method={m: run["results"][m].get("scenario_frequency")
+                                              for m in methods if "cells" in run["results"][m]})
+    return dict(meta=meta, records=records, residual_records=residual_records,
+                unconditional_records=unconditional_records)
 
 
 def write(doc: dict, out_dir: str) -> str:
     os.makedirs(out_dir, exist_ok=True)
-    p = os.path.join(out_dir, f"{doc['meta']['game']['game_id']}.sim_v7.json")
+    gid = doc["meta"]["game"]["game_id"]
+    p = os.path.join(out_dir, f"{gid}.sim_v7.json")
     with open(p, "w") as f:
         json.dump(doc, f, default=float)
+    # Residual + unconditional kept beside primary artifact for Sunday receipts
+    if doc.get("residual_records") is not None:
+        rp = os.path.join(out_dir, f"{gid}.sim_v7.residual.json")
+        with open(rp, "w") as f:
+            json.dump({"meta": doc["meta"], "residual_records": doc["residual_records"],
+                       "unconditional_records": doc.get("unconditional_records", [])}, f, default=float)
     return p
+
+
+def acceptance_receipt(doc: dict, n_required: int = 100_000) -> dict:
+    """Sunday-stack receipt: 3 methods x 3 primary scenarios x n_required, residual separate."""
+    primary = {}
+    residual = {}
+    for r in doc.get("records") or []:
+        if r.get("market") != "total_points":
+            continue
+        primary[(r["method"], r["scenario"])] = r
+    for r in doc.get("residual_records") or []:
+        if r.get("market") != "total_points":
+            continue
+        residual[(r["method"], r["scenario"])] = r
+    cells = []
+    ok = True
+    for m in E.METHODS:
+        for s in E.PRIMARY_SCENARIOS:
+            row = primary.get((m, s))
+            trials = (row or {}).get("trial_count", 0) or 0
+            status = (row or {}).get("execution_status", "MISSING")
+            if trials < n_required or status != "OK":
+                ok = False
+            cells.append(dict(method=m, scenario=s, trial_count=trials, status=status,
+                              acceptance_rate=(row or {}).get("scenario_acceptance_rate")))
+    res_cells = []
+    for m in E.METHODS:
+        row = residual.get((m, E.RESIDUAL_SCENARIO))
+        res_cells.append(dict(method=m, scenario=E.RESIDUAL_SCENARIO,
+                              trial_count=(row or {}).get("trial_count", 0),
+                              status=(row or {}).get("execution_status", "MISSING"),
+                              acceptance_rate=(row or {}).get("scenario_acceptance_rate")))
+    return {
+        "schema": "sim-v7-acceptance-receipt/1",
+        "engine_id": "sim_v7",
+        "engine_version": doc.get("meta", {}).get("engine"),
+        "entrypoint": "engines.sim_v7.cli:simulate_game",
+        "not_original_sim_v6": True,
+        "projection_ready": False,
+        "fallback_used": False,
+        "status": "EXECUTED" if ok else "PARTIAL",
+        "trials_required_per_primary_cell": n_required,
+        "primary_cells_required": 9,
+        "primary_cells": cells,
+        "residual_cells": res_cells,
+        "scenario_frequency_by_method": doc.get("meta", {}).get("scenario_frequency_by_method"),
+        "defensive_integration": doc.get("meta", {}).get("defensive_integration"),
+        "calibration": doc.get("meta", {}).get("calibration_artifact"),
+        "input_hash": (doc.get("records") or [{}])[0].get("input_hash"),
+        "source_cutoff": SOURCE_CUTOFF,
+        "game_id": doc.get("meta", {}).get("game", {}).get("game_id"),
+        "runtime_seconds": doc.get("meta", {}).get("runtime_seconds"),
+    }
 
 
 def main(argv=None):

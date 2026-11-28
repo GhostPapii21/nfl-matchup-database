@@ -1,0 +1,167 @@
+{
+ "schema": "sim-v7-acceptance-receipt/1",
+ "engine_id": "sim_v7",
+ "engine_version": "sim_v7.1.0",
+ "entrypoint": "engines.sim_v7.cli:simulate_game",
+ "not_original_sim_v6": true,
+ "projection_ready": false,
+ "fallback_used": false,
+ "status": "EXECUTED",
+ "trials_required_per_primary_cell": 100000,
+ "primary_cells_required": 9,
+ "primary_cells": [
+  {
+   "method": "mc",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.31466
+  },
+  {
+   "method": "mc",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.23236
+  },
+  {
+   "method": "mc",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.11457
+  },
+  {
+   "method": "bias",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.31421
+  },
+  {
+   "method": "bias",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.23238
+  },
+  {
+   "method": "bias",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.11493
+  },
+  {
+   "method": "gr",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.1169
+  },
+  {
+   "method": "gr",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.22434
+  },
+  {
+   "method": "gr",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.0722
+  }
+ ],
+ "residual_cells": [
+  {
+   "method": "mc",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.33842
+  },
+  {
+   "method": "bias",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.33848
+  },
+  {
+   "method": "gr",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.58656
+  }
+ ],
+ "scenario_frequency_by_method": {
+  "mc": {
+   "favorite_controls": 0.314657,
+   "competitive": 0.232358,
+   "underdog_chases": 0.114569,
+   "residual": 0.338417
+  },
+  "bias": {
+   "favorite_controls": 0.31421,
+   "competitive": 0.23238,
+   "underdog_chases": 0.11493,
+   "residual": 0.33848
+  },
+  "gr": {
+   "favorite_controls": 0.1169,
+   "competitive": 0.22434,
+   "underdog_chases": 0.0722,
+   "residual": 0.58656
+  }
+ },
+ "defensive_integration": {
+  "LV": {
+   "status": "MISSING",
+   "integration": {
+    "qb_split_factors": "MISSING",
+    "coverage_allocation": "EXPERIMENTAL_UNVALIDATED",
+    "scramble": "MEASURED",
+    "sharp": "MEASURED"
+   },
+   "calibration_status": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+   "scramble_status": "MEASURED",
+   "coverage_alloc_status": "EXPERIMENTAL_UNVALIDATED",
+   "sharp_status": "MEASURED",
+   "charting": {
+    "play_level_coverage_assignment": "MISSING",
+    "note": "no free 2026 pbp_participation defense_man_zone_type; not invented"
+   }
+  },
+  "CLE": {
+   "status": "EXPERIMENTAL_UNVALIDATED",
+   "integration": {
+    "qb_split_factors": "EXPERIMENTAL_UNVALIDATED",
+    "coverage_allocation": "EXPERIMENTAL_UNVALIDATED",
+    "scramble": "MEASURED",
+    "sharp": "MEASURED"
+   },
+   "calibration_status": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+   "scramble_status": "MEASURED",
+   "coverage_alloc_status": "EXPERIMENTAL_UNVALIDATED",
+   "sharp_status": "MEASURED",
+   "charting": {
+    "play_level_coverage_assignment": "MISSING",
+    "note": "no free 2026 pbp_participation defense_man_zone_type; not invented"
+   }
+  }
+ },
+ "calibration": {
+  "file": "engines/sim_v7/calibration_v7.json",
+  "as_of": "2026-11-28T15:08:28.503333+00:00",
+  "K": 200,
+  "status_after_defense": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+  "note": "prior holdout labels not inherited after defensive integration"
+ },
+ "input_hash": "e7152fe6ca3df86f9cb2cd557275bad7fd8cf07319c39db302358fcc9f05680b",
+ "source_cutoff": "2026-11-24",
+ "game_id": "2026_12_LV_CLE",
+ "runtime_seconds": 37.44
+}

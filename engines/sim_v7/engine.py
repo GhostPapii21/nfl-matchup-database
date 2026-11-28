@@ -23,6 +23,10 @@ Scenarios (favorite perspective; H = first-half margin, F = final regulation mar
   favorite_controls  H > 0 and F >= 10
   competitive        |H| <= 6 and |F| <= 7
   underdog_chases    H >= 7 and F < 10     (dog trails by a score+ at half and is chasing)
+  residual           exhaustive complement of the three primary scripts (reported separately)
+
+Unconditional market probabilities weight each scenario's conditional distribution by its
+empirical scenario frequency (acceptance_rate / sum of rates over the exhaustive partition).
 """
 from __future__ import annotations
 
@@ -34,24 +38,33 @@ import numpy as np
 from . import data as D
 
 METHODS = ("mc", "bias", "gr")
-SCENARIOS = ("favorite_controls", "competitive", "underdog_chases")
+PRIMARY_SCENARIOS = ("favorite_controls", "competitive", "underdog_chases")
+RESIDUAL_SCENARIO = "residual"
+SCENARIOS = PRIMARY_SCENARIOS  # default run_cells contract: primary cells
+ALL_SCENARIOS = PRIMARY_SCENARIOS + (RESIDUAL_SCENARIO,)
 PCTS = (5, 10, 15, 20, 25, 50, 75, 90, 95)
 QB_STATS = ("att", "cmp", "passyds", "passtd", "car", "rushyds", "rushtd")
 SK_STATS = ("tgt", "rec", "recyds", "rectd", "car", "rushyds", "rushtd")
 MARKET = {"att": "pass_att", "cmp": "pass_cmp", "passyds": "pass_yds", "passtd": "pass_td", "car": "rush_att",
           "rushyds": "rush_yds", "rushtd": "rush_td", "tgt": "targets", "rec": "receptions", "recyds": "rec_yds",
           "rectd": "rec_td"}
-ENGINE_VERSION = "sim_v7.0.0"
+ENGINE_VERSION = "sim_v7.1.0"
 
 
 def seed_for(base: int, *parts) -> int:
     return (base + int(hashlib.sha256("|".join(map(str, parts)).encode()).hexdigest()[:8], 16)) % (2**32)
 
 
-def classify(H: np.ndarray, F: np.ndarray) -> dict:
-    return {"favorite_controls": (H > 0) & (F >= 10),
-            "competitive": (np.abs(H) <= 6) & (np.abs(F) <= 7),
-            "underdog_chases": (H >= 7) & (F < 10)}
+def classify(H: np.ndarray, F: np.ndarray, include_residual: bool = False) -> dict:
+    primary = {"favorite_controls": (H > 0) & (F >= 10),
+               "competitive": (np.abs(H) <= 6) & (np.abs(F) <= 7),
+               "underdog_chases": (H >= 7) & (F < 10)}
+    if include_residual:
+        hit = np.zeros(len(H), dtype=bool)
+        for m in primary.values():
+            hit |= m
+        primary[RESIDUAL_SCENARIO] = ~hit
+    return primary
 
 
 def stat_keys(ctx) -> list:
@@ -112,6 +125,38 @@ def mc_team_plan(ctx, opp_ctx, implied_pts: float | None):
                 exp_margin=0.0)
 
 
+def _coverage_share_means(ctx, rec_ids, adj) -> list:
+    """Historical Beta means tilted by coverage allocation multipliers (inferred/measured mix)."""
+    base = _shares(ctx, "tgt", "pa", rec_ids) if rec_ids else []
+    alloc = (adj.get("coverage_allocation") or {}).get("receivers") or {}
+    out = []
+    for i, gs in enumerate(rec_ids):
+        m, v = base[i]
+        mult = float((alloc.get(gs) or {}).get("target_share_multiplier") or 1.0)
+        # Prefer measured board share level when present
+        ms = (alloc.get(gs) or {}).get("measured_target_share")
+        if ms is not None:
+            m = 0.5 * m + 0.5 * float(ms)
+        m = float(np.clip(m * mult, 1e-3, 0.85))
+        out.append((m, v))
+    return out
+
+
+def _rz_td_weights(ctx, ids, team_rz, share_mean, kind: str, opp_allow: float = 1.0):
+    """Red-zone / goal-line TD allocation weights with defensive allowance tilt."""
+    # kind: 'pass' uses rz targets; 'rush' uses rz carries; goal-line = yardline<=5 approx via 0.35 of RZ
+    w = []
+    for i, g in enumerate(ids):
+        rz_t, rz_c = ctx.rz.get(g, (0.0, 0.0))
+        rz = rz_t if kind == "pass" else rz_c
+        sh = float(share_mean[i]) if i < len(share_mean) else 0.0
+        gl = 0.35 * rz  # proxy goal-line usage from RZ (measured RZ counts; GL not separately tagged here)
+        w.append((rz + 2 * gl + 3 * sh) * float(opp_allow))
+    w.append(max(0.03 * (sum(w) + 1), 0.03))  # _other
+    w = np.asarray(w, dtype=float)
+    return w / w.sum()
+
+
 def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
     """One batch of n MC games. ctxs/plans keyed by team. Returns dict of float32 arrays."""
     teams = list(ctxs)
@@ -125,8 +170,11 @@ def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
         z = rng.standard_normal(n)
         e = np.exp(sig_e * z - sig_e ** 2 / 2)
         eff[t] = e
-        td = rng.poisson(P["lam_td"] * e * pace)
-        fg = rng.poisson(P["lam_fg"] * pace)
+        # Mild opponent-defense points tilt when available
+        opp = [x for x in teams if x != t][0]
+        def_pts = float((plans[t].get("defensive") or {}).get("opp_points_factor", 1.0))
+        td = rng.poisson(P["lam_td"] * e * pace * def_pts)
+        fg = rng.poisson(P["lam_fg"] * pace * def_pts)
         tdq = rng.multinomial(td, P["qsh"])
         fgq = rng.multinomial(fg, P["qsh"])
         xpq = rng.binomial(tdq, 0.95)
@@ -139,40 +187,67 @@ def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
         margin = pts[t] - pts[o]
         exp_m = P["implied"] - plans[o]["implied"]
         noise = rng.lognormal(0, 0.10, n)
-        PA = rng.poisson(np.clip(P["pa"] * pace * noise * np.exp(lg["bP"] * (margin - exp_m)), 5, 80))
+        PA0 = rng.poisson(np.clip(P["pa"] * pace * noise * np.exp(lg["bP"] * (margin - exp_m)), 5, 80))
         adj = P.get("defensive", {})
-        PA = rng.binomial(PA, min(1., adj.get("attempts", 1.))) + rng.poisson(PA * max(0., adj.get("attempts", 1.) - 1.))
+        PA0 = rng.binomial(PA0, min(1., adj.get("attempts", 1.))) + rng.poisson(PA0 * max(0., adj.get("attempts", 1.) - 1.))
         RA = rng.poisson(np.clip(P["ra"] * pace / noise ** 0.5 * np.exp(lg["bR"] * (margin - exp_m)), 5, 60))
         pl = ctx.players
         qb = pl.gsis.iloc[0]
         rec_ids = [g for g, r in zip(pl.gsis, pl.role) if r != "QB" and ctx.pgame[ctx.pgame.gsis == g].tgt.sum() > 0]
-        rush_ids = [g for g in pl.gsis if ctx.pgame[ctx.pgame.gsis == g].car.sum() > 0]
-        # --- targets
-        sh = np.column_stack([_beta(rng, m, v, n) for m, v in _shares(ctx, "tgt", "pa", rec_ids)]) if rec_ids else np.zeros((n, 0))
+        # Designed rushers exclude QB scramble volume; QB designed runs handled via scramble profile
+        rush_ids = [g for g in pl.gsis if g != qb and ctx.pgame[ctx.pgame.gsis == g].car.sum() > 0]
+        # --- pressure / scramble on dropbacks (PA0 ≈ dropbacks)
+        scr_prof = adj.get("scramble") or {}
+        if scr_prof.get("status") in ("MEASURED", "EXPERIMENTAL_UNVALIDATED"):
+            from . import scramble as SC
+            scr = SC.apply_scramble_to_dropbacks(rng, n, PA0, scr_prof)
+            PA = scr["thrown"]  # attempts that become throws (targets)
+            qb_scr_att = scr["scrambled"]
+            qb_scr_yds = scr["scramble_yds"]
+            qb_scr_td = scr["scramble_td"]
+            designed_mu = scr["designed_qb_att_mean"]
+            designed_ypc = scr["designed_ypc"]
+        else:
+            PA = PA0.astype(np.float32)
+            qb_scr_att = qb_scr_yds = qb_scr_td = np.zeros(n, np.float32)
+            designed_mu, designed_ypc = 0.0, 2.5
+        # --- targets (coverage-tilted shares)
+        means = _coverage_share_means(ctx, rec_ids, adj)
+        sh = np.column_stack([_beta(rng, m, v, n) for m, v in means]) if rec_ids else np.zeros((n, 0))
         tot = sh.sum(1, keepdims=True)
         sh = np.where(tot > 0.97, sh * 0.97 / np.maximum(tot, 1e-9), sh)
-        pv = np.column_stack([sh, 1 - sh.sum(1)])
-        T = rng.multinomial(PA, pv)
-        # --- carries
+        pv = np.column_stack([sh, 1 - sh.sum(1)]) if rec_ids else np.ones((n, 1))
+        PA_i = np.maximum(np.asarray(PA, dtype=int), 0)
+        T = rng.multinomial(PA_i, pv)
+        # --- carries (skill only; QB designed added below)
         shr = np.column_stack([_beta(rng, m, v, n) for m, v in _shares(ctx, "car", "ra", rush_ids)]) if rush_ids else np.zeros((n, 0))
         tot = shr.sum(1, keepdims=True)
         shr = np.where(tot > 0.98, shr * 0.98 / np.maximum(tot, 1e-9), shr)
-        C = rng.multinomial(RA, np.column_stack([shr, 1 - shr.sum(1)]))
-        # --- TDs
+        # Reserve a designed-QB slice from RA so scrambles are not double-counted into RA shares
+        qb_des = rng.poisson(np.clip(designed_mu * pace, 0, 8)) if designed_mu > 0 else np.zeros(n, dtype=int)
+        RA_skill = np.maximum(RA - qb_des, 0)
+        C = rng.multinomial(RA_skill, np.column_stack([shr, 1 - shr.sum(1)])) if rush_ids else np.zeros((n, 1), dtype=int)
+        # --- TDs with RZ / GL / defense allowances
         td = out[f"{t}|td"]
-        ptd = rng.binomial(td, P["p_pass"])
+        # QB pressure response: more sacks/scrambles slightly shift TD mix toward rush
+        scr_frac = qb_scr_att / np.maximum(PA0, 1)
+        p_pass = np.clip(P["p_pass"] * (1.0 - 0.15 * scr_frac) * float(adj.get("pass_td_factor", 1.0)), 0.25, 0.85)
+        ptd = rng.binomial(td, p_pass)
         rtd = td - ptd
         rzt, rzc = ctx.rz["_team"]
-        tsh = pv.mean(0)
-        rz_p = np.array([(ctx.rz[g][0] + 3 * tsh[i]) / (rzt + 3) for i, g in enumerate(rec_ids)] + [0])
-        rz_p[-1] = max(1 - rz_p[:-1].sum(), 0.03)
-        RT = rng.multinomial(ptd, rz_p / rz_p.sum())
+        tsh = pv.mean(0) if pv.size else np.array([1.0])
+        opp_pass_allow = 1 + 0.5 * (lg["opp_cr"].get((o, "WR"), 1.0) - 1)
+        opp_rush_allow = 1 + 0.5 * (lg["opp_ypc"].get(o, 1.0) - 1)
+        rz_p = _rz_td_weights(ctx, rec_ids, rzt, tsh, "pass", opp_pass_allow)
+        RT = rng.multinomial(ptd, rz_p)
         csh = shr.mean(0) if rush_ids else np.zeros(0)
-        rz_r = np.array([(ctx.rz[g][1] + 3 * csh[i]) / (rzc + 3) for i, g in enumerate(rush_ids)] + [0])
-        rz_r[-1] = max(1 - rz_r[:-1].sum(), 0.03)
-        UT = rng.multinomial(rtd, rz_r / rz_r.sum())
+        # include QB designed+scramble in rush TD pool as final bucket before _other
+        rush_td_ids = rush_ids + ([qb] if (designed_mu > 0 or qb_scr_att.mean() > 0) else [])
+        csh_qb = list(csh) + ([max(designed_mu, 0.5) / max(P["ra"], 1)] if qb in rush_td_ids else [])
+        rz_r = _rz_td_weights(ctx, rush_td_ids, rzc, csh_qb, "rush", opp_rush_allow)
+        UT = rng.multinomial(rtd, rz_r)
         e = eff[t]
-        opp = [x for x in teams if x != t][0]
+        opp = o
         tot_rec, tot_ry = np.zeros(n), np.zeros(n)
         for i, g in enumerate(rec_ids + ["_other"]):
             pos = "WR" if g == "_other" else ctx.players.set_index("gsis").pos.get(g, "WR")
@@ -196,6 +271,8 @@ def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
             tot_ry += Y
             if g != "_other":
                 out[f"{g}|tgt"], out[f"{g}|rec"], out[f"{g}|recyds"], out[f"{g}|rectd"] = T[:, i], R, Y, RT[:, i]
+        # Consistency: pass_td equals sum of allocated receiving TDs (including _other bucket)
+        # Modeled receivers get RT[:, :-1]; QB passtd = ptd (= sum RT)
         a_ypc = 1 + 0.5 * (lg["opp_ypc"].get(opp, 1.0) - 1)
         for i, g in enumerate(rush_ids):
             ys = ctx.rush_yards[g]
@@ -205,18 +282,46 @@ def mc_batch(ctxs: dict, plans: dict, n: int, rng) -> dict:
             out[f"{g}|car"] = C[:, i]
             out[f"{g}|rushyds"] = _gamma_sum(rng, C[:, i], y_m * a_ypc, y_v, shift=6.0) * e
             out[f"{g}|rushtd"] = UT[:, i]
-        out[f"{qb}|att"], out[f"{qb}|cmp"], out[f"{qb}|passyds"], out[f"{qb}|passtd"] = PA, tot_rec, tot_ry, ptd
+        # QB: designed runs + scrambles (no double-count with skill RA)
+        qb_des_yds = _gamma_sum(rng, qb_des, designed_ypc * a_ypc, max(lg["ypc_var"], 9.0), shift=3.0) * e
+        qb_rush_att = qb_des + qb_scr_att
+        qb_rush_yds = qb_des_yds + qb_scr_yds
+        # QB rush TDs from scramble TDs + share of rush TD multinomial if qb in rush_td_ids
+        if qb in rush_td_ids:
+            qi = rush_td_ids.index(qb)
+            qb_rush_td = UT[:, qi] + qb_scr_td
+            # scramble TDs already part of game; avoid exceeding team rush TDs by capping display
+            # Statistical consistency: team rush TDs = sum skill rushtd + QB designed/scramble share
+            # Re-assign: skill UT already sums with QB bucket to rtd; scramble TD is pathway into that bucket
+            # so use UT qb bucket as authority and keep scramble_td as informational component
+            qb_rush_td = UT[:, qi]
+        else:
+            qb_rush_td = qb_scr_td
+        out[f"{qb}|att"] = PA_i.astype(np.float32)
+        out[f"{qb}|cmp"] = tot_rec
+        out[f"{qb}|passyds"] = tot_ry
+        out[f"{qb}|passtd"] = ptd  # == sum(RT) receiving TDs including _other
+        out[f"{qb}|car"] = qb_rush_att
+        out[f"{qb}|rushyds"] = qb_rush_yds
+        out[f"{qb}|rushtd"] = qb_rush_td
+        out[f"{t}|pass_td_team"] = ptd.astype(np.float32)
+        out[f"{t}|rush_td_team"] = rtd.astype(np.float32)
         for gs, s in stat_keys(ctx):
             out.setdefault(f"{gs}|{s}", np.zeros(n))
         out[f"{t}|pts"] = pts[t]
         for q in range(4):
             out[f"{t}|q{q+1}"] = qp[t][:, q]
-    return {k: np.asarray(v, dtype=np.float32) for k, v in out.items() if not k.endswith("|td")}
+    keep = {}
+    for k, v in out.items():
+        if k.endswith("|td") and k.split("|")[0] in ctxs:
+            continue  # drop internal team td counter
+        keep[k] = np.asarray(v, dtype=np.float32)
+    return keep
 
 
 # --------------------------------------------------------------------------------------------- GR
 class DrivePool:
-    def __init__(self, ctx, min_n: int = 12):
+    def __init__(self, ctx, opp_ctx=None, defensive: dict | None = None, min_n: int = 12):
         d = ctx.drives
         self.keys = stat_keys(ctx)
         cols = [f"{g}|{s}" for g, s in self.keys]
@@ -237,11 +342,41 @@ class DrivePool:
                     idx = allidx
                 self.pools[(bb, hh)] = idx
         self.n_drives = len(d)
+        # Opponent-defense reweight: upweight historical drives vs similar-allowance defenses
+        self.weights = np.ones(len(d), dtype=np.float64)
+        self.def_factor_pts = 1.0
+        self.def_factor_yards = 1.0
+        if defensive:
+            od = defensive.get("opponent_defense") or {}
+            # points factor from opponent league allowance already in lg; use mild board pressure tilt
+            pr = od.get("pressure_rate")
+            if pr is not None:
+                self.def_factor_pts = float(np.clip(1.0 - 0.15 * (float(pr) - 0.28), 0.85, 1.12))
+                self.def_factor_yards = float(np.clip(1.0 - 0.12 * (float(pr) - 0.28), 0.85, 1.12))
+            # Reweight drives by historical opponent pass/rush allowance proximity when opp column exists
+            if opp_ctx is not None and "opp" in ctx.games.columns:
+                # map each drive's game to opponent; weight by how close opp_ypc was to current opponent
+                lg = ctx.league
+                cur = lg["opp_ypc"].get(opp_ctx.team, 1.0)
+                g2opp = ctx.games.set_index("game_id")["opp"].to_dict()
+                opps = d.game_id.map(g2opp)
+                hist = opps.map(lambda o: lg["opp_ypc"].get(o, 1.0))
+                # closer historical opp allowance → higher weight
+                self.weights = np.exp(-3.0 * (hist.fillna(1.0).to_numpy() - cur) ** 2)
+                self.weights = np.clip(self.weights, 0.25, 2.5)
 
 
-def gr_batch(ctxs: dict, n: int, rng, max_iter: int = 60) -> dict:
+def _weighted_choice(rng, pool_idx, weights, k):
+    w = weights[pool_idx]
+    w = w / w.sum()
+    return rng.choice(pool_idx, size=k, replace=True, p=w)
+
+
+def gr_batch(ctxs: dict, n: int, rng, max_iter: int = 60, defenses: dict | None = None) -> dict:
     teams = list(ctxs)
-    pools = [DrivePool(ctxs[t]) for t in teams]
+    defenses = defenses or {}
+    pools = [DrivePool(ctxs[t], opp_ctx=ctxs[[x for x in teams if x != t][0]],
+                       defensive=defenses.get(t)) for t in teams]
     acc = [np.zeros((n, p.S.shape[1]), np.float32) for p in pools]
     elapsed = np.zeros(n)
     first = rng.integers(0, 2, n)
@@ -265,17 +400,19 @@ def gr_batch(ctxs: dict, n: int, rng, max_iter: int = 60) -> dict:
                 sel = (b == bb) & (half == hh)
                 k = int(sel.sum())
                 if k:
-                    idx[sel] = pool[rng.integers(0, len(pool), k)]
+                    idx[sel] = _weighted_choice(rng, pool, P.weights, k)
             st = elapsed[m]
             end = st + P.dur[idx]
             cross = (st < 1800) & (end >= 1800)
             end = np.where(cross, 1800.0, np.minimum(end, 3600.0))
             q = np.minimum(((end - 1e-6) // 900).astype(int), 3)
-            score[m, t] += P.off[idx]
-            score[m, 1 - t] += P.dfp[idx]
-            qpts[m, t, q] += P.off[idx]
-            qpts[m, 1 - t, q] += P.dfp[idx]
-            acc[t][m] += P.S[idx]
+            off = P.off[idx] * P.def_factor_pts
+            dfp = P.dfp[idx]
+            score[m, t] += off
+            score[m, 1 - t] += dfp
+            qpts[m, t, q] += off
+            qpts[m, 1 - t, q] += dfp
+            acc[t][m] += P.S[idx] * np.float32(P.def_factor_yards)
             elapsed[m] = end
             poss[m] = np.where(cross, 1 - first[m], 1 - t)
             active = elapsed < 3600
@@ -304,18 +441,35 @@ def apply_recalibration(x: np.ndarray, ginv: np.ndarray, rng) -> np.ndarray:
 
 # --------------------------------------------------------------------------------------------- driver
 def run_cells(game: dict, methods=METHODS, scenarios=SCENARIOS, n: int = 100_000, seed: int = 20261129,
-              batch: int = 100_000, max_raw_mult: int = 25, calib: dict | None = None, log=print) -> dict:
-    """Run method x scenario cells for one game. game: game_id, home, away, cutoff, fav, implied{team:pts}, exclude."""
+              batch: int = 100_000, max_raw_mult: int = 40, calib: dict | None = None, log=print,
+              include_residual: bool = True) -> dict:
+    """Run method x scenario cells for one game. game: game_id, home, away, cutoff, fav, implied{team:pts}, exclude.
+
+    Primary scenarios always collected to `n` accepted trials. When include_residual=True, the exhaustive
+    residual complement is collected in parallel (reported separately; not pooled into primary cells).
+    """
     home, away = game["home"], game["away"]
     ctxs = {t: D.team_context(t, game["cutoff"], exclude=set(game.get("exclude", ()))) for t in (home, away)}
     fav = game["fav"]
     dog = away if fav == home else home
     imp = game.get("implied") or {}
     plans = {t: mc_team_plan(ctxs[t], ctxs[[x for x in ctxs if x != t][0]], imp.get(t)) for t in ctxs}
+    defenses = {}
     for t, plan in plans.items():
         adj = game.get("defensive_profiles", {}).get(t, {})
         if adj.get("qb_id") == ctxs[t].players.gsis.iloc[0]:
             plan["defensive"] = adj
+            defenses[t] = adj
+        elif adj:
+            # still pass opponent-defense / allocation even if qb_id mismatch (injury replacement)
+            plan.setdefault("defensive", {}).update({
+                k: adj[k] for k in ("coverage_allocation", "opponent_defense", "scramble",
+                                    "completion", "yards_per_completion", "attempts") if k in adj
+            })
+            defenses[t] = adj
+    collect = list(scenarios)
+    if include_residual and RESIDUAL_SCENARIO not in collect:
+        collect = list(collect) + [RESIDUAL_SCENARIO]
     results = {}
     for method in methods:
         base = "mc" if method == "bias" else method
@@ -323,18 +477,25 @@ def run_cells(game: dict, methods=METHODS, scenarios=SCENARIOS, n: int = 100_000
             results[method] = {"execution_status": "REFUSED_NO_CALIBRATION_ARTIFACT"}
             continue
         rng = np.random.default_rng(seed_for(seed, game["game_id"], method))
-        acc = {s: [] for s in scenarios}
-        have = {s: 0 for s in scenarios}
-        hits = {s: 0 for s in scenarios}
+        acc = {s: [] for s in collect}
+        have = {s: 0 for s in collect}
+        hits = {s: 0 for s in collect}
         raw = 0
         t0 = time.time()
-        while min(have.values()) < n and raw < max_raw_mult * n:
-            b = mc_batch(ctxs, plans, batch, rng) if base == "mc" else gr_batch(ctxs, batch, rng)
+        # Primary cells must reach n; residual also targets n but does not block primary completion beyond max_raw
+        while (min(have[s] for s in scenarios) < n or
+               (include_residual and have[RESIDUAL_SCENARIO] < n)) and raw < max_raw_mult * n:
+            if base == "mc":
+                b = mc_batch(ctxs, plans, batch, rng)
+            else:
+                b = gr_batch(ctxs, batch, rng, defenses=defenses)
             raw += batch
             H = (b[f"{fav}|q1"] + b[f"{fav}|q2"]) - (b[f"{dog}|q1"] + b[f"{dog}|q2"])
             F = b[f"{fav}|pts"] - b[f"{dog}|pts"]
-            masks = classify(H, F)
-            for s in scenarios:
+            masks = classify(H, F, include_residual=include_residual)
+            for s in collect:
+                if s not in masks:
+                    continue
                 hits[s] += int(masks[s].sum())
                 need = n - have[s]
                 if need <= 0:
@@ -343,21 +504,40 @@ def run_cells(game: dict, methods=METHODS, scenarios=SCENARIOS, n: int = 100_000
                 if len(idx):
                     acc[s].append({k: v[idx] for k, v in b.items()})
                     have[s] += len(idx)
+            # Early exit once primaries are full even if residual lags (residual filled opportunistically)
+            if min(have[s] for s in scenarios) >= n and (not include_residual or have[RESIDUAL_SCENARIO] >= n or raw >= 5 * n):
+                if min(have[s] for s in scenarios) >= n and (not include_residual or have.get(RESIDUAL_SCENARIO, 0) >= n):
+                    break
+                if min(have[s] for s in scenarios) >= n and raw >= max_raw_mult * n:
+                    break
         cells = {}
-        for s in scenarios:
+        for s in collect:
             parts = acc[s]
             X = {k: np.concatenate([p[k] for p in parts]) for k in parts[0]} if parts else {}
             if method == "bias" and X:
                 crng = np.random.default_rng(seed_for(seed, game["game_id"], method, s, "recal"))
-                for (gs, st) in [k.split("|") for k in list(X) if k.split("|")[0] not in ctxs]:
+                for key in list(X):
+                    gs, _, st = key.partition("|")
+                    if gs in ctxs or st not in MARKET:
+                        continue
                     mk = MARKET[st]
                     if mk in calib["markets"]:
-                        X[f"{gs}|{st}"] = apply_recalibration(X[f"{gs}|{st}"], np.array(calib["markets"][mk]["ginv"]), crng)
+                        # Do NOT inherit prior validated status after defensive change — remap still applied
+                        # but status overridden in cli to EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED
+                        X[key] = apply_recalibration(X[key], np.array(calib["markets"][mk]["ginv"]), crng)
             cells[s] = dict(X=X, trial_count=have[s], acceptance_rate=round(hits[s] / max(raw, 1), 5),
-                            execution_status="OK" if have[s] >= n else "PARTIAL_SCENARIO_RARE")
+                            execution_status="OK" if have[s] >= n else "PARTIAL_SCENARIO_RARE",
+                            is_residual=(s == RESIDUAL_SCENARIO))
+        # Exhaustive partition frequencies for unconditional market probabilities
+        freq = {s: cells[s]["acceptance_rate"] for s in collect}
+        freq_sum = sum(freq.values()) or 1.0
+        scenario_frequency = {s: round(freq[s] / freq_sum, 6) for s in collect}
         results[method] = dict(cells=cells, raw_trials=raw, seconds=round(time.time() - t0, 2),
-                               seed=seed_for(seed, game["game_id"], method))
-        log(f"  {game['game_id']} {method}: raw={raw} accepted={have} in {results[method]['seconds']}s")
+                               seed=seed_for(seed, game["game_id"], method),
+                               scenario_frequency=scenario_frequency,
+                               primary_scenarios=list(scenarios),
+                               residual_scenario=RESIDUAL_SCENARIO if include_residual else None)
+        log(f"  {game['game_id']} {method}: raw={raw} accepted={have} freq={scenario_frequency} in {results[method]['seconds']}s")
     return dict(ctxs=ctxs, plans=plans, results=results, fav=fav, dog=dog)
 
 

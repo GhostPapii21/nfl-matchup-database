@@ -1,0 +1,67 @@
+{
+ "engine_id": "pipeline.sim100k",
+ "method": "preflight",
+ "sampling": null,
+ "entrypoint": "pipeline/sim100k.py:run",
+ "command": "python -m pipeline.sim100k --game 2026_12_NO_CIN",
+ "version": {
+  "path": "pipeline/sim100k.py",
+  "sha256": "789273836c62c3038101c6ba32c5d34a3b4c073f4d3a6ee41402ec7f4c1a50be",
+  "exists": true
+ },
+ "called": true,
+ "simulated": false,
+ "trials": null,
+ "trials_requested": 100000,
+ "seed": null,
+ "exit_code": 2,
+ "calibration_status": "NOT_RUN",
+ "status": "REFUSED",
+ "gates": {
+  "G0_entrypoint": "PASS",
+  "G1_flags": "PASS",
+  "G2_nfl43": "PASS",
+  "G3_packet": "PASS",
+  "G4_freshness": "REFUSED",
+  "G5_phases": "REFUSED",
+  "G7_asof": "PASS",
+  "G6_rocket": "NOT_RUN (earlier gates refused)"
+ },
+ "reasons": [
+  "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: official_injuries MISSING: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: weather MISSING: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: ngs_passing MISSING: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: ngs_receiving MISSING: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: ngs_rushing MISSING: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+  "G4: official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+  "G5: phase 2 (Player identity and position) is MISSING",
+  "G5: phase 3 (Verified player game history) is MISSING",
+  "G5: phase 4 (Role, snaps, routes, opportunity) is MISSING",
+  "G5: phase 5 (Team offense/defense baselines) is MISSING",
+  "G5: phase 7 (Coverage structure and shell) is MISSING",
+  "G5: phase 8 (Defender assignment and explosive allowance) is MISSING",
+  "G5: phase 9 (QB pressure, blitz, scramble) is MISSING",
+  "G5: phase 10 (Offensive line, pass rush, coaching) is MISSING",
+  "G5: phase 11 (Injury and depth chart) is MISSING",
+  "G5: phase 12 (Weather, roof, travel) is MISSING",
+  "G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+ ],
+ "inputs": {
+  "game_id": "2026_12_NO_CIN",
+  "packet": null
+ },
+ "projection_ready": false,
+ "not_possession_engine_research_call": true,
+ "not_sim_v6": true,
+ "limitations": [
+  "This record is the fail-closed 100k entrypoint. A research possession run is not copied here.",
+  "A historical replay is after kickoff, so the as-of gate refuses. That refusal is the result."
+ ],
+ "artifact": "models/pipeline.sim100k__preflight.json"
+}

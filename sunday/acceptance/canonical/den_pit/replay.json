@@ -1,0 +1,54 @@
+{
+ "as_of_utc": "2026-11-27T04:31:50+00:00",
+ "canonical_sha256": "2593bb9f5137019307ae19925144f2db8857d7ff6e5c7472918fac5e449b776b",
+ "command": "python -m sunday replay --game 2026_12_DEN_PIT --as-of 2026-11-27T04:31:50+00:00",
+ "detail": "Both runs share one canonical sha256. Runtime and RSS are recorded and are not part of that hash.",
+ "game_id": "2026_12_DEN_PIT",
+ "git_sha": "5213a9c1f184a628babf08689cb1fda08e94215a",
+ "leakage": {
+  "excluded_count": 24,
+  "inputs_read": [
+   "core/possession_engine_v0/config/den_pit_2026-11-27_data_only_nfl43.json",
+   "known_flags/KNOWN_LIMITATIONS.json",
+   "pregame/packets/2026_12_DEN_PIT/packet.json",
+   "pregame/packets/latest.json",
+   "pregame/price_freezes/2026-11-27_DEN@PIT/freeze_20261127T043150Z.json"
+  ],
+  "late_stamps": [],
+  "status": "PASS"
+ },
+ "projection_ready": false,
+ "reproducibility": "PASS",
+ "research_only": true,
+ "result": "PARTIAL",
+ "run_a": {
+  "canonical_sha256": "2593bb9f5137019307ae19925144f2db8857d7ff6e5c7472918fac5e449b776b",
+  "critical_ids": [],
+  "memory": "tracemalloc peak 56671702 bytes; process max RSS 520976 KB",
+  "report": "run_a/2026_12_DEN_PIT/report.md",
+  "required_ids": [
+   "phases",
+   "freshness.play_by_play",
+   "freshness.rosters",
+   "freshness.depth_charts",
+   "freshness.snap_counts",
+   "freshness.ftn_charting",
+   "freshness.pfr_defense",
+   "freshness.official_injuries",
+   "freshness.weather",
+   "freshness.ngs_passing",
+   "freshness.ngs_receiving",
+   "freshness.ngs_rushing"
+  ],
+  "result": "PARTIAL",
+  "wall_seconds": 8.889945
+ },
+ "run_b": {
+  "canonical_sha256": "2593bb9f5137019307ae19925144f2db8857d7ff6e5c7472918fac5e449b776b",
+  "memory": "tracemalloc peak 20948715 bytes; process max RSS 594204 KB",
+  "report": "run_b/2026_12_DEN_PIT/report.md",
+  "result": "PARTIAL",
+  "wall_seconds": 7.819344
+ },
+ "schema": "sunday-replay/1"
+}
