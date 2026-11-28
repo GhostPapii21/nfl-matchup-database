@@ -35,51 +35,62 @@ def _qb_script(script: dict | None, player: str) -> dict:
 
 
 def _player_theses(players: dict | None, script: dict | None) -> list[dict]:
+    """Expose existing engine distributions without inventing line probabilities."""
     theses = []
     for team in (players or {}).get("teams") or []:
-        if not isinstance(team, dict):
-            continue
         for person in team.get("players") or []:
-            if person.get("pos") != "QB":
-                continue
-            sit = person.get("situational") or {}
-            pressure = sit.get("pressure_targets") or {}
-            coverage = sit.get("coverage_route_access") or {}
-            passing = (person.get("projections") or {}).get("passing")
             name = person.get("player")
-            theses.append({
-                "thesis_id": f"player:{name}:pass",
-                "subject": name,
-                "subject_kind": "player",
-                "market": "pass_yds",
-                "side": "over",
-                "line": None,
-                "projection": passing,
-                "models": [],
-                "role_tag": "volume",
-                "efficiency_dependent": True,
-                "evidence_for": [],
-                "evidence_against": [{
-                    "severity": "material",
-                    "text": "No 100k sim_v6 probability was joined, so this passing row cannot support a read.",
-                }],
-                "sample_quality": {
-                    "withheld": True,
-                    "blocks_reads": True,
-                    "limitation": "Passing and touchdown distributions stay on the script branch artifacts. They were not turned into one probability.",
-                },
-                "joined_evidence": {
-                    "pressure_targets": {
-                        "evidence_tier": pressure.get("evidence_tier") or "unavailable",
-                        "charting": pressure.get("charting") or "unavailable",
+            pid = person.get("player_id")
+            if not name or not pid:
+                continue
+            pos = person.get("pos")
+            projections = person.get("projections") or {}
+            sit = person.get("situational") or {}
+            receiving = projections.get("receiving") or {}
+            rushing = projections.get("rushing") or {}
+            candidates = {
+                "rec_yds": receiving.get("receiving_yards"),
+                "receptions": receiving.get("receptions"),
+                "targets": receiving.get("volume"),
+                "rush_yds": rushing.get("rushing_yards"),
+                "rush_attempts": rushing.get("rush_attempts"),
+                "rush_rec_yds": projections.get("rush_plus_receiving"),
+                "td_opportunity": projections.get("td_opportunity"),
+            }
+            if pos == "QB":
+                candidates["pass_yds"] = projections.get("passing")
+            for market, projection in candidates.items():
+                if not isinstance(projection, dict) or not projection:
+                    continue
+                theses.append({
+                    "thesis_id": f"player:{pid}:{market}",
+                    "subject": name,
+                    "player_id": pid,
+                    "team": team.get("team"),
+                    "subject_kind": "player",
+                    "market": market,
+                    "side": "over",
+                    "line": None,
+                    "projection": projection,
+                    "models": [],
+                    "role_tag": "volume",
+                    "efficiency_dependent": True,
+                    "evidence_for": [],
+                    "evidence_against": [{"severity": "material",
+                        "text": "No verified market-line simulation probability was joined."}],
+                    "sample_quality": {"withheld": True, "blocks_reads": True,
+                        "limitation": "Research distributions only; no line-specific probability inferred."},
+                    "joined_evidence": {
+                        "pressure_targets": sit.get("pressure_targets"),
+                        "coverage_assignment": sit.get("coverage_route_access"),
+                        "opponent_quality": sit.get("opponent_quality"),
+                        "red_zone": sit.get("red_zone"),
+                        "goal_line": sit.get("goal_line"),
+                        "efficiency": {"receiving": receiving.get("efficiency"),
+                                       "rushing": rushing.get("efficiency")},
+                        "script": _qb_script(script, name) if pos == "QB" else None,
                     },
-                    "coverage_assignment": {
-                        "evidence_tier": coverage.get("evidence_tier") or "unavailable",
-                        "charting": "unavailable",
-                    },
-                    "script": _qb_script(script, name),
-                },
-            })
+                })
     return theses
 
 
