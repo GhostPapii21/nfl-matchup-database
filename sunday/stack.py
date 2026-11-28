@@ -21,6 +21,8 @@ ORDER = (
     "script_models",
     "sim_v6",
     "replacement_triad",
+    "ngs_verify",
+    "td_outputs",
     "player_board",
     "decision",
 )
@@ -322,6 +324,33 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
         [{"not_sim_v6": True, "empirical_trials": empirical.get("trials_executed")}],
         [{"path": "replacement_triad.json", "sha256": triad_sha}],
         trials=empirical.get("trials_executed"),
+    ))
+
+    started = datetime.now(timezone.utc)
+    from sunday.ngs_verify import verify as verify_ngs
+    ngs = verify_ngs(repo)
+    ngs_sha = _dump(out_dir / "ngs_verify.json", ngs)
+    ended = datetime.now(timezone.utc)
+    components.append(_row(
+        "ngs_verify", "sunday.ngs_verify", "verify", "check",
+        "REFUSED", ngs["reason"], started, ended,
+        [{"week_12": ngs["week_12"]}],
+        [{"path": "ngs_verify.json", "sha256": ngs_sha}],
+    ))
+
+    started = datetime.now(timezone.utc)
+    from sunday.td_outputs import collect as collect_td
+    td = collect_td(script_dir)
+    td_sha = _dump(out_dir / "td_outputs.json", td)
+    ended = datetime.now(timezone.utc)
+    td_status = "EXECUTED" if td["rows"] else "BLOCKED"
+    components.append(_row(
+        "td_outputs", "sunday.td_outputs", "collect", "analytical",
+        td_status,
+        f"pass_td rows {td['players_with_pass_td']}; rush_td rows {td['players_with_rush_td']}",
+        started, ended,
+        [{"pooled": False, "acceptance_100k": False}],
+        [{"path": "td_outputs.json", "sha256": td_sha}],
     ))
 
     started = datetime.now(timezone.utc)

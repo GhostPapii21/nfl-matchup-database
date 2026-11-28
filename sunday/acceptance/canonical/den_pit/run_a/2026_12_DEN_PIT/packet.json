@@ -1,7 +1,7 @@
 {
  "as_of_utc": "2026-11-27T04:31:50+00:00",
  "canonical_manifest": "manifest.json",
- "canonical_sha256": "2bcf4ebcbd782cf6fad187275ba4429b96f2888b22a6c80479ac1414e2bffc48",
+ "canonical_sha256": "2593bb9f5137019307ae19925144f2db8857d7ff6e5c7472918fac5e449b776b",
  "checks": [
   {
    "detail": "Schedule identity matches. Kickoff 2026-11-27T20:00:00+00:00.",
@@ -200,10 +200,10 @@
  },
  "command": "python -m sunday game --game 2026_12_DEN_PIT --as-of 2026-11-27T04:31:50+00:00",
  "component_counts": {
-  "EXECUTED": 9,
-  "FAILED": 2,
+  "EXECUTED": 11,
+  "FAILED": 1,
   "MISSING": 1,
-  "REFUSED": 4
+  "REFUSED": 5
  },
  "critical_ids": [],
  "freshness": [
@@ -410,7 +410,7 @@
   "week": 12
  },
  "game_id": "2026_12_DEN_PIT",
- "git_sha": "4345bfbc85ac1d68552d9c3e40b957a710c48ab6",
+ "git_sha": "5213a9c1f184a628babf08689cb1fda08e94215a",
  "kickoff_utc": "2026-11-27T20:00:00+00:00",
  "kickoff_verification": "VERIFIED",
  "layer_gaps": [
@@ -689,14 +689,14 @@
   }
  },
  "runtime": {
-  "disk_free_bytes": 261725995008,
+  "disk_free_bytes": 261732646912,
   "memory": {
-   "detail": "tracemalloc peak 57232099 bytes; process max RSS 502232 KB",
-   "process_max_rss_kb": 502232,
-   "tracemalloc_current_bytes": 38696745,
-   "tracemalloc_peak_bytes": 57232099
+   "detail": "tracemalloc peak 56671702 bytes; process max RSS 520976 KB",
+   "process_max_rss_kb": 520976,
+   "tracemalloc_current_bytes": 39894113,
+   "tracemalloc_peak_bytes": 56671702
   },
-  "wall_seconds": 2.766748
+  "wall_seconds": 8.889945
  },
  "scheduler": {
   "detail": "Manual local execution. GitHub Actions is not invoked and no schedule is registered.",

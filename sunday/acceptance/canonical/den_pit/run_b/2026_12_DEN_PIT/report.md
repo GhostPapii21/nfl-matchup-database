@@ -7,10 +7,10 @@ Research only. `projection_ready` is false. This is not a pick and not a schedul
 - As of: 2026-11-27T04:31:50+00:00
 - Kickoff: 2026-11-27T20:00:00+00:00
 - Command: `python -m sunday game --game 2026_12_DEN_PIT --as-of 2026-11-27T04:31:50+00:00`
-- Code revision: `4345bfbc85ac1d68552d9c3e40b957a710c48ab6`
-- Canonical sha256: `2bcf4ebcbd782cf6fad187275ba4429b96f2888b22a6c80479ac1414e2bffc48`
-- Wall time: 1.911287 s
-- Memory: tracemalloc peak 20118824 bytes; process max RSS 523616 KB
+- Code revision: `5213a9c1f184a628babf08689cb1fda08e94215a`
+- Canonical sha256: `2593bb9f5137019307ae19925144f2db8857d7ff6e5c7472918fac5e449b776b`
+- Wall time: 7.819344 s
+- Memory: tracemalloc peak 20948715 bytes; process max RSS 594204 KB
 
 ## Critical checks
 

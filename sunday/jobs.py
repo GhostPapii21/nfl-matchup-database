@@ -16,6 +16,26 @@ def _iso(dt: datetime) -> str:
     return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def research_handler(repo: Path):
+    """Run kickoff resolution and the NGS file check. This does not certify a projection."""
+
+    def handler(job: dict) -> str:
+        from sunday import kickoff
+        from sunday.ngs_verify import verify
+
+        resolution = kickoff.resolve(repo, job["game_id"], None)
+        ngs = verify(repo)
+        passing = (ngs.get("feeds") or {}).get("passing") or {}
+        return (
+            f"research game={job['game_id']} kickoff={resolution.get('verification')} "
+            f"pregame_capture={resolution.get('pregame_capture')} "
+            f"ngs_2026_max_week={passing.get('max_week_2026')} "
+            f"projection_ready=false certification=false"
+        )
+
+    return handler
+
+
 def _parse(value: str | None) -> datetime | None:
     if not value:
         return None

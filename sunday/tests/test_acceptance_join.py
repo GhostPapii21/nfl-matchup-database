@@ -1,4 +1,5 @@
 """The Nov 29 acceptance gaps: joined inputs, sim_v6 refusal, and a local job store."""
+import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -129,6 +130,52 @@ def test_sources_locks_and_the_replacement_are_not_sim_v6():
     possession = next(row for row in body["methods"] if row["identity"] == "core.possession_engine_v0")
     assert possession["trials_executed"] == 0
     assert possession["committed_benchmark"]["runtime_sec"] == 819.2
+
+
+def test_ngs_file_read_stops_before_week_12_and_scheduler_runs():
+    from sunday.jobs import research_handler
+    from sunday.ngs_verify import verify
+    from sunday.td_outputs import collect
+    repo = Path(__file__).resolve().parents[2]
+    ngs = verify(repo)
+    assert ngs["projection_ready"] is False
+    assert ngs["certification"] is False
+    assert ngs["feeds"]["passing"]["max_week_2026"] == 9
+    assert ngs["feeds"]["passing"]["week_12_rows"] == 0
+    assert "route" in ngs["feeds"]["passing"]["fields_absent"]
+    script = Path(repo / "sunday" / "tests" / "_td_fixture")
+    branch = script / "branches" / "possession_engine_v0"
+    branch.mkdir(parents=True)
+    (branch / "favorite_controls.json").write_text(json.dumps({
+        "engine_id": "possession_engine_v0",
+        "branch": "favorite_controls",
+        "n_trials": 24,
+        "players": [{
+            "team": "DEN",
+            "player": "Bo Nix",
+            "td_opportunity": {"pass_td": {"mean": 1.5}, "rush_td": {"mean": 0.2}},
+        }],
+    }))
+    try:
+        td = collect(script)
+    finally:
+        import shutil
+        shutil.rmtree(script)
+    assert td["players_with_pass_td"] == 1
+    assert td["players_with_rush_td"] == 1
+    assert td["pooled"] is False
+    store = JobStore(Path(repo / "sunday" / "tests" / "_jobs.sqlite"))
+    try:
+        now = datetime(2026, 11, 28, 12, tzinfo=timezone.utc)
+        store.enqueue(game_id="2026_12_DEN_PIT", window="research", idempotency_key="den-research")
+        outcomes = store.dispatch(research_handler(repo), now)
+    finally:
+        store.close()
+        Path(repo / "sunday" / "tests" / "_jobs.sqlite").unlink(missing_ok=True)
+    assert outcomes[0]["status"] == "done"
+    assert "projection_ready=false" in outcomes[0]["result"]
+    assert "ngs_2026_max_week=9" in outcomes[0]["result"]
+    assert "certification=false" in outcomes[0]["result"]
 
 
 def test_dispatch_isolates_a_failure_and_marks_a_missed_deadline(tmp_path):
