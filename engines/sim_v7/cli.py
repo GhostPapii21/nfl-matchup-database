@@ -59,7 +59,7 @@ def game_config(game_id: str) -> tuple[dict, dict]:
         for inj in side.get("offense_injuries", []) or []:
             st = {str(inj.get("espn") or "").lower(), str(inj.get("game_status") or "").lower()}
             if st & OUT_STATUSES:
-                m = pl[pl.display_name.map(norm) == norm(inj.get("player"))]
+                m = pl[(pl.display_name.map(norm) == norm(inj.get("player"))) & pl.latest_team.map(lambda t: D.NV.get(t, t)).isin([home, away])]
                 excl.update(m.gsis_id.tolist())
     cfg = dict(game_id=game_id, home=home, away=away, cutoff=SOURCE_CUTOFF, fav=fav, implied=implied,
                exclude=sorted(excl), market_source=b["market"].get("source"), board_file=os.path.relpath(path, D.REPO),
