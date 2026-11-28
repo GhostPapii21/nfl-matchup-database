@@ -1,0 +1,58 @@
+{
+ "component": "engine_roster",
+ "status": "OK",
+ "ran": true,
+ "entrypoint": "sunday.components:engine_roster",
+ "started_utc": "2026-11-28T02:09:28+00:00",
+ "finished_utc": "2026-11-28T02:09:28+00:00",
+ "duration_sec": 0.0,
+ "error": null,
+ "output_sha256": "c0112178c389410f7cbde5611b820187901cb9a0a836daaa5aa8d4ab5ffa5292",
+ "output": {
+  "status": "OK",
+  "ran": true,
+  "entrypoint": "sunday.components:engine_roster",
+  "documented_sim_v6": {
+   "entrypoint": "tools/sim_v6.py",
+   "exists": false,
+   "ran": false,
+   "methods": {
+    "monte_carlo": "NOT_RUN",
+    "calibrated_bias": "NOT_RUN",
+    "game_randomness": "NOT_RUN"
+   },
+   "reason": "PHASE_SCRIPT.md and the source run gate require tools/sim_v6.py for the three-method triad. That file is not in this revision, so the triad did not run."
+  },
+  "simv56_scratch": {
+   "entrypoint": "calibration/simv56/engines/cc_sim_v6.py:Engine.sim",
+   "exists": true,
+   "src_play_by_play_exists": false,
+   "ran": false,
+   "reason": "Scratch copy under calibration/simv56. It is not tools/sim_v6.py and was not imported or executed. Importing it reads a shared-src parquet at module import."
+  },
+  "lightning": {
+   "candidates_checked": [
+    "tools/lightning.py",
+    "core/lightning_engine",
+    "calibration/lightning.py"
+   ],
+   "exists": false,
+   "ran": false,
+   "reason": "No Lightning engine entrypoint was found. A Monte Carlo result is not labeled Lightning."
+  },
+  "main": {
+   "entrypoint": null,
+   "ran": false,
+   "reason": "No separate module is named Main. pipeline.sim100k.default_engine calls core/possession_engine_v0/simulate.simulate_games. This slice calls that function under its own name."
+  },
+  "possession": {
+   "entrypoint": "core/possession_engine_v0/simulate.py:simulate_games",
+   "exists": true
+  },
+  "period": {
+   "entrypoint": "core/period_engine_v0/monte_carlo.py:simulate_game",
+   "exists": true,
+   "bias": "UNIMPLEMENTED_NO_FITTED_CALIB"
+  }
+ }
+}

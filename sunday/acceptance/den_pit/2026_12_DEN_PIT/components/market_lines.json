@@ -1,0 +1,4568 @@
+{
+ "component": "market_lines",
+ "status": "OK",
+ "ran": true,
+ "entrypoint": "sunday.components:market_lines",
+ "started_utc": "2026-11-28T02:09:28+00:00",
+ "finished_utc": "2026-11-28T02:09:28+00:00",
+ "duration_sec": 0.003,
+ "error": null,
+ "output_sha256": "d5810fec2269ebf1d3faa4c364980646887035a39dd6c721a12582a383227c6b",
+ "output": {
+  "status": "OK",
+  "ran": true,
+  "entrypoint": "pregame packet books",
+  "books_status": "OK_DIRECT",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "retrieved_utc": "2026-11-27T04:26:21Z",
+  "consensus_home_spread": 4.5,
+  "consensus_total": 36.5,
+  "consensus_source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
+  "quotes": [
+   {
+    "market": "spread",
+    "book": "fanduel",
+    "line": 4.5,
+    "prices": {
+     "PIT": -113.0,
+     "DEN": -113.0
+    },
+    "no_vig": {
+     "PIT": 0.5,
+     "DEN": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "pinnacle",
+    "line": 4.5,
+    "prices": {
+     "PIT": -104.0,
+     "DEN": -108.0
+    },
+    "no_vig": {
+     "PIT": 0.4954,
+     "DEN": 0.5046
+    },
+    "hold": 0.029,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "consensus",
+    "line": 4.5,
+    "prices": {
+     "PIT": -110.0,
+     "DEN": -110.0
+    },
+    "no_vig": {
+     "PIT": 0.5,
+     "DEN": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "draftkings",
+    "line": 4.5,
+    "prices": {
+     "PIT": -102.0,
+     "DEN": -118.0
+    },
+    "no_vig": {
+     "PIT": 0.4826,
+     "DEN": 0.5174
+    },
+    "hold": 0.0462,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "bet365",
+    "line": 4.5,
+    "prices": {
+     "PIT": -107.0,
+     "DEN": -113.0
+    },
+    "no_vig": {
+     "PIT": 0.4935,
+     "DEN": 0.5065
+    },
+    "hold": 0.0474,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "williamhill_us",
+    "line": 4.5,
+    "prices": {
+     "PIT": -106.0,
+     "DEN": -114.0
+    },
+    "no_vig": {
+     "PIT": 0.4913,
+     "DEN": 0.5087
+    },
+    "hold": 0.0473,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "open",
+    "line": 1.5,
+    "prices": {
+     "PIT": -110.0,
+     "DEN": -110.0
+    },
+    "no_vig": {
+     "PIT": 0.5,
+     "DEN": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "betrivers",
+    "line": 5.5,
+    "prices": {
+     "PIT": -113.0,
+     "DEN": -108.0
+    },
+    "no_vig": {
+     "PIT": 0.5054,
+     "DEN": 0.4946
+    },
+    "hold": 0.0497,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "spread",
+    "book": "betmgm",
+    "line": 5.0,
+    "prices": {
+     "PIT": -110.0,
+     "DEN": -108.0
+    },
+    "no_vig": {
+     "PIT": 0.5022,
+     "DEN": 0.4978
+    },
+    "hold": 0.043,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "fanduel",
+    "line": null,
+    "prices": {
+     "PIT": 194.0,
+     "DEN": -235.0
+    },
+    "no_vig": {
+     "PIT": 0.3265,
+     "DEN": 0.6735
+    },
+    "hold": 0.0416,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "pinnacle",
+    "line": null,
+    "prices": {
+     "PIT": 186.0,
+     "DEN": -216.0
+    },
+    "no_vig": {
+     "PIT": 0.3384,
+     "DEN": 0.6616
+    },
+    "hold": 0.0332,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "consensus",
+    "line": null,
+    "prices": {
+     "PIT": 194.0,
+     "DEN": -237.0
+    },
+    "no_vig": {
+     "PIT": 0.326,
+     "DEN": 0.674
+    },
+    "hold": 0.0434,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "draftkings",
+    "line": null,
+    "prices": {
+     "PIT": 205.0,
+     "DEN": -248.0
+    },
+    "no_vig": {
+     "PIT": 0.3151,
+     "DEN": 0.6849
+    },
+    "hold": 0.0405,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "betrivers",
+    "line": null,
+    "prices": {
+     "PIT": 210.0,
+     "DEN": -265.0
+    },
+    "no_vig": {
+     "PIT": 0.3076,
+     "DEN": 0.6924
+    },
+    "hold": 0.0486,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "betmgm",
+    "line": null,
+    "prices": {
+     "PIT": 190.0,
+     "DEN": -235.0
+    },
+    "no_vig": {
+     "PIT": 0.3296,
+     "DEN": 0.6704
+    },
+    "hold": 0.0463,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "bet365",
+    "line": null,
+    "prices": {
+     "PIT": 195.0,
+     "DEN": -240.0
+    },
+    "no_vig": {
+     "PIT": 0.3244,
+     "DEN": 0.6756
+    },
+    "hold": 0.0449,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "moneyline",
+    "book": "williamhill_us",
+    "line": null,
+    "prices": {
+     "PIT": 193.0,
+     "DEN": -235.0
+    },
+    "no_vig": {
+     "PIT": 0.3273,
+     "DEN": 0.6727
+    },
+    "hold": 0.0428,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "fanduel",
+    "line": 36.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -106.0
+    },
+    "no_vig": {
+     "Over": 0.5146,
+     "Under": 0.4854
+    },
+    "hold": 0.06,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "pinnacle",
+    "line": 37.0,
+    "prices": {
+     "Over": -105.0,
+     "Under": -109.0
+    },
+    "no_vig": {
+     "Over": 0.4955,
+     "Under": 0.5045
+    },
+    "hold": 0.0337,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "draftkings",
+    "line": 36.5,
+    "prices": {
+     "Over": -119.0,
+     "Under": -101.0
+    },
+    "no_vig": {
+     "Over": 0.5195,
+     "Under": 0.4805
+    },
+    "hold": 0.0459,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "betrivers",
+    "line": 36.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -107.0
+    },
+    "no_vig": {
+     "Over": 0.5065,
+     "Under": 0.4935
+    },
+    "hold": 0.0474,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "bet365",
+    "line": 36.5,
+    "prices": {
+     "Over": -117.0,
+     "Under": -103.0
+    },
+    "no_vig": {
+     "Over": 0.5152,
+     "Under": 0.4848
+    },
+    "hold": 0.0466,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "open",
+    "line": 39.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "consensus",
+    "line": 37.0,
+    "prices": {
+     "Over": -113.0,
+     "Under": -108.0
+    },
+    "no_vig": {
+     "Over": 0.5054,
+     "Under": 0.4946
+    },
+    "hold": 0.0497,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "betmgm",
+    "line": 37.0,
+    "prices": {
+     "Over": -108.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.4978,
+     "Under": 0.5022
+    },
+    "hold": 0.043,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "total",
+    "book": "williamhill_us",
+    "line": 37.0,
+    "prices": {
+     "Over": -108.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.4957,
+     "Under": 0.5043
+    },
+    "hold": 0.0475,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Courtland Sutton",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": -138.0,
+     "Under": 104.0
+    },
+    "no_vig": {
+     "Over": 0.5419,
+     "Under": 0.4581
+    },
+    "hold": 0.07,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Courtland Sutton",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": -146.0,
+     "Under": 116.0
+    },
+    "no_vig": {
+     "Over": 0.5618,
+     "Under": 0.4382
+    },
+    "hold": 0.0565,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Courtland Sutton",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -145.0,
+     "Under": 113.0
+    },
+    "no_vig": {
+     "Over": 0.5576,
+     "Under": 0.4424
+    },
+    "hold": 0.0613,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Courtland Sutton",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": -135.0,
+     "Under": 100.0
+    },
+    "no_vig": {
+     "Over": 0.5347,
+     "Under": 0.4653
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Courtland Sutton",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": -135.0,
+     "Under": 105.0
+    },
+    "no_vig": {
+     "Over": 0.5408,
+     "Under": 0.4592
+    },
+    "hold": 0.0623,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Courtland Sutton",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -150.0,
+     "Under": 115.0
+    },
+    "no_vig": {
+     "Over": 0.5633,
+     "Under": 0.4367
+    },
+    "hold": 0.0651,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|DK Metcalf",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": -130.0,
+     "Under": -102.0
+    },
+    "no_vig": {
+     "Over": 0.5282,
+     "Under": 0.4718
+    },
+    "hold": 0.0702,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|DK Metcalf",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -105.0
+    },
+    "no_vig": {
+     "Over": 0.5157,
+     "Under": 0.4843
+    },
+    "hold": 0.0576,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|DK Metcalf",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -124.0,
+     "Under": -103.0
+    },
+    "no_vig": {
+     "Over": 0.5218,
+     "Under": 0.4782
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|DK Metcalf",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": -135.0,
+     "Under": 100.0
+    },
+    "no_vig": {
+     "Over": 0.5347,
+     "Under": 0.4653
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|DK Metcalf",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": -123.0,
+     "Under": -105.0
+    },
+    "no_vig": {
+     "Over": 0.5185,
+     "Under": 0.4815
+    },
+    "hold": 0.0638,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|DK Metcalf",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -125.0,
+     "Under": -105.0
+    },
+    "no_vig": {
+     "Over": 0.5203,
+     "Under": 0.4797
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "fanduel",
+    "line": 27.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "pinnacle",
+    "line": 27.5,
+    "prices": {
+     "Over": -108.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4916,
+     "Under": 0.5084
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "draftkings",
+    "line": 27.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -109.0
+    },
+    "no_vig": {
+     "Over": 0.5063,
+     "Under": 0.4937
+    },
+    "hold": 0.0564,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "betonlineag",
+    "line": 27.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4948,
+     "Under": 0.5052
+    },
+    "hold": 0.0631,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "circasports",
+    "line": 27.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "bovada",
+    "line": 27.5,
+    "prices": {
+     "Over": -105.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4797,
+     "Under": 0.5203
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "betmgm",
+    "line": 29.5,
+    "prices": {
+     "Over": -105.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4797,
+     "Under": 0.5203
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|DK Metcalf",
+    "book": "betrivers",
+    "line": 28.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.499,
+     "Under": 0.501
+    },
+    "hold": 0.0676,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman Jr.",
+    "book": "fanduel",
+    "line": 10.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman Jr.",
+    "book": "pinnacle",
+    "line": 10.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Freiermuth",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": 116.0,
+     "Under": -154.0
+    },
+    "no_vig": {
+     "Over": 0.433,
+     "Under": 0.567
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Freiermuth",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": 108.0,
+     "Under": -136.0
+    },
+    "no_vig": {
+     "Over": 0.4548,
+     "Under": 0.5452
+    },
+    "hold": 0.057,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Freiermuth",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": 108.0,
+     "Under": -137.0
+    },
+    "no_vig": {
+     "Over": 0.4541,
+     "Under": 0.5459
+    },
+    "hold": 0.0588,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Freiermuth",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": 115.0,
+     "Under": -155.0
+    },
+    "no_vig": {
+     "Over": 0.4335,
+     "Under": 0.5665
+    },
+    "hold": 0.073,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Freiermuth",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": 112.0,
+     "Under": -145.0
+    },
+    "no_vig": {
+     "Over": 0.4435,
+     "Under": 0.5565
+    },
+    "hold": 0.0635,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Freiermuth",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": 110.0,
+     "Under": -145.0
+    },
+    "no_vig": {
+     "Over": 0.4459,
+     "Under": 0.5541
+    },
+    "hold": 0.068,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Darnell Washington",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": -148.0,
+     "Under": 112.0
+    },
+    "no_vig": {
+     "Over": 0.5585,
+     "Under": 0.4415
+    },
+    "hold": 0.0685,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Darnell Washington",
+    "book": "pinnacle",
+    "line": 1.5,
+    "prices": {
+     "Over": -133.0,
+     "Under": 106.0
+    },
+    "no_vig": {
+     "Over": 0.5404,
+     "Under": 0.4596
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Darnell Washington",
+    "book": "draftkings",
+    "line": 1.5,
+    "prices": {
+     "Over": -151.0,
+     "Under": 118.0
+    },
+    "no_vig": {
+     "Over": 0.5674,
+     "Under": 0.4326
+    },
+    "hold": 0.0603,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Darnell Washington",
+    "book": "betmgm",
+    "line": 1.5,
+    "prices": {
+     "Over": -155.0,
+     "Under": 115.0
+    },
+    "no_vig": {
+     "Over": 0.5665,
+     "Under": 0.4335
+    },
+    "hold": 0.073,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Darnell Washington",
+    "book": "betonlineag",
+    "line": 1.5,
+    "prices": {
+     "Over": -143.0,
+     "Under": 110.0
+    },
+    "no_vig": {
+     "Over": 0.5527,
+     "Under": 0.4473
+    },
+    "hold": 0.0647,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Darnell Washington",
+    "book": "bovada",
+    "line": 1.5,
+    "prices": {
+     "Over": -150.0,
+     "Under": 115.0
+    },
+    "no_vig": {
+     "Over": 0.5633,
+     "Under": 0.4367
+    },
+    "hold": 0.0651,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "fanduel",
+    "line": 27.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "pinnacle",
+    "line": 27.5,
+    "prices": {
+     "Over": -105.0,
+     "Under": -119.0
+    },
+    "no_vig": {
+     "Over": 0.4852,
+     "Under": 0.5148
+    },
+    "hold": 0.0556,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "draftkings",
+    "line": 27.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.5021,
+     "Under": 0.4979
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "betonlineag",
+    "line": 27.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4969,
+     "Under": 0.5031
+    },
+    "hold": 0.0632,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "circasports",
+    "line": 27.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "bovada",
+    "line": 27.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "betmgm",
+    "line": 24.5,
+    "prices": {
+     "Over": -135.0,
+     "Under": 100.0
+    },
+    "no_vig": {
+     "Over": 0.5347,
+     "Under": 0.4653
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Bryant",
+    "book": "betrivers",
+    "line": 26.5,
+    "prices": {
+     "Over": -118.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.505,
+     "Under": 0.495
+    },
+    "hold": 0.0718,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Troy Franklin",
+    "book": "fanduel",
+    "line": 0.5,
+    "prices": {
+     "Over": -174.0,
+     "Under": 124.0
+    },
+    "no_vig": {
+     "Over": 0.5872,
+     "Under": 0.4128
+    },
+    "hold": 0.0815,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Troy Franklin",
+    "book": "pinnacle",
+    "line": 0.5,
+    "prices": {
+     "Over": -142.0,
+     "Under": 113.0
+    },
+    "no_vig": {
+     "Over": 0.5555,
+     "Under": 0.4445
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Troy Franklin",
+    "book": "draftkings",
+    "line": 0.5,
+    "prices": {
+     "Over": -169.0,
+     "Under": 132.0
+    },
+    "no_vig": {
+     "Over": 0.5931,
+     "Under": 0.4069
+    },
+    "hold": 0.0593,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Troy Franklin",
+    "book": "betmgm",
+    "line": 0.5,
+    "prices": {
+     "Over": -150.0,
+     "Under": 110.0
+    },
+    "no_vig": {
+     "Over": 0.5575,
+     "Under": 0.4425
+    },
+    "hold": 0.0762,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Troy Franklin",
+    "book": "betonlineag",
+    "line": 0.5,
+    "prices": {
+     "Over": -154.0,
+     "Under": 118.0
+    },
+    "no_vig": {
+     "Over": 0.5693,
+     "Under": 0.4307
+    },
+    "hold": 0.065,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Troy Franklin",
+    "book": "bovada",
+    "line": 0.5,
+    "prices": {
+     "Over": -170.0,
+     "Under": 130.0
+    },
+    "no_vig": {
+     "Over": 0.5915,
+     "Under": 0.4085
+    },
+    "hold": 0.0644,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Max Hurleman",
+    "book": "fanduel",
+    "line": 5.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Max Hurleman",
+    "book": "fanduel",
+    "line": 0.5,
+    "prices": {
+     "Over": -172.0,
+     "Under": 128.0
+    },
+    "no_vig": {
+     "Over": 0.5905,
+     "Under": 0.4095
+    },
+    "hold": 0.0709,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Rico Dowdle",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": -146.0,
+     "Under": 112.0
+    },
+    "no_vig": {
+     "Over": 0.5572,
+     "Under": 0.4428
+    },
+    "hold": 0.0652,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Rico Dowdle",
+    "book": "pinnacle",
+    "line": 1.5,
+    "prices": {
+     "Over": -153.0,
+     "Under": 122.0
+    },
+    "no_vig": {
+     "Over": 0.5731,
+     "Under": 0.4269
+    },
+    "hold": 0.0552,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Rico Dowdle",
+    "book": "draftkings",
+    "line": 1.5,
+    "prices": {
+     "Over": -152.0,
+     "Under": 119.0
+    },
+    "no_vig": {
+     "Over": 0.5691,
+     "Under": 0.4309
+    },
+    "hold": 0.0598,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Rico Dowdle",
+    "book": "betmgm",
+    "line": 1.5,
+    "prices": {
+     "Over": -155.0,
+     "Under": 115.0
+    },
+    "no_vig": {
+     "Over": 0.5665,
+     "Under": 0.4335
+    },
+    "hold": 0.073,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Rico Dowdle",
+    "book": "betonlineag",
+    "line": 1.5,
+    "prices": {
+     "Over": -154.0,
+     "Under": 118.0
+    },
+    "no_vig": {
+     "Over": 0.5693,
+     "Under": 0.4307
+    },
+    "hold": 0.065,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Rico Dowdle",
+    "book": "bovada",
+    "line": 1.5,
+    "prices": {
+     "Over": -160.0,
+     "Under": 120.0
+    },
+    "no_vig": {
+     "Over": 0.5752,
+     "Under": 0.4248
+    },
+    "hold": 0.0699,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman Jr.",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": 104.0,
+     "Under": -146.0
+    },
+    "no_vig": {
+     "Over": 0.4523,
+     "Under": 0.5477
+    },
+    "hold": 0.0837,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman Jr.",
+    "book": "pinnacle",
+    "line": 1.5,
+    "prices": {
+     "Over": 113.0,
+     "Under": -143.0
+    },
+    "no_vig": {
+     "Over": 0.4438,
+     "Under": 0.5562
+    },
+    "hold": 0.058,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "fanduel",
+    "line": 22.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "pinnacle",
+    "line": 22.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "draftkings",
+    "line": 22.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5042,
+     "Under": 0.4958
+    },
+    "hold": 0.0565,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "betmgm",
+    "line": 22.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "betrivers",
+    "line": 22.5,
+    "prices": {
+     "Over": -117.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.503,
+     "Under": 0.497
+    },
+    "hold": 0.0719,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "betonlineag",
+    "line": 22.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "circasports",
+    "line": 22.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Germie Bernard",
+    "book": "bovada",
+    "line": 22.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "fanduel",
+    "line": 20.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "pinnacle",
+    "line": 20.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "betonlineag",
+    "line": 20.5,
+    "prices": {
+     "Over": -116.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.5052,
+     "Under": 0.4948
+    },
+    "hold": 0.0631,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "circasports",
+    "line": 20.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "draftkings",
+    "line": 23.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "bovada",
+    "line": 23.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "betmgm",
+    "line": 21.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.491,
+     "Under": 0.509
+    },
+    "hold": 0.0715,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Pat Freiermuth",
+    "book": "betrivers",
+    "line": 19.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -117.0
+    },
+    "no_vig": {
+     "Over": 0.497,
+     "Under": 0.503
+    },
+    "hold": 0.0719,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims Jr.",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": 154.0,
+     "Under": -215.0
+    },
+    "no_vig": {
+     "Over": 0.3658,
+     "Under": 0.6342
+    },
+    "hold": 0.0762,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims Jr.",
+    "book": "pinnacle",
+    "line": 1.5,
+    "prices": {
+     "Over": 157.0,
+     "Under": -201.0
+    },
+    "no_vig": {
+     "Over": 0.3682,
+     "Under": 0.6318
+    },
+    "hold": 0.0569,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims Jr.",
+    "book": "fanduel",
+    "line": 8.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims Jr.",
+    "book": "pinnacle",
+    "line": 8.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Germie Bernard",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": -162.0,
+     "Under": 118.0
+    },
+    "no_vig": {
+     "Over": 0.5741,
+     "Under": 0.4259
+    },
+    "hold": 0.077,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Germie Bernard",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": -153.0,
+     "Under": 121.0
+    },
+    "no_vig": {
+     "Over": 0.572,
+     "Under": 0.428
+    },
+    "hold": 0.0572,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Germie Bernard",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -159.0,
+     "Under": 124.0
+    },
+    "no_vig": {
+     "Over": 0.579,
+     "Under": 0.421
+    },
+    "hold": 0.0603,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Germie Bernard",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": -155.0,
+     "Under": 115.0
+    },
+    "no_vig": {
+     "Over": 0.5665,
+     "Under": 0.4335
+    },
+    "hold": 0.073,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Germie Bernard",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": -154.0,
+     "Under": 119.0
+    },
+    "no_vig": {
+     "Over": 0.5704,
+     "Under": 0.4296
+    },
+    "hold": 0.0629,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Germie Bernard",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -165.0,
+     "Under": 125.0
+    },
+    "no_vig": {
+     "Over": 0.5835,
+     "Under": 0.4165
+    },
+    "hold": 0.0671,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -130.0
+    },
+    "no_vig": {
+     "Over": 0.4718,
+     "Under": 0.5282
+    },
+    "hold": 0.0702,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": 101.0,
+     "Under": -126.0
+    },
+    "no_vig": {
+     "Over": 0.4716,
+     "Under": 0.5284
+    },
+    "hold": 0.055,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -106.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4854,
+     "Under": 0.5146
+    },
+    "hold": 0.06,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": 100.0,
+     "Under": -135.0
+    },
+    "no_vig": {
+     "Over": 0.4653,
+     "Under": 0.5347
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -127.0
+    },
+    "no_vig": {
+     "Over": 0.4744,
+     "Under": 0.5256
+    },
+    "hold": 0.0644,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "fanatics",
+    "line": 2.5,
+    "prices": {
+     "Over": 100.0,
+     "Under": -135.0
+    },
+    "no_vig": {
+     "Over": 0.4653,
+     "Under": 0.5347
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Pat Bryant",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jonah Coleman",
+    "book": "fanduel",
+    "line": 3.5,
+    "prices": {
+     "Over": 100.0,
+     "Under": -136.0
+    },
+    "no_vig": {
+     "Over": 0.4646,
+     "Under": 0.5354
+    },
+    "hold": 0.0763,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jonah Coleman",
+    "book": "pinnacle",
+    "line": 3.5,
+    "prices": {
+     "Over": -101.0,
+     "Under": -124.0
+    },
+    "no_vig": {
+     "Over": 0.4758,
+     "Under": 0.5242
+    },
+    "hold": 0.0561,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jonah Coleman",
+    "book": "draftkings",
+    "line": 3.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4761,
+     "Under": 0.5239
+    },
+    "hold": 0.0605,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jonah Coleman",
+    "book": "betmgm",
+    "line": 3.5,
+    "prices": {
+     "Over": 110.0,
+     "Under": -150.0
+    },
+    "no_vig": {
+     "Over": 0.4425,
+     "Under": 0.5575
+    },
+    "hold": 0.0762,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jonah Coleman",
+    "book": "betonlineag",
+    "line": 3.5,
+    "prices": {
+     "Over": 103.0,
+     "Under": -133.0
+    },
+    "no_vig": {
+     "Over": 0.4632,
+     "Under": 0.5368
+    },
+    "hold": 0.0634,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jonah Coleman",
+    "book": "bovada",
+    "line": 3.5,
+    "prices": {
+     "Over": -105.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4797,
+     "Under": 0.5203
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Roman Wilson",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": 102.0,
+     "Under": -138.0
+    },
+    "no_vig": {
+     "Over": 0.4606,
+     "Under": 0.5394
+    },
+    "hold": 0.0749,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Roman Wilson",
+    "book": "pinnacle",
+    "line": 1.5,
+    "prices": {
+     "Over": -100.0,
+     "Under": -126.0
+    },
+    "no_vig": {
+     "Over": 0.4728,
+     "Under": 0.5272
+    },
+    "hold": 0.0575,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Roman Wilson",
+    "book": "draftkings",
+    "line": 1.5,
+    "prices": {
+     "Over": -104.0,
+     "Under": -122.0
+    },
+    "no_vig": {
+     "Over": 0.4812,
+     "Under": 0.5188
+    },
+    "hold": 0.0594,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Roman Wilson",
+    "book": "betmgm",
+    "line": 1.5,
+    "prices": {
+     "Over": 100.0,
+     "Under": -135.0
+    },
+    "no_vig": {
+     "Over": 0.4653,
+     "Under": 0.5347
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Roman Wilson",
+    "book": "betonlineag",
+    "line": 1.5,
+    "prices": {
+     "Over": -101.0,
+     "Under": -128.0
+    },
+    "no_vig": {
+     "Over": 0.4723,
+     "Under": 0.5277
+    },
+    "hold": 0.0639,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Roman Wilson",
+    "book": "bovada",
+    "line": 1.5,
+    "prices": {
+     "Over": -105.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4797,
+     "Under": 0.5203
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "fanduel",
+    "line": 8.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4761,
+     "Under": 0.5239
+    },
+    "hold": 0.0605,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "pinnacle",
+    "line": 8.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "betrivers",
+    "line": 8.5,
+    "prices": {
+     "Over": -108.0,
+     "Under": -124.0
+    },
+    "no_vig": {
+     "Over": 0.484,
+     "Under": 0.516
+    },
+    "hold": 0.0728,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "betonlineag",
+    "line": 8.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4969,
+     "Under": 0.5031
+    },
+    "hold": 0.0632,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "draftkings",
+    "line": 9.5,
+    "prices": {
+     "Over": -109.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4937,
+     "Under": 0.5063
+    },
+    "hold": 0.0564,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "bovada",
+    "line": 9.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Rico Dowdle",
+    "book": "betmgm",
+    "line": 7.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5101,
+     "Under": 0.4899
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "fanduel",
+    "line": 17.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "pinnacle",
+    "line": 17.5,
+    "prices": {
+     "Over": -109.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4937,
+     "Under": 0.5063
+    },
+    "hold": 0.0564,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "draftkings",
+    "line": 16.5,
+    "prices": {
+     "Over": -108.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4916,
+     "Under": 0.5084
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "betrivers",
+    "line": 16.5,
+    "prices": {
+     "Over": -117.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.503,
+     "Under": 0.497
+    },
+    "hold": 0.0719,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "betonlineag",
+    "line": 16.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4948,
+     "Under": 0.5052
+    },
+    "hold": 0.0631,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "bovada",
+    "line": 16.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Darnell Washington",
+    "book": "betmgm",
+    "line": 15.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.509,
+     "Under": 0.491
+    },
+    "hold": 0.0715,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Warren",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Warren",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": -103.0,
+     "Under": -122.0
+    },
+    "no_vig": {
+     "Over": 0.4801,
+     "Under": 0.5199
+    },
+    "hold": 0.0569,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Warren",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5052,
+     "Under": 0.4948
+    },
+    "hold": 0.0587,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Warren",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5101,
+     "Under": 0.4899
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Warren",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Warren",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5101,
+     "Under": 0.4899
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Waddle",
+    "book": "fanduel",
+    "line": 3.5,
+    "prices": {
+     "Over": -132.0,
+     "Under": 100.0
+    },
+    "no_vig": {
+     "Over": 0.5323,
+     "Under": 0.4677
+    },
+    "hold": 0.069,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Waddle",
+    "book": "pinnacle",
+    "line": 3.5,
+    "prices": {
+     "Over": -142.0,
+     "Under": 113.0
+    },
+    "no_vig": {
+     "Over": 0.5555,
+     "Under": 0.4445
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Waddle",
+    "book": "draftkings",
+    "line": 3.5,
+    "prices": {
+     "Over": -154.0,
+     "Under": 120.0
+    },
+    "no_vig": {
+     "Over": 0.5715,
+     "Under": 0.4285
+    },
+    "hold": 0.0608,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Waddle",
+    "book": "betmgm",
+    "line": 3.5,
+    "prices": {
+     "Over": -135.0,
+     "Under": 100.0
+    },
+    "no_vig": {
+     "Over": 0.5347,
+     "Under": 0.4653
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Waddle",
+    "book": "betonlineag",
+    "line": 3.5,
+    "prices": {
+     "Over": -145.0,
+     "Under": 111.0
+    },
+    "no_vig": {
+     "Over": 0.5553,
+     "Under": 0.4447
+    },
+    "hold": 0.0658,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Jaylen Waddle",
+    "book": "bovada",
+    "line": 3.5,
+    "prices": {
+     "Over": -160.0,
+     "Under": 120.0
+    },
+    "no_vig": {
+     "Over": 0.5752,
+     "Under": 0.4248
+    },
+    "hold": 0.0699,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Adam Trautman",
+    "book": "fanduel",
+    "line": 0.5,
+    "prices": {
+     "Over": -188.0,
+     "Under": 140.0
+    },
+    "no_vig": {
+     "Over": 0.6104,
+     "Under": 0.3896
+    },
+    "hold": 0.0694,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Adam Trautman",
+    "book": "pinnacle",
+    "line": 0.5,
+    "prices": {
+     "Over": -160.0,
+     "Under": 127.0
+    },
+    "no_vig": {
+     "Over": 0.5828,
+     "Under": 0.4172
+    },
+    "hold": 0.0559,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Adam Trautman",
+    "book": "draftkings",
+    "line": 0.5,
+    "prices": {
+     "Over": -194.0,
+     "Under": 151.0
+    },
+    "no_vig": {
+     "Over": 0.6235,
+     "Under": 0.3765
+    },
+    "hold": 0.0583,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Adam Trautman",
+    "book": "betmgm",
+    "line": 0.5,
+    "prices": {
+     "Over": -165.0,
+     "Under": 125.0
+    },
+    "no_vig": {
+     "Over": 0.5835,
+     "Under": 0.4165
+    },
+    "hold": 0.0671,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Adam Trautman",
+    "book": "betonlineag",
+    "line": 0.5,
+    "prices": {
+     "Over": -179.0,
+     "Under": 137.0
+    },
+    "no_vig": {
+     "Over": 0.6033,
+     "Under": 0.3967
+    },
+    "hold": 0.0635,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Adam Trautman",
+    "book": "bovada",
+    "line": 0.5,
+    "prices": {
+     "Over": -200.0,
+     "Under": 150.0
+    },
+    "no_vig": {
+     "Over": 0.625,
+     "Under": 0.375
+    },
+    "hold": 0.0667,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "fanduel",
+    "line": 4.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "pinnacle",
+    "line": 4.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "draftkings",
+    "line": 4.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.4979,
+     "Under": 0.5021
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "betrivers",
+    "line": 4.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "betonlineag",
+    "line": 4.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "bovada",
+    "line": 4.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Troy Franklin",
+    "book": "betmgm",
+    "line": 3.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5101,
+     "Under": 0.4899
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Evan Engram",
+    "book": "fanduel",
+    "line": 2.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -130.0
+    },
+    "no_vig": {
+     "Over": 0.4718,
+     "Under": 0.5282
+    },
+    "hold": 0.0702,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Evan Engram",
+    "book": "pinnacle",
+    "line": 2.5,
+    "prices": {
+     "Over": 101.0,
+     "Under": -126.0
+    },
+    "no_vig": {
+     "Over": 0.4716,
+     "Under": 0.5284
+    },
+    "hold": 0.055,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Evan Engram",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4938,
+     "Under": 0.5062
+    },
+    "hold": 0.0608,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Evan Engram",
+    "book": "betmgm",
+    "line": 2.5,
+    "prices": {
+     "Over": 100.0,
+     "Under": -135.0
+    },
+    "no_vig": {
+     "Over": 0.4653,
+     "Under": 0.5347
+    },
+    "hold": 0.0745,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Evan Engram",
+    "book": "betonlineag",
+    "line": 2.5,
+    "prices": {
+     "Over": 105.0,
+     "Under": -135.0
+    },
+    "no_vig": {
+     "Over": 0.4592,
+     "Under": 0.5408
+    },
+    "hold": 0.0623,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Evan Engram",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "fanduel",
+    "line": 22.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "pinnacle",
+    "line": 22.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "draftkings",
+    "line": 22.5,
+    "prices": {
+     "Over": -109.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4937,
+     "Under": 0.5063
+    },
+    "hold": 0.0564,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "bovada",
+    "line": 22.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "betmgm",
+    "line": 20.5,
+    "prices": {
+     "Over": -125.0,
+     "Under": -105.0
+    },
+    "no_vig": {
+     "Over": 0.5203,
+     "Under": 0.4797
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "betrivers",
+    "line": 21.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -117.0
+    },
+    "no_vig": {
+     "Over": 0.496,
+     "Under": 0.504
+    },
+    "hold": 0.0697,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Evan Engram",
+    "book": "betonlineag",
+    "line": 21.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "fanduel",
+    "line": 4.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "pinnacle",
+    "line": 4.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "draftkings",
+    "line": 4.5,
+    "prices": {
+     "Over": -116.0,
+     "Under": -108.0
+    },
+    "no_vig": {
+     "Over": 0.5084,
+     "Under": 0.4916
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "betonlineag",
+    "line": 4.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "bovada",
+    "line": 4.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5101,
+     "Under": 0.4899
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "betmgm",
+    "line": 3.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Adam Trautman",
+    "book": "betrivers",
+    "line": 3.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.499,
+     "Under": 0.501
+    },
+    "hold": 0.0676,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "fanduel",
+    "line": 26.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "pinnacle",
+    "line": 26.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.5021,
+     "Under": 0.4979
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "betonlineag",
+    "line": 26.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "draftkings",
+    "line": 27.5,
+    "prices": {
+     "Over": -109.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4937,
+     "Under": 0.5063
+    },
+    "hold": 0.0564,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "betmgm",
+    "line": 27.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.491,
+     "Under": 0.509
+    },
+    "hold": 0.0715,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "betrivers",
+    "line": 27.5,
+    "prices": {
+     "Over": -118.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.505,
+     "Under": 0.495
+    },
+    "hold": 0.0718,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "bovada",
+    "line": 27.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "fanatics",
+    "line": 25.5,
+    "prices": {
+     "Over": -125.0,
+     "Under": -105.0
+    },
+    "no_vig": {
+     "Over": 0.5203,
+     "Under": 0.4797
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Courtland Sutton",
+    "book": "circasports",
+    "line": 28.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "fanduel",
+    "line": 21.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "pinnacle",
+    "line": 21.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.4958,
+     "Under": 0.5042
+    },
+    "hold": 0.0565,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "betonlineag",
+    "line": 21.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -118.0
+    },
+    "no_vig": {
+     "Over": 0.4918,
+     "Under": 0.5082
+    },
+    "hold": 0.0651,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "circasports",
+    "line": 21.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "draftkings",
+    "line": 22.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.5021,
+     "Under": 0.4979
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "bovada",
+    "line": 22.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "betmgm",
+    "line": 20.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jonah Coleman",
+    "book": "betrivers",
+    "line": 23.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.492,
+     "Under": 0.508
+    },
+    "hold": 0.0738,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "fanduel",
+    "line": 41.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "pinnacle",
+    "line": 41.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "draftkings",
+    "line": 45.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.4979,
+     "Under": 0.5021
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "betmgm",
+    "line": 42.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "betrivers",
+    "line": 42.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -117.0
+    },
+    "no_vig": {
+     "Over": 0.497,
+     "Under": 0.503
+    },
+    "hold": 0.0719,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "betonlineag",
+    "line": 42.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "circasports",
+    "line": 42.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Waddle",
+    "book": "bovada",
+    "line": 55.5,
+    "prices": {
+     "Over": 140.0,
+     "Under": -185.0
+    },
+    "no_vig": {
+     "Over": 0.3909,
+     "Under": 0.6091
+    },
+    "hold": 0.0658,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "fanduel",
+    "line": 12.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "pinnacle",
+    "line": 12.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "draftkings",
+    "line": 12.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "betrivers",
+    "line": 12.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "betonlineag",
+    "line": 12.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "bovada",
+    "line": 12.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Roman Wilson",
+    "book": "betmgm",
+    "line": 14.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "fanduel",
+    "line": 18.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "pinnacle",
+    "line": 18.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "betonlineag",
+    "line": 18.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "circasports",
+    "line": 18.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "draftkings",
+    "line": 19.5,
+    "prices": {
+     "Over": -109.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.4937,
+     "Under": 0.5063
+    },
+    "hold": 0.0564,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "bovada",
+    "line": 19.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "betmgm",
+    "line": 16.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.509,
+     "Under": 0.491
+    },
+    "hold": 0.0715,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Jaylen Warren",
+    "book": "betrivers",
+    "line": 16.5,
+    "prices": {
+     "Over": -121.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5111,
+     "Under": 0.4889
+    },
+    "hold": 0.0713,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Mason Rudolph",
+    "book": "fanduel",
+    "line": 5.5,
+    "prices": {
+     "Over": -128.0,
+     "Under": 100.0
+    },
+    "no_vig": {
+     "Over": 0.5289,
+     "Under": 0.4711
+    },
+    "hold": 0.0614,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "fanduel",
+    "line": 62.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "pinnacle",
+    "line": 64.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "draftkings",
+    "line": 64.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.4958,
+     "Under": 0.5042
+    },
+    "hold": 0.0565,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "betonlineag",
+    "line": 64.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "betmgm",
+    "line": 63.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "circasports",
+    "line": 63.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "betrivers",
+    "line": 60.5,
+    "prices": {
+     "Over": -118.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.505,
+     "Under": 0.495
+    },
+    "hold": 0.0718,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jaylen Warren",
+    "book": "bovada",
+    "line": 74.5,
+    "prices": {
+     "Over": 145.0,
+     "Under": -190.0
+    },
+    "no_vig": {
+     "Over": 0.3839,
+     "Under": 0.6161
+    },
+    "hold": 0.0633,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Bo Nix",
+    "book": "fanduel",
+    "line": 10.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Bo Nix",
+    "book": "pinnacle",
+    "line": 10.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Marvin Mims Jr.",
+    "book": "fanduel",
+    "line": 3.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4761,
+     "Under": 0.5239
+    },
+    "hold": 0.0605,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Marvin Mims Jr.",
+    "book": "pinnacle",
+    "line": 3.5,
+    "prices": {
+     "Over": 108.0,
+     "Under": -136.0
+    },
+    "no_vig": {
+     "Over": 0.4548,
+     "Under": 0.5452
+    },
+    "hold": 0.057,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "fanduel",
+    "line": 73.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "pinnacle",
+    "line": 75.5,
+    "prices": {
+     "Over": 101.0,
+     "Under": -126.0
+    },
+    "no_vig": {
+     "Over": 0.4716,
+     "Under": 0.5284
+    },
+    "hold": 0.055,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "draftkings",
+    "line": 75.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -111.0
+    },
+    "no_vig": {
+     "Over": 0.5021,
+     "Under": 0.4979
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "betmgm",
+    "line": 75.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "circasports",
+    "line": 75.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "betrivers",
+    "line": 77.5,
+    "prices": {
+     "Over": -118.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.505,
+     "Under": 0.495
+    },
+    "hold": 0.0718,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "betonlineag",
+    "line": 76.5,
+    "prices": {
+     "Over": -114.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0654,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Jonah Coleman",
+    "book": "bovada",
+    "line": 95.5,
+    "prices": {
+     "Over": 215.0,
+     "Under": -295.0
+    },
+    "no_vig": {
+     "Over": 0.2983,
+     "Under": 0.7017
+    },
+    "hold": 0.0643,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "fanduel",
+    "line": 32.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "pinnacle",
+    "line": 32.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -114.0
+    },
+    "no_vig": {
+     "Over": 0.4958,
+     "Under": 0.5042
+    },
+    "hold": 0.0565,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "circasports",
+    "line": 32.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0476,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "draftkings",
+    "line": 31.5,
+    "prices": {
+     "Over": -108.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4916,
+     "Under": 0.5084
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "betmgm",
+    "line": 31.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "betonlineag",
+    "line": 31.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -118.0
+    },
+    "no_vig": {
+     "Over": 0.4918,
+     "Under": 0.5082
+    },
+    "hold": 0.0651,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "betrivers",
+    "line": 29.5,
+    "prices": {
+     "Over": -112.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.492,
+     "Under": 0.508
+    },
+    "hold": 0.0738,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "fanatics",
+    "line": 30.5,
+    "prices": {
+     "Over": -125.0,
+     "Under": -105.0
+    },
+    "no_vig": {
+     "Over": 0.5203,
+     "Under": 0.4797
+    },
+    "hold": 0.0678,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Rico Dowdle",
+    "book": "bovada",
+    "line": 41.5,
+    "prices": {
+     "Over": 180.0,
+     "Under": -245.0
+    },
+    "no_vig": {
+     "Over": 0.3346,
+     "Under": 0.6654
+    },
+    "hold": 0.0673,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Tyler Badie",
+    "book": "fanduel",
+    "line": 4.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims",
+    "book": "draftkings",
+    "line": 1.5,
+    "prices": {
+     "Over": 144.0,
+     "Under": -184.0
+    },
+    "no_vig": {
+     "Over": 0.3875,
+     "Under": 0.6125
+    },
+    "hold": 0.0577,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": 158.0,
+     "Under": -215.0
+    },
+    "no_vig": {
+     "Over": 0.3622,
+     "Under": 0.6378
+    },
+    "hold": 0.0701,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims",
+    "book": "betmgm",
+    "line": 1.5,
+    "prices": {
+     "Over": 145.0,
+     "Under": -200.0
+    },
+    "no_vig": {
+     "Over": 0.3797,
+     "Under": 0.6203
+    },
+    "hold": 0.0748,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims",
+    "book": "betonlineag",
+    "line": 1.5,
+    "prices": {
+     "Over": 155.0,
+     "Under": -204.0
+    },
+    "no_vig": {
+     "Over": 0.3688,
+     "Under": 0.6312
+    },
+    "hold": 0.0632,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Marvin Mims",
+    "book": "bovada",
+    "line": 1.5,
+    "prices": {
+     "Over": 145.0,
+     "Under": -190.0
+    },
+    "no_vig": {
+     "Over": 0.3839,
+     "Under": 0.6161
+    },
+    "hold": 0.0633,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims",
+    "book": "draftkings",
+    "line": 9.5,
+    "prices": {
+     "Over": -116.0,
+     "Under": -108.0
+    },
+    "no_vig": {
+     "Over": 0.5084,
+     "Under": 0.4916
+    },
+    "hold": 0.0563,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims",
+    "book": "betrivers",
+    "line": 9.5,
+    "prices": {
+     "Over": -109.0,
+     "Under": -121.0
+    },
+    "no_vig": {
+     "Over": 0.4878,
+     "Under": 0.5122
+    },
+    "hold": 0.069,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims",
+    "book": "bovada",
+    "line": 9.5,
+    "prices": {
+     "Over": -120.0,
+     "Under": -110.0
+    },
+    "no_vig": {
+     "Over": 0.5101,
+     "Under": 0.4899
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims",
+    "book": "fanduel",
+    "line": 8.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims",
+    "book": "betmgm",
+    "line": 8.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Marvin Mims",
+    "book": "betonlineag",
+    "line": 8.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -116.0
+    },
+    "no_vig": {
+     "Over": 0.4948,
+     "Under": 0.5052
+    },
+    "hold": 0.0631,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Marvin Mims",
+    "book": "draftkings",
+    "line": 2.5,
+    "prices": {
+     "Over": -107.0,
+     "Under": -118.0
+    },
+    "no_vig": {
+     "Over": 0.4885,
+     "Under": 0.5115
+    },
+    "hold": 0.0582,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Marvin Mims",
+    "book": "bovada",
+    "line": 2.5,
+    "prices": {
+     "Over": -110.0,
+     "Under": -120.0
+    },
+    "no_vig": {
+     "Over": 0.4899,
+     "Under": 0.5101
+    },
+    "hold": 0.0693,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "rushing_yards|Marvin Mims",
+    "book": "fanduel",
+    "line": 3.5,
+    "prices": {
+     "Over": -102.0,
+     "Under": -125.0
+    },
+    "no_vig": {
+     "Over": 0.4761,
+     "Under": 0.5239
+    },
+    "hold": 0.0605,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman",
+    "book": "draftkings",
+    "line": 1.5,
+    "prices": {
+     "Over": 118.0,
+     "Under": -151.0
+    },
+    "no_vig": {
+     "Over": 0.4326,
+     "Under": 0.5674
+    },
+    "hold": 0.0603,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman",
+    "book": "fanduel",
+    "line": 1.5,
+    "prices": {
+     "Over": 110.0,
+     "Under": -146.0
+    },
+    "no_vig": {
+     "Over": 0.4452,
+     "Under": 0.5548
+    },
+    "hold": 0.0697,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman",
+    "book": "betmgm",
+    "line": 1.5,
+    "prices": {
+     "Over": 110.0,
+     "Under": -150.0
+    },
+    "no_vig": {
+     "Over": 0.4425,
+     "Under": 0.5575
+    },
+    "hold": 0.0762,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman",
+    "book": "betonlineag",
+    "line": 1.5,
+    "prices": {
+     "Over": 125.0,
+     "Under": -164.0
+    },
+    "no_vig": {
+     "Over": 0.4171,
+     "Under": 0.5829
+    },
+    "hold": 0.0657,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receptions|Michael Pittman",
+    "book": "bovada",
+    "line": 1.5,
+    "prices": {
+     "Over": 115.0,
+     "Under": -150.0
+    },
+    "no_vig": {
+     "Over": 0.4367,
+     "Under": 0.5633
+    },
+    "hold": 0.0651,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman",
+    "book": "draftkings",
+    "line": 10.5,
+    "prices": {
+     "Over": -111.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.4979,
+     "Under": 0.5021
+    },
+    "hold": 0.0566,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman",
+    "book": "fanduel",
+    "line": 10.5,
+    "prices": {
+     "Over": -113.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.061,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman",
+    "book": "betrivers",
+    "line": 10.5,
+    "prices": {
+     "Over": -118.0,
+     "Under": -113.0
+    },
+    "no_vig": {
+     "Over": 0.505,
+     "Under": 0.495
+    },
+    "hold": 0.0718,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman",
+    "book": "betonlineag",
+    "line": 10.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -112.0
+    },
+    "no_vig": {
+     "Over": 0.5031,
+     "Under": 0.4969
+    },
+    "hold": 0.0632,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman",
+    "book": "bovada",
+    "line": 10.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   },
+   {
+    "market": "receiving_yards|Michael Pittman",
+    "book": "betmgm",
+    "line": 11.5,
+    "prices": {
+     "Over": -115.0,
+     "Under": -115.0
+    },
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    },
+    "hold": 0.0698,
+    "last_update": "2026-11-27T04:26:21+00:00",
+    "source": "direct"
+   }
+  ]
+ }
+}

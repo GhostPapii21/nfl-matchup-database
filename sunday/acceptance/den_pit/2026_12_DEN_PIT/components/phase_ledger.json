@@ -1,0 +1,897 @@
+{
+ "component": "phase_ledger",
+ "status": "OK",
+ "ran": true,
+ "entrypoint": "pipeline.phases:ledger",
+ "started_utc": "2026-11-28T02:09:28+00:00",
+ "finished_utc": "2026-11-28T02:09:28+00:00",
+ "duration_sec": 0.026,
+ "error": null,
+ "output_sha256": "a7bcac7b35a771487fc5dbda975b24d7acfabd5ba9b8a2b11948f62a6866d6ca",
+ "output": {
+  "status": "OK",
+  "ran": true,
+  "entrypoint": "pipeline.phases:ledger",
+  "schema": "nfl56-phase-ledger/1",
+  "checked_utc": "2026-11-27T04:31:50+00:00",
+  "summary": {
+   "AUTO": 1,
+   "MISSING": 10,
+   "NOT_YET": 2,
+   "PARTIAL": 2
+  },
+  "phase15": {
+   "status": "NOT_YET",
+   "source": "club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used",
+   "source_urls": {},
+   "pull_utc": null,
+   "pull_et": null,
+   "published_utc": {},
+   "file": null,
+   "kickoff_utc": "2026-11-27T20:00:00+00:00",
+   "posts_utc": "2026-11-27T18:30:00+00:00",
+   "checked_utc": "2026-11-27T04:31:50+00:00",
+   "reason": "Official inactives post about Fri 01:30 PM ET (T-90); not available yet."
+  },
+  "freshness": [
+   {
+    "source": "schedule",
+    "status": "FRESH",
+    "reason": "as-of 2026-11-27T04:31:42+00:00 (live_pull (live endpoint; pull time is the quote time)) is 0 min old; limit 1440 min.",
+    "retrieved_utc": "2026-11-27T04:31:42+00:00",
+    "as_of_utc": "2026-11-27T04:31:42+00:00",
+    "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+    "as_of_evidence": null,
+    "age_minutes": 0.1,
+    "max_age_minutes": 1440,
+    "cadence": "live_window"
+   },
+   {
+    "source": "play_by_play",
+    "status": "MISSING",
+    "reason": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:43+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "rosters",
+    "status": "MISSING",
+    "reason": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:43+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "depth_charts",
+    "status": "MISSING",
+    "reason": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:43+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "snap_counts",
+    "status": "MISSING",
+    "reason": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:44+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "ftn_charting",
+    "status": "MISSING",
+    "reason": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:44+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "pfr_defense",
+    "status": "MISSING",
+    "reason": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:44+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "official_injuries",
+    "status": "MISSING",
+    "reason": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:43+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "news_injuries",
+    "status": "FRESH",
+    "reason": "as-of 2026-11-27T04:31:46+00:00 (live_pull (live endpoint; pull time is the quote time)) is 0 min old; limit 360 min.",
+    "retrieved_utc": "2026-11-27T04:31:46+00:00",
+    "as_of_utc": "2026-11-27T04:31:46+00:00",
+    "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+    "as_of_evidence": null,
+    "age_minutes": 0.1,
+    "max_age_minutes": 360,
+    "cadence": "live_window"
+   },
+   {
+    "source": "weather",
+    "status": "MISSING",
+    "reason": "'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:49+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "nws_live_grid"
+   },
+   {
+    "source": "odds",
+    "status": "FRESH",
+    "reason": "as-of 2026-11-27T04:26:21+00:00 (live_pull (live endpoint; pull time is the quote time)) is 5 min old; limit 360 min.",
+    "retrieved_utc": "2026-11-27T04:26:21Z",
+    "as_of_utc": "2026-11-27T04:26:21+00:00",
+    "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+    "as_of_evidence": null,
+    "age_minutes": 5.5,
+    "max_age_minutes": 360,
+    "cadence": "live_window"
+   },
+   {
+    "source": "ngs_passing",
+    "status": "MISSING",
+    "reason": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:46+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "ngs_receiving",
+    "status": "MISSING",
+    "reason": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:45+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "ngs_rushing",
+    "status": "MISSING",
+    "reason": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "retrieved_utc": "2026-11-27T04:31:45+00:00",
+    "as_of_utc": null,
+    "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   },
+   {
+    "source": "official_inactives",
+    "status": "NOT_YET",
+    "reason": "Inactives post about Fri 01:30 PM ET (T-90); not available yet.",
+    "retrieved_utc": null,
+    "as_of_utc": null,
+    "as_of_basis": null,
+    "as_of_evidence": null,
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "t90"
+   },
+   {
+    "source": "four_book_prices",
+    "status": "FRESH",
+    "reason": "5 min old; limit 360 min.",
+    "retrieved_utc": "2026-11-27T04:26:21Z",
+    "as_of_utc": null,
+    "as_of_basis": null,
+    "as_of_evidence": null,
+    "age_minutes": 5.5,
+    "max_age_minutes": 360,
+    "cadence": "live_window"
+   },
+   {
+    "source": "ngs_defender_matchup",
+    "status": "FRESH",
+    "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+    "retrieved_utc": null,
+    "as_of_utc": null,
+    "as_of_basis": null,
+    "as_of_evidence": {
+     "status": "FRESH",
+     "reason": "Public NGS weekly files are present. Wanted main-defender fields are MISSING/unknown, not zero: receiver_routes, rb_routes, target_location, qb_pass_location, qb_success_vs_defense, likely_defenders. Available public columns (cushion, separation, CPOE, RYOE, etc.) are listed in evidence.",
+     "teams": [
+      "DEN",
+      "PIT"
+     ],
+     "week": 12,
+     "fields": {
+      "available": [
+       {
+        "source": "ngs_passing",
+        "field": "avg_time_to_throw",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "avg_completed_air_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "avg_intended_air_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "avg_air_yards_differential",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "aggressiveness",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "max_completed_air_distance",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "avg_air_yards_to_sticks",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "attempts",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "completions",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "completion_percentage",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "expected_completion_percentage",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "completion_percentage_above_expectation",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "pass_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "pass_touchdowns",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "interceptions",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "passer_rating",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "week",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "team_abbr",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "player_display_name",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "player_gsis_id",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_passing",
+        "field": "player_position",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "avg_cushion",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "avg_separation",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "percent_share_of_intended_air_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "avg_air_distance",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "max_air_distance",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "targets",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "receptions",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "catch_percentage",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "rec_touchdowns",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "avg_yac",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "avg_expected_yac",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "avg_yac_above_expectation",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "week",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "team_abbr",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "player_display_name",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "player_gsis_id",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_receiving",
+        "field": "player_position",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "efficiency",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "percent_attempts_gte_eight_defenders",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "avg_time_to_los",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "rush_attempts",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "rush_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "expected_rush_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "rush_yards_over_expected",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "avg_rush_yards",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "rush_yards_over_expected_per_att",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "rush_pct_over_expected",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "rush_touchdowns",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "week",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "team_abbr",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "player_display_name",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "player_gsis_id",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       },
+       {
+        "source": "ngs_rushing",
+        "field": "player_position",
+        "status": "available_in_public_ngs_dictionary",
+        "in_file": "unknown"
+       }
+      ],
+      "missing": [
+       {
+        "source": "public_ngs",
+        "field": "receiver_routes",
+        "status": "MISSING",
+        "value": "unknown",
+        "reason": "Route type / routes run / route participation for WRs, TEs, RBs \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+       },
+       {
+        "source": "public_ngs",
+        "field": "rb_routes",
+        "status": "MISSING",
+        "value": "unknown",
+        "reason": "Running-back routes (split out from WR/TE routes) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+       },
+       {
+        "source": "public_ngs",
+        "field": "target_location",
+        "status": "MISSING",
+        "value": "unknown",
+        "reason": "Target location splits (side and depth: left/middle/right, short/deep) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+       },
+       {
+        "source": "public_ngs",
+        "field": "qb_pass_location",
+        "status": "MISSING",
+        "value": "unknown",
+        "reason": "Where the QB throws (location splits) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+       },
+       {
+        "source": "public_ngs",
+        "field": "qb_success_vs_defense",
+        "status": "MISSING",
+        "value": "unknown",
+        "reason": "QB success by throw location against this defense \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+       },
+       {
+        "source": "public_ngs",
+        "field": "likely_defenders",
+        "status": "MISSING",
+        "value": "unknown",
+        "reason": "Likely defender faced on a route or target location \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+       }
+      ],
+      "notes": [
+       "ngs_passing: file not opened; dictionary columns listed as available in public NGS",
+       "ngs_receiving: file not opened; dictionary columns listed as available in public NGS",
+       "ngs_rushing: file not opened; dictionary columns listed as available in public NGS"
+      ],
+      "wanted": {
+       "receiver_routes": "Route type / routes run / route participation for WRs, TEs, RBs",
+       "rb_routes": "Running-back routes (split out from WR/TE routes)",
+       "target_location": "Target location splits (side and depth: left/middle/right, short/deep)",
+       "qb_pass_location": "Where the QB throws (location splits)",
+       "qb_success_vs_defense": "QB success by throw location against this defense",
+       "likely_defenders": "Likely defender faced on a route or target location"
+      },
+      "dictionary": "https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html"
+     },
+     "team_coverage": {},
+     "files": {
+      "ngs_passing": null,
+      "ngs_receiving": null,
+      "ngs_rushing": null
+     },
+     "matchup_fields": {
+      "receiver_routes": {
+       "field": "receiver_routes",
+       "status": "MISSING",
+       "source": "nflverse pbp_participation 2026",
+       "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+       "as_of": null,
+       "value": "unknown"
+      },
+      "rb_routes": {
+       "field": "rb_routes",
+       "status": "MISSING",
+       "source": "nflverse pbp_participation 2026",
+       "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+       "as_of": null,
+       "value": "unknown"
+      },
+      "target_location": {
+       "field": "target_location",
+       "status": "MISSING",
+       "source": "nflverse play-by-play 2026 (weeks 1-11, REG); None",
+       "reason": "No play-by-play file to read.",
+       "as_of": null,
+       "value": "unknown"
+      },
+      "qb_pass_location": {
+       "field": "qb_pass_location",
+       "status": "MISSING",
+       "source": "nflverse play-by-play 2026 (weeks 1-11, REG); None",
+       "reason": "No play-by-play file to read.",
+       "as_of": null,
+       "value": "unknown"
+      },
+      "qb_success_vs_defense": {
+       "field": "qb_success_vs_defense",
+       "status": "MISSING",
+       "source": "nflverse play-by-play 2026 (weeks 1-11, REG); None",
+       "reason": "No play-by-play file to read.",
+       "as_of": null,
+       "value": "unknown"
+      },
+      "likely_defenders": {
+       "field": "likely_defenders",
+       "status": "MISSING",
+       "source": "https://www.pff.com/tools/matchups",
+       "reason": "No PFF matchups capture at /workspace/nfl-database/pff_matchups/2026_w12/receiver_matchups.csv. Needs a signed-in browser pass on https://www.pff.com/tools/matchups (Rico's PFF tier) for week 12, saved with the columns in pipeline/matchup_sources.py.",
+       "as_of": null,
+       "value": "unknown"
+      }
+     }
+    },
+    "age_minutes": null,
+    "max_age_minutes": null,
+    "cadence": "latest_release"
+   }
+  ],
+  "phases": [
+   {
+    "phase": 1,
+    "name": "Slate, schedule, venue",
+    "status": "AUTO",
+    "missing": [],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 2,
+    "name": "Player identity and position",
+    "status": "MISSING",
+    "missing": [
+     "rosters: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 3,
+    "name": "Verified player game history",
+    "status": "MISSING",
+    "missing": [
+     "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 4,
+    "name": "Role, snaps, routes, opportunity",
+    "status": "MISSING",
+    "missing": [
+     "snap_counts: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "ngs_receiving: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "ngs_rushing: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "routes run / route participation (public NGS weekly files do not carry them; listed MISSING/unknown, not zero)"
+    ]
+   },
+   {
+    "phase": 5,
+    "name": "Team offense/defense baselines",
+    "status": "MISSING",
+    "missing": [
+     "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 6,
+    "name": "Opponent context and game script",
+    "status": "PARTIAL",
+    "missing": [],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "the script call itself (analyst)"
+    ]
+   },
+   {
+    "phase": 7,
+    "name": "Coverage structure and shell",
+    "status": "MISSING",
+    "missing": [
+     "ftn_charting: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "man/zone and shell (no free source)"
+    ]
+   },
+   {
+    "phase": 8,
+    "name": "Defender assignment and explosive allowance",
+    "status": "MISSING",
+    "missing": [
+     "pfr_defense: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "ngs_passing: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "ngs_receiving: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "ngs_rushing: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "who covers whom (no confirmed assignment); public NGS has no route/location/defender splits (listed MISSING/unknown, not zero)"
+    ]
+   },
+   {
+    "phase": 9,
+    "name": "QB pressure, blitz, scramble",
+    "status": "MISSING",
+    "missing": [
+     "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "ftn_charting: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "true pressure rate (sacks + hits is a floor)"
+    ]
+   },
+   {
+    "phase": 10,
+    "name": "Offensive line, pass rush, coaching",
+    "status": "MISSING",
+    "missing": [
+     "depth_charts: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "line grades (paid source)"
+    ]
+   },
+   {
+    "phase": 11,
+    "name": "Injury and depth chart",
+    "status": "MISSING",
+    "missing": [
+     "official_injuries: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+     "depth_charts: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 12,
+    "name": "Weather, roof, travel",
+    "status": "MISSING",
+    "missing": [
+     "weather: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+    ],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 13,
+    "name": "Timestamped book prices",
+    "status": "PARTIAL",
+    "missing": [],
+    "stale": [],
+    "gap": [],
+    "not_yet": [],
+    "not_available_from_free_sources": [
+     "true opening line"
+    ]
+   },
+   {
+    "phase": 14,
+    "name": "Projection and simulation (100k)",
+    "status": "NOT_YET",
+    "missing": [],
+    "stale": [],
+    "gap": [],
+    "not_yet": [
+     "100k entry point refused: 100k gate is the sim100k_preflight component; phase 14 is not a completed simulation"
+    ],
+    "not_available_from_free_sources": []
+   },
+   {
+    "phase": 15,
+    "name": "Final inactive pregame freeze",
+    "status": "NOT_YET",
+    "missing": [],
+    "stale": [],
+    "gap": [],
+    "not_yet": [
+     "official_inactives: Official inactives post about Fri 01:30 PM ET (T-90); not available yet. (source: club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used; pulled never)"
+    ],
+    "not_available_from_free_sources": []
+   }
+  ],
+  "projection_ready": false
+ }
+}
