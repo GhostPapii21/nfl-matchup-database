@@ -1,0 +1,13 @@
+{
+  "recovered_from_branch": "research/matchup-database-local-2026-11-12",
+  "branch_head": "dc36f7f2baded78030af56f3b435f19543853f10",
+  "path": "local_snapshots/nfl-database/tools/sim_v6.py",
+  "expected_blob": "ab2144f03f6ca3b57950a1f2528e305193e723cd",
+  "verified_blob": "ab2144f03f6ca3b57950a1f2528e305193e723cd",
+  "modified": false,
+  "sidecars_copied_verbatim": ["sim_v6_calib.json", "rb_script_boost.json", "rb_miss_fit.json"],
+  "entry_point": "SIMV6_SRC=<dir with play_by_play_2026.parquet + players.parquet> python3 sim_v6.py run <legs.json> <out.json>",
+  "smoke_run_2026-11-28": {"leg": "Ja'Marr Chase recyds vs NO, spread -10", "N": 100000, "seconds": 1.09,
+    "mc_median": 91.16, "bias_median": 91.16, "gr_median": 89.79, "mc_M": 0.96, "bias_M": 0.96},
+  "why_not_used_for_3x3": "bias mode = mc sampler + per-market multiplier (identical M and median to mc in the smoke run); no game-script axis. Superseded for the Sunday 3x3 contract by engines/sim_v7 (new engine, not the original)."
+}
