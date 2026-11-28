@@ -554,6 +554,9 @@ def acceptance_result(components: list[dict]) -> str:
         return "PARTIAL"
     if len(ids) != len(set(ids)) or not set(ORDER).issubset(ids):
         return "PARTIAL"
+    mandatory = {"schedule", "orchestrator", "matchup_research", "script_models", "sim_v7", "ngs_verify", "td_outputs", "player_board", "decision"}
+    if any(next((r for r in required if r.get("id") == cid), None) is None for cid in mandatory):
+        return "PARTIAL"
     if any(row.get("status") != "EXECUTED" for row in required):
         return "PARTIAL"
     if any(row.get("kind") == "analytical" and (row.get("status") != "EXECUTED" or row.get("analytical_execution") is not True) for row in required):
