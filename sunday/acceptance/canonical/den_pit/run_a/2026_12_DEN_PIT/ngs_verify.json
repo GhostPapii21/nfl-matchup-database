@@ -1,0 +1,91 @@
+{
+ "certification": false,
+ "current_for_week_12": false,
+ "feeds": {
+  "passing": {
+   "fields_absent": [
+    "route",
+    "defender",
+    "coverage_assignment"
+   ],
+   "max_week_2026": 9,
+   "path": "data/ngs/nflverse_ngs_raw/ngs_passing.csv.gz",
+   "publisher_as_of": null,
+   "rows": 6214,
+   "rows_2026": 281,
+   "sha256": "494300a80b97326a9c5db26266b000edde8418075f054ca1471a3ebe7ce723c6",
+   "status": "READ",
+   "touchdown_column": "pass_touchdowns",
+   "week_12_rows": 0,
+   "weeks_2026": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "receiving": {
+   "fields_absent": [
+    "route",
+    "defender",
+    "coverage_assignment"
+   ],
+   "max_week_2026": 9,
+   "path": "data/ngs/nflverse_ngs_raw/ngs_receiving.csv.gz",
+   "publisher_as_of": null,
+   "rows": 15415,
+   "rows_2026": 684,
+   "sha256": "1b68c13aefc1f90216e6d605d9664e2338b9dfc7e1949245d5ba1d31de4cc8d0",
+   "status": "READ",
+   "touchdown_column": "rec_touchdowns",
+   "week_12_rows": 0,
+   "weeks_2026": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "rushing": {
+   "fields_absent": [
+    "route",
+    "defender",
+    "coverage_assignment"
+   ],
+   "max_week_2026": 9,
+   "path": "data/ngs/nflverse_ngs_raw/ngs_rushing.csv.gz",
+   "publisher_as_of": null,
+   "rows": 6348,
+   "rows_2026": 289,
+   "sha256": "ca852ebebb668cf6bad929d3c4d88ef292dc07631db649642c66aa8002d31d24",
+   "status": "READ",
+   "touchdown_column": "rush_touchdowns",
+   "week_12_rows": 0,
+   "weeks_2026": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  }
+ },
+ "projection_ready": false,
+ "reason": "Public NGS files were read. 2026 passing coverage ends at week 9. Week 12 is not in the file. No publisher as-of stamp is present. Route and defender columns are absent and were not filled.",
+ "schema": "ngs-verification/1",
+ "week_12": "unavailable"
+}

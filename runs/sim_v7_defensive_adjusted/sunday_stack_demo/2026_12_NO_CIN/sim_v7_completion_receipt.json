@@ -1,0 +1,118 @@
+{
+ "artifact": "2026_12_NO_CIN.sim_v7.json",
+ "completed_at": "2026-11-28T18:10:16+00:00",
+ "engine": "sim_v7.1.0",
+ "game_id": "2026_12_NO_CIN",
+ "primary_cells": [
+  {
+   "acceptance_rate": 0.43,
+   "method": "mc",
+   "scenario": "favorite_controls",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.14835,
+   "method": "mc",
+   "scenario": "competitive",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.1299,
+   "method": "mc",
+   "scenario": "underdog_chases",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.4298,
+   "method": "bias",
+   "scenario": "favorite_controls",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.1509,
+   "method": "bias",
+   "scenario": "competitive",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.12295,
+   "method": "bias",
+   "scenario": "underdog_chases",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.6214,
+   "method": "gr",
+   "scenario": "favorite_controls",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.11145,
+   "method": "gr",
+   "scenario": "competitive",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.1182,
+   "method": "gr",
+   "scenario": "underdog_chases",
+   "status": "OK",
+   "trial_count": 2000
+  }
+ ],
+ "projection_ready": false,
+ "residual_cells": [
+  {
+   "acceptance_rate": 0.29175,
+   "method": "mc",
+   "scenario": "residual",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.29635,
+   "method": "bias",
+   "scenario": "residual",
+   "status": "OK",
+   "trial_count": 2000
+  },
+  {
+   "acceptance_rate": 0.14895,
+   "method": "gr",
+   "scenario": "residual",
+   "status": "OK",
+   "trial_count": 2000
+  }
+ ],
+ "runtime_seconds": 2.41,
+ "scenario_frequency_by_method": {
+  "bias": {
+   "competitive": 0.1509,
+   "favorite_controls": 0.4298,
+   "residual": 0.29635,
+   "underdog_chases": 0.12295
+  },
+  "gr": {
+   "competitive": 0.11145,
+   "favorite_controls": 0.6214,
+   "residual": 0.14895,
+   "underdog_chases": 0.1182
+  },
+  "mc": {
+   "competitive": 0.14835,
+   "favorite_controls": 0.43,
+   "residual": 0.29175,
+   "underdog_chases": 0.1299
+  }
+ },
+ "schema": "sim-v7-completion-receipt/1",
+ "status": "EXECUTED"
+}

@@ -1,0 +1,87 @@
+{
+ "engine_id": "sim_v6",
+ "method": "absent",
+ "sampling": null,
+ "entrypoint": "tools/sim_v6.py",
+ "documented_command": "python3 tools/sim_v6.py run <legs.json> <out.json>",
+ "version": {
+  "path": "tools/sim_v6.py",
+  "sha256": "e7ef4b4734fe2089f0a6d256f90d0bf7ba3cf380f270bd4cc2f76f1a082360e3",
+  "exists": true
+ },
+ "called": false,
+ "simulated": false,
+ "three_method_sim_v6_ran": false,
+ "trials": 0,
+ "trials_required": 900000,
+ "seed": null,
+ "calibration_status": "UNVALIDATED",
+ "bias_calibration_status": "MISSING",
+ "calibration_artifact": [
+  "engines/sim_v6_recovered/sim_v6_calib.json"
+ ],
+ "status": "REFUSED",
+ "blocker": "The recovered sim_v6 source has mc, bias, and gr and no game-script argument. Three methods times three scripts at 100000 trials were not run. The count was not reduced, and no other engine was labeled sim_v6.",
+ "acceptance_receipt": {
+  "schema": "sim-v6-acceptance-receipt/1",
+  "engine_id": "sim_v6",
+  "entrypoint": "tools/sim_v6.py",
+  "recovered_file": "tools/sim_v6_historical.py",
+  "provenance_blob": "ab2144f03f6ca3b57950a1f2528e305193e723cd",
+  "recovered_sha256": "c33fb33588db118db27a041bac8be4c7d5d780cc94f482f54e6d0749eb195b17",
+  "methods": [
+   "mc",
+   "bias",
+   "gr"
+  ],
+  "methods_in_recovered_source": [
+   "mc",
+   "bias",
+   "gr"
+  ],
+  "scripts": [
+   "favorite_controls",
+   "competitive",
+   "underdog_chases"
+  ],
+  "scripts_in_recovered_source": [],
+  "trials_required_per_cell": 100000,
+  "cells_required": 9,
+  "trials_required": 900000,
+  "trials_executed": 0,
+  "status": "REFUSED",
+  "fallback_used": false,
+  "not_used": [
+   "pipeline.sim100k",
+   "core.possession_engine_v0",
+   "core.period_engine_v0",
+   "calibration.simv56"
+  ],
+  "bias": {
+   "status": "REFUSED",
+   "calibration_status": "MISSING",
+   "multiplier_applied": null,
+   "reason": "Bias calibration artifact is missing. No neutral multiplier was applied."
+  },
+  "projection_ready": false,
+  "reason": "The recovered sim_v6 source has mc, bias, and gr and no game-script argument. Three methods times three scripts at 100000 trials were not run. The count was not reduced, and no other engine was labeled sim_v6."
+ },
+ "not_used_as_substitute": [
+  "calibration/simv56/engines/cc_sim_v6.py",
+  "calibration/simv56/engines/cc_sim_v6_fix.py",
+  "calibration/simv56_pmodel.py",
+  "pipeline/sim100k.py",
+  "core/period_engine_v0/monte_carlo.py",
+  "core/possession_engine_v0/simulate.py"
+ ],
+ "scratch_file_present_not_the_entrypoint": true,
+ "inputs": {
+  "legs": null
+ },
+ "artifact": "models/sim_v6.json",
+ "projection_ready": false,
+ "limitations": [
+  "No three-method sim_v6 claim.",
+  "cc_sim_v6.py is a vendored scratch file used by the simv56 ensemble, not tools/sim_v6.py."
+ ]
+}

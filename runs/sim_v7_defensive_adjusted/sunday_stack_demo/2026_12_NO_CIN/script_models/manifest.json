@@ -1,0 +1,38 @@
+{
+ "schema": "sunday-script-models/1",
+ "issue": "NFL-90",
+ "game_id": "2026_12_NO_CIN",
+ "favorite": "CIN",
+ "underdog": "NO",
+ "home_spread": -9.5,
+ "branches": [
+  "favorite_controls",
+  "underdog_chases",
+  "competitive"
+ ],
+ "residual_retained": true,
+ "branches_pooled": false,
+ "methods_pooled": false,
+ "sim_v6_three_method_claimed": false,
+ "projection_ready": false,
+ "research_only": true,
+ "code_revision": "08bc8c1165de60870e5fab58cbc209e8ea59253e",
+ "connector": {
+  "path": "sunday/script_models.py",
+  "sha256": "5d71d45de72d765be3727c1a257aa21bc6d0ea234d480a9b8aee3bc8d23e11bb",
+  "exists": true
+ },
+ "models": [
+  "period_engine_v0:monte_carlo:matchup_pair",
+  "period_engine_v0:monte_carlo:independent",
+  "period_engine_v0:game_randomness:matchup_pair",
+  "period_engine_v0:bias",
+  "possession_engine_v0:simulate_games:data_only",
+  "pipeline.sim100k:preflight",
+  "simv56:verify_engines",
+  "sim_v6",
+  "main",
+  "lightning"
+ ],
+ "component": "sunday.script_models.attach_to_packet"
+}

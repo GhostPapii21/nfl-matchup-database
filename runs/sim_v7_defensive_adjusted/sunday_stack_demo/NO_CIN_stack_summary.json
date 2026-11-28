@@ -1,0 +1,100 @@
+{
+ "manifest_status": null,
+ "components": {
+  "schedule": {
+   "status": "BLOCKED",
+   "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
+   "trials": null
+  },
+  "orchestrator": {
+   "status": "EXECUTED",
+   "reason": "existing modules joined in module-id order",
+   "trials": null
+  },
+  "orchestrator.freshness_check": {
+   "status": "EXECUTED",
+   "reason": "PARTIAL",
+   "trials": null
+  },
+  "orchestrator.game_identity": {
+   "status": "EXECUTED",
+   "reason": "PASS",
+   "trials": null
+  },
+  "orchestrator.matchup_edges": {
+   "status": "EXECUTED",
+   "reason": "PASS",
+   "trials": null
+  },
+  "orchestrator.ngs_matchup": {
+   "status": "MISSING",
+   "reason": "orchestrator child status MISSING",
+   "trials": null
+  },
+  "orchestrator.phase_ledger": {
+   "status": "EXECUTED",
+   "reason": "PASS",
+   "trials": null
+  },
+  "orchestrator.rain_adjustment": {
+   "status": "EXECUTED",
+   "reason": "PASS",
+   "trials": null
+  },
+  "orchestrator.sim100k_preflight": {
+   "status": "REFUSED",
+   "reason": "orchestrator child status REFUSED",
+   "trials": null
+  },
+  "orchestrator.sim_v6_contract": {
+   "status": "FAILED",
+   "reason": "orchestrator child status FAILED",
+   "trials": null
+  },
+  "matchup_research": {
+   "status": "EXECUTED",
+   "reason": "prior-week matchup packet",
+   "trials": null
+  },
+  "script_models": {
+   "status": "EXECUTED",
+   "reason": "each engine and branch kept its own record",
+   "trials": null
+  },
+  "sim_v6": {
+   "status": "REFUSED",
+   "reason": "The recovered sim_v6 source has mc, bias, and gr and no game-script argument. Three methods times three scripts at 100000 trials were not run. The count was not reduced, and no other engine was labeled sim_v6.",
+   "trials": 0
+  },
+  "sim_v7": {
+   "status": "EXECUTED",
+   "reason": "sim_v7 primary 9 cells @ 2000; residual separate; defense-changed calibration; projection_ready=false",
+   "trials": 18000
+  },
+  "replacement_triad": {
+   "status": "REFUSED",
+   "reason": "empirical bootstrap trials 100000; period and possession 100k script cells were not started and were not labeled sim_v6",
+   "trials": 100000
+  },
+  "ngs_verify": {
+   "status": "REFUSED",
+   "reason": "Public NGS files were read. 2026 passing coverage ends at week 9. Week 12 is not in the file. No publisher as-of stamp is present. Route and defender columns are absent and were not filled.",
+   "trials": null
+  },
+  "td_outputs": {
+   "status": "EXECUTED",
+   "reason": "pass_td rows 8; rush_td rows 36",
+   "trials": null
+  },
+  "player_board": {
+   "status": "EXECUTED",
+   "reason": "volume kept separate from efficiency",
+   "trials": 100
+  },
+  "decision": {
+   "status": "REFUSED",
+   "reason": "kickoff is UNVERIFIED, so as-of was not compared with an authoritative kickoff",
+   "trials": null
+  }
+ }
+}

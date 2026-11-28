@@ -1,0 +1,99 @@
+{
+  "error": null,
+  "finished_at": "2026-11-28T18:10:10+00:00",
+  "n": 1,
+  "output": {
+    "analytical": false,
+    "entrypoint": "pipeline.phases.ledger",
+    "phase15_status": "NOT_YET",
+    "phases": [
+      {
+        "name": "Slate, schedule, venue",
+        "phase": 1,
+        "status": "AUTO"
+      },
+      {
+        "name": "Player identity and position",
+        "phase": 2,
+        "status": "MISSING"
+      },
+      {
+        "name": "Verified player game history",
+        "phase": 3,
+        "status": "MISSING"
+      },
+      {
+        "name": "Role, snaps, routes, opportunity",
+        "phase": 4,
+        "status": "MISSING"
+      },
+      {
+        "name": "Team offense/defense baselines",
+        "phase": 5,
+        "status": "MISSING"
+      },
+      {
+        "name": "Opponent context and game script",
+        "phase": 6,
+        "status": "PARTIAL"
+      },
+      {
+        "name": "Coverage structure and shell",
+        "phase": 7,
+        "status": "MISSING"
+      },
+      {
+        "name": "Defender assignment and explosive allowance",
+        "phase": 8,
+        "status": "MISSING"
+      },
+      {
+        "name": "QB pressure, blitz, scramble",
+        "phase": 9,
+        "status": "MISSING"
+      },
+      {
+        "name": "Offensive line, pass rush, coaching",
+        "phase": 10,
+        "status": "MISSING"
+      },
+      {
+        "name": "Injury and depth chart",
+        "phase": 11,
+        "status": "MISSING"
+      },
+      {
+        "name": "Weather, roof, travel",
+        "phase": 12,
+        "status": "MISSING"
+      },
+      {
+        "name": "Timestamped book prices",
+        "phase": 13,
+        "status": "PARTIAL"
+      },
+      {
+        "name": "Projection and simulation (100k)",
+        "phase": 14,
+        "status": "NOT_YET"
+      },
+      {
+        "name": "Final inactive pregame freeze",
+        "phase": 15,
+        "status": "NOT_YET"
+      }
+    ],
+    "schema": "nfl56-phase-ledger/1",
+    "summary": {
+      "AUTO": 1,
+      "MISSING": 10,
+      "NOT_YET": 2,
+      "PARTIAL": 2
+    }
+  },
+  "started_at": "2026-11-28T18:10:10+00:00",
+  "status": "PASS",
+  "warnings": [
+    "phase checker is not analytical execution; summary {'AUTO': 1, 'MISSING': 10, 'NOT_YET': 2, 'PARTIAL': 2}"
+  ]
+}

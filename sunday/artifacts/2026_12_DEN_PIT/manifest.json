@@ -1,0 +1,38 @@
+{
+ "schema": "sunday-script-models/1",
+ "issue": "NFL-90",
+ "game_id": "2026_12_DEN_PIT",
+ "favorite": "DEN",
+ "underdog": "PIT",
+ "home_spread": 4.5,
+ "branches": [
+  "favorite_controls",
+  "underdog_chases",
+  "competitive"
+ ],
+ "residual_retained": true,
+ "branches_pooled": false,
+ "methods_pooled": false,
+ "sim_v6_three_method_claimed": false,
+ "projection_ready": false,
+ "research_only": true,
+ "code_revision": "ef4cc69035b8827fe897a574a0d7d22091ee26b3",
+ "connector": {
+  "path": "sunday/script_models.py",
+  "sha256": "a453778d756880e3d8fc5987886d245f7a8823ad48607062ba9a5f079ca2028c",
+  "exists": true
+ },
+ "models": [
+  "period_engine_v0:monte_carlo:matchup_pair",
+  "period_engine_v0:monte_carlo:independent",
+  "period_engine_v0:game_randomness:matchup_pair",
+  "period_engine_v0:bias",
+  "possession_engine_v0:simulate_games:data_only",
+  "pipeline.sim100k:preflight",
+  "simv56:verify_engines",
+  "sim_v6",
+  "main",
+  "lightning"
+ ],
+ "component": "sunday.script_models.attach_to_packet"
+}

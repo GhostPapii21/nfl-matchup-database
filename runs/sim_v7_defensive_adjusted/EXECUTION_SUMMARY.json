@@ -1,0 +1,1227 @@
+{
+  "task": "sim_v7 defensive integration + adjusted Sunday slate",
+  "engine_version": "sim_v7.1.0",
+  "projection_ready": false,
+  "tests": "15 passed engines/sim_v7/tests",
+  "smoke": "deterministic true",
+  "slate": {
+    "slate": "2026-11-29",
+    "n_required_per_primary_cell": 100000,
+    "games_expected": 10,
+    "games_executed": 10,
+    "all_primary_ok": true,
+    "all_residual_ok": true,
+    "total_primary_accepted_trials": 9000000,
+    "total_residual_accepted_trials": 3000000,
+    "projection_ready": false,
+    "games": [
+      {
+        "game_id": "2026_12_ATL_MIN",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.3887
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.2073
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.12117
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.38825
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.20694
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.12181
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.16169
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.22324
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.05233
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.28284
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.28301
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.56273
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.388696,
+            "competitive": 0.207298,
+            "underdog_chases": 0.121169,
+            "residual": 0.282837
+          },
+          "bias": {
+            "favorite_controls": 0.388246,
+            "competitive": 0.206938,
+            "underdog_chases": 0.121809,
+            "residual": 0.283007
+          },
+          "gr": {
+            "favorite_controls": 0.161692,
+            "competitive": 0.223242,
+            "underdog_chases": 0.052331,
+            "residual": 0.562736
+          }
+        },
+        "runtime_seconds": 37.76,
+        "engine": "sim_v7.1.0",
+        "records": 1683,
+        "residual_records": 561,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_ATL_MIN.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_BAL_HOU",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.35431
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.17918
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.06582
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.35443
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.17919
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.06549
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.44399
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.16396
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.07629
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.40069
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.40089
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.31576
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.35431,
+            "competitive": 0.17918,
+            "underdog_chases": 0.06582,
+            "residual": 0.40069
+          },
+          "bias": {
+            "favorite_controls": 0.35443,
+            "competitive": 0.17919,
+            "underdog_chases": 0.06549,
+            "residual": 0.40089
+          },
+          "gr": {
+            "favorite_controls": 0.44399,
+            "competitive": 0.16396,
+            "underdog_chases": 0.07629,
+            "residual": 0.31576
+          }
+        },
+        "runtime_seconds": 48.45,
+        "engine": "sim_v7.1.0",
+        "records": 1764,
+        "residual_records": 588,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_BAL_HOU.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_LV_CLE",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.31466
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.23236
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.11457
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.31421
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.23238
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.11493
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.1169
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.22434
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.0722
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.33842
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.33848
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.58656
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.314657,
+            "competitive": 0.232358,
+            "underdog_chases": 0.114569,
+            "residual": 0.338417
+          },
+          "bias": {
+            "favorite_controls": 0.31421,
+            "competitive": 0.23238,
+            "underdog_chases": 0.11493,
+            "residual": 0.33848
+          },
+          "gr": {
+            "favorite_controls": 0.1169,
+            "competitive": 0.22434,
+            "underdog_chases": 0.0722,
+            "residual": 0.58656
+          }
+        },
+        "runtime_seconds": 37.44,
+        "engine": "sim_v7.1.0",
+        "records": 1845,
+        "residual_records": 615,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_LV_CLE.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_NE_LAC",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.26307
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25118
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.10709
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.26242
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.2521
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.10789
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.29833
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.22798
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.08812
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.37866
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.37759
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.38556
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.26307,
+            "competitive": 0.25118,
+            "underdog_chases": 0.10709,
+            "residual": 0.37866
+          },
+          "bias": {
+            "favorite_controls": 0.26242,
+            "competitive": 0.2521,
+            "underdog_chases": 0.10789,
+            "residual": 0.37759
+          },
+          "gr": {
+            "favorite_controls": 0.298333,
+            "competitive": 0.227982,
+            "underdog_chases": 0.088121,
+            "residual": 0.385564
+          }
+        },
+        "runtime_seconds": 36.2,
+        "engine": "sim_v7.1.0",
+        "records": 1764,
+        "residual_records": 588,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_NE_LAC.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_NO_CIN",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.42814
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.15235
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.12737
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.42764
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.15312
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.12712
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.62189
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.11276
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.11406
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.29215
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.29213
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.15128
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.428136,
+            "competitive": 0.152348,
+            "underdog_chases": 0.127369,
+            "residual": 0.292147
+          },
+          "bias": {
+            "favorite_controls": 0.427636,
+            "competitive": 0.153118,
+            "underdog_chases": 0.127119,
+            "residual": 0.292127
+          },
+          "gr": {
+            "favorite_controls": 0.621896,
+            "competitive": 0.112761,
+            "underdog_chases": 0.114061,
+            "residual": 0.151282
+          }
+        },
+        "runtime_seconds": 32.29,
+        "engine": "sim_v7.1.0",
+        "records": 1764,
+        "residual_records": 588,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_NO_CIN.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_NYG_IND",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.3281
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.21908
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.09396
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.32779
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.21866
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.09415
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.26904
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.2701
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.07498
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.35886
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.35941
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.38588
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.3281,
+            "competitive": 0.21908,
+            "underdog_chases": 0.09396,
+            "residual": 0.35886
+          },
+          "bias": {
+            "favorite_controls": 0.327787,
+            "competitive": 0.218658,
+            "underdog_chases": 0.094149,
+            "residual": 0.359406
+          },
+          "gr": {
+            "favorite_controls": 0.26904,
+            "competitive": 0.2701,
+            "underdog_chases": 0.07498,
+            "residual": 0.38588
+          }
+        },
+        "runtime_seconds": 42.48,
+        "engine": "sim_v7.1.0",
+        "records": 1845,
+        "residual_records": 615,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_NYG_IND.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_NYJ_MIA",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.33444
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.23015
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.0993
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.33381
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.22977
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.09963
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25235
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25055
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.12013
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.33611
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.33679
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.37697
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.33444,
+            "competitive": 0.23015,
+            "underdog_chases": 0.0993,
+            "residual": 0.33611
+          },
+          "bias": {
+            "favorite_controls": 0.33381,
+            "competitive": 0.22977,
+            "underdog_chases": 0.09963,
+            "residual": 0.33679
+          },
+          "gr": {
+            "favorite_controls": 0.25235,
+            "competitive": 0.25055,
+            "underdog_chases": 0.12013,
+            "residual": 0.37697
+          }
+        },
+        "runtime_seconds": 38.94,
+        "engine": "sim_v7.1.0",
+        "records": 1926,
+        "residual_records": 642,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_NYJ_MIA.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_SEA_SF",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25013
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.19158
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.08923
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25023
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.19133
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.08924
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.04662
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.10417
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.0373
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.46907
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.46919
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.81191
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.250127,
+            "competitive": 0.191578,
+            "underdog_chases": 0.089229,
+            "residual": 0.469065
+          },
+          "bias": {
+            "favorite_controls": 0.250233,
+            "competitive": 0.191332,
+            "underdog_chases": 0.089241,
+            "residual": 0.469195
+          },
+          "gr": {
+            "favorite_controls": 0.04662,
+            "competitive": 0.10417,
+            "underdog_chases": 0.0373,
+            "residual": 0.81191
+          }
+        },
+        "runtime_seconds": 50.02,
+        "engine": "sim_v7.1.0",
+        "records": 1764,
+        "residual_records": 588,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_SEA_SF.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_TEN_JAX",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.53813
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.14022
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.11793
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.53987
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.14018
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.11744
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.39992
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.19798
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.14719
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.20373
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.20251
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25492
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.538125,
+            "competitive": 0.140219,
+            "underdog_chases": 0.117929,
+            "residual": 0.203728
+          },
+          "bias": {
+            "favorite_controls": 0.53987,
+            "competitive": 0.14018,
+            "underdog_chases": 0.11744,
+            "residual": 0.20251
+          },
+          "gr": {
+            "favorite_controls": 0.399916,
+            "competitive": 0.197978,
+            "underdog_chases": 0.147189,
+            "residual": 0.254917
+          }
+        },
+        "runtime_seconds": 34.15,
+        "engine": "sim_v7.1.0",
+        "records": 1845,
+        "residual_records": 615,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_TEN_JAX.sim_v7.json"
+      },
+      {
+        "game_id": "2026_12_WAS_ARI",
+        "status": "EXECUTED",
+        "primary_ok": true,
+        "residual_ok": true,
+        "primary_cells": [
+          {
+            "method": "mc",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.34516
+          },
+          {
+            "method": "mc",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.21742
+          },
+          {
+            "method": "mc",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.09253
+          },
+          {
+            "method": "bias",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.34516
+          },
+          {
+            "method": "bias",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.21734
+          },
+          {
+            "method": "bias",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.09202
+          },
+          {
+            "method": "gr",
+            "scenario": "favorite_controls",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.25894
+          },
+          {
+            "method": "gr",
+            "scenario": "competitive",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.30136
+          },
+          {
+            "method": "gr",
+            "scenario": "underdog_chases",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.12543
+          }
+        ],
+        "residual_cells": [
+          {
+            "method": "mc",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.34489
+          },
+          {
+            "method": "bias",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.34548
+          },
+          {
+            "method": "gr",
+            "scenario": "residual",
+            "trial_count": 100000,
+            "status": "OK",
+            "acceptance_rate": 0.31428
+          }
+        ],
+        "scenario_frequency_by_method": {
+          "mc": {
+            "favorite_controls": 0.34516,
+            "competitive": 0.21742,
+            "underdog_chases": 0.09253,
+            "residual": 0.34489
+          },
+          "bias": {
+            "favorite_controls": 0.34516,
+            "competitive": 0.21734,
+            "underdog_chases": 0.09202,
+            "residual": 0.34548
+          },
+          "gr": {
+            "favorite_controls": 0.258937,
+            "competitive": 0.301357,
+            "underdog_chases": 0.125429,
+            "residual": 0.314277
+          }
+        },
+        "runtime_seconds": 37.57,
+        "engine": "sim_v7.1.0",
+        "records": 1845,
+        "residual_records": 615,
+        "artifact": "runs/sim_v7_defensive_adjusted/out/2026_12_WAS_ARI.sim_v7.json"
+      }
+    ]
+  },
+  "code_sha256": {
+    "engines/sim_v7/engine.py": "d16399fb5505a0d2e5394dd661938ec2debc49c205163ed345b6c998c04a71d9",
+    "engines/sim_v7/defensive.py": "0d69b1d4e71e8e313d0221da6f99ac2ea5422e68ee03ba78f3dffc9167b3ab99",
+    "engines/sim_v7/coverage_alloc.py": "30106fac54d726d24b76dabc5b355585ffa0a5bf64367e48fdd98f1c30ce9a9e",
+    "engines/sim_v7/scramble.py": "ea4d098ed3a720b765da0e783a1550fbe9d9388d13781f7b411c8ad2df43104a",
+    "engines/sim_v7/cli.py": "1c6ef57e360f73353c18a294e487e3da7767e5c4f2cbec755c4f1c79a5ad0b37",
+    "sunday/stack.py": "13d7a962b8801099ffafa38677c679600a500db14763dc6c724b68e87902ac33"
+  },
+  "output_dir": "runs/sim_v7_defensive_adjusted/out",
+  "comparison": "runs/sim_v7_defensive_adjusted/comparisons/NO_CIN_before_after.json",
+  "sunday_stack_demo": "runs/sim_v7_defensive_adjusted/sunday_stack_demo/NO_CIN_stack_summary.json",
+  "notes": [
+    "Play-level coverage assignment MISSING (not invented)",
+    "Calibration status EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+    "SEA_SF GR underdog_chases required max_raw_mult=40 to reach 100k",
+    "Sunday package brought from PR #167; sim_v7 wired with automatic receipts"
+  ]
+}

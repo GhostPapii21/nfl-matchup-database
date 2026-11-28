@@ -1,0 +1,167 @@
+{
+ "schema": "sim-v7-acceptance-receipt/1",
+ "engine_id": "sim_v7",
+ "engine_version": "sim_v7.1.0",
+ "entrypoint": "engines.sim_v7.cli:simulate_game",
+ "not_original_sim_v6": true,
+ "projection_ready": false,
+ "fallback_used": false,
+ "status": "EXECUTED",
+ "trials_required_per_primary_cell": 100000,
+ "primary_cells_required": 9,
+ "primary_cells": [
+  {
+   "method": "mc",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.42814
+  },
+  {
+   "method": "mc",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.15235
+  },
+  {
+   "method": "mc",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.12737
+  },
+  {
+   "method": "bias",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.42764
+  },
+  {
+   "method": "bias",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.15312
+  },
+  {
+   "method": "bias",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.12712
+  },
+  {
+   "method": "gr",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.62189
+  },
+  {
+   "method": "gr",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.11276
+  },
+  {
+   "method": "gr",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.11406
+  }
+ ],
+ "residual_cells": [
+  {
+   "method": "mc",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.29215
+  },
+  {
+   "method": "bias",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.29213
+  },
+  {
+   "method": "gr",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.15128
+  }
+ ],
+ "scenario_frequency_by_method": {
+  "mc": {
+   "favorite_controls": 0.428136,
+   "competitive": 0.152348,
+   "underdog_chases": 0.127369,
+   "residual": 0.292147
+  },
+  "bias": {
+   "favorite_controls": 0.427636,
+   "competitive": 0.153118,
+   "underdog_chases": 0.127119,
+   "residual": 0.292127
+  },
+  "gr": {
+   "favorite_controls": 0.621896,
+   "competitive": 0.112761,
+   "underdog_chases": 0.114061,
+   "residual": 0.151282
+  }
+ },
+ "defensive_integration": {
+  "NO": {
+   "status": "EXPERIMENTAL_UNVALIDATED",
+   "integration": {
+    "qb_split_factors": "EXPERIMENTAL_UNVALIDATED",
+    "coverage_allocation": "EXPERIMENTAL_UNVALIDATED",
+    "scramble": "MEASURED",
+    "sharp": "MEASURED"
+   },
+   "calibration_status": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+   "scramble_status": "MEASURED",
+   "coverage_alloc_status": "EXPERIMENTAL_UNVALIDATED",
+   "sharp_status": "MEASURED",
+   "charting": {
+    "play_level_coverage_assignment": "MISSING",
+    "note": "no free 2026 pbp_participation defense_man_zone_type; not invented"
+   }
+  },
+  "CIN": {
+   "status": "EXPERIMENTAL_UNVALIDATED",
+   "integration": {
+    "qb_split_factors": "EXPERIMENTAL_UNVALIDATED",
+    "coverage_allocation": "EXPERIMENTAL_UNVALIDATED",
+    "scramble": "MEASURED",
+    "sharp": "MEASURED"
+   },
+   "calibration_status": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+   "scramble_status": "MEASURED",
+   "coverage_alloc_status": "EXPERIMENTAL_UNVALIDATED",
+   "sharp_status": "MEASURED",
+   "charting": {
+    "play_level_coverage_assignment": "MISSING",
+    "note": "no free 2026 pbp_participation defense_man_zone_type; not invented"
+   }
+  }
+ },
+ "calibration": {
+  "file": "engines/sim_v7/calibration_v7.json",
+  "as_of": "2026-11-28T15:08:28.503333+00:00",
+  "K": 200,
+  "status_after_defense": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+  "note": "prior holdout labels not inherited after defensive integration"
+ },
+ "input_hash": "99aa33184de1753e3ad71b7b008728bcffe267ab9ee3356082c9a26c27a994a4",
+ "source_cutoff": "2026-11-24",
+ "game_id": "2026_12_NO_CIN",
+ "runtime_seconds": 32.29
+}

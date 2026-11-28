@@ -1,0 +1,606 @@
+{
+ "as_of_utc": "2026-11-29T12:00:00+00:00",
+ "canonical_sha256": "c80539321e3d1ae0f28494d4e02b15c5986146e53bd4db935605eb32a50ba15a",
+ "checks": [
+  {
+   "detail": "Schedule identity matches. Kickoff 2026-11-29T18:00:00+00:00.",
+   "id": "identity",
+   "level": "critical",
+   "status": "PASS"
+  },
+  {
+   "detail": "Both clubs have a depth chart, a QB, a skill starter, and an availability block.",
+   "id": "roles",
+   "level": "critical",
+   "status": "PASS"
+  },
+  {
+   "detail": "Listed quarterback is a QB starter on the depth chart.",
+   "id": "listed_qb",
+   "level": "required",
+   "status": "PASS"
+  },
+  {
+   "detail": "Source stamps are at or before as-of. Postgame paths were listed and not read.",
+   "id": "leakage",
+   "level": "critical",
+   "status": "PASS"
+  },
+  {
+   "detail": "Python 3.12.3. Possession-engine files are present and projection_ready is false.",
+   "id": "engine",
+   "level": "critical",
+   "status": "PASS"
+  },
+  {
+   "detail": "core/possession_engine_v0/config/nyj_mia_2026-11-29_data_only_nfl43.json sha256 de33bbfb392c203a1cf93620e81e966f2f651d9a3e43bffb08d58971d02a1cf9. Not loaded into a simulation.",
+   "id": "engine_config",
+   "level": "required",
+   "status": "PASS"
+  },
+  {
+   "detail": "Output directory has the requested free space.",
+   "id": "disk",
+   "level": "critical",
+   "status": "PASS"
+  },
+  {
+   "detail": "Wrote and read a probe file in the output directory.",
+   "id": "runtime",
+   "level": "critical",
+   "status": "PASS"
+  },
+  {
+   "detail": "phase 4 PARTIAL; phase 6 PARTIAL; phase 7 PARTIAL; phase 8 PARTIAL; phase 9 PARTIAL; phase 10 PARTIAL; phase 13 PARTIAL; phase 14 PARTIAL_RESEARCH_ONLY",
+   "id": "phases",
+   "level": "required",
+   "status": "GAP"
+  },
+  {
+   "detail": "as-of 2026-11-27T04:31:42+00:00 (live_pull (live endpoint; pull time is the quote time)) is 3328 min old; limit is 1440 min at 6.0 h to kickoff.",
+   "id": "freshness.schedule",
+   "level": "required",
+   "status": "STALE"
+  },
+  {
+   "detail": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.play_by_play",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.rosters",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.depth_charts",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.snap_counts",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.ftn_charting",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.pfr_defense",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.official_injuries",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "as-of 2026-11-27T04:31:46+00:00 (live_pull (live endpoint; pull time is the quote time)) is 3328 min old; limit is 120 min at 6.0 h to kickoff.",
+   "id": "freshness.news_injuries",
+   "level": "required",
+   "status": "STALE"
+  },
+  {
+   "detail": "'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.weather",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "as-of 2026-11-27T04:26:21+00:00 (live_pull (live endpoint; pull time is the quote time)) is 3334 min old; limit is 60 min at 6.0 h to kickoff.",
+   "id": "freshness.odds",
+   "level": "required",
+   "status": "STALE"
+  },
+  {
+   "detail": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.ngs_passing",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.ngs_receiving",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "id": "freshness.ngs_rushing",
+   "level": "required",
+   "status": "MISSING"
+  },
+  {
+   "detail": "Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+   "id": "freshness.official_inactives",
+   "level": "required",
+   "status": "NOT_YET"
+  },
+  {
+   "detail": "3334 min old; limit is 60 min.",
+   "id": "freshness.four_book_prices",
+   "level": "required",
+   "status": "STALE"
+  },
+  {
+   "detail": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+   "id": "freshness.ngs_defender_matchup",
+   "level": "required",
+   "status": "FRESH"
+  }
+ ],
+ "cited_outputs": {
+  "hundred_k": {
+   "detail": "This command does not call pipeline.sim100k and does not start trials.",
+   "status": "NOT_RUN"
+  },
+  "locked_snapshot": {
+   "detail": "No snapshots directory for this game.",
+   "status": "ABSENT"
+  },
+  "team_projection": {
+   "detail": "Copied from the pregame packet. This command did not re-simulate.",
+   "engine": "core/period_engine_v0",
+   "projection_status": "RESEARCH_ONLY_NOT_VALIDATED",
+   "samplers": {
+    "independent": {
+     "away_points": 18.8,
+     "away_win": 0.499,
+     "home_margin": -0.2,
+     "home_points": 18.6,
+     "home_win": 0.499,
+     "total": 37.4
+    },
+    "matchup_pair": {
+     "away_points": 22.0,
+     "away_win": 0.475,
+     "home_margin": 1.3,
+     "home_points": 23.3,
+     "home_win": 0.523,
+     "total": 45.2
+    }
+   },
+   "status": "CITED_NOT_RERUN",
+   "trials": 20000
+  }
+ },
+ "command": "python -m sunday game --game 2026_12_NYJ_MIA --as-of 2026-11-29T12:00:00+00:00",
+ "critical_ids": [],
+ "freshness": [
+  {
+   "age_minutes": 3328.3,
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_utc": "2026-11-27T04:31:42+00:00",
+   "cadence": "live_window",
+   "max_age_minutes": 1440,
+   "reason": "as-of 2026-11-27T04:31:42+00:00 (live_pull (live endpoint; pull time is the quote time)) is 3328 min old; limit is 1440 min at 6.0 h to kickoff.",
+   "retrieved_utc": "2026-11-27T04:31:42+00:00",
+   "source": "schedule",
+   "status": "STALE"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:43+00:00",
+   "source": "play_by_play",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:43+00:00",
+   "source": "rosters",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:43+00:00",
+   "source": "depth_charts",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:44+00:00",
+   "source": "snap_counts",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:44+00:00",
+   "source": "ftn_charting",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:44+00:00",
+   "source": "pfr_defense",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:43+00:00",
+   "source": "official_injuries",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": 3328.2,
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_utc": "2026-11-27T04:31:46+00:00",
+   "cadence": "live_window",
+   "max_age_minutes": 120,
+   "reason": "as-of 2026-11-27T04:31:46+00:00 (live_pull (live endpoint; pull time is the quote time)) is 3328 min old; limit is 120 min at 6.0 h to kickoff.",
+   "retrieved_utc": "2026-11-27T04:31:46+00:00",
+   "source": "news_injuries",
+   "status": "STALE"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "nws_live_grid",
+   "max_age_minutes": null,
+   "reason": "'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:57+00:00",
+   "source": "weather",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": 3333.7,
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_utc": "2026-11-27T04:26:21+00:00",
+   "cadence": "live_window",
+   "max_age_minutes": 60,
+   "reason": "as-of 2026-11-27T04:26:21+00:00 (live_pull (live endpoint; pull time is the quote time)) is 3334 min old; limit is 60 min at 6.0 h to kickoff.",
+   "retrieved_utc": "2026-11-27T04:26:21Z",
+   "source": "odds",
+   "status": "STALE"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:46+00:00",
+   "source": "ngs_passing",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:45+00:00",
+   "source": "ngs_receiving",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T04:31:45+00:00",
+   "source": "ngs_rushing",
+   "status": "MISSING"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": null,
+   "as_of_utc": null,
+   "cadence": "t90",
+   "max_age_minutes": null,
+   "reason": "Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+   "retrieved_utc": null,
+   "source": "official_inactives",
+   "status": "NOT_YET"
+  },
+  {
+   "age_minutes": 3333.7,
+   "as_of_basis": null,
+   "as_of_utc": null,
+   "cadence": "live_window",
+   "max_age_minutes": 60,
+   "reason": "3334 min old; limit is 60 min.",
+   "retrieved_utc": "2026-11-27T04:26:21Z",
+   "source": "four_book_prices",
+   "status": "STALE"
+  },
+  {
+   "age_minutes": null,
+   "as_of_basis": null,
+   "as_of_utc": null,
+   "cadence": "latest_release",
+   "max_age_minutes": null,
+   "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+   "retrieved_utc": null,
+   "source": "ngs_defender_matchup",
+   "status": "FRESH"
+  }
+ ],
+ "game": {
+  "away": "NYJ",
+  "date": "2026-11-29",
+  "game_id": "2026_12_NYJ_MIA",
+  "home": "MIA",
+  "kickoff_et": "13:00",
+  "listed_qbs": {
+   "MIA": "Kyle McCord",
+   "NYJ": "Geno Smith"
+  },
+  "season": 2026,
+  "slot": "Sunday early window",
+  "week": 12
+ },
+ "game_id": "2026_12_NYJ_MIA",
+ "git_sha": "4d010ede51a1acc5a1d49b5396a0463520cc0f2a",
+ "kickoff_utc": "2026-11-29T18:00:00+00:00",
+ "layer_gaps": [
+  "NFL-87",
+  "NFL-88",
+  "NFL-89",
+  "NFL-90",
+  "NFL-91"
+ ],
+ "layers": [
+  {
+   "detail": "Per-game orchestration registry. No module is registered, so nothing was executed.",
+   "issue": "NFL-87",
+   "module": "sunday.layers.orchestration",
+   "status": "UNAVAILABLE"
+  },
+  {
+   "detail": "Coverage and advanced-stat research. No module is registered, so nothing was executed.",
+   "issue": "NFL-88",
+   "module": "sunday.layers.matchup",
+   "status": "UNAVAILABLE"
+  },
+  {
+   "detail": "Player opportunity board. No module is registered, so nothing was executed.",
+   "issue": "NFL-89",
+   "module": "sunday.layers.players",
+   "status": "UNAVAILABLE"
+  },
+  {
+   "detail": "Three game scripts and independent model runs. No module is registered, so nothing was executed.",
+   "issue": "NFL-90",
+   "module": "sunday.layers.scripts",
+   "status": "UNAVAILABLE"
+  },
+  {
+   "detail": "Market comparison and adversarial board. No module is registered, so nothing was executed.",
+   "issue": "NFL-91",
+   "module": "sunday.layers.market_board",
+   "status": "UNAVAILABLE"
+  }
+ ],
+ "leakage": {
+  "excluded": [
+   {
+    "path": "data/gamebooks/2026/wk07/2026_07_MIA_NYJ/2026_07_MIA_NYJ_gamebook.pdf",
+    "reason": "postgame or final-stat path; not read"
+   },
+   {
+    "path": "data/gamebooks/2026/wk07/2026_07_MIA_NYJ/2026_07_MIA_NYJ_gamebook.txt",
+    "reason": "postgame or final-stat path; not read"
+   },
+   {
+    "path": "data/historical/playlogs/2026_wk7/MIA_NYJ.csv",
+    "reason": "postgame or final-stat path; not read"
+   },
+   {
+    "path": "grading/results/sources/espn_summary_2026_12_NYJ_MIA_401873089.json",
+    "reason": "postgame or final-stat path; not read"
+   }
+  ],
+  "inputs_read": [
+   "core/possession_engine_v0/config/nyj_mia_2026-11-29_data_only_nfl43.json",
+   "known_flags/KNOWN_LIMITATIONS.json",
+   "pregame/packets/2026_12_NYJ_MIA/packet.json",
+   "pregame/packets/latest.json",
+   "pregame/price_freezes/2026-11-29_NYJ@MIA/freeze_20261127T043158Z.json"
+  ],
+  "late_stamps": [],
+  "status": "PASS"
+ },
+ "market_comparison_requested": false,
+ "projection_ready": false,
+ "required_ids": [
+  "phases",
+  "freshness.schedule",
+  "freshness.play_by_play",
+  "freshness.rosters",
+  "freshness.depth_charts",
+  "freshness.snap_counts",
+  "freshness.ftn_charting",
+  "freshness.pfr_defense",
+  "freshness.official_injuries",
+  "freshness.news_injuries",
+  "freshness.weather",
+  "freshness.odds",
+  "freshness.ngs_passing",
+  "freshness.ngs_receiving",
+  "freshness.ngs_rushing",
+  "freshness.four_book_prices"
+ ],
+ "research_only": true,
+ "result": "PARTIAL",
+ "roles": {
+  "MIA": {
+   "availability_flags": [
+    {
+     "game_status": null,
+     "player": "Bradley Pinion",
+     "position": "P",
+     "practice_status": "Did Not Participate In Practice"
+    },
+    {
+     "game_status": null,
+     "player": "Jared Wayne",
+     "position": "WR",
+     "practice_status": "Did Not Participate In Practice"
+    },
+    {
+     "game_status": null,
+     "player": "Julius Brents",
+     "position": "CB",
+     "practice_status": "Did Not Participate In Practice"
+    }
+   ],
+   "depth_chart_as_of": "2026-11-26T17:41:02Z",
+   "listed_qb": "Kyle McCord",
+   "qb_starters": [
+    "Kyle McCord"
+   ],
+   "skill_starters": [
+    {
+     "player": "DJ Herman",
+     "slot": "FB"
+    },
+    {
+     "player": "Kyle McCord",
+     "slot": "QB"
+    },
+    {
+     "player": "Ollie Gordon II",
+     "slot": "RB"
+    },
+    {
+     "player": "Greg Dulcich",
+     "slot": "TE"
+    },
+    {
+     "player": "Malik Washington",
+     "slot": "WR"
+    }
+   ],
+   "starter_count": 28
+  },
+  "NYJ": {
+   "availability_flags": [
+    {
+     "game_status": null,
+     "player": "Harrison Phillips",
+     "position": "DT",
+     "practice_status": "Did Not Participate In Practice"
+    },
+    {
+     "game_status": null,
+     "player": "Omar Cooper Jr.",
+     "position": "WR",
+     "practice_status": "Did Not Participate In Practice"
+    }
+   ],
+   "depth_chart_as_of": "2026-11-26T17:41:02Z",
+   "listed_qb": "Geno Smith",
+   "qb_starters": [
+    "Geno Smith"
+   ],
+   "skill_starters": [
+    {
+     "player": "Geno Smith",
+     "slot": "QB"
+    },
+    {
+     "player": "Breece Hall",
+     "slot": "RB"
+    },
+    {
+     "player": "Mason Taylor",
+     "slot": "TE"
+    },
+    {
+     "player": "Garrett Wilson",
+     "slot": "WR"
+    }
+   ],
+   "starter_count": 27
+  }
+ },
+ "runtime": {
+  "disk_free_bytes": 261743374336,
+  "memory": {
+   "detail": "Per-game tracemalloc is off during fan-out. The slate index records process max RSS.",
+   "process_max_rss_kb": 30204
+  },
+  "wall_seconds": 0.271084
+ },
+ "scheduler": {
+  "detail": "Manual local execution. GitHub Actions is not invoked and no schedule is registered.",
+  "status": "NOT_THIS_COMMAND"
+ },
+ "schema": "sunday-projection/1",
+ "source_packet": {
+  "generated_utc": "2026-11-27T04:31:58+00:00",
+  "load_error": null,
+  "path": "pregame/packets/2026_12_NYJ_MIA/packet.json",
+  "sha256": "2db6a540c9c6505b5d9ead18fd8ee4de3e8c561cc2cb0f0f3c8de62a2aa6cae4"
+ }
+}

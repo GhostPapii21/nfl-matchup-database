@@ -76,9 +76,26 @@ Read honestly: calibration gains are small; GR is under-dispersed (80% coverage 
 markets are over-dispersed (coverage > .80). QB markets rest on only 70 test QB-games; this is research
 execution, not certification.
 
+## Defensive integration (sim_v7.1.0)
+- QB coverage/pressure/blitz factors from board splits (commits ba5d34a / 70d5198 / 08bc8c1).
+- Player-specific coverage target allocation from Sharp man/zone/MOFO/MOFC, board opportunity shares,
+  NGS cushion/separation/air yards, and aggregate defender allowed rates. Play-level coverage assignment
+  remains `MISSING` (not invented).
+- Pressure-induced QB scrambling separated from designed QB runs (nflverse `qb_scramble` / `sack`).
+- Game Randomness opponent-defense reweighting of historical drives + points/yards factors.
+- TD allocation uses RZ/goal-line proxy usage and defensive allowances; `pass_td` ≥ Σ modeled `rec_td`.
+- Exhaustive `residual` scenario collected beside the three primary scripts; unconditional market
+  probabilities mix scenarios by actual acceptance frequencies.
+- Calibration labels after defense: `EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED` (prior VALIDATED not inherited).
+- Sunday pipeline (`sunday/stack.py`) executes sim_v7 automatically and writes `sim_v7_receipt.json` +
+  `sim_v7_completion_receipt.json`. Set `SUNDAY_SIM_V7_N` to override trial count.
+
+Adjusted Sunday slate outputs: `runs/sim_v7_defensive_adjusted/out/` (verification JSON beside it).
+
 ## Known limitations / blockers
-- GR has no opponent-defense adjustment (own-offense drives only) and no special-teams/defensive TDs beyond
-  drive-level "Opp touchdown"/safety; roles that changed inside the 8-game window are under-weighted.
+- Special-teams/defensive TDs beyond drive-level "Opp touchdown"/safety are not modeled; roles that changed
+  inside the 8-game window are under-weighted.
 - No overtime in either sampler; full-game winner is regulation (tie reported).
 - Historical sportsbook prop lines not wired into validation (proxy line used).
 - Monday CAR@TB not run (Sunday slate only); Thursday/Friday wk12 games excluded (already played).
+- Play-level FTN/PFF coverage assignments are unavailable on free 2026 participation data.

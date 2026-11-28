@@ -1,0 +1,984 @@
+{
+  "analytical_executed": [
+    "matchup_edges",
+    "rain_adjustment"
+  ],
+  "artifact_dir": "/agent/repos/nfl-matchup-database/runs/sim_v7_defensive_adjusted/sunday_stack_demo/2026_12_NO_CIN/orchestrator/2026_12_NO_CIN/2b6c696921a2e883",
+  "as_of": "2026-11-28T12:00:00+00:00",
+  "code_revision": "08bc8c1165de60870e5fab58cbc209e8ea59253e",
+  "command": "game",
+  "duplicate": false,
+  "game_id": "2026_12_NO_CIN",
+  "join_digest": "8df1cfa3a4efcd1e1e2c28bbd97bc82033e91c84cd4ebec43371197465d8665b",
+  "joined": true,
+  "modules": [
+    {
+      "analytical_executed": false,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "PARTIAL"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "freshness",
+      "freshness": [
+        "schedule",
+        "play_by_play",
+        "rosters",
+        "depth_charts",
+        "snap_counts",
+        "weather",
+        "odds"
+      ],
+      "inputs": [
+        "packet sources",
+        "weather",
+        "books"
+      ],
+      "invoked": true,
+      "module_id": "freshness_check",
+      "output": {
+        "analytical": false,
+        "entrypoint": "pipeline.freshness.check",
+        "rows": [
+          {
+            "reason": "as-of 2026-11-28T15:06:24+00:00 (live_pull (live endpoint; pull time is the quote time)) is 184 min old; limit 1440 min.",
+            "source": "schedule",
+            "status": "FRESH"
+          },
+          {
+            "reason": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "play_by_play",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "rosters",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "depth_charts",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "snap_counts",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "ftn_charting",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "pfr_defense",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "official_injuries",
+            "status": "MISSING"
+          },
+          {
+            "reason": "as-of 2026-11-28T15:06:27+00:00 (live_pull (live endpoint; pull time is the quote time)) is 184 min old; limit 360 min.",
+            "source": "news_injuries",
+            "status": "FRESH"
+          },
+          {
+            "reason": "'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "weather",
+            "status": "MISSING"
+          },
+          {
+            "reason": "as-of 2026-11-28T15:01:01+00:00 (live_pull (live endpoint; pull time is the quote time)) is 189 min old; limit 360 min.",
+            "source": "odds",
+            "status": "FRESH"
+          },
+          {
+            "reason": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "ngs_passing",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "ngs_receiving",
+            "status": "MISSING"
+          },
+          {
+            "reason": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+            "source": "ngs_rushing",
+            "status": "MISSING"
+          },
+          {
+            "reason": "Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+            "source": "official_inactives",
+            "status": "NOT_YET"
+          },
+          {
+            "reason": "189 min old; limit 360 min.",
+            "source": "four_book_prices",
+            "status": "FRESH"
+          },
+          {
+            "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+            "source": "ngs_defender_matchup",
+            "status": "FRESH"
+          }
+        ]
+      },
+      "output_contract": "source status rows from pipeline.freshness.check",
+      "required_inputs": [],
+      "retries": 1,
+      "status": "PARTIAL",
+      "timeout_sec": 30,
+      "warnings": [
+        "play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "official_injuries MISSING: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "weather MISSING: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "ngs_passing MISSING: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "ngs_receiving MISSING: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "ngs_rushing MISSING: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet."
+      ]
+    },
+    {
+      "analytical_executed": false,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "PASS"
+        }
+      ],
+      "critical": true,
+      "depends_on": [],
+      "execution_class": "adapter",
+      "freshness": [],
+      "inputs": [
+        "game.game_id",
+        "game.away",
+        "game.home",
+        "game.season",
+        "game.week",
+        "game.kickoff_et"
+      ],
+      "invoked": true,
+      "module_id": "game_identity",
+      "output": {
+        "away": "NO",
+        "date": "2026-11-29",
+        "entrypoint": "packet.game",
+        "game_id": "2026_12_NO_CIN",
+        "home": "CIN",
+        "kickoff_et": "13:00",
+        "roof": "outdoors",
+        "season": 2026,
+        "site": "Home",
+        "week": 12
+      },
+      "output_contract": "game_id, away, home, season, week, kickoff",
+      "required_inputs": [
+        "game.game_id",
+        "game.away",
+        "game.home"
+      ],
+      "retries": 0,
+      "status": "PASS",
+      "timeout_sec": 5,
+      "warnings": []
+    },
+    {
+      "analytical_executed": true,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "PASS"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "analytical",
+      "freshness": [],
+      "inputs": [
+        "teams.*.offense.produced",
+        "teams.*.offense.rank",
+        "teams.*.defense.allowed",
+        "teams.*.defense.rank"
+      ],
+      "invoked": true,
+      "module_id": "matchup_edges",
+      "output": {
+        "directions": [
+          {
+            "defense": "CIN",
+            "n": 5,
+            "offense": "NO",
+            "rows": [
+              {
+                "area": "tight end yards",
+                "defense_rank": 27,
+                "defense_value": 68.875,
+                "edge": "CIN DEFENCE WEAK SPOT",
+                "is_rate": false,
+                "league_avg": 54.546875,
+                "offense_rank": 24,
+                "offense_value": 37.125,
+                "why": "NO offence ranks 24 of 32, CIN defence ranks 27 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "explosive passes (20+)",
+                "defense_rank": 23,
+                "defense_value": 3.375,
+                "edge": "CIN DEFENCE WEAK SPOT",
+                "is_rate": false,
+                "league_avg": 2.984375,
+                "offense_rank": 30,
+                "offense_value": 1.625,
+                "why": "NO offence ranks 30 of 32, CIN defence ranks 23 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "explosive runs (15+)",
+                "defense_rank": 31,
+                "defense_value": 2.25,
+                "edge": "CIN DEFENCE WEAK SPOT",
+                "is_rate": false,
+                "league_avg": 1.21484375,
+                "offense_rank": 13,
+                "offense_value": 1.25,
+                "why": "NO offence ranks 13 of 32, CIN defence ranks 31 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "third-down conversions",
+                "defense_rank": 28,
+                "defense_value": 0.4639175257731959,
+                "edge": "CIN DEFENCE WEAK SPOT",
+                "is_rate": true,
+                "league_avg": 0.3928517702379525,
+                "offense_rank": 11,
+                "offense_value": 0.41964285714285715,
+                "why": "NO offence ranks 11 of 32, CIN defence ranks 28 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "red-zone touchdowns",
+                "defense_rank": 2,
+                "defense_value": 0.44,
+                "edge": "CIN DEFENCE STRENGTH",
+                "is_rate": true,
+                "league_avg": 0.5830948295661991,
+                "offense_rank": 6,
+                "offense_value": 0.68,
+                "why": "NO offence ranks 6 of 32, CIN defence ranks 2 of 32 (1 = best at its own job)"
+              }
+            ]
+          },
+          {
+            "defense": "NO",
+            "n": 11,
+            "offense": "CIN",
+            "rows": [
+              {
+                "area": "wide receiver yards",
+                "defense_rank": 14,
+                "defense_value": 141.0,
+                "edge": "CIN OFFENCE STRENGTH",
+                "is_rate": false,
+                "league_avg": 148.39453125,
+                "offense_rank": 2,
+                "offense_value": 228.375,
+                "why": "CIN offence ranks 2 of 32, NO defence ranks 14 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "tight end yards",
+                "defense_rank": 26,
+                "defense_value": 67.375,
+                "edge": "NO DEFENCE WEAK SPOT",
+                "is_rate": false,
+                "league_avg": 54.546875,
+                "offense_rank": 16,
+                "offense_value": 54.375,
+                "why": "CIN offence ranks 16 of 32, NO defence ranks 26 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "running back receiving yards",
+                "defense_rank": 26,
+                "defense_value": 39.75,
+                "edge": "CIN OFFENCE ADVANTAGE",
+                "is_rate": false,
+                "league_avg": 32.96875,
+                "offense_rank": 6,
+                "offense_value": 46.5,
+                "why": "CIN offence ranks 6 of 32, NO defence ranks 26 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "running back rushing yards",
+                "defense_rank": 24,
+                "defense_value": 108.125,
+                "edge": "NO DEFENCE WEAK SPOT",
+                "is_rate": false,
+                "league_avg": 92.69140625,
+                "offense_rank": 29,
+                "offense_value": 65.25,
+                "why": "CIN offence ranks 29 of 32, NO defence ranks 24 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "explosive passes (20+)",
+                "defense_rank": 28,
+                "defense_value": 3.625,
+                "edge": "CIN OFFENCE ADVANTAGE",
+                "is_rate": false,
+                "league_avg": 2.984375,
+                "offense_rank": 10,
+                "offense_value": 3.5,
+                "why": "CIN offence ranks 10 of 32, NO defence ranks 28 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "explosive runs (15+)",
+                "defense_rank": 26,
+                "defense_value": 1.625,
+                "edge": "NO DEFENCE WEAK SPOT",
+                "is_rate": false,
+                "league_avg": 1.21484375,
+                "offense_rank": 30,
+                "offense_value": 0.5,
+                "why": "CIN offence ranks 30 of 32, NO defence ranks 26 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "passing yards",
+                "defense_rank": 22,
+                "defense_value": 248.125,
+                "edge": "CIN OFFENCE STRENGTH",
+                "is_rate": false,
+                "league_avg": 235.9765625,
+                "offense_rank": 1,
+                "offense_value": 329.25,
+                "why": "CIN offence ranks 1 of 32, NO defence ranks 22 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "points",
+                "defense_rank": 24,
+                "defense_value": 26.125,
+                "edge": "CIN OFFENCE ADVANTAGE",
+                "is_rate": false,
+                "league_avg": 23.14453125,
+                "offense_rank": 3,
+                "offense_value": 30.625,
+                "why": "CIN offence ranks 3 of 32, NO defence ranks 24 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "third-down conversions",
+                "defense_rank": 31,
+                "defense_value": 0.4766355140186916,
+                "edge": "CIN OFFENCE ADVANTAGE",
+                "is_rate": true,
+                "league_avg": 0.3928517702379525,
+                "offense_rank": 1,
+                "offense_value": 0.5172413793103449,
+                "why": "CIN offence ranks 1 of 32, NO defence ranks 31 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "red-zone touchdowns",
+                "defense_rank": 10,
+                "defense_value": 0.5161290322580645,
+                "edge": "CIN OFFENCE STRENGTH",
+                "is_rate": true,
+                "league_avg": 0.5830948295661991,
+                "offense_rank": 2,
+                "offense_value": 0.7575757575757576,
+                "why": "CIN offence ranks 2 of 32, NO defence ranks 10 of 32 (1 = best at its own job)"
+              },
+              {
+                "area": "sacks (pass protection vs pass rush)",
+                "defense_rank": 5,
+                "defense_value": 0.0851063829787234,
+                "edge": "NO DEFENCE STRENGTH",
+                "is_rate": true,
+                "league_avg": 0.0660366731589532,
+                "offense_rank": 4,
+                "offense_value": 0.03880597014925373,
+                "why": "CIN offence ranks 4 of 32, NO defence ranks 5 of 32 (1 = best at its own job)"
+              }
+            ]
+          }
+        ],
+        "entrypoint": "pregame.packet.edges",
+        "missing": []
+      },
+      "output_contract": "pregame.packet.edges rows for both directions",
+      "required_inputs": [],
+      "retries": 1,
+      "status": "PASS",
+      "timeout_sec": 20,
+      "warnings": []
+    },
+    {
+      "analytical_executed": false,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "MISSING"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "adapter",
+      "freshness": [
+        "ngs_passing",
+        "ngs_receiving",
+        "ngs_rushing"
+      ],
+      "inputs": [
+        "game.away",
+        "game.home",
+        "game.week",
+        "public NGS weekly files"
+      ],
+      "invoked": true,
+      "module_id": "ngs_matchup",
+      "output": {
+        "analytical": false,
+        "entrypoint": "pipeline.ngs_matchup.check",
+        "missing_wanted": [
+          "receiver_routes",
+          "rb_routes",
+          "target_location",
+          "qb_pass_location",
+          "qb_success_vs_defense",
+          "likely_defenders"
+        ],
+        "reason": "No public NGS file for: ngs_passing, ngs_receiving, ngs_rushing.",
+        "status": "MISSING",
+        "teams": [
+          "NO",
+          "CIN"
+        ],
+        "week": 12
+      },
+      "output_contract": "pipeline.ngs_matchup.check status; missing fields stay unknown",
+      "required_inputs": [],
+      "retries": 1,
+      "status": "MISSING",
+      "timeout_sec": 30,
+      "warnings": [
+        "No public NGS file for: ngs_passing, ngs_receiving, ngs_rushing."
+      ]
+    },
+    {
+      "analytical_executed": false,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "PASS"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "freshness",
+      "freshness": [
+        "schedule",
+        "official_inactives"
+      ],
+      "inputs": [
+        "pregame packet"
+      ],
+      "invoked": true,
+      "module_id": "phase_ledger",
+      "output": {
+        "analytical": false,
+        "entrypoint": "pipeline.phases.ledger",
+        "phase15_status": "NOT_YET",
+        "phases": [
+          {
+            "name": "Slate, schedule, venue",
+            "phase": 1,
+            "status": "AUTO"
+          },
+          {
+            "name": "Player identity and position",
+            "phase": 2,
+            "status": "MISSING"
+          },
+          {
+            "name": "Verified player game history",
+            "phase": 3,
+            "status": "MISSING"
+          },
+          {
+            "name": "Role, snaps, routes, opportunity",
+            "phase": 4,
+            "status": "MISSING"
+          },
+          {
+            "name": "Team offense/defense baselines",
+            "phase": 5,
+            "status": "MISSING"
+          },
+          {
+            "name": "Opponent context and game script",
+            "phase": 6,
+            "status": "PARTIAL"
+          },
+          {
+            "name": "Coverage structure and shell",
+            "phase": 7,
+            "status": "MISSING"
+          },
+          {
+            "name": "Defender assignment and explosive allowance",
+            "phase": 8,
+            "status": "MISSING"
+          },
+          {
+            "name": "QB pressure, blitz, scramble",
+            "phase": 9,
+            "status": "MISSING"
+          },
+          {
+            "name": "Offensive line, pass rush, coaching",
+            "phase": 10,
+            "status": "MISSING"
+          },
+          {
+            "name": "Injury and depth chart",
+            "phase": 11,
+            "status": "MISSING"
+          },
+          {
+            "name": "Weather, roof, travel",
+            "phase": 12,
+            "status": "MISSING"
+          },
+          {
+            "name": "Timestamped book prices",
+            "phase": 13,
+            "status": "PARTIAL"
+          },
+          {
+            "name": "Projection and simulation (100k)",
+            "phase": 14,
+            "status": "NOT_YET"
+          },
+          {
+            "name": "Final inactive pregame freeze",
+            "phase": 15,
+            "status": "NOT_YET"
+          }
+        ],
+        "schema": "nfl56-phase-ledger/1",
+        "summary": {
+          "AUTO": 1,
+          "MISSING": 10,
+          "NOT_YET": 2,
+          "PARTIAL": 2
+        }
+      },
+      "output_contract": "nfl56-phase-ledger summary; not an execution receipt",
+      "required_inputs": [],
+      "retries": 1,
+      "status": "PASS",
+      "timeout_sec": 60,
+      "warnings": [
+        "phase checker is not analytical execution; summary {'AUTO': 1, 'MISSING': 10, 'NOT_YET': 2, 'PARTIAL': 2}"
+      ]
+    },
+    {
+      "analytical_executed": true,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "PASS"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "analytical",
+      "freshness": [
+        "weather"
+      ],
+      "inputs": [
+        "weather.at_kickoff",
+        "weather.during_game",
+        "teams.*.offense"
+      ],
+      "invoked": true,
+      "module_id": "rain_adjustment",
+      "output": {
+        "entrypoint": "pregame.rain_model.factor",
+        "equation_id": "pregame.rain_model.factor",
+        "factors": {
+          "attempts": 0.9626932540762001,
+          "completion_pct": 0.9552203964876731,
+          "pass_yards": 0.8815549018199869,
+          "yards_per_attempt": 0.9062916259843766
+        },
+        "rain": 0.57,
+        "rain_team_games": 211,
+        "subject_invoked": true,
+        "teams": [
+          {
+            "forecast_attempts": 35.5,
+            "receivers": 9,
+            "status": "OK",
+            "team": "NO"
+          },
+          {
+            "forecast_attempts": 37.5,
+            "receivers": 9,
+            "status": "OK",
+            "team": "CIN"
+          }
+        ],
+        "wind_mph": 13.0
+      },
+      "output_contract": "pregame.rain_model.factor values for attempts, yards, completion",
+      "required_inputs": [],
+      "retries": 1,
+      "status": "PASS",
+      "timeout_sec": 20,
+      "warnings": []
+    },
+    {
+      "analytical_executed": false,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "REFUSED"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "gate",
+      "freshness": [
+        "official_inactives",
+        "four_book_prices"
+      ],
+      "inputs": [
+        "pregame packet",
+        "known_flags",
+        "engine config"
+      ],
+      "invoked": true,
+      "module_id": "sim100k_preflight",
+      "output": {
+        "analytical": false,
+        "engine_invoked": false,
+        "entrypoint": "pipeline.sim100k.preflight",
+        "gates": {
+          "G0_entrypoint": "PASS",
+          "G1_flags": "PASS",
+          "G2_nfl43": "PASS",
+          "G3_packet": "PASS",
+          "G4_freshness": "REFUSED",
+          "G6_rocket": "NOT_RUN (earlier gates refused)",
+          "G7_asof": "PASS"
+        },
+        "label": "NFL-43 possession preflight; not sim_v6",
+        "ok": false,
+        "ran": false,
+        "reasons": [
+          "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: official_injuries MISSING: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: weather MISSING: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: ngs_passing MISSING: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: ngs_receiving MISSING: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: ngs_rushing MISSING: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+          "G4: official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet."
+        ]
+      },
+      "output_contract": "pipeline.sim100k.preflight gates; engine not invoked",
+      "required_inputs": [],
+      "retries": 0,
+      "status": "REFUSED",
+      "timeout_sec": 60,
+      "warnings": [
+        "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+      ]
+    },
+    {
+      "analytical_executed": false,
+      "attempts": [
+        {
+          "error": null,
+          "finished_at": "2026-11-28T18:10:10+00:00",
+          "n": 1,
+          "started_at": "2026-11-28T18:10:10+00:00",
+          "status": "FAILED"
+        }
+      ],
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "stub",
+      "freshness": [],
+      "inputs": [
+        "tools/sim_v6.py"
+      ],
+      "invoked": true,
+      "module_id": "sim_v6_contract",
+      "output": {
+        "entrypoint": "tools/sim_v6.py",
+        "path": "tools/sim_v6.py",
+        "reason": "PRESENT_BUT_NOT_WIRED",
+        "receipt_only": true,
+        "subject_invoked": false
+      },
+      "output_contract": "MODULE_ABSENT or PRESENT_BUT_NOT_WIRED; subject not invoked",
+      "required_inputs": [],
+      "retries": 0,
+      "status": "FAILED",
+      "timeout_sec": 5,
+      "warnings": [
+        "tools/sim_v6.py is present but this run does not execute it",
+        "receipt-only result is not analytical execution"
+      ]
+    }
+  ],
+  "not_analytical": [
+    "freshness_check",
+    "game_identity",
+    "ngs_matchup",
+    "phase_ledger",
+    "sim100k_preflight",
+    "sim_v6_contract"
+  ],
+  "projection_ready": false,
+  "registry": [
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "freshness",
+      "freshness": [
+        "schedule",
+        "play_by_play",
+        "rosters",
+        "depth_charts",
+        "snap_counts",
+        "weather",
+        "odds"
+      ],
+      "inputs": [
+        "packet sources",
+        "weather",
+        "books"
+      ],
+      "module_id": "freshness_check",
+      "output_contract": "source status rows from pipeline.freshness.check",
+      "required_inputs": [],
+      "retries": 1,
+      "timeout_sec": 30
+    },
+    {
+      "critical": true,
+      "depends_on": [],
+      "execution_class": "adapter",
+      "freshness": [],
+      "inputs": [
+        "game.game_id",
+        "game.away",
+        "game.home",
+        "game.season",
+        "game.week",
+        "game.kickoff_et"
+      ],
+      "module_id": "game_identity",
+      "output_contract": "game_id, away, home, season, week, kickoff",
+      "required_inputs": [
+        "game.game_id",
+        "game.away",
+        "game.home"
+      ],
+      "retries": 0,
+      "timeout_sec": 5
+    },
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "analytical",
+      "freshness": [],
+      "inputs": [
+        "teams.*.offense.produced",
+        "teams.*.offense.rank",
+        "teams.*.defense.allowed",
+        "teams.*.defense.rank"
+      ],
+      "module_id": "matchup_edges",
+      "output_contract": "pregame.packet.edges rows for both directions",
+      "required_inputs": [],
+      "retries": 1,
+      "timeout_sec": 20
+    },
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "adapter",
+      "freshness": [
+        "ngs_passing",
+        "ngs_receiving",
+        "ngs_rushing"
+      ],
+      "inputs": [
+        "game.away",
+        "game.home",
+        "game.week",
+        "public NGS weekly files"
+      ],
+      "module_id": "ngs_matchup",
+      "output_contract": "pipeline.ngs_matchup.check status; missing fields stay unknown",
+      "required_inputs": [],
+      "retries": 1,
+      "timeout_sec": 30
+    },
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "freshness",
+      "freshness": [
+        "schedule",
+        "official_inactives"
+      ],
+      "inputs": [
+        "pregame packet"
+      ],
+      "module_id": "phase_ledger",
+      "output_contract": "nfl56-phase-ledger summary; not an execution receipt",
+      "required_inputs": [],
+      "retries": 1,
+      "timeout_sec": 60
+    },
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "analytical",
+      "freshness": [
+        "weather"
+      ],
+      "inputs": [
+        "weather.at_kickoff",
+        "weather.during_game",
+        "teams.*.offense"
+      ],
+      "module_id": "rain_adjustment",
+      "output_contract": "pregame.rain_model.factor values for attempts, yards, completion",
+      "required_inputs": [],
+      "retries": 1,
+      "timeout_sec": 20
+    },
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "gate",
+      "freshness": [
+        "official_inactives",
+        "four_book_prices"
+      ],
+      "inputs": [
+        "pregame packet",
+        "known_flags",
+        "engine config"
+      ],
+      "module_id": "sim100k_preflight",
+      "output_contract": "pipeline.sim100k.preflight gates; engine not invoked",
+      "required_inputs": [],
+      "retries": 0,
+      "timeout_sec": 60
+    },
+    {
+      "critical": false,
+      "depends_on": [
+        "game_identity"
+      ],
+      "execution_class": "stub",
+      "freshness": [],
+      "inputs": [
+        "tools/sim_v6.py"
+      ],
+      "module_id": "sim_v6_contract",
+      "output_contract": "MODULE_ABSENT or PRESENT_BUT_NOT_WIRED; subject not invoked",
+      "required_inputs": [],
+      "retries": 0,
+      "timeout_sec": 5
+    }
+  ],
+  "research_only": true,
+  "run_id": "2b6c696921a2e883",
+  "scheduler": "cursor-local",
+  "schema": "nfl87-game-run/1",
+  "status": "PARTIAL",
+  "warnings": [
+    "freshness_check: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: official_injuries MISSING: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: weather MISSING: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: ngs_passing MISSING: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: ngs_receiving MISSING: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: ngs_rushing MISSING: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "freshness_check: official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+    "ngs_matchup: No public NGS file for: ngs_passing, ngs_receiving, ngs_rushing.",
+    "phase_ledger: phase checker is not analytical execution; summary {'AUTO': 1, 'MISSING': 10, 'NOT_YET': 2, 'PARTIAL': 2}",
+    "sim100k_preflight: G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "sim_v6_contract: tools/sim_v6.py is present but this run does not execute it",
+    "sim_v6_contract: receipt-only result is not analytical execution"
+  ]
+}
