@@ -42,6 +42,7 @@ The repository is the single source of truth for every step from pulling data to
 - Per-phase checks: `python -m pipeline.phases --game <id> --phase <n>`. Each of the 15 phases is marked AUTO, PARTIAL, MISSING, STALE or NOT_YET, with the missing inputs named. See [docs/PHASE_WORKFLOWS.md](docs/PHASE_WORKFLOWS.md).
 - Freshness windows for each source: [docs/DATA_FRESHNESS.md](docs/DATA_FRESHNESS.md).
 - The 100k entry point, `python -m pipeline.sim100k --game <id>`. It is fail-closed: it exits 2 with a plain reason whenever any required input is missing or stale, and it has no override.
+- Sunday research commands, run locally and not by a scheduler: `python -m sunday preflight`, `python -m sunday game`, and `python -m sunday slate`. `python -m sunday replay --game 2026_12_DEN_PIT` runs the Week 12 DEN@PIT packet twice at its pregame timestamp. `projection_ready` stays false. Commands, arguments, and exit codes: [docs/SUNDAY_CLI.md](docs/SUNDAY_CLI.md).
 - A game-day workflow, [.github/workflows/nfl-gameday-gate.yml](.github/workflows/nfl-gameday-gate.yml), that runs the whole pre-kickoff chain for each game in order (official inactives, fresh packet and price freeze, locked snapshot, the 100k entry point) 40 to 88 minutes before kickoff and commits the result and [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It only runs on a schedule once it is on `main`. What it runs, what it costs in Odds API credits and how the credit floor is set: [pipeline/workflow_to_install/README.md](pipeline/workflow_to_install/README.md).
 
 **Blocked or pending**
