@@ -45,8 +45,8 @@ def _sha_file(path: Path) -> str | None:
 
 def _dump(path: Path, payload) -> str:
     path.parent.mkdir(parents=True, exist_ok=True)
-    raw = json.dumps(payload, indent=1, sort_keys=True, default=str).encode()
-    path.write_bytes(raw + b"\n")
+    raw = json.dumps(payload, indent=1, sort_keys=True, default=str).encode() + b"\n"
+    path.write_bytes(raw)
     return _sha_bytes(raw)
 
 
