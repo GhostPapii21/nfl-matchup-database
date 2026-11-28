@@ -6,10 +6,10 @@ Reproducibility: **PASS**
 Research only. `projection_ready` is false. Wall time and RSS are not part of the canonical hash.
 
 - As of: 2026-11-27T04:31:50+00:00
-- Canonical sha256: `5e8fa9edba6b317704f166c5fa9bb06c232a8d6409816b5cae65973c8b8ec1c4`
-- Run A wall: 9.065008 s
-- Run B wall: 8.351367 s
-- Run A memory: tracemalloc peak 56863191 bytes; process max RSS 520552 KB
-- Run B memory: tracemalloc peak 20494593 bytes; process max RSS 579648 KB
+- Canonical sha256: `cdc50e7dfbc9f4589a8ac0917a48d8237e5bdfe2d374b86275461e38c64b395f`
+- Run A wall: 8.820058 s
+- Run B wall: 7.686591 s
+- Run A memory: tracemalloc peak 57395892 bytes; process max RSS 496172 KB
+- Run B memory: tracemalloc peak 20293428 bytes; process max RSS 596472 KB
 
 Both runs share one canonical sha256. Runtime and RSS are recorded and are not part of that hash.

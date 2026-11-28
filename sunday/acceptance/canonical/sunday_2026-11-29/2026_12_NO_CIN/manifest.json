@@ -13,11 +13,15 @@
   {
    "analytical_execution": false,
    "calibration_status": null,
-   "duration_seconds": 0.033458,
-   "ended_utc": "2026-11-28T03:58:03+00:00",
+   "duration_seconds": 0.106814,
+   "ended_utc": "2026-11-28T04:16:52+00:00",
    "function": "resolve",
    "id": "schedule",
    "inputs": [
+    {
+     "kickoff_utc": null,
+     "source": "nfl_official_schedule"
+    },
     {
      "kickoff_utc": "2026-11-29T18:00:00+00:00",
      "source": "espn_event_date"
@@ -41,20 +45,20 @@
    "outputs": [
     {
      "path": "kickoff.json",
-     "sha256": "fe7f8b939df1070bc5a81de6ce9e91565e08becd135deeb7dd0f8c5e1841429f"
+     "sha256": "7acc82e95be1c8a7cd0500b42109dd9de0614025db5b0a4faace5648f26bf290"
     }
    ],
-   "reason": "ESPN event date matches the possession-engine config. That instant is the canonical kickoff. nflverse games.csv is kept as a recorded original and is not applied when it differs.",
+   "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
    "seed": null,
-   "started_utc": "2026-11-28T03:58:03+00:00",
-   "status": "EXECUTED",
+   "started_utc": "2026-11-28T04:16:52+00:00",
+   "status": "BLOCKED",
    "trials": null
   },
   {
    "analytical_execution": false,
    "calibration_status": null,
-   "duration_seconds": 1.548685,
-   "ended_utc": "2026-11-28T03:58:05+00:00",
+   "duration_seconds": 2.026858,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
    "function": "run_games",
    "id": "orchestrator",
    "inputs": [
@@ -68,62 +72,180 @@
    "module": "pipeline.orchestrator.runner",
    "outputs": [
     {
-     "module_statuses": [
-      {
-       "analytical_execution": null,
-       "module_id": "freshness_check",
-       "status": "PARTIAL"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "game_identity",
-       "status": "PASS"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "matchup_edges",
-       "status": "PASS"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "ngs_matchup",
-       "status": "MISSING"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "phase_ledger",
-       "status": "PASS"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "rain_adjustment",
-       "status": "PASS"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "sim100k_preflight",
-       "status": "REFUSED"
-      },
-      {
-       "analytical_execution": null,
-       "module_id": "sim_v6_contract",
-       "status": "BLOCKED"
-      }
-     ],
      "path": "orchestrator"
     }
    ],
    "reason": "existing modules joined in module-id order",
    "seed": null,
-   "started_utc": "2026-11-28T03:58:03+00:00",
+   "started_utc": "2026-11-28T04:16:52+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "freshness",
+   "function": "freshness_check",
+   "id": "orchestrator.freshness_check",
+   "inputs": [],
+   "kind": "check",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "PARTIAL",
+   "outputs": [],
+   "reason": "PARTIAL",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "adapter",
+   "function": "game_identity",
+   "id": "orchestrator.game_identity",
+   "inputs": [],
+   "kind": "check",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "PASS",
+   "outputs": [],
+   "reason": "PASS",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
    "status": "EXECUTED",
    "trials": null
   },
   {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 2.416709,
-   "ended_utc": "2026-11-28T03:58:07+00:00",
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "analytical",
+   "function": "matchup_edges",
+   "id": "orchestrator.matchup_edges",
+   "inputs": [],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "PASS",
+   "outputs": [],
+   "reason": "PASS",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "adapter",
+   "function": "ngs_matchup",
+   "id": "orchestrator.ngs_matchup",
+   "inputs": [],
+   "kind": "check",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "MISSING",
+   "outputs": [],
+   "reason": "orchestrator child status MISSING",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "MISSING",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "freshness",
+   "function": "phase_ledger",
+   "id": "orchestrator.phase_ledger",
+   "inputs": [],
+   "kind": "check",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "PASS",
+   "outputs": [],
+   "reason": "PASS",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "analytical",
+   "function": "rain_adjustment",
+   "id": "orchestrator.rain_adjustment",
+   "inputs": [],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "PASS",
+   "outputs": [],
+   "reason": "PASS",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "gate",
+   "function": "sim100k_preflight",
+   "id": "orchestrator.sim100k_preflight",
+   "inputs": [],
+   "kind": "check",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "REFUSED",
+   "outputs": [],
+   "reason": "orchestrator child status REFUSED",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "REFUSED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.0,
+   "ended_utc": "2026-11-28T04:16:54+00:00",
+   "execution_class": "stub",
+   "function": "sim_v6_contract",
+   "id": "orchestrator.sim_v6_contract",
+   "inputs": [],
+   "kind": "check",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.modules",
+   "orchestrator_status": "BLOCKED",
+   "outputs": [],
+   "reason": "orchestrator child status BLOCKED",
+   "seed": null,
+   "started_utc": "2026-11-28T04:16:54+00:00",
+   "status": "BLOCKED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 3.074149,
+   "ended_utc": "2026-11-28T04:16:57+00:00",
    "function": "build_packet",
    "id": "matchup_research",
    "inputs": [
@@ -142,15 +264,15 @@
    ],
    "reason": "prior-week matchup packet",
    "seed": null,
-   "started_utc": "2026-11-28T03:58:05+00:00",
+   "started_utc": "2026-11-28T04:16:54+00:00",
    "status": "EXECUTED",
    "trials": null
   },
   {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 14.801305,
-   "ended_utc": "2026-11-28T03:58:22+00:00",
+   "duration_seconds": 14.048637,
+   "ended_utc": "2026-11-28T04:17:11+00:00",
    "function": "run_historical_replay",
    "id": "script_models",
    "inputs": [
@@ -165,20 +287,20 @@
    "outputs": [
     {
      "path": "script_models/manifest.json",
-     "sha256": "cf25dd3b583025b87e5c60088369bb8364e97c51155a92f0015978f68d792a64"
+     "sha256": "5eee37635ed8d54380ed7294ae68f978d563c825c33e36ea28ed0196b5b5c807"
     }
    ],
    "reason": "each engine and branch kept its own record",
    "seed": null,
-   "started_utc": "2026-11-28T03:58:07+00:00",
+   "started_utc": "2026-11-28T04:16:57+00:00",
    "status": "EXECUTED",
    "trials": null
   },
   {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 0.025024,
-   "ended_utc": "2026-11-28T03:58:22+00:00",
+   "duration_seconds": 0.02721,
+   "ended_utc": "2026-11-28T04:17:11+00:00",
    "function": "from_packet",
    "id": "player_board",
    "inputs": [
@@ -198,15 +320,15 @@
    ],
    "reason": "volume kept separate from efficiency",
    "seed": 89,
-   "started_utc": "2026-11-28T03:58:22+00:00",
+   "started_utc": "2026-11-28T04:17:11+00:00",
    "status": "EXECUTED",
    "trials": 400
   },
   {
    "analytical_execution": true,
    "calibration_status": null,
-   "duration_seconds": 0.000151,
-   "ended_utc": "2026-11-28T03:58:22+00:00",
+   "duration_seconds": 0.000125,
+   "ended_utc": "2026-11-28T04:17:11+00:00",
    "function": "build_board",
    "id": "decision",
    "inputs": [
@@ -221,26 +343,29 @@
    "outputs": [
     {
      "path": "decision_board.json",
-     "sha256": "05b8e6016b4b309076d40536379c185e7bd13c02b64470507079ed21a70c3d48"
+     "sha256": "c5a1ceb61d959451f8939987201d2dab5460918187ae46e7c545ec708f76aa4c"
     },
     {
      "path": "decision_board.md",
-     "sha256": "a1163f8524b7ff6de65f60fb1b142a4353dbbffcb59cd74eca1836cd7ab4e99c"
+     "sha256": "2ad4d7771ec72471ae561867fc7a69b282154b70ac89f898a5da51b5ed0cd797"
     }
    ],
    "reason": "red team consumed joined lines; empty sections stay empty",
    "seed": null,
-   "started_utc": "2026-11-28T03:58:22+00:00",
+   "started_utc": "2026-11-28T04:17:11+00:00",
    "status": "EXECUTED",
    "trials": null
   }
  ],
  "counts": {
-  "EXECUTED": 6
+  "BLOCKED": 2,
+  "EXECUTED": 10,
+  "MISSING": 1,
+  "REFUSED": 1
  },
  "game_id": "2026_12_NO_CIN",
  "git": {
-  "commit": "5bbace709f8f6d6cb651455976eb046541c07ba5",
+  "commit": "949814321e1f76a855b3e1e0d5bb20e00e5490bd",
   "dirty": true
  },
  "hashes": {
@@ -248,9 +373,11 @@
   "packet": "f7178be5ea25c0d0fb1b879c2d3a33d0d5e13ad1f7c1c934112ec2040cd57c15"
  },
  "kickoff": {
+  "authoritative_source": "nfl_official_schedule",
+  "authoritative_status": "UNAVAILABLE",
   "config_file_rewritten": false,
   "conflicts": [],
-  "kickoff_utc": "2026-11-29T18:00:00+00:00",
+  "kickoff_utc": null,
   "originals": {
    "espn_event_date": {
     "field": "date",
@@ -258,6 +385,15 @@
     "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
     "path": "grading/results/sources/espn_summary_2026_12_NO_CIN_401873087.json",
     "status": "OK"
+   },
+   "nfl_official_schedule": {
+    "as_of": null,
+    "kickoff_utc": null,
+    "path": "data/schedule/nfl_official_schedule.json",
+    "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
+    "retrieved_utc": null,
+    "source": null,
+    "status": "UNAVAILABLE"
    },
    "nflverse_games_csv": {
     "gameday": "2026-11-29",
@@ -277,13 +413,14 @@
     "timezone": "America/New_York wall clock when the packet stores kickoff_et"
    }
   },
-  "source": "espn_event_date",
-  "timezone": "UTC"
+  "source": null,
+  "timezone": "UTC",
+  "verification": "UNVERIFIED"
  },
  "pass_requires_every_component_executed": true,
  "projection_ready": false,
  "research_only": true,
- "result": "PASS",
- "run_id": "5016bda549cab438",
+ "result": "BLOCKED",
+ "run_id": "aaf9dd77b4f1f369",
  "schema": "sunday-canonical-manifest/1"
 }

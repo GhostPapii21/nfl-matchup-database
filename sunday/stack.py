@@ -65,7 +65,7 @@ def _row(cid: str, module: str, function: str, kind: str, status: str, reason: s
         "function": function,
         "kind": kind,
         "analytical_execution": kind == "analytical" and status == "EXECUTED",
-        "status": status if status in {"EXECUTED", "BLOCKED", "REFUSED", "FAILED", "NOT_REGISTERED"} else "FAILED",
+        "status": status if status in {"EXECUTED", "BLOCKED", "REFUSED", "FAILED", "NOT_REGISTERED", "MISSING", "TIMEOUT"} else "FAILED",
         "reason": reason,
         "started_utc": _iso(started),
         "ended_utc": _iso(ended),
@@ -198,15 +198,14 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
     ended = datetime.now(timezone.utc)
     res_path = out_dir / "kickoff.json"
     digest = _dump(res_path, resolution)
+    schedule_status = "EXECUTED" if resolution.get("verification") == "VERIFIED" else "BLOCKED"
     components.append(_row(
         "schedule", "sunday.kickoff", "resolve", "identity",
-        "EXECUTED" if resolution["resolved"] else "BLOCKED",
+        schedule_status,
         resolution["reason"], started, ended,
         [{"source": name, "kickoff_utc": row.get("kickoff_utc")} for name, row in resolution["originals"].items()],
         [{"path": "kickoff.json", "sha256": digest}],
     ))
-    if not resolution["resolved"]:
-        return _manifest(repo, game_id, as_of, command, resolution, components, out_dir, blocked=True)
 
     # Orchestrator. Its own manifest separates analytical calls from freshness checks.
     started = datetime.now(timezone.utc)
@@ -232,16 +231,16 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
         inner = str(game_row.get("status") or "")
         if inner in {"FAIL_CLOSED", "REFUSED"}:
             orch_status = "REFUSED"
-        summary = [{"module_id": m.get("module_id"), "status": m.get("status"),
-                    "analytical_execution": m.get("analytical_execution")} for m in game_row.get("modules") or []]
+        summary = list(game_row.get("modules") or [])
     else:
         summary = []
     components.append(_row(
         "orchestrator", "pipeline.orchestrator.runner", "run_games", "orchestration",
         orch_status, err or "existing modules joined in module-id order", started, ended,
         [{"game_id": game_id, "as_of": _iso(as_of)}],
-        [{"path": "orchestrator", "module_statuses": summary}],
+        [{"path": "orchestrator"}],
     ))
+    components.extend(_child_rows(summary))
 
     started = datetime.now(timezone.utc)
     state, research, err = _call("pipeline.matchup_research.build", "build_packet", game_id, root=repo, workers=4)
@@ -327,16 +326,70 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
     return _manifest(repo, game_id, as_of, command, resolution, components, out_dir, blocked=False)
 
 
+_BLOCKING = {"BLOCKED", "REFUSED", "FAILED", "NOT_REGISTERED", "MISSING", "TIMEOUT"}
+_CHECK_CLASSES = {"freshness", "gate", "stub", "adapter"}
+
+
+def _child_status(raw: str) -> str:
+    upper = str(raw or "").upper()
+    if upper in {"PASS", "PARTIAL"}:
+        return "EXECUTED"
+    if upper == "REFUSED" or upper == "FAIL_CLOSED":
+        return "REFUSED"
+    if upper in {"BLOCKED", "MISSING", "FAILED", "TIMEOUT", "NOT_REGISTERED"}:
+        return upper
+    return "FAILED"
+
+
+def _child_rows(modules: list[dict]) -> list[dict]:
+    """One manifest row per orchestrator child. The parent EXECUTED row does not cover these."""
+    rows = []
+    now = datetime.now(timezone.utc)
+    for module in modules:
+        if not isinstance(module, dict):
+            continue
+        execution_class = str(module.get("execution_class") or "")
+        raw = str(module.get("status") or "")
+        status = _child_status(raw)
+        analytical = execution_class == "analytical" and status == "EXECUTED" and module.get("analytical_executed") is True
+        kind = "check" if execution_class in _CHECK_CLASSES or execution_class != "analytical" else "analytical"
+        if execution_class in {"freshness", "gate"}:
+            kind = "check"
+            analytical = False
+        reason = raw if status == "EXECUTED" else f"orchestrator child status {raw}"
+        row = _row(
+            f"orchestrator.{module.get('module_id')}",
+            "pipeline.orchestrator.modules",
+            str(module.get("module_id") or ""),
+            kind, status, reason, now, now, [], [],
+        )
+        row["analytical_execution"] = analytical
+        row["orchestrator_status"] = raw
+        row["execution_class"] = execution_class or None
+        rows.append(row)
+    return rows
+
+
+def acceptance_result(components: list[dict]) -> str:
+    """PASS only when identity is verified and no child is blocked, refused, missing, or failed.
+
+    A freshness or ledger row may be EXECUTED with orchestrator_status PARTIAL. That row is a
+    check, not analytical execution, and it is not a PASS by itself.
+    """
+    if any(row.get("id") == "schedule" and row.get("status") != "EXECUTED" for row in components):
+        return "BLOCKED"
+    if any(row.get("status") in _BLOCKING for row in components):
+        return "PARTIAL"
+    if any(row.get("kind") == "analytical" and row.get("status") != "EXECUTED" for row in components):
+        return "PARTIAL"
+    return "PASS"
+
+
 def _manifest(repo, game_id, as_of, command, resolution, components, out_dir, blocked: bool) -> dict:
     counts = {}
     for row in components:
         counts[row["status"]] = counts.get(row["status"], 0) + 1
-    if blocked or any(row["status"] == "BLOCKED" and row["id"] == "schedule" for row in components):
-        result = "BLOCKED"
-    elif any(row["status"] != "EXECUTED" for row in components):
-        result = "PARTIAL"
-    else:
-        result = "PASS"
+    result = "BLOCKED" if blocked else acceptance_result(components)
     git = git_state(repo)
     packet_path = repo / "pregame" / "packets" / game_id / "packet.json"
     body = {
@@ -351,6 +404,9 @@ def _manifest(repo, game_id, as_of, command, resolution, components, out_dir, bl
         "as_of_utc": _iso(as_of),
         "kickoff": {
             "source": resolution.get("source"),
+            "authoritative_source": resolution.get("authoritative_source"),
+            "authoritative_status": resolution.get("authoritative_status"),
+            "verification": resolution.get("verification"),
             "kickoff_utc": resolution.get("canonical_kickoff_utc"),
             "timezone": "UTC",
             "originals": resolution.get("originals"),

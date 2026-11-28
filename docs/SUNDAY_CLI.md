@@ -17,7 +17,7 @@ python -m sunday replay --game 2026_12_DEN_PIT
 
 `game` and `slate` call the registered components in this order, and write `manifest.json` for every game:
 
-1. `sunday.kickoff.resolve` — one kickoff. ESPN event `date` is canonical when it is present. It matches the possession-engine config for LV@CLE, TEN@JAX, and NE@LAC. `games.csv` times that differ are recorded and not applied. Config files are not rewritten.
+1. `sunday.kickoff.resolve` — compares the offline NFL.com schedule capture (`data/schedule/nfl_official_schedule.json`, with `source` `https://www.nfl.com/schedules/...`, `retrieved_utc`, and `as_of`) to ESPN, `games.csv`, the possession-engine config, and the pregame packet. That capture is the only canonical clock. This checkout does not contain it, so LV@CLE, TEN@JAX, and NE@LAC stay `UNVERIFIED` / `BLOCKED`. Their recorded clocks still show the disagreement. Config files are not rewritten. A freshness or ledger row inside the orchestrator stays a check. A child `REFUSED`, `BLOCKED`, or `MISSING` status is its own manifest row and cannot make the manifest PASS.
 2. `pipeline.orchestrator.runner.run_games`
 3. `pipeline.matchup_research.build.build_packet`
 4. `sunday.script_models.run_historical_replay`

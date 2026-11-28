@@ -1,7 +1,7 @@
 {
  "as_of_utc": "2026-11-27T04:31:50+00:00",
  "canonical_manifest": "manifest.json",
- "canonical_sha256": "5e8fa9edba6b317704f166c5fa9bb06c232a8d6409816b5cae65973c8b8ec1c4",
+ "canonical_sha256": "cdc50e7dfbc9f4589a8ac0917a48d8237e5bdfe2d374b86275461e38c64b395f",
  "checks": [
   {
    "detail": "Schedule identity matches. Kickoff 2026-11-27T20:00:00+00:00.",
@@ -200,7 +200,10 @@
  },
  "command": "python -m sunday game --game 2026_12_DEN_PIT --as-of 2026-11-27T04:31:50+00:00",
  "component_counts": {
-  "EXECUTED": 6
+  "BLOCKED": 2,
+  "EXECUTED": 10,
+  "MISSING": 1,
+  "REFUSED": 1
  },
  "critical_ids": [],
  "freshness": [
@@ -407,8 +410,9 @@
   "week": 12
  },
  "game_id": "2026_12_DEN_PIT",
- "git_sha": "5bbace709f8f6d6cb651455976eb046541c07ba5",
+ "git_sha": "949814321e1f76a855b3e1e0d5bb20e00e5490bd",
  "kickoff_utc": "2026-11-27T20:00:00+00:00",
+ "kickoff_verification": "UNVERIFIED",
  "layer_gaps": [
   "NFL-87",
   "NFL-88",
@@ -557,6 +561,7 @@
   "late_stamps": [],
   "status": "PASS"
  },
+ "manifest_result": "BLOCKED",
  "market_comparison_requested": false,
  "projection_ready": false,
  "required_ids": [
@@ -684,14 +689,14 @@
   }
  },
  "runtime": {
-  "disk_free_bytes": 261719322624,
+  "disk_free_bytes": 261720662016,
   "memory": {
-   "detail": "tracemalloc peak 56863191 bytes; process max RSS 520552 KB",
-   "process_max_rss_kb": 520552,
-   "tracemalloc_current_bytes": 39568560,
-   "tracemalloc_peak_bytes": 56863191
+   "detail": "tracemalloc peak 57395892 bytes; process max RSS 496172 KB",
+   "process_max_rss_kb": 496172,
+   "tracemalloc_current_bytes": 39585079,
+   "tracemalloc_peak_bytes": 57395892
   },
-  "wall_seconds": 9.065008
+  "wall_seconds": 8.820058
  },
  "scheduler": {
   "detail": "Manual local execution. GitHub Actions is not invoked and no schedule is registered.",

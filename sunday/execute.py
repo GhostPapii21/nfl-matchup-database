@@ -137,10 +137,10 @@ def run_game(*, repo: Path, game_id: str, out_dir: Path, as_of: datetime, market
             manifest = run_stack(repo=repo, game_id=game_id, packet=pk, out_dir=out_dir, as_of=as_of,
                                  command=cmd, possession_n=possession_n, period_n=period_n, player_n=player_n)
             packet["canonical_manifest"] = "manifest.json"
-            if manifest.get("result") == "BLOCKED":
-                packet["result"] = "BLOCKED"
-            elif manifest.get("result") != "PASS" and packet.get("result") == "PASS":
-                packet["result"] = "PARTIAL"
+            packet["manifest_result"] = manifest.get("result")
+            packet["kickoff_verification"] = (manifest.get("kickoff") or {}).get("verification")
+            if manifest.get("result") != "PASS" and packet.get("result") == "PASS":
+                packet["result"] = "PARTIAL" if manifest.get("result") == "PARTIAL" else "BLOCKED"
             packet["component_counts"] = manifest.get("counts")
         packet["runtime"] = {"wall_seconds": round(time.perf_counter() - t0, 6), "memory": _memory(measure_memory, started),
                              "disk_free_bytes": free}

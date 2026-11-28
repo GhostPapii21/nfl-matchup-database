@@ -21,24 +21,42 @@ THREE = {
 }
 
 
-@pytest.mark.parametrize("game_id,expected", list(THREE.items()))
-def test_kickoff_conflicts_use_espn_and_keep_the_config(game_id, expected):
-    before = (ROOT / "core/possession_engine_v0/config").read_bytes() if False else None
+@pytest.mark.parametrize("game_id,agreed", list(THREE.items()))
+def test_conflicting_kickoffs_stay_unverified_without_an_nfl_schedule(game_id, agreed):
     paths = list((ROOT / "core/possession_engine_v0/config").glob("*2026-11-29_data_only_nfl43.json"))
     snapshots = {p: p.read_bytes() for p in paths}
     packet = json.loads((ROOT / "pregame" / "packets" / game_id / "packet.json").read_text())
     got = kickoff.resolve(ROOT, game_id, packet)
-    assert got["resolved"] is True
-    assert got["source"] == "espn_event_date"
-    assert got["canonical_kickoff_utc"] == expected
+    assert got["authoritative_source"] == "nfl_official_schedule"
+    assert got["authoritative_status"] == "UNAVAILABLE"
+    assert got["verification"] == "UNVERIFIED"
+    assert got["resolved"] is False
+    assert got["canonical_kickoff_utc"] is None
+    assert got["source"] is None
+    assert "nfl.com/schedules" in got["reason"]
+    assert got["originals"]["espn_event_date"]["kickoff_utc"] == agreed
+    assert got["originals"]["possession_config"]["kickoff_utc"] == agreed
+    assert got["originals"]["nflverse_games_csv"]["kickoff_utc"] != agreed
+    assert any({row["left"], row["right"]} == {"nflverse_games_csv", "possession_config"} for row in got["conflicts"])
     assert got["config_file_rewritten"] is False
-    assert got["conflicts"]
-    assert any(row["source"] == "nflverse_games_csv" for row in got["conflicts"])
-    config_utc = got["originals"]["possession_config"]["kickoff_utc"]
-    assert config_utc == expected
     for path, raw in snapshots.items():
         assert path.read_bytes() == raw
-    assert before is None
+
+
+def test_nfl_schedule_capture_is_the_only_canonical_clock(tmp_path):
+    capture = tmp_path / "nfl_official_schedule.json"
+    capture.write_text(json.dumps({
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-12",
+        "retrieved_utc": "2026-11-28T12:00:00+00:00",
+        "as_of": "2026-11-28T12:00:00+00:00",
+        "games": {"2026_12_LV_CLE": "2026-11-30T01:20:00+00:00"},
+    }))
+    packet = json.loads((ROOT / "pregame" / "packets" / "2026_12_LV_CLE" / "packet.json").read_text())
+    got = kickoff.resolve(ROOT, "2026_12_LV_CLE", packet, nfl_schedule_path=capture)
+    assert got["verification"] == "VERIFIED"
+    assert got["source"] == "nfl_official_schedule"
+    assert got["canonical_kickoff_utc"] == "2026-11-30T01:20:00+00:00"
+    assert any(row["left"] == "nflverse_games_csv" for row in got["conflicts"])
 
 
 def test_blocked_component_is_not_executed_or_pass(tmp_path):
@@ -62,6 +80,34 @@ def test_blocked_component_is_not_executed_or_pass(tmp_path):
     assert manifest["counts"]["REFUSED"] == 1
     assert manifest["counts"]["BLOCKED"] == 1
     assert manifest["projection_ready"] is False
+
+
+def test_nested_refusal_cannot_pass():
+    children = stack._child_rows([
+        {"module_id": "freshness_check", "execution_class": "freshness", "status": "PARTIAL", "analytical_executed": False},
+        {"module_id": "phase_ledger", "execution_class": "freshness", "status": "PASS", "analytical_executed": False},
+        {"module_id": "ngs_matchup", "execution_class": "adapter", "status": "MISSING", "analytical_executed": False},
+        {"module_id": "sim100k_preflight", "execution_class": "gate", "status": "REFUSED", "analytical_executed": False},
+        {"module_id": "sim_v6_contract", "execution_class": "stub", "status": "BLOCKED", "analytical_executed": False},
+        {"module_id": "matchup_edges", "execution_class": "analytical", "status": "PASS", "analytical_executed": True},
+    ])
+    parent = stack._row("orchestrator", "pipeline.orchestrator.runner", "run_games", "orchestration",
+                        "EXECUTED", "the fan-out returned", AS_OF, AS_OF, [], [])
+    schedule = stack._row("schedule", "sunday.kickoff", "resolve", "identity", "BLOCKED",
+                          "NFL schedule capture unavailable", AS_OF, AS_OF, [], [])
+    components = [schedule, parent, *children]
+    assert stack.acceptance_result(components) == "BLOCKED"
+    assert stack.acceptance_result(components) != "PASS"
+    by_id = {row["id"]: row for row in children}
+    assert by_id["orchestrator.ngs_matchup"]["status"] == "MISSING"
+    assert by_id["orchestrator.sim100k_preflight"]["status"] == "REFUSED"
+    assert by_id["orchestrator.sim_v6_contract"]["status"] == "BLOCKED"
+    assert by_id["orchestrator.freshness_check"]["kind"] == "check"
+    assert by_id["orchestrator.freshness_check"]["analytical_execution"] is False
+    assert by_id["orchestrator.phase_ledger"]["analytical_execution"] is False
+    verified = [stack._row("schedule", "sunday.kickoff", "resolve", "identity", "EXECUTED", "ok", AS_OF, AS_OF, [], []),
+                parent, *children]
+    assert stack.acceptance_result(verified) == "PARTIAL"
 
 
 def test_missing_module_is_not_registered(tmp_path):

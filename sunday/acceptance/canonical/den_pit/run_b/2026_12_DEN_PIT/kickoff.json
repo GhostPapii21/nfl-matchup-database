@@ -1,6 +1,8 @@
 {
  "adapter": "sunday.kickoff.resolve",
- "canonical_kickoff_utc": "2026-11-27T20:00:00+00:00",
+ "authoritative_source": "nfl_official_schedule",
+ "authoritative_status": "UNAVAILABLE",
+ "canonical_kickoff_utc": null,
  "config_file_rewritten": false,
  "conflicts": [],
  "game_id": "2026_12_DEN_PIT",
@@ -11,6 +13,15 @@
    "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
    "path": "grading/results/sources/espn_summary_2026_12_DEN_PIT_401873083.json",
    "status": "OK"
+  },
+  "nfl_official_schedule": {
+   "as_of": null,
+   "kickoff_utc": null,
+   "path": "data/schedule/nfl_official_schedule.json",
+   "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
+   "retrieved_utc": null,
+   "source": null,
+   "status": "UNAVAILABLE"
   },
   "nflverse_games_csv": {
    "gameday": "2026-11-27",
@@ -30,10 +41,10 @@
    "timezone": "America/New_York wall clock when the packet stores kickoff_et"
   }
  },
- "reason": "ESPN event date matches the possession-engine config. That instant is the canonical kickoff. nflverse games.csv is kept as a recorded original and is not applied when it differs.",
- "resolved": true,
+ "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
+ "resolved": false,
  "schedule_file_rewritten": false,
- "source": "espn_event_date",
- "source_timestamp": "2026-11-27T20:00:00+00:00",
- "timezone": "UTC"
+ "source": null,
+ "timezone": "UTC",
+ "verification": "UNVERIFIED"
 }

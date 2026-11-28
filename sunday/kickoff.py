@@ -1,13 +1,12 @@
-"""One kickoff for a game, with the disagreeing clocks kept visible.
+"""Compare every recorded kickoff. Only an offline NFL.com schedule capture is authoritative.
 
-The canonical clock is the ESPN event `date` on the committed event file when that
-file exists. This repository already uses ESPN to correct nflverse slots that were
-swapped (`pipeline/kickoffs.py`). For LV@CLE, TEN@JAX, and NE@LAC that ESPN instant
-matches the possession-engine config and the pregame packet, and it does not match
-`data/historical/nflverse/games.csv`.
+That capture is `data/schedule/nfl_official_schedule.json` and must name
+`https://www.nfl.com/schedules/...`, plus `retrieved_utc` and `as_of`. ESPN, the
+nflverse `games.csv` clock, the possession-engine config, and the pregame packet are
+recorded originals. They are not the NFL schedule. When the capture is absent, the
+resolution stays UNVERIFIED and no clock is promoted because it matches another one.
 
-The config file and the csv are not rewritten. The manifest records both original
-values and this resolution.
+Config files and `games.csv` are not rewritten.
 """
 from __future__ import annotations
 
@@ -20,6 +19,7 @@ from zoneinfo import ZoneInfo
 
 ET = ZoneInfo("America/New_York")
 DATE_RE = re.compile(r'"date"\s*:\s*"([^"]+)"')
+NFL_SCHEDULE_REL = "data/schedule/nfl_official_schedule.json"
 
 
 def parse_utc(value) -> datetime | None:
@@ -133,51 +133,110 @@ def _same(a: datetime | None, b: datetime | None) -> bool:
     return abs((a - b).total_seconds()) <= 60
 
 
-def resolve(repo: Path, game_id: str, packet: dict | None = None) -> dict:
+def nfl_official_kickoff(repo: Path, game_id: str, path: Path | None = None) -> dict:
+    """The only authoritative clock: an offline NFL.com schedule capture with retrieval metadata."""
+    path = path or (repo / NFL_SCHEDULE_REL)
+    rel = str(path.relative_to(repo)) if path.is_relative_to(repo) else str(path)
+    if not path.is_file():
+        return {
+            "status": "UNAVAILABLE",
+            "path": rel,
+            "kickoff_utc": None,
+            "source": None,
+            "retrieved_utc": None,
+            "as_of": None,
+            "reason": (
+                "No offline NFL.com schedule capture is in this checkout. "
+                f"Expected {NFL_SCHEDULE_REL} with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. "
+                "ESPN, nflverse games.csv, and the possession config are not that source."
+            ),
+        }
+    try:
+        payload = json.loads(path.read_text())
+    except (OSError, ValueError) as exc:
+        return {"status": "UNAVAILABLE", "path": rel, "kickoff_utc": None, "source": None,
+                "retrieved_utc": None, "as_of": None, "reason": f"NFL schedule file unreadable: {exc}"}
+    source = str(payload.get("source") or "")
+    retrieved = payload.get("retrieved_utc")
+    as_of = payload.get("as_of")
+    games = payload.get("games") if isinstance(payload.get("games"), dict) else {}
+    if "nfl.com/schedules" not in source or not retrieved or not as_of:
+        return {
+            "status": "UNAVAILABLE", "path": rel, "kickoff_utc": None, "source": source or None,
+            "retrieved_utc": retrieved, "as_of": as_of,
+            "reason": "NFL schedule file is missing source https://www.nfl.com/schedules/..., retrieved_utc, or as_of.",
+        }
+    kick = parse_utc(games.get(game_id))
+    if kick is None:
+        return {
+            "status": "UNAVAILABLE", "path": rel, "kickoff_utc": None, "source": source,
+            "retrieved_utc": retrieved, "as_of": as_of,
+            "reason": f"{game_id} is not in the offline NFL.com schedule capture.",
+        }
+    return {
+        "status": "OK", "path": rel, "kickoff_utc": kick, "source": source,
+        "retrieved_utc": retrieved, "as_of": as_of, "reason": "Offline NFL.com schedule capture.",
+    }
+
+
+def _clock_conflicts(originals: dict) -> list[dict]:
+    named = [(name, parse_utc(row.get("kickoff_utc"))) for name, row in originals.items()]
+    conflicts = []
+    for i, (left, left_at) in enumerate(named):
+        for right, right_at in named[i + 1:]:
+            if left_at is not None and right_at is not None and not _same(left_at, right_at):
+                conflicts.append({
+                    "left": left, "right": right,
+                    "left_kickoff_utc": _iso(left_at), "right_kickoff_utc": _iso(right_at),
+                })
+    return conflicts
+
+
+def resolve(repo: Path, game_id: str, packet: dict | None = None, nfl_schedule_path: Path | None = None) -> dict:
     espn = espn_event_kickoff(repo, game_id)
     cfg = config_kickoff(repo, game_id)
     csv_row = schedule_csv_kickoff(repo, game_id)
     pkt = packet_kickoff(packet)
+    nfl = nfl_official_kickoff(repo, game_id, nfl_schedule_path)
     originals = {
+        "nfl_official_schedule": {k: ( _iso(v) if k == "kickoff_utc" else v) for k, v in nfl.items()},
         "espn_event_date": {**{k: v for k, v in espn.items() if k != "kickoff_utc"}, "kickoff_utc": _iso(espn["kickoff_utc"])},
         "possession_config": {**{k: v for k, v in cfg.items() if k != "kickoff_utc"}, "kickoff_utc": _iso(cfg["kickoff_utc"])},
         "nflverse_games_csv": {**{k: v for k, v in csv_row.items() if k != "kickoff_utc"}, "kickoff_utc": _iso(csv_row["kickoff_utc"])},
         "pregame_packet": {"kickoff_utc": _iso(pkt), "timezone": "America/New_York wall clock when the packet stores kickoff_et"},
     }
-    chosen = None
-    source = None
-    reason = ""
-    if espn["kickoff_utc"] is not None and _same(espn["kickoff_utc"], cfg["kickoff_utc"]):
-        chosen = espn["kickoff_utc"]
-        source = "espn_event_date"
-        reason = ("ESPN event date matches the possession-engine config. "
-                  "That instant is the canonical kickoff. nflverse games.csv is kept as a recorded original "
-                  "and is not applied when it differs.")
-    elif espn["kickoff_utc"] is not None:
-        chosen = espn["kickoff_utc"]
-        source = "espn_event_date"
-        reason = "ESPN event date is present. The possession config does not match it, so the config clock is not used."
-    elif cfg["kickoff_utc"] is not None:
-        chosen = cfg["kickoff_utc"]
-        source = "possession_config"
-        reason = "No ESPN event date was found. The possession-engine config kickoff is the canonical clock."
-    elif pkt is not None:
-        chosen = pkt
-        source = "pregame_packet"
-        reason = "No ESPN event date and no possession config kickoff. The packet wall clock is the canonical kickoff."
-    conflicts = []
-    for name, row in originals.items():
-        other = parse_utc(row.get("kickoff_utc"))
-        if chosen is not None and other is not None and not _same(chosen, other):
-            conflicts.append({"source": name, "kickoff_utc": row.get("kickoff_utc")})
+    conflicts = _clock_conflicts(originals)
+    if nfl["status"] != "OK":
+        return {
+            "game_id": game_id,
+            "canonical_kickoff_utc": None,
+            "timezone": "UTC",
+            "source": None,
+            "authoritative_source": "nfl_official_schedule",
+            "authoritative_status": "UNAVAILABLE",
+            "verification": "UNVERIFIED",
+            "resolved": False,
+            "reason": nfl["reason"],
+            "originals": originals,
+            "conflicts": conflicts,
+            "config_file_rewritten": False,
+            "schedule_file_rewritten": False,
+            "adapter": "sunday.kickoff.resolve",
+        }
     return {
         "game_id": game_id,
-        "canonical_kickoff_utc": _iso(chosen),
+        "canonical_kickoff_utc": _iso(nfl["kickoff_utc"]),
         "timezone": "UTC",
-        "source": source,
-        "source_timestamp": originals.get(source, {}).get("kickoff_utc") if source else None,
-        "reason": reason if chosen else "no kickoff could be resolved",
-        "resolved": chosen is not None,
+        "source": "nfl_official_schedule",
+        "source_timestamp": nfl.get("as_of"),
+        "authoritative_source": "nfl_official_schedule",
+        "authoritative_status": "OK",
+        "verification": "VERIFIED",
+        "resolved": True,
+        "reason": (
+            f"Canonical kickoff is the offline NFL.com schedule capture retrieved {nfl.get('retrieved_utc')} "
+            f"as of {nfl.get('as_of')}. Other clocks are recorded and are not the authority."
+        ),
         "originals": originals,
         "conflicts": conflicts,
         "config_file_rewritten": False,
