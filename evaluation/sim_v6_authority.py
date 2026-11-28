@@ -13,6 +13,7 @@ is never read or written.
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
 import hashlib
 import json
@@ -48,10 +49,27 @@ def _sha256(path: Path) -> str | None:
 
 
 def _const_int(text: str, name: str) -> int | None:
-    match = re.search(rf"^{name}\s*=\s*([0-9_]+)", text, re.M)
-    if not match:
+    """Integer assignment anywhere in the module, including several on one line.
+
+    A start-of-line regex misses `N=1; SHRINK_K=30; K_BIAS=30` and then treats
+    the missing values as equal.
+    """
+    try:
+        tree = ast.parse(text)
+    except SyntaxError:
         return None
-    return int(match.group(1).replace("_", ""))
+    for node in tree.body:
+        if not isinstance(node, ast.Assign):
+            continue
+        value = node.value
+        if not isinstance(value, ast.Constant) or isinstance(value.value, bool):
+            continue
+        if not isinstance(value.value, int):
+            continue
+        for target in node.targets:
+            if isinstance(target, ast.Name) and target.id == name:
+                return value.value
+    return None
 
 
 def _pinned_sha(root: Path, filename: str) -> str | None:

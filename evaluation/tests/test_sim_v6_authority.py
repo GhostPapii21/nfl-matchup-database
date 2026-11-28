@@ -13,10 +13,23 @@ from evaluation.sim_v6_authority import (
     BIAS_LABEL,
     DOCUMENTED_COMMAND,
     VERDICT_ABSENT,
+    _const_int,
     audit,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def test_semicolon_line_constants_are_read_as_integers():
+    packed = "N=100_000; SEED=20261101; SD_MARGIN=13.5; SHRINK_K=30; K_BIAS=30; MIN_N=20\n"
+    assert _const_int(packed, "N") == 100_000
+    assert _const_int(packed, "SEED") == 20261101
+    assert _const_int(packed, "SHRINK_K") == 30
+    assert _const_int(packed, "K_BIAS") == 30
+    unequal = "N=100_000; SHRINK_K=30; K_BIAS=5\n"
+    assert _const_int(unequal, "K_BIAS") == 5
+    assert _const_int(unequal, "SHRINK_K") == 30
+    assert (_const_int(unequal, "K_BIAS") == _const_int(unequal, "SHRINK_K")) is False
 
 
 def test_documented_sim_v6_command_is_absent():
@@ -50,6 +63,9 @@ def test_sim100k_and_simv56_stay_separate_systems():
     assert scratch["is_phase_script_entrypoint"] is False
     assert scratch["scratch_banner"] is True
     assert scratch["declared_n"] == 100_000
+    assert scratch["declared_seed"] == 20261101
+    assert scratch["shrink_k"] == 30
+    assert scratch["k_bias"] == 30
     assert scratch["k_bias_equals_shrink_k"] is True
     assert scratch["missing_calib_multiplier_is_one"] is True
     assert scratch["bias_fit_uses_mc_predictions"] is True
