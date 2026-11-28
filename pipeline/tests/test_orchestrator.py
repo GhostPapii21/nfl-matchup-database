@@ -327,9 +327,10 @@ def test_single_game_run_invokes_real_components(tmp_path):
     assert mods["sim100k_preflight"]["output"]["ran"] is False
     assert mods["sim100k_preflight"]["status"] == "REFUSED"
     assert mods["sim100k_preflight"]["analytical_executed"] is False
-    assert mods["sim_v6_contract"]["status"] == "BLOCKED"
-    assert mods["sim_v6_contract"]["output"]["reason"] == "MODULE_ABSENT"
+    assert mods["sim_v6_contract"]["status"] == "FAILED"
+    assert mods["sim_v6_contract"]["output"]["reason"] == "PRESENT_BUT_NOT_WIRED"
     assert mods["sim_v6_contract"]["output"]["subject_invoked"] is False
+    assert mods["sim_v6_contract"]["analytical_executed"] is False
     assert (Path(game["artifact_dir"]) / "manifest.json").is_file()
     # A second identical invocation must not execute the real modules again.
     again = run_games(
