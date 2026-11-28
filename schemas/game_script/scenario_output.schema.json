@@ -1,0 +1,674 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GhostPapii21/nfl-matchup-database/schemas/game_script/scenario_output.schema.json",
+  "title": "Game-script scenario output (three independent branches)",
+  "description": "One payload per game. Exactly three branches (favorite_controls, competitive, underdog_chases), each carrying its OWN distributions for every dimension. Branch C is the underdog trailing and chasing, not the underdog leading. Branches are a disjoint, exhaustive partition of trials using only end-of-Q3 and regulation margins (fields the engine already records). They are never averaged before prop probabilities are evaluated: P(prop) = sum_b P(b) * P(prop | b). A dimension the source engine does not model is null with dimension_status 'not_modeled' and a reason; it is never filled with a copy of another branch or a pooled value. Semantic rules beyond JSON Schema live in game_script_contract/allocation.py and docs/specs/game_script_probability_contract.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "game",
+    "provenance",
+    "branch_definition",
+    "branches"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "game-script-scenario-output/2"
+    },
+    "game": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "game_id",
+        "home",
+        "away",
+        "favorite",
+        "underdog",
+        "favorite_source"
+      ],
+      "properties": {
+        "game_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "home": {
+          "type": "string",
+          "minLength": 1
+        },
+        "away": {
+          "type": "string",
+          "minLength": 1
+        },
+        "favorite": {
+          "type": "string",
+          "minLength": 1
+        },
+        "underdog": {
+          "type": "string",
+          "minLength": 1
+        },
+        "favorite_source": {
+          "type": "string",
+          "description": "How the favorite was chosen, e.g. 'market_spread_close', 'market_spread_freeze', 'engine_mean_margin'. Must be named; never implicit."
+        },
+        "pregame_spread_favorite": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Favorite's spread (negative number) if market-sourced."
+        },
+        "asof_utc": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_engine",
+        "n_trials_total",
+        "probability_basis",
+        "research_only"
+      ],
+      "properties": {
+        "source_engine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "config_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "seed": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "n_trials_total": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "probability_basis": {
+          "enum": [
+            "trial_partition",
+            "analyst_assigned",
+            "fitted_model"
+          ],
+          "description": "trial_partition: P(branch) = n_trials(branch) / n_trials_total from one simulation run partitioned by branch_definition."
+        },
+        "generated_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "synthetic": {
+          "type": "boolean",
+          "description": "True for test fixtures. Synthetic payloads must never be read as real projections."
+        }
+      }
+    },
+    "branch_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classifier",
+        "q3_control_margin",
+        "q4_hold_min_margin",
+        "one_score_max_deficit",
+        "observation_points",
+        "competitive_includes_underdog_ahead"
+      ],
+      "description": "Disjoint, exhaustive partition of trials. Margins are favorite points minus underdog points. A (favorite_controls): end-of-Q3 margin >= q3_control_margin AND regulation (end of Q4) margin >= q4_hold_min_margin (the favorite led by two scores entering Q4 and still led by more than one score at the Q4 gun). C (underdog_chases): end-of-Q3 margin >= q3_control_margin AND regulation margin < q4_hold_min_margin (equivalently regulation margin <= one_score_max_deficit): the underdog trailed by two scores entering Q4 and cut the deficit to one score or less, including ties and taking the lead. B (competitive): end-of-Q3 margin < q3_control_margin \u2014 everything else, INCLUDING games the underdog leads (underdog-ahead by q3_control_margin or more at the end of Q3 is a documented sub-case of B, not a fourth branch). Only end-of-period scores are used; mid-quarter swings are not observed. Overtime is ignored for classification (a Q4 comeback that ties is C even if the favorite then wins in OT).",
+      "properties": {
+        "classifier": {
+          "const": "q3_lead_held_or_chased"
+        },
+        "q3_control_margin": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Favorite-perspective end-of-Q3 margin that splits A/C from B. Default 9 (two scores)."
+        },
+        "q4_hold_min_margin": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Favorite-perspective regulation margin required for A (lead held). C is the complement among trials that already cleared q3_control_margin. Default 9. Must equal one_score_max_deficit + 1."
+        },
+        "one_score_max_deficit": {
+          "type": "number",
+          "minimum": 0,
+          "description": "A deficit of this many points or fewer is 'within one score'. Default 8 (TD + 2-point conversion). Must equal q4_hold_min_margin - 1."
+        },
+        "observation_points": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "const": "end_q3"
+            },
+            {
+              "const": "regulation"
+            }
+          ],
+          "items": false,
+          "description": "The only engine-recorded checkpoints the classifier is allowed to use."
+        },
+        "competitive_includes_underdog_ahead": {
+          "const": true,
+          "description": "Required reminder: games the underdog leads are branch B, not branch C."
+        },
+        "interpretation_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Must record that mid-quarter score path is not observed."
+        }
+      }
+    },
+    "branches": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "favorite_controls",
+        "competitive",
+        "underdog_chases"
+      ],
+      "properties": {
+        "favorite_controls": {
+          "$ref": "#/$defs/branch"
+        },
+        "competitive": {
+          "$ref": "#/$defs/branch"
+        },
+        "underdog_chases": {
+          "$ref": "#/$defs/branch"
+        }
+      }
+    },
+    "competitive_composition": {
+      "type": "object",
+      "description": "Optional diagnostics that break branch B into sub-cases. These are NOT additional branches: they must not enter the probability allocation or prop mixture. underdog_ahead_end_q3_by_control_margin is the sub-case where the underdog led by q3_control_margin or more at the end of Q3.",
+      "additionalProperties": false,
+      "required": [
+        "underdog_ahead_end_q3_by_control_margin",
+        "other_competitive"
+      ],
+      "properties": {
+        "underdog_ahead_end_q3_by_control_margin": {
+          "$ref": "#/$defs/composition_slice"
+        },
+        "other_competitive": {
+          "$ref": "#/$defs/composition_slice"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "distribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A per-branch distribution. 'samples' are per-trial values in the branch's trial order (aligned across every field of the same branch); 'pmf' maps a value (as string) to probability. At least one of samples / pmf is required so prop probabilities can be computed inside the branch.",
+      "anyOf": [
+        {
+          "required": [
+            "samples"
+          ]
+        },
+        {
+          "required": [
+            "pmf"
+          ]
+        }
+      ],
+      "properties": {
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "pmf": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "quantiles": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "p10": {
+              "type": "number"
+            },
+            "p25": {
+              "type": "number"
+            },
+            "p50": {
+              "type": "number"
+            },
+            "p75": {
+              "type": "number"
+            },
+            "p90": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "nullable_distribution": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/distribution"
+        }
+      ]
+    },
+    "dimension_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "modeled",
+            "derived",
+            "not_modeled"
+          ],
+          "description": "modeled: the engine's behaviour inside the branch depends on the branch's game state. derived: obtained by partitioning per-trial output of an engine whose behaviour does NOT depend on game state (the branch only selects trials). not_modeled: no output; fields are null."
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "dimension_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score_distribution",
+        "quarter_scoring",
+        "plays_possessions",
+        "pass_run",
+        "pace",
+        "player_opportunity",
+        "red_zone",
+        "touchdown_opportunity",
+        "pressure_coverage",
+        "late_game_rotation"
+      ],
+      "properties": {
+        "score_distribution": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "quarter_scoring": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "plays_possessions": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "pass_run": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "pace": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "player_opportunity": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "red_zone": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "touchdown_opportunity": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "pressure_coverage": {
+          "$ref": "#/$defs/dimension_entry"
+        },
+        "late_game_rotation": {
+          "$ref": "#/$defs/dimension_entry"
+        }
+      }
+    },
+    "quarter_points": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "q1",
+            "q2",
+            "q3",
+            "q4"
+          ],
+          "properties": {
+            "q1": {
+              "$ref": "#/$defs/distribution"
+            },
+            "q2": {
+              "$ref": "#/$defs/distribution"
+            },
+            "q3": {
+              "$ref": "#/$defs/distribution"
+            },
+            "q4": {
+              "$ref": "#/$defs/distribution"
+            },
+            "ot": {
+              "$ref": "#/$defs/nullable_distribution"
+            }
+          }
+        }
+      ]
+    },
+    "coverage_mix": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "man",
+            "zone"
+          ],
+          "properties": {
+            "man": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "zone": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "two_high_shell": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "prevent": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      ]
+    },
+    "team_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "points",
+        "quarter_points",
+        "plays",
+        "possessions",
+        "pass_attempts",
+        "rush_attempts",
+        "sec_per_play",
+        "red_zone_trips",
+        "touchdowns",
+        "pressure_rate_faced",
+        "coverage_mix_faced",
+        "starters_rested_prob"
+      ],
+      "properties": {
+        "points": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "quarter_points": {
+          "$ref": "#/$defs/quarter_points"
+        },
+        "plays": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "possessions": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "pass_attempts": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "rush_attempts": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "sec_per_play": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "red_zone_trips": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "touchdowns": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "pressure_rate_faced": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "coverage_mix_faced": {
+          "$ref": "#/$defs/coverage_mix"
+        },
+        "starters_rested_prob": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "player_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "player_id",
+        "team",
+        "targets",
+        "receptions",
+        "carries",
+        "rush_opportunities",
+        "red_zone_targets",
+        "red_zone_carries",
+        "td_opportunities",
+        "snap_share_q4"
+      ],
+      "properties": {
+        "player_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "team": {
+          "type": "string",
+          "minLength": 1
+        },
+        "position": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targets": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "receptions": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "carries": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "rush_opportunities": {
+          "$ref": "#/$defs/nullable_distribution",
+          "description": "Designed carries plus scrambles (as defined by the source engine)."
+        },
+        "red_zone_targets": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "red_zone_carries": {
+          "$ref": "#/$defs/nullable_distribution"
+        },
+        "td_opportunities": {
+          "$ref": "#/$defs/nullable_distribution",
+          "description": "Targets + carries snapped inside the opponent 10."
+        },
+        "snap_share_q4": {
+          "$ref": "#/$defs/nullable_distribution"
+        }
+      }
+    },
+    "branch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "branch_id",
+        "probability",
+        "n_trials",
+        "dimension_status",
+        "teams",
+        "players"
+      ],
+      "properties": {
+        "branch_id": {
+          "enum": [
+            "favorite_controls",
+            "competitive",
+            "underdog_chases"
+          ]
+        },
+        "probability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "n_trials": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dimension_status": {
+          "$ref": "#/$defs/dimension_status"
+        },
+        "teams": {
+          "type": "object",
+          "minProperties": 2,
+          "maxProperties": 2,
+          "additionalProperties": {
+            "$ref": "#/$defs/team_block"
+          }
+        },
+        "players": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/player_block"
+          }
+        }
+      }
+    },
+    "composition_slice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule",
+        "n_trials",
+        "share_of_all",
+        "share_of_competitive"
+      ],
+      "properties": {
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "n_trials": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "share_of_all": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "share_of_competitive": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

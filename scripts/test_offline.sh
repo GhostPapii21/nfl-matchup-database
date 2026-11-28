@@ -33,5 +33,6 @@ run .                                   snapshots/tests
 run .                                   calibration/tests
 run .                                   slips/tests
 run .                                   evaluation/tests
+run .                                   game_script_contract/tests
 [ "$status" = 0 ] && echo "test_offline: all suites passed" || echo "test_offline: FAILURES above"
 exit "$status"
