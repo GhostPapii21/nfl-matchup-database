@@ -212,6 +212,11 @@ def main(argv=None):
                     games.append(os.path.basename(f)[:-5])
             except Exception:
                 pass
+    games = list(dict.fromkeys(games))
+    if not games:
+        print('No games selected', file=sys.stderr)
+        return 2
+    failed = False
     for gid in games:
         t0 = time.time()
         try:
@@ -219,8 +224,9 @@ def main(argv=None):
             p = write(doc, a.out)
             print(f"{gid}: {len(doc['records'])} records -> {p} ({time.time()-t0:.1f}s)", flush=True)
         except Exception as ex:
+            failed = True
             print(f"{gid}: FAILED {ex!r}", flush=True)
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
