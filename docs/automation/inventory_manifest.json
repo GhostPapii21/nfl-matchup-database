@@ -1006,8 +1006,16 @@
     }
   ],
   "open_pr_snapshot": {
-    "retrieved_utc": "2026-11-27T23:45:00Z",
-    "note": "Snapshot of open pull requests at inventory time. Tests pin the named overlap PRs, not the live count.",
+    "retrieved_utc": "2026-11-28T00:30:00Z",
+    "note": "Open-PR snapshot refreshed 2026-11-28. The code inventory stays pinned to inspected main ef4cc690. Tests pin the named overlap PRs, not the live count.",
+    "inspected_main": "ef4cc69035b8827fe897a574a0d7d22091ee26b3",
+    "canonical_readiness_pr": 137,
+    "readiness_assertion": {
+      "owner_pr": 137,
+      "owner_branch": "blitz/w12-lock-readiness-test",
+      "behavior": "Discover Week 12 locks from snapshots/2026_12_*/*/LOCK.json. Require locked_utc before kickoff_utc and projection_ready false. Do not hardcode game ids.",
+      "copies_removed_from": [149, 151, 152]
+    },
     "do_not_duplicate": [140, 143, 144],
     "merged_fixture": 146,
     "prs": [
@@ -1022,7 +1030,7 @@
       {"number": 139, "state": "open", "draft": true, "head": "cursor/w12-pristine-holdout-cont-3852", "title": "W12 pristine holdout continue: FTN/PFR GAP blocks locks; W13 packets started", "overlap": "Holdout continuation. GAP-block behavior is an existing fail-closed rule, not something to relax.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/139"},
       {"number": 136, "state": "open", "draft": false, "head": "cursor/w12-thanksgiving-locks-9aff", "title": "W12 Thanksgiving pristine protocol (CHI@DET NO_LOCK; worker LOCKs non-qualifying)", "overlap": "Lock protocol. Do not add another locker.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/136"},
       {"number": 134, "state": "open", "draft": true, "head": "cursor/w12-pristine-holdout-c077", "title": "feat: Week 12 pristine holdout — 15 protocol LOCKs (100k)", "overlap": "Possession 100k locks. Distinct from sim_v6.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/134"},
-      {"number": 137, "state": "open", "draft": true, "head": "blitz/w12-lock-readiness-test", "title": "test(evaluation): allow legitimate pre-kickoff Week 12 snapshot locks", "overlap": "Evaluation test change. Do not alter lock admission in the inventory phase.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/137"},
+      {"number": 137, "state": "open", "draft": true, "head": "blitz/w12-lock-readiness-test", "title": "test(evaluation): allow legitimate pre-kickoff Week 12 snapshot locks", "overlap": "Canonical owner of evaluation/tests/test_readiness.py. Discovers committed Week 12 LOCKs, requires each lock before kickoff, and keeps projection_ready false. This inventory does not edit that file. Do not add another copy.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/137"},
       {"number": 135, "state": "open", "draft": true, "head": "blitz/nfl49-w12-thu-locks-20261126", "title": "Week 12 pristine pre-kickoff 100k locks: CHI@DET, PHI@DAL, KC@BUF", "overlap": "More possession locks. Not sim_v6.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/135"},
       {"number": 132, "state": "open", "draft": true, "head": "ghost6/grade-w1-9-20261126", "title": "Grade 2026 W1-9 game-line markets (backfill)", "overlap": "Historical grading backfill. Later postgame work should not fork a second grader.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/132"},
       {"number": 120, "state": "open", "draft": true, "head": "blitz/nfl56-w11-late-games-20261123", "title": "W11 late game log: MNF CIN@WSH + CIN/WSH defense profiles", "overlap": "Game log plus defense notes. Coverage profiles as a system belong to #143/#144.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/120"},
@@ -1038,7 +1046,11 @@
       {"number": 39, "state": "open", "draft": true, "head": "research/phase2b-depth-intcap-2026-11-13", "title": "NFL-75 Phase 2b: RB/WR/TE depth signal, shrinkage grid past 5000, opt-in team INT pooling", "overlap": "Model research depending on another draft. Do not merge those experiments into sim_v6.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/39"},
       {"number": 30, "state": "open", "draft": true, "head": "ghost6/semantics-bounds-clock-rare-2026-11-13", "title": "docs: SEMANTICS_BOUNDS clock (PR #26) and rare plays (PR #28)", "overlap": "NFL-43 semantics docs. sim100k G2 already reads the reviewed bounds file. Do not edit bounds here.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/30"},
       {"number": 18, "state": "open", "draft": true, "head": "research/matchup-database-local-2026-11-12", "title": "Draft: local nfl-database snapshot for review (research only, do not merge)", "overlap": "Explicitly do-not-merge draft. Ignore as an implementation source.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/18"},
-      {"number": 14, "state": "open", "draft": false, "head": "research/was-nyg-week10-odds-2026-11-11", "title": "Record Week 10 WAS-NYG DraftKings and FanDuel odds snapshot", "overlap": "One odds snapshot. Not the four-book freeze module.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/14"}
+      {"number": 14, "state": "open", "draft": false, "head": "research/was-nyg-week10-odds-2026-11-11", "title": "Record Week 10 WAS-NYG DraftKings and FanDuel odds snapshot", "overlap": "One odds snapshot. Not the four-book freeze module.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/14"},
+      {"number": 148, "state": "open", "draft": false, "head": "cursor/score-den-pit-w12-662b", "title": "Score DEN@PIT + KC@BUF pristine LOCKs — holdout 16 (W10–12)", "overlap": "Scores the two Week 12 locks. Do not score them in the inventory. Separate from the readiness assertion in #137.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/148"},
+      {"number": 150, "state": "open", "draft": false, "head": "cursor/nfl-85-sim-v6-audit-20ea", "title": "NFL-85: sim_v6 three-method entrypoint is absent", "overlap": "Separate sim_v6 absence note. Do not duplicate that audit here. tools/sim_v6.py remains missing on the inspected main.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/150"},
+      {"number": 151, "state": "open", "draft": false, "head": "cursor/phase-execution-receipts-0e84", "title": "feat: enforce analytical execution receipts for all 15 phases", "overlap": "Phase-receipt work downstream of this inventory. It must not carry its own evaluation/tests/test_readiness.py edit. The canonical assertion stays on #137.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/151"},
+      {"number": 152, "state": "open", "draft": false, "head": "cursor/durable-game-scheduler-b73e", "title": "Add a durable per-game scheduler that does not use GitHub Actions", "overlap": "Scheduler proposal that does not use GitHub Actions. It must not carry its own evaluation/tests/test_readiness.py edit. The canonical assertion stays on #137. Do not deploy from either PR.", "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/152"}
     ]
   },
   "contradictions": [

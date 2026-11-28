@@ -4,6 +4,8 @@ Self-contained handoff for an adversarial review. The reviewer is not connected 
 
 Companion files in the same commit: `docs/automation/INVENTORY.md`, `docs/automation/inventory_manifest.json`, `pipeline/tests/test_phase0_inventory.py`.
 
+The inspected main commit is still `ef4cc69035b8827fe897a574a0d7d22091ee26b3`. The open-PR snapshot was refreshed on 2026-11-28. `evaluation/tests/test_readiness.py` is not part of this diff. Draft PR #137 is the only owner of that assertion: it discovers `snapshots/2026_12_*/*/LOCK.json`, requires `locked_utc` before `kickoff_utc`, and keeps `projection_ready` false. Hardcoded copies on #149, #151, and #152 are removed so they cannot drift.
+
 `projection_ready` is false. This packet does not recommend changing it, production data controls, model weights, or deployment.
 
 ## Task (verbatim)

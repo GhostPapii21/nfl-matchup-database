@@ -161,7 +161,17 @@ def test_named_prs_are_not_duplicated_by_this_inventory():
     snap = data["open_pr_snapshot"]
     assert snap["do_not_duplicate"] == [140, 143, 144]
     assert snap["merged_fixture"] == 146
+    assert snap["canonical_readiness_pr"] == 137
+    assert snap["inspected_main"] == "ef4cc69035b8827fe897a574a0d7d22091ee26b3"
+    assert data["inventoried_commit"] == snap["inspected_main"]
     by_number = {row["number"]: row for row in snap["prs"]}
+    assert "canonical" in by_number[137]["overlap"].lower()
+    for number in (151, 152):
+        assert "must not" in by_number[number]["overlap"].lower()
+    readiness = (ROOT / "evaluation" / "tests" / "test_readiness.py").read_text()
+    assert 'snaps.glob("2026_12_*/*/LOCK.json")' in readiness
+    assert 'assert eb["w12_with_lock"] == []' not in readiness
+    assert 'assert eb["w12_with_lock"] == ["2026_12_DEN_PIT", "2026_12_KC_BUF"]' not in readiness
     for number in (140, 143, 144):
         assert by_number[number]["state"] == "open"
         assert "Do not duplicate" in by_number[number]["overlap"] or "Do not reimplement" in by_number[number]["overlap"] or "do not duplicate" in by_number[number]["overlap"].lower()

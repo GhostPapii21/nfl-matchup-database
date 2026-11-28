@@ -101,7 +101,7 @@ Use the package as a postgame regression fixture later. Do not feed its final bo
 
 ## Open PRs — do not duplicate
 
-Snapshot taken with the inventory. Live PR state can move; the overlap judgment is about the branches as read on 2026-11-27.
+The code inventory stays pinned to main `ef4cc690`. The open-PR list below was refreshed on 2026-11-28. Live PR state can still move.
 
 | PR | What it already owns | This phase |
 | --- | --- | --- |
@@ -109,8 +109,9 @@ Snapshot taken with the inventory. Live PR state can move; the overlap judgment 
 | [#143](https://github.com/GhostPapii21/nfl-matchup-database/pull/143) | `data/coverage/defender_profiles_2026/` for all 32 defenses, inferred attribution kept separate from verified | Do not duplicate |
 | [#144](https://github.com/GhostPapii21/nfl-matchup-database/pull/144) | `data/coverage/positional_allowances_2026/` windows, opponent adjustment, situational splits. Also touches `scripts/test_offline.sh` | Do not duplicate |
 | [#146](https://github.com/GhostPapii21/nfl-matchup-database/pull/146) | DEN@PIT postgame, merged | Fixture only |
+| [#137](https://github.com/GhostPapii21/nfl-matchup-database/pull/137) | The only edit to `evaluation/tests/test_readiness.py`. It discovers Week 12 locks from `snapshots/2026_12_*/*/LOCK.json`, requires each lock to be before kickoff, and keeps `projection_ready` false | This inventory does not edit that test. Later phases must not add a second assertion |
 
-Other open PRs are lock/holdout work (#134, #135, #136, #137, #138, #139, #145), postgame or grading logs (#119, #120, #131, #132, #142), board or parser fixes (#107, #113, #116), and research drafts (#14, #18, #30, #39, #41, #55, #63, #64, #69). The orchestrator should call existing graders and lockers, not replace those branches. Full rows are in the manifest.
+Other open PRs are lock/holdout work (#134, #135, #136, #138, #139, #145, #148), postgame or grading logs (#119, #120, #131, #132, #142), board or parser fixes (#107, #113, #116), research drafts (#14, #18, #30, #39, #41, #55, #63, #64, #69), a separate sim_v6 absence note (#150), execution receipts (#151), and a non-Actions scheduler (#152). #151 and #152 had copied the readiness assertion with hardcoded game ids. Those copies are removed; #137 remains the only implementation. The orchestrator should call existing graders and lockers, not replace those branches. Full rows are in the manifest.
 
 ## Scheduler
 
@@ -171,4 +172,4 @@ python3 -m pytest -q -p no:cacheprovider pipeline/tests/test_phase0_inventory.py
 
 The six tests are `test_manifest_is_phase0_and_research_only`, `test_code_enums_match_source`, `test_component_paths_match_the_tree`, `test_sim_v6_contract_is_missing_and_not_sim100k`, `test_named_prs_are_not_duplicated_by_this_inventory`, and `test_human_docs_match_the_manifest_verdict`.
 
-Re-run the same command before treating the manifest as current. It is pinned to main `ef4cc690` plus this documentation change, and it will not notice a later edit to `pipeline/phases.py` unless the tests are run again. The full `scripts/test_offline.sh` suite was not run; it is outside this inventory's code path and needs the offline scientific stack.
+Re-run the same command before treating the manifest as current. The inspected tree stays main `ef4cc690`. This branch is stacked on #137 so CI uses that PR's readiness assertion, and this diff does not change `evaluation/tests/test_readiness.py`. The full `scripts/test_offline.sh` suite was not re-run here. `evaluation/tests/test_readiness.py` on the #137 branch, after main was merged into it, passed 7 tests.
