@@ -1,0 +1,319 @@
+{
+  "schema": "nfl83-phase-execution-contract/2",
+  "contract_version": "nfl83-phase-execution/2",
+  "research_only": true,
+  "projection_ready": false,
+  "canonical_phase_source": "pipeline/phases.py PHASES. Analytical bindings follow the NFL-82 inventory: a module is canonical only when calling it runs an equation. Packet counters are not bindings. tools/sim_v6.py is absent and pipeline.sim100k is not a substitute.",
+  "notes": "DISCOVERED and FRESH never satisfy execution. PASS requires a canonical module invocation whose output carries equation_id, module_id, numeric equation metrics, a denominator, and provenance. Source unavailability is BLOCKED or SOURCE_UNAVAILABLE, not NOT_APPLICABLE. The only PASS-allowing N/A is indoor weather.",
+  "phases": [
+    {
+      "phase_id": 1,
+      "name": "Slate, schedule, venue",
+      "freshness_sources": ["schedule"],
+      "tasks": [
+        {
+          "task_id": "phase01.slate",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "absent",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "No canonical analytical module for the slate. pipeline.phases and the packet builder record presence only. A site or kickoff count is not execution."
+        }
+      ]
+    },
+    {
+      "phase_id": 2,
+      "name": "Player identity and position",
+      "freshness_sources": ["rosters"],
+      "tasks": [
+        {
+          "task_id": "phase02.identity",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "absent",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "No identity equation is registered. A roster row count is not an analytical result."
+        }
+      ]
+    },
+    {
+      "phase_id": 3,
+      "name": "Verified player game history",
+      "freshness_sources": ["play_by_play"],
+      "tasks": [
+        {
+          "task_id": "phase03.history",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "absent",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "No verified-history equation is registered. Listing by-game rows is an input, not execution."
+        }
+      ]
+    },
+    {
+      "phase_id": 4,
+      "name": "Role, snaps, routes, opportunity",
+      "freshness_sources": ["snap_counts", "ngs_receiving", "ngs_rushing"],
+      "tasks": [
+        {
+          "task_id": "phase04.opportunity",
+          "module": "core.possession_engine_v0.opportunity",
+          "function": "load_opp_lookup",
+          "canonical_path": "core/possession_engine_v0/opportunity.py",
+          "binding": "canonical",
+          "adapter": "run_opportunity",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "required_metrics": ["features"],
+          "not_applicable_when": null,
+          "absence_reason": null
+        },
+        {
+          "task_id": "phase04.routes_participation",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "source_unavailable",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "Public NGS weekly files do not carry routes run or route participation. That is source unavailability, not NOT_APPLICABLE, and it blocks the phase."
+        }
+      ]
+    },
+    {
+      "phase_id": 5,
+      "name": "Team offense/defense baselines",
+      "freshness_sources": ["play_by_play"],
+      "tasks": [
+        {
+          "task_id": "phase05.baselines",
+          "module": "pregame.packet",
+          "function": "player_baselines",
+          "canonical_path": "pregame/packet.py",
+          "binding": "canonical",
+          "adapter": "run_player_baselines",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 3,
+          "required_metrics": ["weighted_mean", "opponent_factor"],
+          "not_applicable_when": null,
+          "absence_reason": null
+        }
+      ]
+    },
+    {
+      "phase_id": 6,
+      "name": "Opponent context and game script",
+      "freshness_sources": ["schedule"],
+      "tasks": [
+        {
+          "task_id": "phase06.game_script",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "absent",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "The analyst script is prose in pregame/ANALYST_PROMPT.md. No module executes it. A spread and total are inputs, not a game script, and cannot be waived as NOT_APPLICABLE."
+        }
+      ]
+    },
+    {
+      "phase_id": 7,
+      "name": "Coverage structure and shell",
+      "freshness_sources": ["ftn_charting"],
+      "tasks": [
+        {
+          "task_id": "phase07.coverage_shell",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "source_unavailable",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "Man/zone and shell are not in a free source. Charted-dropback counts are not that analysis. Source unavailability blocks the phase."
+        }
+      ]
+    },
+    {
+      "phase_id": 8,
+      "name": "Defender assignment and explosive allowance",
+      "freshness_sources": ["pfr_defense", "ngs_defender_matchup"],
+      "tasks": [
+        {
+          "task_id": "phase08.coverage_assignment",
+          "module": "pipeline.matchup_sources",
+          "function": null,
+          "canonical_path": "pipeline/matchup_sources.py",
+          "binding": "source_unavailable",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "pipeline.matchup_sources reports FILLED or MISSING labels. It does not verify who covers whom. Missing assignment blocks the phase."
+        }
+      ]
+    },
+    {
+      "phase_id": 9,
+      "name": "QB pressure, blitz, scramble",
+      "freshness_sources": ["play_by_play", "ftn_charting"],
+      "tasks": [
+        {
+          "task_id": "phase09.true_pressure",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "source_unavailable",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "True pressure rate is not in a free source. Sacks plus hits are a floor, not the pressure equation, and do not pass the phase."
+        }
+      ]
+    },
+    {
+      "phase_id": 10,
+      "name": "Offensive line, pass rush, coaching",
+      "freshness_sources": ["depth_charts"],
+      "tasks": [
+        {
+          "task_id": "phase10.line_grades",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "source_unavailable",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "Line grades require a paid source that is not wired. A depth-chart count is not a grade and does not pass the phase."
+        }
+      ]
+    },
+    {
+      "phase_id": 11,
+      "name": "Injury and depth chart",
+      "freshness_sources": ["official_injuries", "news_injuries", "depth_charts"],
+      "tasks": [
+        {
+          "task_id": "phase11.injury_impact",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "absent",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "No injury-impact equation is registered. Counting injury rows does not execute an analysis."
+        }
+      ]
+    },
+    {
+      "phase_id": 12,
+      "name": "Weather, roof, travel",
+      "freshness_sources": ["weather"],
+      "tasks": [
+        {
+          "task_id": "phase12.weather_adjust",
+          "module": "pregame.rain_model",
+          "function": "factor",
+          "canonical_path": "pregame/rain_model.py",
+          "binding": "canonical",
+          "adapter": "run_rain_model",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "required_metrics": ["attempts_factor"],
+          "not_applicable_when": {
+            "policy_id": "indoor-roof-weather",
+            "when": "indoor",
+            "allows_phase_pass": true,
+            "reason": "Roof or weather status is indoor. The measured rain adjustment does not apply."
+          },
+          "absence_reason": null
+        }
+      ]
+    },
+    {
+      "phase_id": 13,
+      "name": "Timestamped book prices",
+      "freshness_sources": ["odds", "four_book_prices"],
+      "tasks": [
+        {
+          "task_id": "phase13.true_open",
+          "module": null,
+          "function": null,
+          "canonical_path": null,
+          "binding": "source_unavailable",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "A true opening line is not in the wired book feeds. Listing current markets is not that analysis and does not pass the phase."
+        }
+      ]
+    },
+    {
+      "phase_id": 14,
+      "name": "Projection and simulation (100k)",
+      "freshness_sources": [],
+      "tasks": [
+        {
+          "task_id": "phase14.sim_v6",
+          "module": "tools.sim_v6",
+          "function": "run",
+          "canonical_path": "tools/sim_v6.py",
+          "binding": "absent",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 100000,
+          "not_applicable_when": null,
+          "not_a_substitute": "pipeline.sim100k",
+          "absence_reason": "tools/sim_v6.py is not on main. pipeline.sim100k is the NFL-43 possession engine, one method family, and is not a sim_v6 substitute. It is not invoked."
+        }
+      ]
+    },
+    {
+      "phase_id": 15,
+      "name": "Final inactive pregame freeze",
+      "freshness_sources": ["official_inactives"],
+      "tasks": [
+        {
+          "task_id": "phase15.official_inactives",
+          "module": "phase15.official_inactives",
+          "function": "hook",
+          "canonical_path": "phase15/official_inactives.py",
+          "binding": "unbound",
+          "mandatory": true,
+          "min_rows": 1,
+          "min_denominator": 1,
+          "not_applicable_when": null,
+          "absence_reason": "phase15.official_inactives.hook is a source pull, not an analytical equation. The receipt layer does not call it and a pull file is not execution."
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,13 @@ then lists what is FILLED, MISSING, STALE or NOT_YET. `--write` saves `pipeline/
 `--strict` exits 3 if any selected phase is not filled. `python -m pipeline.slate` does every game in
 `pregame/packets/latest.json` and writes `pipeline/ledgers/INDEX.md`.
 
+**Execution is a separate record from freshness (NFL-83).** `AUTO` / `PARTIAL` above mean the checked inputs
+are present and fresh. They do not prove an analytical module ran. `python -m pipeline.execution` writes an
+immutable receipt per phase under a run id. A phase `PASS` there requires every mandatory task to have been
+invoked and its output hash to validate. `DISCOVERED` and `FRESH` stay on the prerequisite block and cannot
+satisfy that requirement. The contract is `pipeline/execution/contract.json`, described in
+[automation/PHASE_EXECUTION_CONTRACT.md](automation/PHASE_EXECUTION_CONTRACT.md). `projection_ready` stays false.
+
 | # | Phase | Inputs checked (both teams where relevant) | Freshness sources | Not in any free source (shown, never faked) |
 | --- | --- | --- | --- | --- |
 | 1 | Slate, schedule, venue | kickoff, date, site, roof, listed QBs | schedule | |
