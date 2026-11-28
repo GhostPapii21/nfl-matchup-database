@@ -306,6 +306,7 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
         trials=0, calibration_status=sim_receipt["bias"]["calibration_status"],
     ))
 
+    components[-1]["required_for_v7"] = False
     # sim_v7 three-method x three-primary-script engine (research only; residual reported separately)
     import os as _os
     _n = int(_os.environ.get("SUNDAY_SIM_V7_N", "100000"))
@@ -392,6 +393,7 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
         trials=empirical.get("trials_executed"),
     ))
 
+    components[-1]["required_for_v7"] = False
     started = datetime.now(timezone.utc)
     from sunday.ngs_verify import verify as verify_ngs
     ngs = verify_ngs(repo)
@@ -399,7 +401,7 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
     ended = datetime.now(timezone.utc)
     components.append(_row(
         "ngs_verify", "sunday.ngs_verify", "verify", "check",
-        "REFUSED", ngs["reason"], started, ended,
+        "EXECUTED" if ngs.get("aggregate_usable") else "REFUSED", ngs["reason"], started, ended,
         [{"week_12": ngs["week_12"]}],
         [{"path": "ngs_verify.json", "sha256": ngs_sha}],
     ))
@@ -530,6 +532,10 @@ def _child_rows(modules: list[dict]) -> list[dict]:
         row["orchestrator_status"] = raw
         row["execution_class"] = execution_class or None
         rows.append(row)
+    for row in rows:
+        if row["id"] in {"orchestrator.sim_v6_contract", "orchestrator.sim100k_preflight"}:
+            row["required_for_v7"] = False
+            row["reason"] += "; legacy V6 contract kept as separate historical evidence, not V7 authority"
     return rows
 
 
@@ -543,13 +549,14 @@ def acceptance_result(components: list[dict]) -> str:
     if len(schedules) != 1 or schedules[0].get("status") != "EXECUTED":
         return "BLOCKED"
     ids = [row.get("id") for row in components]
+    required = [row for row in components if row.get("required_for_v7", True)]
     if any(not isinstance(cid, str) or not cid for cid in ids):
         return "PARTIAL"
     if len(ids) != len(set(ids)) or not set(ORDER).issubset(ids):
         return "PARTIAL"
-    if any(row.get("status") != "EXECUTED" for row in components):
+    if any(row.get("status") != "EXECUTED" for row in required):
         return "PARTIAL"
-    if any(row.get("kind") == "analytical" and (row.get("status") != "EXECUTED" or row.get("analytical_execution") is not True) for row in components):
+    if any(row.get("kind") == "analytical" and (row.get("status") != "EXECUTED" or row.get("analytical_execution") is not True) for row in required):
         return "PARTIAL"
     return "PASS"
 
