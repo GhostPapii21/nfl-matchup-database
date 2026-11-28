@@ -62,16 +62,22 @@ def verify(repo: Path) -> dict:
             "fields_absent": [field for field in ABSENT_FIELDS if field not in frame.columns],
         }
     max_week = feeds.get("passing", {}).get("max_week_2026")
+    aggregate_usable = all(feed.get("status") == "READ" and feed.get("rows_2026", 0) > 0 for feed in feeds.values())
+    missing_details = sorted({field for feed in feeds.values() for field in feed.get("fields_absent", [])})
     return {
         "schema": "ngs-verification/1",
         "projection_ready": False,
         "certification": False,
+        "aggregate_usable": aggregate_usable,
+        "chart_images_required_for_aggregates": False,
+        "unavailable_play_level_fields": missing_details,
         "feeds": feeds,
         "week_12": "unavailable" if not any((feeds[name].get("week_12_rows") or 0) > 0 for name in feeds) else "present",
         "current_for_week_12": False,
         "reason": (
-            f"Public NGS files were read. 2026 passing coverage ends at week {max_week}. "
-            "Week 12 is not in the file. No publisher as-of stamp is present. "
-            "Route and defender columns are absent and were not filled."
+            f"Aggregate NGS 2026 passing coverage ends at week {max_week}. "
+            "Chart images are not required to use uploaded passing/receiving/rushing aggregates. "
+            "Week 12 player results are not expected before the games. "
+            "Missing publisher as-of and play-level route/defender evidence remain explicit limitations."
         ),
     }
