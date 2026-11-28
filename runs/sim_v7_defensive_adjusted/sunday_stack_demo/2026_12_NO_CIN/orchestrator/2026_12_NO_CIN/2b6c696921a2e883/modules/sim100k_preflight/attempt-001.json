@@ -1,0 +1,41 @@
+{
+  "error": null,
+  "finished_at": "2026-11-28T18:10:10+00:00",
+  "n": 1,
+  "output": {
+    "analytical": false,
+    "engine_invoked": false,
+    "entrypoint": "pipeline.sim100k.preflight",
+    "gates": {
+      "G0_entrypoint": "PASS",
+      "G1_flags": "PASS",
+      "G2_nfl43": "PASS",
+      "G3_packet": "PASS",
+      "G4_freshness": "REFUSED",
+      "G6_rocket": "NOT_RUN (earlier gates refused)",
+      "G7_asof": "PASS"
+    },
+    "label": "NFL-43 possession preflight; not sim_v6",
+    "ok": false,
+    "ran": false,
+    "reasons": [
+      "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: official_injuries MISSING: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: weather MISSING: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: ngs_passing MISSING: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: ngs_receiving MISSING: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: ngs_rushing MISSING: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+      "G4: official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet."
+    ]
+  },
+  "started_at": "2026-11-28T18:10:10+00:00",
+  "status": "REFUSED",
+  "warnings": [
+    "G4: play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+  ]
+}

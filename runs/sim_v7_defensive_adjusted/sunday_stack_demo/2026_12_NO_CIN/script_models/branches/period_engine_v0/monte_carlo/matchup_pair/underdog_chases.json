@@ -1,0 +1,171 @@
+{
+ "schema": "sunday-script-branch/1",
+ "engine_id": "period_engine_v0",
+ "method": "monte_carlo",
+ "sampling": "matchup_pair",
+ "branch": "underdog_chases",
+ "definition": "Realized favorite margin in [3, 10). The underdog is behind, and the lead is short of the 10-point favorite-controls bin. Trials where the underdog is ahead stay in residual.",
+ "algorithm": "partition of this engine's own trials",
+ "replacement_algorithm": false,
+ "pooled_with_other_branches": false,
+ "projection_ready": false,
+ "research_only": true,
+ "seed": 1952480004,
+ "n_parent_trials": 100,
+ "n_trials": 23,
+ "trial_indices": [
+  1,
+  2,
+  3,
+  5,
+  8,
+  10,
+  12,
+  21,
+  23,
+  29,
+  39,
+  47,
+  56,
+  61,
+  64,
+  71,
+  72,
+  77,
+  78,
+  79,
+  89,
+  94,
+  96
+ ],
+ "score": {
+  "n_trials": 23,
+  "final": {
+   "home": {
+    "n": 23,
+    "mean": 27.043478260869566,
+    "p10": 20.0,
+    "p50": 26.0,
+    "p90": 34.6
+   },
+   "away": {
+    "n": 23,
+    "mean": 21.391304347826086,
+    "p10": 13.8,
+    "p50": 21.0,
+    "p90": 27.0
+   },
+   "favorite_margin": {
+    "n": 23,
+    "mean": 5.6521739130434785,
+    "p10": 3.2,
+    "p50": 6.0,
+    "p90": 8.0
+   }
+  },
+  "quarters": {
+   "q1": {
+    "supported": true,
+    "home": {
+     "n": 23,
+     "mean": 6.782608695652174,
+     "p10": 0.6000000000000005,
+     "p50": 7.0,
+     "p90": 14.0
+    },
+    "away": {
+     "n": 23,
+     "mean": 3.0434782608695654,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 7.0
+    }
+   },
+   "q2": {
+    "supported": true,
+    "home": {
+     "n": 23,
+     "mean": 9.782608695652174,
+     "p10": 7.0,
+     "p50": 10.0,
+     "p90": 13.8
+    },
+    "away": {
+     "n": 23,
+     "mean": 5.782608695652174,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 10.0
+    }
+   },
+   "q3": {
+    "supported": true,
+    "home": {
+     "n": 23,
+     "mean": 4.434782608695652,
+     "p10": 3.0,
+     "p50": 3.0,
+     "p90": 7.0
+    },
+    "away": {
+     "n": 23,
+     "mean": 6.6521739130434785,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 13.200000000000003
+    }
+   },
+   "q4": {
+    "supported": true,
+    "home": {
+     "n": 23,
+     "mean": 6.043478260869565,
+     "p10": 0.0,
+     "p50": 6.0,
+     "p90": 12.400000000000002
+    },
+    "away": {
+     "n": 23,
+     "mean": 5.913043478260869,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 10.0
+    }
+   }
+  }
+ },
+ "board_rule_disclosure": {
+  "source": "research/qb_script_2026-11-22/study.py current_rule",
+  "applied_to_simulated_plays": false,
+  "favorite": [
+   {
+    "margin": 3.0,
+    "pass_attempts_multiplier": 0.97,
+    "rush_attempts_multiplier": 1.036
+   },
+   {
+    "margin": 10.0,
+    "pass_attempts_multiplier": 0.9,
+    "rush_attempts_multiplier": 1.12
+   }
+  ],
+  "underdog": [
+   {
+    "margin": -3.0,
+    "pass_attempts_multiplier": 1.03,
+    "rush_attempts_multiplier": 0.964
+   },
+   {
+    "margin": -10.0,
+    "pass_attempts_multiplier": 1.1,
+    "rush_attempts_multiplier": 0.88
+   }
+  ],
+  "note": "The existing board rule evaluated at this branch's margin edges. 10 is the study cap and belongs to favorite_controls; it is not a trial in underdog_chases. Simulated plays are the engine's own trials."
+ },
+ "pace_and_plays": null,
+ "players": null,
+ "plays_supported": false,
+ "player_opportunity_supported": false,
+ "unsupported_reason": "This engine's trials have score and quarter outcomes only. Play counts and player opportunity are not copied from another engine."
+}

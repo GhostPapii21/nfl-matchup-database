@@ -1,0 +1,167 @@
+{
+ "schema": "sim-v7-acceptance-receipt/1",
+ "engine_id": "sim_v7",
+ "engine_version": "sim_v7.1.0",
+ "entrypoint": "engines.sim_v7.cli:simulate_game",
+ "not_original_sim_v6": true,
+ "projection_ready": false,
+ "fallback_used": false,
+ "status": "EXECUTED",
+ "trials_required_per_primary_cell": 100000,
+ "primary_cells_required": 9,
+ "primary_cells": [
+  {
+   "method": "mc",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.34516
+  },
+  {
+   "method": "mc",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.21742
+  },
+  {
+   "method": "mc",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.09253
+  },
+  {
+   "method": "bias",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.34516
+  },
+  {
+   "method": "bias",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.21734
+  },
+  {
+   "method": "bias",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.09202
+  },
+  {
+   "method": "gr",
+   "scenario": "favorite_controls",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.25894
+  },
+  {
+   "method": "gr",
+   "scenario": "competitive",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.30136
+  },
+  {
+   "method": "gr",
+   "scenario": "underdog_chases",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.12543
+  }
+ ],
+ "residual_cells": [
+  {
+   "method": "mc",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.34489
+  },
+  {
+   "method": "bias",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.34548
+  },
+  {
+   "method": "gr",
+   "scenario": "residual",
+   "trial_count": 100000,
+   "status": "OK",
+   "acceptance_rate": 0.31428
+  }
+ ],
+ "scenario_frequency_by_method": {
+  "mc": {
+   "favorite_controls": 0.34516,
+   "competitive": 0.21742,
+   "underdog_chases": 0.09253,
+   "residual": 0.34489
+  },
+  "bias": {
+   "favorite_controls": 0.34516,
+   "competitive": 0.21734,
+   "underdog_chases": 0.09202,
+   "residual": 0.34548
+  },
+  "gr": {
+   "favorite_controls": 0.258937,
+   "competitive": 0.301357,
+   "underdog_chases": 0.125429,
+   "residual": 0.314277
+  }
+ },
+ "defensive_integration": {
+  "WAS": {
+   "status": "EXPERIMENTAL_UNVALIDATED",
+   "integration": {
+    "qb_split_factors": "EXPERIMENTAL_UNVALIDATED",
+    "coverage_allocation": "EXPERIMENTAL_UNVALIDATED",
+    "scramble": "MEASURED",
+    "sharp": "MEASURED"
+   },
+   "calibration_status": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+   "scramble_status": "MEASURED",
+   "coverage_alloc_status": "EXPERIMENTAL_UNVALIDATED",
+   "sharp_status": "MEASURED",
+   "charting": {
+    "play_level_coverage_assignment": "MISSING",
+    "note": "no free 2026 pbp_participation defense_man_zone_type; not invented"
+   }
+  },
+  "ARI": {
+   "status": "MISSING",
+   "integration": {
+    "qb_split_factors": "MISSING",
+    "coverage_allocation": "EXPERIMENTAL_UNVALIDATED",
+    "scramble": "MEASURED",
+    "sharp": "MEASURED"
+   },
+   "calibration_status": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+   "scramble_status": "MEASURED",
+   "coverage_alloc_status": "EXPERIMENTAL_UNVALIDATED",
+   "sharp_status": "MEASURED",
+   "charting": {
+    "play_level_coverage_assignment": "MISSING",
+    "note": "no free 2026 pbp_participation defense_man_zone_type; not invented"
+   }
+  }
+ },
+ "calibration": {
+  "file": "engines/sim_v7/calibration_v7.json",
+  "as_of": "2026-11-28T15:08:28.503333+00:00",
+  "K": 200,
+  "status_after_defense": "EXPERIMENTAL_UNVALIDATED_DEFENSE_CHANGED",
+  "note": "prior holdout labels not inherited after defensive integration"
+ },
+ "input_hash": "c4252a7ae493b6022fb014f651533a6a6cc1733e82ea1debda7d704c6bd02a89",
+ "source_cutoff": "2026-11-24",
+ "game_id": "2026_12_WAS_ARI",
+ "runtime_seconds": 37.57
+}

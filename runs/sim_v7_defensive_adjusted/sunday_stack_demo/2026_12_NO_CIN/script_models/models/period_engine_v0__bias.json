@@ -1,0 +1,39 @@
+{
+ "engine_id": "period_engine_v0",
+ "method": "bias",
+ "sampling": null,
+ "entrypoint": "core/period_engine_v0/monte_carlo.py:ModelStatus.bias",
+ "version": {
+  "path": "core/period_engine_v0/monte_carlo.py",
+  "sha256": "129bdda12f17a893cb09432089d6dca798711627588cee7ffaf75b800bd9364d",
+  "exists": true
+ },
+ "called": true,
+ "simulated": false,
+ "trials": null,
+ "seed": null,
+ "calibration_status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+ "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+ "inputs": {
+  "pbp": {
+   "pbp": "pbp_2026_w1_11_pulled_20261124T1717ET.parquet",
+   "max_week": 11,
+   "target_week_excluded": true,
+   "target_game_excluded": true
+  },
+  "includes_prior_season": true,
+  "history_games": 435,
+  "home": "CIN",
+  "away": "NO",
+  "favorite": "CIN",
+  "underdog": "NO",
+  "home_spread": -9.5,
+  "spread_source": "packet.market.home_spread"
+ },
+ "projection_ready": false,
+ "not_sim_v6": true,
+ "limitations": [
+  "Period-engine Bias was not given a fitted calibration by its own module."
+ ],
+ "artifact": "models/period_engine_v0__bias.json"
+}

@@ -1,0 +1,1490 @@
+{
+ "schema": "sunday-script-branch/1",
+ "engine_id": "possession_engine_v0",
+ "method": "simulate_games",
+ "sampling": "data_only",
+ "branch": "underdog_chases",
+ "definition": "Realized favorite margin in [3, 10). The underdog is behind, and the lead is short of the 10-point favorite-controls bin. Trials where the underdog is ahead stay in residual.",
+ "algorithm": "partition of this engine's own trials",
+ "replacement_algorithm": false,
+ "pooled_with_other_branches": false,
+ "projection_ready": false,
+ "research_only": true,
+ "seed": 156793436,
+ "n_parent_trials": 50,
+ "n_trials": 16,
+ "trial_indices": [
+  4,
+  8,
+  9,
+  10,
+  14,
+  16,
+  18,
+  19,
+  22,
+  23,
+  34,
+  36,
+  37,
+  39,
+  45,
+  49
+ ],
+ "score": {
+  "n_trials": 16,
+  "final": {
+   "home": {
+    "n": 16,
+    "mean": 26.75,
+    "p10": 18.0,
+    "p50": 27.0,
+    "p90": 36.5
+   },
+   "away": {
+    "n": 16,
+    "mean": 21.75,
+    "p10": 12.0,
+    "p50": 23.0,
+    "p90": 30.5
+   },
+   "favorite_margin": {
+    "n": 16,
+    "mean": 5.0,
+    "p10": 3.0,
+    "p50": 4.0,
+    "p90": 7.0
+   }
+  },
+  "quarters": {
+   "q1": {
+    "supported": true,
+    "home": {
+     "n": 16,
+     "mean": 6.0,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 10.0
+    },
+    "away": {
+     "n": 16,
+     "mean": 5.0,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 8.0
+    }
+   },
+   "q2": {
+    "supported": true,
+    "home": {
+     "n": 16,
+     "mean": 8.375,
+     "p10": 3.0,
+     "p50": 7.0,
+     "p90": 15.5
+    },
+    "away": {
+     "n": 16,
+     "mean": 5.5,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 10.0
+    }
+   },
+   "q3": {
+    "supported": true,
+    "home": {
+     "n": 16,
+     "mean": 5.6875,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 10.0
+    },
+    "away": {
+     "n": 16,
+     "mean": 4.3125,
+     "p10": 0.0,
+     "p50": 3.0,
+     "p90": 11.5
+    }
+   },
+   "q4": {
+    "supported": true,
+    "home": {
+     "n": 16,
+     "mean": 6.5,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 14.0
+    },
+    "away": {
+     "n": 16,
+     "mean": 6.9375,
+     "p10": 0.0,
+     "p50": 7.0,
+     "p90": 16.5
+    }
+   }
+  }
+ },
+ "board_rule_disclosure": {
+  "source": "research/qb_script_2026-11-22/study.py current_rule",
+  "applied_to_simulated_plays": false,
+  "favorite": [
+   {
+    "margin": 3.0,
+    "pass_attempts_multiplier": 0.97,
+    "rush_attempts_multiplier": 1.036
+   },
+   {
+    "margin": 10.0,
+    "pass_attempts_multiplier": 0.9,
+    "rush_attempts_multiplier": 1.12
+   }
+  ],
+  "underdog": [
+   {
+    "margin": -3.0,
+    "pass_attempts_multiplier": 1.03,
+    "rush_attempts_multiplier": 0.964
+   },
+   {
+    "margin": -10.0,
+    "pass_attempts_multiplier": 1.1,
+    "rush_attempts_multiplier": 0.88
+   }
+  ],
+  "note": "The existing board rule evaluated at this branch's margin edges. 10 is the study cap and belongs to favorite_controls; it is not a trial in underdog_chases. Simulated plays are the engine's own trials."
+ },
+ "pace_and_plays": {
+  "CIN": {
+   "plays": {
+    "n": 16,
+    "mean": 62.6875,
+    "p10": 55.5,
+    "p50": 63.0,
+    "p90": 68.5
+   },
+   "pass_att": {
+    "n": 16,
+    "mean": 38.0,
+    "p10": 34.5,
+    "p50": 38.0,
+    "p90": 42.5
+   },
+   "carries": {
+    "n": 16,
+    "mean": 22.75,
+    "p10": 17.5,
+    "p50": 23.0,
+    "p90": 27.5
+   },
+   "pass_share_of_pass_and_carry": {
+    "n": 16,
+    "mean": 0.627687111371422,
+    "p10": 0.5479473039215687,
+    "p50": 0.6360134809821858,
+    "p90": 0.6916666666666667
+   },
+   "source": "possession player box summed inside this branch's trials",
+   "board_rule_applied": false
+  },
+  "NO": {
+   "plays": {
+    "n": 16,
+    "mean": 66.625,
+    "p10": 62.0,
+    "p50": 67.0,
+    "p90": 72.0
+   },
+   "pass_att": {
+    "n": 16,
+    "mean": 37.75,
+    "p10": 33.0,
+    "p50": 38.0,
+    "p90": 41.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 26.5,
+    "p10": 23.0,
+    "p50": 26.0,
+    "p90": 31.0
+   },
+   "pass_share_of_pass_and_carry": {
+    "n": 16,
+    "mean": 0.5873287137455574,
+    "p10": 0.5445187853834277,
+    "p50": 0.5797423887587823,
+    "p90": 0.641025641025641
+   },
+   "source": "possession player box summed inside this branch's trials",
+   "board_rule_applied": false
+  }
+ },
+ "players": [
+  {
+   "team": "CIN",
+   "player": "A.Iosivas",
+   "targets": {
+    "n": 16,
+    "mean": 0.625,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 2.0
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 2.375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 9.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.4375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.5
+    }
+   },
+   "td_opportunity": {},
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "C.Brown",
+   "targets": {
+    "n": 16,
+    "mean": 5.375,
+    "p10": 2.5,
+    "p50": 5.0,
+    "p90": 7.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 12.9375,
+    "p10": 10.0,
+    "p50": 12.0,
+    "p90": 17.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 50.0,
+     "p10": 23.0,
+     "p50": 43.0,
+     "p90": 93.0
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 23.5,
+     "p10": 5.5,
+     "p50": 14.5,
+     "p90": 42.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 4.3125,
+     "p10": 1.5,
+     "p50": 4.0,
+     "p90": 6.5
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.3125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    },
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "C.Young",
+   "targets": {
+    "n": 16,
+    "mean": 0.375,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 0.125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "D.Meyers",
+   "targets": {
+    "n": 16,
+    "mean": 3.1875,
+    "p10": 2.0,
+    "p50": 3.0,
+    "p90": 4.5
+   },
+   "carries": {
+    "n": 16,
+    "mean": 0.5,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 6.5,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 13.0
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 28.375,
+     "p10": 5.5,
+     "p50": 16.5,
+     "p90": 63.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 2.125,
+     "p10": 1.0,
+     "p50": 2.0,
+     "p90": 3.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.5
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "D.Sample",
+   "targets": {
+    "n": 16,
+    "mean": 0.875,
+    "p10": 0.0,
+    "p50": 0.5,
+    "p90": 2.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 3.625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 12.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.8125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 2.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.5
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "E.All",
+   "targets": {
+    "n": 16,
+    "mean": 0.75,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 1.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 4.375,
+     "p10": 0.0,
+     "p50": 2.0,
+     "p90": 11.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.75,
+     "p10": 0.0,
+     "p50": 1.0,
+     "p90": 1.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "J.Burrow",
+   "targets": null,
+   "carries": {
+    "n": 16,
+    "mean": 2.3125,
+    "p10": 1.0,
+    "p50": 2.5,
+    "p90": 4.0
+   },
+   "yards": {
+    "pass_yds": {
+     "n": 16,
+     "mean": 307.25,
+     "p10": 260.5,
+     "p50": 291.5,
+     "p90": 377.0
+    },
+    "rush_yds": {
+     "n": 16,
+     "mean": 13.1875,
+     "p10": 0.5,
+     "p50": 12.5,
+     "p90": 28.5
+    }
+   },
+   "td_opportunity": {
+    "pass_td": {
+     "n": 16,
+     "mean": 2.25,
+     "p10": 1.0,
+     "p50": 2.0,
+     "p90": 4.0
+    },
+    "rush_td": {
+     "n": 16,
+     "mean": 0.3125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "pass_att": {
+    "n": 16,
+    "mean": 38.0,
+    "p10": 34.5,
+    "p50": 38.0,
+    "p90": 42.5
+   }
+  },
+  {
+   "team": "CIN",
+   "player": "J.Chase",
+   "targets": {
+    "n": 16,
+    "mean": 11.3125,
+    "p10": 9.5,
+    "p50": 12.0,
+    "p90": 13.0
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 90.0,
+     "p10": 54.0,
+     "p50": 91.5,
+     "p90": 124.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 8.25,
+     "p10": 7.0,
+     "p50": 8.0,
+     "p90": 10.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 1.0625,
+     "p10": 0.0,
+     "p50": 1.0,
+     "p90": 2.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "J.Endries",
+   "targets": {
+    "n": 16,
+    "mean": 0.625,
+    "p10": 0.0,
+    "p50": 0.5,
+    "p90": 1.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 2.5625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 4.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.4375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "M.Gesicki",
+   "targets": {
+    "n": 16,
+    "mean": 2.9375,
+    "p10": 2.0,
+    "p50": 3.0,
+    "p90": 4.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 33.4375,
+     "p10": 0.5,
+     "p50": 32.5,
+     "p90": 65.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 2.0,
+     "p10": 0.5,
+     "p50": 2.0,
+     "p90": 3.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.1875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.5
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "M.Tinsley",
+   "targets": {
+    "n": 16,
+    "mean": 0.8125,
+    "p10": 0.0,
+    "p50": 0.5,
+    "p90": 2.0
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 4.75,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 13.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.4375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.5
+    }
+   },
+   "td_opportunity": {},
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "S.Perine",
+   "targets": {
+    "n": 16,
+    "mean": 1.9375,
+    "p10": 0.0,
+    "p50": 2.0,
+    "p90": 4.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 6.4375,
+    "p10": 4.0,
+    "p50": 6.0,
+    "p90": 9.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 30.5,
+     "p10": 18.0,
+     "p50": 32.5,
+     "p90": 42.0
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 16.3125,
+     "p10": 0.0,
+     "p50": 11.0,
+     "p90": 42.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 1.6875,
+     "p10": 0.0,
+     "p50": 1.5,
+     "p90": 3.5
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.1875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    },
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "T.Brooks",
+   "targets": null,
+   "carries": {
+    "n": 16,
+    "mean": 0.5625,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 2.25,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 7.0
+    }
+   },
+   "td_opportunity": {},
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "T.Higgins",
+   "targets": {
+    "n": 16,
+    "mean": 8.125,
+    "p10": 4.5,
+    "p50": 8.0,
+    "p90": 11.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 96.125,
+     "p10": 55.5,
+     "p50": 86.5,
+     "p90": 142.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 5.8125,
+     "p10": 3.0,
+     "p50": 5.0,
+     "p90": 9.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.6875,
+     "p10": 0.0,
+     "p50": 0.5,
+     "p90": 2.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "CIN",
+   "player": "T.Hudson",
+   "targets": {
+    "n": 16,
+    "mean": 0.375,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.0
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 1.6875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 6.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "td_opportunity": {},
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "A.Estime",
+   "targets": {
+    "n": 16,
+    "mean": 0.1875,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 2.1875,
+    "p10": 0.0,
+    "p50": 2.0,
+    "p90": 4.5
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 6.0,
+     "p10": 0.0,
+     "p50": 5.0,
+     "p90": 14.0
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 0.9375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 5.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.1875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "A.Kamara",
+   "targets": {
+    "n": 16,
+    "mean": 3.625,
+    "p10": 2.0,
+    "p50": 3.5,
+    "p90": 5.5
+   },
+   "carries": {
+    "n": 16,
+    "mean": 5.5,
+    "p10": 3.0,
+    "p50": 5.5,
+    "p90": 8.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 16.3125,
+     "p10": 6.0,
+     "p50": 16.5,
+     "p90": 25.0
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 16.5,
+     "p10": 5.5,
+     "p50": 16.0,
+     "p90": 27.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 2.8125,
+     "p10": 1.5,
+     "p50": 2.5,
+     "p90": 4.5
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    },
+    "rec_td": {
+     "n": 16,
+     "mean": 0.25,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "B.Brown",
+   "targets": {
+    "n": 16,
+    "mean": 0.6875,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 1.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 0.8125,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 2.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 0.1875,
+     "p10": -1.0,
+     "p50": 0.0,
+     "p90": 2.5
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 17.3125,
+     "p10": 0.0,
+     "p50": 5.0,
+     "p90": 52.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.6875,
+     "p10": 0.0,
+     "p50": 1.0,
+     "p90": 1.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "B.Lance",
+   "targets": {
+    "n": 16,
+    "mean": 1.9375,
+    "p10": 0.0,
+    "p50": 2.0,
+    "p90": 3.0
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 5.8125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 19.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.6875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 2.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "C.Donaldson",
+   "targets": {
+    "n": 16,
+    "mean": 1.4375,
+    "p10": 0.5,
+    "p50": 1.0,
+    "p90": 3.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 1.6875,
+    "p10": 0.5,
+    "p50": 1.5,
+    "p90": 3.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 9.125,
+     "p10": 1.0,
+     "p50": 8.5,
+     "p90": 17.5
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 3.6875,
+     "p10": -1.0,
+     "p50": 1.5,
+     "p90": 11.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 1.3125,
+     "p10": 0.0,
+     "p50": 1.0,
+     "p90": 2.5
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.0,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "C.Olave",
+   "targets": {
+    "n": 16,
+    "mean": 9.6875,
+    "p10": 6.5,
+    "p50": 10.0,
+    "p90": 12.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 75.5625,
+     "p10": 33.5,
+     "p50": 75.5,
+     "p90": 107.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 6.25,
+     "p10": 4.0,
+     "p50": 6.0,
+     "p90": 9.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.4375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "D.Vele",
+   "targets": {
+    "n": 16,
+    "mean": 6.8125,
+    "p10": 4.0,
+    "p50": 7.0,
+    "p90": 9.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 40.5,
+     "p10": 26.0,
+     "p50": 38.5,
+     "p90": 61.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 4.625,
+     "p10": 3.0,
+     "p50": 4.0,
+     "p90": 6.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.1875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "J.Johnson",
+   "targets": {
+    "n": 16,
+    "mean": 3.4375,
+    "p10": 2.0,
+    "p50": 3.0,
+    "p90": 5.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 32.0,
+     "p10": 15.5,
+     "p50": 27.5,
+     "p90": 57.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 2.25,
+     "p10": 1.0,
+     "p50": 2.0,
+     "p90": 3.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.1875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "J.Tyson",
+   "targets": {
+    "n": 16,
+    "mean": 2.0,
+    "p10": 0.0,
+    "p50": 2.0,
+    "p90": 4.5
+   },
+   "carries": {
+    "n": 16,
+    "mean": 0.0625,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 0.25,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 13.1875,
+     "p10": 0.0,
+     "p50": 6.5,
+     "p90": 36.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 1.6875,
+     "p10": 0.0,
+     "p50": 1.5,
+     "p90": 4.5
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": {
+    "n": 16,
+    "mean": 0.0625,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+   }
+  },
+  {
+   "team": "NO",
+   "player": "K.Miller",
+   "targets": {
+    "n": 16,
+    "mean": 1.125,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 2.5
+   },
+   "carries": {
+    "n": 16,
+    "mean": 6.5625,
+    "p10": 5.0,
+    "p50": 6.0,
+    "p90": 9.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 19.0,
+     "p10": 11.5,
+     "p50": 21.0,
+     "p90": 26.5
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 3.1875,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 9.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.5625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.5
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.3125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "N.Fant",
+   "targets": {
+    "n": 16,
+    "mean": 2.4375,
+    "p10": 1.0,
+    "p50": 2.0,
+    "p90": 4.5
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 11.5,
+     "p10": 0.0,
+     "p50": 8.0,
+     "p90": 23.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 1.5,
+     "p10": 0.0,
+     "p50": 1.0,
+     "p90": 3.0
+    }
+   },
+   "td_opportunity": {
+    "rec_td": {
+     "n": 16,
+     "mean": 0.0625,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.0
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "O.Delp",
+   "targets": {
+    "n": 16,
+    "mean": 0.375,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.0
+   },
+   "carries": null,
+   "yards": {
+    "rec_yds": {
+     "n": 16,
+     "mean": 2.0,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 7.0
+    },
+    "rec": {
+     "n": 16,
+     "mean": 0.375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 1.0
+    }
+   },
+   "td_opportunity": {},
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "T.Etienne",
+   "targets": {
+    "n": 16,
+    "mean": 2.4375,
+    "p10": 1.0,
+    "p50": 2.5,
+    "p90": 4.0
+   },
+   "carries": {
+    "n": 16,
+    "mean": 5.1875,
+    "p10": 3.0,
+    "p50": 5.5,
+    "p90": 6.5
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 18.25,
+     "p10": 6.0,
+     "p50": 14.5,
+     "p90": 29.5
+    },
+    "rec_yds": {
+     "n": 16,
+     "mean": 10.5625,
+     "p10": 1.5,
+     "p50": 8.0,
+     "p90": 21.5
+    },
+    "rec": {
+     "n": 16,
+     "mean": 2.0625,
+     "p10": 0.5,
+     "p50": 2.0,
+     "p90": 3.0
+    }
+   },
+   "td_opportunity": {
+    "rush_td": {
+     "n": 16,
+     "mean": 0.125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.5
+    }
+   },
+   "pass_att": null
+  },
+  {
+   "team": "NO",
+   "player": "T.Shough",
+   "targets": null,
+   "carries": {
+    "n": 16,
+    "mean": 4.3125,
+    "p10": 1.5,
+    "p50": 4.5,
+    "p90": 7.0
+   },
+   "yards": {
+    "pass_yds": {
+     "n": 16,
+     "mean": 232.75,
+     "p10": 182.0,
+     "p50": 218.5,
+     "p90": 308.0
+    },
+    "rush_yds": {
+     "n": 16,
+     "mean": 37.6875,
+     "p10": 11.5,
+     "p50": 34.0,
+     "p90": 60.5
+    }
+   },
+   "td_opportunity": {
+    "pass_td": {
+     "n": 16,
+     "mean": 1.3125,
+     "p10": 0.0,
+     "p50": 1.5,
+     "p90": 2.0
+    },
+    "rush_td": {
+     "n": 16,
+     "mean": 0.125,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 0.5
+    }
+   },
+   "pass_att": {
+    "n": 16,
+    "mean": 37.6875,
+    "p10": 33.0,
+    "p50": 38.0,
+    "p90": 41.0
+   }
+  },
+  {
+   "team": "NO",
+   "player": "Z.White",
+   "targets": null,
+   "carries": {
+    "n": 16,
+    "mean": 0.1875,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.0
+   },
+   "yards": {
+    "rush_yds": {
+     "n": 16,
+     "mean": 0.9375,
+     "p10": 0.0,
+     "p50": 0.0,
+     "p90": 5.0
+    }
+   },
+   "td_opportunity": {},
+   "pass_att": null
+  }
+ ],
+ "plays_supported": true,
+ "player_opportunity_supported": true
+}

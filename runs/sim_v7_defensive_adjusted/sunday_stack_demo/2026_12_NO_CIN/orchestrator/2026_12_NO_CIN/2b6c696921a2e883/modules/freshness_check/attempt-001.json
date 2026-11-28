@@ -1,0 +1,112 @@
+{
+  "error": null,
+  "finished_at": "2026-11-28T18:10:10+00:00",
+  "n": 1,
+  "output": {
+    "analytical": false,
+    "entrypoint": "pipeline.freshness.check",
+    "rows": [
+      {
+        "reason": "as-of 2026-11-28T15:06:24+00:00 (live_pull (live endpoint; pull time is the quote time)) is 184 min old; limit 1440 min.",
+        "source": "schedule",
+        "status": "FRESH"
+      },
+      {
+        "reason": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "play_by_play",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "rosters",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "depth_charts",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "snap_counts",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "ftn_charting",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "pfr_defense",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "official_injuries",
+        "status": "MISSING"
+      },
+      {
+        "reason": "as-of 2026-11-28T15:06:27+00:00 (live_pull (live endpoint; pull time is the quote time)) is 184 min old; limit 360 min.",
+        "source": "news_injuries",
+        "status": "FRESH"
+      },
+      {
+        "reason": "'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "weather",
+        "status": "MISSING"
+      },
+      {
+        "reason": "as-of 2026-11-28T15:01:01+00:00 (live_pull (live endpoint; pull time is the quote time)) is 189 min old; limit 360 min.",
+        "source": "odds",
+        "status": "FRESH"
+      },
+      {
+        "reason": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "ngs_passing",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "ngs_receiving",
+        "status": "MISSING"
+      },
+      {
+        "reason": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+        "source": "ngs_rushing",
+        "status": "MISSING"
+      },
+      {
+        "reason": "Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+        "source": "official_inactives",
+        "status": "NOT_YET"
+      },
+      {
+        "reason": "189 min old; limit 360 min.",
+        "source": "four_book_prices",
+        "status": "FRESH"
+      },
+      {
+        "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+        "source": "ngs_defender_matchup",
+        "status": "FRESH"
+      }
+    ]
+  },
+  "started_at": "2026-11-28T18:10:10+00:00",
+  "status": "PARTIAL",
+  "warnings": [
+    "play_by_play MISSING: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "rosters MISSING: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "depth_charts MISSING: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "snap_counts MISSING: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ftn_charting MISSING: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "pfr_defense MISSING: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "official_injuries MISSING: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "weather MISSING: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_passing MISSING: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_receiving MISSING: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_rushing MISSING: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+ "engine_id": "simv56",
+ "method": "verify_engines",
+ "sampling": null,
+ "entrypoint": "calibration/simv56_pmodel.py",
+ "command": "python -m calibration.simv56_pmodel run --legs <legs.csv> --week <W> --sources <dir> --out <dir>",
+ "version": {
+  "path": "calibration/simv56_pmodel.py",
+  "sha256": "bb7037fd03a141e60e627f19bb1dbdc4dec80352ce4d0d54c596da6dd3201fc0",
+  "exists": true
+ },
+ "called": true,
+ "simulated": false,
+ "trials": null,
+ "trials_if_run_all_invoked": 20000,
+ "seed": null,
+ "calibration_status": "NOT_EVALUATED_THIS_RUN",
+ "status": "ENTRYPOINT_PRESENT_NOT_INVOKED",
+ "verify_engines": "PASS",
+ "verify_error": null,
+ "engine_file_sha256": {
+  "cc_sim_v5.py": "a1b7fed65a23bd8d3e6b6087d79c6c1deec01c7a5fe2f82a6ead3f278ea47267",
+  "cc_sim_v6.py": "2248cd17d31f65d6575c324f049d5b274dee6d5f6910fef145d44bb685e05028",
+  "cc_sim_v6_fix.py": "9493e3a242d4dbb23cfd2aceb5dafd9c8fc30960f31f36a4f923b1c0f651e582",
+  "qb_rush_prior.py": "c1fa4176a2fe0612c90366898b0e6195362fdfceb847427c4fe74163051f727d",
+  "volume_fix.py": "11f941e8e1539b5f826e8e06ce1e73515cd90257212dbc29162d7e54accb40d2",
+  "sim_v6_backtest.csv": "7ef40c67c5d3c0b6d5cafdb274969b9cd8b4226c96ffef3d9f7da136510bf07d",
+  "sim_v6_fix_backtest.csv": "f8f4c1b6eb91c15532e76961dc44d91f42ac34bd37525017bc54319ac663af98",
+  "rb_script_boost.json": "7c6893baa35f9371644e2a48c92a074e78cef23d447f52aa29830d4ec2921850",
+  "rb_miss_fit.json": "3d5ded3377c134460261fe77ffcca5247ed66108794abcbea6fc43984b197de2"
+ },
+ "engines_inside_ensemble": [
+  "sim_v5",
+  "sim_v6",
+  "sim_v6_fix"
+ ],
+ "distinct_from_sim_v6": true,
+ "reason": "verify_engines ran. run_all did not: this replay has no rush-yards legs file. The ensemble is sim_v5, cc_sim_v6 and cc_sim_v6_fix at 20000 trials. It is not tools/sim_v6.py.",
+ "inputs": {
+  "legs": null
+ },
+ "artifact": "models/simv56__verify_engines.json",
+ "projection_ready": false,
+ "limitations": [
+  "No prop legs were invented in order to force a simv56 run."
+ ]
+}

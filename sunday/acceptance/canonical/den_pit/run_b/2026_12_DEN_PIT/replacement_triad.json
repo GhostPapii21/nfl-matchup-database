@@ -1,0 +1,200 @@
+{
+ "methods": [
+  {
+   "identity": "core.period_engine_v0",
+   "mechanism": "quarter bootstrap, independent of the possession play engine",
+   "reason": "A 100k period cell was not started. The 24/400 Sunday smoke is not this cell.",
+   "scripts": [
+    "favorite_controls",
+    "competitive",
+    "underdog_chases"
+   ],
+   "status": "NOT_EXECUTED_THIS_RUN",
+   "trials_executed": 0,
+   "trials_required_per_script": 100000
+  },
+  {
+   "committed_benchmark": {
+    "engine": "core.possession_engine_v0",
+    "n": 100000,
+    "note": "Committed lock. This command did not repeat that run and did not multiply it by nine.",
+    "path": "snapshots/2026_12_DEN_PIT/20261127T111648Z/LOCK.json",
+    "runtime_sec": 819.2
+   },
+   "identity": "core.possession_engine_v0",
+   "mechanism": "play-level simulation",
+   "reason": "The committed DEN@PIT lock records one 100k possession run at 819.2 seconds. Nine such cells were not started.",
+   "status": "NOT_EXECUTED_THIS_RUN",
+   "trials_executed": 0,
+   "trials_required_per_script": 100000
+  },
+  {
+   "draws_sha256": "31e321b87afc38998254c50feb8e3349079a8f9db4b8aaf2987dcc0b067bbe07",
+   "evidence_tier": "inferred",
+   "identity": "nflverse_games_bootstrap",
+   "mean": 0.5217,
+   "mechanism": "resample realized home margin from nflverse games.csv",
+   "not_sim_v6": true,
+   "p50": 2.0,
+   "projection_ready": false,
+   "reason": "Home margin is not favorite margin. games.csv has no closing spread, so script bins were not assigned.",
+   "sample_size": 65,
+   "scripts_assigned": false,
+   "seed": 20261129,
+   "status": "EXECUTED",
+   "trials_executed": 100000,
+   "trials_required": 100000
+  }
+ ],
+ "not_sim_v6": true,
+ "projection_ready": false,
+ "schema": "sunday-replacement-triad/1",
+ "walk_forward": {
+  "holdout_scorecard": null,
+  "identity": "committed backtest columns pred_mc, pred_bias, pred_gr; not relabeled as the Sunday script triad",
+  "later_weeks_than_file": "not in this file",
+  "markets": {
+   "passyds": {
+    "by_week": {
+     "4": {
+      "median_abs_error_mc": 69.87531017303402,
+      "rows": 28
+     },
+     "5": {
+      "median_abs_error_mc": 49.61063080231365,
+      "rows": 28
+     },
+     "6": {
+      "median_abs_error_mc": 39.747004058913205,
+      "rows": 26
+     },
+     "7": {
+      "median_abs_error_mc": 65.12072783884172,
+      "rows": 28
+     }
+    },
+    "median_abs_error": {
+     "bias": 55.96710901330704,
+     "gr": 55.56019878117756,
+     "mc": 55.02079006938584
+    },
+    "rows": 110
+   },
+   "rec": {
+    "by_week": {
+     "4": {
+      "median_abs_error_mc": 1.5328393705540497,
+      "rows": 90
+     },
+     "5": {
+      "median_abs_error_mc": 1.644248016109576,
+      "rows": 91
+     },
+     "6": {
+      "median_abs_error_mc": 1.4666615714794933,
+      "rows": 91
+     },
+     "7": {
+      "median_abs_error_mc": 1.5248258731487523,
+      "rows": 97
+     }
+    },
+    "median_abs_error": {
+     "bias": 1.5296578643551806,
+     "gr": 1.4505648289565793,
+     "mc": 1.529391328141953
+    },
+    "rows": 369
+   },
+   "recyds": {
+    "by_week": {
+     "4": {
+      "median_abs_error_mc": 24.84182657463699,
+      "rows": 90
+     },
+     "5": {
+      "median_abs_error_mc": 27.12541613989272,
+      "rows": 91
+     },
+     "6": {
+      "median_abs_error_mc": 18.79922803067584,
+      "rows": 91
+     },
+     "7": {
+      "median_abs_error_mc": 23.28458543897002,
+      "rows": 97
+     }
+    },
+    "median_abs_error": {
+     "bias": 23.263890042982204,
+     "gr": 23.13908344109808,
+     "mc": 23.12951353288095
+    },
+    "rows": 369
+   },
+   "rushrec": {
+    "by_week": {
+     "4": {
+      "median_abs_error_mc": 22.057173579024244,
+      "rows": 36
+     },
+     "5": {
+      "median_abs_error_mc": 28.89324135759054,
+      "rows": 32
+     },
+     "6": {
+      "median_abs_error_mc": 32.46605007529905,
+      "rows": 24
+     },
+     "7": {
+      "median_abs_error_mc": 23.035683397565478,
+      "rows": 30
+     }
+    },
+    "median_abs_error": {
+     "bias": 24.938765593059152,
+     "gr": 25.31438968993126,
+     "mc": 24.725666699850834
+    },
+    "rows": 122
+   },
+   "rushyds": {
+    "by_week": {
+     "4": {
+      "median_abs_error_mc": 17.23359932811386,
+      "rows": 38
+     },
+     "5": {
+      "median_abs_error_mc": 27.00601078212641,
+      "rows": 33
+     },
+     "6": {
+      "median_abs_error_mc": 16.97553212766779,
+      "rows": 25
+     },
+     "7": {
+      "median_abs_error_mc": 29.778461211773568,
+      "rows": 30
+     }
+    },
+    "median_abs_error": {
+     "bias": 24.65224327803275,
+     "gr": 24.800766837917408,
+     "mc": 24.355808715530895
+    },
+    "rows": 126
+   }
+  },
+  "path": "calibration/simv56/engines/sim_v6_backtest.csv",
+  "projection_ready": false,
+  "refit": false,
+  "rows": 1096,
+  "status": "SCORED_COMMITTED_FILE",
+  "weeks": [
+   4,
+   5,
+   6,
+   7
+  ]
+ }
+}
