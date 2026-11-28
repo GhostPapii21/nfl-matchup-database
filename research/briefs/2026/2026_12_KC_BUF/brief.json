@@ -1,7 +1,7 @@
 {
  "game_id": "2026_12_KC_BUF",
- "made_utc": "2026-11-25T03:50:23+00:00",
- "board_built_utc": "2026-11-25T03:47:10+00:00",
+ "made_utc": "2026-11-27T00:01:26+00:00",
+ "board_built_utc": "2026-11-26T22:49:52+00:00",
  "game": {
   "game_id": "2026_12_KC_BUF",
   "season": 2026,
@@ -29,40 +29,71 @@
   }
  },
  "implied_points": {
-  "BUF": 24.75,
-  "KC": 22.25
+  "BUF": 24.5,
+  "KC": 21.5
  },
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -3.0,
-  "total": 47.5,
+  "total": 45.5,
   "moneyline": {
-   "KC": 126.0,
-   "BUF": -149.0
+   "KC": 130.0,
+   "BUF": -153.0
   }
  },
  "weather": {
   "status": "OK",
   "board": {
-   "wind_mph_max": 12.0,
-   "precip_pct_max": 100,
-   "retrieved_utc": "2026-11-25T03:45:49+00:00"
+   "wind_mph_max": 15.0,
+   "precip_pct_max": 98,
+   "retrieved_utc": "2026-11-26T22:49:12+00:00"
   },
-  "flag": null,
+  "flag": "WORSE THAN THE BOARD: it is light rain at KBUF now. Rain cuts receiver yards about 16% and 15+ mph wind about 8% (research/context_effects_2026-11-22): shade WR yards down; tight-end and running-back catches hold up better.",
   "forecast_now": {
-   "wind_mph_max": 12.0,
-   "precip_pct_max": 100,
+   "wind_mph_max": 15.0,
+   "precip_pct_max": 98,
    "summary": "Rain"
   },
   "observed_now": {
    "station": "KBUF",
-   "at": "2026-11-25T03:30:00+00:00",
-   "text": "Clear",
-   "wind_mph": 3.4
+   "at": "2026-11-26T23:35:00+00:00",
+   "text": "Light Rain",
+   "wind_mph": null
   }
  },
- "inactives_used": {},
- "availability": [],
+ "inactives_used": {
+  "KC": [
+   "Kenneth Walker III",
+   "Garrett Nussmeier",
+   "Melvin Smith Jr.",
+   "Omarr Norman-Lott",
+   "Diego Pounds",
+   "Jaylon Moore",
+   "Marcus Harris"
+  ],
+  "BUF": [
+   "Skyler Bell",
+   "Jalon Kilgore",
+   "Christian Benford",
+   "Mike Danna",
+   "Jude Bowry",
+   "Greg Gaines"
+  ]
+ },
+ "availability": [
+  {
+   "team": "KC",
+   "player": "Noah Gray",
+   "flag": "QUESTIONABLE",
+   "note": "Questionable (Rib): confirm he is active"
+  },
+  {
+   "team": "BUF",
+   "player": "Dalton Kincaid",
+   "flag": "QUESTIONABLE",
+   "note": "Questionable (Thumb): confirm he is active"
+  }
+ ],
  "defenses": [
   {
    "defense": "BUF",
@@ -100,31 +131,31 @@
    "te_rank": 17,
    "rb_rush_rank": 11,
    "separation": {
-    "vs_norm_yards": 0.09,
-    "rank": 22,
+    "vs_norm_yards": -0.11,
+    "rank": 9,
     "of": 32
    },
    "most_yards_allowed": [
     {
-     "player": "Cole Bishop",
-     "pos": "S",
-     "yards": 213,
-     "targets": 27,
-     "grade": "neutral"
-    },
-    {
      "player": "Davison Igbinosun",
      "pos": "CB",
-     "yards": 205,
-     "targets": 40,
+     "yards": 234,
+     "targets": 48,
      "grade": "avoid"
+    },
+    {
+     "player": "Cole Bishop",
+     "pos": "S",
+     "yards": 220,
+     "targets": 34,
+     "grade": "neutral"
     },
     {
      "player": "Christian Benford",
      "pos": "CB",
      "yards": 184,
      "targets": 32,
-     "grade": "avoid"
+     "grade": "neutral"
     }
    ]
   },
@@ -164,7 +195,7 @@
    "te_rank": 30,
    "rb_rush_rank": 8,
    "separation": {
-    "vs_norm_yards": 0.07,
+    "vs_norm_yards": 0.08,
     "rank": 21,
     "of": 32
    },
@@ -173,22 +204,22 @@
      "player": "Mansoor Delane",
      "pos": "CB",
      "yards": 255,
-     "targets": 28,
+     "targets": 30,
      "grade": "target"
     },
     {
      "player": "Nohl Williams",
      "pos": "CB",
-     "yards": 203,
-     "targets": 44,
+     "yards": 221,
+     "targets": 49,
      "grade": "neutral"
     },
     {
-     "player": "L'Jarius Sneed",
-     "pos": "CB",
-     "yards": 187,
-     "targets": 23,
-     "grade": "neutral"
+     "player": "Chamarri Conner",
+     "pos": "S",
+     "yards": 202,
+     "targets": 20,
+     "grade": "target"
     }
    ]
   }
@@ -201,42 +232,42 @@
    "market": "receptions",
    "line": 4.5,
    "side": "Under",
-   "p_model": 0.712,
-   "p_market": 0.578,
-   "p_blend": 0.648,
-   "rank_score": 0.618,
-   "model_shift_removed": -0.715,
-   "books": 5,
-   "flags": []
-  },
-  {
-   "team": "KC",
-   "player": "Xavier Worthy",
-   "pos": "WR",
-   "market": "receiving_yards",
-   "line": 20.5,
-   "side": "Over",
-   "p_model": 0.627,
-   "p_market": 0.5,
-   "p_blend": 0.565,
-   "rank_score": 0.565,
-   "model_shift_removed": -0.664,
+   "p_model": 0.749,
+   "p_market": 0.588,
+   "p_blend": 0.673,
+   "rank_score": 0.643,
+   "model_shift_removed": -0.487,
    "books": 6,
    "flags": []
   },
   {
    "team": "BUF",
-   "player": "DJ Moore",
+   "player": "Keon Coleman",
    "pos": "WR",
    "market": "receptions",
-   "line": 3.5,
+   "line": 1.5,
    "side": "Over",
-   "p_model": 0.539,
-   "p_market": 0.583,
-   "p_blend": 0.561,
-   "rank_score": 0.561,
-   "model_shift_removed": -0.715,
+   "p_model": 0.662,
+   "p_market": 0.592,
+   "p_blend": 0.628,
+   "rank_score": 0.628,
+   "model_shift_removed": -0.487,
    "books": 5,
+   "flags": []
+  },
+  {
+   "team": "BUF",
+   "player": "Dalton Kincaid",
+   "pos": "TE",
+   "market": "receptions",
+   "line": 3.5,
+   "side": "Under",
+   "p_model": 0.652,
+   "p_market": 0.588,
+   "p_blend": 0.62,
+   "rank_score": 0.59,
+   "model_shift_removed": -0.487,
+   "books": 3,
    "flags": []
   },
   {
@@ -246,57 +277,27 @@
    "market": "receptions",
    "line": 1.5,
    "side": "Under",
-   "p_model": 0.574,
-   "p_market": 0.578,
-   "p_blend": 0.576,
-   "rank_score": 0.546,
-   "model_shift_removed": -0.715,
-   "books": 5,
+   "p_model": 0.627,
+   "p_market": 0.592,
+   "p_blend": 0.609,
+   "rank_score": 0.579,
+   "model_shift_removed": -0.487,
+   "books": 7,
    "flags": []
   },
   {
-   "team": "BUF",
-   "player": "Dalton Kincaid",
-   "pos": "TE",
-   "market": "receptions",
-   "line": 3.5,
+   "team": "KC",
+   "player": "Emmett Johnson",
+   "pos": "RB",
+   "market": "rushing_yards",
+   "line": 81.5,
    "side": "Under",
-   "p_model": 0.599,
-   "p_market": 0.552,
-   "p_blend": 0.575,
-   "rank_score": 0.545,
-   "model_shift_removed": -0.715,
-   "books": 4,
-   "flags": []
-  },
-  {
-   "team": "BUF",
-   "player": "Dalton Kincaid",
-   "pos": "TE",
-   "market": "receiving_yards",
-   "line": 41.5,
-   "side": "Under",
-   "p_model": 0.63,
+   "p_model": 0.665,
    "p_market": 0.5,
-   "p_blend": 0.566,
-   "rank_score": 0.536,
-   "model_shift_removed": -0.664,
-   "books": 4,
-   "flags": []
-  },
-  {
-   "team": "BUF",
-   "player": "Khalil Shakir",
-   "pos": "WR",
-   "market": "receiving_yards",
-   "line": 39.5,
-   "side": "Over",
-   "p_model": 0.539,
-   "p_market": 0.499,
-   "p_blend": 0.519,
-   "rank_score": 0.519,
-   "model_shift_removed": -0.664,
-   "books": 6,
+   "p_blend": 0.585,
+   "rank_score": 0.555,
+   "model_shift_removed": 0.0,
+   "books": 7,
    "flags": []
   },
   {
@@ -304,44 +305,46 @@
    "player": "Keon Coleman",
    "pos": "WR",
    "market": "receiving_yards",
-   "line": 24.5,
+   "line": 21.5,
    "side": "Over",
-   "p_model": 0.529,
-   "p_market": 0.496,
-   "p_blend": 0.513,
-   "rank_score": 0.513,
-   "model_shift_removed": -0.664,
+   "p_model": 0.575,
+   "p_market": 0.502,
+   "p_blend": 0.539,
+   "rank_score": 0.539,
+   "model_shift_removed": -0.589,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "KC",
+   "player": "Noah Gray",
+   "pos": "TE",
+   "market": "receptions",
+   "line": 1.5,
+   "side": "Over",
+   "p_model": 0.613,
+   "p_market": 0.461,
+   "p_blend": 0.538,
+   "rank_score": 0.538,
+   "model_shift_removed": -0.487,
    "books": 6,
    "flags": []
   },
   {
-   "team": "KC",
-   "player": "Rashee Rice",
-   "pos": "WR",
-   "market": "receiving_yards",
-   "line": 47.5,
-   "side": "Over",
-   "p_model": 0.51,
-   "p_market": 0.5,
-   "p_blend": 0.505,
-   "rank_score": 0.505,
-   "model_shift_removed": -0.664,
-   "books": 8,
-   "flags": []
-  },
-  {
    "team": "BUF",
-   "player": "James Cook",
-   "pos": "RB",
-   "market": "rushing_yards",
-   "line": 85.5,
-   "side": "Under",
-   "p_model": 0.56,
-   "p_market": 0.5,
+   "player": "Dawson Knox",
+   "pos": "TE",
+   "market": "receptions",
+   "line": 1.5,
+   "side": "Over",
+   "p_model": 0.591,
+   "p_market": 0.469,
    "p_blend": 0.53,
-   "rank_score": 0.5,
-   "model_shift_removed": 0.0,
-   "books": 7,
+   "rank_score": 0.53,
+   "model_shift_removed": -0.487,
+   "books": 5,
    "flags": []
   },
   {
@@ -351,43 +354,30 @@
    "market": "receptions",
    "line": 3.5,
    "side": "Under",
-   "p_model": 0.551,
-   "p_market": 0.484,
-   "p_blend": 0.518,
-   "rank_score": 0.488,
-   "model_shift_removed": -0.715,
-   "books": 5,
-   "flags": []
-  },
-  {
-   "team": "BUF",
-   "player": "DJ Moore",
-   "pos": "WR",
-   "market": "receiving_yards",
-   "line": 50.5,
-   "side": "Under",
-   "p_model": 0.535,
-   "p_market": 0.5,
-   "p_blend": 0.518,
-   "rank_score": 0.488,
-   "model_shift_removed": -0.664,
+   "p_model": 0.609,
+   "p_market": 0.505,
+   "p_blend": 0.558,
+   "rank_score": 0.528,
+   "model_shift_removed": -0.487,
    "books": 6,
    "flags": []
   },
   {
-   "team": "KC",
-   "player": "Travis Kelce",
-   "pos": "TE",
+   "team": "BUF",
+   "player": "Khalil Shakir",
+   "pos": "WR",
    "market": "receiving_yards",
-   "line": 44.5,
-   "side": "Under",
-   "p_model": 0.54,
-   "p_market": 0.495,
-   "p_blend": 0.517,
-   "rank_score": 0.487,
-   "model_shift_removed": -0.664,
+   "line": 36.5,
+   "side": "Over",
+   "p_model": 0.548,
+   "p_market": 0.506,
+   "p_blend": 0.527,
+   "rank_score": 0.527,
+   "model_shift_removed": -0.589,
    "books": 7,
-   "flags": []
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
   },
   {
    "team": "KC",
@@ -396,27 +386,91 @@
    "market": "receptions",
    "line": 4.5,
    "side": "Under",
-   "p_model": 0.519,
-   "p_market": 0.495,
-   "p_blend": 0.507,
-   "rank_score": 0.477,
-   "model_shift_removed": -0.715,
-   "books": 5,
+   "p_model": 0.567,
+   "p_market": 0.545,
+   "p_blend": 0.556,
+   "rank_score": 0.526,
+   "model_shift_removed": -0.487,
+   "books": 7,
    "flags": []
   },
   {
    "team": "KC",
-   "player": "Xavier Worthy",
+   "player": "Rashee Rice",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 44.5,
+   "side": "Over",
+   "p_model": 0.537,
+   "p_market": 0.499,
+   "p_blend": 0.518,
+   "rank_score": 0.518,
+   "model_shift_removed": -0.589,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "BUF",
+   "player": "Dalton Kincaid",
+   "pos": "TE",
+   "market": "receiving_yards",
+   "line": 36.5,
+   "side": "Under",
+   "p_model": 0.587,
+   "p_market": 0.506,
+   "p_blend": 0.547,
+   "rank_score": 0.517,
+   "model_shift_removed": -0.589,
+   "books": 6,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "BUF",
+   "player": "DJ Moore",
    "pos": "WR",
    "market": "receptions",
-   "line": 2.5,
+   "line": 3.5,
+   "side": "Over",
+   "p_model": 0.488,
+   "p_market": 0.541,
+   "p_blend": 0.514,
+   "rank_score": 0.514,
+   "model_shift_removed": -0.487,
+   "books": 7,
+   "flags": []
+  },
+  {
+   "team": "BUF",
+   "player": "James Cook",
+   "pos": "RB",
+   "market": "rushing_yards",
+   "line": 87.5,
    "side": "Under",
-   "p_model": 0.427,
-   "p_market": 0.58,
-   "p_blend": 0.504,
-   "rank_score": 0.474,
-   "model_shift_removed": -0.715,
-   "books": 4,
+   "p_model": 0.579,
+   "p_market": 0.497,
+   "p_blend": 0.538,
+   "rank_score": 0.508,
+   "model_shift_removed": 0.0,
+   "books": 8,
+   "flags": []
+  },
+  {
+   "team": "KC",
+   "player": "Emmett Johnson",
+   "pos": "RB",
+   "market": "receptions",
+   "line": 3.5,
+   "side": "Over",
+   "p_model": 0.466,
+   "p_market": 0.545,
+   "p_blend": 0.506,
+   "rank_score": 0.506,
+   "model_shift_removed": -0.487,
+   "books": 6,
    "flags": []
   },
   {
@@ -426,13 +480,79 @@
    "market": "receptions",
    "line": 2.5,
    "side": "Under",
-   "p_model": 0.417,
-   "p_market": 0.589,
-   "p_blend": 0.503,
-   "rank_score": 0.473,
-   "model_shift_removed": -0.715,
-   "books": 4,
+   "p_model": 0.473,
+   "p_market": 0.573,
+   "p_blend": 0.523,
+   "rank_score": 0.493,
+   "model_shift_removed": -0.487,
+   "books": 5,
    "flags": []
+  },
+  {
+   "team": "BUF",
+   "player": "DJ Moore",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 48.5,
+   "side": "Under",
+   "p_model": 0.536,
+   "p_market": 0.504,
+   "p_blend": 0.52,
+   "rank_score": 0.49,
+   "model_shift_removed": -0.589,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "KC",
+   "player": "Travis Kelce",
+   "pos": "TE",
+   "market": "receiving_yards",
+   "line": 43.5,
+   "side": "Under",
+   "p_model": 0.537,
+   "p_market": 0.5,
+   "p_blend": 0.519,
+   "rank_score": 0.489,
+   "model_shift_removed": -0.589,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "KC",
+   "player": "Xavier Worthy",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 2.5,
+   "side": "Under",
+   "p_model": 0.47,
+   "p_market": 0.567,
+   "p_blend": 0.519,
+   "rank_score": 0.489,
+   "model_shift_removed": -0.487,
+   "books": 5,
+   "flags": []
+  },
+  {
+   "team": "KC",
+   "player": "Emmett Johnson",
+   "pos": "RB",
+   "market": "receiving_yards",
+   "line": 30.5,
+   "side": "Under",
+   "p_model": 0.501,
+   "p_market": 0.5,
+   "p_blend": 0.501,
+   "rank_score": 0.471,
+   "model_shift_removed": -0.589,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
   }
  ],
  "picks": [
@@ -443,42 +563,57 @@
    "market": "receptions",
    "line": 4.5,
    "side": "Under",
-   "p_model": 0.712,
-   "p_market": 0.578,
-   "p_blend": 0.648,
-   "rank_score": 0.618,
-   "model_shift_removed": -0.715,
-   "books": 5,
-   "flags": []
-  },
-  {
-   "team": "KC",
-   "player": "Xavier Worthy",
-   "pos": "WR",
-   "market": "receiving_yards",
-   "line": 20.5,
-   "side": "Over",
-   "p_model": 0.627,
-   "p_market": 0.5,
-   "p_blend": 0.565,
-   "rank_score": 0.565,
-   "model_shift_removed": -0.664,
+   "p_model": 0.749,
+   "p_market": 0.588,
+   "p_blend": 0.673,
+   "rank_score": 0.643,
+   "model_shift_removed": -0.487,
    "books": 6,
    "flags": []
   },
   {
    "team": "BUF",
-   "player": "DJ Moore",
+   "player": "Keon Coleman",
    "pos": "WR",
    "market": "receptions",
-   "line": 3.5,
+   "line": 1.5,
    "side": "Over",
-   "p_model": 0.539,
-   "p_market": 0.583,
-   "p_blend": 0.561,
-   "rank_score": 0.561,
-   "model_shift_removed": -0.715,
+   "p_model": 0.662,
+   "p_market": 0.592,
+   "p_blend": 0.628,
+   "rank_score": 0.628,
+   "model_shift_removed": -0.487,
    "books": 5,
+   "flags": []
+  },
+  {
+   "team": "BUF",
+   "player": "Dalton Kincaid",
+   "pos": "TE",
+   "market": "receptions",
+   "line": 3.5,
+   "side": "Under",
+   "p_model": 0.652,
+   "p_market": 0.588,
+   "p_blend": 0.62,
+   "rank_score": 0.59,
+   "model_shift_removed": -0.487,
+   "books": 3,
+   "flags": []
+  },
+  {
+   "team": "BUF",
+   "player": "James Cook",
+   "pos": "RB",
+   "market": "receptions",
+   "line": 1.5,
+   "side": "Under",
+   "p_model": 0.627,
+   "p_market": 0.592,
+   "p_blend": 0.609,
+   "rank_score": 0.579,
+   "model_shift_removed": -0.487,
+   "books": 7,
    "flags": []
   }
  ]

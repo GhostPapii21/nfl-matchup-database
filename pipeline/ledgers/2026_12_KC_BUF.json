@@ -1,0 +1,2303 @@
+{
+ "schema": "nfl56-phase-ledger/1",
+ "game_id": "2026_12_KC_BUF",
+ "checked_utc": "2026-11-27T00:35:24+00:00",
+ "packet_generated_utc": "2026-11-27T00:35:20+00:00",
+ "projection_ready": false,
+ "research_only": true,
+ "phase15": {
+  "status": "AUTO",
+  "source": "club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used",
+  "source_urls": {
+   "KC": "https://www.chiefs.com/news/week-12-inactive-players-chiefs-vs-bills",
+   "BUF": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-chiefs-nfl-thanksgiving"
+  },
+  "pull_utc": "2026-11-27T00:01:24+00:00",
+  "pull_et": "2026-11-26 07:01 PM ET",
+  "published_utc": {
+   "KC": "2026-11-26T23:56:35.063000+00:00",
+   "BUF": "2026-11-26T23:49:34.015000+00:00"
+  },
+  "file": "phase15/inactives/2026_12_KC_BUF/inactives_20261127T000124Z.json",
+  "kickoff_utc": "2026-11-27T01:20:00+00:00",
+  "posts_utc": "2026-11-26T23:50:00+00:00",
+  "checked_utc": "2026-11-27T00:35:24+00:00",
+  "inactives": {
+   "KC": [
+    "Kenneth Walker III",
+    "Garrett Nussmeier",
+    "Melvin Smith Jr.",
+    "Omarr Norman-Lott",
+    "Diego Pounds",
+    "Jaylon Moore",
+    "Marcus Harris"
+   ],
+   "BUF": [
+    "Skyler Bell",
+    "Jalon Kilgore",
+    "Christian Benford",
+    "Mike Danna",
+    "Jude Bowry",
+    "Greg Gaines"
+   ]
+  },
+  "reason": "Both clubs' official Inactives articles pulled after T-90."
+ },
+ "freshness": [
+  {
+   "source": "schedule",
+   "status": "FRESH",
+   "reason": "as-of 2026-11-27T00:35:15+00:00 (live_pull (live endpoint; pull time is the quote time)) is 0 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-27T00:35:15+00:00",
+   "as_of_utc": "2026-11-27T00:35:15+00:00",
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_evidence": null,
+   "age_minutes": 0.2,
+   "max_age_minutes": 1440,
+   "cadence": "live_window"
+  },
+  {
+   "source": "play_by_play",
+   "status": "MISSING",
+   "reason": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:16+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "rosters",
+   "status": "MISSING",
+   "reason": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:16+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "depth_charts",
+   "status": "MISSING",
+   "reason": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:16+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "snap_counts",
+   "status": "MISSING",
+   "reason": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:16+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "ftn_charting",
+   "status": "MISSING",
+   "reason": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:16+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "pfr_defense",
+   "status": "MISSING",
+   "reason": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:17+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "official_injuries",
+   "status": "MISSING",
+   "reason": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:16+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "news_injuries",
+   "status": "FRESH",
+   "reason": "as-of 2026-11-27T00:35:18+00:00 (live_pull (live endpoint; pull time is the quote time)) is 0 min old; limit 45 min.",
+   "retrieved_utc": "2026-11-27T00:35:18+00:00",
+   "as_of_utc": "2026-11-27T00:35:18+00:00",
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_evidence": null,
+   "age_minutes": 0.1,
+   "max_age_minutes": 45,
+   "cadence": "live_window"
+  },
+  {
+   "source": "weather",
+   "status": "MISSING",
+   "reason": "'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:19+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "nws_live_grid"
+  },
+  {
+   "source": "odds",
+   "status": "FRESH",
+   "reason": "as-of 2026-11-27T00:30:26+00:00 (live_pull (live endpoint; pull time is the quote time)) is 5 min old; limit 20 min.",
+   "retrieved_utc": "2026-11-27T00:30:26Z",
+   "as_of_utc": "2026-11-27T00:30:26+00:00",
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_evidence": null,
+   "age_minutes": 5.0,
+   "max_age_minutes": 20,
+   "cadence": "live_window"
+  },
+  {
+   "source": "ngs_passing",
+   "status": "MISSING",
+   "reason": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:17+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "ngs_receiving",
+   "status": "MISSING",
+   "reason": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:17+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "ngs_rushing",
+   "status": "MISSING",
+   "reason": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-27T00:35:17+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "official_inactives",
+   "status": "FRESH",
+   "reason": "Official inactives pulled after T-90 at 2026-11-27T00:01:24+00:00.",
+   "retrieved_utc": "2026-11-27T00:01:24+00:00",
+   "as_of_utc": "2026-11-27T00:01:24+00:00",
+   "as_of_basis": "t90",
+   "as_of_evidence": null,
+   "age_minutes": 34.0,
+   "max_age_minutes": null,
+   "cadence": "t90"
+  },
+  {
+   "source": "four_book_prices",
+   "status": "FRESH",
+   "reason": "5 min old; limit 20 min.",
+   "retrieved_utc": "2026-11-27T00:30:26Z",
+   "as_of_utc": null,
+   "as_of_basis": null,
+   "as_of_evidence": null,
+   "age_minutes": 5.0,
+   "max_age_minutes": 20,
+   "cadence": "live_window"
+  },
+  {
+   "source": "ngs_defender_matchup",
+   "status": "FRESH",
+   "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+   "retrieved_utc": null,
+   "as_of_utc": null,
+   "as_of_basis": null,
+   "as_of_evidence": {
+    "status": "FRESH",
+    "reason": "Public NGS weekly files are present. Wanted main-defender fields are MISSING/unknown, not zero: receiver_routes, rb_routes, target_location, qb_pass_location, qb_success_vs_defense, likely_defenders. Available public columns (cushion, separation, CPOE, RYOE, etc.) are listed in evidence.",
+    "teams": [
+     "KC",
+     "BUF"
+    ],
+    "week": 12,
+    "fields": {
+     "available": [
+      {
+       "source": "ngs_passing",
+       "field": "avg_time_to_throw",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_completed_air_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_intended_air_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_air_yards_differential",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "aggressiveness",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "max_completed_air_distance",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_air_yards_to_sticks",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "attempts",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "completions",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "completion_percentage",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "expected_completion_percentage",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "completion_percentage_above_expectation",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "pass_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "pass_touchdowns",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "interceptions",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "passer_rating",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "week",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "team_abbr",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "player_display_name",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "player_gsis_id",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "player_position",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_cushion",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_separation",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "percent_share_of_intended_air_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "targets",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "receptions",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "catch_percentage",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "rec_touchdowns",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_yac",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_expected_yac",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_yac_above_expectation",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "week",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "team_abbr",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "player_display_name",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "player_gsis_id",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "player_position",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "efficiency",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "percent_attempts_gte_eight_defenders",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "avg_time_to_los",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_attempts",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "expected_rush_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_yards_over_expected",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "avg_rush_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_yards_over_expected_per_att",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_pct_over_expected",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_touchdowns",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "week",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "team_abbr",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "player_display_name",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "player_gsis_id",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "player_position",
+       "status": "available",
+       "in_file": true
+      }
+     ],
+     "missing": [
+      {
+       "source": "ngs_receiving",
+       "field": "avg_air_distance",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "listed in the NGS dictionary but not in this file"
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "max_air_distance",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "listed in the NGS dictionary but not in this file"
+      },
+      {
+       "source": "public_ngs",
+       "field": "receiver_routes",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Route type / routes run / route participation for WRs, TEs, RBs \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "rb_routes",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Running-back routes (split out from WR/TE routes) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "target_location",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Target location splits (side and depth: left/middle/right, short/deep) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "qb_pass_location",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Where the QB throws (location splits) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "qb_success_vs_defense",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "QB success by throw location against this defense \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "likely_defenders",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Likely defender faced on a route or target location \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      }
+     ],
+     "notes": [
+      "ngs_passing: extra columns in file (not used as route/location splits): avg_air_distance, max_air_distance",
+      "ngs_receiving: extra columns in file (not used as route/location splits): avg_intended_air_yards"
+     ],
+     "wanted": {
+      "receiver_routes": "Route type / routes run / route participation for WRs, TEs, RBs",
+      "rb_routes": "Running-back routes (split out from WR/TE routes)",
+      "target_location": "Target location splits (side and depth: left/middle/right, short/deep)",
+      "qb_pass_location": "Where the QB throws (location splits)",
+      "qb_success_vs_defense": "QB success by throw location against this defense",
+      "likely_defenders": "Likely defender faced on a route or target location"
+     },
+     "dictionary": "https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html"
+    },
+    "team_coverage": {
+     "ngs_passing": {
+      "teams_in_week": [
+       "ARI",
+       "ATL",
+       "BAL",
+       "BUF",
+       "CAR",
+       "CHI",
+       "CIN",
+       "CLE",
+       "DAL",
+       "DEN",
+       "DET",
+       "GB",
+       "HOU",
+       "IND",
+       "JAX",
+       "KC",
+       "LAC",
+       "LAR",
+       "LV",
+       "MIA",
+       "MIN",
+       "NE",
+       "NO",
+       "NYG",
+       "NYJ",
+       "PHI",
+       "PIT",
+       "SEA",
+       "SF",
+       "TB",
+       "TEN",
+       "WAS"
+      ],
+      "both_teams": true
+     },
+     "ngs_receiving": {
+      "teams_in_week": [
+       "ARI",
+       "ATL",
+       "BAL",
+       "BUF",
+       "CAR",
+       "CHI",
+       "CIN",
+       "CLE",
+       "DAL",
+       "DEN",
+       "DET",
+       "GB",
+       "HOU",
+       "IND",
+       "JAX",
+       "KC",
+       "LAC",
+       "LAR",
+       "LV",
+       "MIA",
+       "MIN",
+       "NE",
+       "NO",
+       "NYG",
+       "NYJ",
+       "PHI",
+       "PIT",
+       "SEA",
+       "SF",
+       "TB",
+       "TEN",
+       "WAS"
+      ],
+      "both_teams": true
+     },
+     "ngs_rushing": {
+      "teams_in_week": [
+       "ARI",
+       "ATL",
+       "BAL",
+       "BUF",
+       "CAR",
+       "CHI",
+       "CIN",
+       "CLE",
+       "DAL",
+       "DEN",
+       "DET",
+       "GB",
+       "HOU",
+       "IND",
+       "JAX",
+       "KC",
+       "LAC",
+       "LAR",
+       "LV",
+       "MIA",
+       "MIN",
+       "NE",
+       "NO",
+       "NYG",
+       "NYJ",
+       "PHI",
+       "PIT",
+       "SEA",
+       "SF",
+       "TB",
+       "TEN",
+       "WAS"
+      ],
+      "both_teams": true
+     }
+    },
+    "files": {
+     "ngs_passing": "/home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/ngs_passing.parquet",
+     "ngs_receiving": "/home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/ngs_receiving.parquet",
+     "ngs_rushing": "/home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/ngs_rushing.parquet"
+    },
+    "matchup_fields": {
+     "receiver_routes": {
+      "field": "receiver_routes",
+      "status": "MISSING",
+      "source": "nflverse pbp_participation 2026",
+      "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+      "as_of": null,
+      "value": "unknown"
+     },
+     "rb_routes": {
+      "field": "rb_routes",
+      "status": "MISSING",
+      "source": "nflverse pbp_participation 2026",
+      "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+      "as_of": null,
+      "value": "unknown"
+     },
+     "target_location": {
+      "field": "target_location",
+      "status": "MISSING",
+      "source": "nflverse play-by-play 2026 (weeks 1-11, REG); /home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/play_by_play_2026.parquet",
+      "reason": "Receiver targets by pass_length x pass_location. Play-by-play freshness is MISSING, so this field is not current.",
+      "as_of": null,
+      "value": {
+       "KC": {
+        "T.Kelce (00-0030506)": {
+         "deep_left": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.766
+         },
+         "deep_middle": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 1.696
+         },
+         "deep_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.431
+         },
+         "short_left": {
+          "att": 10,
+          "cmp": 6,
+          "success_rate": 0.6,
+          "epa_per_att": 0.48
+         },
+         "short_middle": {
+          "att": 15,
+          "cmp": 11,
+          "success_rate": 0.733,
+          "epa_per_att": 0.698
+         },
+         "short_right": {
+          "att": 26,
+          "cmp": 22,
+          "success_rate": 0.615,
+          "epa_per_att": 0.477
+         }
+        },
+        "J.Watson (00-0034386)": {
+         "short_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.64
+         }
+        },
+        "N.Gray (00-0036637)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 1.436
+         },
+         "deep_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.928
+         },
+         "deep_right": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 1.441
+         },
+         "short_left": {
+          "att": 6,
+          "cmp": 3,
+          "success_rate": 0.5,
+          "epa_per_att": -0.038
+         },
+         "short_middle": {
+          "att": 10,
+          "cmp": 7,
+          "success_rate": 0.6,
+          "epa_per_att": 0.152
+         },
+         "short_right": {
+          "att": 6,
+          "cmp": 6,
+          "success_rate": 0.667,
+          "epa_per_att": 0.341
+         }
+        },
+        "T.Thornton (00-0038104)": {
+         "deep_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 2.21
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.856
+         },
+         "deep_right": {
+          "att": 3,
+          "cmp": 3,
+          "success_rate": 1.0,
+          "epa_per_att": 2.607
+         },
+         "short_left": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 0.753
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.355
+         },
+         "short_right": {
+          "att": 4,
+          "cmp": 4,
+          "success_rate": 1.0,
+          "epa_per_att": 0.604
+         }
+        },
+        "K.Walker (00-0038134)": {
+         "short_left": {
+          "att": 13,
+          "cmp": 11,
+          "success_rate": 0.769,
+          "epa_per_att": 0.384
+         },
+         "short_middle": {
+          "att": 6,
+          "cmp": 4,
+          "success_rate": 0.5,
+          "epa_per_att": 0.397
+         },
+         "short_right": {
+          "att": 17,
+          "cmp": 11,
+          "success_rate": 0.353,
+          "epa_per_att": -0.115
+         }
+        },
+        "J.Downs (00-0038997)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 3.146
+         },
+         "deep_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 1.085
+         },
+         "deep_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.638
+         },
+         "short_left": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 1.138
+         },
+         "short_right": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.6,
+          "epa_per_att": 0.614
+         }
+        },
+        "R.Rice (00-0039067)": {
+         "deep_middle": {
+          "att": 4,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": 0.054
+         },
+         "deep_right": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 2.255
+         },
+         "short_left": {
+          "att": 12,
+          "cmp": 8,
+          "success_rate": 0.583,
+          "epa_per_att": -0.02
+         },
+         "short_middle": {
+          "att": 10,
+          "cmp": 9,
+          "success_rate": 0.7,
+          "epa_per_att": 0.575
+         },
+         "short_right": {
+          "att": 17,
+          "cmp": 16,
+          "success_rate": 0.529,
+          "epa_per_att": 0.299
+         }
+        },
+        "X.Worthy (00-0039894)": {
+         "deep_left": {
+          "att": 5,
+          "cmp": 0,
+          "success_rate": 0.2,
+          "epa_per_att": -0.544
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -0.669
+         },
+         "deep_right": {
+          "att": 8,
+          "cmp": 1,
+          "success_rate": 0.125,
+          "epa_per_att": -0.542
+         },
+         "short_left": {
+          "att": 12,
+          "cmp": 10,
+          "success_rate": 0.667,
+          "epa_per_att": 0.193
+         },
+         "short_middle": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.8,
+          "epa_per_att": 0.615
+         },
+         "short_right": {
+          "att": 22,
+          "cmp": 19,
+          "success_rate": 0.591,
+          "epa_per_att": 0.171
+         }
+        },
+        "B.Smith (00-0040078)": {
+         "short_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.041
+         }
+        },
+        "J.Briningstool (00-0040081)": {
+         "deep_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.108
+         },
+         "short_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.307
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -0.129
+         },
+         "short_right": {
+          "att": 3,
+          "cmp": 3,
+          "success_rate": 1.0,
+          "epa_per_att": 0.733
+         }
+        },
+        "A.Armstrong (00-0040298)": {
+         "deep_right": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 3.727
+         },
+         "short_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.549
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.919
+         },
+         "short_right": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -1.964
+         }
+        },
+        "J.Royals (00-0040646)": {
+         "short_left": {
+          "att": 6,
+          "cmp": 4,
+          "success_rate": 0.5,
+          "epa_per_att": -0.516
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.353
+         },
+         "short_right": {
+          "att": 8,
+          "cmp": 4,
+          "success_rate": 0.5,
+          "epa_per_att": 0.135
+         }
+        },
+        "C.Allen (00-0040890)": {
+         "deep_left": {
+          "att": 4,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": 0.983
+         },
+         "deep_middle": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.333,
+          "epa_per_att": -0.158
+         },
+         "short_left": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 0.323
+         },
+         "short_middle": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.333,
+          "epa_per_att": -1.122
+         },
+         "short_right": {
+          "att": 6,
+          "cmp": 4,
+          "success_rate": 0.5,
+          "epa_per_att": 0.317
+         }
+        },
+        "E.Johnson (00-0041013)": {
+         "short_left": {
+          "att": 10,
+          "cmp": 9,
+          "success_rate": 0.7,
+          "epa_per_att": 1.261
+         },
+         "short_middle": {
+          "att": 3,
+          "cmp": 3,
+          "success_rate": 0.667,
+          "epa_per_att": 0.458
+         },
+         "short_right": {
+          "att": 14,
+          "cmp": 12,
+          "success_rate": 0.571,
+          "epa_per_att": 0.306
+         }
+        }
+       },
+       "BUF": {
+        "D.Moore (00-0034827)": {
+         "deep_left": {
+          "att": 4,
+          "cmp": 1,
+          "success_rate": 0.25,
+          "epa_per_att": -0.532
+         },
+         "deep_middle": {
+          "att": 6,
+          "cmp": 3,
+          "success_rate": 0.5,
+          "epa_per_att": 0.493
+         },
+         "deep_right": {
+          "att": 4,
+          "cmp": 3,
+          "success_rate": 0.75,
+          "epa_per_att": 1.704
+         },
+         "short_left": {
+          "att": 16,
+          "cmp": 12,
+          "success_rate": 0.562,
+          "epa_per_att": 0.395
+         },
+         "short_middle": {
+          "att": 6,
+          "cmp": 5,
+          "success_rate": 0.667,
+          "epa_per_att": -0.292
+         },
+         "short_right": {
+          "att": 12,
+          "cmp": 7,
+          "success_rate": 0.5,
+          "epa_per_att": 0.189
+         }
+        },
+        "J.Allen (00-0034857)": {
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.358
+         }
+        },
+        "G.Dortch (00-0035500)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.712
+         }
+        },
+        "T.Johnson (00-0035537)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 2.66
+         },
+         "short_left": {
+          "att": 10,
+          "cmp": 9,
+          "success_rate": 0.5,
+          "epa_per_att": 0.716
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.512
+         },
+         "short_right": {
+          "att": 14,
+          "cmp": 14,
+          "success_rate": 0.5,
+          "epa_per_att": 0.665
+         }
+        },
+        "D.Knox (00-0035689)": {
+         "deep_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.602
+         },
+         "short_left": {
+          "att": 8,
+          "cmp": 5,
+          "success_rate": 0.5,
+          "epa_per_att": -0.269
+         },
+         "short_middle": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.333,
+          "epa_per_att": -0.122
+         },
+         "short_right": {
+          "att": 11,
+          "cmp": 9,
+          "success_rate": 0.727,
+          "epa_per_att": 0.269
+         }
+        },
+        "J.Palmer (00-0036988)": {
+         "deep_left": {
+          "att": 3,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.86
+         },
+         "deep_middle": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 2.36
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 0.745
+         },
+         "short_left": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.315
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.275
+         }
+        },
+        "J.Cook (00-0037248)": {
+         "short_left": {
+          "att": 10,
+          "cmp": 5,
+          "success_rate": 0.3,
+          "epa_per_att": -0.013
+         },
+         "short_right": {
+          "att": 11,
+          "cmp": 9,
+          "success_rate": 0.455,
+          "epa_per_att": 0.136
+         }
+        },
+        "K.Shakir (00-0037261)": {
+         "deep_middle": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.8,
+          "epa_per_att": 1.126
+         },
+         "deep_right": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 0.823
+         },
+         "short_left": {
+          "att": 8,
+          "cmp": 7,
+          "success_rate": 0.75,
+          "epa_per_att": 0.443
+         },
+         "short_middle": {
+          "att": 14,
+          "cmp": 6,
+          "success_rate": 0.286,
+          "epa_per_att": -0.085
+         },
+         "short_right": {
+          "att": 24,
+          "cmp": 19,
+          "success_rate": 0.625,
+          "epa_per_att": 0.227
+         }
+        },
+        "T.Shavers (00-0038679)": {
+         "deep_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.445
+         },
+         "deep_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.356
+         }
+        },
+        "D.Kincaid (00-0038933)": {
+         "deep_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 1.146
+         },
+         "deep_middle": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 1.269
+         },
+         "deep_right": {
+          "att": 5,
+          "cmp": 3,
+          "success_rate": 0.6,
+          "epa_per_att": 1.218
+         },
+         "short_left": {
+          "att": 11,
+          "cmp": 10,
+          "success_rate": 0.727,
+          "epa_per_att": 0.289
+         },
+         "short_middle": {
+          "att": 9,
+          "cmp": 8,
+          "success_rate": 0.778,
+          "epa_per_att": 0.078
+         },
+         "short_right": {
+          "att": 10,
+          "cmp": 7,
+          "success_rate": 0.4,
+          "epa_per_att": 0.051
+         }
+        },
+        "R.Davis (00-0039875)": {
+         "short_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.333,
+          "epa_per_att": 0.533
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.115
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -0.127
+         }
+        },
+        "K.Coleman (00-0039901)": {
+         "deep_left": {
+          "att": 4,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": 0.043
+         },
+         "deep_middle": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.333,
+          "epa_per_att": 0.537
+         },
+         "deep_right": {
+          "att": 7,
+          "cmp": 1,
+          "success_rate": 0.143,
+          "epa_per_att": -0.239
+         },
+         "short_left": {
+          "att": 8,
+          "cmp": 7,
+          "success_rate": 0.75,
+          "epa_per_att": 0.722
+         },
+         "short_middle": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.8,
+          "epa_per_att": 0.912
+         },
+         "short_right": {
+          "att": 13,
+          "cmp": 11,
+          "success_rate": 0.615,
+          "epa_per_att": 0.231
+         }
+        },
+        "J.Hawes (00-0040194)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.675
+         },
+         "short_middle": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": -1.202
+         }
+        },
+        "K.Latu (00-0040363)": {
+         "deep_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 3.219
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 1.182
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -4.38
+         },
+         "short_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.187
+         }
+        },
+        "S.Bell (00-0041443)": {
+         "deep_left": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.542
+         },
+         "short_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.759
+         }
+        }
+       }
+      }
+     },
+     "qb_pass_location": {
+      "field": "qb_pass_location",
+      "status": "MISSING",
+      "source": "nflverse play-by-play 2026 (weeks 1-11, REG); /home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/play_by_play_2026.parquet",
+      "reason": "Passer attempts, completions, nflverse success and EPA by zone. Play-by-play freshness is MISSING, so this field is not current.",
+      "as_of": null,
+      "value": {
+       "KC": {
+        "P.Mahomes (00-0033873)": {
+         "deep_left": {
+          "att": 17,
+          "cmp": 6,
+          "success_rate": 0.412,
+          "epa_per_att": 0.596
+         },
+         "deep_middle": {
+          "att": 17,
+          "cmp": 8,
+          "success_rate": 0.471,
+          "epa_per_att": 0.158
+         },
+         "deep_right": {
+          "att": 19,
+          "cmp": 7,
+          "success_rate": 0.368,
+          "epa_per_att": 0.408
+         },
+         "short_left": {
+          "att": 84,
+          "cmp": 57,
+          "success_rate": 0.583,
+          "epa_per_att": 0.262
+         },
+         "short_middle": {
+          "att": 60,
+          "cmp": 42,
+          "success_rate": 0.6,
+          "epa_per_att": 0.309
+         },
+         "short_right": {
+          "att": 139,
+          "cmp": 106,
+          "success_rate": 0.525,
+          "epa_per_att": 0.186
+         }
+        },
+        "J.Fields (00-0036945)": {
+         "short_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.089
+         }
+        }
+       },
+       "BUF": {
+        "J.Allen (00-0034857)": {
+         "deep_left": {
+          "att": 20,
+          "cmp": 6,
+          "success_rate": 0.3,
+          "epa_per_att": -0.073
+         },
+         "deep_middle": {
+          "att": 22,
+          "cmp": 12,
+          "success_rate": 0.545,
+          "epa_per_att": 0.911
+         },
+         "deep_right": {
+          "att": 24,
+          "cmp": 11,
+          "success_rate": 0.458,
+          "epa_per_att": 0.717
+         },
+         "short_left": {
+          "att": 80,
+          "cmp": 58,
+          "success_rate": 0.525,
+          "epa_per_att": 0.282
+         },
+         "short_middle": {
+          "att": 45,
+          "cmp": 30,
+          "success_rate": 0.533,
+          "epa_per_att": -0.137
+         },
+         "short_right": {
+          "att": 111,
+          "cmp": 77,
+          "success_rate": 0.486,
+          "epa_per_att": 0.149
+         }
+        },
+        "T.Doman (00-0041126)": {
+         "deep_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 3.219
+         }
+        }
+       }
+      }
+     },
+     "qb_success_vs_defense": {
+      "field": "qb_success_vs_defense",
+      "status": "MISSING",
+      "source": "nflverse play-by-play 2026 (weeks 1-11, REG); /home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/play_by_play_2026.parquet",
+      "reason": "QB success by zone next to the opponent defense's allowed success by zone. Play-by-play freshness is MISSING, so this field is not current.",
+      "as_of": null,
+      "value": {
+       "KC": {
+        "opponent_defense": "BUF",
+        "defense_allowed_by_zone": {
+         "deep_left": {
+          "att": 29,
+          "cmp": 11,
+          "success_rate": 0.379,
+          "epa_per_att": 0.183
+         },
+         "deep_middle": {
+          "att": 18,
+          "cmp": 6,
+          "success_rate": 0.333,
+          "epa_per_att": 0.027
+         },
+         "deep_right": {
+          "att": 33,
+          "cmp": 12,
+          "success_rate": 0.364,
+          "epa_per_att": 0.224
+         },
+         "short_left": {
+          "att": 105,
+          "cmp": 63,
+          "success_rate": 0.438,
+          "epa_per_att": -0.1
+         },
+         "short_middle": {
+          "att": 67,
+          "cmp": 46,
+          "success_rate": 0.567,
+          "epa_per_att": 0.155
+         },
+         "short_right": {
+          "att": 121,
+          "cmp": 81,
+          "success_rate": 0.479,
+          "epa_per_att": 0.051
+         }
+        },
+        "qbs": {
+         "P.Mahomes (00-0033873)": {
+          "deep_left": {
+           "qb": {
+            "att": 17,
+            "cmp": 6,
+            "success_rate": 0.412,
+            "epa_per_att": 0.596
+           },
+           "defense_allowed": {
+            "att": 29,
+            "cmp": 11,
+            "success_rate": 0.379,
+            "epa_per_att": 0.183
+           }
+          },
+          "deep_middle": {
+           "qb": {
+            "att": 17,
+            "cmp": 8,
+            "success_rate": 0.471,
+            "epa_per_att": 0.158
+           },
+           "defense_allowed": {
+            "att": 18,
+            "cmp": 6,
+            "success_rate": 0.333,
+            "epa_per_att": 0.027
+           }
+          },
+          "deep_right": {
+           "qb": {
+            "att": 19,
+            "cmp": 7,
+            "success_rate": 0.368,
+            "epa_per_att": 0.408
+           },
+           "defense_allowed": {
+            "att": 33,
+            "cmp": 12,
+            "success_rate": 0.364,
+            "epa_per_att": 0.224
+           }
+          },
+          "short_left": {
+           "qb": {
+            "att": 84,
+            "cmp": 57,
+            "success_rate": 0.583,
+            "epa_per_att": 0.262
+           },
+           "defense_allowed": {
+            "att": 105,
+            "cmp": 63,
+            "success_rate": 0.438,
+            "epa_per_att": -0.1
+           }
+          },
+          "short_middle": {
+           "qb": {
+            "att": 60,
+            "cmp": 42,
+            "success_rate": 0.6,
+            "epa_per_att": 0.309
+           },
+           "defense_allowed": {
+            "att": 67,
+            "cmp": 46,
+            "success_rate": 0.567,
+            "epa_per_att": 0.155
+           }
+          },
+          "short_right": {
+           "qb": {
+            "att": 139,
+            "cmp": 106,
+            "success_rate": 0.525,
+            "epa_per_att": 0.186
+           },
+           "defense_allowed": {
+            "att": 121,
+            "cmp": 81,
+            "success_rate": 0.479,
+            "epa_per_att": 0.051
+           }
+          }
+         },
+         "J.Fields (00-0036945)": {
+          "short_right": {
+           "qb": {
+            "att": 1,
+            "cmp": 0,
+            "success_rate": 0.0,
+            "epa_per_att": -1.089
+           },
+           "defense_allowed": {
+            "att": 121,
+            "cmp": 81,
+            "success_rate": 0.479,
+            "epa_per_att": 0.051
+           }
+          }
+         }
+        },
+        "note": "Side by side only (QB's own rate | this defense's allowed rate, same zone). No blend."
+       },
+       "BUF": {
+        "opponent_defense": "KC",
+        "defense_allowed_by_zone": {
+         "deep_left": {
+          "att": 26,
+          "cmp": 11,
+          "success_rate": 0.385,
+          "epa_per_att": 0.497
+         },
+         "deep_middle": {
+          "att": 17,
+          "cmp": 6,
+          "success_rate": 0.353,
+          "epa_per_att": 0.003
+         },
+         "deep_right": {
+          "att": 12,
+          "cmp": 2,
+          "success_rate": 0.167,
+          "epa_per_att": -0.248
+         },
+         "short_left": {
+          "att": 97,
+          "cmp": 64,
+          "success_rate": 0.402,
+          "epa_per_att": -0.134
+         },
+         "short_middle": {
+          "att": 71,
+          "cmp": 47,
+          "success_rate": 0.535,
+          "epa_per_att": -0.021
+         },
+         "short_right": {
+          "att": 124,
+          "cmp": 81,
+          "success_rate": 0.419,
+          "epa_per_att": -0.053
+         }
+        },
+        "qbs": {
+         "J.Allen (00-0034857)": {
+          "deep_left": {
+           "qb": {
+            "att": 20,
+            "cmp": 6,
+            "success_rate": 0.3,
+            "epa_per_att": -0.073
+           },
+           "defense_allowed": {
+            "att": 26,
+            "cmp": 11,
+            "success_rate": 0.385,
+            "epa_per_att": 0.497
+           }
+          },
+          "deep_middle": {
+           "qb": {
+            "att": 22,
+            "cmp": 12,
+            "success_rate": 0.545,
+            "epa_per_att": 0.911
+           },
+           "defense_allowed": {
+            "att": 17,
+            "cmp": 6,
+            "success_rate": 0.353,
+            "epa_per_att": 0.003
+           }
+          },
+          "deep_right": {
+           "qb": {
+            "att": 24,
+            "cmp": 11,
+            "success_rate": 0.458,
+            "epa_per_att": 0.717
+           },
+           "defense_allowed": {
+            "att": 12,
+            "cmp": 2,
+            "success_rate": 0.167,
+            "epa_per_att": -0.248
+           }
+          },
+          "short_left": {
+           "qb": {
+            "att": 80,
+            "cmp": 58,
+            "success_rate": 0.525,
+            "epa_per_att": 0.282
+           },
+           "defense_allowed": {
+            "att": 97,
+            "cmp": 64,
+            "success_rate": 0.402,
+            "epa_per_att": -0.134
+           }
+          },
+          "short_middle": {
+           "qb": {
+            "att": 45,
+            "cmp": 30,
+            "success_rate": 0.533,
+            "epa_per_att": -0.137
+           },
+           "defense_allowed": {
+            "att": 71,
+            "cmp": 47,
+            "success_rate": 0.535,
+            "epa_per_att": -0.021
+           }
+          },
+          "short_right": {
+           "qb": {
+            "att": 111,
+            "cmp": 77,
+            "success_rate": 0.486,
+            "epa_per_att": 0.149
+           },
+           "defense_allowed": {
+            "att": 124,
+            "cmp": 81,
+            "success_rate": 0.419,
+            "epa_per_att": -0.053
+           }
+          }
+         },
+         "T.Doman (00-0041126)": {
+          "deep_middle": {
+           "qb": {
+            "att": 1,
+            "cmp": 1,
+            "success_rate": 1.0,
+            "epa_per_att": 3.219
+           },
+           "defense_allowed": {
+            "att": 17,
+            "cmp": 6,
+            "success_rate": 0.353,
+            "epa_per_att": 0.003
+           }
+          }
+         }
+        },
+        "note": "Side by side only (QB's own rate | this defense's allowed rate, same zone). No blend."
+       }
+      }
+     },
+     "likely_defenders": {
+      "field": "likely_defenders",
+      "status": "MISSING",
+      "source": "https://www.pff.com/tools/matchups",
+      "reason": "No PFF matchups capture at /workspace/nfl-database/pff_matchups/2026_w12/receiver_matchups.csv. Needs a signed-in browser pass on https://www.pff.com/tools/matchups (Rico's PFF tier) for week 12, saved with the columns in pipeline/matchup_sources.py.",
+      "as_of": null,
+      "value": "unknown"
+     }
+    }
+   },
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  }
+ ],
+ "phases": [
+  {
+   "phase": 1,
+   "name": "Slate, schedule, venue",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "game.kickoff_et",
+    "game.date",
+    "game.site",
+    "game.roof",
+    "game.listed_qbs",
+    "schedule: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Schedule, kickoff, site, roof, surface, rest days, listed QBs.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 1"
+  },
+  {
+   "phase": 2,
+   "name": "Player identity and position",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.KC.offense.players",
+    "teams.BUF.offense.players"
+   ],
+   "missing": [
+    "rosters: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Positions from weekly rosters (GSIS IDs). Name-only joins are used for snap counts and PFR defenders.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 2"
+  },
+  {
+   "phase": 3,
+   "name": "Verified player game history",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.KC.offense.players",
+    "teams.BUF.offense.players",
+    "teams.KC.offense.by_game",
+    "teams.BUF.offense.by_game"
+   ],
+   "missing": [
+    "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Per-game logs for QBs, receivers and rushers over the window, from play-by-play.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 3"
+  },
+  {
+   "phase": 4,
+   "name": "Role, snaps, routes, opportunity",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.KC.offense.players",
+    "teams.BUF.offense.players",
+    "teams.KC.offense.offense_snap_share",
+    "teams.BUF.offense.offense_snap_share"
+   ],
+   "missing": [
+    "snap_counts: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_receiving: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_rushing: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "routes run / route participation (public NGS weekly files do not carry them; listed MISSING/unknown, not zero)"
+   ],
+   "packet_detail": "Target share, air-yards share, carry share, red-zone looks, snap share. Routes run and route participation are NOT available.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 4"
+  },
+  {
+   "phase": 5,
+   "name": "Team offense/defense baselines",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.KC.defense.allowed",
+    "teams.BUF.defense.allowed",
+    "teams.KC.offense.produced",
+    "teams.BUF.offense.produced",
+    "teams.KC.defense.rank",
+    "teams.BUF.defense.rank"
+   ],
+   "missing": [
+    "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Allowed and produced tables with league ranks and game-by-game trends.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 5"
+  },
+  {
+   "phase": 6,
+   "name": "Opponent context and game script",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "market.home_spread",
+    "market.total",
+    "schedule: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "the script call itself (analyst)"
+   ],
+   "packet_detail": "Market spread/total, neutral pass rate, pace. The script call itself is the analyst's.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 6"
+  },
+  {
+   "phase": 7,
+   "name": "Coverage structure and shell",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.KC.defense.allowed.dropbacks_charted",
+    "teams.BUF.defense.allowed.dropbacks_charted"
+   ],
+   "missing": [
+    "ftn_charting: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "man/zone and shell (no free source)"
+   ],
+   "packet_detail": "Blitz and play-action rates from FTN charting. Man/zone and shell are NOT in any free source here.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 7"
+  },
+  {
+   "phase": 8,
+   "name": "Defender assignment and explosive allowance",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.KC.defense.defenders",
+    "teams.BUF.defense.defenders",
+    "ngs_defender_matchup: FRESH"
+   ],
+   "missing": [
+    "pfr_defense: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_passing: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_receiving: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_rushing: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "who covers whom (no confirmed assignment); public NGS has no route/location/defender splits (listed MISSING/unknown, not zero)"
+   ],
+   "packet_detail": "Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 8"
+  },
+  {
+   "phase": 9,
+   "name": "QB pressure, blitz, scramble",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.KC.defense.allowed",
+    "teams.BUF.defense.allowed"
+   ],
+   "missing": [
+    "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ftn_charting: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "true pressure rate (sacks + hits is a floor)"
+   ],
+   "packet_detail": "Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 9"
+  },
+  {
+   "phase": 10,
+   "name": "Offensive line, pass rush, coaching",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.KC.depth_chart",
+    "teams.BUF.depth_chart",
+    "game.coaches"
+   ],
+   "missing": [
+    "depth_charts: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "line grades (paid source)"
+   ],
+   "packet_detail": "Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 10"
+  },
+  {
+   "phase": 11,
+   "name": "Injury and depth chart",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.KC.injuries.official_report",
+    "teams.BUF.injuries.official_report",
+    "teams.KC.injuries.espn_live",
+    "teams.BUF.injuries.espn_live",
+    "teams.KC.depth_chart",
+    "teams.BUF.depth_chart",
+    "news_injuries: FRESH"
+   ],
+   "missing": [
+    "official_injuries: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "depth_charts: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 11"
+  },
+  {
+   "phase": 12,
+   "name": "Weather, roof, travel",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "game.roof",
+    "weather.status"
+   ],
+   "missing": [
+    "weather: 'weather': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: OK.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 12"
+  },
+  {
+   "phase": 13,
+   "name": "Timestamped book prices",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "books.markets",
+    "odds: FRESH",
+    "four_book_prices: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "true opening line"
+   ],
+   "packet_detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 13"
+  },
+  {
+   "phase": 14,
+   "name": "Projection and simulation (100k)",
+   "status": "NOT_YET",
+   "packet_status": "PARTIAL_RESEARCH_ONLY",
+   "filled": [
+    "team_projection"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [
+    "100k entry point refused: G4: snap_counts GAP: latest published asset (as-of 2026-11-26T12:01:39+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_CHI_DET; G4: ftn_charting GAP: latest published asset (as-of 2026-11-26T00:02:05+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA, 2026_12_CHI_DET; G4: pfr_defense GAP: latest published asset (as-of 2026-11-26T12:02:42+00:00, nflverse_asset_digest_match) is missing completed-game coverage for: 2026_12_GB_LA, 2026_12_CHI_DET; G5: phase 4 (Role, snaps, routes, opportunity) is GAP; G5: phase 7 (Coverage structure and shell) is GAP; G5: phase 8 (Defender assignment and explosive allowance) is GAP; G5: phase 9 (QB pressure, blitz, scramble) is GAP"
+   ],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Period-engine team scores; player baselines. Not the three-model consensus; not validated.",
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 14"
+  },
+  {
+   "phase": 15,
+   "name": "Final inactive pregame freeze",
+   "status": "AUTO",
+   "packet_status": "PENDING",
+   "filled": [
+    "official_inactives: Both clubs' official Inactives articles pulled after T-90. (source: {'KC': 'https://www.chiefs.com/news/week-12-inactive-players-chiefs-vs-bills', 'BUF': 'https://www.buffalobills.com/news/buffalo-bills-inactives-vs-chiefs-nfl-thanksgiving'}; pulled 2026-11-27T00:01:24+00:00)"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call.",
+   "phase15": {
+    "status": "AUTO",
+    "source": "club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used",
+    "source_urls": {
+     "KC": "https://www.chiefs.com/news/week-12-inactive-players-chiefs-vs-bills",
+     "BUF": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-chiefs-nfl-thanksgiving"
+    },
+    "pull_utc": "2026-11-27T00:01:24+00:00",
+    "pull_et": "2026-11-26 07:01 PM ET",
+    "published_utc": {
+     "KC": "2026-11-26T23:56:35.063000+00:00",
+     "BUF": "2026-11-26T23:49:34.015000+00:00"
+    },
+    "file": "phase15/inactives/2026_12_KC_BUF/inactives_20261127T000124Z.json",
+    "kickoff_utc": "2026-11-27T01:20:00+00:00",
+    "posts_utc": "2026-11-26T23:50:00+00:00",
+    "checked_utc": "2026-11-27T00:35:24+00:00",
+    "inactives": {
+     "KC": [
+      "Kenneth Walker III",
+      "Garrett Nussmeier",
+      "Melvin Smith Jr.",
+      "Omarr Norman-Lott",
+      "Diego Pounds",
+      "Jaylon Moore",
+      "Marcus Harris"
+     ],
+     "BUF": [
+      "Skyler Bell",
+      "Jalon Kilgore",
+      "Christian Benford",
+      "Mike Danna",
+      "Jude Bowry",
+      "Greg Gaines"
+     ]
+    },
+    "reason": "Both clubs' official Inactives articles pulled after T-90."
+   },
+   "command": "python -m pipeline.phases --game 2026_12_KC_BUF --phase 15"
+  }
+ ],
+ "summary": {
+  "AUTO": 2,
+  "MISSING": 10,
+  "NOT_YET": 1,
+  "PARTIAL": 2
+ }
+}
