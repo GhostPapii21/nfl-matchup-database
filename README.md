@@ -42,6 +42,7 @@ The repository is the single source of truth for every step from pulling data to
 - Per-phase checks: `python -m pipeline.phases --game <id> --phase <n>`. Each of the 15 phases is marked AUTO, PARTIAL, MISSING, STALE or NOT_YET, with the missing inputs named. See [docs/PHASE_WORKFLOWS.md](docs/PHASE_WORKFLOWS.md).
 - Freshness windows for each source: [docs/DATA_FRESHNESS.md](docs/DATA_FRESHNESS.md).
 - The 100k entry point, `python -m pipeline.sim100k --game <id>`. It is fail-closed: it exits 2 with a plain reason whenever any required input is missing or stale, and it has no override.
+- Sunday research commands, run locally and not by a scheduler: `python -m sunday preflight`, `python -m sunday game`, and `python -m sunday slate`. `python -m sunday replay --game 2026_12_DEN_PIT` runs the Week 12 DEN@PIT packet twice at its pregame timestamp. `projection_ready` stays false. Commands, arguments, and exit codes: [docs/SUNDAY_CLI.md](docs/SUNDAY_CLI.md).
 - A game-day workflow, [.github/workflows/nfl-gameday-gate.yml](.github/workflows/nfl-gameday-gate.yml), that runs the whole pre-kickoff chain for each game in order (official inactives, fresh packet and price freeze, locked snapshot, the 100k entry point) 40 to 88 minutes before kickoff and commits the result and [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It only runs on a schedule once it is on `main`. What it runs, what it costs in Odds API credits and how the credit floor is set: [pipeline/workflow_to_install/README.md](pipeline/workflow_to_install/README.md).
 
 **Blocked or pending**
@@ -52,9 +53,9 @@ The repository is the single source of truth for every step from pulling data to
 | 100k runs | **Un-deferred Nov 12 ~3:05 PM ET** (`DEFERRED_100K` false, Rico's OK). `python -m pipeline.sim100k` still refuses until inactives and the price freeze pass for that game. Research only. | BetGuru |
 | NFL-43 penalties, returns, overtime | **Bounds accepted** by Ghost6 at 32b9b92 (`known_flags/NFL43_REVIEW.json`). Still unsupported and enforced: kick-play fouls, joint_producer penalties/return yards, blocked kicks/onside/fakes. | BetGuru |
 | `rocket` validation command | **Exists** (`./rocket`, `rocket_gate/`). R1–R4 pass on main at fe8bbcb (all 7 suites present). Passing rocket is not validation. | BetGuru |
-| Four-book price feed (FanDuel, DraftKings, Hard Rock, Caesars) | **Pending dependency.** It is on an unmerged branch. Until a freeze file exists for a game, phase 13 is MISSING. | Blitz |
+| Game-line quote feed | **`FREE_FEED_ACCEPTED`** (Action Network public + FanDuel/Pinnacle direct; PR #93/#94). Per-game phase 13 still MISSING until a freeze file exists for that game. | Blitz / NFL-49 P1 |
 | Official inactives (phase 15) | **Wired per game**, `Phase15` flag AUTO since [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24). Each game ledger shows AUTO / NOT_YET / MISSING with source and pull time; NOT_YET before T-90, MISSING until both clubs' official Inactives articles are pulled, and a non-AUTO game still blocks its 100k. | NFL-46 / NFL-75 |
-| Calibration, pristine holdout, end-to-end run | Not done. Pristine protocol and freeze exist (`evaluation/`), aggregation rules still missing (NFL-44). Calibration not fitted, quotes NOLINE (NFL-45). Live holdout Weeks 10–12 not graded (NFL-7). | NFL-75 |
+| Calibration, pristine holdout, end-to-end run | Not done. Pristine protocol, freeze, and aggregation rules exist (`evaluation/`; NFL-44). `pristine_protocol_complete` stays false until Ghost6 verifies. Calibration not fitted (`calibration_fitted_claim` false). Quotes `FREE_FEED_ACCEPTED` (NFL-49 P1). Live holdout Weeks 10–12 incomplete: 14 scored games / 2 weeks vs 30 / 3 (NFL-7 / NFL-49 P4). | NFL-75 |
 | Man/zone, routes, line grades, defender assignment | No free source. Shown as not available, never filled in. | — |
 
 ## Coverage
@@ -88,9 +89,9 @@ The matchup snapshot above is unchanged. A portable research checkpoint of the p
 | Production validation | Not validated. Acceptance is fail-closed. |
 | `projection_ready` | false |
 | Validation entrypoint | **Enforced** (`entrypoint_enforced` true since [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806), PR #24): the 100k gate G0, the snapshot locker and rocket R1 refuse unless the single NFL-42 entrypoint routes only to the decontam validator. `core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py` is the historical contaminated validator (`sha256 29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9`); it is deny-listed. See NFL-42 and `core/possession_engine_v0/validation/ENTRYPOINT.md`. |
-| Penalties, returns, official overtime | Unsupported. See NFL-43. |
-| Calibration | Not fitted. Quotes are `NOLINE` until authenticated book access exists. See NFL-45. |
-| Pristine evaluation | Protocol incomplete. Weeks already inspected are development evidence, not an untouched holdout. See NFL-44. |
+| Penalties, returns, official overtime | Bounds ACCEPTED (NFL-43). Still unsupported and enforced: kick-play fouls, joint_producer penalties/return yards, blocked kicks/onside/fakes. |
+| Calibration | Not fitted (`calibration_fitted_claim` false). Game-line quotes are `FREE_FEED_ACCEPTED` (free public feed). Fitted market calibration remains open (NFL-45 / NFL-49 P3). |
+| Pristine evaluation | Protocol + freeze + aggregation rules present; `pristine_protocol_complete` false pending Ghost6. Holdout coverage insufficient (14 games / weeks 10–11). Weeks 1–9 are development evidence, not holdout. See NFL-44. |
 | 100k trials and the 15-phase ledger | Ledger and fail-closed 100k entry point exist (`pipeline/`, NFL-56). 100k runs are allowed only through the fail-closed gate (inactives, price freeze); `DEFERRED_100K` is false since Nov 12. Phase 15 inactives are wired per game (`Phase15` AUTO since ba19e77); each game's ledger carries its own status. See "Projection pipeline: goal vs current status". |
 | ORCA / FTN model mirrors | `ACCESS_UNKNOWN`. No quotes are invented. NFL-53, NFL-54, NFL-55. |
 | Pinnacle and other books | No actionable lines are published. Pinnacle Q2–Q4 spreads were already absent in the saved research set. Odds-bridge still needs authentication. NFL-25, NFL-45. |

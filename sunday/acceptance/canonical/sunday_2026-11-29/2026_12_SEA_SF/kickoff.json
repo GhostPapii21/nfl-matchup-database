@@ -1,0 +1,50 @@
+{
+ "adapter": "sunday.kickoff.resolve",
+ "authoritative_source": "nfl_official_schedule",
+ "authoritative_status": "UNAVAILABLE",
+ "canonical_kickoff_utc": null,
+ "config_file_rewritten": false,
+ "conflicts": [],
+ "game_id": "2026_12_SEA_SF",
+ "originals": {
+  "espn_event_date": {
+   "field": "date",
+   "kickoff_utc": "2026-11-29T21:25:00+00:00",
+   "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
+   "path": "grading/results/sources/espn_summary_2026_12_SEA_SF_401873091.json",
+   "status": "OK"
+  },
+  "nfl_official_schedule": {
+   "as_of": null,
+   "kickoff_utc": null,
+   "path": "data/schedule/nfl_official_schedule.json",
+   "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
+   "retrieved_utc": null,
+   "source": null,
+   "status": "UNAVAILABLE"
+  },
+  "nflverse_games_csv": {
+   "gameday": "2026-11-29",
+   "gametime": "16:25",
+   "kickoff_utc": "2026-11-29T21:25:00+00:00",
+   "path": "data/historical/nflverse/games.csv",
+   "status": "OK",
+   "timezone_assumed": "America/New_York"
+  },
+  "possession_config": {
+   "kickoff_utc": "2026-11-29T21:25:00+00:00",
+   "path": "core/possession_engine_v0/config/sea_sf_2026-11-29_data_only_nfl43.json",
+   "status": "OK"
+  },
+  "pregame_packet": {
+   "kickoff_utc": "2026-11-29T21:25:00+00:00",
+   "timezone": "America/New_York wall clock when the packet stores kickoff_et"
+  }
+ },
+ "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
+ "resolved": false,
+ "schedule_file_rewritten": false,
+ "source": null,
+ "timezone": "UTC",
+ "verification": "UNVERIFIED"
+}

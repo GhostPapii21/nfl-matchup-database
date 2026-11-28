@@ -1,0 +1,156 @@
+{
+ "schema": "sunday-sim-triad/1",
+ "as_of": "2026-11-29T12:00:00+00:00",
+ "trials_per_method_per_scenario": 100000,
+ "methods": [
+  "mc_nb",
+  "gr_share",
+  "eb_boot"
+ ],
+ "validation_verdict": {
+  "sim_v6r1:mc_nb": {
+   "accepted": true,
+   "reasons": []
+  },
+  "sim_v6r1:gr_share": {
+   "accepted": true,
+   "reasons": []
+  },
+  "sim_v6r1:eb_boot": {
+   "accepted": true,
+   "reasons": []
+  }
+ },
+ "concurrency": 4,
+ "slate_wall_seconds": 115.61,
+ "cpu_count": 4,
+ "games": [
+  {
+   "game_id": "2026_12_ATL_MIN",
+   "legs": 20,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 24000000,
+    "sim_v6": 6000000
+   },
+   "wall_seconds": 37.22,
+   "peak_rss_mb": 674.9,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_BAL_HOU",
+   "legs": 20,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 24000000,
+    "sim_v6": 6000000
+   },
+   "wall_seconds": 37.93,
+   "peak_rss_mb": 670.3,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_NO_CIN",
+   "legs": 22,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 26400000,
+    "sim_v6": 6600000
+   },
+   "wall_seconds": 40.66,
+   "peak_rss_mb": 682.5,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_NYG_IND",
+   "legs": 17,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 20400000,
+    "sim_v6": 5100000
+   },
+   "wall_seconds": 33.47,
+   "peak_rss_mb": 684.4,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_NYJ_MIA",
+   "legs": 18,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 21600000,
+    "sim_v6": 5400000
+   },
+   "wall_seconds": 35.9,
+   "peak_rss_mb": 674.3,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_TEN_JAX",
+   "legs": 14,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 16800000,
+    "sim_v6": 4200000
+   },
+   "wall_seconds": 28.68,
+   "peak_rss_mb": 687.6,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_NE_LAC",
+   "legs": 20,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 24000000,
+    "sim_v6": 6000000
+   },
+   "wall_seconds": 34.68,
+   "peak_rss_mb": 671.6,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_SEA_SF",
+   "legs": 26,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 31200000,
+    "sim_v6": 7800000
+   },
+   "wall_seconds": 46.86,
+   "peak_rss_mb": 665.5,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_WAS_ARI",
+   "legs": 15,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 18000000,
+    "sim_v6": 4500000
+   },
+   "wall_seconds": 28.67,
+   "peak_rss_mb": 682.1,
+   "result": "PASS"
+  },
+  {
+   "game_id": "2026_12_LV_CLE",
+   "legs": 26,
+   "errors": 0,
+   "trials": {
+    "sim_v6r1": 31200000,
+    "sim_v6": 7800000
+   },
+   "wall_seconds": 45.38,
+   "peak_rss_mb": 684.4,
+   "result": "PASS"
+  }
+ ],
+ "total_trials": {
+  "sim_v6r1": 237600000,
+  "sim_v6": 59400000
+ },
+ "max_peak_rss_mb": 687.6,
+ "projection_ready": false,
+ "result": "PASS"
+}

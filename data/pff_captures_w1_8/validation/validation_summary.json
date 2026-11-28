@@ -1,0 +1,64 @@
+{
+ "independent_sources": {
+  "pbp": "/workspace/nfl-database/sources/nflverse/pbp_2026.csv.gz (nflverse; NFL GSIS-derived PBP, season 2026 REG W1-8, 121 games)",
+  "snaps": "/workspace/nfl-database/sources/nflverse/snap_counts_2026.csv.gz (nflverse from PFR)",
+  "files": {
+   "pbp_2026.csv.gz": {
+    "sha256": "bb29a4d851ba19a0f91786b0009725f00f3f7e9184d5e968640f03f4cfe4e3db",
+    "mtime_et": "2026-11-06T07:34:18.761778"
+   },
+   "snap_counts_2026.csv.gz": {
+    "sha256": "605ba88543097e119c59c9aed43d2d1e9521c5da69bac74d0ec7656031a30f3c",
+    "mtime_et": "2026-11-06T07:34:18.605763"
+   }
+  },
+  "note": "mtime is local cache time, not original retrieval; ESPN/NFL.com official boxes not fetched; no stat-correction lineage"
+ },
+ "games_total": 121,
+ "games_joined": 121,
+ "finals_compared": 121,
+ "finals_match": 120,
+ "finals_mismatch": [
+  "30658"
+ ],
+ "dates_compared": 119,
+ "dates_match": 119,
+ "dates_unverifiable": [
+  "30713",
+  "30715"
+ ],
+ "box_fields": {
+  "compared": 13134,
+  "match": 12051,
+  "within_1": 561,
+  "unverifiable": 350,
+  "mismatch": 172
+ },
+ "snap_fields": {
+  "compared": 8636,
+  "match": 7427,
+  "within_1": 587,
+  "mismatch": 476,
+  "unverifiable": 146
+ },
+ "games_snaps_quarantined": 14,
+ "quarantine_items": 61,
+ "large_player_diffs": 53,
+ "not_comparable_pff_native": [
+  "Initial PFF grades",
+  "pressures/hurries/hits/PR%",
+  "big-time throws/TWP",
+  "adjusted completion %",
+  "YBC/YCO/MTF",
+  "EPA per play/percentiles",
+  "pass blocking/run defense/coverage cards",
+  "generated takeaways"
+ ],
+ "not_compared_pending": [
+  "team overview totals (first downs, 3rd down, red zone, drives, penalties)",
+  "team rushing/passing report cards",
+  "defensive box (tackles, INT, PBU)",
+  "player rushing/receiving rows beyond PFF top-12 cap",
+  "official ESPN/NFL.com cross-check (second independent source)"
+ ]
+}

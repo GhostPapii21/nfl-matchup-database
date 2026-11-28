@@ -5,6 +5,8 @@ hooks.py      fail-closed hooks for pieces other owners are building (NFL-43, ro
 phases.py     one command per phase of the 15-phase ledger, recording filled / missing / stale inputs
 sim100k.py    the single 100k-trial entry point (NFL-43 possession engine); refuses (exit 2) unless every gate passes
 slate.py      what the scheduled workflow runs: phases + the 100k gate for every game in the slate
+orchestrator  local per-game fan-out of existing modules (not a scheduler)
+matchup_research  per-game defensive and offensive research packet
 
 Research only. Nothing here sets projection_ready to true.
 """

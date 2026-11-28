@@ -1,0 +1,24 @@
+{
+ "input_rows": 264785,
+ "pregame_status_counts": {
+  "update_before_start_capture_unknown": 25652,
+  "update_at_or_after_start_capture_unknown": 8,
+  "verified_capture_before_start": 223869,
+  "capture_at_or_after_start": 15256
+ },
+ "exclusions": {
+  "missing_or_invalid_or_naive_snapshot_timestamp": 25660,
+  "snapshot_not_strictly_before_start": 15256
+ },
+ "eligible_rows": 223869,
+ "verified_status_but_fails_time_test": 0,
+ "unique_keys_output_rows": 104742,
+ "duplicate_key_groups": 19154,
+ "rows_removed_by_dedup": 119127,
+ "tied_earliest_groups": 0,
+ "tied_earliest_price_conflicts": 0,
+ "line_format_collisions": 0,
+ "tie_break": "snapshot_timestamp, source_filepath, source_row_id, observation_id, source row order",
+ "provenance_sep": "'source_filepath=<path> | flags=<flags>'",
+ "validation": "unique keys, strict pregame, earliest-per-key, columns preserved: PASS"
+}
