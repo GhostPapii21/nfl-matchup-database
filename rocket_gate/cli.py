@@ -34,7 +34,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN = ("\"stake", "bankroll", "\"wager", "units_risked", "bet_amount", "\"payout")
 SUITES = ["core/possession_engine_v0/tests", "core/period_engine_v0/tests", "pipeline/tests", "phase15/tests",
-          "snapshots/tests", "rocket_gate/tests", "evaluation/tests"]
+          "snapshots/tests", "rocket_gate/tests", "evaluation/tests", "sunday/tests"]
 TRIALS = 100_000
 
 
