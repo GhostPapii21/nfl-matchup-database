@@ -97,7 +97,14 @@ def test_evidence_boundary_derived_live_from_repo():
     assert eb["pristine_games_scored"] == 14
     assert eb["pristine_weeks_scored"] == ["10", "11"]
     assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
-    assert eb["w12_with_lock"] == []
+    # Derived from snapshots/*/LOCK.json that also have a Week 12 packet. New locks must show up;
+    # the two already committed (DEN@PIT, KC@BUF) must not disappear.
+    on_disk = sorted({
+        p.parent.parent.name for p in (R.ROOT / "snapshots").glob("2026_12_*/*/LOCK.json")
+        if (R.ROOT / "pregame" / "packets" / p.parent.parent.name).is_dir()
+    })
+    assert eb["w12_with_lock"] == on_disk
+    assert {"2026_12_DEN_PIT", "2026_12_KC_BUF"} <= set(on_disk)
     assert eb["w12_packet_count"] == 16
     assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]
     assert eb["coverage_ceiling_if_remaining_w12_lock"] == 14 + len(eb["w12_remaining_eligible"])
