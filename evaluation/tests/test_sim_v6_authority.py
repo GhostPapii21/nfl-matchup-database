@@ -30,6 +30,35 @@ def test_semicolon_line_constants_are_read_as_integers():
     assert _const_int(unequal, "K_BIAS") == 5
     assert _const_int(unequal, "SHRINK_K") == 30
     assert (_const_int(unequal, "K_BIAS") == _const_int(unequal, "SHRINK_K")) is False
+    assert _const_int("", "K_BIAS") is None
+
+
+def test_each_scratch_file_keeps_its_own_semicolon_constants():
+    """A start-of-line regex misses both names and then treats the misses as equal."""
+    v6 = (ROOT / "calibration/simv56/engines/cc_sim_v6.py").read_text(encoding="utf-8")
+    fix = (ROOT / "calibration/simv56/engines/cc_sim_v6_fix.py").read_text(encoding="utf-8")
+    assert _const_int(v6, "SHRINK_K") == 30
+    assert _const_int(v6, "K_BIAS") == 30
+    assert _const_int(fix, "SHRINK_K") == 30
+    assert _const_int(fix, "K_BIAS") == 5
+    assert _const_int(fix, "K_BIAS") != _const_int(v6, "K_BIAS")
+    report = audit(ROOT)
+    scratch = report["systems"]["scratch_cc_sim_v6"]
+    fixed = report["systems"]["scratch_cc_sim_v6_fix"]
+    assert scratch["shrink_k"] == 30 and scratch["k_bias"] == 30
+    assert scratch["k_bias_equals_shrink_k"] is True
+    assert scratch["bias_fit_uses_mc_predictions"] is True
+    assert fixed["shrink_k"] == 30 and fixed["k_bias"] == 5
+    assert fixed["k_bias_equals_shrink_k"] is False
+    assert fixed["bias_win"] == 4
+    assert fixed["bias_fit_uses_own_predictions"] is True
+    assert fixed["is_phase_script_entrypoint"] is False
+    assert fixed["promoted"] is False
+    assert fixed["sha256_matches_pin"] is True
+    assert report["verdict"] == VERDICT_ABSENT
+    assert report["calibrated_bias"] == BIAS_LABEL
+    assert "cc_sim_v6.py has SHRINK_K=30 and K_BIAS=30" in " ".join(report["blockers"])
+    assert "cc_sim_v6_fix.py has SHRINK_K=30 and K_BIAS=5" in " ".join(report["blockers"])
 
 
 def test_documented_sim_v6_command_is_absent():

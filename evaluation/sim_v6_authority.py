@@ -72,6 +72,14 @@ def _const_int(text: str, name: str) -> int | None:
     return None
 
 
+def _ints_equal(left: int | None, right: int | None) -> bool:
+    """True only when both sides parsed as integers and match.
+
+    Two missing parses used to compare equal and hide a semicolon-line miss.
+    """
+    return left is not None and left == right
+
+
 def _pinned_sha(root: Path, filename: str) -> str | None:
     sums = _text(root, "calibration/simv56/engines/SHA256SUMS")
     if sums is None:
@@ -132,7 +140,7 @@ def _scratch_engine(root: Path) -> dict:
         "declared_seed": _const_int(text, "SEED"),
         "shrink_k": _const_int(text, "SHRINK_K"),
         "k_bias": _const_int(text, "K_BIAS"),
-        "k_bias_equals_shrink_k": _const_int(text, "K_BIAS") == _const_int(text, "SHRINK_K"),
+        "k_bias_equals_shrink_k": _ints_equal(_const_int(text, "K_BIAS"), _const_int(text, "SHRINK_K")),
         "modes_literal": "MODES=('mc','bias','gr')" in text,
         "calib_constant": "__no_calib__.json" in text,
         "missing_calib_returns_none": "else None" in text and "def load_calib" in text,
@@ -147,6 +155,37 @@ def _scratch_engine(root: Path) -> dict:
         "scenario_note": (
             "One spread scalar feeds a normal margin shock inside mode 'gr'. "
             "Lead, neutral, and trail are not retained as separate sample branches."
+        ),
+    }
+
+
+def _scratch_fix(root: Path) -> dict:
+    """Deprecated Bias redesign. Parsed here so its constants are not borrowed from cc_sim_v6.py."""
+    rel = "calibration/simv56/engines/cc_sim_v6_fix.py"
+    text = _text(root, rel)
+    path = root / rel
+    if text is None:
+        return {"path": rel, "exists": False, "is_phase_script_entrypoint": False, "promoted": False}
+    shrink_k, k_bias = _const_int(text, "SHRINK_K"), _const_int(text, "K_BIAS")
+    return {
+        "path": rel,
+        "exists": True,
+        "is_phase_script_entrypoint": False,
+        "promoted": False,
+        "identity": "deprecated sim_v6_fix scratch copy; not tools/sim_v6.py",
+        "sha256": _sha256(path),
+        "sha256_pin": _pinned_sha(root, "cc_sim_v6_fix.py"),
+        "sha256_matches_pin": _sha256(path) == _pinned_sha(root, "cc_sim_v6_fix.py"),
+        "declared_n": _const_int(text, "N"),
+        "declared_seed": _const_int(text, "SEED"),
+        "shrink_k": shrink_k,
+        "k_bias": k_bias,
+        "k_bias_equals_shrink_k": _ints_equal(k_bias, shrink_k),
+        "bias_win": _const_int(text, "BIAS_WIN"),
+        "bias_fit_uses_own_predictions": "col=f'pred_{mode}'" in text and "col='pred_mc' if mode=='bias'" not in text,
+        "note": (
+            "SHRINK_K and K_BIAS are different integers on one semicolon line. "
+            "This file is not a substitute for the absent tools/sim_v6.py."
         ),
     }
 
@@ -239,6 +278,7 @@ def audit(root: Path | None = None) -> dict:
     documented = root / DOCUMENTED_REL
     present = documented.is_file()
     scratch = _scratch_engine(root)
+    scratch_fix = _scratch_fix(root)
     simv56 = _simv56(root)
     sim100k = _sim100k(root)
     backtest_path = root / "calibration" / "simv56" / "engines" / "sim_v6_backtest.csv"
@@ -257,7 +297,14 @@ def audit(root: Path | None = None) -> dict:
         )
     blockers.extend([
         "CALIBRATED_BIAS_UNVALIDATED: no sim_v6_calib.json is committed. The vendored scratch copy fail-opens a missing calibration file to multiplier 1.0.",
-        "BIAS_NOT_A_HEAVIER_SHRINK: cc_sim_v6.py sets K_BIAS equal to SHRINK_K and fits Bias on pred_mc. A 2026-11-05 code note (BIASDUP) already recorded bias multipliers equal to Monte Carlo.",
+        (
+            "BIAS_CONSTANTS_ARE_FILE_SPECIFIC: "
+            f"cc_sim_v6.py has SHRINK_K={scratch.get('shrink_k')} and K_BIAS={scratch.get('k_bias')} "
+            "and fits Bias on pred_mc. "
+            f"cc_sim_v6_fix.py has SHRINK_K={scratch_fix.get('shrink_k')} and K_BIAS={scratch_fix.get('k_bias')} "
+            "and fits Bias on its own residuals. The fix file is deprecated and is not the PHASE_SCRIPT entrypoint. "
+            "Neither file has a committed holdout scorecard."
+        ),
         "SIMV56_IS_NOT_SIM_V6: calibration.simv56_pmodel runs a three-engine ensemble at 20_000 trials and averages probabilities.",
         "SIM100K_IS_NOT_SIM_V6: pipeline.sim100k runs the possession engine once at 100_000 trials.",
         "NO_EXPLICIT_ADAPTER: no module adapts sim100k, simv56, the empirical runners, or Lightning into tools/sim_v6.py.",
@@ -286,9 +333,17 @@ def audit(root: Path | None = None) -> dict:
             "structurally_distinct_on_authoritative_entrypoint": None,
             "scratch_copy_distinction": {
                 "monte_carlo": "Negative-binomial volume, binomial catches, resampled yards. Not the PHASE_SCRIPT entrypoint.",
-                "bias": (
-                    "Same volume structure as Monte Carlo. Multiplier is fit on Monte Carlo residuals "
-                    "with K_BIAS == SHRINK_K. Missing calibration file uses M=1.0, leaving an independent draw from the same family."
+                "bias_cc_sim_v6": (
+                    "calibration/simv56/engines/cc_sim_v6.py only. Same volume structure as Monte Carlo. "
+                    f"Parsed SHRINK_K={scratch.get('shrink_k')} and K_BIAS={scratch.get('k_bias')}. "
+                    "fit() reads pred_mc. A missing calibration file uses M=1.0, so this file's Bias "
+                    "differs from Monte Carlo by draw seed."
+                ),
+                "bias_cc_sim_v6_fix": (
+                    "calibration/simv56/engines/cc_sim_v6_fix.py only. Parsed "
+                    f"SHRINK_K={scratch_fix.get('shrink_k')} and K_BIAS={scratch_fix.get('k_bias')}, "
+                    f"BIAS_WIN={scratch_fix.get('bias_win')}. fit() uses that model's own predictions. "
+                    "Deprecated. Not promoted and not tools/sim_v6.py."
                 ),
                 "game_randomness": "Different volume generator: beta team share, lognormal pace, one normal margin shock. Not three scenario branches.",
             },
@@ -301,6 +356,7 @@ def audit(root: Path | None = None) -> dict:
                 "package_entrypoint": None,
             },
             "scratch_cc_sim_v6": scratch,
+            "scratch_cc_sim_v6_fix": scratch_fix,
             "simv56_ensemble": simv56,
             "pipeline_sim100k": sim100k,
             "other_models": _other_models(root),

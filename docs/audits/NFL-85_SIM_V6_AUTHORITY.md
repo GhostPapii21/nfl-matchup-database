@@ -45,7 +45,14 @@ No process started, so there is no runtime, memory benchmark, or representative 
 
 No adapter module maps any of those systems onto `tools/sim_v6.py`.
 
-`cc_sim_v6_fix.py` is a different Bias design (`K_BIAS=5`, last-4-game volume). `data/historical/postmortems/2026-11-03_code_notes_for_ghost6.md` says sim_v6_fix is deprecated and that `tools/sim_v6.py` is the only source. This audit does not promote the fix file.
+Parsed module constants, read from each file's semicolon assignment line (`N=100_000; ...; SHRINK_K=...; K_BIAS=...`). A start-of-line regex misses both names. These two files are not the same engine.
+
+| File | `SHRINK_K` | `K_BIAS` | Bias fit column | Role |
+|---|---:|---:|---|---|
+| `calibration/simv56/engines/cc_sim_v6.py` | 30 | 30 | `pred_mc` | Scratch copy. With no calibration file, Bias uses multiplier 1.0 and differs from Monte Carlo by draw seed. |
+| `calibration/simv56/engines/cc_sim_v6_fix.py` | 30 | 5 | that model's own `pred_bias` (`BIAS_WIN=4`) | Deprecated redesign. Not promoted. Not `tools/sim_v6.py`. |
+
+`data/historical/postmortems/2026-11-03_code_notes_for_ghost6.md` says sim_v6_fix is deprecated and that `tools/sim_v6.py` is the only source. The fix file's own docstring describes a 4,000-trial leave-one-week-out note. That note is not a committed holdout scorecard, and this audit does not promote the file.
 
 ## Historical snapshot (not on main)
 
@@ -58,12 +65,13 @@ Commit `dc36f7f2` on `origin/research/matchup-database-local-2026-11-12` (open P
 
 Open PRs on `GhostPapii21/nfl-matchup-database` (28 at audit time, including #140, #143, #144, and #18) do not add `tools/sim_v6.py` on `main`. GitHub code search for `sim_v6.py` on the default branch returned no indexed hits.
 
-## Three methods, as the scratch copy actually implements them
+## Three methods, as each scratch file actually implements them
 
-These notes describe `cc_sim_v6.py` only. They are not a claim that the PHASE_SCRIPT command runs.
+These notes are not a claim that the PHASE_SCRIPT command runs. "Differs by draw seed" applies only to `cc_sim_v6.py`, where the parsed constants are `SHRINK_K=30` and `K_BIAS=30`.
 
 - **Monte Carlo (`mc`)**: negative-binomial volume from season/last-3 means, binomial catches, resampled historical yards, opponent adjustment. Seed is `SEED` plus a digest of `player|market|mode`.
-- **Bias (`bias`)**: the same volume structure as Monte Carlo. `fit()` reads the `pred_mc` column for the Bias multiplier. `K_BIAS` and `SHRINK_K` are both 30, so the "heavier shrink" described in the docstring is not what the constants do. `load_calib()` returns `None` when the calibration file is missing, and `mult()` then returns `1.0`. Bias then differs from Monte Carlo by draw seed, not by a fitted correction.
+- **Bias in `cc_sim_v6.py`**: the same volume structure as Monte Carlo. `fit()` reads the `pred_mc` column. Parsed `K_BIAS` and `SHRINK_K` are both 30, so the "heavier shrink" described in that file's docstring is not what the constants do. `load_calib()` returns `None` when the calibration file is missing, and `mult()` then returns `1.0`. On this file, Bias then differs from Monte Carlo by draw seed.
+- **Bias in `cc_sim_v6_fix.py`**: a different volume window (`BIAS_WIN=4`) and parsed `K_BIAS=5` against `SHRINK_K=30`. `fit()` uses that model's own predictions. Those parsed integers do not make the file the authoritative engine, and they do not supply a dated holdout.
 - **Game Randomness (`gr`)**: a different volume path (beta share, lognormal pace, one normal margin draw with `SD_MARGIN=13.5`). That is one shock around the supplied spread, not three retained scenario branches (lead / neutral / trail).
 
 `Engine.sim` stores each mode on its own key, so the three sample summaries are not concatenated before percentiles. `price_game_script` then sets edge from the arithmetic mean of the three probabilities (`sum(r['p'].values())/3`). The simv56 ensemble means again across modes and across v5/v6/v6_fix. Those averages are explicit and sit outside the sample arrays. They are still pooling of method outputs, and they are not the PHASE_SCRIPT entrypoint.
@@ -96,10 +104,11 @@ Identity tests that did run:
 
 ```bash
 python -m pytest evaluation/tests/test_sim_v6_authority.py -q
-# 4 passed
 python -m evaluation.sim_v6_authority
 # exit 2, verdict BLOCKED_ENTRYPOINT_ABSENT
 ```
+
+`test_each_scratch_file_keeps_its_own_semicolon_constants` reads `SHRINK_K` and `K_BIAS` from `cc_sim_v6.py` (30 and 30) and from `cc_sim_v6_fix.py` (30 and 5). A parser that misses the semicolon line fails that test, because two missing values are not treated as equal.
 
 ## Minimal remediation
 
