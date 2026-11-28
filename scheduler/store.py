@@ -15,7 +15,7 @@ import threading
 from contextlib import contextmanager
 from datetime import datetime, timedelta
 
-from .model import BLOCKERS, TERMINAL_FAILURE
+from .model import INJURY_PHASE, INJURY_REFRESH_ARTIFACT, LOCK_PHASE, OPEN_JOB_STATUSES, injury_refresh_valid
 from .timeutil import ScheduleError, utc_iso
 
 SQLITE_DDL = """
@@ -371,7 +371,8 @@ class Store:
                        ORDER BY id DESC LIMIT 1""",
                     (lock["game_id"], lock["schedule_version"]),
                 ).fetchone()
-                if injury and injury["status"] in TERMINAL_FAILURE:
+                if injury and injury["status"] not in OPEN_JOB_STATUSES and not _injury_refresh_validated(
+                        c, lock["game_id"], lock["schedule_version"]):
                     c.execute(
                         """UPDATE jobs SET status='blocked', updated_at=?, last_error=?
                            WHERE id=? AND status='queued'""",
@@ -556,16 +557,22 @@ def _parse(value: str) -> datetime:
 
 
 def _dependency_met(c, job: dict) -> bool:
-    needed = BLOCKERS.get(job["phase"])
-    if not needed:
+    if job["phase"] != LOCK_PHASE:
         return True
-    phase, status = needed
-    row = c.execute(
-        """SELECT status FROM jobs WHERE game_id=? AND phase=? AND schedule_version=?
-           ORDER BY id DESC LIMIT 1""",
-        (job["game_id"], phase, job["schedule_version"]),
-    ).fetchone()
-    return row is not None and row["status"] == status
+    return _injury_refresh_validated(c, job["game_id"], job["schedule_version"])
+
+
+def _injury_refresh_validated(c, game_id: str, schedule_version: str) -> bool:
+    """True only when a succeeded injury job stored a matching refresh artifact."""
+    rows = c.execute(
+        """SELECT a.body FROM artifacts a
+           JOIN receipts r ON r.id = a.receipt_id
+           JOIN jobs j ON j.id = r.job_id
+           WHERE j.game_id=? AND j.phase=? AND j.schedule_version=?
+             AND j.status='succeeded' AND a.name=?""",
+        (game_id, INJURY_PHASE, schedule_version, INJURY_REFRESH_ARTIFACT),
+    ).fetchall()
+    return any(injury_refresh_valid(row["body"], game_id, schedule_version) for row in rows)
 
 
 def artifact_digest(body: bytes) -> str:

@@ -6,8 +6,9 @@ Windows are measured from the UTC kickoff instant:
   (pipeline.freshness.INACTIVES_POST_MINUTES_BEFORE_KICKOFF) and closes at
   T-40, the same close pipeline.window uses so a late injury pull does not
   start after the lock has run out of time.
-* prekick_lock opens at T-70 and is not claimable until injury_refresh for
-  the same schedule version has succeeded. Its deadline is the kickoff
+* prekick_lock opens at T-70 and is not claimable until a validated
+  injury_refresh artifact exists for the same game and schedule version.
+  A receipt-only or refused refresh does not count. Its deadline is the kickoff
   instant. A run that has not started by kickoff is missed and the handler
   is not called. snapshots.lock refuses now >= kickoff; this window matches
   that rule. A succeeded lock is immutable.
@@ -20,6 +21,7 @@ simulation. The scheduler does not start that simulation.
 from __future__ import annotations
 
 import hashlib
+import json
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
@@ -48,8 +50,11 @@ PHASES: tuple[Phase, ...] = (
 )
 PHASE_BY_NAME = {phase.name: phase for phase in PHASES}
 HEAVY_PHASES = frozenset(phase.name for phase in PHASES if phase.heavy)
-# Lock waits until the injury job for the same schedule version has succeeded.
-BLOCKERS = {LOCK_PHASE: (INJURY_PHASE, "succeeded")}
+# A generic succeeded/recorded job status does not unlock the lock. The
+# artifact below has to name this game and this schedule version.
+INJURY_REFRESH_ARTIFACT = "injury_refresh.json"
+INJURY_REFRESH_SCHEMA = "scheduler-injury-refresh/1"
+OPEN_JOB_STATUSES = ("queued", "leased")
 
 
 @dataclass(frozen=True)
@@ -97,6 +102,33 @@ def phase_window(phase: Phase, game: Game, now: datetime) -> tuple[datetime, dat
     if deadline <= open_at:
         raise ScheduleError(f"{phase.name} deadline is not after its open time for {game.game_id}")
     return open_at, deadline
+
+
+def injury_refresh_artifact(game_id: str, schedule_version: str) -> bytes:
+    """Bytes a handler must store before the pre-kick lock may run."""
+    return json.dumps({
+        "schema": INJURY_REFRESH_SCHEMA,
+        "game_id": game_id,
+        "phase": INJURY_PHASE,
+        "schedule_version": schedule_version,
+        "work_completed": True,
+    }, sort_keys=True).encode()
+
+
+def injury_refresh_valid(body: bytes | str, game_id: str, schedule_version: str) -> bool:
+    try:
+        doc = json.loads(body)
+    except (json.JSONDecodeError, TypeError, UnicodeDecodeError):
+        return False
+    if not isinstance(doc, dict):
+        return False
+    return (
+        doc.get("schema") == INJURY_REFRESH_SCHEMA
+        and doc.get("game_id") == game_id
+        and doc.get("phase") == INJURY_PHASE
+        and doc.get("schedule_version") == schedule_version
+        and doc.get("work_completed") is True
+    )
 
 
 def idempotency_key(game_id: str, phase: str, schedule_version: str, replay: int = 0) -> str:

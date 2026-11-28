@@ -13,7 +13,16 @@ import threading
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
-from .model import PHASES, DesiredJob, Game, idempotency_key, phase_window
+from .model import (
+    INJURY_PHASE,
+    INJURY_REFRESH_ARTIFACT,
+    PHASES,
+    DesiredJob,
+    Game,
+    idempotency_key,
+    injury_refresh_valid,
+    phase_window,
+)
 from .runner import HandlerResult, JobContext, Runner, UnwiredRunner, reject_reason
 from .store import MAX_ARTIFACT_BYTES, Store, artifact_digest
 from .timeutil import ScheduleError, parse_utc_iso, utc_iso
@@ -266,6 +275,7 @@ class Orchestrator:
             "betting_started": False,
             "publishing_started": False,
             "handler_status": result.status,
+            "work_completed": False,
             "phase": job["phase"],
             "game_id": job["game_id"],
             "attempt": job["attempt"],
@@ -308,6 +318,22 @@ class Orchestrator:
             self.store.finish(job["id"], owner, job["attempt"], now, "refused", "refused",
                               json.dumps({**body, "detail": artifacts}), artifacts, [])
             return {"job_id": job["id"], "status": "refused", "detail": artifacts}
+        if not result.work_completed:
+            # The handler returned. That is bookkeeping, not phase completion.
+            kept = self.store.finish(
+                job["id"], owner, job["attempt"], now, "recorded", "recorded",
+                json.dumps(body), result.detail, artifacts,
+            )
+            return {"job_id": job["id"], "status": "recorded" if kept else "orphaned", "detail": result.detail}
+        if job["phase"] == INJURY_PHASE and not _valid_injury_artifact(artifacts, job):
+            reason = "injury refresh artifact missing or does not match this game and schedule version"
+            self.store.alert("refused", f"{job['game_id']} {job['phase']} {reason}", job["game_id"], now)
+            self.store.finish(
+                job["id"], owner, job["attempt"], now, "refused", "refused",
+                json.dumps({**body, "detail": reason}), reason, [],
+            )
+            return {"job_id": job["id"], "status": "refused", "detail": reason}
+        body["work_completed"] = True
         kept = self.store.finish(
             job["id"], owner, job["attempt"], now, "succeeded", "recorded",
             json.dumps(body), None, artifacts,
@@ -331,6 +357,13 @@ class Orchestrator:
 class _DryRunRunner:
     def run(self, ctx: JobContext) -> HandlerResult:
         raise ScheduleError("dry-run claimed a job; the handler must not run")
+
+
+def _valid_injury_artifact(artifacts: list[tuple[str, bytes, str]], job: dict) -> bool:
+    for name, body, _digest in artifacts:
+        if name == INJURY_REFRESH_ARTIFACT and injury_refresh_valid(body, job["game_id"], job["schedule_version"]):
+            return True
+    return False
 
 
 def _delay(job: dict, now: datetime) -> int:

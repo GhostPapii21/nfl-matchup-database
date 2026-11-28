@@ -28,7 +28,7 @@ For each scheduled game it enqueues three phases. Instants are UTC. A naive kick
 | Phase | Opens | Closes | Concurrency class |
 | --- | --- | --- | --- |
 | `injury_refresh` | T-90 | T-40 | light |
-| `prekick_lock` | T-70, and only after injury_refresh for that kickoff has succeeded | kickoff, exclusive | heavy (`simulation_300k` slot) |
+| `prekick_lock` | T-70, and only after a validated `injury_refresh.json` for that game and kickoff version | kickoff, exclusive | heavy (`simulation_300k` slot) |
 | `postgame_grade` | kickoff+3h, or immediately when the slate says `final` and kickoff has passed | kickoff+36h | light |
 
 T-90 is `pipeline.freshness.INACTIVES_POST_MINUTES_BEFORE_KICKOFF`. T-40 is `pipeline.window.CLOSE_MINUTES`. The lock deadline is the same rule as `snapshots.lock`: a handler is not called at or after kickoff.
@@ -37,7 +37,7 @@ Idempotency key: `{game_id}:{phase}:{kickoff_version}`. A second sync in the sam
 
 A worker claims with compare-and-swap (`status='queued'`), holds a lease, and heartbeats. A second claim while the lease is live gets nothing. When the lease expires the receipt is `crashed` and the job is queued again until `max_attempts`, then `dead`. A late worker whose lease was lost cannot mark the retry succeeded. A queued job whose deadline has passed becomes `missed` and the handler is not called. Replay inserts `{key}:replay:{n}`. Replay of a succeeded lock is refused.
 
-Default caps are 2 jobs in flight and 1 heavy job. The heavy slot is where a 300k-trial run will go once NFL-83 is wired. The default handler does not start it. Artifacts over 256 KB are refused: the queue database is not the place for a simulation dump, and object storage is not configured. If `assumed_heavy_seconds` is set and the due heavy queue cannot finish before the earliest deadline at `max_heavy`, an open `backpressure` alert is recorded.
+Default caps are 2 jobs in flight and 1 heavy job. The heavy slot is where a 300k-trial run will go once NFL-83 is wired. The default handler refuses the phase. A refused or receipt-only injury refresh does not make the pre-kick lock claimable. The lock runs only after a succeeded injury job stores `injury_refresh.json` naming that game and that schedule version. `recorded` means the scheduler finished its bookkeeping; `succeeded` means the phase work completed. Artifacts over 256 KB are refused: the queue database is not the place for a simulation dump, and object storage is not configured. If `assumed_heavy_seconds` is set and the due heavy queue cannot finish before the earliest deadline at `max_heavy`, an open `backpressure` alert is recorded.
 
 Receipt columns `projection_ready`, `betting_started`, and `publishing_started` are constrained to 0. A handler that reports any of those is refused and the columns stay 0.
 

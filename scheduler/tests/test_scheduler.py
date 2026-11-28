@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pytest
 
-from scheduler.model import PHASES
+from scheduler.model import PHASES, injury_refresh_artifact
 from scheduler.orchestrator import Orchestrator, open_store
 from scheduler.runner import HandlerResult
 from scheduler.sources import games_from_packet_index, games_from_slate
@@ -67,11 +67,16 @@ class Probe:
             if self.fail:
                 raise RuntimeError("boom")
             if self.flag:
-                return HandlerResult(status="recorded", detail="blocked", **{self.flag: True})
+                return HandlerResult(status="recorded", detail="blocked", work_completed=True, **{self.flag: True})
             if self.refuse:
-                return HandlerResult(status="refused", detail="source refused")
-            artifacts = {} if self.artifact is None else {"note.json": self.artifact}
-            return HandlerResult(status="recorded", detail="ok", artifacts=artifacts)
+                return HandlerResult(status="refused", detail="source refused", work_completed=False)
+            artifacts = {}
+            if ctx.job["phase"] == "injury_refresh":
+                artifacts["injury_refresh.json"] = injury_refresh_artifact(
+                    ctx.job["game_id"], ctx.job["schedule_version"])
+            if self.artifact is not None:
+                artifacts["note.json"] = self.artifact
+            return HandlerResult(status="recorded", detail="ok", work_completed=True, artifacts=artifacts)
         finally:
             with self.lock:
                 self.current -= 1
@@ -119,7 +124,7 @@ def test_packet_index_eastern_kickoff():
 
 
 def test_duplicate_trigger(tmp_path):
-    orch = _orch(tmp_path)
+    orch = _orch(tmp_path, Probe())
     game = _game("2026_12_DEN_PIT", NOW + timedelta(minutes=80))
     first = orch.tick([game], NOW, owner="a")
     second = orch.tick([game], NOW, owner="a")
@@ -216,7 +221,8 @@ def test_concurrent_duplicate_and_no_overlap(tmp_path):
         def run(self, ctx):
             started.set()
             assert release.wait(5)
-            return HandlerResult(status="recorded", detail="ok")
+            return HandlerResult(status="recorded", detail="ok", work_completed=True,
+                                 artifacts={"note.json": b'{"ok":true}'})
 
     other = _orch(tmp_path / "overlap", _Block())
     other.sync([_game("G", NOW + timedelta(minutes=80))], NOW)
@@ -361,7 +367,11 @@ def test_replay_refuses_immutable_lock_and_retries_a_dead_postgame(tmp_path):
         def run(self, ctx):
             if state["fail"] and ctx.job["phase"] == "postgame_grade":
                 raise RuntimeError("grade failed")
-            return HandlerResult(status="recorded", detail="ok")
+            artifacts = {"note.json": b'{"ok":true}'}
+            if ctx.job["phase"] == "injury_refresh":
+                artifacts["injury_refresh.json"] = injury_refresh_artifact(
+                    ctx.job["game_id"], ctx.job["schedule_version"])
+            return HandlerResult(status="recorded", detail="ok", work_completed=True, artifacts=artifacts)
 
     orch = _orch(tmp_path, _Toggle(), max_attempts=1)
     kickoff = NOW + timedelta(minutes=80)
@@ -429,15 +439,23 @@ def test_missing_refused_and_default_runner(tmp_path):
     assert statuses["prekick_lock"] == "blocked"
 
     plain = _orch(tmp_path / "plain")
-    plain.tick([game], NOW, owner="a")
-    job = next(row for row in plain.store.list_jobs("succeeded") if row["phase"] == "injury_refresh")
+    # T-50 is inside both the injury window and the lock window.
+    both = NOW + timedelta(minutes=50)
+    plain.tick([_game("G", both)], NOW, owner="a")
+    statuses = {job["phase"]: job["status"] for job in plain.store.list_jobs()}
+    assert statuses["injury_refresh"] == "refused"
+    assert statuses["prekick_lock"] == "blocked"
+    assert plain.claim("later", NOW) == []
+    job = next(row for row in plain.store.list_jobs() if row["phase"] == "injury_refresh")
     receipt = plain.store.receipts_for(job["id"])[-1]
     body = json.loads(receipt["body_json"])
     assert body["analytical_execution"] is False
+    assert body["work_completed"] is False
     assert body["projection_ready"] is False
     artifact = plain.store.artifacts_for(receipt["id"])[0]
+    assert artifact["name"] == "scheduler_receipt.json"
     assert artifact["sha256"] == hashlib.sha256(artifact["body"]).hexdigest()
-    assert json.loads(artifact["body"])["analytical_execution"] is False
+    assert json.loads(artifact["body"])["work_completed"] is False
 
 
 def test_dead_letter_after_repeated_failures(tmp_path):
@@ -481,6 +499,62 @@ def test_schema_matches_the_unapplied_postgres_proposal():
     postgres_cols = columns((ROOT / "scheduler" / "schema_postgres.sql").read_text())
     assert sqlite_cols == postgres_cols
     assert "projection_ready" in sqlite_cols["receipts"]
+
+
+def test_receipt_only_and_invalid_refresh_do_not_unlock_the_lock(tmp_path):
+    class _Bookkeeping:
+        def run(self, ctx):
+            return HandlerResult(status="recorded", detail="receipt only", work_completed=False,
+                                 artifacts={"scheduler_receipt.json": b"{}"})
+
+    book = _orch(tmp_path / "book", _Bookkeeping())
+    kickoff = NOW + timedelta(minutes=50)
+    book.tick([_game("G", kickoff)], NOW, owner="a")
+    statuses = {job["phase"]: job["status"] for job in book.store.list_jobs()}
+    assert statuses["injury_refresh"] == "recorded"
+    assert statuses["prekick_lock"] == "blocked"
+    assert book.claim("nope", NOW) == []
+
+    class _WrongVersion:
+        def run(self, ctx):
+            if ctx.job["phase"] != "injury_refresh":
+                return HandlerResult(status="recorded", detail="ok", work_completed=True)
+            wrong = json.loads(injury_refresh_artifact(ctx.job["game_id"], ctx.job["schedule_version"]))
+            wrong["schedule_version"] = "not-this-kickoff"
+            return HandlerResult(
+                status="recorded", detail="wrong version", work_completed=True,
+                artifacts={"injury_refresh.json": json.dumps(wrong, sort_keys=True).encode()},
+            )
+
+    bad = _orch(tmp_path / "bad", _WrongVersion())
+    bad.tick([_game("G", kickoff)], NOW, owner="a")
+    statuses = {job["phase"]: job["status"] for job in bad.store.list_jobs()}
+    assert statuses["injury_refresh"] == "refused"
+    assert statuses["prekick_lock"] == "blocked"
+
+
+def test_validated_injury_artifact_unlocks_the_lock(tmp_path):
+    class _Refresh:
+        def run(self, ctx):
+            artifacts = {"note.json": b'{"ok":true}'}
+            if ctx.job["phase"] == "injury_refresh":
+                artifacts["injury_refresh.json"] = injury_refresh_artifact(
+                    ctx.job["game_id"], ctx.job["schedule_version"])
+            return HandlerResult(status="recorded", detail="refreshed", work_completed=True, artifacts=artifacts)
+
+    orch = _orch(tmp_path, _Refresh())
+    kickoff = NOW + timedelta(minutes=50)
+    result = orch.tick([_game("G", kickoff)], NOW, owner="a")
+    assert [row["status"] for row in result.ran] == ["succeeded", "succeeded"]
+    injury = next(job for job in orch.store.list_jobs("succeeded") if job["phase"] == "injury_refresh")
+    lock = next(job for job in orch.store.list_jobs("succeeded") if job["phase"] == "prekick_lock")
+    body = next(row["body"] for row in orch.store.artifacts_for(orch.store.receipts_for(injury["id"])[-1]["id"])
+                if row["name"] == "injury_refresh.json")
+    parsed = json.loads(body)
+    assert parsed["game_id"] == "G"
+    assert parsed["schedule_version"] == injury["schedule_version"]
+    assert parsed["work_completed"] is True
+    assert lock["schedule_version"] == injury["schedule_version"]
 
 
 def test_slate_file_roundtrip(tmp_path):

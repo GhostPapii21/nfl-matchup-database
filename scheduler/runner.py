@@ -19,6 +19,7 @@ class HandlerResult:
     status: str  # recorded, refused, failed
     detail: str
     analytical_execution: bool = False
+    work_completed: bool = False
     projection_ready: bool = False
     betting_started: bool = False
     publishing_started: bool = False
@@ -41,7 +42,7 @@ class Runner(Protocol):
 
 
 class UnwiredRunner:
-    """Receipt-only handler. Analytical phases stay unwired on purpose."""
+    """Receipt-only handler. It refuses the phase so a no-op cannot unlock later work."""
 
     detail = (
         "scheduler receipt only; analytical execution is not wired "
@@ -56,6 +57,7 @@ class UnwiredRunner:
             "attempt": ctx.job["attempt"],
             "schedule_version": ctx.job["schedule_version"],
             "analytical_execution": False,
+            "work_completed": False,
             "projection_ready": False,
             "betting_started": False,
             "publishing_started": False,
@@ -63,9 +65,10 @@ class UnwiredRunner:
         }
         encoded = json.dumps(body, sort_keys=True).encode()
         return HandlerResult(
-            status="recorded",
+            status="refused",
             detail=self.detail,
             analytical_execution=False,
+            work_completed=False,
             artifacts={"scheduler_receipt.json": encoded},
         )
 
