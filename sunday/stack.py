@@ -476,7 +476,12 @@ def acceptance_result(components: list[dict]) -> str:
     schedules = [row for row in components if row.get("id") == "schedule"]
     if len(schedules) != 1 or schedules[0].get("status") != "EXECUTED":
         return "BLOCKED"
-    if any(row.get("status") in _BLOCKING for row in components):
+    ids = [row.get("id") for row in components]
+    if any(not isinstance(cid, str) or not cid for cid in ids):
+        return "PARTIAL"
+    if len(ids) != len(set(ids)) or not set(ORDER).issubset(ids):
+        return "PARTIAL"
+    if any(row.get("status") != "EXECUTED" for row in components):
         return "PARTIAL"
     if any(row.get("kind") == "analytical" and (row.get("status") != "EXECUTED" or row.get("analytical_execution") is not True) for row in components):
         return "PARTIAL"
