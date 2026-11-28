@@ -45,8 +45,8 @@ def _sha_file(path: Path) -> str | None:
 
 def _dump(path: Path, payload) -> str:
     path.parent.mkdir(parents=True, exist_ok=True)
-    raw = json.dumps(payload, indent=1, sort_keys=True, default=str).encode()
-    path.write_bytes(raw + b"\n")
+    raw = json.dumps(payload, indent=1, sort_keys=True, default=str).encode() + b"\n"
+    path.write_bytes(raw)
     return _sha_bytes(raw)
 
 
@@ -473,11 +473,17 @@ def acceptance_result(components: list[dict]) -> str:
     A freshness or ledger row may be EXECUTED with orchestrator_status PARTIAL. That row is a
     check, not analytical execution, and it is not a PASS by itself.
     """
-    if any(row.get("id") == "schedule" and row.get("status") != "EXECUTED" for row in components):
+    schedules = [row for row in components if row.get("id") == "schedule"]
+    if len(schedules) != 1 or schedules[0].get("status") != "EXECUTED":
         return "BLOCKED"
-    if any(row.get("status") in _BLOCKING for row in components):
+    ids = [row.get("id") for row in components]
+    if any(not isinstance(cid, str) or not cid for cid in ids):
         return "PARTIAL"
-    if any(row.get("kind") == "analytical" and row.get("status") != "EXECUTED" for row in components):
+    if len(ids) != len(set(ids)) or not set(ORDER).issubset(ids):
+        return "PARTIAL"
+    if any(row.get("status") != "EXECUTED" for row in components):
+        return "PARTIAL"
+    if any(row.get("kind") == "analytical" and (row.get("status") != "EXECUTED" or row.get("analytical_execution") is not True) for row in components):
         return "PARTIAL"
     return "PASS"
 
