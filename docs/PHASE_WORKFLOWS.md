@@ -66,3 +66,9 @@ for the game) → ledger → commit. One job per game, in parallel. A refusal is
 
 It ticks every 15 minutes on game days because GitHub starts scheduled jobs hours late on this repo. Details, credit
 cost and the credit floor: `pipeline/workflow_to_install/README.md`.
+
+The game-day workflow is not the production scheduler. GitHub Actions is unavailable for this repo, and a free
+Render web request is not a substitute. The replacement is `python -m scheduler`: a durable per-game queue with
+leases, tested locally on SQLite. It does not run the 100k gate, does not set `projection_ready`, and no Render
+service has been created for it. The plan and the cost gate are in
+[docs/automation/SCHEDULER.md](automation/SCHEDULER.md).
