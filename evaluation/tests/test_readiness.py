@@ -97,7 +97,12 @@ def test_evidence_boundary_derived_live_from_repo():
     assert eb["pristine_games_scored"] == 14
     assert eb["pristine_weeks_scored"] == ["10", "11"]
     assert "2026_12_GB_LA" not in eb["pristine_scored_game_ids"]
-    assert eb["w12_with_lock"] == []
+    # Committed Week 12 LOCKs are reported and do not become scored coverage.
+    assert eb["w12_with_lock"] == sorted(gid for gid in eb["snapshot_lock_game_ids"] if gid in set(eb["w12_packet_ids"]))
+    assert eb["w12_with_lock"] == ["2026_12_DEN_PIT", "2026_12_KC_BUF"]
+    assert eb["w12_scored"] == []
+    assert set(eb["w12_with_lock"]).isdisjoint(eb["w12_remaining_eligible"])
+    assert set(eb["w12_with_lock"]).isdisjoint(eb["w12_remaining_post_kickoff"])
     assert eb["w12_packet_count"] == 16
     assert "2026_12_GB_LA" in eb["w12_remaining_post_kickoff"]
     assert eb["coverage_ceiling_if_remaining_w12_lock"] == 14 + len(eb["w12_remaining_eligible"])
