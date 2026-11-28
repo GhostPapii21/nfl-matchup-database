@@ -82,8 +82,6 @@ def test_committed_engine_trials_can_be_partitioned_into_a_valid_three_branch_pa
     home_fav = (z["fg_home"].astype(float) - z["fg_away"]).mean() > 0
     p = partition_score_arrays(z, game_id="2026_11_CIN_WAS", home="WAS", away="CIN",
                                favorite="WAS" if home_fav else "CIN", favorite_source="engine_mean_margin",
-                               definition={"classifier_variable": "final_margin_favorite",
-                                           "favorite_controls_min_margin": 9, "underdog_chases_max_margin": -9},
                                source_engine="core/possession_engine_v0 (committed snapshot)",
                                source_ref=str(Path(path).relative_to(ROOT)), limit=5000)
     f = validate_payload(p)

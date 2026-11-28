@@ -6,12 +6,12 @@ import copy
 
 import numpy as np
 
-from game_script_contract.allocation import classify_margin
-from game_script_contract.schema import BRANCH_IDS, DIMENSIONS, SCHEMA_VERSION
+from game_script_contract.allocation import classify_trials
+from game_script_contract.partition import composition_of_competitive
+from game_script_contract.schema import BRANCH_IDS, DEFAULT_BRANCH_DEFINITION, DIMENSIONS, SCHEMA_VERSION
 
-DEFINITION = {"classifier_variable": "final_margin_favorite", "favorite_controls_min_margin": 9,
-              "underdog_chases_max_margin": -9,
-              "interpretation_note": "SYNTHETIC fixture thresholds (two scores either way)"}
+DEFINITION = {**DEFAULT_BRANCH_DEFINITION,
+              "interpretation_note": "SYNTHETIC fixture: " + DEFAULT_BRANCH_DEFINITION["interpretation_note"]}
 FAV, DOG = "FAV", "DOG"
 PLAYERS = (("fav_rb1", FAV, "RB"), ("fav_wr1", FAV, "WR"), ("dog_rb1", DOG, "RB"), ("dog_wr1", DOG, "WR"))
 
@@ -24,19 +24,29 @@ def _d(x):
 
 
 def trials(n=3000, seed=7):
-    """Per-trial synthetic game: behaviour depends on the running margin so the three branches genuinely differ."""
+    """Per-trial synthetic game: behaviour depends on the running margin so the three branches genuinely differ.
+
+    A non-trivial share of 9+ end-of-Q3 leads are cut to within one score in Q4 so branch C is populated. This is
+    stronger Q4 response than the real engine currently shows; it is only for contract tests.
+    """
     rng = np.random.default_rng(seed)
+
     def pts(td, fg, size):  # touchdowns worth 7, field goals worth 3
         return 7 * rng.poisson(td, size) + 3 * rng.poisson(fg, size)
     qf = np.stack([pts(0.55, 0.30, n) for _ in range(4)], 1)
     qd = np.stack([pts(0.42, 0.28, n) for _ in range(4)], 1)
-    m3 = (qf[:, :3] - qd[:, :3]).sum(1)                       # margin entering Q4
+    m3 = (qf[:, :3] - qd[:, :3]).sum(1)
     lead = np.clip(m3, -17, 17)
-    # Leader runs clock, trailer throws and scores a bit more in Q4 (chasing).
+    # Default Q4: leader runs clock, trailer throws and scores a bit more.
     qf[:, 3] = pts(np.clip(0.55 - 0.012 * lead, 0.1, None), 0.30, n)
     qd[:, 3] = pts(np.clip(0.42 + 0.012 * lead, 0.1, None), 0.28, n)
-    m = (qf - qd).sum(1)
-    t = {"m": m, "qf": qf, "qd": qd, "lead": lead}
+    # Force a chase on a slice of 9+ Q3 leads so C is not empty (underdog outscores enough to get within 8).
+    chase = (m3 >= 9) & (rng.random(n) < 0.40)
+    need = np.maximum(m3[chase] - 8, 0)                     # dog must outscore fav by at least this in Q4
+    qf[chase, 3] = pts(0.20, 0.15, int(chase.sum()))
+    qd[chase, 3] = qf[chase, 3] + need + 3 * rng.integers(0, 3, size=int(chase.sum()))
+    m_reg = (qf - qd).sum(1)                                 # no OT in the fixture; regulation = final
+    t = {"m_q3": m3, "m_reg": m_reg, "m": m_reg, "qf": qf, "qd": qd, "lead": lead, "chase_forced": chase}
     t["fav_pass"] = rng.poisson(np.clip(34 - 0.45 * lead, 15, None))
     t["fav_rush"] = rng.poisson(np.clip(26 + 0.45 * lead, 10, None))
     t["dog_pass"] = rng.poisson(np.clip(34 + 0.45 * lead, 15, None))
@@ -66,14 +76,14 @@ def trials(n=3000, seed=7):
 
 def payload(n=3000, seed=7):
     t = trials(n, seed)
-    labels = np.array([classify_margin(x, DEFINITION) for x in t["m"]])
+    labels = classify_trials(t["m_q3"], t["m_reg"], DEFINITION)
     cov = {"favorite_controls": {"man": 0.25, "zone": 0.75, "two_high_shell": 0.60, "prevent": 0.10},
            "competitive": {"man": 0.32, "zone": 0.68, "two_high_shell": 0.48, "prevent": 0.02},
            "underdog_chases": {"man": 0.38, "zone": 0.62, "two_high_shell": 0.40, "prevent": 0.01}}
     branches = {}
     for b in BRANCH_IDS:
         i = labels == b
-        def team(side, opp):
+        def team(side, opp, i=i, b=b):
             q = t["qf"] if side == "fav" else t["qd"]
             return {"points": _d(q[i].sum(1)), "quarter_points": {f"q{k + 1}": _d(q[i, k]) for k in range(4)} | {"ot": None},
                     "plays": _d(t[f"{side}_pass"][i] + t[f"{side}_rush"][i]), "possessions": _d(t[f"{side}_poss"][i]),
@@ -94,7 +104,8 @@ def payload(n=3000, seed=7):
             "provenance": {"source_engine": "SYNTHETIC_TEST_FIXTURE", "source_ref": None, "config_id": None, "seed": seed,
                            "n_trials_total": n, "probability_basis": "trial_partition", "generated_at_utc": None,
                            "research_only": True, "synthetic": True},
-            "branch_definition": dict(DEFINITION), "branches": branches}, t, labels
+            "branch_definition": dict(DEFINITION), "branches": branches,
+            "competitive_composition": composition_of_competitive(labels, t["m_q3"], DEFINITION)}, t, labels
 
 
 def fresh(n=3000, seed=7):

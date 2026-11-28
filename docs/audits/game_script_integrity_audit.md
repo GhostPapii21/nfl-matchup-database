@@ -10,8 +10,8 @@
 ## 0. Answer in brief
 
 **No. Today the architecture cannot preserve meaningful differences between the three branches.** It can partition
-the outcomes of one simulation by final margin. The engine's behaviour inside a game, though, does not depend on the
-score.
+the outcomes of one simulation by the adopted rule (end-of-Q3 lead held or chased in Q4). The engine's behaviour
+inside a game, though, does not depend on the score.
 
 - **The engine ignores the score when it picks plays.** The production path is the NFL-43 possession engine that
   `pipeline/sim100k.py` runs. It picks every play from a pool keyed on team, down, distance and field position. The
@@ -49,6 +49,77 @@ score.
 **One read-only helper was added.** `game_script_contract/partition.py` groups trials the engine *already wrote*
 (`snapshots/*/sim_arrays.npz`) into the three branches. It draws no random numbers and computes no play outcomes. It
 exists to show what the current output can and cannot support.
+
+
+## 1.1 Owner decision (2026-11-27, America/New_York): Branch C is the underdog trailing and chasing
+
+The owner ruled that **branch C means the underdog is behind and chasing**, not that the underdog is leading. Because
+that state overlaps "favorite ahead," the three branches are no longer a split on a single final margin. They are a
+two-checkpoint rule that uses only fields the engine already writes in `sim_arrays.npz` (`q1..q4_*` and `reg_*`).
+No new simulation, no `sim_v6` work, and no weight or readiness change.
+
+**Final rules** (defaults; every payload carries the numbers in `branch_definition`):
+
+- **A, favorite controls:** favorite leads by 9+ at the end of Q3 **and** still leads by 9+ at the end of regulation
+  (the underdog is not within one score at the Q4 gun). "Within one score" means a deficit of 8 or fewer (touchdown
+  plus a two-point conversion).
+- **C, underdog chases:** favorite leads by 9+ at the end of Q3 **and** the underdog cuts the deficit to 8 or less in
+  Q4 (including ties and taking the lead). A Q4 comeback that ties is C even if the favorite then wins in overtime.
+- **B, competitive:** everything else, **including games the underdog leads.** Underdog-ahead by 9+ at the end of Q3
+  is a documented sub-case of B (`competitive_composition`), not a fourth branch.
+
+These three are complementary: every trial with a 9+ Q3 lead is A or C, and every other trial is B. Tests on all 28
+committed 100k snapshots confirm that every trial lands in exactly one branch, and that flipping who is the favorite
+sends A (and C) into B, never into C. C is therefore not A relabeled from the other sideline.
+
+**Why this operationalization, rather than a stricter reading of the proposal:**
+
+- The engine does not record mid-quarter scores, so "never gets within one score in Q4" and "trails by 9+ at some
+  point after halftime" can only be observed at period ends. End of Q3 and end of regulation are the checkpoints that
+  exist.
+- "Leads by 9+ through the end of Q3" is the score at the Q3 gun, not a requirement that the favorite also led at
+  half. A favorite that pulls away in Q3 still controls the game entering Q4. On the latest committed runs, about 30%
+  of A (median) did not also lead by 9+ at half; requiring the half lead would drop those games into B.
+- The rule is configurable: `q3_control_margin`, `q4_hold_min_margin` and `one_score_max_deficit` live in the payload
+  (`q4_hold_min_margin` must equal `one_score_max_deficit + 1`).
+
+**Limitation:** a lead that briefly tightened inside Q4 and then re-opened is still A.
+
+### Observed branch shares on committed 100k runs
+
+Favorite = the side the engine itself makes the favorite (mean final margin), labelled `engine_mean_margin`, not a
+market spread. Latest snapshot per game, 16 games, 100,000 trials each. Schema v2 classifier.
+
+| Game | Favorite (engine mean) | A held | B competitive | C chase | Of which: underdog up 9+ at end Q3 (sub-case of B) |
+|---|---|---:|---:|---:|---:|
+| 2026_10_BUF_NYJ | BUF (3.7) | 22.9% | 71.8% | 5.3% | 13.0% |
+| 2026_10_WAS_NYG | WAS (9.5) | 40.0% | 55.1% | 4.9% | 6.0% |
+| 2026_11_ARI_KC | KC (10.4) | 41.2% | 53.6% | 5.3% | 8.8% |
+| 2026_11_BAL_CAR | BAL (0.6) | 19.9% | 74.7% | 5.4% | 24.2% |
+| 2026_11_CIN_WAS | CIN (8.7) | 37.1% | 57.4% | 5.4% | 11.5% |
+| 2026_11_JAX_NYG | JAX (5.2) | 29.0% | 65.2% | 5.8% | 14.7% |
+| 2026_11_LV_DEN | LV (2.2) | 21.7% | 72.8% | 5.5% | 18.6% |
+| 2026_11_MIA_BUF | BUF (11.1) | 43.7% | 51.1% | 5.3% | 8.9% |
+| 2026_11_MIN_SF | SF (13.4) | 49.3% | 46.0% | 4.7% | 6.1% |
+| 2026_11_NO_CHI | CHI (6.0) | 30.7% | 63.7% | 5.6% | 15.0% |
+| 2026_11_NYJ_LAC | NYJ (7.9) | 35.9% | 58.7% | 5.4% | 10.3% |
+| 2026_11_PIT_PHI | PIT (5.7) | 30.0% | 64.4% | 5.6% | 12.9% |
+| 2026_11_TB_DET | DET (15.3) | 54.9% | 41.0% | 4.1% | 4.5% |
+| 2026_11_TEN_DAL | DAL (7.8) | 34.9% | 59.8% | 5.3% | 9.8% |
+| 2026_12_DEN_PIT | DEN (0.2) | 16.9% | 78.0% | 5.1% | 22.4% |
+| 2026_12_KC_BUF | KC (3.2) | 24.6% | 69.4% | 5.9% | 19.8% |
+
+Across these 16 games: median A 32.8%, B 61.7%, C 5.4%. C is tightly bunched (4.1%–5.9%). A ranges from 16.9% in a
+near-pick'em (DEN, 0.2 points) to 54.9% for a big favorite (DET, 15.3). The underdog-ahead-by-9+ sub-case of B has
+median 12.2% of all trials (4.5%–24.2%).
+
+C is small **because the engine almost always holds a 9+ Q3 lead**: of CIN@WAS's 42,559 trials with a 9+ Q3 lead,
+only 12.7% (5,417) are cut to within one score in Q4. That is the same Q4-independence finding as §4.2 (simulated
+Q3–Q4 margin correlation about −0.03, versus −0.234 in real 2022 games). Once play selection depends on score state,
+C should grow.
+
+Mean regulation margins on these runs are ordered A > C > B, not A > B > C, because B includes underdog-ahead games.
+The order check in the contract is therefore "A's mean regulation margin is above C's," not A > B > C.
 
 ## 2. Inventory: where "script" and "scenario" live today
 
@@ -190,13 +261,15 @@ carry (a sixth passing test, `test_script_layer_pooling_changes_the_price`, quan
 - per-trial sim100k arrays
 - a valid 3-branch partition of the committed CIN@WAS run
 
-The CIN@WAS partition (favorite = CIN by engine mean margin, 8.7 pts; final margin ±9):
+The CIN@WAS 100k partition (favorite = CIN by engine mean margin, 8.7 pts; snapshot `20261124T004416Z`), under the
+adopted v2 rule:
 
-| Branch | Probability | Note |
-|---|---:|---|
-| A | 0.501 | |
-| B | 0.383 | |
-| C | 0.116 | first 5,000 trials in the test; 100k in the table |
+| Branch | Trials | Probability |
+|---|---:|---:|
+| A, favorite controls (lead held) | 37,142 | 37.1% |
+| B, competitive | 57,441 | 57.4% |
+| — of which underdog up 9+ at end of Q3 (sub-case of B) | 11,530 | 11.5% of all trials |
+| C, underdog chases (Q4 cut to within one score) | 5,417 | 5.4% |
 
 Eight **strict xfails** each pin a verified gap. Each one fails on an assertion today (checked with `--runxfail`). Each
 will XPASS, and fail the suite, once its gap is fixed, which forces this report to be updated.
@@ -232,7 +305,10 @@ bash scripts/test_offline.sh                           # everything, as CI does
    probabilities (MNF route scenarios).
 5. **Several dimensions have no output.** Red-zone/inside-10 opportunity splits, coverage, pace by state, and
    late-game rotation.
-6. **Branch C's meaning is ambiguous** (see the spec, §1). It needs an owner decision.
+6. **Branch C's meaning is settled** (underdog trailing and chasing; see §1.1). Remaining definition work is
+   narrower: the favorite for a real payload should come from the price-freeze market spread, not the engine's own
+   mean margin (the shares above use the engine mean only because that is what the committed arrays support without
+   a new lookup).
 7. **sim_v6 is missing.** `tools/sim_v6.py` is required by the run gate but absent, so the gate's sim_v6 rule cannot
    be satisfied from this repository.
 
@@ -240,8 +316,9 @@ bash scripts/test_offline.sh                           # everything, as CI does
 
 These are ordered.
 
-1. **Decide the branch definitions.** Settle branch C's reading, the thresholds and the classifier point (final vs
-   end of Q3). The favorite source should be the price freeze's market spread. Record the decision in the spec.
+1. **Use the market spread as `favorite_source` when a real payload is built.** Branch C's reading, the two
+   checkpoints, and the default 9 / 8 thresholds are settled (§1.1 and the v2 spec). The shares in this report use
+   the engine's own mean margin only as a label for committed arrays.
 2. **Save per-trial player lines with every snapshot.** `sim100k --write` already produces them. Then build the
    branch payload with `game_script_contract.partition` (extended to player columns). That gives honest `derived`
    branches for score, quarters, plays, pass/run counts, player volume and TDs, with no engine change.
@@ -265,7 +342,8 @@ These are ordered.
 
 See §6 for the commands. The results at commit time are reported in the pull-request description.
 
-- New suite: 67 tests. 59 pass and 8 are strict xfail (expected failures that record findings).
-  - The 53 contract tests (allocation, schema, prop mixture, pooling, duplication) all pass.
+- New suite: 86 tests. 78 passed, 8 strict xfail (expected failures that record findings).
+  - Contract, schema, mixture, pooling, duplication, and partition tests all pass, including disjoint/exhaustive
+    checks on all 28 committed snapshots and the test that branch C is not branch A relabeled from the other sideline.
   - The 14 architecture tests are 6 passed and 8 strict xfail.
 - Full `scripts/test_offline.sh`: see the PR description.

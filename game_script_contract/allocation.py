@@ -70,13 +70,39 @@ def loads_strict(text: str) -> dict:
 
 
 # ------------------------------------------------------------------------------------------------ branch partition
-def classify_margin(margin: float, definition: dict) -> str:
-    """Branch for a favorite-perspective margin under the payload's branch_definition (disjoint and exhaustive)."""
-    if margin >= definition["favorite_controls_min_margin"]:
-        return "favorite_controls"
-    if margin <= definition["underdog_chases_max_margin"]:
-        return "underdog_chases"
+def _thresholds(definition: dict) -> tuple[float, float]:
+    try:
+        q3 = float(definition["q3_control_margin"])
+        hold = float(definition["q4_hold_min_margin"])
+    except (KeyError, TypeError, ValueError) as e:
+        raise ContractError(f"branch_definition is missing q3_control_margin or q4_hold_min_margin: {e}") from e
+    return q3, hold
+
+
+def classify_trial(m_q3: float, m_reg: float, definition: dict) -> str:
+    """Branch for one trial under the q3-lead-held-or-chased definition (disjoint and exhaustive).
+
+    m_q3 and m_reg are favorite-perspective margins (favorite points minus underdog points) at the end of Q3
+    and at the end of regulation. Mid-quarter path and overtime are not inputs.
+    """
+    q3t, hold = _thresholds(definition)
+    if m_q3 >= q3t:
+        return "favorite_controls" if m_reg >= hold else "underdog_chases"
     return "competitive"
+
+
+def classify_trials(m_q3, m_reg, definition: dict):
+    """Vectorized classify_trial. Returns a 1-d object array of branch ids, one per trial."""
+    q3t, hold = _thresholds(definition)
+    m_q3 = np.asarray(m_q3, dtype=float)
+    m_reg = np.asarray(m_reg, dtype=float)
+    if m_q3.shape != m_reg.shape:
+        raise ContractError(f"m_q3 and m_reg shape mismatch: {m_q3.shape} vs {m_reg.shape}")
+    labels = np.full(m_q3.shape, "competitive", dtype=object)
+    ac = m_q3 >= q3t
+    labels[ac & (m_reg >= hold)] = "favorite_controls"
+    labels[ac & (m_reg < hold)] = "underdog_chases"
+    return labels
 
 
 # ---------------------------------------------------------------------------------------------- distribution helpers
@@ -348,23 +374,28 @@ def _field_dim(path: str) -> str:
 
 
 # ------------------------------------------------------------------------------------------------ pooling detection
-def _fav_margin_samples(payload: dict, branch: dict) -> Optional[np.ndarray]:
-    g, d = payload["game"], payload["branch_definition"]
+def _quarter_sum(team: dict, quarters: tuple[str, ...]) -> Optional[np.ndarray]:
+    try:
+        parts = [np.asarray(team["quarter_points"][q]["samples"], dtype=float) for q in quarters]
+    except (TypeError, KeyError, ValueError):
+        return None
+    if any(p.shape != parts[0].shape for p in parts):
+        return None
+    return sum(parts)
+
+
+def _fav_checkpoints(payload: dict, branch: dict) -> Optional[tuple[np.ndarray, np.ndarray]]:
+    """(end-of-Q3 margin, regulation margin) from a branch's quarter samples, favorite perspective."""
+    g = payload["game"]
     teams = branch.get("teams") or {}
     fav, dog = teams.get(g["favorite"]), teams.get(g["underdog"])
     if fav is None or dog is None:
         return None
-    var = d["classifier_variable"]
-    try:
-        if var == "final_margin_favorite":
-            fs, ds = fav["points"]["samples"], dog["points"]["samples"]
-            return np.asarray(fs, float) - np.asarray(ds, float) if len(fs) == len(ds) else None
-        qs = QUARTERS if var == "regulation_margin_favorite" else QUARTERS[:3]
-        f = sum(np.asarray(fav["quarter_points"][q]["samples"], float) for q in qs)
-        a = sum(np.asarray(dog["quarter_points"][q]["samples"], float) for q in qs)
-        return f - a
-    except (TypeError, KeyError, ValueError):
+    f3, d3 = _quarter_sum(fav, QUARTERS[:3]), _quarter_sum(dog, QUARTERS[:3])
+    f4, d4 = _quarter_sum(fav, QUARTERS), _quarter_sum(dog, QUARTERS)
+    if f3 is None or d3 is None or f4 is None or d4 is None or f3.shape != d3.shape or f4.shape != d4.shape:
         return None
+    return f3 - d3, f4 - d4
 
 
 def detect_branch_pooling(payload: dict, rel_tol: float = 1e-9) -> list[Finding]:
@@ -385,23 +416,29 @@ def detect_branch_pooling(payload: dict, rel_tol: float = 1e-9) -> list[Finding]
             msg = ("all three branches carry the same distribution (pooled before branching)" if same else
                    f"all three branches share mean {means[0]:.6g} (collapsed to one projection)")
             out.append(Finding(code, "error", msg, path))
-    # Score partition: every trial in a branch must satisfy that branch's definition.
+    # Score partition: every trial in a branch must satisfy that branch's definition (end-Q3 + regulation).
     d = payload.get("branch_definition") or {}
-    margin_means = {}
+    reg_means, q3_means = {}, {}
     for b in BRANCH_IDS:
-        m = _fav_margin_samples(payload, br[b])
-        if m is None or not len(m):
+        ck = _fav_checkpoints(payload, br[b])
+        if ck is None or not len(ck[0]):
             continue
-        margin_means[b] = float(m.mean())
-        wrong = sum(classify_margin(x, d) != b for x in m)
+        m_q3, m_reg = ck
+        q3_means[b] = float(m_q3.mean())
+        reg_means[b] = float(m_reg.mean())
+        labels = classify_trials(m_q3, m_reg, d)
+        wrong = int((labels != b).sum())
         if wrong:
             out.append(Finding("SCORE_OUTSIDE_BRANCH", "error",
-                               f"{wrong}/{len(m)} score trials violate the {b} definition "
-                               f"({d.get('classifier_variable')}); scores look pooled or mislabeled", b))
-    if len(margin_means) == 3 and not (margin_means["favorite_controls"] > margin_means["competitive"]
-                                       > margin_means["underdog_chases"]):
-        out.append(Finding("BRANCH_ORDER_VIOLATION", "error",
-                           f"favorite-perspective mean margins not ordered A > B > C: {margin_means}"))
+                               f"{wrong}/{len(m_q3)} score trials violate the {b} definition "
+                               f"(classifier={d.get('classifier')}); scores look pooled or mislabeled", b))
+    # Regulation means: A (lead held) must sit above C (lead cut). B includes underdog-ahead games, so
+    # A > B > C on final/regulation margin is NOT required and is often false (C's mean is typically above B's).
+    if "favorite_controls" in reg_means and "underdog_chases" in reg_means:
+        if not (reg_means["favorite_controls"] > reg_means["underdog_chases"]):
+            out.append(Finding("BRANCH_ORDER_VIOLATION", "error",
+                               "mean regulation margin for favorite_controls is not above underdog_chases "
+                               f"(held lead should outrank a cut deficit): {reg_means}"))
     # Visibility: behavioural dimensions that are only trial selections, not state-dependent behaviour.
     for b in BRANCH_IDS:
         for dim in BEHAVIOURAL_DIMENSIONS:
@@ -450,12 +487,44 @@ def validate_payload(payload: dict, *, tol: float = TOLERANCE, rel_tol: float = 
     g, d, br = payload["game"], payload["branch_definition"], payload["branches"]
     if g["favorite"] == g["underdog"] or {g["favorite"], g["underdog"]} != {g["home"], g["away"]}:
         out.append(Finding("FAVORITE_UNDERDOG_INVALID", "error", "favorite/underdog must be the two teams of the game"))
-    if d["favorite_controls_min_margin"] <= 0:
-        out.append(Finding("DEFINITION_FAVORITE_NOT_LEADING", "error", "favorite_controls_min_margin must be > 0"))
-    if not d["underdog_chases_max_margin"] < d["favorite_controls_min_margin"]:
-        out.append(Finding("DEFINITION_OVERLAP", "error", "underdog_chases_max_margin must be < favorite_controls_min_margin"))
-    elif math.floor(d["favorite_controls_min_margin"] - 1e-9) <= d["underdog_chases_max_margin"]:
-        out.append(Finding("DEFINITION_EMPTY_COMPETITIVE", "warning", "no integer margin falls in the competitive branch"))
+    if d.get("classifier") != "q3_lead_held_or_chased":
+        out.append(Finding("DEFINITION_CLASSIFIER", "error",
+                           f"classifier must be 'q3_lead_held_or_chased', not {d.get('classifier')!r}"))
+    try:
+        q3t, hold = float(d["q3_control_margin"]), float(d["q4_hold_min_margin"])
+        one = float(d["one_score_max_deficit"])
+    except (KeyError, TypeError, ValueError):
+        out.append(Finding("DEFINITION_THRESHOLDS_MISSING", "error",
+                           "q3_control_margin, q4_hold_min_margin and one_score_max_deficit are required numbers"))
+        q3t = hold = one = None
+    if q3t is not None:
+        if q3t <= 0:
+            out.append(Finding("DEFINITION_FAVORITE_NOT_LEADING", "error", "q3_control_margin must be > 0"))
+        if hold <= 0:
+            out.append(Finding("DEFINITION_HOLD_NOT_POSITIVE", "error", "q4_hold_min_margin must be > 0"))
+        if one < 0:
+            out.append(Finding("DEFINITION_ONE_SCORE_NEGATIVE", "error", "one_score_max_deficit must be >= 0"))
+        if abs(hold - (one + 1)) > 1e-9:
+            out.append(Finding("DEFINITION_HOLD_INCONSISTENT", "error",
+                               f"q4_hold_min_margin ({hold}) must equal one_score_max_deficit + 1 ({one + 1}); "
+                               "otherwise 'within one score' and 'lead held' disagree"))
+        if d.get("competitive_includes_underdog_ahead") is not True:
+            out.append(Finding("DEFINITION_UNDERDOG_AHEAD_NOT_IN_B", "error",
+                               "competitive_includes_underdog_ahead must be true: underdog-ahead games are branch B, "
+                               "not branch C"))
+        pts = d.get("observation_points")
+        if pts != ["end_q3", "regulation"]:
+            out.append(Finding("DEFINITION_OBSERVATION_POINTS", "error",
+                               "observation_points must be ['end_q3', 'regulation'] "
+                               "(the classifier cannot use mid-quarter or overtime path)"))
+    if payload.get("competitive_composition"):
+        n_comp = br["competitive"]["n_trials"]
+        slices = payload["competitive_composition"]
+        total = sum(slices[k]["n_trials"] for k in ("underdog_ahead_end_q3_by_control_margin", "other_competitive")
+                    if k in slices)
+        if total != n_comp:
+            out.append(Finding("COMPOSITION_COUNT_MISMATCH", "error",
+                               f"competitive_composition n_trials total {total} != competitive n_trials {n_comp}"))
     players = {}
     for b in BRANCH_IDS:
         branch = br[b]

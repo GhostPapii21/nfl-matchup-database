@@ -1,4 +1,4 @@
-# Game-script probability-allocation contract (v1)
+# Game-script probability-allocation contract (v2)
 
 Status: research contract. It does not change any engine, model weight, projection, or betting-readiness control
 (`projection_ready`, run gates, rocket gate and release gates are untouched). Code: `game_script_contract/`.
@@ -6,30 +6,47 @@ Schema: `schemas/game_script/scenario_output.schema.json`. Audit: `docs/audits/g
 
 ## 1. Branches
 
-There are exactly three branches per game. They are always these three, with these ids:
+There are exactly three branches per game. They are always these three, with these ids. **Branch C is the underdog
+trailing and chasing, not the underdog leading.** That owner decision was recorded on 2026-11-27 (ET).
 
-| id | Name | Default definition (favorite-perspective margin `m`) |
+Margins are favorite points minus underdog points. The classifier (`q3_lead_held_or_chased`) uses only two
+checkpoints the engine already records: the score at the end of Q3, and the regulation score (end of Q4). Mid-quarter
+swings and overtime are not inputs.
+
+| id | Name | Default rule (thresholds are data in every payload) |
 |---|---|---|
-| `favorite_controls` | A. Favorite controls the game | `m >= favorite_controls_min_margin` |
-| `competitive` | B. Competitive game | `underdog_chases_max_margin < m < favorite_controls_min_margin` |
-| `underdog_chases` | C. Underdog chases the game | `m <= underdog_chases_max_margin` |
+| `favorite_controls` | A. Favorite controls the game | `m_q3 >= q3_control_margin` AND `m_reg >= q4_hold_min_margin` |
+| `underdog_chases` | C. Underdog chases the game | `m_q3 >= q3_control_margin` AND `m_reg < q4_hold_min_margin` (equivalently `m_reg <= one_score_max_deficit`) |
+| `competitive` | B. Competitive game | `m_q3 < q3_control_margin` — everything else, **including games the underdog leads** |
 
-- `m` is the favorite's points minus the underdog's points, measured at the `classifier_variable` point:
-  `final_margin_favorite`, `regulation_margin_favorite` or `end_q3_margin_favorite`.
-- The thresholds are data in every payload (`branch_definition`), not constants in code.
-- The definition must be a disjoint, exhaustive partition. That requires `favorite_controls_min_margin > 0` and
-  `underdog_chases_max_margin < favorite_controls_min_margin`.
-- The payload must name the favorite and say where it came from (`favorite_source`, for example `market_spread_close` or
-  `engine_mean_margin`).
+Defaults: `q3_control_margin = 9`, `q4_hold_min_margin = 9`, `one_score_max_deficit = 8` (a deficit of 8 or fewer is
+"within one score", because a touchdown plus a two-point conversion ties). Those two hold/one-score numbers must
+satisfy `q4_hold_min_margin = one_score_max_deficit + 1`.
 
-**Open decision for the owner: what branch C means.** "Underdog chases the game" can be read two ways:
+In words:
 
-1. The underdog is the team pushing the game. It gets ahead, and the favorite is forced to chase.
-2. The underdog is trailing and chasing points.
+- **A.** The favorite leads by two scores at the Q3 gun and still leads by more than one score at the Q4 gun (lead
+  held). The underdog never gets within one score *as observed at the end of Q4*.
+- **C.** The underdog trails by two scores at the Q3 gun and cuts the deficit to one score or less in Q4, including
+  ties and taking the lead. A Q4 comeback that ties is C even if the favorite then wins in overtime.
+- **B.** Everything else. This includes close games and every game the underdog leads at the end of Q3. Underdog-ahead
+  by 9+ at the end of Q3 is a documented **sub-case of B**, carried in the optional `competitive_composition` block. It
+  is not a fourth branch and must not enter the probability allocation or the prop mixture.
 
-Reading 2 is the same game state as branch A, seen from the other sideline. The contract supports either reading
-through the thresholds. The test fixtures use a symmetric two-score split (`9` / `-9`), which follows reading 1. The
-owner should confirm the reading and the thresholds before any real payload is produced.
+The A/C split is complementary given the same Q3 precondition, so the three branches are mutually exclusive and
+exhaustive: every trial lands in exactly one. Flipping who is the favorite sends A (and C) into B, never into C — C
+is not A seen from the other sideline.
+
+Why end of Q3, not also "led at half": the engine does not record mid-quarter scores, and a favorite that pulls away
+in Q3 still controls the game entering Q4. Requiring a half lead would mix those games into B. "Through the end of
+Q3" is the score at the Q3 gun.
+
+Limitation (must be stated in `branch_definition.limitations`): a lead that briefly tightened inside Q4 and then
+re-opened is still A, because only the Q4 gun is observed.
+
+The payload must name the favorite and say where it came from (`favorite_source`, for example `market_spread_close` or
+`engine_mean_margin`). `competitive_includes_underdog_ahead` must be true. `observation_points` must be
+`["end_q3", "regulation"]`.
 
 ## 2. Allocation rules (validate_allocation)
 
@@ -86,7 +103,7 @@ P(prop) = Σ_b P(b) · P(prop | b)
   - `BRANCH_DISTRIBUTIONS_IDENTICAL`: all three branches carry the same distribution.
   - `BRANCH_MEANS_COLLAPSED`: the shapes differ, but all three share one mean.
   - `SCORE_OUTSIDE_BRANCH`: a branch's score trials violate its own definition.
-  - `BRANCH_ORDER_VIOLATION`: the mean favorite margin is not ordered A > B > C.
+  - `BRANCH_ORDER_VIOLATION`: the mean regulation margin for A (lead held) is not above C (lead cut). A > B > C on final margin is not required: B includes underdog-ahead games, so C's mean is often above B's.
   - `DERIVED_NOT_MODELED` (warning): a behavioural dimension is only a trial selection.
 - **Duplication detectors** (`detect_duplicate_branches`):
   - `SHARED_BRANCH_OBJECT` / `SHARED_SUBOBJECT`: the same Python object is referenced by two branches.

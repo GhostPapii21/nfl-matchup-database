@@ -34,11 +34,13 @@ def test_branch_means_collapsed_to_overall_mean():
 
 def test_pooled_score_samples_violate_branch_definition():
     p, t, _ = payload()
-    all_f, all_d = t["qf"].sum(1).astype(float).tolist(), t["qd"].sum(1).astype(float).tolist()
     br = p["branches"]["competitive"]
     n = br["n_trials"]
-    br["teams"]["FAV"]["points"] = {"samples": all_f[:n]}
-    br["teams"]["DOG"]["points"] = {"samples": all_d[:n]}
+    # First n unfiltered trials include A and C games, so they violate the competitive definition.
+    for team, q in (("FAV", t["qf"]), ("DOG", t["qd"])):
+        for k in range(4):
+            br["teams"][team]["quarter_points"][f"q{k + 1}"] = {"samples": q[:n, k].astype(float).tolist()}
+        br["teams"][team]["points"] = {"samples": q[:n].sum(1).astype(float).tolist()}
     assert "SCORE_OUTSIDE_BRANCH" in codes(detect_branch_pooling(p))
 
 

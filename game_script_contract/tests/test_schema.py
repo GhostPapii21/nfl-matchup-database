@@ -74,14 +74,19 @@ def test_samples_must_come_from_the_branch_trials():
     assert "SAMPLE_COUNT_MISMATCH" in codes(validate_payload(p))
 
 
-def test_branch_definition_must_partition():
+def test_hold_threshold_must_match_one_score():
     p = fresh()
-    p["branch_definition"]["underdog_chases_max_margin"] = 10
-    assert "DEFINITION_OVERLAP" in codes(validate_payload(p))
+    p["branch_definition"]["one_score_max_deficit"] = 7   # hold still 9; 7+1 != 9
+    assert "DEFINITION_HOLD_INCONSISTENT" in codes(validate_payload(p))
+
+
+def test_schema_rejects_nonpositive_q3_threshold_and_underdog_ahead_outside_b():
     p = fresh()
-    p["branch_definition"]["favorite_controls_min_margin"] = 0
-    p["branch_definition"]["underdog_chases_max_margin"] = -3
-    assert "DEFINITION_FAVORITE_NOT_LEADING" in codes(validate_payload(p))
+    p["branch_definition"]["q3_control_margin"] = 0
+    assert "SCHEMA" in codes(validate_payload(p))
+    p = fresh()
+    p["branch_definition"]["competitive_includes_underdog_ahead"] = False
+    assert "SCHEMA" in codes(validate_payload(p))
 
 
 def test_assert_valid_raises():

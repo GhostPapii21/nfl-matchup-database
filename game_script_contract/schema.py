@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal, Optional
 
-SCHEMA_VERSION = "game-script-scenario-output/1"
+SCHEMA_VERSION = "game-script-scenario-output/2"
 SCHEMA_PATH = Path(__file__).resolve().parents[1] / "schemas" / "game_script" / "scenario_output.schema.json"
 
 BranchId = Literal["favorite_controls", "competitive", "underdog_chases"]
@@ -137,12 +137,42 @@ class Branch:
                    players=[PlayerBlock.from_dict(p) for p in d["players"]])
 
 
+CLASSIFIER_ID = "q3_lead_held_or_chased"
+DEFAULT_BRANCH_DEFINITION: dict = {
+    "classifier": CLASSIFIER_ID,
+    "q3_control_margin": 9.0,
+    "q4_hold_min_margin": 9.0,
+    "one_score_max_deficit": 8.0,
+    "observation_points": ["end_q3", "regulation"],
+    "competitive_includes_underdog_ahead": True,
+    "interpretation_note": (
+        "A (favorite_controls): favorite leads by 9+ at the end of Q3 and still leads by 9+ at the end of "
+        "regulation — the underdog is not within one score at the Q4 gun. "
+        "C (underdog_chases): the underdog trails by 9+ at the end of Q3 and cuts the deficit to 8 or less "
+        "in Q4 (within one score, including ties and taking the lead). This is the underdog BEHIND and chasing, "
+        "not the underdog leading. "
+        "B (competitive): everything else, INCLUDING games the underdog leads. Underdog-ahead by 9+ at the end "
+        "of Q3 is a documented sub-case of B, not a fourth branch."
+    ),
+    "limitations": (
+        "Only end-of-Q3 and regulation (end of Q4) scores are used. Mid-quarter swings are not recorded by the "
+        "engine, so a lead that briefly tightened inside Q4 and then re-opened is still A. Overtime is ignored "
+        "for classification: a Q4 comeback that ties is C even if the favorite then wins in OT. "
+        "'Through the end of Q3' is the score at the Q3 gun, not a requirement that the favorite also led at half."
+    ),
+}
+
+
 @dataclass
 class BranchDefinition:
-    classifier_variable: Literal["final_margin_favorite", "regulation_margin_favorite", "end_q3_margin_favorite"]
-    favorite_controls_min_margin: float
-    underdog_chases_max_margin: float
+    classifier: str
+    q3_control_margin: float
+    q4_hold_min_margin: float
+    one_score_max_deficit: float
+    observation_points: list
+    competitive_includes_underdog_ahead: bool = True
     interpretation_note: Optional[str] = None
+    limitations: Optional[str] = None
 
 
 @dataclass
@@ -152,9 +182,11 @@ class ScenarioOutput:
     provenance: dict
     branch_definition: BranchDefinition
     branches: dict[str, Branch]
+    competitive_composition: Optional[dict] = None
 
     @classmethod
     def from_dict(cls, d: dict) -> "ScenarioOutput":
         return cls(schema_version=d["schema_version"], game=d["game"], provenance=d["provenance"],
                    branch_definition=BranchDefinition(**d["branch_definition"]),
-                   branches={k: Branch.from_dict(v) for k, v in d["branches"].items()})
+                   branches={k: Branch.from_dict(v) for k, v in d["branches"].items()},
+                   competitive_composition=d.get("competitive_composition"))

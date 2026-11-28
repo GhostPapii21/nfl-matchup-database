@@ -27,9 +27,18 @@ def test_mixture_equals_unconditional_rate_for_a_trial_partition():
 
 
 def test_branches_give_different_conditionals():
+    """A and C both have a 9+ favorite lead at the end of Q3, so favorite RB volume is high in both and
+    higher than in B (which includes underdog-ahead and close games). C is not a low-volume mirror of A."""
     r = prop_probability(fresh(), player_id="fav_rb1", stat="carries", line=15.5)
     c = {b: v["conditional"] for b, v in r["per_branch"].items()}
-    assert c["favorite_controls"] > c["competitive"] > c["underdog_chases"]
+    assert c["favorite_controls"] > c["competitive"]
+    assert c["underdog_chases"] > c["competitive"]
+    assert c["favorite_controls"] != c["underdog_chases"]
+    # Trailing WR volume is also higher in A and C than in B, not the reverse (which a sideline-flip C would show).
+    r2 = prop_probability(fresh(), player_id="dog_wr1", stat="targets", line=8.5)
+    d = {b: v["conditional"] for b, v in r2["per_branch"].items()}
+    assert d["favorite_controls"] > d["competitive"]
+    assert d["underdog_chases"] > d["competitive"]
 
 
 def _pooled_poisson(p, pid, stat, line):

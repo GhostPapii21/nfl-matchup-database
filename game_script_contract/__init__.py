@@ -7,8 +7,11 @@ simulation engine, it does not touch model weights, projections or betting-readi
 existing engines imports it. See docs/specs/game_script_probability_contract.md and
 docs/audits/game_script_integrity_audit.md.
 """
-from .schema import BRANCH_IDS, DIMENSIONS, SCHEMA_PATH, SCHEMA_VERSION  # noqa: F401
+from .schema import (  # noqa: F401
+    BRANCH_IDS, DEFAULT_BRANCH_DEFINITION, DIMENSIONS, SCHEMA_PATH, SCHEMA_VERSION,
+)
 from .allocation import (  # noqa: F401
-    ContractError, Finding, TOLERANCE, check_prop_probability, classify_margin, detect_branch_pooling,
-    detect_duplicate_branches, prop_probability, validate_allocation, validate_payload,
+    ContractError, Finding, TOLERANCE, check_prop_probability, classify_trial, classify_trials,
+    detect_branch_pooling, detect_duplicate_branches, prop_probability, validate_allocation,
+    validate_payload,
 )
