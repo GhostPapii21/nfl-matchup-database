@@ -274,8 +274,13 @@ def edges(off_team, off_sum, off_rank, def_team, def_sum, def_rank, n_teams=32):
 
 
 # ------------------------------------------------------------------ the packet
-def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books=None, weather=None):
-    """game: a row of the nflverse schedule. data: dict of DataFrames (pbp prepared as 'plays')."""
+def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books=None, weather=None,
+          include_script_models=False, script_model_out=None, possession_n=24, period_n=2000):
+    """game: a row of the nflverse schedule. data: dict of DataFrames (pbp prepared as 'plays').
+
+    include_script_models attaches sunday.script_models (NFL-90) beside team_projection.
+    It is off by default so a packet build does not silently start possession trials.
+    """
     season, week, home, away = int(game.season), int(game.week), game.home_team, game.away_team
     p, games = data["plays"], data["games"]
     done = games[(games.season == season) & games.home_score.notna() & (games.week < week)]
@@ -350,6 +355,12 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
     }
     prop_check(packet)
     packet["phase_ledger"] = phase_ledger(packet)
+    if include_script_models:
+        if script_model_out is None:
+            raise ValueError("include_script_models requires script_model_out")
+        from sunday.script_models import attach_to_packet
+        attach_to_packet(packet, root=ROOT, out_dir=script_model_out, possession_n=possession_n, period_n=period_n,
+                         packet_path=None)
     return packet
 
 
