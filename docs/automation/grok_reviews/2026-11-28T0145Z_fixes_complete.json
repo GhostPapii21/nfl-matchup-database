@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2026-11-28T01:50:00Z",
+  "projection_ready_changed": false,
+  "api_key_required_for_these_fixes": false,
+  "cursor_cloud_agent_review_at_0036Z": {
+    "grok_invoked": false,
+    "secret_present": false,
+    "http_status": null,
+    "kept_as_history": "docs/automation/grok_reviews/2026-11-28_pr151_NOT_RUN.json"
+  },
+  "fixes": {
+    "150": "evaluation/sim_v6_authority.py reads SHRINK_K and K_BIAS with ast. A semicolon line with K_BIAS=5 is not treated as equal. tools/sim_v6.py is still absent.",
+    "151": "python -m pipeline.execution exits 0 only when accepted is true. The newer count-rejection commit is included.",
+    "152": "The unwired handler is stored as refused, not succeeded. The pre-kick lock runs only when injury_refresh.json names the same game and schedule version and work_completed is true. It was not renamed to blocked, because blocked in this scheduler means the job is still waiting."
+  },
+  "stack": {
+    "149": "cursor/phase0-inventory-audit-5ec8 remains the bottom. Base is still blitz/w12-lock-readiness-test.",
+    "151": "stacked on 149. Includes the exit-0 fix and the count-rejection fix.",
+    "152": "stacked on 151. Includes the receipt-only lock refusal."
+  },
+  "tests": {
+    "evaluation/tests/test_sim_v6_authority.py": "5 passed",
+    "pipeline/tests/test_execution_receipts.py": "28 passed",
+    "scheduler/tests/test_scheduler.py plus execution receipts on the stack": "52 passed"
+  },
+  "still_not_a_projection": [
+    "tools/sim_v6.py is absent",
+    "three methods were not run",
+    "route, coverage, pressure, and three scripts are not a projection",
+    "projection_ready stays false"
+  ]
+}

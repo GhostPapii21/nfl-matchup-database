@@ -1,0 +1,39 @@
+# PROPOSAL ONLY. Do not apply, sync, or copy to render.yaml.
+# NFL-84: no Render resource is created until the owner approves
+# docs/automation/SCHEDULER.md. The scheduler process refuses postgres:// URLs
+# until that follow-up, so this file cannot be a working Blueprint yet.
+#
+# Prices checked 2026-11-27 at https://render.com/pricing
+#   worker  0.5c-512mb   $7/month   (blueprint serverPlan enum)
+#   postgres 0.1c-256mb  $6/month   (blueprint postgresPlan enum)
+# Do not attach sportsbook-odds-history (dpg-das712npn0mc73f3egq0-a).
+# The start command below still cannot connect: this branch refuses postgres URLs.
+# --packet-index reads the git checkout only. It does not pull a live feed.
+
+services:
+  - type: worker
+    name: nfl-game-scheduler
+    runtime: python
+    region: oregon
+    plan: 0.5c-512mb
+    repo: https://github.com/GhostPapii21/nfl-matchup-database
+    branch: main
+    buildCommand: pip install -r requirements-test.txt
+    startCommand: python -m scheduler worker --db "$SCHEDULER_DATABASE_URL" --packet-index pregame/packets/latest.json
+    autoDeployTrigger: "off"
+    envVars:
+      - key: SCHEDULER_DATABASE_URL
+        fromDatabase:
+          name: nfl-scheduler
+          property: connectionString
+
+databases:
+  - name: nfl-scheduler
+    databaseName: nfl_scheduler
+    user: nfl_scheduler
+    plan: 0.1c-256mb
+    region: oregon
+    postgresMajorVersion: "16"
+    # Empty allow list: confirm, before any apply, that Render still allows
+    # the worker's private-network path. Do not open 0.0.0.0/0 by habit.
+    ipAllowList: []
