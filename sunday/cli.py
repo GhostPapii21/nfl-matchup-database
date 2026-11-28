@@ -4,6 +4,7 @@
     python -m sunday game --game 2026_12_DEN_PIT --as-of 2026-11-27T04:31:50+00:00
     python -m sunday slate --date 2026-11-29 --as-of 2026-11-29T12:00:00+00:00 --concurrency 4
     python -m sunday replay --game 2026_12_DEN_PIT
+    python -m sunday sim --date 2026-11-29 --as-of 2026-11-29T12:00:00+00:00 --trials 100000 --concurrency 4
 
 Exit 0 when every game wrote a packet and none is BLOCKED (the packet result may still be PARTIAL).
 Exit 1 when the arguments or the schedule index cannot be used.
@@ -48,7 +49,46 @@ def parser() -> argparse.ArgumentParser:
     slate.add_argument("--all", action="store_true", dest="all_games", help="every game on the schedule index")
     rep = sub.add_parser("replay", parents=[common], help="run one historical game twice and compare the canonical hash")
     rep.add_argument("--game", default="2026_12_DEN_PIT", help="schedule game id (default: 2026_12_DEN_PIT)")
+    sim = sub.add_parser("sim", parents=[common], help="player sims: restored sim_v6 plus accepted sim_v6r1 methods per game script")
+    sim.add_argument("--week", type=int, help="limit to this NFL week number")
+    sim.add_argument("--date", dest="on_date", help="limit to this calendar date, YYYY-MM-DD")
+    sim.add_argument("--game", action="append", default=[], help="limit to this game id; repeatable")
+    sim.add_argument("--trials", type=int, default=100_000, help="trials per method per scenario (default 100000)")
+    sim.add_argument("--concurrency", type=int, default=4, help="games run in parallel processes (capped at 8)")
+    sim.add_argument("--method", action="append", default=[], help="restrict to these accepted sim_v6r1 methods")
+    sim.add_argument("--include-started", action="store_true", help="keep games already kicked off at as-of")
     return ap
+
+
+def _sim(args, repo) -> int:
+    from sunday import sim_triad
+    as_of = _as_of(args)
+    if as_of is None:
+        return 1
+    games, err = discover.load_index(repo)
+    if err:
+        print(f"sunday: {err}")
+        return 1
+    chosen = discover.select(games, week=args.week, on_date=args.on_date, slot=None, only=args.game, as_of=as_of,
+                             include_started=args.include_started or bool(args.game), all_games=False)
+    if not chosen:
+        print("sunday: no games matched")
+        return 1
+    if args.trials < 1:
+        print("sunday: --trials must be at least 1")
+        return 1
+    out = args.out or (repo / "sunday" / "runs" / f"sim_{args.on_date or 'slate'}")
+    try:
+        s = sim_triad.run_slate(chosen, repo=repo, out=out, as_of=as_of, trials=args.trials,
+                                concurrency=args.concurrency, methods=args.method or None)
+    except sim_triad.Blocked as e:
+        print(f"sunday sim: BLOCKED {e}")
+        return 2
+    for g in s["games"]:
+        print(f"sunday sim: {g['game_id']} {g['result']} legs={g['legs']} wall={g['wall_seconds']}s rss={g['peak_rss_mb']}MB")
+    print(f"sunday sim: {s['result']} slate wall={s['slate_wall_seconds']}s trials={s['total_trials']}")
+    print(f"sunday sim: index {out / 'INDEX.md'}")
+    return 0 if s["result"] == "PASS" else 2
 
 
 def _as_of(args):
@@ -88,6 +128,8 @@ def main(argv=None) -> int:
         print("sunday: --min-free-mb must be at least 1")
         return 1
     repo = args.repo
+    if args.cmd == "sim":
+        return _sim(args, repo)
     if args.cmd in {"preflight", "game", "replay"} and not preflight.valid_game_id(args.game):
         print(f"sunday: {args.game!r} is not a schedule game id")
         return 1

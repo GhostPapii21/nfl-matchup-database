@@ -1,0 +1,129 @@
+{
+ "version": "sim_v6r1",
+ "is_original_sim_v6": false,
+ "fitted_on_weeks": [
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "rows": 2156,
+ "rule": "M = 1 + n/(n+30)*(median(actual/pred)-1); M=1 if n<20",
+ "multipliers": {
+  "mc_nb": {
+   "passyds": {
+    "M": 1.0614,
+    "raw": 1.0701,
+    "n": 211,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rec": {
+    "M": 0.9589,
+    "raw": 0.9572,
+    "n": 722,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "recyds": {
+    "M": 0.9544,
+    "raw": 0.9525,
+    "n": 722,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rushrec": {
+    "M": 1.0061,
+    "raw": 1.0068,
+    "n": 248,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rushyds": {
+    "M": 0.9668,
+    "raw": 0.9629,
+    "n": 253,
+    "shrink_K": 30,
+    "guard": false
+   }
+  },
+  "gr_share": {
+   "passyds": {
+    "M": 1.0614,
+    "raw": 1.0701,
+    "n": 211,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rec": {
+    "M": 1.002,
+    "raw": 1.0021,
+    "n": 721,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "recyds": {
+    "M": 0.9986,
+    "raw": 0.9985,
+    "n": 720,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rushrec": {
+    "M": 1.0244,
+    "raw": 1.0274,
+    "n": 248,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rushyds": {
+    "M": 0.9814,
+    "raw": 0.9792,
+    "n": 253,
+    "shrink_K": 30,
+    "guard": false
+   }
+  },
+  "eb_boot": {
+   "passyds": {
+    "M": 1.0524,
+    "raw": 1.0599,
+    "n": 211,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rec": {
+    "M": 0.9634,
+    "raw": 0.9619,
+    "n": 721,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "recyds": {
+    "M": 0.9547,
+    "raw": 0.9529,
+    "n": 721,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rushrec": {
+    "M": 1.0021,
+    "raw": 1.0024,
+    "n": 248,
+    "shrink_K": 30,
+    "guard": false
+   },
+   "rushyds": {
+    "M": 0.964,
+    "raw": 0.9597,
+    "n": 253,
+    "shrink_K": 30,
+    "guard": false
+   }
+  }
+ }
+}
