@@ -25,6 +25,7 @@ import numpy as np
 
 from . import data as D
 from . import engine as E
+from . import defensive as DEF
 
 CALIB_FILE = os.path.join(os.path.dirname(__file__), "calibration_v7.json")
 SOURCE_CUTOFF = "2026-11-24"   # first date NOT included (pbp through 2026-11-23, week 11)
@@ -64,6 +65,7 @@ def game_config(game_id: str) -> tuple[dict, dict]:
     cfg = dict(game_id=game_id, home=home, away=away, cutoff=SOURCE_CUTOFF, fav=fav, implied=implied,
                exclude=sorted(excl), market_source=b["market"].get("source"), board_file=os.path.relpath(path, D.REPO),
                board_sha256=D.sha256_file(path))
+    cfg["defensive_profiles"] = {D.NV.get(t,t): p for t,p in DEF.profiles(b).items()}
     return cfg, b
 
 
