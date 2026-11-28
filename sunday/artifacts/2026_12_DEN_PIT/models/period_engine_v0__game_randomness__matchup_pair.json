@@ -1,0 +1,49 @@
+{
+ "engine_id": "period_engine_v0",
+ "method": "game_randomness",
+ "sampling": "matchup_pair",
+ "entrypoint": "core/period_engine_v0/monte_carlo.py:simulate_game",
+ "version": {
+  "path": "core/period_engine_v0/monte_carlo.py",
+  "sha256": "129bdda12f17a893cb09432089d6dca798711627588cee7ffaf75b800bd9364d",
+  "exists": true
+ },
+ "called": true,
+ "simulated": true,
+ "trials": 2000,
+ "seed": 338207308,
+ "apply_gr": true,
+ "calibration_status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+ "game_randomness_status": "IMPLEMENTED_SHARED_GAME_SHOCK_UNFITTED_SCALE",
+ "status": "RAN_RESEARCH_ONLY",
+ "inputs": {
+  "pbp": {
+   "pbp": "pbp_2026_w1_11_pulled_20261124T1717ET.parquet",
+   "max_week": 11,
+   "target_week_excluded": true,
+   "target_game_excluded": true
+  },
+  "includes_prior_season": true,
+  "history_games": 435,
+  "home": "PIT",
+  "away": "DEN",
+  "favorite": "DEN",
+  "underdog": "PIT",
+  "home_spread": 4.5,
+  "spread_source": "packet.market.home_spread"
+ },
+ "branch_artifacts": [
+  "branches/period_engine_v0/game_randomness/matchup_pair/favorite_controls.json",
+  "branches/period_engine_v0/game_randomness/matchup_pair/underdog_chases.json",
+  "branches/period_engine_v0/game_randomness/matchup_pair/competitive.json",
+  "branches/period_engine_v0/game_randomness/matchup_pair/residual.json"
+ ],
+ "projection_ready": false,
+ "not_sim_v6": true,
+ "limitations": [
+  "Bias on this engine is UNIMPLEMENTED_NO_FITTED_CALIB.",
+  "Quarter bootstrap only. Plays and player opportunity are unsupported here.",
+  "matchup_pair and independent stay in separate records."
+ ],
+ "artifact": "models/period_engine_v0__game_randomness__matchup_pair.json"
+}

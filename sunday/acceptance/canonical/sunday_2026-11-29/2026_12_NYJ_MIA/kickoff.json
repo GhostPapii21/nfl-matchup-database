@@ -1,0 +1,58 @@
+{
+ "adapter": "sunday.kickoff.resolve",
+ "announcement_date": "2026-11-17",
+ "authoritative_source": "nfl_official_schedule",
+ "authoritative_status": "OK",
+ "canonical_kickoff_utc": "2026-11-29T18:00:00+00:00",
+ "capture_before_this_kickoff": true,
+ "config_file_rewritten": false,
+ "conflicts": [],
+ "game_id": "2026_12_NYJ_MIA",
+ "originals": {
+  "espn_event_date": {
+   "field": "date",
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
+   "path": "grading/results/sources/espn_summary_2026_12_NYJ_MIA_401873089.json",
+   "status": "OK"
+  },
+  "nfl_official_schedule": {
+   "announcement_date": "2026-11-17",
+   "as_of": "2026-11-28T06:15:09.666Z",
+   "corroborating_source": "https://www.nfl.com/news/week-12-schedule-change",
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "note": "Normalized kickoff facts from official schedule and flex announcement; capture retrieved after earlier week games, not a historical pregame capture.",
+   "path": "data/schedule/nfl_official_schedule.json",
+   "pregame_capture": false,
+   "reason": "NFL.com schedule capture. Not a claim that this file existed before kickoff.",
+   "retrieved_utc": "2026-11-28T06:15:09.666Z",
+   "source": "https://www.nfl.com/schedules/2026/by-week/week-12",
+   "status": "OK"
+  },
+  "nflverse_games_csv": {
+   "gameday": "2026-11-29",
+   "gametime": "13:00",
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "path": "data/historical/nflverse/games.csv",
+   "status": "OK",
+   "timezone_assumed": "America/New_York"
+  },
+  "possession_config": {
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "path": "core/possession_engine_v0/config/nyj_mia_2026-11-29_data_only_nfl43.json",
+   "status": "OK"
+  },
+  "pregame_packet": {
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "timezone": "America/New_York wall clock when the packet stores kickoff_et"
+  }
+ },
+ "pregame_capture": false,
+ "reason": "Canonical kickoff is the NFL.com schedule capture retrieved 2026-11-28T06:15:09.666Z as of 2026-11-28T06:15:09.666Z. pregame_capture is False. Other clocks are recorded and are not the authority.",
+ "resolved": true,
+ "schedule_file_rewritten": false,
+ "source": "nfl_official_schedule",
+ "source_timestamp": "2026-11-28T06:15:09.666Z",
+ "timezone": "UTC",
+ "verification": "VERIFIED"
+}

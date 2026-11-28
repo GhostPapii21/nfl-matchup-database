@@ -1,0 +1,44 @@
+{
+ "bias": {
+  "calibration_status": "MISSING",
+  "multiplier_applied": null,
+  "reason": "Bias calibration artifact is missing. No neutral multiplier was applied.",
+  "status": "REFUSED"
+ },
+ "cells_required": 9,
+ "engine_id": "sim_v6",
+ "entrypoint": "tools/sim_v6.py",
+ "fallback_used": false,
+ "methods": [
+  "mc",
+  "bias",
+  "gr"
+ ],
+ "methods_in_recovered_source": [
+  "mc",
+  "bias",
+  "gr"
+ ],
+ "not_used": [
+  "pipeline.sim100k",
+  "core.possession_engine_v0",
+  "core.period_engine_v0",
+  "calibration.simv56"
+ ],
+ "projection_ready": false,
+ "provenance_blob": "ab2144f03f6ca3b57950a1f2528e305193e723cd",
+ "reason": "The recovered sim_v6 source has mc, bias, and gr and no game-script argument. Three methods times three scripts at 100000 trials were not run. The count was not reduced, and no other engine was labeled sim_v6.",
+ "recovered_file": "tools/sim_v6_historical.py",
+ "recovered_sha256": "c33fb33588db118db27a041bac8be4c7d5d780cc94f482f54e6d0749eb195b17",
+ "schema": "sim-v6-acceptance-receipt/1",
+ "scripts": [
+  "favorite_controls",
+  "competitive",
+  "underdog_chases"
+ ],
+ "scripts_in_recovered_source": [],
+ "status": "REFUSED",
+ "trials_executed": 0,
+ "trials_required": 900000,
+ "trials_required_per_cell": 100000
+}

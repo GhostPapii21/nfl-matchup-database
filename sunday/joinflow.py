@@ -1,0 +1,150 @@
+"""Join research, script, player, and market artifacts for one game.
+
+The decision board reads this packet. A missing hash, an as-of after a known
+kickoff, or a withheld probability stays visible. Nothing here invents a
+coverage assignment or a 100k probability.
+"""
+from __future__ import annotations
+
+from datetime import datetime
+
+
+def _qb_script(script: dict | None, player: str) -> dict:
+    """Point at script-model records. Distributions stay in those artifacts."""
+    if not isinstance(script, dict):
+        return {"status": "UNAVAILABLE", "reason": "no script manifest was joined"}
+    hits = []
+    for model in script.get("models") or []:
+        if not isinstance(model, dict):
+            continue
+        if model.get("engine_id") != "possession_engine_v0" or not model.get("simulated"):
+            continue
+        hits.append({
+            "engine_id": model.get("engine_id"),
+            "method": model.get("method"),
+            "trials": model.get("trials"),
+            "seed": model.get("seed"),
+            "acceptance_100k": False,
+            "branch_artifacts": model.get("branch_artifacts"),
+            "scoring_conservation": model.get("scoring_conservation"),
+            "player": player,
+        })
+    if not hits:
+        return {"status": "UNAVAILABLE", "reason": "no simulated possession script record was joined", "player": player}
+    return {"status": "JOINED", "records": hits, "note": "Branch files keep pass_yds and pass_td separate. They are not pooled."}
+
+
+def _player_theses(players: dict | None, script: dict | None) -> list[dict]:
+    theses = []
+    for team in (players or {}).get("teams") or []:
+        if not isinstance(team, dict):
+            continue
+        for person in team.get("players") or []:
+            if person.get("pos") != "QB":
+                continue
+            sit = person.get("situational") or {}
+            pressure = sit.get("pressure_targets") or {}
+            coverage = sit.get("coverage_route_access") or {}
+            passing = (person.get("projections") or {}).get("passing")
+            name = person.get("player")
+            theses.append({
+                "thesis_id": f"player:{name}:pass",
+                "subject": name,
+                "subject_kind": "player",
+                "market": "pass_yds",
+                "side": "over",
+                "line": None,
+                "projection": passing,
+                "models": [],
+                "role_tag": "volume",
+                "efficiency_dependent": True,
+                "evidence_for": [],
+                "evidence_against": [{
+                    "severity": "material",
+                    "text": "No 100k sim_v6 probability was joined, so this passing row cannot support a read.",
+                }],
+                "sample_quality": {
+                    "withheld": True,
+                    "blocks_reads": True,
+                    "limitation": "Passing and touchdown distributions stay on the script branch artifacts. They were not turned into one probability.",
+                },
+                "joined_evidence": {
+                    "pressure_targets": {
+                        "evidence_tier": pressure.get("evidence_tier") or "unavailable",
+                        "charting": pressure.get("charting") or "unavailable",
+                    },
+                    "coverage_assignment": {
+                        "evidence_tier": coverage.get("evidence_tier") or "unavailable",
+                        "charting": "unavailable",
+                    },
+                    "script": _qb_script(script, name),
+                },
+            })
+    return theses
+
+
+def build_joined_decision_input(
+    *,
+    game: dict,
+    kickoff_utc: str | None,
+    kickoff_verification: str | None,
+    as_of: datetime,
+    research: dict | None,
+    script: dict | None,
+    players: dict | None,
+    market_packet: dict,
+    hashes: dict,
+    base_packet: dict,
+) -> dict:
+    """Return a decision packet whose provenance lists the artifact hashes."""
+    problems = []
+    if kickoff_verification != "VERIFIED":
+        problems.append("kickoff is UNVERIFIED, so as-of was not compared with an authoritative kickoff")
+    elif kickoff_utc:
+        kick = datetime.fromisoformat(kickoff_utc)
+        if as_of.tzinfo is None or kick.tzinfo is None:
+            problems.append("as-of or kickoff lacked a timezone")
+        elif as_of > kick:
+            problems.append("as-of is after the authoritative kickoff")
+    for name in ("research", "script", "player_board"):
+        if not hashes.get(name):
+            problems.append(f"missing sha256 for {name}")
+    theses = _player_theses(players, script)
+    packet = dict(base_packet)
+    packet["theses"] = list(packet.get("theses") or []) + theses
+    packet["joined"] = {
+        "research_sha256": hashes.get("research"),
+        "script_sha256": hashes.get("script"),
+        "player_board_sha256": hashes.get("player_board"),
+        "as_of_utc": as_of.isoformat(),
+        "kickoff_utc": kickoff_utc,
+        "kickoff_verification": kickoff_verification,
+        "problems": problems,
+        "scoring_conservation": next(
+            (
+                model.get("scoring_conservation")
+                for model in (script or {}).get("models") or []
+                if isinstance(model, dict) and model.get("scoring_conservation")
+            ),
+            {"status": "UNAVAILABLE", "evidence_tier": "unavailable"},
+        ),
+        "research_joined": isinstance(research, dict),
+        "player_count": (players or {}).get("player_count"),
+        "projection_ready": False,
+    }
+    packet["projection_ready"] = False
+    packet["game_id"] = game.get("game_id")
+    packet["home"] = game.get("home")
+    packet["away"] = game.get("away")
+    packet["kickoff_utc"] = kickoff_utc
+    return packet
+
+
+def hashes_match(recorded: dict, actual: dict) -> bool:
+    """True only when every recorded artifact hash equals the file that was just written."""
+    for key, value in recorded.items():
+        if value is None:
+            return False
+        if actual.get(key) != value:
+            return False
+    return True
