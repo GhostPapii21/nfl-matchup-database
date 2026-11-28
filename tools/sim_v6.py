@@ -92,6 +92,19 @@ def acceptance_receipt() -> dict:
     }
 
 
+ORIGINAL = Path(__file__).with_name("sim_v6_ab2144f0.py")   # byte-identical blob ab2144f0, unmodified
+
+
 if __name__ == "__main__":
     import json
-    print(json.dumps(acceptance_receipt(), indent=2))
+    import runpy
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] in ("run", "fit", "report"):
+        # Documented PHASE_SCRIPT entrypoint: `python3 tools/sim_v6.py run <legs.json> <out.json>` runs the restored
+        # original unchanged (3 methods, unconditional, 100000 trials). Inputs: $SIMV6_SRC (see tools/simsrc.py).
+        if "SIMV6_SRC" not in __import__("os").environ:
+            sys.path.insert(0, str(ORIGINAL.parent))
+            __import__("simsrc").prepare()
+        runpy.run_path(str(ORIGINAL), run_name="__main__")
+    else:
+        print(json.dumps(acceptance_receipt(), indent=2))
