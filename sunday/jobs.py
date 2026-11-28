@@ -37,6 +37,7 @@ class JobStore:
                 status TEXT NOT NULL,
                 lease_owner TEXT,
                 lease_expires TEXT,
+                deadline TEXT,
                 inactive_lock TEXT,
                 attempts INTEGER NOT NULL,
                 result TEXT
@@ -48,7 +49,7 @@ class JobStore:
     def close(self) -> None:
         self.conn.close()
 
-    def enqueue(self, *, game_id: str, window: str, idempotency_key: str) -> dict:
+    def enqueue(self, *, game_id: str, window: str, idempotency_key: str, deadline: datetime | None = None) -> dict:
         existing = self._one(idempotency_key)
         if existing:
             return {**existing, "duplicate": True}
@@ -66,10 +67,10 @@ class JobStore:
             }
         self.conn.execute(
             """
-            INSERT INTO jobs (idempotency_key, game_id, window, status, attempts)
-            VALUES (?, ?, ?, 'queued', 0)
+            INSERT INTO jobs (idempotency_key, game_id, window, status, attempts, deadline)
+            VALUES (?, ?, ?, 'queued', 0, ?)
             """,
-            (idempotency_key, game_id, window),
+            (idempotency_key, game_id, window, _iso(deadline) if deadline else None),
         )
         self.conn.commit()
         return {**self._one(idempotency_key), "duplicate": False}
@@ -124,6 +125,43 @@ class JobStore:
         )
         self.conn.commit()
         return stamp
+
+    def mark_missed(self, now: datetime) -> list[dict]:
+        """A queued job whose deadline has passed is missed. It is not run late."""
+        rows = self.conn.execute(
+            "SELECT * FROM jobs WHERE status = 'queued' AND deadline IS NOT NULL"
+        ).fetchall()
+        missed = []
+        for row in rows:
+            deadline = _parse(row["deadline"])
+            if deadline is not None and deadline <= now:
+                self.conn.execute(
+                    "UPDATE jobs SET status = 'missed', result = 'deadline passed before claim' WHERE idempotency_key = ?",
+                    (row["idempotency_key"],),
+                )
+                missed.append(self._one(row["idempotency_key"]))
+        self.conn.commit()
+        return missed
+
+    def dispatch(self, handler, now: datetime, owner: str = "local") -> list[dict]:
+        """Run due jobs. One handler exception is stored on that job and the next job still runs."""
+        outcomes = self.mark_missed(now)
+        while True:
+            job = self.claim(owner, now)
+            if job is None:
+                break
+            try:
+                result = handler(job)
+            except Exception as exc:  # noqa: BLE001 — isolation is the contract
+                self.conn.execute(
+                    "UPDATE jobs SET status = 'failed', result = ? WHERE idempotency_key = ?",
+                    (f"{type(exc).__name__}: {exc}", job["idempotency_key"]),
+                )
+                self.conn.commit()
+                outcomes.append(self._one(job["idempotency_key"]))
+                continue
+            outcomes.append(self.complete(job["idempotency_key"], owner, result=str(result)))
+        return outcomes
 
     def recover_expired(self, now: datetime) -> int:
         rows = self.conn.execute("SELECT idempotency_key, lease_expires FROM jobs WHERE status = 'leased'").fetchall()

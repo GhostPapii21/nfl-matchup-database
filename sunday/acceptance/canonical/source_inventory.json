@@ -1,0 +1,147 @@
+{
+ "schema": "sunday-source-inventory/1",
+ "projection_ready": false,
+ "sharp_coverage": {
+  "path": "data/coverage/sharp_coverage_2026.csv",
+  "status": "PRESENT",
+  "evidence_tier": "measured",
+  "fields": [
+   "team",
+   "season",
+   "man_pct",
+   "zone_pct",
+   "mofc_pct",
+   "mofo_pct",
+   "source_updated",
+   "pulled_utc",
+   "source_url"
+  ],
+  "rows": 32,
+  "bytes": 4491,
+  "source_updated_values": [
+   "November 17"
+  ],
+  "pulled_utc_values": [
+   "2026-11-24T11:26:49+00:00"
+  ],
+  "joins": "team abbreviation to the pregame packet defense. Not a player coverage assignment.",
+  "not_a_coverage_assignment": true
+ },
+ "sim_v6_backtest": {
+  "path": "calibration/simv56/engines/sim_v6_backtest.csv",
+  "status": "PRESENT",
+  "evidence_tier": "measured",
+  "fields": [
+   "week",
+   "gsis",
+   "market",
+   "actual",
+   "pred_mc",
+   "pred_bias",
+   "pred_gr"
+  ],
+  "rows": 1096,
+  "bytes": 91974,
+  "weeks": [
+   4,
+   5,
+   6,
+   7
+  ],
+  "identity": "committed sim_v6 W4-7 backtest file, not a new fit",
+  "holdout_scorecard": null
+ },
+ "nflverse_games": {
+  "path": "data/historical/nflverse/games.csv",
+  "status": "PRESENT",
+  "evidence_tier": "measured",
+  "fields": [
+   "game_id",
+   "season",
+   "game_type",
+   "week",
+   "gameday",
+   "weekday",
+   "gametime",
+   "away_team",
+   "away_score",
+   "home_team",
+   "home_score",
+   "location",
+   "result",
+   "total",
+   "overtime",
+   "old_game_id",
+   "gsis",
+   "nfl_detail_id",
+   "pfr",
+   "pff",
+   "espn",
+   "ftn",
+   "away_rest",
+   "home_rest",
+   "away_moneyline",
+   "home_moneyline",
+   "spread_line",
+   "away_spread_odds",
+   "home_spread_odds",
+   "total_line",
+   "under_odds",
+   "over_odds",
+   "div_game",
+   "roof",
+   "surface",
+   "temp",
+   "wind",
+   "away_qb_id",
+   "home_qb_id",
+   "away_qb_name",
+   "home_qb_name",
+   "away_coach",
+   "home_coach",
+   "referee",
+   "stadium_id",
+   "stadium"
+  ],
+  "rows": 7548,
+  "bytes": 2184003,
+  "authority": "nflverse games.csv, not an NFL.com schedule capture"
+ },
+ "ngs": [
+  {
+   "path": "data/historical/nflverse/ngs_passing.parquet",
+   "status": "UNAVAILABLE",
+   "evidence_tier": "unavailable"
+  },
+  {
+   "path": "data/historical/nflverse/ngs_receiving.parquet",
+   "status": "UNAVAILABLE",
+   "evidence_tier": "unavailable"
+  },
+  {
+   "path": "data/historical/nflverse/ngs_rushing.parquet",
+   "status": "UNAVAILABLE",
+   "evidence_tier": "unavailable"
+  }
+ ],
+ "ftn_charting": {
+  "path": "data/historical/nflverse/ftn_charting.parquet",
+  "status": "UNAVAILABLE",
+  "evidence_tier": "unavailable",
+  "reason": "no ftn_charting parquet is in this checkout; pressure and coverage charting stay unavailable"
+ },
+ "nfl_official_schedule": {
+  "path": "data/schedule/nfl_official_schedule.json",
+  "status": "UNAVAILABLE",
+  "evidence_tier": "unavailable",
+  "reason": "no offline NFL.com schedule capture with retrieval and as-of metadata"
+ },
+ "main_adapter": {
+  "status": "UNAVAILABLE",
+  "reason": "no production Main implementation is in this repository"
+ },
+ "lightning_adapter": {
+  "status": "UNAVAILABLE",
+  "reason": "no Lightning implementation is in this repository"
+ }
+}

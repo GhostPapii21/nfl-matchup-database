@@ -1,5 +1,6 @@
 """The Nov 29 acceptance gaps: joined inputs, sim_v6 refusal, and a local job store."""
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 from sunday.joinflow import build_joined_decision_input, hashes_match
 from sunday.jobs import JobStore
@@ -78,6 +79,63 @@ def test_joined_packet_keeps_hashes_and_blocks_a_late_as_of():
     assert thesis["joined_evidence"]["coverage_assignment"]["evidence_tier"] == "unavailable"
     assert thesis["joined_evidence"]["pressure_targets"]["evidence_tier"] == "inferred"
     assert thesis["sample_quality"]["blocks_reads"] is True
+
+
+def test_sources_locks_and_the_replacement_are_not_sim_v6():
+    from sunday.lock_ledger import ledger
+    from sunday.replacement_triad import empirical_cell, receipt, walk_forward
+    from sunday.source_inventory import inventory
+    repo = Path(__file__).resolve().parents[2]
+    sources = inventory(repo)
+    assert sources["nfl_official_schedule"]["status"] == "UNAVAILABLE"
+    assert sources["sharp_coverage"]["rows"] > 0
+    assert sources["sharp_coverage"]["not_a_coverage_assignment"] is True
+    assert sources["ftn_charting"]["status"] == "UNAVAILABLE"
+    assert sources["main_adapter"]["status"] == "UNAVAILABLE"
+    scored = walk_forward(repo)
+    assert scored["rows"] == 1096
+    assert scored["refit"] is False
+    assert max(scored["weeks"]) <= 7
+    locks_before = (repo / "snapshots" / "2026_12_DEN_PIT" / "20261127T111648Z" / "LOCK.json").read_bytes()
+    book = ledger(repo)
+    assert book["locks_rewritten"] is False
+    assert book["games"] >= 1
+    assert all(row["rewritten"] is False for row in book["rows"])
+    assert (repo / "snapshots" / "2026_12_DEN_PIT" / "20261127T111648Z" / "LOCK.json").read_bytes() == locks_before
+    cell = empirical_cell([1.0, -2.0, 4.0], seed=1, n=100_000)
+    assert cell["trials_executed"] == 100_000
+    assert cell["scripts_assigned"] is False
+    assert cell["not_sim_v6"] is True
+    body = receipt(repo, season=2026, week=12)
+    assert body["not_sim_v6"] is True
+    assert body["schema"] == "sunday-replacement-triad/1"
+    possession = next(row for row in body["methods"] if row["identity"] == "core.possession_engine_v0")
+    assert possession["trials_executed"] == 0
+    assert possession["committed_benchmark"]["runtime_sec"] == 819.2
+
+
+def test_dispatch_isolates_a_failure_and_marks_a_missed_deadline(tmp_path):
+    store = JobStore(tmp_path / "jobs.sqlite")
+    now = datetime(2026, 11, 29, 18, tzinfo=timezone.utc)
+    store.enqueue(
+        game_id="2026_12_LATE", window="pregame", idempotency_key="late",
+        deadline=now - timedelta(minutes=5),
+    )
+    store.enqueue(game_id="2026_12_BAD", window="pregame", idempotency_key="bad")
+    store.enqueue(game_id="2026_12_OK", window="pregame", idempotency_key="ok")
+
+    def handler(job):
+        if job["game_id"] == "2026_12_BAD":
+            raise RuntimeError("handler failed")
+        return "ran"
+
+    outcomes = store.dispatch(handler, now)
+    by_key = {row["idempotency_key"]: row for row in outcomes}
+    assert by_key["late"]["status"] == "missed"
+    assert by_key["bad"]["status"] == "failed"
+    assert by_key["ok"]["status"] == "done"
+    assert "handler failed" in by_key["bad"]["result"]
+    store.close()
 
 
 def test_job_store_is_idempotent_and_recovers_a_crashed_lease(tmp_path):

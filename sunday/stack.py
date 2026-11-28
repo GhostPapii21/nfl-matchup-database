@@ -20,6 +20,7 @@ ORDER = (
     "matchup_research",
     "script_models",
     "sim_v6",
+    "replacement_triad",
     "player_board",
     "decision",
 )
@@ -300,6 +301,27 @@ def run_stack(*, repo: Path, game_id: str, packet: dict | None, out_dir: Path, a
           "trials_executed": sim_receipt["trials_executed"], "fallback_used": False}],
         [{"path": "sim_v6_receipt.json", "sha256": sim_sha}],
         trials=0, calibration_status=sim_receipt["bias"]["calibration_status"],
+    ))
+
+    started = datetime.now(timezone.utc)
+    from sunday.replacement_triad import receipt as triad_receipt
+    season = int(game.get("season") or 0)
+    week = int(game.get("week") or 0)
+    triad = triad_receipt(repo, season=season, week=week)
+    triad_sha = _dump(out_dir / "replacement_triad.json", triad)
+    ended = datetime.now(timezone.utc)
+    empirical = next(row for row in triad["methods"] if row.get("identity") == "nflverse_games_bootstrap")
+    triad_status = "REFUSED"
+    triad_reason = (
+        f"empirical bootstrap trials {empirical.get('trials_executed')}; "
+        "period and possession 100k script cells were not started and were not labeled sim_v6"
+    )
+    components.append(_row(
+        "replacement_triad", "sunday.replacement_triad", "receipt", "analytical",
+        triad_status, triad_reason, started, ended,
+        [{"not_sim_v6": True, "empirical_trials": empirical.get("trials_executed")}],
+        [{"path": "replacement_triad.json", "sha256": triad_sha}],
+        trials=empirical.get("trials_executed"),
     ))
 
     started = datetime.now(timezone.utc)

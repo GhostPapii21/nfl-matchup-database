@@ -23,7 +23,9 @@ The decision row reads the research packet, the script manifest, and the player 
 
 `tools/sim_v6.py` is the recovered historical prop engine's contract (blob `ab2144f03f6ca3b57950a1f2528e305193e723cd`). That source has `mc`, `bias`, and `gr` and no game-script argument, so the 3 x 3 x 100000 run is `REFUSED` with zero trials executed. Bias is refused without a dated holdout. No other engine is labeled sim_v6. A 24-trial or 400-trial possession or period run is not that acceptance.
 
-`sunday.jobs.JobStore` is a local sqlite queue for idempotent game windows, lease recovery, and an inactive lock. It does not call GitHub Actions and it does not create a Render service.
+`sunday.jobs.JobStore` is a local sqlite queue for idempotent game windows, lease recovery, a missed deadline, and an inactive lock. One handler failure stays on that job. It does not call GitHub Actions and it does not create a Render service.
+
+`sunday-replacement-triad/1` is not sim_v6. It resamples nflverse home margins from weeks before the target week, 100000 draws, and it does not assign those draws to favorite, competitive, or underdog bins because `games.csv` has no closing spread. Period and possession 100k script cells are not started. The committed DEN@PIT lock already records one possession run of 100000 trials in 819.2 seconds. Sharp coverage, the 1096-row W4–7 backtest, and the snapshot locks are read in place. FTN charting, an NFL.com schedule capture, Main, and Lightning are unavailable in this checkout. Locks are not rewritten.
 2. `pipeline.orchestrator.runner.run_games`
 3. `pipeline.matchup_research.build.build_packet`
 4. `sunday.script_models.run_historical_replay`
