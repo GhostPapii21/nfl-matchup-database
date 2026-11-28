@@ -11,6 +11,8 @@ is skipped silently: a phase whose inputs are absent is MISSING, one that cannot
     python -m pipeline.phases --game 2026_10_WAS_NYG --strict        # exit 3 if any phase is not filled
 
 Statuses: AUTO / PARTIAL (from the packet builder, all checked inputs present and fresh), MISSING, STALE, GAP, NOT_YET.
+AUTO means the checked inputs are present and fresh. It is not an execution receipt. Proof that a phase's
+analytical task ran lives in pipeline.execution (NFL-83); freshness here stays a prerequisite only.
 Phase 15 (official inactives, NFL-46) is decided per game by `phase15_status` from the official-inactives hook, not by
 the packet builder's PENDING placeholder: AUTO (both clubs' official Inactives articles pulled after T-90), NOT_YET
 (before T-90) or MISSING (window open but no complete official pull, or pulled too early), always with the source and
