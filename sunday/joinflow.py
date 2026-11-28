@@ -100,12 +100,17 @@ def build_joined_decision_input(
     problems = []
     if kickoff_verification != "VERIFIED":
         problems.append("kickoff is UNVERIFIED, so as-of was not compared with an authoritative kickoff")
-    elif kickoff_utc:
-        kick = datetime.fromisoformat(kickoff_utc)
-        if as_of.tzinfo is None or kick.tzinfo is None:
-            problems.append("as-of or kickoff lacked a timezone")
-        elif as_of > kick:
-            problems.append("as-of is after the authoritative kickoff")
+    elif not kickoff_utc:
+        problems.append("verified kickoff timestamp missing")
+    else:
+        try:
+            kick = datetime.fromisoformat(kickoff_utc)
+            if as_of.utcoffset() is None or kick.utcoffset() is None:
+                problems.append("as-of or kickoff lacked a timezone")
+            elif as_of >= kick:
+                problems.append("as-of is at or after the authoritative kickoff")
+        except (TypeError, ValueError):
+            problems.append("invalid kickoff timestamp")
     for name in ("research", "script", "player_board"):
         if not hashes.get(name):
             problems.append(f"missing sha256 for {name}")
@@ -142,8 +147,11 @@ def build_joined_decision_input(
 
 def hashes_match(recorded: dict, actual: dict) -> bool:
     """True only when every recorded artifact hash equals the file that was just written."""
+    required = {"research", "script", "player_board"}
+    if not required.issubset(recorded) or not required.issubset(actual):
+        return False
     for key, value in recorded.items():
-        if value is None:
+        if not isinstance(value, str) or len(value) != 64 or any(ch not in "0123456789abcdef" for ch in value):
             return False
         if actual.get(key) != value:
             return False
