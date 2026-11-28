@@ -304,7 +304,8 @@ the repository.
 Run: `python3 -m pytest -q -p no:cacheprovider -rx tests/audits/postgame` → **77 passed, 6 xfailed** (Nov 27, 2026, on
 this branch). `test_current_*` tests pin today's behaviour. The 6 `xfail(strict=True)` tests state proposed behaviour
 (G-03, G-04, G-05, G-07, G-08, G-11). Each turns into a failure when its fix lands, which is the cue to remove the
-marker. Tests that walk packet git history skip on a depth-1 checkout. The folder is not added to
+marker. Tests that walk packet git history skip on a depth-1 checkout (checked on a depth-1 clone of this branch:
+72 passed, 7 skipped, 4 xfailed). The folder is not added to
 `scripts/test_offline.sh`; that would be a separate, reviewed change.
 
 Existing suites are unchanged: the 13 invocations in `scripts/test_offline.sh` collect the same 1,402 tests before and
