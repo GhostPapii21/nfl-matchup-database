@@ -1,0 +1,374 @@
+{
+ "component": "matchup_fields",
+ "status": "OK",
+ "ran": true,
+ "entrypoint": "pipeline.matchup_sources:fields",
+ "started_utc": "2026-11-28T02:09:28+00:00",
+ "finished_utc": "2026-11-28T02:09:29+00:00",
+ "duration_sec": 0.239,
+ "error": null,
+ "output_sha256": "74dccc1aff99c3a326f41417b2735f0c9f75d9a67161e87123ef9ed3b35eb718",
+ "output": {
+  "status": "OK",
+  "ran": true,
+  "entrypoint": "pipeline.matchup_sources:fields",
+  "fields": {
+   "receiver_routes": {
+    "status": "MISSING",
+    "source": "nflverse pbp_participation 2026",
+    "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+    "as_of": null,
+    "value_keys": null,
+    "n_keys": null
+   },
+   "rb_routes": {
+    "status": "MISSING",
+    "source": "nflverse pbp_participation 2026",
+    "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+    "as_of": null,
+    "value_keys": null,
+    "n_keys": null
+   },
+   "target_location": {
+    "status": "FILLED",
+    "source": "nflverse play-by-play 2026 (weeks 1-11, REG); data/historical/nflverse/pbp_2026_w1_11_pulled_20261124T1717ET.parquet",
+    "reason": "Receiver targets by pass_length x pass_location.",
+    "as_of": "2026-11-27T04:31:50+00:00",
+    "value_keys": [
+     "DEN",
+     "PIT"
+    ],
+    "n_keys": 2,
+    "teams": [
+     "DEN",
+     "PIT"
+    ]
+   },
+   "qb_pass_location": {
+    "status": "FILLED",
+    "source": "nflverse play-by-play 2026 (weeks 1-11, REG); data/historical/nflverse/pbp_2026_w1_11_pulled_20261124T1717ET.parquet",
+    "reason": "Passer attempts, completions, nflverse success and EPA by zone.",
+    "as_of": "2026-11-27T04:31:50+00:00",
+    "value_keys": [
+     "DEN",
+     "PIT"
+    ],
+    "n_keys": 2
+   },
+   "qb_success_vs_defense": {
+    "status": "FILLED",
+    "source": "nflverse play-by-play 2026 (weeks 1-11, REG); data/historical/nflverse/pbp_2026_w1_11_pulled_20261124T1717ET.parquet",
+    "reason": "QB success by zone next to the opponent defense's allowed success by zone.",
+    "as_of": "2026-11-27T04:31:50+00:00",
+    "value_keys": [
+     "DEN",
+     "PIT"
+    ],
+    "n_keys": 2,
+    "value": {
+     "DEN": {
+      "opponent_defense": "PIT",
+      "defense_allowed_by_zone": {
+       "deep_left": {
+        "att": 26,
+        "cmp": 12,
+        "success_rate": 0.462,
+        "epa_per_att": 0.342
+       },
+       "deep_middle": {
+        "att": 8,
+        "cmp": 3,
+        "success_rate": 0.375,
+        "epa_per_att": 0.033
+       },
+       "deep_right": {
+        "att": 19,
+        "cmp": 10,
+        "success_rate": 0.526,
+        "epa_per_att": 1.032
+       },
+       "short_left": {
+        "att": 128,
+        "cmp": 98,
+        "success_rate": 0.523,
+        "epa_per_att": 0.1
+       },
+       "short_middle": {
+        "att": 61,
+        "cmp": 44,
+        "success_rate": 0.59,
+        "epa_per_att": 0.198
+       },
+       "short_right": {
+        "att": 101,
+        "cmp": 62,
+        "success_rate": 0.416,
+        "epa_per_att": -0.186
+       }
+      },
+      "qbs": {
+       "B.Nix (00-0039732)": {
+        "deep_left": {
+         "qb": {
+          "att": 25,
+          "cmp": 10,
+          "success_rate": 0.4,
+          "epa_per_att": 0.214
+         },
+         "defense_allowed": {
+          "att": 26,
+          "cmp": 12,
+          "success_rate": 0.462,
+          "epa_per_att": 0.342
+         }
+        },
+        "deep_middle": {
+         "qb": {
+          "att": 7,
+          "cmp": 3,
+          "success_rate": 0.429,
+          "epa_per_att": 0.196
+         },
+         "defense_allowed": {
+          "att": 8,
+          "cmp": 3,
+          "success_rate": 0.375,
+          "epa_per_att": 0.033
+         }
+        },
+        "deep_right": {
+         "qb": {
+          "att": 20,
+          "cmp": 7,
+          "success_rate": 0.4,
+          "epa_per_att": 0.2
+         },
+         "defense_allowed": {
+          "att": 19,
+          "cmp": 10,
+          "success_rate": 0.526,
+          "epa_per_att": 1.032
+         }
+        },
+        "short_left": {
+         "qb": {
+          "att": 112,
+          "cmp": 86,
+          "success_rate": 0.473,
+          "epa_per_att": 0.111
+         },
+         "defense_allowed": {
+          "att": 128,
+          "cmp": 98,
+          "success_rate": 0.523,
+          "epa_per_att": 0.1
+         }
+        },
+        "short_middle": {
+         "qb": {
+          "att": 29,
+          "cmp": 11,
+          "success_rate": 0.345,
+          "epa_per_att": -0.082
+         },
+         "defense_allowed": {
+          "att": 61,
+          "cmp": 44,
+          "success_rate": 0.59,
+          "epa_per_att": 0.198
+         }
+        },
+        "short_right": {
+         "qb": {
+          "att": 129,
+          "cmp": 76,
+          "success_rate": 0.349,
+          "epa_per_att": -0.007
+         },
+         "defense_allowed": {
+          "att": 101,
+          "cmp": 62,
+          "success_rate": 0.416,
+          "epa_per_att": -0.186
+         }
+        }
+       }
+      },
+      "note": "Side by side only (QB's own rate | this defense's allowed rate, same zone). No blend."
+     },
+     "PIT": {
+      "opponent_defense": "DEN",
+      "defense_allowed_by_zone": {
+       "deep_left": {
+        "att": 25,
+        "cmp": 7,
+        "success_rate": 0.28,
+        "epa_per_att": 0.097
+       },
+       "deep_middle": {
+        "att": 12,
+        "cmp": 5,
+        "success_rate": 0.417,
+        "epa_per_att": -0.114
+       },
+       "deep_right": {
+        "att": 27,
+        "cmp": 8,
+        "success_rate": 0.296,
+        "epa_per_att": 0.214
+       },
+       "short_left": {
+        "att": 102,
+        "cmp": 66,
+        "success_rate": 0.461,
+        "epa_per_att": -0.022
+       },
+       "short_middle": {
+        "att": 65,
+        "cmp": 43,
+        "success_rate": 0.554,
+        "epa_per_att": 0.24
+       },
+       "short_right": {
+        "att": 144,
+        "cmp": 96,
+        "success_rate": 0.458,
+        "epa_per_att": 0.111
+       }
+      },
+      "qbs": {
+       "A.Rodgers (00-0023459)": {
+        "deep_left": {
+         "qb": {
+          "att": 27,
+          "cmp": 8,
+          "success_rate": 0.296,
+          "epa_per_att": 0.257
+         },
+         "defense_allowed": {
+          "att": 25,
+          "cmp": 7,
+          "success_rate": 0.28,
+          "epa_per_att": 0.097
+         }
+        },
+        "deep_middle": {
+         "qb": {
+          "att": 13,
+          "cmp": 5,
+          "success_rate": 0.385,
+          "epa_per_att": 0.236
+         },
+         "defense_allowed": {
+          "att": 12,
+          "cmp": 5,
+          "success_rate": 0.417,
+          "epa_per_att": -0.114
+         }
+        },
+        "deep_right": {
+         "qb": {
+          "att": 30,
+          "cmp": 6,
+          "success_rate": 0.233,
+          "epa_per_att": -0.137
+         },
+         "defense_allowed": {
+          "att": 27,
+          "cmp": 8,
+          "success_rate": 0.296,
+          "epa_per_att": 0.214
+         }
+        },
+        "short_left": {
+         "qb": {
+          "att": 101,
+          "cmp": 68,
+          "success_rate": 0.386,
+          "epa_per_att": -0.104
+         },
+         "defense_allowed": {
+          "att": 102,
+          "cmp": 66,
+          "success_rate": 0.461,
+          "epa_per_att": -0.022
+         }
+        },
+        "short_middle": {
+         "qb": {
+          "att": 64,
+          "cmp": 50,
+          "success_rate": 0.609,
+          "epa_per_att": 0.37
+         },
+         "defense_allowed": {
+          "att": 65,
+          "cmp": 43,
+          "success_rate": 0.554,
+          "epa_per_att": 0.24
+         }
+        },
+        "short_right": {
+         "qb": {
+          "att": 122,
+          "cmp": 83,
+          "success_rate": 0.451,
+          "epa_per_att": 0.01
+         },
+         "defense_allowed": {
+          "att": 144,
+          "cmp": 96,
+          "success_rate": 0.458,
+          "epa_per_att": 0.111
+         }
+        }
+       },
+       "C.Johnston (00-0033729)": {
+        "short_left": {
+         "qb": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.67
+         },
+         "defense_allowed": {
+          "att": 102,
+          "cmp": 66,
+          "success_rate": 0.461,
+          "epa_per_att": -0.022
+         }
+        }
+       },
+       "M.Rudolph (00-0034771)": {
+        "short_right": {
+         "qb": {
+          "att": 4,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -1.151
+         },
+         "defense_allowed": {
+          "att": 144,
+          "cmp": 96,
+          "success_rate": 0.458,
+          "epa_per_att": 0.111
+         }
+        }
+       }
+      },
+      "note": "Side by side only (QB's own rate | this defense's allowed rate, same zone). No blend."
+     }
+    }
+   },
+   "likely_defenders": {
+    "status": "MISSING",
+    "source": "https://www.pff.com/tools/matchups",
+    "reason": "No PFF matchups capture at /workspace/nfl-database/pff_matchups/2026_w12/receiver_matchups.csv. Needs a signed-in browser pass on https://www.pff.com/tools/matchups (Rico's PFF tier) for week 12, saved with the columns in pipeline/matchup_sources.py.",
+    "as_of": null,
+    "value_keys": null,
+    "n_keys": null
+   }
+  },
+  "pbp": "pbp_2026_w1_11_pulled_20261124T1717ET.parquet"
+ }
+}
