@@ -601,7 +601,9 @@ def _manifest(repo, game_id, as_of, command, resolution, components, out_dir, bl
         "components": components,
         "component_order": list(ORDER),
         "counts": counts,
-        "pass_requires_every_component_executed": True,
+        "pass_requires_every_component_executed": False,
+        "pass_requires_all_v7_components_executed": True,
+        "legacy_components_kept_as_evidence": True,
     }
     _dump(out_dir / "manifest.json", body)
     return body
