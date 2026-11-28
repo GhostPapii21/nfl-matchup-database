@@ -222,6 +222,13 @@ def fit(rows: pd.DataFrame, final_cutoff: str) -> dict:
                 provenance=D.provenance(), markets=markets)
 
 
+def relevant(rows: pd.DataFrame) -> pd.DataFrame:
+    """Drop structural zeros using pre-game information only: rows whose MC P90 is 0 (e.g. carries for a WR
+    with no rushing role). Selection never looks at the actual outcome."""
+    q90 = rows.mc_q.map(lambda q: json.loads(q)[90] if isinstance(q, str) else np.nan)
+    return rows[rows.mc_q.isna() | (q90 > 0)].reset_index(drop=True)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -242,6 +249,7 @@ def main(argv=None):
         print(f"wrote {len(df)} rows -> {a.out}")
     else:
         rows = pd.concat([pd.read_csv(r) for r in a.rows], ignore_index=True)
+        rows = relevant(rows)
         art = fit(rows, a.cutoff)
         json.dump(art, open(a.out, "w"), indent=1, default=float)
         print(json.dumps({k: v["status"] for k, v in art["markets"].items()}, indent=1))
