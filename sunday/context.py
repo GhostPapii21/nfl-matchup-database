@@ -67,7 +67,8 @@ def git_revision(root: Path = ROOT) -> dict:
             return ""
 
     commit = _run("rev-parse", "HEAD")
-    dirty = bool(_run("status", "--porcelain"))
+    # Untracked run output is not a code edit. Tracked modifications are.
+    dirty = bool(_run("status", "--porcelain", "--untracked-files=no"))
     return {"commit": commit or None, "dirty": dirty}
 
 
