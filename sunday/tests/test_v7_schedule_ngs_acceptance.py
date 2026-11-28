@@ -50,3 +50,21 @@ def test_legacy_refusal_not_disguised_or_required_for_v7():
     rows[5]["status"] = "EXECUTED"
     rows[0]["status"] = "BLOCKED"
     assert acceptance_result(rows) == "BLOCKED"
+
+
+def test_missing_chart_child_optional_only_after_aggregate_pass():
+    # A missing NGS chart-only child may be nonmandatory; NGS verification itself is mandatory.
+    rows = [{"id": x, "kind": "analytical", "status": "EXECUTED",
+             "analytical_execution": True} for x in ORDER]
+    rows[0]["kind"] = "identity"
+    for name in ("sim_v6", "replacement_triad"):
+        row = next(r for r in rows if r["id"] == name)
+        row.update(status="REFUSED", analytical_execution=False, required_for_v7=False)
+    rows.append({"id": "orchestrator.ngs_matchup", "kind": "check", "status": "MISSING",
+                 "required_for_v7": False, "analytical_execution": False})
+    assert acceptance_result(rows) == "PASS"
+    rows[-1]["required_for_v7"] = True
+    assert acceptance_result(rows) == "PARTIAL"
+    rows[-1]["required_for_v7"] = False
+    next(r for r in rows if r["id"] == "ngs_verify")["status"] = "REFUSED"
+    assert acceptance_result(rows) == "PARTIAL"
