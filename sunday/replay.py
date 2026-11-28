@@ -43,9 +43,9 @@ def run_replay(*, repo: Path, game_id: str, out: Path, as_of: datetime | None = 
         return record
     command = f"python -m sunday replay --game {game_id} --as-of {preflight.iso(when)}" + (" --market" if market else "")
     first = execute.run_game(repo=repo, game_id=game_id, out_dir=out / "run_a" / game_id, as_of=when, market=market,
-                             min_free_mb=min_free_mb, entry=entry, measure_memory=True)
+                             min_free_mb=min_free_mb, entry=entry, measure_memory=True, invoke_stack=True)
     second = execute.run_game(repo=repo, game_id=game_id, out_dir=out / "run_b" / game_id, as_of=when, market=market,
-                              min_free_mb=min_free_mb, entry=entry, measure_memory=True)
+                              min_free_mb=min_free_mb, entry=entry, measure_memory=True, invoke_stack=True)
     same = bool(first.get("canonical_sha256")) and first.get("canonical_sha256") == second.get("canonical_sha256")
     same = same and first.get("result") == second.get("result")
     if not same:

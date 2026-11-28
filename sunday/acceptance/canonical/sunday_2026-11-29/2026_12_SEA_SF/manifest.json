@@ -1,0 +1,289 @@
+{
+ "as_of_utc": "2026-11-29T12:00:00+00:00",
+ "command": "python -m sunday game --game 2026_12_SEA_SF --as-of 2026-11-29T12:00:00+00:00",
+ "component_order": [
+  "schedule",
+  "orchestrator",
+  "matchup_research",
+  "script_models",
+  "player_board",
+  "decision"
+ ],
+ "components": [
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.064515,
+   "ended_utc": "2026-11-28T03:58:24+00:00",
+   "function": "resolve",
+   "id": "schedule",
+   "inputs": [
+    {
+     "kickoff_utc": "2026-11-29T21:25:00+00:00",
+     "source": "espn_event_date"
+    },
+    {
+     "kickoff_utc": "2026-11-29T21:25:00+00:00",
+     "source": "possession_config"
+    },
+    {
+     "kickoff_utc": "2026-11-29T21:25:00+00:00",
+     "source": "nflverse_games_csv"
+    },
+    {
+     "kickoff_utc": "2026-11-29T21:25:00+00:00",
+     "source": "pregame_packet"
+    }
+   ],
+   "kind": "identity",
+   "model_identity": null,
+   "module": "sunday.kickoff",
+   "outputs": [
+    {
+     "path": "kickoff.json",
+     "sha256": "80f277b8ce504d74a90fe00eb460cdd1ab6d884076dbff20530907ea421b9e1f"
+    }
+   ],
+   "reason": "ESPN event date matches the possession-engine config. That instant is the canonical kickoff. nflverse games.csv is kept as a recorded original and is not applied when it differs.",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:23+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 3.874428,
+   "ended_utc": "2026-11-28T03:58:27+00:00",
+   "function": "run_games",
+   "id": "orchestrator",
+   "inputs": [
+    {
+     "as_of": "2026-11-29T12:00:00+00:00",
+     "game_id": "2026_12_SEA_SF"
+    }
+   ],
+   "kind": "orchestration",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.runner",
+   "outputs": [
+    {
+     "module_statuses": [
+      {
+       "analytical_execution": null,
+       "module_id": "freshness_check",
+       "status": "PARTIAL"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "game_identity",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "matchup_edges",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "ngs_matchup",
+       "status": "MISSING"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "phase_ledger",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "rain_adjustment",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "sim100k_preflight",
+       "status": "REFUSED"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "sim_v6_contract",
+       "status": "BLOCKED"
+      }
+     ],
+     "path": "orchestrator"
+    }
+   ],
+   "reason": "existing modules joined in module-id order",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:24+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 2.460397,
+   "ended_utc": "2026-11-28T03:58:30+00:00",
+   "function": "build_packet",
+   "id": "matchup_research",
+   "inputs": [
+    {
+     "game_id": "2026_12_SEA_SF"
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "pipeline.matchup_research.build",
+   "outputs": [
+    {
+     "path": "matchup_research.json",
+     "sha256": "891b993a7e0367abdcb861a896f726f03b650b8700366e1cf46ea592635dfa91"
+    }
+   ],
+   "reason": "prior-week matchup packet",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:27+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 12.832175,
+   "ended_utc": "2026-11-28T03:58:43+00:00",
+   "function": "run_historical_replay",
+   "id": "script_models",
+   "inputs": [
+    {
+     "period_n": 400,
+     "possession_n": 24
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": "period_engine_v0:monte_carlo:matchup_pair,period_engine_v0:monte_carlo:independent,period_engine_v0:game_randomness:matchup_pair,period_engine_v0:bias,possession_engine_v0:simulate_games:data_only,pipeline.sim100k:preflight,simv56:verify_engines,sim_v6,main,lightning",
+   "module": "sunday.script_models",
+   "outputs": [
+    {
+     "path": "script_models/manifest.json",
+     "sha256": "981fff5237fb2c03712025c7ad11ead2ea9fe42c00d33030779074ee0ee1ed3c"
+    }
+   ],
+   "reason": "each engine and branch kept its own record",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:30+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 0.141023,
+   "ended_utc": "2026-11-28T03:58:43+00:00",
+   "function": "from_packet",
+   "id": "player_board",
+   "inputs": [
+    {
+     "n": 400,
+     "seed": 89
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "sunday.player_board",
+   "outputs": [
+    {
+     "path": "player_board.json",
+     "sha256": "522770c1b4f34aa5d0b8054f735c415f1c5236de742e153f930be1c7234ea016"
+    }
+   ],
+   "reason": "volume kept separate from efficiency",
+   "seed": 89,
+   "started_utc": "2026-11-28T03:58:43+00:00",
+   "status": "EXECUTED",
+   "trials": 400
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 0.000169,
+   "ended_utc": "2026-11-28T03:58:43+00:00",
+   "function": "build_board",
+   "id": "decision",
+   "inputs": [
+    {
+     "lines": 18,
+     "theses": 2
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "sunday.decision.board",
+   "outputs": [
+    {
+     "path": "decision_board.json",
+     "sha256": "d19bb66627c3dd9ea549331b11ddc2b51746f59d36b3c0e1160bfa3a66dd1f4b"
+    },
+    {
+     "path": "decision_board.md",
+     "sha256": "02157b108bd50d5eda152520bd9a51b48dbad5dac36c45d0e63120dcc09a8a94"
+    }
+   ],
+   "reason": "red team consumed joined lines; empty sections stay empty",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:43+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  }
+ ],
+ "counts": {
+  "EXECUTED": 6
+ },
+ "game_id": "2026_12_SEA_SF",
+ "git": {
+  "commit": "5bbace709f8f6d6cb651455976eb046541c07ba5",
+  "dirty": true
+ },
+ "hashes": {
+  "nflverse_games_csv": "c606cb6cdf94d6a1c1e939e23ed524223dc7aeaa01a4e2982b0cb5db42bae017",
+  "packet": "2d7ad817a14e23c1579b29dae6cd0f8c72c62153dc0afddb0781e473bcfc0fe2"
+ },
+ "kickoff": {
+  "config_file_rewritten": false,
+  "conflicts": [],
+  "kickoff_utc": "2026-11-29T21:25:00+00:00",
+  "originals": {
+   "espn_event_date": {
+    "field": "date",
+    "kickoff_utc": "2026-11-29T21:25:00+00:00",
+    "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
+    "path": "grading/results/sources/espn_summary_2026_12_SEA_SF_401873091.json",
+    "status": "OK"
+   },
+   "nflverse_games_csv": {
+    "gameday": "2026-11-29",
+    "gametime": "16:25",
+    "kickoff_utc": "2026-11-29T21:25:00+00:00",
+    "path": "data/historical/nflverse/games.csv",
+    "status": "OK",
+    "timezone_assumed": "America/New_York"
+   },
+   "possession_config": {
+    "kickoff_utc": "2026-11-29T21:25:00+00:00",
+    "path": "core/possession_engine_v0/config/sea_sf_2026-11-29_data_only_nfl43.json",
+    "status": "OK"
+   },
+   "pregame_packet": {
+    "kickoff_utc": "2026-11-29T21:25:00+00:00",
+    "timezone": "America/New_York wall clock when the packet stores kickoff_et"
+   }
+  },
+  "source": "espn_event_date",
+  "timezone": "UTC"
+ },
+ "pass_requires_every_component_executed": true,
+ "projection_ready": false,
+ "research_only": true,
+ "result": "PASS",
+ "run_id": "fe8661cb6e512630",
+ "schema": "sunday-canonical-manifest/1"
+}

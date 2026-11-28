@@ -153,7 +153,8 @@ def main(argv=None) -> int:
     if args.market:
         command += " --market"
     packet = execute.run_game(repo=repo, game_id=args.game, out_dir=out, as_of=as_of, market=args.market,
-                              min_free_mb=args.min_free_mb, entry=entry, measure_memory=True, command=command)
+                              min_free_mb=args.min_free_mb, entry=entry, measure_memory=True, command=command,
+                              invoke_stack=args.cmd == "game")
     print(f"sunday: wrote {out / 'report.md'}")
     return _emit_game(packet)
 

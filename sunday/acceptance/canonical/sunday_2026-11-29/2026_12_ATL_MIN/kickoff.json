@@ -1,0 +1,39 @@
+{
+ "adapter": "sunday.kickoff.resolve",
+ "canonical_kickoff_utc": "2026-11-29T18:00:00+00:00",
+ "config_file_rewritten": false,
+ "conflicts": [],
+ "game_id": "2026_12_ATL_MIN",
+ "originals": {
+  "espn_event_date": {
+   "field": "date",
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
+   "path": "grading/results/sources/espn_summary_2026_12_ATL_MIN_401873084.json",
+   "status": "OK"
+  },
+  "nflverse_games_csv": {
+   "gameday": "2026-11-29",
+   "gametime": "13:00",
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "path": "data/historical/nflverse/games.csv",
+   "status": "OK",
+   "timezone_assumed": "America/New_York"
+  },
+  "possession_config": {
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "path": "core/possession_engine_v0/config/atl_min_2026-11-29_data_only_nfl43.json",
+   "status": "OK"
+  },
+  "pregame_packet": {
+   "kickoff_utc": "2026-11-29T18:00:00+00:00",
+   "timezone": "America/New_York wall clock when the packet stores kickoff_et"
+  }
+ },
+ "reason": "ESPN event date matches the possession-engine config. That instant is the canonical kickoff. nflverse games.csv is kept as a recorded original and is not applied when it differs.",
+ "resolved": true,
+ "schedule_file_rewritten": false,
+ "source": "espn_event_date",
+ "source_timestamp": "2026-11-29T18:00:00+00:00",
+ "timezone": "UTC"
+}

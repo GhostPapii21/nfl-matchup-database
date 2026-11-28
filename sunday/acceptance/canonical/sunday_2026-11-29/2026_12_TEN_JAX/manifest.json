@@ -1,0 +1,294 @@
+{
+ "as_of_utc": "2026-11-29T12:00:00+00:00",
+ "command": "python -m sunday game --game 2026_12_TEN_JAX --as-of 2026-11-29T12:00:00+00:00",
+ "component_order": [
+  "schedule",
+  "orchestrator",
+  "matchup_research",
+  "script_models",
+  "player_board",
+  "decision"
+ ],
+ "components": [
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 0.043602,
+   "ended_utc": "2026-11-28T03:58:22+00:00",
+   "function": "resolve",
+   "id": "schedule",
+   "inputs": [
+    {
+     "kickoff_utc": "2026-11-29T18:00:00+00:00",
+     "source": "espn_event_date"
+    },
+    {
+     "kickoff_utc": "2026-11-29T18:00:00+00:00",
+     "source": "possession_config"
+    },
+    {
+     "kickoff_utc": "2026-11-29T21:05:00+00:00",
+     "source": "nflverse_games_csv"
+    },
+    {
+     "kickoff_utc": "2026-11-29T18:00:00+00:00",
+     "source": "pregame_packet"
+    }
+   ],
+   "kind": "identity",
+   "model_identity": null,
+   "module": "sunday.kickoff",
+   "outputs": [
+    {
+     "path": "kickoff.json",
+     "sha256": "12dc42a3d1bb731119f80913aab32c5e287f00d74188bd1216e57677ba1808be"
+    }
+   ],
+   "reason": "ESPN event date matches the possession-engine config. That instant is the canonical kickoff. nflverse games.csv is kept as a recorded original and is not applied when it differs.",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:22+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": false,
+   "calibration_status": null,
+   "duration_seconds": 2.841077,
+   "ended_utc": "2026-11-28T03:58:25+00:00",
+   "function": "run_games",
+   "id": "orchestrator",
+   "inputs": [
+    {
+     "as_of": "2026-11-29T12:00:00+00:00",
+     "game_id": "2026_12_TEN_JAX"
+    }
+   ],
+   "kind": "orchestration",
+   "model_identity": null,
+   "module": "pipeline.orchestrator.runner",
+   "outputs": [
+    {
+     "module_statuses": [
+      {
+       "analytical_execution": null,
+       "module_id": "freshness_check",
+       "status": "PARTIAL"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "game_identity",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "matchup_edges",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "ngs_matchup",
+       "status": "MISSING"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "phase_ledger",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "rain_adjustment",
+       "status": "PASS"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "sim100k_preflight",
+       "status": "REFUSED"
+      },
+      {
+       "analytical_execution": null,
+       "module_id": "sim_v6_contract",
+       "status": "BLOCKED"
+      }
+     ],
+     "path": "orchestrator"
+    }
+   ],
+   "reason": "existing modules joined in module-id order",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:22+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 3.033588,
+   "ended_utc": "2026-11-28T03:58:28+00:00",
+   "function": "build_packet",
+   "id": "matchup_research",
+   "inputs": [
+    {
+     "game_id": "2026_12_TEN_JAX"
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "pipeline.matchup_research.build",
+   "outputs": [
+    {
+     "path": "matchup_research.json",
+     "sha256": "7714c68d69b3a1ab2e232245b5432205de99853d88c4996c0019ad33be0b6270"
+    }
+   ],
+   "reason": "prior-week matchup packet",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:25+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 14.009756,
+   "ended_utc": "2026-11-28T03:58:42+00:00",
+   "function": "run_historical_replay",
+   "id": "script_models",
+   "inputs": [
+    {
+     "period_n": 400,
+     "possession_n": 24
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": "period_engine_v0:monte_carlo:matchup_pair,period_engine_v0:monte_carlo:independent,period_engine_v0:game_randomness:matchup_pair,period_engine_v0:bias,possession_engine_v0:simulate_games:data_only,pipeline.sim100k:preflight,simv56:verify_engines,sim_v6,main,lightning",
+   "module": "sunday.script_models",
+   "outputs": [
+    {
+     "path": "script_models/manifest.json",
+     "sha256": "7ab4971b7011e62cd29ab5df04030a3272aaaab3a7a4856e527ce5f341eaa73c"
+    }
+   ],
+   "reason": "each engine and branch kept its own record",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:28+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 0.033545,
+   "ended_utc": "2026-11-28T03:58:42+00:00",
+   "function": "from_packet",
+   "id": "player_board",
+   "inputs": [
+    {
+     "n": 400,
+     "seed": 89
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "sunday.player_board",
+   "outputs": [
+    {
+     "path": "player_board.json",
+     "sha256": "f8a9643a8ddb02df8de41a6075ca8c4759389f7050a3201660bd4ca291d03919"
+    }
+   ],
+   "reason": "volume kept separate from efficiency",
+   "seed": 89,
+   "started_utc": "2026-11-28T03:58:42+00:00",
+   "status": "EXECUTED",
+   "trials": 400
+  },
+  {
+   "analytical_execution": true,
+   "calibration_status": null,
+   "duration_seconds": 0.000135,
+   "ended_utc": "2026-11-28T03:58:42+00:00",
+   "function": "build_board",
+   "id": "decision",
+   "inputs": [
+    {
+     "lines": 18,
+     "theses": 2
+    }
+   ],
+   "kind": "analytical",
+   "model_identity": null,
+   "module": "sunday.decision.board",
+   "outputs": [
+    {
+     "path": "decision_board.json",
+     "sha256": "da63984a63e65fb0e3cdae6c442cbfd05bb620126c5d9f2e04042ea56b813b79"
+    },
+    {
+     "path": "decision_board.md",
+     "sha256": "5009e1cbc0f0fae5768c072bef5c064256c542ceb29aa667061194608a440cff"
+    }
+   ],
+   "reason": "red team consumed joined lines; empty sections stay empty",
+   "seed": null,
+   "started_utc": "2026-11-28T03:58:42+00:00",
+   "status": "EXECUTED",
+   "trials": null
+  }
+ ],
+ "counts": {
+  "EXECUTED": 6
+ },
+ "game_id": "2026_12_TEN_JAX",
+ "git": {
+  "commit": "5bbace709f8f6d6cb651455976eb046541c07ba5",
+  "dirty": true
+ },
+ "hashes": {
+  "nflverse_games_csv": "c606cb6cdf94d6a1c1e939e23ed524223dc7aeaa01a4e2982b0cb5db42bae017",
+  "packet": "fdcbe2eab723563c8605ece398e680c8ecaa044107214b56ba16d956b7738014"
+ },
+ "kickoff": {
+  "config_file_rewritten": false,
+  "conflicts": [
+   {
+    "kickoff_utc": "2026-11-29T21:05:00+00:00",
+    "source": "nflverse_games_csv"
+   }
+  ],
+  "kickoff_utc": "2026-11-29T18:00:00+00:00",
+  "originals": {
+   "espn_event_date": {
+    "field": "date",
+    "kickoff_utc": "2026-11-29T18:00:00+00:00",
+    "note": "ESPN event date only. The rest of the file, including any score, was not parsed.",
+    "path": "grading/results/sources/espn_summary_2026_12_TEN_JAX_401873090.json",
+    "status": "OK"
+   },
+   "nflverse_games_csv": {
+    "gameday": "2026-11-29",
+    "gametime": "16:05",
+    "kickoff_utc": "2026-11-29T21:05:00+00:00",
+    "path": "data/historical/nflverse/games.csv",
+    "status": "OK",
+    "timezone_assumed": "America/New_York"
+   },
+   "possession_config": {
+    "kickoff_utc": "2026-11-29T18:00:00+00:00",
+    "path": "core/possession_engine_v0/config/ten_jax_2026-11-29_data_only_nfl43.json",
+    "status": "OK"
+   },
+   "pregame_packet": {
+    "kickoff_utc": "2026-11-29T18:00:00+00:00",
+    "timezone": "America/New_York wall clock when the packet stores kickoff_et"
+   }
+  },
+  "source": "espn_event_date",
+  "timezone": "UTC"
+ },
+ "pass_requires_every_component_executed": true,
+ "projection_ready": false,
+ "research_only": true,
+ "result": "PASS",
+ "run_id": "985771788ed6092b",
+ "schema": "sunday-canonical-manifest/1"
+}

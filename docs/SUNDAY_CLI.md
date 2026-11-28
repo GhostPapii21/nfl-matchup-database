@@ -13,7 +13,18 @@ python -m sunday slate --date 2026-11-29 --as-of 2026-11-29T12:00:00+00:00 --con
 python -m sunday replay --game 2026_12_DEN_PIT
 ```
 
-`preflight` and `game` write the same packet. `preflight` is the check. `game` is the single-game command. `slate` discovers games from `pregame/packets/latest.json` and runs one job per game. `replay` runs one historical game twice at the packet's `generated_utc` (unless `--as-of` is set) and compares the canonical sha256.
+`preflight` checks one game and does not start the research stack. `game` and `slate` run that stack after the check. `replay` runs one historical game twice at the packet's `generated_utc` (unless `--as-of` is set) and compares the canonical sha256.
+
+`game` and `slate` call the registered components in this order, and write `manifest.json` for every game:
+
+1. `sunday.kickoff.resolve` — one kickoff. ESPN event `date` is canonical when it is present. It matches the possession-engine config for LV@CLE, TEN@JAX, and NE@LAC. `games.csv` times that differ are recorded and not applied. Config files are not rewritten.
+2. `pipeline.orchestrator.runner.run_games`
+3. `pipeline.matchup_research.build.build_packet`
+4. `sunday.script_models.run_historical_replay`
+5. `sunday.player_board.from_packet`
+6. `sunday.decision.board.build_board`
+
+Each row is EXECUTED, BLOCKED, REFUSED, FAILED, or NOT_REGISTERED. A row that is not EXECUTED is not labeled EXECUTED and does not make the manifest PASS. `projection_ready` stays false.
 
 ## Arguments
 

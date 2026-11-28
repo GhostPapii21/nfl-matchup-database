@@ -104,7 +104,8 @@ def _write_game(out_dir: Path, packet: dict) -> dict:
 
 def run_game(*, repo: Path, game_id: str, out_dir: Path, as_of: datetime, market: bool = False,
              min_free_mb: int = 64, entry: dict | None = None, measure_memory: bool = True,
-             command: str | None = None) -> dict:
+             command: str | None = None, invoke_stack: bool = False, possession_n: int = 24,
+             period_n: int = 400, player_n: int = 400) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     started = False
     if measure_memory:
@@ -131,6 +132,16 @@ def run_game(*, repo: Path, game_id: str, out_dir: Path, as_of: datetime, market
             load_error=load_error, entry=entry, as_of=as_of, market=market, out_dir=out_dir,
             min_free_mb=min_free_mb, command=cmd)
         free = packet.pop("_disk_free_bytes", None)
+        if invoke_stack and pk is not None:
+            from sunday.stack import run_stack
+            manifest = run_stack(repo=repo, game_id=game_id, packet=pk, out_dir=out_dir, as_of=as_of,
+                                 command=cmd, possession_n=possession_n, period_n=period_n, player_n=player_n)
+            packet["canonical_manifest"] = "manifest.json"
+            if manifest.get("result") == "BLOCKED":
+                packet["result"] = "BLOCKED"
+            elif manifest.get("result") != "PASS" and packet.get("result") == "PASS":
+                packet["result"] = "PARTIAL"
+            packet["component_counts"] = manifest.get("counts")
         packet["runtime"] = {"wall_seconds": round(time.perf_counter() - t0, 6), "memory": _memory(measure_memory, started),
                              "disk_free_bytes": free}
         return _write_game(out_dir, packet)
@@ -162,7 +173,8 @@ def _guard(fn, kwargs, flight: Flight) -> dict:
 
 
 def run_slate(games: list[dict], *, repo: Path, out: Path, as_of: datetime, market: bool = False,
-              min_free_mb: int = 64, concurrency: int | None = None, runner=None, command: str | None = None) -> dict:
+              min_free_mb: int = 64, concurrency: int | None = None, runner=None, command: str | None = None,
+              possession_n: int = 24, period_n: int = 400, player_n: int = 400) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     used, cap = bounded_workers(concurrency, len(games))
     fn = runner or run_game
@@ -171,7 +183,8 @@ def run_slate(games: list[dict], *, repo: Path, out: Path, as_of: datetime, mark
     for entry in games:
         gid = entry.get("game_id")
         jobs.append(dict(repo=repo, game_id=gid, out_dir=out / str(gid), as_of=as_of, market=market,
-                         min_free_mb=min_free_mb, entry=entry, measure_memory=False))
+                         min_free_mb=min_free_mb, entry=entry, measure_memory=False, invoke_stack=True,
+                         possession_n=possession_n, period_n=period_n, player_n=player_n))
     with ThreadPoolExecutor(max_workers=used) as pool:
         futures = [pool.submit(_guard, fn, job, flight) for job in jobs]
         done = [future.result() for future in futures]
@@ -184,7 +197,8 @@ def run_slate(games: list[dict], *, repo: Path, out: Path, as_of: datetime, mark
                      "result": result, "report_rel": f"{entry.get('game_id')}/report.md",
                      "canonical_sha256": packet.get("canonical_sha256"),
                      "critical_ids": packet.get("critical_ids"), "required_ids": packet.get("required_ids"),
-                     "wall_seconds": (packet.get("runtime") or {}).get("wall_seconds")})
+                     "wall_seconds": (packet.get("runtime") or {}).get("wall_seconds"),
+                     "component_counts": packet.get("component_counts")})
     if counts["BLOCKED"]:
         result = "BLOCKED"
     elif counts["PARTIAL"]:
