@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from sunday.joinflow import hashes_match, build_joined_decision_input
-from sunday.stack import acceptance_result
+from sunday.stack import ORDER, acceptance_result
 
 def test_hashes_require_all_three_valid_digests():
     h = {k: "a"*64 for k in ("research", "script", "player_board")}
@@ -19,8 +19,11 @@ def test_kickoff_boundary_and_missing_timestamp():
         assert packet["joined"]["problems"]
 
 def test_analytical_receipt_required():
-    schedule = {"id":"schedule","status":"EXECUTED"}
-    analytical = {"kind":"analytical","status":"EXECUTED","analytical_execution":False}
+    rows = [{"id": cid, "status": "EXECUTED", "kind": "analytical",
+             "analytical_execution": True} for cid in ORDER]
     assert acceptance_result([]) == "BLOCKED"
-    assert acceptance_result([schedule, analytical]) == "PARTIAL"
-    assert acceptance_result([schedule, dict(analytical, analytical_execution=True)]) == "PASS"
+    assert acceptance_result(rows) == "PASS"
+    assert acceptance_result(rows[:-1]) == "PARTIAL"
+    assert acceptance_result(rows + [rows[-1]]) == "PARTIAL"
+    assert acceptance_result(rows[:-1] + [dict(rows[-1], analytical_execution=False)]) == "PARTIAL"
+    assert acceptance_result(rows[:-1] + [dict(rows[-1], status="UNKNOWN")]) == "PARTIAL"
