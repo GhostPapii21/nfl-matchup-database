@@ -102,7 +102,12 @@ def test_den_pit_week12_replay_uses_prior_weeks_only():
         sack_s = packet["sections"]["situational"]["teams"][team]["defense"]["sack_rate"]
         assert sack_p["numerator"] == sack_s["numerator"]
         assert sack_p["denominator"] == sack_s["denominator"]
-        assert packet["sections"]["pressure"]["teams"][team]["defense"]["rush_four_vs_blitz"]["kind"] == "unavailable"
+        rush = packet["sections"]["pressure"]["teams"][team]["defense"]["rush_four_vs_blitz"]
+        assert rush["kind"] == "measured"
+        assert rush["missing_rows"] >= 0
+        assert rush["downgrades_only_this_output"] is True
+        assert packet["sections"]["pressure"]["teams"][team]["defense"]["ftn_pressure_rate"]["kind"] == "unavailable"
+        assert packet["sections"]["pressure"]["optional_gap_blocks_game"] is False
         assert packet["sections"]["pressure"]["teams"][team]["defense"]["quick_pressure"]["kind"] == "unavailable"
         assert packet["sections"]["assignments"]["teams"][team]["slot_vs_outside_alignment"]["kind"] == "unavailable"
         events = packet["sections"]["assignments"]["teams"][team]["verified_pbp_events"]

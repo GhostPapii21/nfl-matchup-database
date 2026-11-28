@@ -87,10 +87,12 @@ def test_sources_locks_and_the_replacement_are_not_sim_v6():
     from sunday.source_inventory import inventory
     repo = Path(__file__).resolve().parents[2]
     sources = inventory(repo)
-    assert sources["nfl_official_schedule"]["status"] == "UNAVAILABLE"
+    assert sources["nfl_official_schedule"]["status"] == "PRESENT"
+    assert sources["nfl_official_schedule"]["pregame_capture"] is False
     assert sources["sharp_coverage"]["rows"] > 0
     assert sources["sharp_coverage"]["not_a_coverage_assignment"] is True
-    assert sources["ftn_charting"]["status"] == "UNAVAILABLE"
+    assert sources["ftn_charting"]["was_pressure"] == "absent"
+    assert sources["ftn_charting"]["week_12_2026"] == "unavailable"
     assert sources["main_adapter"]["status"] == "UNAVAILABLE"
     scored = walk_forward(repo)
     assert scored["rows"] == 1096
@@ -99,6 +101,21 @@ def test_sources_locks_and_the_replacement_are_not_sim_v6():
     locks_before = (repo / "snapshots" / "2026_12_DEN_PIT" / "20261127T111648Z" / "LOCK.json").read_bytes()
     book = ledger(repo)
     assert book["locks_rewritten"] is False
+    assert book["new_locks_created"] == 0
+    assert book["games"] == 16
+    assert book["previously_scored_count"] == 14
+    assert book["training_rows_are_locks"] is False
+    assert book["training_game_rows"] > 0
+    from pipeline.ftn_charting import coverage, defense_rush_profile
+    import pandas as pd
+    chart = coverage(repo)
+    season_2026 = next(row for row in chart["seasons"] if row["season"] == 2026)
+    assert season_2026["max_week"] == 11
+    assert season_2026["week_12_rows"] == 0
+    assert chart["was_pressure"] == "absent"
+    assert chart["pressure_filled_with_zero"] is False
+    blank = defense_rush_profile(repo, pd.DataFrame({"game_id": ["g"], "play_id": [1], "defteam": ["DEN"]}), "DEN", {"season": 2026, "week": 12})
+    assert blank["pressure"]["value"] is None
     assert book["games"] >= 1
     assert all(row["rewritten"] is False for row in book["rows"])
     assert (repo / "snapshots" / "2026_12_DEN_PIT" / "20261127T111648Z" / "LOCK.json").read_bytes() == locks_before

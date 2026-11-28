@@ -1,7 +1,7 @@
 {
  "as_of_utc": "2026-11-29T12:00:00+00:00",
  "canonical_manifest": "manifest.json",
- "canonical_sha256": "b7dcb589fca3ea948eaae1ccaa47d30978c6c8703b89bb44cf58dc401281e193",
+ "canonical_sha256": "f96cc61f77ae8cf262388139b05bbe466674483720303c81fa27d983237a26fc",
  "checks": [
   {
    "detail": "Schedule identity matches. Kickoff 2026-11-29T18:00:00+00:00.",
@@ -197,8 +197,7 @@
  },
  "command": "python -m sunday game --game 2026_12_TEN_JAX --as-of 2026-11-29T12:00:00+00:00",
  "component_counts": {
-  "BLOCKED": 1,
-  "EXECUTED": 9,
+  "EXECUTED": 10,
   "FAILED": 1,
   "MISSING": 1,
   "REFUSED": 4
@@ -408,9 +407,9 @@
   "week": 12
  },
  "game_id": "2026_12_TEN_JAX",
- "git_sha": "91fe1b8a4cd8e1f485f772b9afebde6e0efc0be2",
+ "git_sha": "4345bfbc85ac1d68552d9c3e40b957a710c48ab6",
  "kickoff_utc": "2026-11-29T18:00:00+00:00",
- "kickoff_verification": "UNVERIFIED",
+ "kickoff_verification": "VERIFIED",
  "layer_gaps": [
   "NFL-87",
   "NFL-88",
@@ -475,7 +474,7 @@
   "late_stamps": [],
   "status": "PASS"
  },
- "manifest_result": "BLOCKED",
+ "manifest_result": "PARTIAL",
  "market_comparison_requested": false,
  "projection_ready": false,
  "required_ids": [
@@ -581,12 +580,12 @@
   }
  },
  "runtime": {
-  "disk_free_bytes": 261717438464,
+  "disk_free_bytes": 261721309184,
   "memory": {
    "detail": "Per-game tracemalloc is off during fan-out. The slate index records process max RSS.",
-   "process_max_rss_kb": 1123704
+   "process_max_rss_kb": 1098160
   },
-  "wall_seconds": 16.069612
+  "wall_seconds": 19.603757
  },
  "scheduler": {
   "detail": "Manual local execution. GitHub Actions is not invoked and no schedule is registered.",

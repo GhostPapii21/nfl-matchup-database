@@ -4,7 +4,7 @@ RESEARCH ONLY. projection_ready=false. Not a validated projection, not a pick, n
 An edge figure, when present, is model probability minus the two-way no-vig price. It is not an edge claim.
 This board does not target a number of picks and does not compute a hit rate. Empty sections stay empty.
 
-- Kickoff (UTC): None
+- Kickoff (UTC): 2026-11-27T20:00:00+00:00
 - projection_ready: false
 - edge_claim_allowed: false
 - Section counts: {'strong_reads': 0, 'soft_leans': 0, 'avoids': 0, 'no_plays': 5}

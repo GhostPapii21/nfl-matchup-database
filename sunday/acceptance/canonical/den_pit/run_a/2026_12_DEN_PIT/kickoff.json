@@ -1,8 +1,10 @@
 {
  "adapter": "sunday.kickoff.resolve",
+ "announcement_date": "2026-11-17",
  "authoritative_source": "nfl_official_schedule",
- "authoritative_status": "UNAVAILABLE",
- "canonical_kickoff_utc": null,
+ "authoritative_status": "OK",
+ "canonical_kickoff_utc": "2026-11-27T20:00:00+00:00",
+ "capture_before_this_kickoff": false,
  "config_file_rewritten": false,
  "conflicts": [],
  "game_id": "2026_12_DEN_PIT",
@@ -15,13 +17,17 @@
    "status": "OK"
   },
   "nfl_official_schedule": {
-   "as_of": null,
-   "kickoff_utc": null,
+   "announcement_date": "2026-11-17",
+   "as_of": "2026-11-28T06:15:09.666Z",
+   "corroborating_source": "https://www.nfl.com/news/week-12-schedule-change",
+   "kickoff_utc": "2026-11-27T20:00:00+00:00",
+   "note": "Normalized kickoff facts from official schedule and flex announcement; capture retrieved after earlier week games, not a historical pregame capture.",
    "path": "data/schedule/nfl_official_schedule.json",
-   "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
-   "retrieved_utc": null,
-   "source": null,
-   "status": "UNAVAILABLE"
+   "pregame_capture": false,
+   "reason": "NFL.com schedule capture. Not a claim that this file existed before kickoff.",
+   "retrieved_utc": "2026-11-28T06:15:09.666Z",
+   "source": "https://www.nfl.com/schedules/2026/by-week/week-12",
+   "status": "OK"
   },
   "nflverse_games_csv": {
    "gameday": "2026-11-27",
@@ -41,10 +47,12 @@
    "timezone": "America/New_York wall clock when the packet stores kickoff_et"
   }
  },
- "reason": "No offline NFL.com schedule capture is in this checkout. Expected data/schedule/nfl_official_schedule.json with source https://www.nfl.com/schedules/..., retrieved_utc, and as_of. ESPN, nflverse games.csv, and the possession config are not that source.",
- "resolved": false,
+ "pregame_capture": false,
+ "reason": "Canonical kickoff is the NFL.com schedule capture retrieved 2026-11-28T06:15:09.666Z as of 2026-11-28T06:15:09.666Z. pregame_capture is False. Other clocks are recorded and are not the authority.",
+ "resolved": true,
  "schedule_file_rewritten": false,
- "source": null,
+ "source": "nfl_official_schedule",
+ "source_timestamp": "2026-11-28T06:15:09.666Z",
  "timezone": "UTC",
- "verification": "UNVERIFIED"
+ "verification": "VERIFIED"
 }

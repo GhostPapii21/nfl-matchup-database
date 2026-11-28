@@ -462,14 +462,23 @@ def _completion(frame, src, as_of):
 
 
 def section_pressure(ctx) -> dict:
+    from pipeline.ftn_charting import defense_rush_profile
     plays = ctx["plays"]
     teams = {}
     for team in ctx["teams"]:
+        defense = _pressure_side(plays, team, "defense", ctx["scan"])
+        chart = defense_rush_profile(ctx["root"], plays, team, ctx["game"])
+        defense["ftn_pressure_rate"] = chart["pressure"]
+        defense["rush_four_vs_blitz"] = chart["rush_four_vs_blitz"]
         teams[team] = {
-            "defense": _pressure_side(plays, team, "defense", ctx["scan"]),
+            "defense": defense,
             "offense": _pressure_side(plays, team, "offense", ctx["scan"]),
         }
-    return {"teams": teams, "measured_as": "qb_hit and sack on nflverse play-by-play. Not an FTN pressure or blitz model."}
+    return {
+        "teams": teams,
+        "measured_as": "qb_hit and sack on nflverse play-by-play. FTN blitz and rush-four are separate and only where both fields are present. Missing charting downgrades that output only.",
+        "optional_gap_blocks_game": False,
+    }
 
 
 def _event_counts(plays: pd.DataFrame, team: str) -> list[dict]:

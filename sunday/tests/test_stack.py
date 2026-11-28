@@ -22,22 +22,23 @@ THREE = {
 
 
 @pytest.mark.parametrize("game_id,agreed", list(THREE.items()))
-def test_conflicting_kickoffs_stay_unverified_without_an_nfl_schedule(game_id, agreed):
+def test_official_schedule_is_canonical_and_not_a_pregame_capture(game_id, agreed):
     paths = list((ROOT / "core/possession_engine_v0/config").glob("*2026-11-29_data_only_nfl43.json"))
     snapshots = {p: p.read_bytes() for p in paths}
     packet = json.loads((ROOT / "pregame" / "packets" / game_id / "packet.json").read_text())
     got = kickoff.resolve(ROOT, game_id, packet)
     assert got["authoritative_source"] == "nfl_official_schedule"
-    assert got["authoritative_status"] == "UNAVAILABLE"
-    assert got["verification"] == "UNVERIFIED"
-    assert got["resolved"] is False
-    assert got["canonical_kickoff_utc"] is None
-    assert got["source"] is None
-    assert "nfl.com/schedules" in got["reason"]
+    assert got["authoritative_status"] == "OK"
+    assert got["verification"] == "VERIFIED"
+    assert got["resolved"] is True
+    assert got["source"] == "nfl_official_schedule"
+    assert got["canonical_kickoff_utc"] == agreed
+    assert got["pregame_capture"] is False
+    assert got["capture_before_this_kickoff"] is True
     assert got["originals"]["espn_event_date"]["kickoff_utc"] == agreed
     assert got["originals"]["possession_config"]["kickoff_utc"] == agreed
     assert got["originals"]["nflverse_games_csv"]["kickoff_utc"] != agreed
-    assert any({row["left"], row["right"]} == {"nflverse_games_csv", "possession_config"} for row in got["conflicts"])
+    assert any({row["left"], row["right"]} == {"nflverse_games_csv", "nfl_official_schedule"} for row in got["conflicts"])
     assert got["config_file_rewritten"] is False
     for path, raw in snapshots.items():
         assert path.read_bytes() == raw

@@ -7,9 +7,9 @@ Research only. `projection_ready` is false. This is not a pick and not a schedul
 - As of: 2026-11-29T12:00:00+00:00
 - Kickoff: 2026-11-29T18:00:00+00:00
 - Command: `python -m sunday game --game 2026_12_TEN_JAX --as-of 2026-11-29T12:00:00+00:00`
-- Code revision: `91fe1b8a4cd8e1f485f772b9afebde6e0efc0be2`
-- Canonical sha256: `b7dcb589fca3ea948eaae1ccaa47d30978c6c8703b89bb44cf58dc401281e193`
-- Wall time: 16.069612 s
+- Code revision: `4345bfbc85ac1d68552d9c3e40b957a710c48ab6`
+- Canonical sha256: `f96cc61f77ae8cf262388139b05bbe466674483720303c81fa27d983237a26fc`
+- Wall time: 19.603757 s
 - Memory: Per-game tracemalloc is off during fan-out. The slate index records process max RSS.
 
 ## Critical checks

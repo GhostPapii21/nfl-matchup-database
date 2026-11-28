@@ -37,6 +37,32 @@ def _csv_inventory(path: Path, role: str) -> dict:
     }
 
 
+def _official_schedule(path: Path) -> dict:
+    if not path.is_file():
+        return {
+            "path": NFL_SCHEDULE,
+            "status": "UNAVAILABLE",
+            "evidence_tier": "unavailable",
+            "pregame_capture": False,
+            "reason": "no offline NFL.com schedule capture with retrieval and as-of metadata",
+        }
+    import json
+    body = json.loads(path.read_text())
+    note = str(body.get("note") or "")
+    return {
+        "path": NFL_SCHEDULE,
+        "status": "PRESENT",
+        "evidence_tier": "measured",
+        "games": len(body.get("games") or {}),
+        "source": body.get("source"),
+        "retrieved_utc": body.get("retrieved_utc"),
+        "as_of": body.get("as_of"),
+        "announcement_date": body.get("announcement_date"),
+        "corroborating_source": body.get("corroborating_source"),
+        "pregame_capture": "not a historical pregame capture" not in note.lower(),
+    }
+
+
 def inventory(repo: Path) -> dict:
     sharp = _csv_inventory(repo / SHARP, SHARP)
     if sharp["status"] == "PRESENT":
@@ -64,8 +90,7 @@ def inventory(repo: Path) -> dict:
             "status": "PRESENT" if path.is_file() else "UNAVAILABLE",
             "evidence_tier": "measured" if path.is_file() else "unavailable",
         })
-    ftn_path = repo / FTN
-    nfl = repo / NFL_SCHEDULE
+    from pipeline.ftn_charting import coverage as ftn_coverage
     return {
         "schema": "sunday-source-inventory/1",
         "projection_ready": False,
@@ -73,18 +98,8 @@ def inventory(repo: Path) -> dict:
         "sim_v6_backtest": backtest,
         "nflverse_games": games,
         "ngs": ngs,
-        "ftn_charting": {
-            "path": FTN,
-            "status": "PRESENT" if ftn_path.is_file() else "UNAVAILABLE",
-            "evidence_tier": "unavailable" if not ftn_path.is_file() else "measured",
-            "reason": None if ftn_path.is_file() else "no ftn_charting parquet is in this checkout; pressure and coverage charting stay unavailable",
-        },
-        "nfl_official_schedule": {
-            "path": NFL_SCHEDULE,
-            "status": "PRESENT" if nfl.is_file() else "UNAVAILABLE",
-            "evidence_tier": "unavailable" if not nfl.is_file() else "measured",
-            "reason": None if nfl.is_file() else "no offline NFL.com schedule capture with retrieval and as-of metadata",
-        },
+        "ftn_charting": ftn_coverage(repo),
+        "nfl_official_schedule": _official_schedule(repo / NFL_SCHEDULE),
         "main_adapter": {"status": "UNAVAILABLE", "reason": "no production Main implementation is in this repository"},
         "lightning_adapter": {"status": "UNAVAILABLE", "reason": "no Lightning implementation is in this repository"},
     }

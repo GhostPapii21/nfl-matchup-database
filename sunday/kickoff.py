@@ -166,6 +166,8 @@ def nfl_official_kickoff(repo: Path, game_id: str, path: Path | None = None) -> 
             "retrieved_utc": retrieved, "as_of": as_of,
             "reason": "NFL schedule file is missing source https://www.nfl.com/schedules/..., retrieved_utc, or as_of.",
         }
+    note = str(payload.get("note") or "")
+    pregame_capture = "not a historical pregame capture" not in note.lower()
     kick = parse_utc(games.get(game_id))
     if kick is None:
         return {
@@ -175,7 +177,12 @@ def nfl_official_kickoff(repo: Path, game_id: str, path: Path | None = None) -> 
         }
     return {
         "status": "OK", "path": rel, "kickoff_utc": kick, "source": source,
-        "retrieved_utc": retrieved, "as_of": as_of, "reason": "Offline NFL.com schedule capture.",
+        "retrieved_utc": retrieved, "as_of": as_of,
+        "corroborating_source": payload.get("corroborating_source"),
+        "announcement_date": payload.get("announcement_date"),
+        "note": note or None,
+        "pregame_capture": pregame_capture,
+        "reason": "NFL.com schedule capture. Not a claim that this file existed before kickoff.",
     }
 
 
@@ -233,9 +240,16 @@ def resolve(repo: Path, game_id: str, packet: dict | None = None, nfl_schedule_p
         "authoritative_status": "OK",
         "verification": "VERIFIED",
         "resolved": True,
+        "pregame_capture": bool(nfl.get("pregame_capture")),
+        "capture_before_this_kickoff": bool(
+            parse_utc(nfl.get("retrieved_utc")) and nfl.get("kickoff_utc")
+            and parse_utc(nfl.get("retrieved_utc")) < nfl["kickoff_utc"]
+        ),
+        "announcement_date": nfl.get("announcement_date"),
         "reason": (
-            f"Canonical kickoff is the offline NFL.com schedule capture retrieved {nfl.get('retrieved_utc')} "
-            f"as of {nfl.get('as_of')}. Other clocks are recorded and are not the authority."
+            f"Canonical kickoff is the NFL.com schedule capture retrieved {nfl.get('retrieved_utc')} "
+            f"as of {nfl.get('as_of')}. pregame_capture is {bool(nfl.get('pregame_capture'))}. "
+            "Other clocks are recorded and are not the authority."
         ),
         "originals": originals,
         "conflicts": conflicts,

@@ -4,7 +4,7 @@ Research only. `projection_ready` is false. This command is not a scheduler.
 
 As of 2026-11-29T12:00:00+00:00. Concurrency 4 of a cap of 8.
 Peak in-flight jobs: 4.
-Process max RSS: 1123704 KB (Linux ru_maxrss; process-wide, not per game).
+Process max RSS: 1098160 KB (Linux ru_maxrss; process-wide, not per game).
 
 **PARTIAL.** 0 PASS, 10 PARTIAL, 0 BLOCKED.
 

@@ -475,6 +475,8 @@ def _manifest(repo, game_id, as_of, command, resolution, components, out_dir, bl
             "authoritative_source": resolution.get("authoritative_source"),
             "authoritative_status": resolution.get("authoritative_status"),
             "verification": resolution.get("verification"),
+            "pregame_capture": resolution.get("pregame_capture"),
+            "capture_before_this_kickoff": resolution.get("capture_before_this_kickoff"),
             "kickoff_utc": resolution.get("canonical_kickoff_utc"),
             "timezone": "UTC",
             "originals": resolution.get("originals"),

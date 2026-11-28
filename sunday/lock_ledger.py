@@ -41,13 +41,29 @@ def ledger(repo: Path) -> dict:
             "snapshots": rows,
             "rewritten": False,
         })
+    scored_paths = sorted((repo / "grading" / "results").glob("*.summary.json"))
+    previously_scored = [path.name[: -len(".summary.json")] for path in scored_paths]
+    training_rows = 0
+    games_csv = repo / "data" / "historical" / "nflverse" / "games.csv"
+    if games_csv.is_file():
+        import csv
+        with games_csv.open(newline="") as handle:
+            for row in csv.DictReader(handle):
+                if row.get("season") in {"2024", "2025"}:
+                    training_rows += 1
     return {
         "schema": "sunday-lock-ledger/1",
         "projection_ready": False,
         "locks_rewritten": False,
+        "new_locks_created": 0,
         "games": len(games),
         "locked_ungraded": sum(1 for game in games if game["state"] == "locked_ungraded"),
-        "scored": sum(1 for game in games if game["state"] == "scored"),
+        "scored_from_lock_sidecar": sum(1 for game in games if game["state"] == "scored"),
+        "previously_scored": previously_scored,
+        "previously_scored_count": len(previously_scored),
+        "training_seasons": [2024, 2025],
+        "training_game_rows": training_rows,
+        "training_rows_are_locks": False,
         "rows": games,
-        "note": "Counts are committed LOCK.json files. A second snapshot of the same game is not a new game and is not a retroactive lock.",
+        "note": "LOCK.json files are read only. Previously scored games are the committed grading summaries. 2024 and 2025 games.csv rows are training counts, not new locks.",
     }
